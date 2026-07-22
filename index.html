@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="面向脂质生化研究者的全球铁死亡一手情报追踪站" />
+    <meta name="theme-color" content="#0e1714" />
+    <title>FerroScope｜铁死亡情报站</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="ambient ambient-a"></div>
+    <div class="ambient ambient-b"></div>
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="FerroScope 首页">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span><strong>FerroScope</strong><small>铁死亡情报站</small></span>
+      </a>
+      <nav aria-label="主要导航">
+        <a href="#signals">最新信号</a>
+        <a href="#labs">研究团队</a>
+        <a href="#sources">情报源</a>
+        <a href="#standards">证据标准</a>
+      </nav>
+      <button id="freshnessButton" class="freshness" type="button" aria-label="查看数据更新时间">
+        <span class="pulse"></span>
+        <span><b>数据状态</b><small id="topUpdated">读取中…</small></span>
+      </button>
+    </header>
+
+    <main id="top">
+      <section class="hero shell">
+        <div class="hero-copy">
+          <p class="eyebrow">GLOBAL FERROPTOSIS INTELLIGENCE · 2026</p>
+          <h1>从论文洪流中，<br /><em>只留下真正的信号。</em></h1>
+          <p class="hero-intro">面向脂质生化研究者的全球情报仪表盘。追踪原创机制、氧化脂质组学、GPX4/FSP1、铁稳态与体内转化，并直达实验室官网与一手来源。</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#signals">查看最新研究 <span>↘</span></a>
+            <a class="button ghost" href="#labs">浏览全球团队</a>
+          </div>
+        </div>
+        <div class="hero-panel">
+          <div class="signal-radar" aria-hidden="true">
+            <div class="orbit orbit-1"></div><div class="orbit orbit-2"></div><div class="orbit orbit-3"></div>
+            <span class="radar-core">Fe<sup>2+</sup></span>
+            <span class="radar-node n1">GPX4</span><span class="radar-node n2">FSP1</span>
+            <span class="radar-node n3">PUFA-PL</span><span class="radar-node n4">Lysosome</span>
+          </div>
+          <div class="hero-metric"><span>重点方向</span><strong id="topicCount">7</strong></div>
+          <div class="hero-metric"><span>追踪团队</span><strong id="labCount">—</strong></div>
+          <div class="hero-metric"><span>临床试验记录</span><strong id="trialCount">—</strong></div>
+        </div>
+      </section>
+
+      <section class="status-strip" aria-label="追踪范围">
+        <div class="shell status-inner">
+          <span>FOCUS</span>
+          <div class="ticker"><span>脂质过氧化</span><i></i><span>氧化脂质组学</span><i></i><span>GPX4 / FSP1</span><i></i><span>铁稳态</span><i></i><span>细胞器与膜</span><i></i><span>体内与转化</span></div>
+        </div>
+      </section>
+
+      <section id="signals" class="section shell">
+        <div class="section-heading">
+          <div><p class="eyebrow">01 · RESEARCH SIGNALS</p><h2>最新研究信号</h2></div>
+          <p>“最新”不等于“重要”。这里优先呈现原创论文、独立重复与体内证据；预印本和临床记录会明确降级标注。</p>
+        </div>
+
+        <div class="frontier-grid" id="frontierGrid"></div>
+
+        <div class="toolbar" aria-label="研究信号筛选">
+          <div class="segmented" id="sourceFilters">
+            <button class="active" data-source="all" type="button">全部</button>
+            <button data-source="paper" type="button">同行评议</button>
+            <button data-source="preprint" type="button">预印本</button>
+            <button data-source="trial" type="button">临床试验</button>
+          </div>
+          <label class="select-wrap">主题
+            <select id="topicFilter"><option value="all">全部主题</option></select>
+          </label>
+          <label class="select-wrap">排序
+            <select id="signalSort"><option value="relevance">与你的相关度</option><option value="date">发布日期</option><option value="evidence">证据等级</option></select>
+          </label>
+        </div>
+        <div id="signalList" class="signal-list" aria-live="polite"></div>
+        <button id="loadMoreSignals" class="load-more" type="button">显示更多信号</button>
+      </section>
+
+      <section id="labs" class="section labs-section">
+        <div class="shell">
+          <div class="section-heading">
+            <div><p class="eyebrow">02 · GLOBAL LAB WATCH</p><h2>全球研究团队</h2></div>
+            <p>按团队的主要能力分类，而不是按国家或论文数量排榜。一个团队只给一个主标签，跨方向能力放入副标签。</p>
+          </div>
+          <div class="lab-controls">
+            <label class="search-box"><span>⌕</span><input id="labSearch" type="search" placeholder="搜索 PI、机构、机制或地区" /></label>
+            <div class="filter-row" id="labCategories"></div>
+          </div>
+          <div id="labGrid" class="lab-grid"></div>
+        </div>
+      </section>
+
+      <section id="sources" class="section shell">
+        <div class="section-heading">
+          <div><p class="eyebrow">03 · SOURCE CONTROL</p><h2>一手情报源</h2></div>
+          <p>自动抓取解决“快”，人工精选解决“准”。实验室官网动态无法用一种通用接口稳定抓取，因此采用官网直达与论文作者监控的双轨策略。</p>
+        </div>
+        <div id="sourceGrid" class="source-grid"></div>
+        <div class="update-callout">
+          <div><span class="pulse"></span><strong>更新机制</strong></div>
+          <p>数据脚本聚合 PubMed、bioRxiv 与 ClinicalTrials.gov；部署到 GitHub 后，自动任务每 6 小时刷新。页面始终显示各来源的最后成功时间，不伪装成秒级实时。</p>
+          <code>npm run update</code>
+        </div>
+      </section>
+
+      <section id="standards" class="section standards-section">
+        <div class="shell standards-grid">
+          <div>
+            <p class="eyebrow">04 · EVIDENCE GATE</p>
+            <h2>什么才算铁死亡证据？</h2>
+            <p class="standards-lead">仅有 C11-BODIPY 升高、MDA 增加、GPX4 蛋白下降或 Ferrostatin-1 部分救援，都不足以单独证明 ferroptosis。</p>
+            <a href="https://doi.org/10.1038/s41580-025-00843-2" target="_blank" rel="noreferrer" class="text-link">查看 2025 可重复性建议 ↗</a>
+          </div>
+          <ol class="evidence-ladder">
+            <li><b>遗传学</b><span>GPX4、FSP1、ACSL4、SLC7A11 等正反向干预</span></li>
+            <li><b>正交救援</b><span>多种自由基捕获剂、铁螯合剂及死亡通路排除</span></li>
+            <li><b>直接化学证据</b><span>氧化磷脂、游离铁或自由基的可靠测量</span></li>
+            <li><b>生理相关性</b><span>类器官、动物、患者材料或离体器官验证</span></li>
+          </ol>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="shell footer-inner">
+        <div><strong>FerroScope</strong><p>研究情报辅助工具，不替代原文阅读与实验判断。</p></div>
+        <div><span id="footerUpdated">数据读取中…</span><a href="README.md">使用说明</a></div>
+      </div>
+    </footer>
+
+    <dialog id="freshnessDialog">
+      <button class="dialog-close" type="button" aria-label="关闭">×</button>
+      <p class="eyebrow">DATA FRESHNESS</p>
+      <h3>数据新鲜度</h3>
+      <div id="freshnessList" class="freshness-list"></div>
+      <p class="dialog-note">出现来源失败时，网站会保留上次成功数据，并明确显示错误；不会用空白或旧数据冒充实时结果。</p>
+    </dialog>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

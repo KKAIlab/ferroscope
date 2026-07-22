@@ -1,0 +1,41 @@
+{
+  "generatedAt": "2026-07-22T12:01:39.779Z",
+  "version": "0.1.0",
+  "counts": {
+    "clinicalTrials": 27,
+    "curatedSignals": 22,
+    "liveSignals": 57
+  },
+  "sources": [
+    {
+      "name": "Tracked labs / PubMed",
+      "ok": true,
+      "updatedAt": "2026-07-22T12:01:39.779Z",
+      "note": "本轮通过质量筛选 35 条。"
+    },
+    {
+      "name": "PubMed",
+      "ok": true,
+      "updatedAt": "2026-07-22T12:01:39.779Z",
+      "note": "本轮通过质量筛选 1 条。"
+    },
+    {
+      "name": "Preprints / Crossref",
+      "ok": true,
+      "updatedAt": "2026-07-22T12:01:39.779Z",
+      "note": "本轮通过质量筛选 1 条。"
+    },
+    {
+      "name": "ClinicalTrials.gov",
+      "ok": true,
+      "updatedAt": "2026-07-22T12:01:39.779Z",
+      "note": "检索到 27 条记录，前端保留相关度较高的 20 条。"
+    },
+    {
+      "name": "Lab / Network sites",
+      "ok": true,
+      "updatedAt": "2026-07-22T08:00:00.000Z",
+      "note": "官网链接经人工筛选；异构官网不承诺自动抓取。"
+    }
+  ]
+}
