@@ -729,6 +729,20 @@
     "url": "https://doi.org/10.1038/s41419-026-09008-1"
   },
   {
+    "id": "pubmed-42481294",
+    "title": "Ferritin-mediated copper delivery induces dual cell death across diverse leukemia types.",
+    "date": "2026-07-07",
+    "sourceType": "paper",
+    "evidence": "B",
+    "relevance": 62,
+    "topics": [
+      "铁稳态",
+      "肿瘤转化"
+    ],
+    "takeaway": "Science bulletin · Wang H, Wang W, Sun W, Liu F, Zheng C, Lin X, Li Y, Bao W, Hu X, Qi G, Li F, Ma G, Wei W",
+    "url": "https://doi.org/10.1016/j.scib.2026.07.018"
+  },
+  {
     "id": "trial-NCT05269901",
     "title": "Association Between Ferroptosis and Epilepsy",
     "date": "2022-03-08",
