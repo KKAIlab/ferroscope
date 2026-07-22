@@ -14,6 +14,7 @@ for (const file of files) {
 const labs = JSON.parse(await fs.readFile(path.join(root, "data/labs.json"), "utf8"));
 const curated = JSON.parse(await fs.readFile(path.join(root, "data/intelligence-curated.json"), "utf8"));
 const watches = JSON.parse(await fs.readFile(path.join(root, "data/watch-queries.json"), "utf8"));
+const meta = JSON.parse(await fs.readFile(path.join(root, "data/meta.json"), "utf8"));
 const allowedCategories = new Set(["core", "methods", "translational", "adjacent"]);
 for (const [name, items] of [["labs", labs], ["curated", curated]]) {
   const ids = new Set();
@@ -35,6 +36,13 @@ for (const lab of labs) {
   if (!allowedCategories.has(lab.category)) errors.push(`团队分类无效: ${lab.id} -> ${lab.category}`);
   if (!lab.website?.startsWith("https://")) errors.push(`团队官网不是 HTTPS: ${lab.id}`);
   if (!lab.region || !lab.focus || !lab.institution) errors.push(`团队信息不完整: ${lab.id}`);
+}
+
+const requiredLiveSources = ["Tracked labs / PubMed", "PubMed", "Preprints / Crossref", "ClinicalTrials.gov"];
+for (const sourceName of requiredLiveSources) {
+  const source = meta.sources?.find((item) => item.name === sourceName);
+  if (!source) errors.push(`实时来源缺失: ${sourceName}`);
+  else if (!source.ok) errors.push(`实时来源更新失败: ${sourceName} (${source.note || "无错误说明"})`);
 }
 
 const labIds = new Set(labs.map((lab) => lab.id));

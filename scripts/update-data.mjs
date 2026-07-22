@@ -63,13 +63,34 @@ function scoreFor(text, authors = "", journal = "") {
   return Math.min(ceiling, Math.max(15, score));
 }
 
-async function fetchJson(url) {
-  const response = await fetch(url, {
-    headers: { "User-Agent": "FerroScope/0.1 (research intelligence dashboard)" },
-    signal: AbortSignal.timeout(30_000),
-  });
-  if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
-  return response.json();
+const delay = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds));
+
+async function fetchJson(url, maxAttempts = 4) {
+  let lastError;
+  for (let attempt = 0; attempt < maxAttempts; attempt += 1) {
+    try {
+      const response = await fetch(url, {
+        headers: { "User-Agent": "FerroScope/0.1 (research intelligence dashboard)" },
+        signal: AbortSignal.timeout(30_000),
+      });
+      if (response.ok) return response.json();
+      const retryable = response.status === 429 || response.status >= 500;
+      if (!retryable || attempt === maxAttempts - 1) throw new Error(`${response.status} ${response.statusText}`);
+      const retryAfterSeconds = Number(response.headers.get("retry-after"));
+      const backoff = Number.isFinite(retryAfterSeconds) && retryAfterSeconds > 0
+        ? retryAfterSeconds * 1_000
+        : 1_500 * (2 ** attempt);
+      console.warn(`${new URL(url).hostname} 返回 ${response.status}，${backoff} ms 后重试（${attempt + 2}/${maxAttempts}）`);
+      await delay(Math.min(backoff, 15_000));
+    } catch (error) {
+      lastError = error;
+      if (attempt === maxAttempts - 1 || /^(4\d\d)/.test(error.message) && !error.message.startsWith("429")) throw error;
+      const backoff = 1_500 * (2 ** attempt);
+      console.warn(`${new URL(url).hostname} 请求失败，${backoff} ms 后重试（${attempt + 2}/${maxAttempts}）：${error.message}`);
+      await delay(Math.min(backoff, 15_000));
+    }
+  }
+  throw lastError || new Error("request failed");
 }
 
 async function fetchPubMed() {
@@ -107,8 +128,6 @@ async function fetchPubMed() {
   }).filter(Boolean).filter((item) => item.relevance >= 60).slice(0, 35);
 }
 
-const wait = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds));
-
 async function fetchTrackedLabs(configs) {
   const idToLabs = new Map();
   const since = new Date(now.getTime() - 365 * 86_400_000).toISOString().slice(0, 10);
@@ -122,7 +141,7 @@ async function fetchTrackedLabs(configs) {
       labs.push(config);
       idToLabs.set(pmid, labs);
     }
-    await wait(360);
+    await delay(500);
   }
   const ids = [...idToLabs.keys()];
   if (!ids.length) return [];
