@@ -50,8 +50,8 @@ npm run check
 
 仓库已经包含两条 GitHub Actions：
 
-- `deploy-pages.yml`：每次 `main` 更新后部署 GitHub Pages；
-- `refresh-intelligence.yml`：每 6 小时聚合一次一手来源，数据有变化时提交回仓库，随后自动触发 Pages 重新部署。
+- `deploy-pages.yml`：每次 `main` 更新后部署 GitHub Pages，也监听情报刷新工作流的成功完成事件；
+- `refresh-intelligence.yml`：每 6 小时聚合一次一手来源，数据有变化时提交回仓库。由于 GitHub 不会让 `GITHUB_TOKEN` 产生的提交递归触发其他工作流，Pages 由上面的 `workflow_run` 事件可靠接力部署。
 
 首次部署时，在 GitHub Pages 设置中选择 **GitHub Actions** 作为 Source。工作流只把网站文件与 `data/` 上传到 Pages，不会把更新脚本部署到网页目录。
 
