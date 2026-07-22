@@ -1,0 +1,1004 @@
+[
+  {
+    "id": "pubmed-42003248",
+    "title": "Senescent cells acquire resistance to cystine deprivation-induced ferroptosis via the PPARα-PDK4-phosphorylated PDH axis.",
+    "date": "2026-04-18",
+    "sourceType": "paper",
+    "evidence": "B",
+    "relevance": 91,
+    "topics": [
+      "ferroptosis"
+    ],
+    "trackedLabs": [
+      "山田健一 Lab"
+    ],
+    "trackedLabIds": [
+      "yamada-kyushu"
+    ],
+    "takeaway": "FEBS letters · 定向命中：山田健一 Lab",
+    "url": "https://doi.org/10.1002/1873-3468.70332"
+  },
+  {
+    "id": "pubmed-41651426",
+    "title": "A missense mutation in acyl-CoA synthetase ACSL4 reveals essential residues for catalytic activity in ferroptosis.",
+    "date": "2026-02-03",
+    "sourceType": "paper",
+    "evidence": "B",
+    "relevance": 91,
+    "topics": [
+      "ferroptosis"
+    ],
+    "trackedLabs": [
+      "山田健一 Lab"
+    ],
+    "trackedLabIds": [
+      "yamada-kyushu"
+    ],
+    "takeaway": "The Journal of biological chemistry · 定向命中：山田健一 Lab",
+    "url": "https://doi.org/10.1016/j.jbc.2026.111232"
+  },
+  {
+    "id": "pubmed-41592620",
+    "title": "Arsenite sensitizes to ferroptosis by disrupting selenium metabolism and reducing GPx4 expression.",
+    "date": "2026-01-24",
+    "sourceType": "paper",
+    "evidence": "B",
+    "relevance": 91,
+    "topics": [
+      "GPX4",
+      "硒代谢"
+    ],
+    "trackedLabs": [
+      "Marcus Conrad Lab",
+      "三島英換 Lab"
+    ],
+    "trackedLabIds": [
+      "conrad-helmholtz",
+      "mishima-tohoku"
+    ],
+    "takeaway": "Toxicology · 定向命中：Marcus Conrad Lab、三島英換 Lab",
+    "url": "https://doi.org/10.1016/j.tox.2026.154409"
+  },
+  {
+    "id": "pubmed-41576157",
+    "title": "Selective disruption of lipid peroxide homeostasis in intratumoral regulatory T cells by targeting FSP1 enhances cancer immunity.",
+    "date": "2026-01-22",
+    "sourceType": "paper",
+    "evidence": "B",
+    "relevance": 91,
+    "topics": [
+      "脂质过氧化",
+      "FSP1",
+      "肿瘤转化"
+    ],
+    "trackedLabs": [
+      "James Olzmann Lab"
+    ],
+    "trackedLabIds": [
+      "olzmann-berkeley"
+    ],
+    "takeaway": "Science advances · 定向命中：James Olzmann Lab",
+    "url": "https://doi.org/10.1126/sciadv.aea3703"
+  },
+  {
+    "id": "pubmed-41418756",
+    "title": "Targeting PRDX6-dependent localization and function of GPX4 enhances ferroptosis-mediated tumor suppression.",
+    "date": "2025-12-17",
+    "sourceType": "paper",
+    "evidence": "B",
+    "relevance": 91,
+    "topics": [
+      "GPX4",
+      "硒代谢",
+      "肿瘤转化"
+    ],
+    "trackedLabs": [
+      "Valerian Kagan Lab"
+    ],
+    "trackedLabIds": [
+      "kagan-pitt"
+    ],
+    "takeaway": "Molecular cell · 定向命中：Valerian Kagan Lab",
+    "url": "https://doi.org/10.1016/j.molcel.2025.11.023"
+  },
+  {
+    "id": "pubmed-42439891",
+    "title": "More gas, fewer brakes: Mitochondria withhold CoQ at the cost of ferroptosis defense.",
+    "date": "2026-07-12",
+    "sourceType": "paper",
+    "evidence": "B",
+    "relevance": 90,
+    "topics": [
+      "线粒体"
+    ],
+    "trackedLabs": [
+      "Friedmann Angeli Lab"
+    ],
+    "trackedLabIds": [
+      "angeli-wurzburg"
+    ],
+    "takeaway": "The Journal of cell biology · 定向命中：Friedmann Angeli Lab",
+    "url": "https://doi.org/10.1083/jcb.202606160"
+  },
+  {
+    "id": "pubmed-42213853",
+    "title": "Metabolic rewiring driven by phosphoglycolate phosphatase deletion inhibits ferroptosis.",
+    "date": "2026-05-28",
+    "sourceType": "paper",
+    "evidence": "B",
+    "relevance": 90,
+    "topics": [
+      "ferroptosis"
+    ],
+    "trackedLabs": [
+      "Friedmann Angeli Lab"
+    ],
+    "trackedLabIds": [
+      "angeli-wurzburg"
+    ],
+    "takeaway": "Science advances · 定向命中：Friedmann Angeli Lab",
+    "url": "https://doi.org/10.1126/sciadv.aeb2368"
+  },
+  {
+    "id": "pubmed-42442865",
+    "title": "Ferroptosis induction via genetic approaches - CRISPR/Cas9-based disruption on key anti-ferroptotic genes.",
+    "date": "2026-05-27",
+    "sourceType": "paper",
+    "evidence": "B",
+    "relevance": 90,
+    "topics": [
+      "方法学"
+    ],
+    "trackedLabs": [
+      "Marcus Conrad Lab"
+    ],
+    "trackedLabIds": [
+      "conrad-helmholtz"
+    ],
+    "takeaway": "Methods in cell biology · 定向命中：Marcus Conrad Lab",
+    "url": "https://doi.org/10.1016/bs.mcb.2026.05.002"
+  },
+  {
+    "id": "pubmed-41813884",
+    "title": "Fat bolsters tumours against ferroptosis.",
+    "date": "2026-03-31",
+    "sourceType": "paper",
+    "evidence": "B",
+    "relevance": 90,
+    "topics": [
+      "肿瘤转化"
+    ],
+    "trackedLabs": [
+      "Marcus Conrad Lab",
+      "三島英換 Lab"
+    ],
+    "trackedLabIds": [
+      "conrad-helmholtz",
+      "mishima-tohoku"
+    ],
+    "takeaway": "Nature cell biology · 定向命中：Marcus Conrad Lab、三島英換 Lab",
+    "url": "https://doi.org/10.1038/s41556-026-01904-0"
+  },
+  {
+    "id": "pubmed-41826699",
+    "title": "Riboflavin metabolism shapes FSP1-driven ferroptosis resistance.",
+    "date": "2026-03-12",
+    "sourceType": "paper",
+    "evidence": "B",
+    "relevance": 90,
+    "topics": [
+      "FSP1"
+    ],
+    "trackedLabs": [
+      "Marcus Conrad Lab",
+      "Friedmann Angeli Lab",
+      "Maria Fedorova Lab"
+    ],
+    "trackedLabIds": [
+      "conrad-helmholtz",
+      "angeli-wurzburg",
+      "fedorova-dresden"
+    ],
+    "takeaway": "Nature cell biology · 定向命中：Marcus Conrad Lab、Friedmann Angeli Lab、Maria Fedorova Lab",
+    "url": "https://doi.org/10.1038/s41556-025-01856-x"
+  },
+  {
+    "id": "pubmed-41344158",
+    "title": "Beyond CFTR: Ivacaftor's role in restoring cellular redox balance and preventing ferroptosis.",
+    "date": "2025-11-24",
+    "sourceType": "paper",
+    "evidence": "B",
+    "relevance": 90,
+    "topics": [
+      "ferroptosis"
+    ],
+    "trackedLabs": [
+      "Friedmann Angeli Lab"
+    ],
+    "trackedLabIds": [
+      "angeli-wurzburg"
+    ],
+    "takeaway": "Redox biology · 定向命中：Friedmann Angeli Lab",
+    "url": "https://doi.org/10.1016/j.redox.2025.103944"
+  },
+  {
+    "id": "pubmed-41162632",
+    "title": "FSP1-mediated lipid droplet quality control prevents neutral lipid peroxidation and ferroptosis.",
+    "date": "2025-10-28",
+    "sourceType": "paper",
+    "evidence": "B",
+    "relevance": 90,
+    "topics": [
+      "脂质过氧化",
+      "FSP1"
+    ],
+    "trackedLabs": [
+      "James Olzmann Lab"
+    ],
+    "trackedLabIds": [
+      "olzmann-berkeley"
+    ],
+    "takeaway": "Nature cell biology · 定向命中：James Olzmann Lab",
+    "url": "https://doi.org/10.1038/s41556-025-01790-y"
+  },
+  {
+    "id": "pubmed-42310294",
+    "title": "15-LOX-catalytic bias towards ether-(alkenyl)-ETE-PEs oxidation bestows selectivity of PRO-ferroptotic cell death signaling.",
+    "date": "2026-06-16",
+    "sourceType": "paper",
+    "evidence": "B",
+    "relevance": 89,
+    "topics": [
+      "ferroptosis"
+    ],
+    "trackedLabs": [
+      "Valerian Kagan Lab"
+    ],
+    "trackedLabIds": [
+      "kagan-pitt"
+    ],
+    "takeaway": "Nature communications · 定向命中：Valerian Kagan Lab",
+    "url": "https://doi.org/10.1038/s41467-026-71869-z"
+  },
+  {
+    "id": "pubmed-42239248",
+    "title": "Targeted extracellular degradation of LRP8 promotes ferroptosis in cancer cells.",
+    "date": "2026-05-17",
+    "sourceType": "paper",
+    "evidence": "B",
+    "relevance": 89,
+    "topics": [
+      "肿瘤转化"
+    ],
+    "trackedLabs": [
+      "James Olzmann Lab"
+    ],
+    "trackedLabIds": [
+      "olzmann-berkeley"
+    ],
+    "takeaway": "bioRxiv : the preprint server for biology · 定向命中：James Olzmann Lab",
+    "url": "https://doi.org/10.64898/2026.05.16.725645"
+  },
+  {
+    "id": "pubmed-42105762",
+    "title": "Ferroptosis inhibition enhances liver and lung graft function.",
+    "date": "2026-05-07",
+    "sourceType": "paper",
+    "evidence": "B",
+    "relevance": 89,
+    "topics": [
+      "ferroptosis"
+    ],
+    "trackedLabs": [
+      "Maria Fedorova Lab",
+      "Raphaël Rodriguez Lab"
+    ],
+    "trackedLabIds": [
+      "fedorova-dresden",
+      "rodriguez-curie"
+    ],
+    "takeaway": "Cell · 定向命中：Maria Fedorova Lab、Raphaël Rodriguez Lab",
+    "url": "https://doi.org/10.1016/j.cell.2026.04.024"
+  },
+  {
+    "id": "pubmed-41826758",
+    "title": "Vitamin B2 metabolism promotes FSP1 stability to prevent ferroptosis.",
+    "date": "2026-03-12",
+    "sourceType": "paper",
+    "evidence": "B",
+    "relevance": 89,
+    "topics": [
+      "FSP1"
+    ],
+    "trackedLabs": [
+      "James Olzmann Lab",
+      "Derek Pratt Lab"
+    ],
+    "trackedLabIds": [
+      "olzmann-berkeley",
+      "pratt-ottawa"
+    ],
+    "takeaway": "Nature structural & molecular biology · 定向命中：James Olzmann Lab、Derek Pratt Lab",
+    "url": "https://doi.org/10.1038/s41594-026-01759-x"
+  },
+  {
+    "id": "pubmed-41729026",
+    "title": "Opposing roles of DGAT-mediated lipid droplet biogenesis in the regulation of ferroptosis sensitivity.",
+    "date": "2026-02-22",
+    "sourceType": "paper",
+    "evidence": "B",
+    "relevance": 89,
+    "topics": [
+      "ferroptosis"
+    ],
+    "trackedLabs": [
+      "Maria Fedorova Lab"
+    ],
+    "trackedLabIds": [
+      "fedorova-dresden"
+    ],
+    "takeaway": "The FEBS journal · 定向命中：Maria Fedorova Lab",
+    "url": "https://doi.org/10.1111/febs.70467"
+  },
+  {
+    "id": "pubmed-41720096",
+    "title": "A GPX1-OSBPL8 axis mediates noncanonical in vivo ferroptosis and cancer growth suppression.",
+    "date": "2026-02-18",
+    "sourceType": "paper",
+    "evidence": "B",
+    "relevance": 89,
+    "topics": [
+      "肿瘤转化"
+    ],
+    "trackedLabs": [
+      "Valerian Kagan Lab"
+    ],
+    "trackedLabIds": [
+      "kagan-pitt"
+    ],
+    "takeaway": "Cell · 定向命中：Valerian Kagan Lab",
+    "url": "https://doi.org/10.1016/j.cell.2026.01.009"
+  },
+  {
+    "id": "pubmed-41299087",
+    "title": "Dual lipid modulation overcomes ferroptosis resistance in high-risk neuroblastoma.",
+    "date": "2025-11-25",
+    "sourceType": "paper",
+    "evidence": "B",
+    "relevance": 89,
+    "topics": [
+      "ferroptosis"
+    ],
+    "trackedLabs": [
+      "Maria Fedorova Lab"
+    ],
+    "trackedLabIds": [
+      "fedorova-dresden"
+    ],
+    "takeaway": "Cell death and differentiation · 定向命中：Maria Fedorova Lab",
+    "url": "https://doi.org/10.1038/s41418-025-01623-3"
+  },
+  {
+    "id": "pubmed-41193799",
+    "title": "Lymph node environment drives FSP1 targetability in metastasizing melanoma.",
+    "date": "2025-11-04",
+    "sourceType": "paper",
+    "evidence": "B",
+    "relevance": 89,
+    "topics": [
+      "FSP1",
+      "肿瘤转化"
+    ],
+    "trackedLabs": [
+      "Raphaël Rodriguez Lab"
+    ],
+    "trackedLabIds": [
+      "rodriguez-curie"
+    ],
+    "takeaway": "Nature · 定向命中：Raphaël Rodriguez Lab",
+    "url": "https://doi.org/10.1038/s41586-025-09709-1"
+  },
+  {
+    "id": "pubmed-42430517",
+    "title": "Suppression of Lipid Peroxidation by Necrostatins and Their Potential for Dual Targeting of Ferroptosis and Necroptosis.",
+    "date": "2026-07-09",
+    "sourceType": "paper",
+    "evidence": "B",
+    "relevance": 88,
+    "topics": [
+      "脂质过氧化"
+    ],
+    "trackedLabs": [
+      "Derek Pratt Lab"
+    ],
+    "trackedLabIds": [
+      "pratt-ottawa"
+    ],
+    "takeaway": "Journal of medicinal chemistry · 定向命中：Derek Pratt Lab",
+    "url": "https://doi.org/10.1021/acs.jmedchem.6c01496"
+  },
+  {
+    "id": "pubmed-42236947",
+    "title": "Spermine is an endogenous iron chelator that inhibits ferroptosis.",
+    "date": "2026-06-02",
+    "sourceType": "paper",
+    "evidence": "B",
+    "relevance": 88,
+    "topics": [
+      "ferroptosis"
+    ],
+    "trackedLabs": [
+      "Raphaël Rodriguez Lab"
+    ],
+    "trackedLabIds": [
+      "rodriguez-curie"
+    ],
+    "takeaway": "Nature · 定向命中：Raphaël Rodriguez Lab",
+    "url": "https://doi.org/10.1038/s41586-026-10597-2"
+  },
+  {
+    "id": "pubmed-41965288",
+    "title": "Implementation of the FENIX assay to assess the anti-ferroptotic properties of test compounds.",
+    "date": "2026-02-18",
+    "sourceType": "paper",
+    "evidence": "B",
+    "relevance": 88,
+    "topics": [
+      "方法学"
+    ],
+    "trackedLabs": [
+      "Derek Pratt Lab"
+    ],
+    "trackedLabIds": [
+      "pratt-ottawa"
+    ],
+    "takeaway": "Methods in cell biology · 定向命中：Derek Pratt Lab",
+    "url": "https://doi.org/10.1016/bs.mcb.2026.01.013"
+  },
+  {
+    "id": "pubmed-41593071",
+    "title": "Ether lipids influence cancer cell fate by modulating iron uptake.",
+    "date": "2026-01-26",
+    "sourceType": "paper",
+    "evidence": "B",
+    "relevance": 88,
+    "topics": [
+      "肿瘤转化"
+    ],
+    "trackedLabs": [
+      "Raphaël Rodriguez Lab"
+    ],
+    "trackedLabIds": [
+      "rodriguez-curie"
+    ],
+    "takeaway": "Nature communications · 定向命中：Raphaël Rodriguez Lab",
+    "url": "https://doi.org/10.1038/s41467-026-68547-5"
+  },
+  {
+    "id": "pubmed-41501350",
+    "title": "Tocotrienols exhibit superior ferroptosis inhibition over tocopherols.",
+    "date": "2026-01-06",
+    "sourceType": "paper",
+    "evidence": "B",
+    "relevance": 88,
+    "topics": [
+      "ferroptosis"
+    ],
+    "trackedLabs": [
+      "三島英換 Lab"
+    ],
+    "trackedLabIds": [
+      "mishima-tohoku"
+    ],
+    "takeaway": "Scientific reports · 定向命中：三島英換 Lab",
+    "url": "https://doi.org/10.1038/s41598-025-34673-1"
+  },
+  {
+    "id": "pubmed-41349546",
+    "title": "A fin-loop-like structure in GPX4 underlies neuroprotection from ferroptosis.",
+    "date": "2025-12-03",
+    "sourceType": "paper",
+    "evidence": "B",
+    "relevance": 88,
+    "topics": [
+      "GPX4"
+    ],
+    "trackedLabs": [
+      "三島英換 Lab"
+    ],
+    "trackedLabIds": [
+      "mishima-tohoku"
+    ],
+    "takeaway": "Cell · 定向命中：三島英換 Lab",
+    "url": "https://doi.org/10.1016/j.cell.2025.11.014"
+  },
+  {
+    "id": "pubmed-41315180",
+    "title": "Sibiriline, a novel dual inhibitor of necroptosis and ferroptosis, prevents RIPK1 kinase activity and (phospho)lipid peroxidation as a potential therapeutic strategy.",
+    "date": "2025-11-27",
+    "sourceType": "paper",
+    "evidence": "B",
+    "relevance": 88,
+    "topics": [
+      "脂质过氧化"
+    ],
+    "trackedLabs": [
+      "Derek Pratt Lab"
+    ],
+    "trackedLabIds": [
+      "pratt-ottawa"
+    ],
+    "takeaway": "Cell death discovery · 定向命中：Derek Pratt Lab",
+    "url": "https://doi.org/10.1038/s41420-025-02852-8"
+  },
+  {
+    "id": "pubmed-41330945",
+    "title": "ALDH2 protects against dopaminergic neuronal cell ferroptosis by enhancing the enzyme activity of PRDX6 in Parkinson's disease.",
+    "date": "2025-12-01",
+    "sourceType": "paper",
+    "evidence": "B",
+    "relevance": 87,
+    "topics": [
+      "硒代谢"
+    ],
+    "trackedLabs": [
+      "殷惠勇 Lab"
+    ],
+    "trackedLabIds": [
+      "yin-cityu"
+    ],
+    "takeaway": "NPJ Parkinson's disease · 定向命中：殷惠勇 Lab",
+    "url": "https://doi.org/10.1038/s41531-025-01155-0"
+  },
+  {
+    "id": "pubmed-41111418",
+    "title": "ALDH2/eIF3E Interaction Modulates Protein Translation Critical for Cardiomyocyte Ferroptosis in Acute Myocardial Ischemia Injury.",
+    "date": "2025-10-19",
+    "sourceType": "paper",
+    "evidence": "B",
+    "relevance": 87,
+    "topics": [
+      "ferroptosis"
+    ],
+    "trackedLabs": [
+      "殷惠勇 Lab"
+    ],
+    "trackedLabIds": [
+      "yin-cityu"
+    ],
+    "takeaway": "Circulation · 定向命中：殷惠勇 Lab",
+    "url": "https://doi.org/10.1161/CIRCULATIONAHA.125.075220"
+  },
+  {
+    "id": "pubmed-42267631",
+    "title": "Cell size modulates ferroptosis susceptibility.",
+    "date": "2026-06-09",
+    "sourceType": "paper",
+    "evidence": "B",
+    "relevance": 86,
+    "topics": [
+      "ferroptosis"
+    ],
+    "trackedLabs": [
+      "Scott Dixon Lab"
+    ],
+    "trackedLabIds": [
+      "dixon-stanford"
+    ],
+    "takeaway": "eLife · 定向命中：Scott Dixon Lab",
+    "url": "https://doi.org/10.7554/eLife.111544"
+  },
+  {
+    "id": "pubmed-41959534",
+    "title": "Dissecting Complex Interactions Between Ferroptosis and the Proteasome.",
+    "date": "2026-03-29",
+    "sourceType": "paper",
+    "evidence": "B",
+    "relevance": 86,
+    "topics": [
+      "ferroptosis"
+    ],
+    "trackedLabs": [
+      "Scott Dixon Lab"
+    ],
+    "trackedLabIds": [
+      "dixon-stanford"
+    ],
+    "takeaway": "bioRxiv : the preprint server for biology · 定向命中：Scott Dixon Lab",
+    "url": "https://doi.org/10.64898/2026.03.28.714855"
+  },
+  {
+    "id": "pubmed-41894394",
+    "title": "Methionine metabolism is linked with phospholipid and glutamine metabolism to drive ferroptosis.",
+    "date": "2026-03-25",
+    "sourceType": "paper",
+    "evidence": "B",
+    "relevance": 86,
+    "topics": [
+      "脂质过氧化"
+    ],
+    "trackedLabs": [
+      "Scott Dixon Lab"
+    ],
+    "trackedLabIds": [
+      "dixon-stanford"
+    ],
+    "takeaway": "Cell reports · 定向命中：Scott Dixon Lab",
+    "url": "https://doi.org/10.1016/j.celrep.2026.117157"
+  },
+  {
+    "id": "pubmed-41576911",
+    "title": "Fin(e)-tuning ferroptosis.",
+    "date": "2026-01-21",
+    "sourceType": "paper",
+    "evidence": "B",
+    "relevance": 86,
+    "topics": [
+      "ferroptosis"
+    ],
+    "trackedLabs": [
+      "Scott Dixon Lab"
+    ],
+    "trackedLabIds": [
+      "dixon-stanford"
+    ],
+    "takeaway": "Molecular cell · 定向命中：Scott Dixon Lab",
+    "url": "https://doi.org/10.1016/j.molcel.2025.12.030"
+  },
+  {
+    "id": "pubmed-41974963",
+    "title": "Purine salvage pathway protects CD8(+) T cells from metabolic stress.",
+    "date": "2026-04-12",
+    "sourceType": "paper",
+    "evidence": "B",
+    "relevance": 79,
+    "topics": [
+      "ferroptosis"
+    ],
+    "trackedLabs": [
+      "山田健一 Lab"
+    ],
+    "trackedLabIds": [
+      "yamada-kyushu"
+    ],
+    "takeaway": "Nature immunology · 定向命中：山田健一 Lab",
+    "url": "https://doi.org/10.1038/s41590-026-02491-w"
+  },
+  {
+    "id": "pubmed-41430095",
+    "title": "L-ascorbate prevents non-alcoholic steatohepatitis-based hepatocarcinogenesis in Sod1/Prdx4 double-knockout mice.",
+    "date": "2025-12-21",
+    "sourceType": "paper",
+    "evidence": "B",
+    "relevance": 79,
+    "topics": [
+      "ferroptosis"
+    ],
+    "trackedLabs": [
+      "山田健一 Lab"
+    ],
+    "trackedLabIds": [
+      "yamada-kyushu"
+    ],
+    "takeaway": "Scientific reports · 定向命中：山田健一 Lab",
+    "url": "https://doi.org/10.1038/s41598-025-28982-8"
+  },
+  {
+    "id": "trial-NCT07433283",
+    "title": "Carbon Nanoparticle-Loaded Iron in the Treatment of Advanced Solid Tumor",
+    "date": "2026-02-25",
+    "sourceType": "trial",
+    "evidence": "C",
+    "relevance": 76,
+    "topics": [
+      "临床试验",
+      "肿瘤转化"
+    ],
+    "takeaway": "RECRUITING · INTERVENTIONAL · Carbon Nanoparticle-Loaded Iron [CNSI-Fe], Carbon Nanoparticle-Loaded Iron",
+    "caveat": "临床结局不能自动证明 ferroptosis 是作用机制。",
+    "url": "https://clinicaltrials.gov/study/NCT07433283"
+  },
+  {
+    "id": "trial-NCT06491394",
+    "title": "Lactoferrin Effect on Kidney and Heart of Rhabdomyolysis Rats",
+    "date": "2024-07-09",
+    "sourceType": "trial",
+    "evidence": "D",
+    "relevance": 69,
+    "topics": [
+      "临床试验",
+      "肾损伤"
+    ],
+    "takeaway": "COMPLETED · INTERVENTIONAL · Lactoferrin, iron, MDA, TAC, and GSH, Nrf2, AMPK, HO-1, glycerin",
+    "caveat": "临床结局不能自动证明 ferroptosis 是作用机制。",
+    "url": "https://clinicaltrials.gov/study/NCT06491394"
+  },
+  {
+    "id": "pubmed-42463647",
+    "title": "SUV39H2-mediated NCOA4 methylation controls ferritinophagy and ferroptosis in triple-negative breast cancer.",
+    "date": "2026-07-15",
+    "sourceType": "paper",
+    "evidence": "B",
+    "relevance": 62,
+    "topics": [
+      "铁稳态",
+      "溶酶体",
+      "肿瘤转化"
+    ],
+    "takeaway": "Cell death & disease · Liu L, Pei X, Li D, Huo Y, Wang Z, Zhang Q, Yue Y, Deng B, Yu M, Xu T, Zhong L, Ruan X, Li X",
+    "url": "https://doi.org/10.1038/s41419-026-09008-1"
+  },
+  {
+    "id": "trial-NCT05269901",
+    "title": "Association Between Ferroptosis and Epilepsy",
+    "date": "2022-03-08",
+    "sourceType": "trial",
+    "evidence": "D",
+    "relevance": 59,
+    "topics": [
+      "临床试验",
+      "GPX4"
+    ],
+    "takeaway": "COMPLETED · OBSERVATIONAL · SLC7A11, GPX4, P53",
+    "caveat": "观察性关联不能证明患者体内发生 ferroptosis。",
+    "url": "https://clinicaltrials.gov/study/NCT05269901"
+  },
+  {
+    "id": "trial-NCT07678073",
+    "title": "Comparison of the Effects of General Anesthesia and Combined Spinal-Epidural Anesthesia on Ferroptosis, Humanin and MOTS-c Levels in Renal Transplantation",
+    "date": "2026-07-01",
+    "sourceType": "trial",
+    "evidence": "D",
+    "relevance": 58,
+    "topics": [
+      "临床试验",
+      "肾损伤"
+    ],
+    "takeaway": "RECRUITING · INTERVENTIONAL · Sevoflurane General Anesthesia, Bupivacaine and Morphine for Combined Spinal-Epidural Anesthesia",
+    "caveat": "临床结局不能自动证明 ferroptosis 是作用机制。",
+    "url": "https://clinicaltrials.gov/study/NCT07678073"
+  },
+  {
+    "id": "trial-NCT07260942",
+    "title": "Ferroptosis Role in the Pathophysiology of Systemic Lupus Erythematosus",
+    "date": "2025-12-03",
+    "sourceType": "trial",
+    "evidence": "D",
+    "relevance": 58,
+    "topics": [
+      "临床试验"
+    ],
+    "takeaway": "RECRUITING · INTERVENTIONAL · blood sample",
+    "caveat": "临床结局不能自动证明 ferroptosis 是作用机制。",
+    "url": "https://clinicaltrials.gov/study/NCT07260942"
+  },
+  {
+    "id": "trial-NCT06928649",
+    "title": "Stratifying Critically Ill Patients for Novel Ferroptosis or Pyroptosis Intervention Strategies",
+    "date": "2025-04-15",
+    "sourceType": "trial",
+    "evidence": "D",
+    "relevance": 58,
+    "topics": [
+      "临床试验"
+    ],
+    "takeaway": "RECRUITING · INTERVENTIONAL · Blood sampling",
+    "caveat": "临床结局不能自动证明 ferroptosis 是作用机制。",
+    "url": "https://clinicaltrials.gov/study/NCT06928649"
+  },
+  {
+    "id": "trial-NCT05924074",
+    "title": "Ferroptosis Study in SF3B1-mutant Myelodysplastic Syndromes (FerMDS)",
+    "date": "2023-06-29",
+    "sourceType": "trial",
+    "evidence": "D",
+    "relevance": 58,
+    "topics": [
+      "临床试验"
+    ],
+    "takeaway": "RECRUITING · INTERVENTIONAL · Biological sampling",
+    "caveat": "临床结局不能自动证明 ferroptosis 是作用机制。",
+    "url": "https://clinicaltrials.gov/study/NCT05924074"
+  },
+  {
+    "id": "trial-NCT07623044",
+    "title": "Effects of Short-term Perioperative Daidzein Intervention on Liver Histopathology in Patients With MASLD",
+    "date": "2026-06-03",
+    "sourceType": "trial",
+    "evidence": "D",
+    "relevance": 55,
+    "topics": [
+      "临床试验"
+    ],
+    "takeaway": "NOT_YET_RECRUITING · INTERVENTIONAL · Daidzein",
+    "caveat": "临床结局不能自动证明 ferroptosis 是作用机制。",
+    "url": "https://clinicaltrials.gov/study/NCT07623044"
+  },
+  {
+    "id": "trial-NCT06218524",
+    "title": "The Effectiveness of HP and TMZ Synergism on Adult Recurrence GBM",
+    "date": "2024-01-23",
+    "sourceType": "trial",
+    "evidence": "D",
+    "relevance": 55,
+    "topics": [
+      "临床试验"
+    ],
+    "takeaway": "NOT_YET_RECRUITING · INTERVENTIONAL · Haloperidol Tablets, Temozolomide",
+    "caveat": "临床结局不能自动证明 ferroptosis 是作用机制。",
+    "url": "https://clinicaltrials.gov/study/NCT06218524"
+  },
+  {
+    "id": "preprint-10.7554/elife.111544.1",
+    "title": "Cell size modulates ferroptosis susceptibility",
+    "date": "2026-05-15",
+    "sourceType": "preprint",
+    "evidence": "C",
+    "relevance": 54,
+    "topics": [
+      "ferroptosis"
+    ],
+    "takeaway": "Evgeny Zatulovskiy, Magdalena B Murray, Shuyuan Zhang, Scott J Dixon, Jan M Skotheim · eLife Sciences Publications, Ltd",
+    "caveat": "尚未同行评议。",
+    "url": "https://doi.org/10.7554/elife.111544.1"
+  },
+  {
+    "id": "trial-NCT07412574",
+    "title": "Vitamin E Supplementation As Adjunctive Therapy To Lower Inflammation In COVID-19 Patients",
+    "date": "2026-02-17",
+    "sourceType": "trial",
+    "evidence": "D",
+    "relevance": 51,
+    "topics": [
+      "临床试验"
+    ],
+    "takeaway": "COMPLETED · INTERVENTIONAL · Patients were randomly assigned, under a double-blind design, α-Tocopherol group (n = 22)",
+    "caveat": "临床结局不能自动证明 ferroptosis 是作用机制。",
+    "url": "https://clinicaltrials.gov/study/NCT07412574"
+  },
+  {
+    "id": "trial-NCT06048367",
+    "title": "Carbon Nanoparticle-Loaded Iron [CNSI-Fe(II)] in the Treatment of Advanced Solid Tumor",
+    "date": "2023-09-21",
+    "sourceType": "trial",
+    "evidence": "D",
+    "relevance": 51,
+    "topics": [
+      "临床试验",
+      "肿瘤转化"
+    ],
+    "takeaway": "COMPLETED · INTERVENTIONAL · CNSI-Fe(II) 30 mg, CNSI-Fe(II) 60 mg, CNSI-Fe(II) 90 mg, CNSI-Fe(II) 120 mg, CNSI-Fe(II) 150 mg",
+    "caveat": "临床结局不能自动证明 ferroptosis 是作用机制。",
+    "url": "https://clinicaltrials.gov/study/NCT06048367"
+  },
+  {
+    "id": "trial-NCT07686887",
+    "title": "Outer Membrane Vesicle and Ferroptosis-Related Signatures in Sepsis-Associated Acute Lung Injury Caused by Extra-Pulmonary Hypervirulent Klebsiella Pneumoniae",
+    "date": "2026-07-07",
+    "sourceType": "trial",
+    "evidence": "D",
+    "relevance": 45,
+    "topics": [
+      "临床试验"
+    ],
+    "takeaway": "NOT_YET_RECRUITING · OBSERVATIONAL",
+    "caveat": "观察性关联不能证明患者体内发生 ferroptosis。",
+    "url": "https://clinicaltrials.gov/study/NCT07686887"
+  },
+  {
+    "id": "trial-NCT06896383",
+    "title": "Role of USP35 in the Detection of Ferroptosis in Juvenile Autoimmune Hepatitis",
+    "date": "2025-03-26",
+    "sourceType": "trial",
+    "evidence": "D",
+    "relevance": 45,
+    "topics": [
+      "临床试验"
+    ],
+    "takeaway": "NOT_YET_RECRUITING · OBSERVATIONAL",
+    "caveat": "观察性关联不能证明患者体内发生 ferroptosis。",
+    "url": "https://clinicaltrials.gov/study/NCT06896383"
+  },
+  {
+    "id": "trial-NCT06554392",
+    "title": "Identification of Serum Level of Glutathione Peroxidase 4",
+    "date": "2024-08-15",
+    "sourceType": "trial",
+    "evidence": "D",
+    "relevance": 45,
+    "topics": [
+      "临床试验",
+      "GPX4"
+    ],
+    "takeaway": "NOT_YET_RECRUITING · OBSERVATIONAL · Blood sample",
+    "caveat": "观察性关联不能证明患者体内发生 ferroptosis。",
+    "url": "https://clinicaltrials.gov/study/NCT06554392"
+  },
+  {
+    "id": "trial-NCT04378075",
+    "title": "A Study to Evaluate Efficacy and Safety of Vatiquinone for Treating Mitochondrial Disease in Participants With Refractory Epilepsy",
+    "date": "2020-05-07",
+    "sourceType": "trial",
+    "evidence": "D",
+    "relevance": 43,
+    "topics": [
+      "临床试验",
+      "线粒体"
+    ],
+    "takeaway": "TERMINATED · INTERVENTIONAL · Vatiquinone, Placebo",
+    "caveat": "临床结局不能自动证明 ferroptosis 是作用机制。",
+    "url": "https://clinicaltrials.gov/study/NCT04378075"
+  },
+  {
+    "id": "trial-NCT06891820",
+    "title": "Multifaceted Analysis of the Adaptation of Rowers in the Process of Sports Training",
+    "date": "2025-03-24",
+    "sourceType": "trial",
+    "evidence": "D",
+    "relevance": 41,
+    "topics": [
+      "临床试验"
+    ],
+    "takeaway": "COMPLETED · OBSERVATIONAL · Physical effort",
+    "caveat": "观察性关联不能证明患者体内发生 ferroptosis。",
+    "url": "https://clinicaltrials.gov/study/NCT06891820"
+  },
+  {
+    "id": "trial-NCT06863116",
+    "title": "Analysis of HIF-1α, MDA, and GPX4 in Peri-Implant Crevicular Fluid",
+    "date": "2025-03-07",
+    "sourceType": "trial",
+    "evidence": "D",
+    "relevance": 41,
+    "topics": [
+      "临床试验",
+      "GPX4"
+    ],
+    "takeaway": "COMPLETED · OBSERVATIONAL",
+    "caveat": "观察性关联不能证明患者体内发生 ferroptosis。",
+    "url": "https://clinicaltrials.gov/study/NCT06863116"
+  },
+  {
+    "id": "trial-NCT06261086",
+    "title": "Evaluation of Pyroptosis-related Indicators in the Pathogenesis of Vitiligo:Across-sectional Comparative Study",
+    "date": "2024-02-15",
+    "sourceType": "trial",
+    "evidence": "D",
+    "relevance": 40,
+    "topics": [
+      "临床试验"
+    ],
+    "takeaway": "UNKNOWN · INTERVENTIONAL · evaluate serum levels pyroptosis-related indicators (GASDM-D, IL 1β & IL-18)",
+    "caveat": "临床结局不能自动证明 ferroptosis 是作用机制。",
+    "url": "https://clinicaltrials.gov/study/NCT06261086"
+  },
+  {
+    "id": "trial-NCT06151548",
+    "title": "Effect of Krill Oil Supplementation on Red Blood Cell Physiology Against Changes in Markers of Iron Metabolism.",
+    "date": "2023-11-30",
+    "sourceType": "trial",
+    "evidence": "D",
+    "relevance": 40,
+    "topics": [
+      "临床试验"
+    ],
+    "takeaway": "UNKNOWN · INTERVENTIONAL · THYROX (Atlantic krill oil)., Placebo",
+    "caveat": "临床结局不能自动证明 ferroptosis 是作用机制。",
+    "url": "https://clinicaltrials.gov/study/NCT06151548"
+  },
+  {
+    "id": "trial-NCT05493800",
+    "title": "Evaluate the Safety and Efficacy for Oral Mucositis Prevention of MIT-001 in Auto HSCT",
+    "date": "2022-08-09",
+    "sourceType": "trial",
+    "evidence": "D",
+    "relevance": 40,
+    "topics": [
+      "临床试验",
+      "肿瘤转化"
+    ],
+    "takeaway": "UNKNOWN · INTERVENTIONAL · MIT-001, normal saline",
+    "caveat": "临床结局不能自动证明 ferroptosis 是作用机制。",
+    "url": "https://clinicaltrials.gov/study/NCT05493800"
+  }
+]
