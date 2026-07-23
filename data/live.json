@@ -743,6 +743,20 @@
     "url": "https://clinicaltrials.gov/study/NCT05269901"
   },
   {
+    "id": "trial-NCT07722637",
+    "title": "THE EFFECT OF CARDİAC REHABİLİTATİON ON FERROPTOSİS İN PATİENTS WİTH CORONARY ARTERY DİSEASE",
+    "date": "2026-07-23",
+    "sourceType": "trial",
+    "evidence": "D",
+    "relevance": 58,
+    "topics": [
+      "临床试验"
+    ],
+    "takeaway": "RECRUITING · INTERVENTIONAL · Cardiac Rehabilitation",
+    "caveat": "临床结局不能自动证明 ferroptosis 是作用机制。",
+    "url": "https://clinicaltrials.gov/study/NCT07722637"
+  },
+  {
     "id": "trial-NCT07678073",
     "title": "Comparison of the Effects of General Anesthesia and Combined Spinal-Epidural Anesthesia on Ferroptosis, Humanin and MOTS-c Levels in Renal Transplantation",
     "date": "2026-07-01",
@@ -956,20 +970,6 @@
     "takeaway": "COMPLETED · OBSERVATIONAL",
     "caveat": "观察性关联不能证明患者体内发生 ferroptosis。",
     "url": "https://clinicaltrials.gov/study/NCT06863116"
-  },
-  {
-    "id": "trial-NCT06261086",
-    "title": "Evaluation of Pyroptosis-related Indicators in the Pathogenesis of Vitiligo:Across-sectional Comparative Study",
-    "date": "2024-02-15",
-    "sourceType": "trial",
-    "evidence": "D",
-    "relevance": 40,
-    "topics": [
-      "临床试验"
-    ],
-    "takeaway": "UNKNOWN · INTERVENTIONAL · evaluate serum levels pyroptosis-related indicators (GASDM-D, IL 1β & IL-18)",
-    "caveat": "临床结局不能自动证明 ferroptosis 是作用机制。",
-    "url": "https://clinicaltrials.gov/study/NCT06261086"
   },
   {
     "id": "trial-NCT06151548",
