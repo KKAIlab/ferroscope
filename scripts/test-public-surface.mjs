@@ -27,6 +27,10 @@ async function renderWith(dataRoot, cacheKey) {
   url.search = `?harness=${cacheKey}`;
   const app = await import(url.href);
   await app.ready;
+  // The default view shows eight signals. The gates below are about every record that
+  // can reach the page, so the whole list is rendered before it is inspected.
+  app.state.visibleSignals = app.state.signals.length;
+  app.renderSignals();
   for (const lab of app.state.labs) app.renderResearchProfile(lab.id);
   for (const method of app.state.methods) app.renderMethodDetail(method.id);
   for (const paper of app.state.papers) app.renderPaperDetail(paper.id);
@@ -48,6 +52,124 @@ fail(app.state.methods.length > 0, "The harness rendered no method modules.");
 fail(harness.opened.has("#labResearchDialog"), "The laboratory profile dialog never opened during rendering.");
 fail(app.state.papers.length >= 10, `The English paper layer rendered ${app.state.papers.length} records; at least ten are required.`);
 fail(harness.opened.has("#paperDialog"), "The paper reading-record dialog never opened during rendering.");
+
+// ------------------------------------------------------- evidence and document class
+//
+// The independent review found the interface calling every PubMed hit "Peer reviewed"
+// and grading it B. Both claims are checked here against the rendered page, not against
+// the data, because the rendered page is what a researcher reads.
+
+const signalHtml = harness.htmlFor("#signalList", "#frontierGrid");
+fail(!/Peer reviewed/.test(signalHtml), "The interface still labels an automated record as peer reviewed.");
+fail(signalHtml.includes("Evidence not assessed"), "No record renders as unassessed, so automated alerts are still being graded.");
+fail(signalHtml.includes("PubMed record"), "An unclassified automated record must render as a PubMed record rather than as research.");
+
+const automated = app.state.signals.filter((item) => item.reviewStatus === "automated");
+fail(automated.length > 0, "The harness rendered no automated signals, so the evidence gate proves nothing.");
+for (const item of automated) {
+  fail(item.evidenceGrade === null, `Automated record ${item.id} carries evidence grade ${item.evidenceGrade}; only a curated audit may assign one.`);
+  fail(item.documentType !== "original-research" || item.documentTypeBasis === "paper-layer-audit", `Automated record ${item.id} was promoted to original research without an audit.`);
+}
+
+// The two records the review named by PMID must render as commentary, not as research.
+const commentaries = [
+  ["doi:10.1083/jcb.202606160", "PMID 42439891, a Journal of Cell Biology Spotlight"],
+  ["doi:10.1038/s41556-026-01904-0", "PMID 41813884, a Nature Cell Biology commentary"],
+];
+for (const [canonicalId, description] of commentaries) {
+  const record = app.state.signals.find((item) => item.canonicalId === canonicalId);
+  fail(Boolean(record), `${description} is no longer in the dataset, so the classification fixture cannot run.`);
+  if (!record) continue;
+  fail(record.documentType === "commentary", `${description} renders as ${record.documentType} rather than commentary.`);
+  fail(record.evidenceGrade === null, `${description} carries an evidence grade.`);
+}
+
+// ------------------------------------------------------------------ canonical merge
+
+const byCanonicalId = new Map();
+for (const item of app.state.signals) {
+  if (byCanonicalId.has(item.canonicalId)) {
+    fail(false, `Two rendered signals share the canonical identity ${item.canonicalId}: ${byCanonicalId.get(item.canonicalId)} and ${item.id}.`);
+  }
+  byCanonicalId.set(item.canonicalId, item.id);
+}
+// The four the review found rendering twice.
+for (const canonicalId of ["doi:10.1016/j.cell.2025.11.014", "nct:NCT07433283", "nct:NCT06218524", "nct:NCT06928649"]) {
+  const matches = app.state.signals.filter((item) => item.canonicalId === canonicalId);
+  fail(matches.length === 1, `${canonicalId} renders ${matches.length} times; curated and automated layers did not merge.`);
+  const merged = matches[0];
+  if (!merged) continue;
+  fail(merged.reviewStatus === "curated", `${canonicalId} lost its curated card in the merge.`);
+  fail((merged.sources || []).length >= 2, `${canonicalId} does not retain both discovery routes.`);
+}
+const finLoop = app.state.signals.find((item) => item.canonicalId === "doi:10.1016/j.cell.2025.11.014");
+fail((finLoop?.trackedLabIds || []).includes("mishima-tohoku"), "The merged fin-loop record dropped the automated laboratory match.");
+
+// ------------------------------------------------------------- monitoring coverage
+
+const labHtml = harness.htmlFor("#labGrid");
+fail(!/site watch/.test(labHtml), "A laboratory is still described as site-watched although no site crawler exists.");
+fail(/manual official link/.test(labHtml), "Laboratories without an author watch must be labelled as manual.");
+fail(app.state.coverage?.labs?.length === app.state.labs.length, `Monitoring coverage covers ${app.state.coverage?.labs?.length} laboratories but ${app.state.labs.length} are published.`);
+
+// ------------------------------------------------------------- verification depth
+
+const paperHtml = harness.htmlFor("#paperGrid", "#paperContent");
+fail(/Archive-derived figure chain/.test(paperHtml), "The archive-derived verification depth is not visible on the card or at the top of the dialog.");
+fail(/full figures pending/.test(paperHtml), "The interface does not state that the full figures were not re-opened.");
+fail(!/figure-level audit/.test(paperHtml), "The overstated 'figure-level audit' badge is still rendered.");
+for (const paper of app.state.papers) {
+  fail(!("publicationStatus" in paper), `${paper.id} still carries the merged publicationStatus field.`);
+  fail(Boolean(paper.articleStage && paper.postPublicationStatus), `${paper.id} does not separate article stage from post-publication status.`);
+  for (const event of paper.versionEvents || []) {
+    fail(!(event.affectedDomains || []).includes("pending-source-check"), `${paper.id} still carries an unread correction notice.`);
+    fail(/^https:\/\//.test(event.sourceUrl || ""), `${paper.id} has a version event with no notice URL.`);
+  }
+}
+
+// ------------------------------------------------------- method decision schema (P1-A)
+//
+// A gap is only honest if a reader can see it. These assertions are against the rendered
+// method dialog, not against the data, because the dialog is what a researcher reads.
+
+const methodHtml = harness.htmlFor("#methodGrid", "#methodContent");
+fail(/Provisional module/.test(methodHtml), "A module with unresolved decision fields does not say so in the dialog.");
+fail(/pending source review/.test(methodHtml), "The pending-source-review status is not visible on any decision field.");
+fail(/decision fields source-checked/.test(methodHtml), "The method card does not state how many decision fields are source-checked.");
+fail(/What declaring it does not prove/.test(methodHtml), "A declared source route does not state what declaring it fails to prove.");
+fail(/Source not yet classified/.test(methodHtml), "A source whose kind was never established must say so rather than being given a class.");
+fail(/Vendor protocol/.test(methodHtml) && /Field recommendation/.test(methodHtml) && /Original research demonstration/.test(methodHtml),
+  "The dialog does not distinguish vendor protocol, field recommendation and original research demonstration.");
+fail(/no evidence recorded/.test(methodHtml), "Laboratories listed by curated judgement alone are not separated from evidence-backed capability.");
+fail(/Demonstrated through a source-checked claim/.test(methodHtml), "No capability claim is presented as evidence-backed, so the split proves nothing.");
+fail(/reviewPending/.test(methodHtml), "A module built on a dataset with no independent review does not disclose it.");
+
+for (const method of app.state.methods) {
+  const profile = method.decisionProfile;
+  fail(Boolean(profile), `Method ${method.id} has no decision profile.`);
+  if (!profile) continue;
+  for (const [axis, field] of Object.entries(profile.fields || {})) {
+    fail(["source-checked", "pending-source-review"].includes(field.status), `Method ${method.id}.${axis} has no explicit status.`);
+    fail(field.status === "source-checked" || !field.value, `Method ${method.id}.${axis} carries a value while declaring itself unverified.`);
+  }
+  for (const route of method.sourceRoutes || []) {
+    fail(route.status !== "checked" || Boolean(route.checkedAt && route.checkedBy), `Method ${method.id} claims a checked source with no reader or date.`);
+  }
+  for (const row of method.capabilityAttribution?.demonstrated || []) {
+    fail(Boolean(row.paperId && row.role), `Method ${method.id} asserts a capability without naming both a paper and a role.`);
+  }
+}
+
+// BODIPY 581/591 C11 must stay prohibited as a standalone diagnosis.
+const bodipy = app.state.bundles?.neverStandalone?.find((entry) => entry.methodId === "bodipy-c11-assay");
+fail(Boolean(bodipy), "BODIPY 581/591 C11 is no longer listed as an assay that may never stand alone.");
+fail(/Never a standalone answer/.test(methodHtml), "The never-standalone prohibition is not rendered in any method dialog.");
+
+// ---------------------------------------------------- graph provenance visibility (P1-B)
+
+const networkHtml = harness.htmlFor("#networkDetail");
+fail(/awaiting source review/.test(networkHtml), "A curated method-module boundary is presented without its provisional state.");
+fail(/curated method-module statements/.test(networkHtml), "The mechanism view does not separate curated assay boundaries from paper claims.");
 
 // The terminology corpus is the only place where Chinese and Japanese are published.
 const glossaryHtml = harness.htmlFor("#glossaryGrid");
@@ -142,6 +264,52 @@ fail(!/\son(error|load|click|mouseover)\s*=\s*["']/i.test(hostileHtml), "An inli
 fail(!/href="javascript:/i.test(hostileHtml), "A javascript: URL survived into a rendered link.");
 fail(!/href="data:/i.test(hostileHtml), "A data: URL survived into a rendered link.");
 fail(hostileHtml.includes('href="#"'), "Unsafe URL schemes must be replaced by an inert href.");
+
+// --------------------------------------------------- freshness rendering gate (P0-B)
+//
+// Nothing in the shipped dataset is stale, so partial degradation would never reach the
+// page in the tests above. It is rendered here from a fixture, because "a card that lost
+// one route of several" and "a card published entirely from retained bytes" must not look
+// the same to a reader.
+
+const freshnessDir = await fs.mkdtemp(path.join(os.tmpdir(), "ferroscope-freshness-"));
+await fs.cp(path.join(root, "data"), path.join(freshnessDir, "data"), { recursive: true });
+
+const route = (name, stale) => ({
+  route: name, kind: "automated", recordId: `record-${name}`, url: "https://doi.org/10.1000/fixture",
+  stale, lastSuccessAt: "2026-07-20T00:00:00.000Z", lastAttemptAt: "2026-07-23T00:00:00.000Z",
+});
+const freshnessSignals = [
+  {
+    id: "partly-retained", title: "Ferroptosis record whose secondary route failed", date: "2026-07-01",
+    sourceType: "paper", documentType: "unknown", documentTypeBasis: "pubmed-publication-type-unspecific",
+    evidenceGrade: null, evidenceGradeBasis: "unassessed", sourceName: "Tracked labs / PubMed",
+    relevance: 100, topics: ["methods"], takeaway: "One route retained, one route current.",
+    url: "https://doi.org/10.1000/fixture", stale: false, freshnessState: "partially-stale",
+    staleSourceNames: ["PubMed"], freshSourceNames: ["Tracked labs / PubMed"],
+    sources: [route("Tracked labs / PubMed", false), route("PubMed", true)],
+  },
+  {
+    id: "wholly-retained", title: "Ferroptosis record whose every route failed", date: "2026-07-02",
+    sourceType: "paper", documentType: "unknown", documentTypeBasis: "pubmed-publication-type-unspecific",
+    evidenceGrade: null, evidenceGradeBasis: "unassessed", sourceName: "PubMed",
+    relevance: 99, topics: ["methods"], takeaway: "Published from retained bytes.",
+    url: "https://doi.org/10.1000/fixture-2", stale: true, freshnessState: "stale",
+    staleSourceNames: ["PubMed"], freshSourceNames: [], sources: [route("PubMed", true)],
+  },
+];
+await fs.writeFile(path.join(freshnessDir, "data", "live.json"), `${JSON.stringify(freshnessSignals, null, 2)}\n`);
+
+const { harness: freshnessHarness } = await renderWith(freshnessDir, "freshness");
+const freshnessHtml = freshnessHarness.htmlFor("#signalList");
+await fs.rm(freshnessDir, { recursive: true, force: true });
+
+fail(/one route retained/.test(freshnessHtml), "A partially degraded record does not say that one route was retained.");
+fail(/every source route last failed/.test(freshnessHtml), "A wholly retained record does not say that every route failed.");
+fail(/review-badge partial-stale/.test(freshnessHtml), "Partial degradation is not marked distinctly from a wholly stale record.");
+const partialIndex = freshnessHtml.indexOf("partial-stale");
+const staleIndex = freshnessHtml.indexOf('review-badge stale"');
+fail(partialIndex !== -1 && staleIndex !== -1 && partialIndex !== staleIndex, "The two freshness states render with the same badge.");
 
 if (errors.length) {
   console.error(errors.join("\n"));

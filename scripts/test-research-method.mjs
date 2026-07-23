@@ -236,11 +236,11 @@ if (march7) fail(march7.readingLevel === "evidence-audited", "未获得完整主
 
 fail(research.counts.audited === 37, `37 个团队应全部完成档案审计，当前 ${research.counts.audited}`);
 fail(research.counts.screened === 0, `完成全量审计后不应保留 pending 初筛，当前 ${research.counts.screened}`);
-fail(app.includes("${state.researchCounts.figureAuditedStudies}/${state.researchCounts.studies} unique representative papers reached figure-level audit") && app.includes("${state.researchCounts.studyRecords} lab–paper relationship records"), "Page must disclose unique-paper and relationship-record counts separately");
+fail(app.includes("${state.researchCounts.figureAuditedStudies}/${state.researchCounts.studies} unique representative papers carry a figure chain in the legacy archive") && app.includes("${state.researchCounts.studyRecords} lab–paper relationship records"), "Page must disclose unique-paper and relationship-record counts separately without presenting an archive-derived chain as a fresh full-text audit");
 fail(app.includes("evidence-audited archive") && !app.includes("reading complete"), "Team layer must be labelled as a profile archive, not a completed paper reading");
 fail(app.includes("Persistent question") && app.includes("Distinctive method capability") && app.includes("Representative source records") && app.includes("lab.focus"), "Team profile does not combine longitudinal synthesis with paper-level evidence");
 fail(app.includes("Scale 1 · 60-second paper card") && app.includes("English release status") && app.includes("interpretive text remains unpublished"), "Representative paper card does not expose the 60-second layer and English release gate");
-fail(app.includes("Scale 2 · Figure-level audit recorded") && app.includes("Scale 3 · longitudinal laboratory synthesis"), "Team profile does not distinguish the Figure-audit layer from longitudinal synthesis");
+fail(app.includes("Scale 2 · Figure-level causal audit") && app.includes("Scale 3 · longitudinal laboratory synthesis"), "Team profile does not distinguish the Figure-audit layer from longitudinal synthesis");
 fail(index.includes("id=\"quickStudyCount\"") && index.includes("id=\"figureStudyCount\"") && index.includes("id=\"longitudinalLabCount\""), "全球团队页缺少三维阅读覆盖概览");
 
 if (errors.length) {
