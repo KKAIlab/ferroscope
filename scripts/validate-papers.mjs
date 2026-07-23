@@ -15,6 +15,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { VERIFICATION_DEPTHS, checkReviewRecord, verificationDepthRank } from "../lib/graph.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const read = async (file) => JSON.parse(await fs.readFile(path.join(root, "data", file), "utf8"));
@@ -34,11 +35,13 @@ const cjk = /[㐀-鿿぀-ヿ가-힯]/u;
 const articleStages = new Set(["preprint", "accepted-manuscript", "corrected-proof", "version-of-record"]);
 const postPublicationStatuses = new Set(["none", "corrected", "expression-of-concern", "editor-note", "retracted", "contested"]);
 const readingDepths = new Set(["metadata", "abstract", "figure-chain", "longitudinal"]);
-const verificationDepths = new Set(["metadata-checked", "abstract-cross-checked", "archive-derived", "full-text-rechecked", "raw-data-rechecked"]);
+// One vocabulary, defined next to the contract that enforces it, so the paper layer and the
+// graph layer cannot drift into meaning different things by the same word.
+const verificationDepths = new Set(VERIFICATION_DEPTHS);
 const noticeTypes = new Set(["author-correction", "publisher-correction", "matters-arising", "reply", "editor-note", "expression-of-concern", "retraction", "article-stage-reclassification"]);
 const conclusionImpacts = new Set(["none-stated", "explicitly-none", "potentially-material", "material", "unknown"]);
-const sourceKinds = new Set(["crossref", "pubmed", "publisher-full-text", "correction-notice", "preprint-server", "trial-registry", "raw-data"]);
-const sourceStatuses = new Set(["checked", "not-checked", "unavailable"]);
+const sourceKinds = new Set(["crossref", "pubmed", "publisher-full-text", "pmc-author-manuscript", "correction-notice", "preprint-server", "trial-registry", "raw-data"]);
+const sourceStatuses = new Set(["source-checked", "not-checked", "unavailable"]);
 // A notice from the publisher has to be read before its domains can be recorded. An
 // internal reclassification of our own record is not a publisher notice and has none.
 const publisherNoticeTypes = new Set(["author-correction", "publisher-correction", "editor-note", "expression-of-concern", "retraction"]);
@@ -115,7 +118,7 @@ for (const [index, paper] of papers.entries()) {
   // ------------------------------------------------------------- correction notices
   const events = paper.versionEvents || [];
   const verification = paper.verification || {};
-  const noticeUrls = new Set((verification.sources || []).filter((source) => source.kind === "correction-notice" && source.status === "checked").map((source) => source.url));
+  const noticeUrls = new Set((verification.sources || []).filter((source) => source.kind === "correction-notice" && source.status === "source-checked").map((source) => source.url));
 
   for (const [eventIndex, event] of events.entries()) {
     const eventWhere = `${where} versionEvent ${eventIndex + 1}`;
@@ -127,7 +130,8 @@ for (const [index, paper] of papers.entries()) {
     fail(Array.isArray(event.affectedDomains) && event.affectedDomains.length > 0, `${eventWhere}: affectedDomains must be a non-empty list`);
     fail(!(event.affectedDomains || []).includes("pending-source-check"), `${eventWhere}: pending-source-check is not an affected domain; read the notice and record what it changes`);
     fail(conclusionImpacts.has(event.conclusionImpact), `${eventWhere}: unknown conclusionImpact ${event.conclusionImpact}`);
-    fail(isoDate.test(event.checkedAt || ""), `${eventWhere}: checkedAt must record when the notice was classified`);
+    fail(!("checkedAt" in event), `${eventWhere}: checkedAt is retired on a notice; classifying a notice from metadata is not reading it. Use classifiedAt, and record a reviews[] entry if the text was opened`);
+    fail(isoDate.test(event.classifiedAt || ""), `${eventWhere}: classifiedAt must record when the notice was classified`);
     fail(/^https:\/\//.test(event.sourceUrl || ""), `${eventWhere}: an HTTPS sourceUrl for the notice is required`);
     fail((event.note || "").length >= 40, `${eventWhere}: a note explaining the event is required`);
     if (event.conclusionImpact === "unknown") {
@@ -135,7 +139,11 @@ for (const [index, paper] of papers.entries()) {
     }
     // A publisher notice may only claim an affected domain if the notice itself was read.
     if (publisherNoticeTypes.has(event.noticeType)) {
-      fail(noticeUrls.has(event.sourceUrl), `${eventWhere}: the notice at ${event.sourceUrl} is classified but is not recorded as a checked correction-notice source`);
+      fail(noticeUrls.has(event.sourceUrl), `${eventWhere}: the notice at ${event.sourceUrl} is classified but is not recorded as a source-checked correction-notice source`);
+      fail(
+        (event.reviews || []).some((review) => review.reviewState === "source-checked" && (review.scope || []).includes("correction text")),
+        `${eventWhere}: affectedDomains are recorded for this notice, but no review record says its text was opened and read`,
+      );
     }
   }
 
@@ -159,19 +167,28 @@ for (const [index, paper] of papers.entries()) {
     fail(Array.isArray(source.scope), `${sourceWhere}: scope must be an array, empty when nothing was read`);
     fail(sourceStatuses.has(source.status), `${sourceWhere}: unknown status ${source.status}`);
     fail((source.finding || "").length >= 20, `${sourceWhere}: a finding is required, including for a source that was not opened`);
-    if (source.status === "checked") {
-      fail(isoDate.test(source.checkedAt || ""), `${sourceWhere}: a checked source needs an ISO checkedAt date`);
-      fail((source.checkedBy || "").length > 0, `${sourceWhere}: a checked source must name who checked it`);
-      fail((source.scope || []).length > 0, `${sourceWhere}: a checked source must state which fields it covered`);
-    } else {
-      fail((source.scope || []).length === 0, `${sourceWhere}: an unchecked source cannot claim a scope`);
-    }
+    // The shared review contract, so a paper source and a graph edge are held to one rule.
+    for (const problem of checkReviewRecord({ ...source, sourceUrl: source.url }, sourceWhere)) fail(false, problem);
+    fail(verificationDepths.has(source.verificationDepth), `${sourceWhere}: unknown verificationDepth ${source.verificationDepth}`);
+    fail(
+      (source.status === "source-checked") === (source.reviewState === "source-checked"),
+      `${sourceWhere}: status ${JSON.stringify(source.status)} and reviewState ${JSON.stringify(source.reviewState)} disagree; a source may not be checked on one axis and unread on the other`,
+    );
   }
+
+  // A paper may not claim a depth that no single source of its own actually reached.
+  const deepest = (verification.sources || [])
+    .filter((source) => source.reviewState === "source-checked")
+    .reduce((best, source) => Math.max(best, verificationDepthRank(source.verificationDepth)), -1);
+  fail(
+    verificationDepthRank(paper.verificationDepth) <= Math.max(deepest, verificationDepthRank("archive-derived")),
+    `${where}: verificationDepth ${paper.verificationDepth} is deeper than any source-checked record on this paper reached`,
+  );
   fail(Array.isArray(verification.unresolved), `${where}: verification.unresolved must be an array, empty if nothing is outstanding`);
 
   const derivation = verification.derivation || {};
   const derivedFrom = paper.derivedFrom || {};
-  if (paper.verificationDepth === "archive-derived") {
+  if ((verification.baselineReviewState || "archive-derived") === "archive-derived") {
     fail(derivation.type === "archive-rewrite", `${where}: an archive-derived record must declare verification.derivation.type "archive-rewrite"`);
     fail(Boolean(derivation.sourceRecord && derivation.sourceCommit), `${where}: an archive-derived record must name the source record and the commit it was rewritten from`);
     fail(derivedFrom.legacyRecordId === derivation.sourceRecord, `${where}: derivedFrom.legacyRecordId and verification.derivation.sourceRecord disagree`);
@@ -180,9 +197,9 @@ for (const [index, paper] of papers.entries()) {
   }
   const fullText = (verification.sources || []).find((source) => source.kind === "publisher-full-text");
   if (["full-text-rechecked", "raw-data-rechecked"].includes(paper.verificationDepth)) {
-    fail(fullText?.status === "checked", `${where}: a full-text-rechecked record must record the publisher full text as a checked source`);
+    fail(fullText?.status === "source-checked", `${where}: a full-text-rechecked record must record the publisher full text as a source-checked source`);
   } else {
-    fail(fullText?.status !== "checked", `${where}: the publisher full text is recorded as checked, so verificationDepth must be full-text-rechecked or stronger`);
+    fail(fullText?.status !== "source-checked", `${where}: the publisher full text is recorded as source-checked, so verificationDepth must be full-text-rechecked or stronger`);
   }
 
   if (paper.readingDepth === "figure-chain" && figures.length >= 4 && Object.keys(sixty).length === 5) threeScaleCount += 1;
@@ -234,11 +251,21 @@ if (errors.length) {
 
 const withNotices = papers.filter((paper) => paper.postPublicationStatus !== "none").length;
 const contested = papers.filter((paper) => paper.contested).length;
-const fullTextRechecked = papers.filter((paper) => ["full-text-rechecked", "raw-data-rechecked"].includes(paper.verificationDepth)).length;
-const notices = papers.flatMap((paper) => paper.versionEvents || []).length;
+const events = papers.flatMap((paper) => paper.versionEvents || []);
+const noticesRead = events.filter((event) => (event.reviews || []).some((review) => review.reviewState === "source-checked")).length;
+
+// Reported per depth rather than as "verified / not verified". A binary split is what let
+// eleven archive rewrites be counted alongside a paper somebody actually opened.
+const depthCounts = VERIFICATION_DEPTHS
+  .map((depth) => [depth, papers.filter((paper) => paper.verificationDepth === depth).length])
+  .filter(([, count]) => count > 0)
+  .map(([depth, count]) => `${count} ${depth}`)
+  .join(", ");
+
 console.log(
   `Paper layer validation passed: ${papers.length} English paper records ` +
-    `(${threeScaleCount} readable at all three scales, ${fullTextRechecked} verified against the full text, ${papers.length - fullTextRechecked} archive-derived, ` +
-    `${withNotices} carrying a post-publication notice, ${contested} formally contested, ${notices} classified version events with zero unread notices) ` +
+    `(${threeScaleCount} readable at all three scales; reading depth: ${depthCounts}; ` +
+    `${withNotices} carrying a post-publication notice, ${contested} formally contested, ` +
+    `${events.length} classified version events of which ${noticesRead} had their notice text opened and read) ` +
     `and ${links.length} laboratory attribution records across ${new Set(links.map((link) => link.labId)).size} laboratories.`,
 );
