@@ -152,6 +152,23 @@ fail(/Analytical inference/.test(methodHtml), "The support-mode axis does not di
 fail(/Opened source ↗/.test(methodHtml), "A source-checked decision field does not link to the source that was actually opened.");
 fail(/Not established here:/.test(methodHtml), "A source-checked decision field does not state the scope boundary of its evidence.");
 
+// Round-6 §10 / P1-A: the method dialog is rendered from the canonical registry. Each evidence
+// row must show the exact clause it supports, the document surface and access extent, the
+// selected event's reader and date, and the source that was opened — and it must never present
+// a Results paragraph as "Methods-checked" or a vendor page as a scientific full text.
+fail(app.state.registry && app.state.registry.sourceIds().length > 0, "The canonical source registry did not resolve on the app state.");
+fail(/class="ev-fragment"/.test(methodHtml), "A source-checked decision field does not render the claim fragment it supports.");
+fail(/Read by /.test(methodHtml), "A source-checked decision field does not name the reader and date of its selected review event.");
+fail(/read in full/.test(methodHtml), "No evidence row states its access extent (read in full / in part).");
+fail(/Results section text/.test(methodHtml), "A Results-section scope is not rendered by its surface type.");
+fail(/Methods section text/.test(methodHtml), "A Methods-section scope is not rendered by its surface type.");
+fail(!/Methods-checked/.test(methodHtml), "A method evidence surface still renders the retired ordinal depth 'Methods-checked' instead of a surface type.");
+fail(!/full-text-rechecked/i.test(methodHtml), "A method source still renders the retired 'full-text-rechecked' depth.");
+fail(/Vendor product description/.test(methodHtml), "The vendor catalogue page is not shown as a vendor product description; it must never read as a scientific full text.");
+// The BODIPY question boundary and the MDA readout adduct clause were relabelled from explicit
+// to derived; the derived support mode must be visible in the dialog.
+fail(/Derived from source/.test(methodHtml), "The relabelled derived support modes (P0-5) do not render.");
+
 for (const method of app.state.methods) {
   const profile = method.decisionProfile;
   fail(Boolean(profile), `Method ${method.id} has no decision profile.`);
