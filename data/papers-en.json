@@ -7,9 +7,17 @@
     "journal": "Cell",
     "year": 2026,
     "citation": "Cell 189, 287-306.e35",
-    "publicationStatus": "version-of-record",
+    "articleStage": "version-of-record",
+    "postPublicationStatus": "none",
     "versionEvents": [],
-    "readingLevel": "figure-audited",
+    "readingDepth": "figure-chain",
+    "verificationDepth": "archive-derived",
+    "derivedFrom": {
+      "legacyFile": "data/lab-research.json",
+      "legacyRecordId": "doi:10.1016/j.cell.2025.11.014",
+      "legacyReadingLevel": "figure-audited",
+      "sourceCommit": "eaae307"
+    },
     "theme": "GPX4 membrane anchoring",
     "conditionVector": "Patient fibroblast-derived iPSC neurons and forebrain organoids, plus inducible Camk2a and L7Cre mouse models; ferroptosis is unmasked by liproxstatin-1 withdrawal or conditional Gpx4 deletion rather than by an added inducer; readouts are live-cell imaging, NMR and crystallography, bicelle and GUV binding, MRI and plasma neurofilament light over days to weeks.",
     "sixtySecond": {
@@ -68,9 +76,12 @@
     ],
     "verification": {
       "checkedAt": "2026-07-23",
-      "metadata": "Crossref record checked on 2026-07-23: Cell, volume 189, pages 287-306.e35, issued 2026-01, 73 authors, first author Svenja M. Lorenz, last author Marcus Conrad. No correction is registered against this DOI.",
-      "claims": "Central claims cross-checked against the PubMed abstract, PMID 41349546.",
-      "figureLayer": "The English figure audit was rewritten from the project audit archive; the full text and figures were not re-opened in this pass.",
+      "sources": [
+        { "kind": "crossref", "url": "https://api.crossref.org/works/10.1016/j.cell.2025.11.014", "scope": ["title", "journal", "volume-pages", "issued-date", "authors", "version-relations"], "status": "checked", "checkedAt": "2026-07-23", "checkedBy": "round-1 ingestion pass, independently re-queried in the Codex review of 2026-07-23", "finding": "Cell, volume 189, pages 287-306.e35, issued 2026-01, 73 authors, first author Svenja M. Lorenz, last author Marcus Conrad. No correction is registered against this DOI." },
+        { "kind": "pubmed", "url": "https://pubmed.ncbi.nlm.nih.gov/41349546/", "scope": ["citation", "abstract"], "status": "checked", "checkedAt": "2026-07-23", "checkedBy": "round-1 ingestion pass", "finding": "Central claims cross-checked against the PubMed abstract, PMID 41349546." },
+        { "kind": "publisher-full-text", "url": "https://doi.org/10.1016/j.cell.2025.11.014", "scope": [], "status": "not-checked", "checkedAt": null, "checkedBy": null, "finding": "The full text, main figures and supplements were not re-opened, so the figure chain below is archive-derived rather than freshly read." }
+      ],
+      "derivation": { "type": "archive-rewrite", "sourceRecord": "doi:10.1016/j.cell.2025.11.014", "sourceCommit": "eaae307" },
       "unresolved": []
     }
   },
@@ -82,17 +93,29 @@
     "journal": "Nature Chemical Biology",
     "year": 2020,
     "citation": "Nature Chemical Biology 16, 302-309",
-    "publicationStatus": "corrected",
+    "articleStage": "version-of-record",
+    "postPublicationStatus": "corrected",
     "versionEvents": [
       {
         "type": "Author Correction",
+        "noticeType": "author-correction",
         "doi": "10.1038/s41589-021-00767-w",
+        "sourceUrl": "https://www.nature.com/articles/s41589-021-00767-w",
         "date": "2021-03-02",
-        "affects": "pending-source-check",
-        "note": "Registered at Crossref as a correction to this DOI. The class indicates an author-initiated change; the specific corrected element has not been re-read in this pass."
+        "affectedDomains": ["methods", "reagent-identification"],
+        "conclusionImpact": "none-stated",
+        "checkedAt": "2026-07-23",
+        "note": "The notice corrects the catalogue number, clone and lot information given for the POR antibody in the immunoblot Methods. It changes which reagent a reader would order to reproduce the blots; it states no change to any result or conclusion."
       }
     ],
-    "readingLevel": "figure-audited",
+    "readingDepth": "figure-chain",
+    "verificationDepth": "archive-derived",
+    "derivedFrom": {
+      "legacyFile": "data/lab-research.json",
+      "legacyRecordId": "doi:10.1038/s41589-020-0472-6",
+      "legacyReadingLevel": "figure-audited",
+      "sourceCommit": "eaae307"
+    },
     "theme": "redox flux into phospholipid peroxidation",
     "conditionVector": "786-O and UACC-257 and further carcinoma lines in culture, with ML210, RSL3, erastin, FIN56, BSO and FINO2 as inducers, some screens run after supplementing individual omega-3 and omega-6 fatty acids; readouts are genome-wide CRISPR suppressor screens, C11-BODIPY, malondialdehyde and targeted LC-MS of oxidised phosphatidylethanolamines over acute dose-response windows.",
     "sixtySecond": {
@@ -151,12 +174,14 @@
     ],
     "verification": {
       "checkedAt": "2026-07-23",
-      "metadata": "Crossref record checked on 2026-07-23: Nature Chemical Biology, volume 16, pages 302-309, issued 2020-02-17, first author Yilong Zou, last author Stuart L. Schreiber. Crossref lists an Author Correction, 10.1038/s41589-021-00767-w, dated 2021-03-02.",
-      "claims": "Central claims cross-checked against the PubMed abstract, PMID 32080622.",
-      "figureLayer": "The English figure audit was rewritten from the project audit archive; the full text and figures were not re-opened in this pass.",
-      "unresolved": [
-        "The 2021 Author Correction notice has not been read in this pass, so the affected element is recorded as pending."
-      ]
+      "sources": [
+        { "kind": "crossref", "url": "https://api.crossref.org/works/10.1038/s41589-020-0472-6", "scope": ["title", "journal", "volume-pages", "issued-date", "authors", "version-relations"], "status": "checked", "checkedAt": "2026-07-23", "checkedBy": "round-1 ingestion pass, independently re-queried in the Codex review of 2026-07-23", "finding": "Nature Chemical Biology, volume 16, pages 302-309, issued 2020-02-17, first author Yilong Zou, last author Stuart L. Schreiber. Crossref lists an Author Correction, 10.1038/s41589-021-00767-w, dated 2021-03-02." },
+        { "kind": "pubmed", "url": "https://pubmed.ncbi.nlm.nih.gov/32080622/", "scope": ["citation", "abstract"], "status": "checked", "checkedAt": "2026-07-23", "checkedBy": "round-1 ingestion pass", "finding": "Central claims cross-checked against the PubMed abstract, PMID 32080622." },
+        { "kind": "correction-notice", "url": "https://www.nature.com/articles/s41589-021-00767-w", "scope": ["affected-domain", "conclusion-impact"], "status": "checked", "checkedAt": "2026-07-23", "checkedBy": "independent review (Codex), recorded in HANDOFF.md section 2", "finding": "The notice corrects the POR antibody catalogue, clone and lot information in the immunoblot Methods and states no conclusion change. Read by the independent reviewer; not re-opened in the round-2 pass, which had no outbound network access." },
+        { "kind": "publisher-full-text", "url": "https://doi.org/10.1038/s41589-020-0472-6", "scope": [], "status": "not-checked", "checkedAt": null, "checkedBy": null, "finding": "The full text, main figures and supplements were not re-opened, so the figure chain below is archive-derived rather than freshly read." }
+      ],
+      "derivation": { "type": "archive-rewrite", "sourceRecord": "doi:10.1038/s41589-020-0472-6", "sourceCommit": "eaae307" },
+      "unresolved": []
     }
   },
   {
@@ -167,9 +192,17 @@
     "journal": "Nature",
     "year": 2020,
     "citation": "Nature 585, 603-608",
-    "publicationStatus": "version-of-record",
+    "articleStage": "version-of-record",
+    "postPublicationStatus": "none",
     "versionEvents": [],
-    "readingLevel": "figure-audited",
+    "readingDepth": "figure-chain",
+    "verificationDepth": "archive-derived",
+    "derivedFrom": {
+      "legacyFile": "data/lab-research.json",
+      "legacyRecordId": "doi:10.1038/s41586-020-2732-8",
+      "legacyReadingLevel": "figure-audited",
+      "sourceCommit": "eaae307"
+    },
     "theme": "PUFA ether-lipid plasticity",
     "conditionVector": "OVCAR-8 and 786-O carcinoma lines, differentiated SH-SY5Y neuron-like cells and iPSC-derived cardiomyocytes, plus engineered GPX4-null xenografts in mice; GPX4 is removed pharmacologically or genetically; readouts are genome-wide CRISPR suppressor screens, lipidomic profiling of ether phospholipids and tumour regrowth over weeks.",
     "sixtySecond": {
@@ -219,9 +252,12 @@
     ],
     "verification": {
       "checkedAt": "2026-07-23",
-      "metadata": "Crossref record checked on 2026-07-23: Nature, volume 585, pages 603-608, issued 2020-09-16, first author Yilong Zou, last author Stuart L. Schreiber. No correction is registered against this DOI.",
-      "claims": "Central claims cross-checked against the PubMed abstract, PMID 32939090.",
-      "figureLayer": "The English figure audit was rewritten from the project audit archive; the full text and figures were not re-opened in this pass.",
+      "sources": [
+        { "kind": "crossref", "url": "https://api.crossref.org/works/10.1038/s41586-020-2732-8", "scope": ["title", "journal", "volume-pages", "issued-date", "authors", "version-relations"], "status": "checked", "checkedAt": "2026-07-23", "checkedBy": "round-1 ingestion pass, independently re-queried in the Codex review of 2026-07-23", "finding": "Nature, volume 585, pages 603-608, issued 2020-09-16, first author Yilong Zou, last author Stuart L. Schreiber. No correction is registered against this DOI." },
+        { "kind": "pubmed", "url": "https://pubmed.ncbi.nlm.nih.gov/32939090/", "scope": ["citation", "abstract"], "status": "checked", "checkedAt": "2026-07-23", "checkedBy": "round-1 ingestion pass", "finding": "Central claims cross-checked against the PubMed abstract, PMID 32939090." },
+        { "kind": "publisher-full-text", "url": "https://doi.org/10.1038/s41586-020-2732-8", "scope": [], "status": "not-checked", "checkedAt": null, "checkedBy": null, "finding": "The full text, main figures and supplements were not re-opened, so the figure chain below is archive-derived rather than freshly read." }
+      ],
+      "derivation": { "type": "archive-rewrite", "sourceRecord": "doi:10.1038/s41586-020-2732-8", "sourceCommit": "eaae307" },
       "unresolved": []
     }
   },
@@ -233,9 +269,17 @@
     "journal": "Nature",
     "year": 2019,
     "citation": "Nature 575, 693-698",
-    "publicationStatus": "version-of-record",
+    "articleStage": "version-of-record",
+    "postPublicationStatus": "none",
     "versionEvents": [],
-    "readingLevel": "figure-audited",
+    "readingDepth": "figure-chain",
+    "verificationDepth": "archive-derived",
+    "derivedFrom": {
+      "legacyFile": "data/lab-research.json",
+      "legacyRecordId": "doi:10.1038/s41586-019-1707-0",
+      "legacyReadingLevel": "figure-audited",
+      "sourceCommit": "eaae307"
+    },
     "theme": "FSP1-CoQ defence",
     "conditionVector": "Human cancer cell lines with GPX4 deleted or inhibited by RSL3 and related inducers, complemented by expression cloning and purified-protein and liposome co-oxidation assays; readouts are survival, lipid-radical probes, oxidised phospholipids and NAD(P)H consumption over acute windows.",
     "sixtySecond": {
@@ -285,9 +329,12 @@
     ],
     "verification": {
       "checkedAt": "2026-07-23",
-      "metadata": "Crossref record checked on 2026-07-23: Nature, volume 575, pages 693-698, issued 2019-10-21, first author Sebastian Doll, last author Marcus Conrad. No correction is registered against this DOI.",
-      "claims": "Central claims cross-checked against the PubMed abstract, PMID 31634899.",
-      "figureLayer": "The English figure audit was rewritten from the project audit archive; the full text and figures were not re-opened in this pass.",
+      "sources": [
+        { "kind": "crossref", "url": "https://api.crossref.org/works/10.1038/s41586-019-1707-0", "scope": ["title", "journal", "volume-pages", "issued-date", "authors", "version-relations"], "status": "checked", "checkedAt": "2026-07-23", "checkedBy": "round-1 ingestion pass, independently re-queried in the Codex review of 2026-07-23", "finding": "Nature, volume 575, pages 693-698, issued 2019-10-21, first author Sebastian Doll, last author Marcus Conrad. No correction is registered against this DOI." },
+        { "kind": "pubmed", "url": "https://pubmed.ncbi.nlm.nih.gov/31634899/", "scope": ["citation", "abstract"], "status": "checked", "checkedAt": "2026-07-23", "checkedBy": "round-1 ingestion pass", "finding": "Central claims cross-checked against the PubMed abstract, PMID 31634899." },
+        { "kind": "publisher-full-text", "url": "https://doi.org/10.1038/s41586-019-1707-0", "scope": [], "status": "not-checked", "checkedAt": null, "checkedBy": null, "finding": "The full text, main figures and supplements were not re-opened, so the figure chain below is archive-derived rather than freshly read." }
+      ],
+      "derivation": { "type": "archive-rewrite", "sourceRecord": "doi:10.1038/s41586-019-1707-0", "sourceCommit": "eaae307" },
       "unresolved": []
     }
   },
@@ -299,9 +346,17 @@
     "journal": "Nature",
     "year": 2022,
     "citation": "Nature 608, 778-783",
-    "publicationStatus": "version-of-record",
+    "articleStage": "version-of-record",
+    "postPublicationStatus": "none",
     "versionEvents": [],
-    "readingLevel": "figure-audited",
+    "readingDepth": "figure-chain",
+    "verificationDepth": "archive-derived",
+    "derivedFrom": {
+      "legacyFile": "data/lab-research.json",
+      "legacyRecordId": "doi:10.1038/s41586-022-05022-3",
+      "legacyReadingLevel": "figure-audited",
+      "sourceCommit": "eaae307"
+    },
     "theme": "FSP1 and vitamin K",
     "conditionVector": "Cells with GPX4 deleted or inhibited, hepatocyte-specific Gpx4 knockout mice, liver and kidney ischaemia-reperfusion with pre-injury dosing, and warfarin-overdose mice; vitamin K forms are given at nutritional excess; readouts are death, oxidised phosphatidylethanolamines, FENIX liposome kinetics and clotting parameters.",
     "sixtySecond": {
@@ -351,9 +406,12 @@
     ],
     "verification": {
       "checkedAt": "2026-07-23",
-      "metadata": "Crossref record checked on 2026-07-23: Nature, volume 608, pages 778-783, issued 2022-08-03, first author Eikan Mishima, last author Marcus Conrad. No correction is registered against this DOI.",
-      "claims": "Central claims cross-checked against the PubMed abstract, PMID 35922516.",
-      "figureLayer": "The English figure audit was rewritten from the project audit archive; the full text and figures were not re-opened in this pass.",
+      "sources": [
+        { "kind": "crossref", "url": "https://api.crossref.org/works/10.1038/s41586-022-05022-3", "scope": ["title", "journal", "volume-pages", "issued-date", "authors", "version-relations"], "status": "checked", "checkedAt": "2026-07-23", "checkedBy": "round-1 ingestion pass, independently re-queried in the Codex review of 2026-07-23", "finding": "Nature, volume 608, pages 778-783, issued 2022-08-03, first author Eikan Mishima, last author Marcus Conrad. No correction is registered against this DOI." },
+        { "kind": "pubmed", "url": "https://pubmed.ncbi.nlm.nih.gov/35922516/", "scope": ["citation", "abstract"], "status": "checked", "checkedAt": "2026-07-23", "checkedBy": "round-1 ingestion pass", "finding": "Central claims cross-checked against the PubMed abstract, PMID 35922516." },
+        { "kind": "publisher-full-text", "url": "https://doi.org/10.1038/s41586-022-05022-3", "scope": [], "status": "not-checked", "checkedAt": null, "checkedBy": null, "finding": "The full text, main figures and supplements were not re-opened, so the figure chain below is archive-derived rather than freshly read." }
+      ],
+      "derivation": { "type": "archive-rewrite", "sourceRecord": "doi:10.1038/s41586-022-05022-3", "sourceCommit": "eaae307" },
       "unresolved": []
     }
   },
@@ -365,9 +423,17 @@
     "journal": "Nature Chemical Biology",
     "year": 2017,
     "citation": "Nature Chemical Biology 13, 81-90",
-    "publicationStatus": "version-of-record",
+    "articleStage": "version-of-record",
+    "postPublicationStatus": "none",
     "versionEvents": [],
-    "readingLevel": "figure-audited",
+    "readingDepth": "figure-chain",
+    "verificationDepth": "archive-derived",
+    "derivedFrom": {
+      "legacyFile": "data/lab-research.json",
+      "legacyRecordId": "doi:10.1038/nchembio.2238",
+      "legacyReadingLevel": "figure-audited",
+      "sourceCommit": "eaae307"
+    },
     "theme": "redox lipidomics of oxidised PE",
     "conditionVector": "Cultured cells with RSL3 or genetic Gpx4 loss, with and without exogenous arachidonic acid loading, plus inducible Gpx4-knockout mouse kidney; readouts are LiperFluo imaging, quantitative redox lipidomics of about 350 phospholipids and their oxidation products, deuterated fatty-acid tracing and defined oxidised-lipid supplementation over acute windows.",
     "sixtySecond": {
@@ -435,9 +501,12 @@
     ],
     "verification": {
       "checkedAt": "2026-07-23",
-      "metadata": "Crossref record checked on 2026-07-23: Nature Chemical Biology, volume 13, pages 81-90, first author Valerian E. Kagan, last author Hulya Bayir. Crossref gives the online date 2016-11-14 and PubMed gives the issue date 2017 January; the citation year 2017 is used. No correction is registered against this DOI.",
-      "claims": "Central claims cross-checked against the PubMed abstract, PMID 27842066.",
-      "figureLayer": "The English figure audit was rewritten from the project audit archive; the full text and figures were not re-opened in this pass.",
+      "sources": [
+        { "kind": "crossref", "url": "https://api.crossref.org/works/10.1038/nchembio.2238", "scope": ["title", "journal", "volume-pages", "online-date", "issued-date", "authors", "version-relations"], "status": "checked", "checkedAt": "2026-07-23", "checkedBy": "round-1 ingestion pass, independently re-queried in the Codex review of 2026-07-23", "finding": "Nature Chemical Biology, volume 13, pages 81-90, first author Valerian E. Kagan, last author Hulya Bayir. Crossref gives the online date 2016-11-14 and PubMed gives the issue date 2017 January; the citation year 2017 is used and the 2016 electronic date is retained. No correction is registered against this DOI." },
+        { "kind": "pubmed", "url": "https://pubmed.ncbi.nlm.nih.gov/27842066/", "scope": ["citation", "abstract"], "status": "checked", "checkedAt": "2026-07-23", "checkedBy": "round-1 ingestion pass", "finding": "Central claims cross-checked against the PubMed abstract, PMID 27842066." },
+        { "kind": "publisher-full-text", "url": "https://doi.org/10.1038/nchembio.2238", "scope": [], "status": "not-checked", "checkedAt": null, "checkedBy": null, "finding": "The full text, main figures and supplements were not re-opened, so the figure chain below is archive-derived rather than freshly read." }
+      ],
+      "derivation": { "type": "archive-rewrite", "sourceRecord": "doi:10.1038/nchembio.2238", "sourceCommit": "eaae307" },
       "unresolved": []
     }
   },
@@ -449,9 +518,17 @@
     "journal": "Nature",
     "year": 2025,
     "citation": "Nature 642, 492-500",
-    "publicationStatus": "version-of-record",
+    "articleStage": "version-of-record",
+    "postPublicationStatus": "none",
     "versionEvents": [],
-    "readingLevel": "figure-audited",
+    "readingDepth": "figure-chain",
+    "verificationDepth": "archive-derived",
+    "derivedFrom": {
+      "legacyFile": "data/lab-research.json",
+      "legacyRecordId": "doi:10.1038/s41586-025-08974-4",
+      "legacyReadingLevel": "figure-audited",
+      "sourceCommit": "eaae307"
+    },
     "theme": "lysosomal iron and membrane damage",
     "conditionVector": "Cancer cell lines, primary sarcoma and pancreatic ductal adenocarcinoma cells, organoids and drug-tolerant persister states, plus a 4T1 lymph-node metastasis model with intranodal dosing; inducers are RSL3 or the designed activator fentomycin-1; readouts are clickable-probe localisation, iron probes, LiperFluo and C11-BODIPY at one to four hours and proteomics at 24 to 48 hours.",
     "sixtySecond": {
@@ -501,9 +578,12 @@
     ],
     "verification": {
       "checkedAt": "2026-07-23",
-      "metadata": "Crossref record checked on 2026-07-23: Nature, volume 642, pages 492-500, issued 2025-05-07, first author Tatiana Caneque, last author Raphael Rodriguez. Crossref records a preprint relation but no correction against this DOI.",
-      "claims": "Central claims cross-checked against the PubMed abstract, PMID 40335696.",
-      "figureLayer": "The English figure audit was rewritten from the project audit archive; the full text and figures were not re-opened in this pass.",
+      "sources": [
+        { "kind": "crossref", "url": "https://api.crossref.org/works/10.1038/s41586-025-08974-4", "scope": ["title", "journal", "volume-pages", "issued-date", "authors", "version-relations"], "status": "checked", "checkedAt": "2026-07-23", "checkedBy": "round-1 ingestion pass, independently re-queried in the Codex review of 2026-07-23", "finding": "Nature, volume 642, pages 492-500, issued 2025-05-07, first author Tatiana Caneque, last author Raphael Rodriguez. Crossref records a preprint relation but no correction against this DOI." },
+        { "kind": "pubmed", "url": "https://pubmed.ncbi.nlm.nih.gov/40335696/", "scope": ["citation", "abstract"], "status": "checked", "checkedAt": "2026-07-23", "checkedBy": "round-1 ingestion pass", "finding": "Central claims cross-checked against the PubMed abstract, PMID 40335696." },
+        { "kind": "publisher-full-text", "url": "https://doi.org/10.1038/s41586-025-08974-4", "scope": [], "status": "not-checked", "checkedAt": null, "checkedBy": null, "finding": "The full text, main figures and supplements were not re-opened, so the figure chain below is archive-derived rather than freshly read." }
+      ],
+      "derivation": { "type": "archive-rewrite", "sourceRecord": "doi:10.1038/s41586-025-08974-4", "sourceCommit": "eaae307" },
       "unresolved": []
     }
   },
@@ -515,9 +595,17 @@
     "journal": "Nature Communications",
     "year": 2025,
     "citation": "Nature Communications 16",
-    "publicationStatus": "version-of-record",
+    "articleStage": "version-of-record",
+    "postPublicationStatus": "none",
     "versionEvents": [],
-    "readingLevel": "figure-audited",
+    "readingDepth": "figure-chain",
+    "verificationDepth": "archive-derived",
+    "derivedFrom": {
+      "legacyFile": "data/lab-research.json",
+      "legacyRecordId": "doi:10.1038/s41467-025-58175-w",
+      "legacyReadingLevel": "figure-audited",
+      "sourceCommit": "eaae307"
+    },
     "theme": "propagation between cells",
     "conditionVector": "Cultured monolayers at defined confluency carrying an optogenetic GPX4 degradation system, triggered in single cells or small groups by patterned blue light; plus protein-free supported bilayers and contacting giant vesicles; readouts are C11-BODIPY oxidation, death timing versus distance, and mass spectrometry of oxidised lipids over minutes to hours.",
     "sixtySecond": {
@@ -594,9 +682,12 @@
     ],
     "verification": {
       "checkedAt": "2026-07-23",
-      "metadata": "Crossref record checked on 2026-07-23: Nature Communications, volume 16, issued 2025-03-26, first author Bernhard F. Roeck, last author Ana J. Garcia-Saez. No correction is registered against this DOI.",
-      "claims": "Central claims cross-checked against the PubMed abstract, PMID 40140422.",
-      "figureLayer": "The English figure audit was rewritten from the project audit archive; the full text and figures were not re-opened in this pass.",
+      "sources": [
+        { "kind": "crossref", "url": "https://api.crossref.org/works/10.1038/s41467-025-58175-w", "scope": ["title", "journal", "volume-pages", "issued-date", "authors", "version-relations"], "status": "checked", "checkedAt": "2026-07-23", "checkedBy": "round-1 ingestion pass, independently re-queried in the Codex review of 2026-07-23", "finding": "Nature Communications, volume 16, issued 2025-03-26, first author Bernhard F. Roeck, last author Ana J. Garcia-Saez. No correction is registered against this DOI." },
+        { "kind": "pubmed", "url": "https://pubmed.ncbi.nlm.nih.gov/40140422/", "scope": ["citation", "abstract"], "status": "checked", "checkedAt": "2026-07-23", "checkedBy": "round-1 ingestion pass", "finding": "Central claims cross-checked against the PubMed abstract, PMID 40140422." },
+        { "kind": "publisher-full-text", "url": "https://doi.org/10.1038/s41467-025-58175-w", "scope": [], "status": "not-checked", "checkedAt": null, "checkedBy": null, "finding": "The full text, main figures and supplements were not re-opened, so the figure chain below is archive-derived rather than freshly read." }
+      ],
+      "derivation": { "type": "archive-rewrite", "sourceRecord": "doi:10.1038/s41467-025-58175-w", "sourceCommit": "eaae307" },
       "unresolved": []
     }
   },
@@ -608,17 +699,29 @@
     "journal": "Cell",
     "year": 2026,
     "citation": "Cell 189, 3991-4004.e26",
-    "publicationStatus": "version-of-record",
+    "articleStage": "version-of-record",
+    "postPublicationStatus": "none",
     "versionEvents": [
       {
         "type": "article-stage reclassification",
+        "noticeType": "article-stage-reclassification",
         "doi": null,
+        "sourceUrl": "https://doi.org/10.1016/j.cell.2026.04.024",
         "date": "2026-07-23",
-        "affects": "metadata",
-        "note": "The project archive recorded this paper from an in-press corrected proof and labelled it corrected. Crossref now assigns volume 189 and pages 3991-4004.e26 with a June 2026 issue date, and registers no correction notice, so the record here is the version of record. An Elsevier corrected proof is an article stage, not a published correction."
+        "affectedDomains": ["article-stage-metadata"],
+        "conclusionImpact": "explicitly-none",
+        "checkedAt": "2026-07-23",
+        "note": "This is an internal record change, not a publisher notice. The project archive read this paper as an in-press corrected proof and stored it as corrected. Crossref assigns volume 189, pages 3991-4004.e26 and a June 2026 issue with no correction registered, so the article stage is version of record and the post-publication status is none. An Elsevier corrected proof is a stage in production, not a published correction."
       }
     ],
-    "readingLevel": "figure-audited",
+    "readingDepth": "figure-chain",
+    "verificationDepth": "archive-derived",
+    "derivedFrom": {
+      "legacyFile": "data/lab-research.json",
+      "legacyRecordId": "doi:10.1016/j.cell.2026.04.024",
+      "legacyReadingLevel": "figure-audited",
+      "sourceCommit": "eaae307"
+    },
     "theme": "transplantation and ex situ human organs",
     "conditionVector": "Cells, ischaemic porcine liver reperfused ex situ with whole blood for six hours, porcine lung ex vivo perfusion for eight hours, five declined human donor lungs perfused as split left and right pairs, and plasma from 116 human liver transplant recipients; FXT-001 is added to the preservation or perfusion circuit; readouts are transaminases, bile production, wet-to-dry ratio, compliance, computed tomography density, cytokines and malondialdehyde.",
     "sixtySecond": {
@@ -686,11 +789,14 @@
     ],
     "verification": {
       "checkedAt": "2026-07-23",
-      "metadata": "Crossref record checked on 2026-07-23: Cell, volume 189, pages 3991-4004.e26, issued 2026-06, first author Geraldine Veeckmans, last author Tom Vanden Berghe. No correction is registered against this DOI.",
-      "claims": "Central claims cross-checked against the PubMed abstract, PMID 42105762.",
-      "figureLayer": "The English figure audit was rewritten from the project audit archive; the full text and figures were not re-opened in this pass.",
+      "sources": [
+        { "kind": "crossref", "url": "https://api.crossref.org/works/10.1016/j.cell.2026.04.024", "scope": ["title", "journal", "volume-pages", "issued-date", "authors", "version-relations"], "status": "checked", "checkedAt": "2026-07-23", "checkedBy": "round-1 ingestion pass, independently re-queried in the Codex review of 2026-07-23", "finding": "Cell, volume 189, pages 3991-4004.e26, issued 2026-06, first author Geraldine Veeckmans, last author Tom Vanden Berghe. No correction is registered against this DOI." },
+        { "kind": "pubmed", "url": "https://pubmed.ncbi.nlm.nih.gov/42105762/", "scope": ["citation", "abstract"], "status": "checked", "checkedAt": "2026-07-23", "checkedBy": "round-1 ingestion pass", "finding": "Central claims cross-checked against the PubMed abstract, PMID 42105762." },
+        { "kind": "publisher-full-text", "url": "https://doi.org/10.1016/j.cell.2026.04.024", "scope": [], "status": "not-checked", "checkedAt": null, "checkedBy": null, "finding": "The full text, main figures and supplements were not re-opened, so the figure chain below is archive-derived rather than freshly read." }
+      ],
+      "derivation": { "type": "archive-rewrite", "sourceRecord": "doi:10.1016/j.cell.2026.04.024", "sourceCommit": "eaae307" },
       "unresolved": [
-        "The legacy archive still records this paper as corrected on the basis of an in-press corrected proof; that record should be reconciled with the version of record."
+        "The legacy archive still stores this paper as corrected on the basis of an in-press corrected proof. The English record now separates article stage from post-publication status, but the archive entry itself has not been rewritten."
       ]
     }
   },
@@ -702,24 +808,40 @@
     "journal": "Nature",
     "year": 2025,
     "citation": "Nature 645, 1011-1019",
-    "publicationStatus": "corrected",
+    "articleStage": "version-of-record",
+    "postPublicationStatus": "corrected",
     "versionEvents": [
       {
         "type": "Publisher Correction",
+        "noticeType": "publisher-correction",
         "doi": "10.1038/s41586-025-09562-2",
+        "sourceUrl": "https://www.nature.com/articles/s41586-025-09562-2",
         "date": "2025-08-26",
-        "affects": "pending-source-check",
-        "note": "Registered at Crossref as a correction to this DOI. The class indicates a publisher-introduced production error; the specific corrected element has not been re-read in this pass."
+        "affectedDomains": ["text", "discussion"],
+        "conclusionImpact": "none-stated",
+        "checkedAt": "2026-07-23",
+        "note": "A production error inserted reference-title text into the seventh sentence of the Discussion. The notice removes that text and restores the intended concluding sentence. It does not state a conclusion-impact classification either way, so none is inferred here."
       },
       {
         "type": "Publisher Correction",
+        "noticeType": "publisher-correction",
         "doi": "10.1038/s41586-026-10148-9",
+        "sourceUrl": "https://www.nature.com/articles/s41586-026-10148-9",
         "date": "2026-01-21",
-        "affects": "pending-source-check",
-        "note": "Second correction registered at Crossref against this DOI. The specific corrected element has not been re-read in this pass."
+        "affectedDomains": ["figures", "figure-labels", "cross-references", "supplement"],
+        "conclusionImpact": "explicitly-none",
+        "checkedAt": "2026-07-23",
+        "note": "Corrects chemical structures in Fig. 2e,f, sample-size labels in Fig. 2o-q, figure cross-references in the text, and a duplicated Supplementary figure. The notice states explicitly that none of these mistakes affects the scientific conclusions. Figure-label and sample-size corrections still matter to anyone reading the figure chain, so they are recorded rather than summarised away."
       }
     ],
-    "readingLevel": "figure-audited",
+    "readingDepth": "figure-chain",
+    "verificationDepth": "archive-derived",
+    "derivedFrom": {
+      "legacyFile": "data/lab-research.json",
+      "legacyRecordId": "doi:10.1038/s41586-025-09389-x",
+      "legacyReadingLevel": "figure-audited",
+      "sourceCommit": "eaae307"
+    },
     "theme": "sex difference in kidney injury",
     "conditionVector": "Male and female mouse kidney ischaemia-reperfusion, freshly isolated kidney tubules, ovariectomy, tubule-specific Gpx4, Fsp1 and Esr1 deletion, and small human sample sets; oestradiol derivatives are applied at about ten micromolar in cells and ten milligrams per kilogram before injury; readouts are creatinine and urea, synchronised tubular death imaging, FENIX kinetics and protein expression.",
     "sixtySecond": {
@@ -778,11 +900,16 @@
     ],
     "verification": {
       "checkedAt": "2026-07-23",
-      "metadata": "Crossref record checked on 2026-07-23: Nature, volume 645, pages 1011-1019, issued 2025-08-13, first author Wulf Tonnus, last author Andreas Linkermann. Crossref registers two Publisher Corrections, 10.1038/s41586-025-09562-2 dated 2025-08-26 and 10.1038/s41586-026-10148-9 dated 2026-01-21.",
-      "claims": "Central claims cross-checked against the PubMed abstract, PMID 40804518.",
-      "figureLayer": "The English figure audit was rewritten from the project audit archive; the full text and figures were not re-opened in this pass.",
+      "sources": [
+        { "kind": "crossref", "url": "https://api.crossref.org/works/10.1038/s41586-025-09389-x", "scope": ["title", "journal", "volume-pages", "issued-date", "authors", "version-relations"], "status": "checked", "checkedAt": "2026-07-23", "checkedBy": "round-1 ingestion pass, independently re-queried in the Codex review of 2026-07-23", "finding": "Nature, volume 645, pages 1011-1019, issued 2025-08-13, first author Wulf Tonnus, last author Andreas Linkermann. Crossref registers two Publisher Corrections, 10.1038/s41586-025-09562-2 dated 2025-08-26 and 10.1038/s41586-026-10148-9 dated 2026-01-21." },
+        { "kind": "pubmed", "url": "https://pubmed.ncbi.nlm.nih.gov/40804518/", "scope": ["citation", "abstract"], "status": "checked", "checkedAt": "2026-07-23", "checkedBy": "round-1 ingestion pass", "finding": "Central claims cross-checked against the PubMed abstract, PMID 40804518." },
+        { "kind": "correction-notice", "url": "https://www.nature.com/articles/s41586-025-09562-2", "scope": ["affected-domain", "conclusion-impact"], "status": "checked", "checkedAt": "2026-07-23", "checkedBy": "independent review (Codex), recorded in HANDOFF.md section 2", "finding": "Removes reference-title text inserted into the seventh sentence of the Discussion and restores the intended concluding sentence. The notice states no conclusion-impact classification. Read by the independent reviewer; not re-opened in the round-2 pass." },
+        { "kind": "correction-notice", "url": "https://www.nature.com/articles/s41586-026-10148-9", "scope": ["affected-domain", "conclusion-impact"], "status": "checked", "checkedAt": "2026-07-23", "checkedBy": "independent review (Codex), recorded in HANDOFF.md section 2", "finding": "Corrects chemical structures in Fig. 2e,f, sample-size labels in Fig. 2o-q, figure cross-references and a duplicated Supplementary figure, and states explicitly that none of these affects the scientific conclusions. Read by the independent reviewer; not re-opened in the round-2 pass." },
+        { "kind": "publisher-full-text", "url": "https://doi.org/10.1038/s41586-025-09389-x", "scope": [], "status": "not-checked", "checkedAt": null, "checkedBy": null, "finding": "The full text, main figures and supplements were not re-opened, so the figure chain below is archive-derived rather than freshly read." }
+      ],
+      "derivation": { "type": "archive-rewrite", "sourceRecord": "doi:10.1038/s41586-025-09389-x", "sourceCommit": "eaae307" },
       "unresolved": [
-        "Neither Publisher Correction notice has been read in this pass, so both affected elements are recorded as pending."
+        "The second Publisher Correction changes sample-size labels in Fig. 2o-q. The archive-derived figure chain below was written before that notice was classified, so the affected panels should be re-read against the corrected figure before this record is promoted to a full-text-rechecked audit."
       ]
     }
   },
@@ -794,32 +921,52 @@
     "journal": "Nature",
     "year": 2021,
     "citation": "Nature 593, 586-590",
-    "publicationStatus": "corrected",
+    "articleStage": "version-of-record",
+    "postPublicationStatus": "contested",
     "contested": true,
     "versionEvents": [
       {
         "type": "Author Correction",
+        "noticeType": "author-correction",
         "doi": "10.1038/s41586-021-03820-9",
+        "sourceUrl": "https://www.nature.com/articles/s41586-021-03820-9",
         "date": "2021-08-02",
-        "affects": "pending-source-check",
-        "note": "Registered at Crossref as a correction to this DOI. The class indicates an author-initiated change; the specific corrected element has not been re-read in this pass."
+        "affectedDomains": ["funding", "acknowledgements"],
+        "conclusionImpact": "none-stated",
+        "checkedAt": "2026-07-23",
+        "note": "The notice adds a PDX Development and Trial Center grant to the Acknowledgements. It touches funding attribution only, not the Methods, the figures or any result, and is unrelated to the 2023 scientific dispute recorded below."
       },
       {
         "type": "Matters Arising",
+        "noticeType": "matters-arising",
         "doi": "10.1038/s41586-023-06269-0",
+        "sourceUrl": "https://doi.org/10.1038/s41586-023-06269-0",
         "date": "2023-07-05",
-        "affects": "conclusions",
-        "note": "Published as 'DHODH inhibitors sensitize to ferroptosis by FSP1 inhibition'. It argues that the brequinar concentrations used also inhibit FSP1, so sensitisation cannot be attributed to DHODH alone. This is a formal scientific dispute, not a correction or retraction."
+        "affectedDomains": ["conclusions", "target-attribution"],
+        "conclusionImpact": "potentially-material",
+        "checkedAt": "2026-07-23",
+        "note": "Published as 'DHODH inhibitors sensitize to ferroptosis by FSP1 inhibition'. It argues that the brequinar concentrations used also inhibit FSP1, so sensitisation cannot be attributed to DHODH alone. This is a formal scientific dispute, not a correction or a retraction."
       },
       {
         "type": "Reply",
+        "noticeType": "reply",
         "doi": "10.1038/s41586-023-06270-7",
+        "sourceUrl": "https://doi.org/10.1038/s41586-023-06270-7",
         "date": "2023-07-05",
-        "affects": "conclusions",
-        "note": "The authors' reply to the Matters Arising, published on the same date. Both sides remain visible in the record."
+        "affectedDomains": ["conclusions", "target-attribution"],
+        "conclusionImpact": "potentially-material",
+        "checkedAt": "2026-07-23",
+        "note": "The authors' reply to the Matters Arising, published on the same date. Both sides remain visible in the record and neither is presented here as the settled outcome."
       }
     ],
-    "readingLevel": "figure-audited",
+    "readingDepth": "figure-chain",
+    "verificationDepth": "archive-derived",
+    "derivedFrom": {
+      "legacyFile": "data/lab-research.json",
+      "legacyRecordId": "doi:10.1038/s41586-021-03539-7",
+      "legacyReadingLevel": "figure-audited",
+      "sourceCommit": "eaae307"
+    },
     "theme": "contested mitochondrial defence",
     "conditionVector": "Cancer cell lines stratified by GPX4 expression, with RSL3 or ML162 and with brequinar often at 500 micromolar, uridine supplied to remove the pyrimidine deficit, plus xenografts and patient-derived xenografts dosed with brequinar at 30 milligrams per kilogram every three days and sulfasalazine at 100 milligrams per kilogram daily in immunodeficient mice; readouts are mitochondrial C11-BODIPY, coenzyme Q redox ratio, 4-hydroxynonenal and tumour growth.",
     "sixtySecond": {
@@ -869,11 +1016,15 @@
     ],
     "verification": {
       "checkedAt": "2026-07-23",
-      "metadata": "Crossref record checked on 2026-07-23: Nature, volume 593, pages 586-590, issued 2021-05-12, first author Chao Mao, last author Boyi Gan. Crossref registers an Author Correction, 10.1038/s41586-021-03820-9 dated 2021-08-02. The Matters Arising 10.1038/s41586-023-06269-0 and the authors' Reply 10.1038/s41586-023-06270-7 were both confirmed at Crossref, dated 2023-07-05.",
-      "claims": "Central claims cross-checked against the PubMed abstract, PMID 33981038.",
-      "figureLayer": "The English figure audit was rewritten from the project audit archive; the full text and figures were not re-opened in this pass.",
+      "sources": [
+        { "kind": "crossref", "url": "https://api.crossref.org/works/10.1038/s41586-021-03539-7", "scope": ["title", "journal", "volume-pages", "issued-date", "authors", "version-relations"], "status": "checked", "checkedAt": "2026-07-23", "checkedBy": "round-1 ingestion pass, independently re-queried in the Codex review of 2026-07-23", "finding": "Nature, volume 593, pages 586-590, issued 2021-05-12, first author Chao Mao, last author Boyi Gan. Crossref registers an Author Correction, 10.1038/s41586-021-03820-9 dated 2021-08-02. The Matters Arising 10.1038/s41586-023-06269-0 and the authors' Reply 10.1038/s41586-023-06270-7 were both confirmed at Crossref, dated 2023-07-05." },
+        { "kind": "pubmed", "url": "https://pubmed.ncbi.nlm.nih.gov/33981038/", "scope": ["citation", "abstract"], "status": "checked", "checkedAt": "2026-07-23", "checkedBy": "round-1 ingestion pass", "finding": "Central claims cross-checked against the PubMed abstract, PMID 33981038." },
+        { "kind": "correction-notice", "url": "https://www.nature.com/articles/s41586-021-03820-9", "scope": ["affected-domain", "conclusion-impact"], "status": "checked", "checkedAt": "2026-07-23", "checkedBy": "independent review (Codex), recorded in HANDOFF.md section 2", "finding": "Adds a PDX Development and Trial Center grant to the Acknowledgements. It affects funding attribution only, not the Methods, figures or conclusions. Read by the independent reviewer; not re-opened in the round-2 pass." },
+        { "kind": "publisher-full-text", "url": "https://doi.org/10.1038/s41586-021-03539-7", "scope": [], "status": "not-checked", "checkedAt": null, "checkedBy": null, "finding": "The full text, main figures and supplements were not re-opened, so the figure chain below is archive-derived rather than freshly read." }
+      ],
+      "derivation": { "type": "archive-rewrite", "sourceRecord": "doi:10.1038/s41586-021-03539-7", "sourceCommit": "eaae307" },
       "unresolved": [
-        "The 2021 Author Correction notice has not been read in this pass, so the affected element is recorded as pending."
+        "The 2023 Matters Arising and Reply are recorded but neither has been read to figure level here, so this record shows that the target attribution is disputed without adjudicating the dispute."
       ]
     }
   }
