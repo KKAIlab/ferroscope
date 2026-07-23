@@ -6,7 +6,9 @@
   "scripts": {
     "start": "node scripts/serve.mjs",
     "update": "node scripts/update-data.mjs",
-    "check": "node scripts/validate-data.mjs",
+    "build:research": "node scripts/build-lab-research.mjs",
+    "test:research": "node scripts/test-research-method.mjs",
+    "check": "node scripts/validate-data.mjs && node scripts/test-research-method.mjs",
     "check:links": "node scripts/check-lab-links.mjs --strict"
   }
 }

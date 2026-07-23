@@ -1,5 +1,20 @@
 [
   {
+    "id": "cell-gpx4-fin-loop-2026",
+    "title": "A fin-loop-like structure in GPX4 underlies neuroprotection from ferroptosis",
+    "titleZh": "GPX4 的疏水 fin-loop 通过膜锚定保护神经元免于铁死亡",
+    "date": "2026-01-08",
+    "sourceType": "paper",
+    "evidence": "B",
+    "relevance": 99,
+    "topics": ["GPX4", "膜锚定", "结构生物学", "神经退行"],
+    "takeaway": "R152H 在论文所用体外活性测定中未显著削弱催化能力，却破坏 fin-loop 的膜结合；结果把 GPX4 保护模型修正为催化能力与膜接近性共同决定。",
+    "caveat": "体外催化活性不能外推为膜内 PLOOH 清除效率正常；Alzheimer’s-like signatures 也不等于建立阿尔茨海默病病因。",
+    "trackedLabs": ["Marcus Conrad Lab"],
+    "trackedLabIds": ["conrad-helmholtz"],
+    "url": "https://doi.org/10.1016/j.cell.2025.11.014"
+  },
+  {
     "id": "nature-spermine-2026",
     "title": "Spermine is an endogenous iron chelator that inhibits ferroptosis",
     "titleZh": "精胺是一种内源性铁螯合剂，可抑制铁死亡",

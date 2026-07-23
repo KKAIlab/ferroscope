@@ -104,8 +104,8 @@
     "institution": "Institut Curie · Chemical Biology",
     "region": "法国 · 巴黎",
     "category": "methods",
-    "focus": "以化学生物学操纵溶酶体铁与脂质降解；近期连接精胺铁螯合、肿瘤 ferroptosis 和器官保存抑制剂。",
-    "tags": ["lysosomal iron", "chemical biology", "spermine", "lipid degraders"],
+    "focus": "以化学生物学操纵溶酶体铁与脂质降解，连接 CD44 介导的铁摄取、耐药细胞状态与肿瘤 ferroptosis。",
+    "tags": ["lysosomal iron", "chemical biology", "CD44", "lipid degraders"],
     "relevance": 95,
     "website": "https://institut-curie.org/person/raphael-rodriguez"
   },
