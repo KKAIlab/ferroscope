@@ -1,0 +1,2437 @@
+{
+  "schemaVersion": "1.0.0",
+  "updatedAt": "2026-07-24",
+  "owner": "ferroscope-maintainer",
+  "note": "Canonical source / scope / review-event registry. One source has one record; one reading has one review event; every method, paper, notice, graph edge and UI statement resolves these objects instead of embedding a private copy. Surfaces are described by surfaceType and accessExtent, not ranked on an ordinal depth ladder. The two PMC author manuscripts carry objective byte pins independently fetched by Codex; recording bytes is not a scientific review. No independent (second-reader) event exists yet.",
+  "reviewers": [
+    {
+      "id": "ferroscope-maintainer",
+      "name": "FerroScope maintainer (KKAIlab)",
+      "role": "dataset-owner"
+    },
+    {
+      "id": "claude-code-round4-implementer",
+      "name": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)",
+      "role": "implementer"
+    },
+    {
+      "id": "round-1-ingestion",
+      "name": "Round-1 ingestion pass (crossref routes re-queried in the 2026-07-23 Codex review)",
+      "role": "automated-ingestion"
+    },
+    {
+      "id": "independent-review-codex",
+      "name": "Independent reviewer (Codex)",
+      "role": "independent-reviewer"
+    }
+  ],
+  "surfaceTypeReference": "surfaceType is the document surface that was opened; accessExtent is how much of it. A legacy verificationDepth is derived from the surface for backward-compatible counts but is not the statement shown to a reader.",
+  "sources": [
+    {
+      "id": "correction-s41586-021-03820-9",
+      "documentClass": "publisher-correction-notice",
+      "url": "https://www.nature.com/articles/s41586-021-03820-9",
+      "identifiers": {},
+      "version": {
+        "label": "Nature volume 596, page E13 (2021); Author Correction published 02 August 2021; publisher HTML retrieved in full 2026-07-24",
+        "retrievedAt": "2026-07-24",
+        "byteLength": null,
+        "sha256": null
+      },
+      "scopes": [
+        {
+          "id": "affected-sections",
+          "label": "affected sections",
+          "surfaceType": "correction-text",
+          "accessExtent": "complete-scope",
+          "boundary": "The correction notice text was read; the underlying article revision was not re-derived."
+        },
+        {
+          "id": "correction-text",
+          "label": "correction text",
+          "surfaceType": "correction-text",
+          "accessExtent": "complete-scope",
+          "boundary": "The correction notice text was read; the underlying article revision was not re-derived."
+        },
+        {
+          "id": "publication-date",
+          "label": "publication date",
+          "surfaceType": "correction-text",
+          "accessExtent": "complete-scope",
+          "boundary": "The correction notice text was read; the underlying article revision was not re-derived."
+        },
+        {
+          "id": "statement-about-conclusions",
+          "label": "statement about conclusions",
+          "surfaceType": "correction-text",
+          "accessExtent": "complete-scope",
+          "boundary": "The correction notice text was read; the underlying article revision was not re-derived."
+        }
+      ]
+    },
+    {
+      "id": "correction-s41586-025-09562-2",
+      "documentClass": "publisher-correction-notice",
+      "url": "https://www.nature.com/articles/s41586-025-09562-2",
+      "identifiers": {},
+      "version": {
+        "label": "Nature volume 645, page E9 (2025); Publisher Correction published 26 August 2025; publisher HTML retrieved in full 2026-07-24",
+        "retrievedAt": "2026-07-24",
+        "byteLength": null,
+        "sha256": null
+      },
+      "scopes": [
+        {
+          "id": "affected-sections",
+          "label": "affected sections",
+          "surfaceType": "correction-text",
+          "accessExtent": "complete-scope",
+          "boundary": "The correction notice text was read; the underlying article revision was not re-derived."
+        },
+        {
+          "id": "correction-text",
+          "label": "correction text",
+          "surfaceType": "correction-text",
+          "accessExtent": "complete-scope",
+          "boundary": "The correction notice text was read; the underlying article revision was not re-derived."
+        },
+        {
+          "id": "publication-date",
+          "label": "publication date",
+          "surfaceType": "correction-text",
+          "accessExtent": "complete-scope",
+          "boundary": "The correction notice text was read; the underlying article revision was not re-derived."
+        },
+        {
+          "id": "statement-about-conclusions",
+          "label": "statement about conclusions",
+          "surfaceType": "correction-text",
+          "accessExtent": "complete-scope",
+          "boundary": "The correction notice text was read; the underlying article revision was not re-derived."
+        }
+      ]
+    },
+    {
+      "id": "correction-s41586-026-10148-9",
+      "documentClass": "publisher-correction-notice",
+      "url": "https://www.nature.com/articles/s41586-026-10148-9",
+      "identifiers": {},
+      "version": {
+        "label": "Nature volume 650, page E5 (2026); Publisher Correction published 21 January 2026; publisher HTML retrieved in full 2026-07-24",
+        "retrievedAt": "2026-07-24",
+        "byteLength": null,
+        "sha256": null
+      },
+      "scopes": [
+        {
+          "id": "affected-sections",
+          "label": "affected sections",
+          "surfaceType": "correction-text",
+          "accessExtent": "complete-scope",
+          "boundary": "The correction notice text was read; the underlying article revision was not re-derived."
+        },
+        {
+          "id": "correction-text",
+          "label": "correction text",
+          "surfaceType": "correction-text",
+          "accessExtent": "complete-scope",
+          "boundary": "The correction notice text was read; the underlying article revision was not re-derived."
+        },
+        {
+          "id": "publication-date",
+          "label": "publication date",
+          "surfaceType": "correction-text",
+          "accessExtent": "complete-scope",
+          "boundary": "The correction notice text was read; the underlying article revision was not re-derived."
+        },
+        {
+          "id": "statement-about-conclusions",
+          "label": "statement about conclusions",
+          "surfaceType": "correction-text",
+          "accessExtent": "complete-scope",
+          "boundary": "The correction notice text was read; the underlying article revision was not re-derived."
+        }
+      ]
+    },
+    {
+      "id": "correction-s41589-021-00767-w",
+      "documentClass": "publisher-correction-notice",
+      "url": "https://www.nature.com/articles/s41589-021-00767-w",
+      "identifiers": {},
+      "version": {
+        "label": "Nature Chemical Biology volume 17, page 501 (2021); Author Correction published 02 March 2021; publisher HTML retrieved in full 2026-07-24",
+        "retrievedAt": "2026-07-24",
+        "byteLength": null,
+        "sha256": null
+      },
+      "scopes": [
+        {
+          "id": "affected-sections",
+          "label": "affected sections",
+          "surfaceType": "correction-text",
+          "accessExtent": "complete-scope",
+          "boundary": "The correction notice text was read; the underlying article revision was not re-derived."
+        },
+        {
+          "id": "correction-text",
+          "label": "correction text",
+          "surfaceType": "correction-text",
+          "accessExtent": "complete-scope",
+          "boundary": "The correction notice text was read; the underlying article revision was not re-derived."
+        },
+        {
+          "id": "publication-date",
+          "label": "publication date",
+          "surfaceType": "correction-text",
+          "accessExtent": "complete-scope",
+          "boundary": "The correction notice text was read; the underlying article revision was not re-derived."
+        },
+        {
+          "id": "statement-about-conclusions",
+          "label": "statement about conclusions",
+          "surfaceType": "correction-text",
+          "accessExtent": "complete-scope",
+          "boundary": "The correction notice text was read; the underlying article revision was not re-derived."
+        }
+      ]
+    },
+    {
+      "id": "crossref-10-1016-j-cell-2025-11-014",
+      "documentClass": "crossref-metadata-record",
+      "url": "https://api.crossref.org/works/10.1016/j.cell.2025.11.014",
+      "identifiers": {},
+      "version": {
+        "label": "crossref response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
+        "retrievedAt": "2026-07-23",
+        "byteLength": null,
+        "sha256": null
+      },
+      "scopes": [
+        {
+          "id": "authors",
+          "label": "authors",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "issued-date",
+          "label": "issued-date",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "journal",
+          "label": "journal",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "title",
+          "label": "title",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "version-relations",
+          "label": "version-relations",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "volume-pages",
+          "label": "volume-pages",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        }
+      ]
+    },
+    {
+      "id": "crossref-10-1016-j-cell-2026-04-024",
+      "documentClass": "crossref-metadata-record",
+      "url": "https://api.crossref.org/works/10.1016/j.cell.2026.04.024",
+      "identifiers": {},
+      "version": {
+        "label": "crossref response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
+        "retrievedAt": "2026-07-23",
+        "byteLength": null,
+        "sha256": null
+      },
+      "scopes": [
+        {
+          "id": "authors",
+          "label": "authors",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "issued-date",
+          "label": "issued-date",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "journal",
+          "label": "journal",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "title",
+          "label": "title",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "version-relations",
+          "label": "version-relations",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "volume-pages",
+          "label": "volume-pages",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        }
+      ]
+    },
+    {
+      "id": "crossref-10-1038-nchembio-2238",
+      "documentClass": "crossref-metadata-record",
+      "url": "https://api.crossref.org/works/10.1038/nchembio.2238",
+      "identifiers": {},
+      "version": {
+        "label": "crossref response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
+        "retrievedAt": "2026-07-23",
+        "byteLength": null,
+        "sha256": null
+      },
+      "scopes": [
+        {
+          "id": "authors",
+          "label": "authors",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "issued-date",
+          "label": "issued-date",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "journal",
+          "label": "journal",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "online-date",
+          "label": "online-date",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "title",
+          "label": "title",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "version-relations",
+          "label": "version-relations",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "volume-pages",
+          "label": "volume-pages",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        }
+      ]
+    },
+    {
+      "id": "crossref-10-1038-s41467-025-58175-w",
+      "documentClass": "crossref-metadata-record",
+      "url": "https://api.crossref.org/works/10.1038/s41467-025-58175-w",
+      "identifiers": {},
+      "version": {
+        "label": "crossref response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
+        "retrievedAt": "2026-07-23",
+        "byteLength": null,
+        "sha256": null
+      },
+      "scopes": [
+        {
+          "id": "authors",
+          "label": "authors",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "issued-date",
+          "label": "issued-date",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "journal",
+          "label": "journal",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "title",
+          "label": "title",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "version-relations",
+          "label": "version-relations",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "volume-pages",
+          "label": "volume-pages",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        }
+      ]
+    },
+    {
+      "id": "crossref-10-1038-s41586-019-1707-0",
+      "documentClass": "crossref-metadata-record",
+      "url": "https://api.crossref.org/works/10.1038/s41586-019-1707-0",
+      "identifiers": {},
+      "version": {
+        "label": "crossref response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
+        "retrievedAt": "2026-07-23",
+        "byteLength": null,
+        "sha256": null
+      },
+      "scopes": [
+        {
+          "id": "authors",
+          "label": "authors",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "issued-date",
+          "label": "issued-date",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "journal",
+          "label": "journal",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "title",
+          "label": "title",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "version-relations",
+          "label": "version-relations",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "volume-pages",
+          "label": "volume-pages",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        }
+      ]
+    },
+    {
+      "id": "crossref-10-1038-s41586-020-2732-8",
+      "documentClass": "crossref-metadata-record",
+      "url": "https://api.crossref.org/works/10.1038/s41586-020-2732-8",
+      "identifiers": {},
+      "version": {
+        "label": "crossref response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
+        "retrievedAt": "2026-07-23",
+        "byteLength": null,
+        "sha256": null
+      },
+      "scopes": [
+        {
+          "id": "authors",
+          "label": "authors",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "issued-date",
+          "label": "issued-date",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "journal",
+          "label": "journal",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "title",
+          "label": "title",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "version-relations",
+          "label": "version-relations",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "volume-pages",
+          "label": "volume-pages",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        }
+      ]
+    },
+    {
+      "id": "crossref-10-1038-s41586-021-03539-7",
+      "documentClass": "crossref-metadata-record",
+      "url": "https://api.crossref.org/works/10.1038/s41586-021-03539-7",
+      "identifiers": {},
+      "version": {
+        "label": "crossref response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
+        "retrievedAt": "2026-07-23",
+        "byteLength": null,
+        "sha256": null
+      },
+      "scopes": [
+        {
+          "id": "authors",
+          "label": "authors",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "issued-date",
+          "label": "issued-date",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "journal",
+          "label": "journal",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "title",
+          "label": "title",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "version-relations",
+          "label": "version-relations",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "volume-pages",
+          "label": "volume-pages",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        }
+      ]
+    },
+    {
+      "id": "crossref-10-1038-s41586-022-05022-3",
+      "documentClass": "crossref-metadata-record",
+      "url": "https://api.crossref.org/works/10.1038/s41586-022-05022-3",
+      "identifiers": {},
+      "version": {
+        "label": "crossref response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
+        "retrievedAt": "2026-07-23",
+        "byteLength": null,
+        "sha256": null
+      },
+      "scopes": [
+        {
+          "id": "authors",
+          "label": "authors",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "issued-date",
+          "label": "issued-date",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "journal",
+          "label": "journal",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "title",
+          "label": "title",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "version-relations",
+          "label": "version-relations",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "volume-pages",
+          "label": "volume-pages",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        }
+      ]
+    },
+    {
+      "id": "crossref-10-1038-s41586-025-08974-4",
+      "documentClass": "crossref-metadata-record",
+      "url": "https://api.crossref.org/works/10.1038/s41586-025-08974-4",
+      "identifiers": {},
+      "version": {
+        "label": "crossref response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
+        "retrievedAt": "2026-07-23",
+        "byteLength": null,
+        "sha256": null
+      },
+      "scopes": [
+        {
+          "id": "authors",
+          "label": "authors",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "issued-date",
+          "label": "issued-date",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "journal",
+          "label": "journal",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "title",
+          "label": "title",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "version-relations",
+          "label": "version-relations",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "volume-pages",
+          "label": "volume-pages",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        }
+      ]
+    },
+    {
+      "id": "crossref-10-1038-s41586-025-09389-x",
+      "documentClass": "crossref-metadata-record",
+      "url": "https://api.crossref.org/works/10.1038/s41586-025-09389-x",
+      "identifiers": {},
+      "version": {
+        "label": "crossref response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
+        "retrievedAt": "2026-07-23",
+        "byteLength": null,
+        "sha256": null
+      },
+      "scopes": [
+        {
+          "id": "authors",
+          "label": "authors",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "issued-date",
+          "label": "issued-date",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "journal",
+          "label": "journal",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "title",
+          "label": "title",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "version-relations",
+          "label": "version-relations",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "volume-pages",
+          "label": "volume-pages",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        }
+      ]
+    },
+    {
+      "id": "crossref-10-1038-s41589-020-0472-6",
+      "documentClass": "crossref-metadata-record",
+      "url": "https://api.crossref.org/works/10.1038/s41589-020-0472-6",
+      "identifiers": {},
+      "version": {
+        "label": "crossref response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
+        "retrievedAt": "2026-07-23",
+        "byteLength": null,
+        "sha256": null
+      },
+      "scopes": [
+        {
+          "id": "authors",
+          "label": "authors",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "issued-date",
+          "label": "issued-date",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "journal",
+          "label": "journal",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "title",
+          "label": "title",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "version-relations",
+          "label": "version-relations",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "volume-pages",
+          "label": "volume-pages",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        }
+      ]
+    },
+    {
+      "id": "doi-10-1016-j-cell-2025-11-014",
+      "documentClass": "version-of-record",
+      "url": "https://doi.org/10.1016/j.cell.2025.11.014",
+      "identifiers": {},
+      "version": {
+        "label": "https://doi.org/10.1016/j.cell.2025.11.014 (declared source)",
+        "retrievedAt": "2026-07-24",
+        "byteLength": null,
+        "sha256": null
+      },
+      "scopes": []
+    },
+    {
+      "id": "doi-10-1016-j-cell-2026-04-019",
+      "documentClass": "version-of-record",
+      "url": "https://doi.org/10.1016/j.cell.2026.04.019",
+      "identifiers": {},
+      "version": {
+        "label": "https://doi.org/10.1016/j.cell.2026.04.019 (declared source)",
+        "retrievedAt": "2026-07-24",
+        "byteLength": null,
+        "sha256": null
+      },
+      "scopes": []
+    },
+    {
+      "id": "doi-10-1016-j-cell-2026-04-024",
+      "documentClass": "version-of-record",
+      "url": "https://doi.org/10.1016/j.cell.2026.04.024",
+      "identifiers": {},
+      "version": {
+        "label": "https://doi.org/10.1016/j.cell.2026.04.024 (declared source)",
+        "retrievedAt": "2026-07-24",
+        "byteLength": null,
+        "sha256": null
+      },
+      "scopes": []
+    },
+    {
+      "id": "doi-10-1016-j-chembiol-2019-09-007",
+      "documentClass": "version-of-record",
+      "url": "https://doi.org/10.1016/j.chembiol.2019.09.007",
+      "identifiers": {},
+      "version": {
+        "label": "https://doi.org/10.1016/j.chembiol.2019.09.007 (declared source)",
+        "retrievedAt": "2026-07-24",
+        "byteLength": null,
+        "sha256": null
+      },
+      "scopes": []
+    },
+    {
+      "id": "doi-10-1038-nchembio-2238",
+      "documentClass": "version-of-record",
+      "url": "https://doi.org/10.1038/nchembio.2238",
+      "identifiers": {},
+      "version": {
+        "label": "https://doi.org/10.1038/nchembio.2238 (declared source)",
+        "retrievedAt": "2026-07-24",
+        "byteLength": null,
+        "sha256": null
+      },
+      "scopes": []
+    },
+    {
+      "id": "doi-10-1038-s41467-025-58175-w",
+      "documentClass": "version-of-record",
+      "url": "https://doi.org/10.1038/s41467-025-58175-w",
+      "identifiers": {
+        "corpusPaperId": "doi:10.1038/s41467-025-58175-w"
+      },
+      "version": {
+        "label": "https://doi.org/10.1038/s41467-025-58175-w (declared source)",
+        "retrievedAt": "2026-07-24",
+        "byteLength": null,
+        "sha256": null
+      },
+      "scopes": []
+    },
+    {
+      "id": "doi-10-1038-s41586-019-1707-0",
+      "documentClass": "version-of-record",
+      "url": "https://doi.org/10.1038/s41586-019-1707-0",
+      "identifiers": {},
+      "version": {
+        "label": "https://doi.org/10.1038/s41586-019-1707-0 (declared source)",
+        "retrievedAt": "2026-07-24",
+        "byteLength": null,
+        "sha256": null
+      },
+      "scopes": []
+    },
+    {
+      "id": "doi-10-1038-s41586-020-2732-8",
+      "documentClass": "version-of-record",
+      "url": "https://doi.org/10.1038/s41586-020-2732-8",
+      "identifiers": {},
+      "version": {
+        "label": "https://doi.org/10.1038/s41586-020-2732-8 (declared source)",
+        "retrievedAt": "2026-07-24",
+        "byteLength": null,
+        "sha256": null
+      },
+      "scopes": []
+    },
+    {
+      "id": "doi-10-1038-s41586-021-03539-7",
+      "documentClass": "version-of-record",
+      "url": "https://doi.org/10.1038/s41586-021-03539-7",
+      "identifiers": {},
+      "version": {
+        "label": "https://doi.org/10.1038/s41586-021-03539-7 (declared source)",
+        "retrievedAt": "2026-07-24",
+        "byteLength": null,
+        "sha256": null
+      },
+      "scopes": []
+    },
+    {
+      "id": "doi-10-1038-s41586-022-05022-3",
+      "documentClass": "version-of-record",
+      "url": "https://doi.org/10.1038/s41586-022-05022-3",
+      "identifiers": {},
+      "version": {
+        "label": "https://doi.org/10.1038/s41586-022-05022-3 (declared source)",
+        "retrievedAt": "2026-07-24",
+        "byteLength": null,
+        "sha256": null
+      },
+      "scopes": []
+    },
+    {
+      "id": "doi-10-1038-s41586-025-08974-4",
+      "documentClass": "version-of-record",
+      "url": "https://doi.org/10.1038/s41586-025-08974-4",
+      "identifiers": {},
+      "version": {
+        "label": "https://doi.org/10.1038/s41586-025-08974-4 (declared source)",
+        "retrievedAt": "2026-07-24",
+        "byteLength": null,
+        "sha256": null
+      },
+      "scopes": []
+    },
+    {
+      "id": "doi-10-1038-s41586-025-09389-x",
+      "documentClass": "version-of-record",
+      "url": "https://doi.org/10.1038/s41586-025-09389-x",
+      "identifiers": {},
+      "version": {
+        "label": "https://doi.org/10.1038/s41586-025-09389-x (declared source)",
+        "retrievedAt": "2026-07-24",
+        "byteLength": null,
+        "sha256": null
+      },
+      "scopes": []
+    },
+    {
+      "id": "doi-10-1038-s41589-020-0472-6",
+      "documentClass": "version-of-record",
+      "url": "https://doi.org/10.1038/s41589-020-0472-6",
+      "identifiers": {},
+      "version": {
+        "label": "https://doi.org/10.1038/s41589-020-0472-6 (declared source)",
+        "retrievedAt": "2026-07-24",
+        "byteLength": null,
+        "sha256": null
+      },
+      "scopes": []
+    },
+    {
+      "id": "field-rec-2025-nrmcb",
+      "documentClass": "review-version-of-record",
+      "url": "https://doi.org/10.1038/s41580-025-00843-2",
+      "identifiers": {},
+      "version": {
+        "label": "https://doi.org/10.1038/s41580-025-00843-2 (declared source)",
+        "retrievedAt": "2026-07-24",
+        "byteLength": null,
+        "sha256": null
+      },
+      "scopes": []
+    },
+    {
+      "id": "pmc5506843",
+      "documentClass": "accepted-author-manuscript",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5506843/",
+      "identifiers": {
+        "corpusPaperId": "doi:10.1038/nchembio.2238"
+      },
+      "version": {
+        "label": "PMC5506843.1 / NIHMS873824 author manuscript, retrieved 2026-07-24 via NCBI E-utilities efetch",
+        "retrievedAt": "2026-07-24",
+        "byteLength": 140459,
+        "sha256": "647b73b571ea97af59d24483fd4cb3b3f16112ab2dea20849216b7c9334769aa"
+      },
+      "scopes": [
+        {
+          "id": "abstract",
+          "label": "abstract",
+          "surfaceType": "abstract-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Only the abstract was read at this scope."
+        },
+        {
+          "id": "discussion",
+          "label": "Discussion",
+          "surfaceType": "body-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Narrative section text read; underlying data and figure panels were not opened."
+        },
+        {
+          "id": "fig-1",
+          "label": "Fig. 1",
+          "surfaceType": "figure-caption",
+          "accessExtent": "complete-scope",
+          "boundary": "Only the caption text was read; rendered figure panels and the supplement were not opened."
+        },
+        {
+          "id": "fig-2",
+          "label": "Fig. 2",
+          "surfaceType": "figure-caption",
+          "accessExtent": "complete-scope",
+          "boundary": "Only the caption text was read; rendered figure panels and the supplement were not opened."
+        },
+        {
+          "id": "fig-3",
+          "label": "Fig. 3",
+          "surfaceType": "figure-caption",
+          "accessExtent": "complete-scope",
+          "boundary": "Only the caption text was read; rendered figure panels and the supplement were not opened."
+        },
+        {
+          "id": "fig-4",
+          "label": "Fig. 4",
+          "surfaceType": "figure-caption",
+          "accessExtent": "complete-scope",
+          "boundary": "Only the caption text was read; rendered figure panels and the supplement were not opened."
+        },
+        {
+          "id": "fig-5",
+          "label": "Fig. 5",
+          "surfaceType": "figure-caption",
+          "accessExtent": "complete-scope",
+          "boundary": "Only the caption text was read; rendered figure panels and the supplement were not opened."
+        },
+        {
+          "id": "fig-6",
+          "label": "Fig. 6",
+          "surfaceType": "figure-caption",
+          "accessExtent": "complete-scope",
+          "boundary": "Only the caption text was read; rendered figure panels and the supplement were not opened."
+        },
+        {
+          "id": "introduction",
+          "label": "Introduction",
+          "surfaceType": "body-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Narrative section text read; underlying data and figure panels were not opened."
+        },
+        {
+          "id": "methods-cell-lines-conditions-and-treatments",
+          "label": "Methods: Cell lines conditions and treatments",
+          "surfaceType": "methods-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
+        },
+        {
+          "id": "methods-gpx4-ko-mice",
+          "label": "Methods: Gpx4 KO mice",
+          "surfaceType": "methods-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
+        },
+        {
+          "id": "methods-identification-of-pe-oxygenated-products-in-cell-lysates",
+          "label": "Methods: Identification of PE oxygenated products in cell lysates",
+          "surfaceType": "methods-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
+        },
+        {
+          "id": "methods-identification-of-peox-in-cells",
+          "label": "Methods: Identification of PEox in cells",
+          "surfaceType": "methods-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
+        },
+        {
+          "id": "methods-lc-ms-analysis-of-free-and-esterified-fatty-acids",
+          "label": "Methods: LC-MS analysis of free and esterified fatty acids",
+          "surfaceType": "methods-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
+        },
+        {
+          "id": "methods-lc-ms-analysis-of-phospholipids-and-fatty-acids",
+          "label": "Methods: LC-MS analysis of phospholipids and fatty acids",
+          "surfaceType": "methods-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
+        },
+        {
+          "id": "methods-live-cell-imaging",
+          "label": "Methods: Live Cell Imaging",
+          "surfaceType": "methods-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
+        },
+        {
+          "id": "methods-materials",
+          "label": "Methods: Materials",
+          "surfaceType": "methods-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
+        },
+        {
+          "id": "methods-ms-and-ms-ms-analysis-of-fatty-acids",
+          "label": "Methods: MS and MS/MS analysis of fatty acids",
+          "surfaceType": "methods-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
+        },
+        {
+          "id": "methods-ms-and-ms-ms-analysis-of-phospholipids",
+          "label": "Methods: MS and MS/MS analysis of phospholipids",
+          "surfaceType": "methods-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
+        },
+        {
+          "id": "methods-normal-phase-column-separation-of-phospholipids",
+          "label": "Methods: Normal phase column separation of phospholipids",
+          "surfaceType": "methods-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
+        },
+        {
+          "id": "methods-oxygenation-of-sape-and-sapc",
+          "label": "Methods: Oxygenation of SAPE and SAPC",
+          "surfaceType": "methods-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
+        },
+        {
+          "id": "methods-preparation-of-hydroperoxy-pe",
+          "label": "Methods: Preparation of hydroperoxy PE",
+          "surfaceType": "methods-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
+        },
+        {
+          "id": "methods-redox-phospholipidomics",
+          "label": "Methods: redox phospholipidomics",
+          "surfaceType": "methods-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Umbrella label over the granular LC-MS phospholipidomics Methods; section text read, SOPs not opened."
+        },
+        {
+          "id": "methods-reverse-phase-column-separation-of-fatty-acids",
+          "label": "Methods: Reverse phase column separation of fatty acids",
+          "surfaceType": "methods-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
+        },
+        {
+          "id": "methods-statistical-analysis",
+          "label": "Methods: Statistical Analysis",
+          "surfaceType": "methods-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
+        },
+        {
+          "id": "methods-treatment-with-15-hydroperoxy-aa-phosphatidyletanolamine-pe",
+          "label": "Methods: Treatment with 15-hydroperoxy-AA-phosphatidyletanolamine (PE)",
+          "surfaceType": "methods-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
+        },
+        {
+          "id": "results-aa-enhances-ferroptotic-response-in-rsl3-treated-cells",
+          "label": "Results: AA enhances ferroptotic response in RSL3-treated cells",
+          "surfaceType": "results-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
+        },
+        {
+          "id": "results-direct-oxygenation-of-pe-generates-ferroptotic-signals",
+          "label": "Results: Direct oxygenation of PE generates ferroptotic signals",
+          "surfaceType": "results-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
+        },
+        {
+          "id": "results-enzymatic-generators-of-peroxidation-signals",
+          "label": "Results: Enzymatic generators of peroxidation signals",
+          "surfaceType": "results-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Section text read; underlying data, SOPs and figure panels were not opened."
+        },
+        {
+          "id": "results-lc-ms-ms-identification-of-ferroptotic-signals",
+          "label": "Results: LC-MS/MS identification of ferroptotic signals",
+          "surfaceType": "results-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
+        },
+        {
+          "id": "results-lipid-hydroperoxides-accumulate-in-ferroptotic-er",
+          "label": "Results: Lipid hydroperoxides accumulate in ferroptotic ER",
+          "surfaceType": "results-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
+        },
+        {
+          "id": "results-oxygenated-pe-in-gpx4-ko-cells-and-kidney",
+          "label": "Results: Oxygenated PE in Gpx4 KO cells and kidney",
+          "surfaceType": "results-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
+        },
+        {
+          "id": "results-pe-ferroptotic-precursors-are-decreased-in-acs4-ko-cells",
+          "label": "Results: PE ferroptotic precursors are decreased in Acs4 KO cells",
+          "surfaceType": "results-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
+        },
+        {
+          "id": "results-redox-phospholipidomics-of-ferroptotic-signals",
+          "label": "Results: Redox phospholipidomics of ferroptotic signals",
+          "surfaceType": "results-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
+        }
+      ]
+    },
+    {
+      "id": "pmc7353921",
+      "documentClass": "accepted-author-manuscript",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7353921/",
+      "identifiers": {
+        "corpusPaperId": "doi:10.1038/s41589-020-0472-6"
+      },
+      "version": {
+        "label": "PMC7353921.1 / NIHMS1603967 author manuscript, retrieved 2026-07-24 via NCBI E-utilities efetch",
+        "retrievedAt": "2026-07-24",
+        "byteLength": 117289,
+        "sha256": "3165d84baf87d6798e3b76843f60e651c43c3979367d346be5929f021e4a7b6d"
+      },
+      "scopes": [
+        {
+          "id": "abstract",
+          "label": "abstract",
+          "surfaceType": "abstract-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Only the abstract was read at this scope; the full text was not."
+        },
+        {
+          "id": "author-contributions",
+          "label": "Author Contributions",
+          "surfaceType": "body-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Narrative section text read; underlying data and figure panels were not opened."
+        },
+        {
+          "id": "discussion",
+          "label": "Discussion",
+          "surfaceType": "body-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Narrative section text read; underlying data and figure panels were not opened."
+        },
+        {
+          "id": "fig-1",
+          "label": "Fig. 1",
+          "surfaceType": "figure-caption",
+          "accessExtent": "complete-scope",
+          "boundary": "Only the caption text was read; rendered figure panels and the supplement were not opened."
+        },
+        {
+          "id": "fig-2",
+          "label": "Fig. 2",
+          "surfaceType": "figure-caption",
+          "accessExtent": "complete-scope",
+          "boundary": "Only the caption text was read; rendered figure panels and the supplement were not opened."
+        },
+        {
+          "id": "fig-3",
+          "label": "Fig. 3",
+          "surfaceType": "figure-caption",
+          "accessExtent": "complete-scope",
+          "boundary": "Only the caption text was read; rendered figure panels and the supplement were not opened."
+        },
+        {
+          "id": "fig-4",
+          "label": "Fig. 4",
+          "surfaceType": "figure-caption",
+          "accessExtent": "complete-scope",
+          "boundary": "Only the caption text was read; rendered figure panels and the supplement were not opened."
+        },
+        {
+          "id": "fig-5",
+          "label": "Fig. 5",
+          "surfaceType": "figure-caption",
+          "accessExtent": "complete-scope",
+          "boundary": "Only the caption text was read; rendered figure panels and the supplement were not opened."
+        },
+        {
+          "id": "introduction",
+          "label": "Introduction",
+          "surfaceType": "body-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Narrative section text read; underlying data and figure panels were not opened."
+        },
+        {
+          "id": "methods-bodipy-c11-imaging-assay",
+          "label": "Methods: BODIPY-C11 imaging assay",
+          "surfaceType": "methods-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
+        },
+        {
+          "id": "methods-cell-lines-and-culture-conditions",
+          "label": "Methods: Cell lines and culture conditions",
+          "surfaceType": "methods-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
+        },
+        {
+          "id": "methods-chemicals",
+          "label": "Methods: Chemicals",
+          "surfaceType": "methods-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
+        },
+        {
+          "id": "methods-crystal-violet-staining",
+          "label": "Methods: Crystal violet staining",
+          "surfaceType": "methods-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
+        },
+        {
+          "id": "methods-flow-cytometry-analysis",
+          "label": "Methods: Flow cytometry analysis",
+          "surfaceType": "methods-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
+        },
+        {
+          "id": "methods-generation-of-gpx4-por-double-knockout-clones",
+          "label": "Methods: Generation of GPX4/POR double knockout clones",
+          "surfaceType": "methods-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
+        },
+        {
+          "id": "methods-genome-editing-and-shrna-mediated-gene-silencing",
+          "label": "Methods: Genome-editing and shRNA-mediated gene silencing",
+          "surfaceType": "methods-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
+        },
+        {
+          "id": "methods-genome-wide-crispr-screen",
+          "label": "Methods: Genome-wide CRISPR screen",
+          "surfaceType": "methods-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
+        },
+        {
+          "id": "methods-gpx4-pulldown-assay",
+          "label": "Methods: GPX4 pulldown assay",
+          "surfaceType": "methods-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
+        },
+        {
+          "id": "methods-immunoblot-analysis",
+          "label": "Methods: Immunoblot analysis",
+          "surfaceType": "methods-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
+        },
+        {
+          "id": "methods-lipidomics-profiling",
+          "label": "Methods: Lipidomics profiling",
+          "surfaceType": "methods-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
+        },
+        {
+          "id": "methods-malondialdehyde-mda-assay",
+          "label": "Methods: Malondialdehyde (MDA) assay",
+          "surfaceType": "methods-text",
+          "accessExtent": "complete-scope",
+          "boundary": "The kit workflow, BHT, temperature and wavelengths are read; the commercial kit's own SOP was not opened."
+        },
+        {
+          "id": "methods-redox-lipidomics-analysis",
+          "label": "Methods: Redox-lipidomics analysis",
+          "surfaceType": "methods-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
+        },
+        {
+          "id": "methods-software-and-statistical-analysis",
+          "label": "Methods: Software and statistical analysis",
+          "surfaceType": "methods-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
+        },
+        {
+          "id": "methods-viability-assays",
+          "label": "Methods: Viability assays",
+          "surfaceType": "methods-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
+        },
+        {
+          "id": "results-alox-mrnas-exhibit-limited-tissue-expression",
+          "label": "Results: ALOX mRNAs exhibit limited tissue expression",
+          "surfaceType": "results-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Section text read; underlying data, SOPs and figure panels were not opened."
+        },
+        {
+          "id": "results-crispr-screens-identify-por-as-a-pro-ferroptotic-gene",
+          "label": "Results: CRISPR screens identify POR as a pro-ferroptotic gene",
+          "surfaceType": "results-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Section text read; underlying data, SOPs and figure panels were not opened."
+        },
+        {
+          "id": "results-por-depletion-does-not-alter-gpx4-ml210-rsl3-binding",
+          "label": "Results: POR depletion does not alter GPX4-ML210/RSL3 binding",
+          "surfaceType": "results-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Section text read; underlying data, SOPs and figure panels were not opened."
+        },
+        {
+          "id": "results-por-mediates-ferroptosis-by-promoting-lipid-peroxidation",
+          "label": "Results: POR mediates ferroptosis by promoting lipid peroxidation",
+          "surfaceType": "results-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
+        },
+        {
+          "id": "results-por-mediates-ferroptosis-in-multiple-cancer-lineages",
+          "label": "Results: POR mediates ferroptosis in multiple cancer lineages",
+          "surfaceType": "results-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Section text read; underlying data, SOPs and figure panels were not opened."
+        },
+        {
+          "id": "results-por-mediates-ferroptosis-induced-by-distinct-mechanisms",
+          "label": "Results: POR mediates ferroptosis induced by distinct mechanisms",
+          "surfaceType": "results-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Section text read; underlying data, SOPs and figure panels were not opened."
+        }
+      ]
+    },
+    {
+      "id": "pubmed-27842066",
+      "documentClass": "pubmed-record",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27842066/",
+      "identifiers": {},
+      "version": {
+        "label": "pubmed response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
+        "retrievedAt": "2026-07-23",
+        "byteLength": null,
+        "sha256": null
+      },
+      "scopes": [
+        {
+          "id": "abstract",
+          "label": "abstract",
+          "surfaceType": "abstract-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Only the abstract was read at this scope; the full text was not."
+        },
+        {
+          "id": "citation",
+          "label": "citation",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        }
+      ]
+    },
+    {
+      "id": "pubmed-31634899",
+      "documentClass": "pubmed-record",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31634899/",
+      "identifiers": {},
+      "version": {
+        "label": "pubmed response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
+        "retrievedAt": "2026-07-23",
+        "byteLength": null,
+        "sha256": null
+      },
+      "scopes": [
+        {
+          "id": "abstract",
+          "label": "abstract",
+          "surfaceType": "abstract-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Only the abstract was read at this scope; the full text was not."
+        },
+        {
+          "id": "citation",
+          "label": "citation",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        }
+      ]
+    },
+    {
+      "id": "pubmed-32080622",
+      "documentClass": "pubmed-record",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32080622/",
+      "identifiers": {},
+      "version": {
+        "label": "pubmed response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
+        "retrievedAt": "2026-07-23",
+        "byteLength": null,
+        "sha256": null
+      },
+      "scopes": [
+        {
+          "id": "abstract",
+          "label": "abstract",
+          "surfaceType": "abstract-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Only the abstract was read at this scope; the full text was not."
+        },
+        {
+          "id": "citation",
+          "label": "citation",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        }
+      ]
+    },
+    {
+      "id": "pubmed-32275865",
+      "documentClass": "pubmed-record",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32275865/",
+      "identifiers": {},
+      "version": {
+        "label": "https://pubmed.ncbi.nlm.nih.gov/32275865/ (declared source)",
+        "retrievedAt": "2026-07-24",
+        "byteLength": null,
+        "sha256": null
+      },
+      "scopes": []
+    },
+    {
+      "id": "pubmed-32939090",
+      "documentClass": "pubmed-record",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32939090/",
+      "identifiers": {},
+      "version": {
+        "label": "pubmed response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
+        "retrievedAt": "2026-07-23",
+        "byteLength": null,
+        "sha256": null
+      },
+      "scopes": [
+        {
+          "id": "abstract",
+          "label": "abstract",
+          "surfaceType": "abstract-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Only the abstract was read at this scope; the full text was not."
+        },
+        {
+          "id": "citation",
+          "label": "citation",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        }
+      ]
+    },
+    {
+      "id": "pubmed-33981038",
+      "documentClass": "pubmed-record",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33981038/",
+      "identifiers": {},
+      "version": {
+        "label": "pubmed response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
+        "retrievedAt": "2026-07-23",
+        "byteLength": null,
+        "sha256": null
+      },
+      "scopes": [
+        {
+          "id": "abstract",
+          "label": "abstract",
+          "surfaceType": "abstract-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Only the abstract was read at this scope; the full text was not."
+        },
+        {
+          "id": "citation",
+          "label": "citation",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        }
+      ]
+    },
+    {
+      "id": "pubmed-35922516",
+      "documentClass": "pubmed-record",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35922516/",
+      "identifiers": {},
+      "version": {
+        "label": "pubmed response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
+        "retrievedAt": "2026-07-23",
+        "byteLength": null,
+        "sha256": null
+      },
+      "scopes": [
+        {
+          "id": "abstract",
+          "label": "abstract",
+          "surfaceType": "abstract-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Only the abstract was read at this scope; the full text was not."
+        },
+        {
+          "id": "citation",
+          "label": "citation",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        }
+      ]
+    },
+    {
+      "id": "pubmed-36747055",
+      "documentClass": "pubmed-record",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36747055/",
+      "identifiers": {},
+      "version": {
+        "label": "https://pubmed.ncbi.nlm.nih.gov/36747055/ (declared source)",
+        "retrievedAt": "2026-07-24",
+        "byteLength": null,
+        "sha256": null
+      },
+      "scopes": []
+    },
+    {
+      "id": "pubmed-40140422",
+      "documentClass": "pubmed-record",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40140422/",
+      "identifiers": {},
+      "version": {
+        "label": "pubmed response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
+        "retrievedAt": "2026-07-23",
+        "byteLength": null,
+        "sha256": null
+      },
+      "scopes": [
+        {
+          "id": "abstract",
+          "label": "abstract",
+          "surfaceType": "abstract-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Only the abstract was read at this scope; the full text was not."
+        },
+        {
+          "id": "citation",
+          "label": "citation",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        }
+      ]
+    },
+    {
+      "id": "pubmed-40335696",
+      "documentClass": "pubmed-record",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40335696/",
+      "identifiers": {},
+      "version": {
+        "label": "pubmed response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
+        "retrievedAt": "2026-07-23",
+        "byteLength": null,
+        "sha256": null
+      },
+      "scopes": [
+        {
+          "id": "abstract",
+          "label": "abstract",
+          "surfaceType": "abstract-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Only the abstract was read at this scope; the full text was not."
+        },
+        {
+          "id": "citation",
+          "label": "citation",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        }
+      ]
+    },
+    {
+      "id": "pubmed-40804518",
+      "documentClass": "pubmed-record",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40804518/",
+      "identifiers": {},
+      "version": {
+        "label": "pubmed response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
+        "retrievedAt": "2026-07-23",
+        "byteLength": null,
+        "sha256": null
+      },
+      "scopes": [
+        {
+          "id": "abstract",
+          "label": "abstract",
+          "surfaceType": "abstract-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Only the abstract was read at this scope; the full text was not."
+        },
+        {
+          "id": "citation",
+          "label": "citation",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        }
+      ]
+    },
+    {
+      "id": "pubmed-41349546",
+      "documentClass": "pubmed-record",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41349546/",
+      "identifiers": {},
+      "version": {
+        "label": "pubmed response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
+        "retrievedAt": "2026-07-23",
+        "byteLength": null,
+        "sha256": null
+      },
+      "scopes": [
+        {
+          "id": "abstract",
+          "label": "abstract",
+          "surfaceType": "abstract-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Only the abstract was read at this scope; the full text was not."
+        },
+        {
+          "id": "authors",
+          "label": "authors",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "citation",
+          "label": "citation",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        },
+        {
+          "id": "title",
+          "label": "title",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        }
+      ]
+    },
+    {
+      "id": "pubmed-42105762",
+      "documentClass": "pubmed-record",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42105762/",
+      "identifiers": {},
+      "version": {
+        "label": "pubmed response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
+        "retrievedAt": "2026-07-23",
+        "byteLength": null,
+        "sha256": null
+      },
+      "scopes": [
+        {
+          "id": "abstract",
+          "label": "abstract",
+          "surfaceType": "abstract-text",
+          "accessExtent": "complete-scope",
+          "boundary": "Only the abstract was read at this scope; the full text was not."
+        },
+        {
+          "id": "citation",
+          "label": "citation",
+          "surfaceType": "metadata-record",
+          "accessExtent": "complete-scope",
+          "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+        }
+      ]
+    },
+    {
+      "id": "thermofisher-d3861",
+      "documentClass": "vendor-catalogue-page",
+      "url": "https://www.thermofisher.com/order/catalog/product/D3861",
+      "identifiers": {},
+      "version": {
+        "label": "Thermo Fisher catalogue page D3861 (Invitrogen BODIPY 581/591 C11), retrieved 2026-07-24",
+        "retrievedAt": "2026-07-24",
+        "byteLength": null,
+        "sha256": null
+      },
+      "scopes": [
+        {
+          "id": "faq",
+          "label": "FAQ",
+          "surfaceType": "vendor-faq",
+          "accessExtent": "complete-scope",
+          "boundary": "A reagent product page, read in full; it is a catalogue description, not a peer-reviewed protocol."
+        },
+        {
+          "id": "product-description",
+          "label": "product description",
+          "surfaceType": "vendor-description",
+          "accessExtent": "complete-scope",
+          "boundary": "A reagent product page, read in full; it is a catalogue description, not a peer-reviewed protocol."
+        },
+        {
+          "id": "specifications",
+          "label": "specifications",
+          "surfaceType": "vendor-specifications",
+          "accessExtent": "complete-scope",
+          "boundary": "A reagent product page, read in full; it is a catalogue description, not a peer-reviewed protocol."
+        }
+      ]
+    }
+  ],
+  "reviewEvents": [
+    {
+      "id": "claude-r4-correction-s41586-021-03820-9",
+      "sourceId": "correction-s41586-021-03820-9",
+      "reviewState": "source-checked",
+      "reviewerId": "claude-code-round4-implementer",
+      "checkedAt": "2026-07-24",
+      "scopeIds": [
+        "affected-sections",
+        "correction-text",
+        "publication-date",
+        "statement-about-conclusions"
+      ],
+      "boundary": "Read in full on 2026-07-24. The notice changes one sentence of the Acknowledgements, adding \"and University of Texas PDX Development and Trial Center grant U54CA224065\" to the list of sources supporting PDX generation and annotation, and states that the original Article has been corrected online. It touches funding attribution only; no method, figure, dataset or conclusion is mentioned.",
+      "priorReviewEventId": null,
+      "agreement": null,
+      "discrepancyNote": null
+    },
+    {
+      "id": "claude-r4-correction-s41586-025-09562-2",
+      "sourceId": "correction-s41586-025-09562-2",
+      "reviewState": "source-checked",
+      "reviewerId": "claude-code-round4-implementer",
+      "checkedAt": "2026-07-24",
+      "scopeIds": [
+        "affected-sections",
+        "correction-text",
+        "publication-date",
+        "statement-about-conclusions"
+      ],
+      "boundary": "Read in full on 2026-07-24. Verbatim: due to a processing error, text from a reference title was inserted into the seventh sentence of the Discussion, which now reads \"In conclusion, ferroptosis sensitivity explains the higher susceptibility of male individuals to AKI\" in the HTML and PDF. Nothing else is corrected and the notice makes no statement about the article's conclusions, so none is recorded here.",
+      "priorReviewEventId": null,
+      "agreement": null,
+      "discrepancyNote": null
+    },
+    {
+      "id": "claude-r4-correction-s41586-026-10148-9",
+      "sourceId": "correction-s41586-026-10148-9",
+      "reviewState": "source-checked",
+      "reviewerId": "claude-code-round4-implementer",
+      "checkedAt": "2026-07-24",
+      "scopeIds": [
+        "affected-sections",
+        "correction-text",
+        "publication-date",
+        "statement-about-conclusions"
+      ],
+      "boundary": "Read in full on 2026-07-24. The notice states verbatim that \"None of these mistakes affects any scientific conclusions\" and that the errors arose in typesetting and were not present in the peer-reviewed version or the source data. What changed: in Fig. 2e a 4OH-E2 structure appeared instead of 17-beta-estradiol and in Fig. 2f the 2OH-E2 structure carried \"H\" instead of \"HO\"; in Fig. 2o,p the Sham and IRI OVX labels now reading n = 6 originally read n = 2 and n = 5, and in Fig. 2q the Sham OVX group now reading n = 5 originally read n = 2; several Extended Data cross-references on pages 1011, 1012 and 1014 were wrong; the supplied Supplementary Fig. S3 duplicated plots from Extended Data Fig. 3 and has been replaced; the male and female labels in Extended Data Fig. 2b,c were swapped and the Extended Data Fig. 2c y-axis read \"tubular damage score cortex\" instead of medulla; and some representative flow cytometry panels in Extended Data Fig. 4d,e were incorrect, with the notice stating the quantified single data points and primary data were correct throughout.",
+      "priorReviewEventId": null,
+      "agreement": null,
+      "discrepancyNote": null
+    },
+    {
+      "id": "claude-r4-correction-s41589-021-00767-w",
+      "sourceId": "correction-s41589-021-00767-w",
+      "reviewState": "source-checked",
+      "reviewerId": "claude-code-round4-implementer",
+      "checkedAt": "2026-07-24",
+      "scopeIds": [
+        "affected-sections",
+        "correction-text",
+        "publication-date",
+        "statement-about-conclusions"
+      ],
+      "boundary": "Read in full on 2026-07-24. The notice corrects the catalogue information for one antibody in the Methods section headed \"immunoblot analysis\": the POR antibody recorded as Abcam ab133303 (clone UOTR1B493, lot GR290350-7) should be Abcam ab180597, 0.076 mg/mL, rabbit mAb to cytochrome P450 reductase, clone EPR 14479(B), lot GR148691-9, used at 1:1,000. It closes with \"The errors have been corrected\" and makes no statement about any figure, result or conclusion, so nothing about the paper's conclusions is either confirmed or withdrawn by it. Because the correction is confined to reagent identity, it changes which antibody a reader must order to reproduce the POR immunoblots in Fig. 2c, Fig. 3c and Fig. 3d.",
+      "priorReviewEventId": null,
+      "agreement": null,
+      "discrepancyNote": null
+    },
+    {
+      "id": "claude-r4-kagan2017",
+      "sourceId": "pmc5506843",
+      "reviewState": "source-checked",
+      "reviewerId": "claude-code-round4-implementer",
+      "checkedAt": "2026-07-24",
+      "scopeIds": [
+        "abstract",
+        "discussion",
+        "fig-1",
+        "fig-2",
+        "fig-3",
+        "fig-4",
+        "fig-5",
+        "fig-6",
+        "introduction",
+        "methods-cell-lines-conditions-and-treatments",
+        "methods-gpx4-ko-mice",
+        "methods-identification-of-pe-oxygenated-products-in-cell-lysates",
+        "methods-identification-of-peox-in-cells",
+        "methods-lc-ms-analysis-of-free-and-esterified-fatty-acids",
+        "methods-lc-ms-analysis-of-phospholipids-and-fatty-acids",
+        "methods-live-cell-imaging",
+        "methods-materials",
+        "methods-ms-and-ms-ms-analysis-of-fatty-acids",
+        "methods-ms-and-ms-ms-analysis-of-phospholipids",
+        "methods-normal-phase-column-separation-of-phospholipids",
+        "methods-oxygenation-of-sape-and-sapc",
+        "methods-preparation-of-hydroperoxy-pe",
+        "methods-redox-phospholipidomics",
+        "methods-reverse-phase-column-separation-of-fatty-acids",
+        "methods-statistical-analysis",
+        "methods-treatment-with-15-hydroperoxy-aa-phosphatidyletanolamine-pe",
+        "results-aa-enhances-ferroptotic-response-in-rsl3-treated-cells",
+        "results-direct-oxygenation-of-pe-generates-ferroptotic-signals",
+        "results-enzymatic-generators-of-peroxidation-signals",
+        "results-lc-ms-ms-identification-of-ferroptotic-signals",
+        "results-lipid-hydroperoxides-accumulate-in-ferroptotic-er",
+        "results-oxygenated-pe-in-gpx4-ko-cells-and-kidney",
+        "results-pe-ferroptotic-precursors-are-decreased-in-acs4-ko-cells",
+        "results-redox-phospholipidomics-of-ferroptotic-signals"
+      ],
+      "boundary": "Read as the PMC author manuscript, not the paywalled version of record; rendered figure panels and the supplement were not opened. One study's implementation, not a universal protocol.",
+      "priorReviewEventId": null,
+      "agreement": null,
+      "discrepancyNote": null
+    },
+    {
+      "id": "claude-r4-pubmed-41349546",
+      "sourceId": "pubmed-41349546",
+      "reviewState": "source-checked",
+      "reviewerId": "claude-code-round4-implementer",
+      "checkedAt": "2026-07-24",
+      "scopeIds": [
+        "abstract",
+        "authors",
+        "citation",
+        "title"
+      ],
+      "boundary": "The abstract states that GPX4 p.R152H disrupts membrane anchoring without considerably impairing catalytic activity, that spatiotemporal Gpx4 deletion or neuron-specific GPX4-R152H expression degenerates cortical and cerebellar neurons with progressive neuroinflammation, and that patient iPSC-derived cortical neurons and forebrain organoids showed increased ferroptotic vulnerability and were sensitive to ferroptosis inhibition.",
+      "priorReviewEventId": null,
+      "agreement": null,
+      "discrepancyNote": null
+    },
+    {
+      "id": "claude-r4-thermofisher-d3861",
+      "sourceId": "thermofisher-d3861",
+      "reviewState": "source-checked",
+      "reviewerId": "claude-code-round4-implementer",
+      "checkedAt": "2026-07-24",
+      "scopeIds": [
+        "faq",
+        "product-description",
+        "specifications"
+      ],
+      "boundary": "The catalogue page gives the probe's chemistry, spectra, storage and reconstitution, but no assay design: it names no specimen, perturbation, control, timing or quantification.",
+      "priorReviewEventId": null,
+      "agreement": null,
+      "discrepancyNote": null
+    },
+    {
+      "id": "claude-r4-zou2020",
+      "sourceId": "pmc7353921",
+      "reviewState": "source-checked",
+      "reviewerId": "claude-code-round4-implementer",
+      "checkedAt": "2026-07-24",
+      "scopeIds": [
+        "abstract",
+        "author-contributions",
+        "discussion",
+        "fig-1",
+        "fig-2",
+        "fig-3",
+        "fig-4",
+        "fig-5",
+        "introduction",
+        "methods-bodipy-c11-imaging-assay",
+        "methods-cell-lines-and-culture-conditions",
+        "methods-chemicals",
+        "methods-crystal-violet-staining",
+        "methods-flow-cytometry-analysis",
+        "methods-generation-of-gpx4-por-double-knockout-clones",
+        "methods-genome-editing-and-shrna-mediated-gene-silencing",
+        "methods-genome-wide-crispr-screen",
+        "methods-gpx4-pulldown-assay",
+        "methods-immunoblot-analysis",
+        "methods-lipidomics-profiling",
+        "methods-malondialdehyde-mda-assay",
+        "methods-redox-lipidomics-analysis",
+        "methods-software-and-statistical-analysis",
+        "methods-viability-assays",
+        "results-alox-mrnas-exhibit-limited-tissue-expression",
+        "results-crispr-screens-identify-por-as-a-pro-ferroptotic-gene",
+        "results-por-depletion-does-not-alter-gpx4-ml210-rsl3-binding",
+        "results-por-mediates-ferroptosis-by-promoting-lipid-peroxidation",
+        "results-por-mediates-ferroptosis-in-multiple-cancer-lineages",
+        "results-por-mediates-ferroptosis-induced-by-distinct-mechanisms"
+      ],
+      "boundary": "Read as the PMC author manuscript, not the paywalled version of record; rendered figure panels and the supplement were not opened. One study's implementation, not a universal protocol.",
+      "priorReviewEventId": null,
+      "agreement": null,
+      "discrepancyNote": null
+    },
+    {
+      "id": "ingest-crossref-10-1016-j-cell-2025-11-014",
+      "sourceId": "crossref-10-1016-j-cell-2025-11-014",
+      "reviewState": "source-checked",
+      "reviewerId": "round-1-ingestion",
+      "checkedAt": "2026-07-23",
+      "scopeIds": [
+        "authors",
+        "issued-date",
+        "journal",
+        "title",
+        "version-relations",
+        "volume-pages"
+      ],
+      "boundary": "Cell, volume 189, pages 287-306.e35, issued 2026-01, 73 authors, first author Svenja M. Lorenz, last author Marcus Conrad. No correction is registered against this DOI.",
+      "priorReviewEventId": null,
+      "agreement": null,
+      "discrepancyNote": null
+    },
+    {
+      "id": "ingest-crossref-10-1016-j-cell-2026-04-024",
+      "sourceId": "crossref-10-1016-j-cell-2026-04-024",
+      "reviewState": "source-checked",
+      "reviewerId": "round-1-ingestion",
+      "checkedAt": "2026-07-23",
+      "scopeIds": [
+        "authors",
+        "issued-date",
+        "journal",
+        "title",
+        "version-relations",
+        "volume-pages"
+      ],
+      "boundary": "Cell, volume 189, pages 3991-4004.e26, issued 2026-06, first author Geraldine Veeckmans, last author Tom Vanden Berghe. No correction is registered against this DOI.",
+      "priorReviewEventId": null,
+      "agreement": null,
+      "discrepancyNote": null
+    },
+    {
+      "id": "ingest-crossref-10-1038-nchembio-2238",
+      "sourceId": "crossref-10-1038-nchembio-2238",
+      "reviewState": "source-checked",
+      "reviewerId": "round-1-ingestion",
+      "checkedAt": "2026-07-23",
+      "scopeIds": [
+        "authors",
+        "issued-date",
+        "journal",
+        "online-date",
+        "title",
+        "version-relations",
+        "volume-pages"
+      ],
+      "boundary": "Nature Chemical Biology, volume 13, pages 81-90, first author Valerian E. Kagan, last author Hulya Bayir. Crossref gives the online date 2016-11-14 and PubMed gives the issue date 2017 January; the citation year 2017 is used and the 2016 electronic date is retained. No correction is registered against this DOI.",
+      "priorReviewEventId": null,
+      "agreement": null,
+      "discrepancyNote": null
+    },
+    {
+      "id": "ingest-crossref-10-1038-s41467-025-58175-w",
+      "sourceId": "crossref-10-1038-s41467-025-58175-w",
+      "reviewState": "source-checked",
+      "reviewerId": "round-1-ingestion",
+      "checkedAt": "2026-07-23",
+      "scopeIds": [
+        "authors",
+        "issued-date",
+        "journal",
+        "title",
+        "version-relations",
+        "volume-pages"
+      ],
+      "boundary": "Nature Communications, volume 16, issued 2025-03-26, first author Bernhard F. Roeck, last author Ana J. Garcia-Saez. No correction is registered against this DOI.",
+      "priorReviewEventId": null,
+      "agreement": null,
+      "discrepancyNote": null
+    },
+    {
+      "id": "ingest-crossref-10-1038-s41586-019-1707-0",
+      "sourceId": "crossref-10-1038-s41586-019-1707-0",
+      "reviewState": "source-checked",
+      "reviewerId": "round-1-ingestion",
+      "checkedAt": "2026-07-23",
+      "scopeIds": [
+        "authors",
+        "issued-date",
+        "journal",
+        "title",
+        "version-relations",
+        "volume-pages"
+      ],
+      "boundary": "Nature, volume 575, pages 693-698, issued 2019-10-21, first author Sebastian Doll, last author Marcus Conrad. No correction is registered against this DOI.",
+      "priorReviewEventId": null,
+      "agreement": null,
+      "discrepancyNote": null
+    },
+    {
+      "id": "ingest-crossref-10-1038-s41586-020-2732-8",
+      "sourceId": "crossref-10-1038-s41586-020-2732-8",
+      "reviewState": "source-checked",
+      "reviewerId": "round-1-ingestion",
+      "checkedAt": "2026-07-23",
+      "scopeIds": [
+        "authors",
+        "issued-date",
+        "journal",
+        "title",
+        "version-relations",
+        "volume-pages"
+      ],
+      "boundary": "Nature, volume 585, pages 603-608, issued 2020-09-16, first author Yilong Zou, last author Stuart L. Schreiber. No correction is registered against this DOI.",
+      "priorReviewEventId": null,
+      "agreement": null,
+      "discrepancyNote": null
+    },
+    {
+      "id": "ingest-crossref-10-1038-s41586-021-03539-7",
+      "sourceId": "crossref-10-1038-s41586-021-03539-7",
+      "reviewState": "source-checked",
+      "reviewerId": "round-1-ingestion",
+      "checkedAt": "2026-07-23",
+      "scopeIds": [
+        "authors",
+        "issued-date",
+        "journal",
+        "title",
+        "version-relations",
+        "volume-pages"
+      ],
+      "boundary": "Nature, volume 593, pages 586-590, issued 2021-05-12, first author Chao Mao, last author Boyi Gan. Crossref registers an Author Correction, 10.1038/s41586-021-03820-9 dated 2021-08-02. The Matters Arising 10.1038/s41586-023-06269-0 and the authors' Reply 10.1038/s41586-023-06270-7 were both confirmed at Crossref, dated 2023-07-05.",
+      "priorReviewEventId": null,
+      "agreement": null,
+      "discrepancyNote": null
+    },
+    {
+      "id": "ingest-crossref-10-1038-s41586-022-05022-3",
+      "sourceId": "crossref-10-1038-s41586-022-05022-3",
+      "reviewState": "source-checked",
+      "reviewerId": "round-1-ingestion",
+      "checkedAt": "2026-07-23",
+      "scopeIds": [
+        "authors",
+        "issued-date",
+        "journal",
+        "title",
+        "version-relations",
+        "volume-pages"
+      ],
+      "boundary": "Nature, volume 608, pages 778-783, issued 2022-08-03, first author Eikan Mishima, last author Marcus Conrad. No correction is registered against this DOI.",
+      "priorReviewEventId": null,
+      "agreement": null,
+      "discrepancyNote": null
+    },
+    {
+      "id": "ingest-crossref-10-1038-s41586-025-08974-4",
+      "sourceId": "crossref-10-1038-s41586-025-08974-4",
+      "reviewState": "source-checked",
+      "reviewerId": "round-1-ingestion",
+      "checkedAt": "2026-07-23",
+      "scopeIds": [
+        "authors",
+        "issued-date",
+        "journal",
+        "title",
+        "version-relations",
+        "volume-pages"
+      ],
+      "boundary": "Nature, volume 642, pages 492-500, issued 2025-05-07, first author Tatiana Caneque, last author Raphael Rodriguez. Crossref records a preprint relation but no correction against this DOI.",
+      "priorReviewEventId": null,
+      "agreement": null,
+      "discrepancyNote": null
+    },
+    {
+      "id": "ingest-crossref-10-1038-s41586-025-09389-x",
+      "sourceId": "crossref-10-1038-s41586-025-09389-x",
+      "reviewState": "source-checked",
+      "reviewerId": "round-1-ingestion",
+      "checkedAt": "2026-07-23",
+      "scopeIds": [
+        "authors",
+        "issued-date",
+        "journal",
+        "title",
+        "version-relations",
+        "volume-pages"
+      ],
+      "boundary": "Nature, volume 645, pages 1011-1019, issued 2025-08-13, first author Wulf Tonnus, last author Andreas Linkermann. Crossref registers two Publisher Corrections, 10.1038/s41586-025-09562-2 dated 2025-08-26 and 10.1038/s41586-026-10148-9 dated 2026-01-21.",
+      "priorReviewEventId": null,
+      "agreement": null,
+      "discrepancyNote": null
+    },
+    {
+      "id": "ingest-crossref-10-1038-s41589-020-0472-6",
+      "sourceId": "crossref-10-1038-s41589-020-0472-6",
+      "reviewState": "source-checked",
+      "reviewerId": "round-1-ingestion",
+      "checkedAt": "2026-07-23",
+      "scopeIds": [
+        "authors",
+        "issued-date",
+        "journal",
+        "title",
+        "version-relations",
+        "volume-pages"
+      ],
+      "boundary": "Nature Chemical Biology, volume 16, pages 302-309, issued 2020-02-17, first author Yilong Zou, last author Stuart L. Schreiber. Crossref lists an Author Correction, 10.1038/s41589-021-00767-w, dated 2021-03-02.",
+      "priorReviewEventId": null,
+      "agreement": null,
+      "discrepancyNote": null
+    },
+    {
+      "id": "ingest-pubmed-27842066",
+      "sourceId": "pubmed-27842066",
+      "reviewState": "source-checked",
+      "reviewerId": "round-1-ingestion",
+      "checkedAt": "2026-07-23",
+      "scopeIds": [
+        "abstract",
+        "citation"
+      ],
+      "boundary": "Central claims cross-checked against the PubMed abstract, PMID 27842066.",
+      "priorReviewEventId": null,
+      "agreement": null,
+      "discrepancyNote": null
+    },
+    {
+      "id": "ingest-pubmed-31634899",
+      "sourceId": "pubmed-31634899",
+      "reviewState": "source-checked",
+      "reviewerId": "round-1-ingestion",
+      "checkedAt": "2026-07-23",
+      "scopeIds": [
+        "abstract",
+        "citation"
+      ],
+      "boundary": "Central claims cross-checked against the PubMed abstract, PMID 31634899.",
+      "priorReviewEventId": null,
+      "agreement": null,
+      "discrepancyNote": null
+    },
+    {
+      "id": "ingest-pubmed-32080622",
+      "sourceId": "pubmed-32080622",
+      "reviewState": "source-checked",
+      "reviewerId": "round-1-ingestion",
+      "checkedAt": "2026-07-23",
+      "scopeIds": [
+        "abstract",
+        "citation"
+      ],
+      "boundary": "Central claims cross-checked against the PubMed abstract, PMID 32080622.",
+      "priorReviewEventId": null,
+      "agreement": null,
+      "discrepancyNote": null
+    },
+    {
+      "id": "ingest-pubmed-32939090",
+      "sourceId": "pubmed-32939090",
+      "reviewState": "source-checked",
+      "reviewerId": "round-1-ingestion",
+      "checkedAt": "2026-07-23",
+      "scopeIds": [
+        "abstract",
+        "citation"
+      ],
+      "boundary": "Central claims cross-checked against the PubMed abstract, PMID 32939090.",
+      "priorReviewEventId": null,
+      "agreement": null,
+      "discrepancyNote": null
+    },
+    {
+      "id": "ingest-pubmed-33981038",
+      "sourceId": "pubmed-33981038",
+      "reviewState": "source-checked",
+      "reviewerId": "round-1-ingestion",
+      "checkedAt": "2026-07-23",
+      "scopeIds": [
+        "abstract",
+        "citation"
+      ],
+      "boundary": "Central claims cross-checked against the PubMed abstract, PMID 33981038.",
+      "priorReviewEventId": null,
+      "agreement": null,
+      "discrepancyNote": null
+    },
+    {
+      "id": "ingest-pubmed-35922516",
+      "sourceId": "pubmed-35922516",
+      "reviewState": "source-checked",
+      "reviewerId": "round-1-ingestion",
+      "checkedAt": "2026-07-23",
+      "scopeIds": [
+        "abstract",
+        "citation"
+      ],
+      "boundary": "Central claims cross-checked against the PubMed abstract, PMID 35922516.",
+      "priorReviewEventId": null,
+      "agreement": null,
+      "discrepancyNote": null
+    },
+    {
+      "id": "ingest-pubmed-40140422",
+      "sourceId": "pubmed-40140422",
+      "reviewState": "source-checked",
+      "reviewerId": "round-1-ingestion",
+      "checkedAt": "2026-07-23",
+      "scopeIds": [
+        "abstract",
+        "citation"
+      ],
+      "boundary": "Central claims cross-checked against the PubMed abstract, PMID 40140422.",
+      "priorReviewEventId": null,
+      "agreement": null,
+      "discrepancyNote": null
+    },
+    {
+      "id": "ingest-pubmed-40335696",
+      "sourceId": "pubmed-40335696",
+      "reviewState": "source-checked",
+      "reviewerId": "round-1-ingestion",
+      "checkedAt": "2026-07-23",
+      "scopeIds": [
+        "abstract",
+        "citation"
+      ],
+      "boundary": "Central claims cross-checked against the PubMed abstract, PMID 40335696.",
+      "priorReviewEventId": null,
+      "agreement": null,
+      "discrepancyNote": null
+    },
+    {
+      "id": "ingest-pubmed-40804518",
+      "sourceId": "pubmed-40804518",
+      "reviewState": "source-checked",
+      "reviewerId": "round-1-ingestion",
+      "checkedAt": "2026-07-23",
+      "scopeIds": [
+        "abstract",
+        "citation"
+      ],
+      "boundary": "Central claims cross-checked against the PubMed abstract, PMID 40804518.",
+      "priorReviewEventId": null,
+      "agreement": null,
+      "discrepancyNote": null
+    },
+    {
+      "id": "ingest-pubmed-41349546",
+      "sourceId": "pubmed-41349546",
+      "reviewState": "source-checked",
+      "reviewerId": "round-1-ingestion",
+      "checkedAt": "2026-07-23",
+      "scopeIds": [
+        "abstract",
+        "citation"
+      ],
+      "boundary": "Central claims cross-checked against the PubMed abstract, PMID 41349546.",
+      "priorReviewEventId": null,
+      "agreement": null,
+      "discrepancyNote": null
+    },
+    {
+      "id": "ingest-pubmed-42105762",
+      "sourceId": "pubmed-42105762",
+      "reviewState": "source-checked",
+      "reviewerId": "round-1-ingestion",
+      "checkedAt": "2026-07-23",
+      "scopeIds": [
+        "abstract",
+        "citation"
+      ],
+      "boundary": "Central claims cross-checked against the PubMed abstract, PMID 42105762.",
+      "priorReviewEventId": null,
+      "agreement": null,
+      "discrepancyNote": null
+    }
+  ]
+}

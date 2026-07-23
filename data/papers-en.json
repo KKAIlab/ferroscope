@@ -95,7 +95,9 @@
           "reviewState": "source-checked",
           "verificationDepth": "metadata-checked",
           "sourceVersion": "crossref response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
-          "boundary": "A registration record settles title, journal, pagination, dates, author list and version relations. It establishes nothing about what any figure, method or supplement of the paper contains."
+          "boundary": "A registration record settles title, journal, pagination, dates, author list and version relations. It establishes nothing about what any figure, method or supplement of the paper contains.",
+          "sourceId": "crossref-10-1016-j-cell-2025-11-014",
+          "reviewEventId": "ingest-crossref-10-1016-j-cell-2025-11-014"
         },
         {
           "kind": "pubmed",
@@ -111,7 +113,9 @@
           "reviewState": "source-checked",
           "verificationDepth": "abstract-checked",
           "sourceVersion": "pubmed response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
-          "boundary": "The indexed citation and abstract were read. An abstract is the authors' summary; it does not establish any figure-level or methods-level detail."
+          "boundary": "The indexed citation and abstract were read. An abstract is the authors' summary; it does not establish any figure-level or methods-level detail.",
+          "sourceId": "pubmed-41349546",
+          "reviewEventId": "ingest-pubmed-41349546"
         },
         {
           "kind": "publisher-full-text",
@@ -124,7 +128,9 @@
           "reviewState": "recorded-unverified",
           "verificationDepth": "not-read",
           "sourceVersion": null,
-          "boundary": "Declared but not opened."
+          "boundary": "Declared but not opened.",
+          "sourceId": "doi-10-1016-j-cell-2025-11-014",
+          "reviewEventId": null
         },
         {
           "kind": "pubmed",
@@ -142,7 +148,9 @@
           "checkedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)",
           "sourceVersion": "PubMed record PMID 41349546 retrieved 2026-07-24 through the NCBI E-utilities efetch endpoint (db=pubmed, retmode=xml); Cell 2026 Jan 8;189(1):287-306.e35, epub 2025-12-04",
           "finding": "The abstract states that GPX4 p.R152H disrupts membrane anchoring without considerably impairing catalytic activity, that spatiotemporal Gpx4 deletion or neuron-specific GPX4-R152H expression degenerates cortical and cerebellar neurons with progressive neuroinflammation, and that patient iPSC-derived cortical neurons and forebrain organoids showed increased ferroptotic vulnerability and were sensitive to ferroptosis inhibition.",
-          "boundary": "This is the whole of the accessible content. Europe PMC reports isOpenAccess=N and inPMC=N for this DOI, and the publisher link is Elsevier full text behind a subscription, so no figure, legend, methods section or supplement was opened. Four of the five questions the round-4 work order asks about this paper cannot be answered from it: the abstract does not mention I129S/L130S at all, does not name liproxstatin-1 or any other inhibitor, does not say which membrane systems were reconstituted, and does not distinguish which of death, biomarker, structure, behaviour or survival was rescued. Every figure-level and method-level claim about this paper therefore remains archive-derived."
+          "boundary": "This is the whole of the accessible content. Europe PMC reports isOpenAccess=N and inPMC=N for this DOI, and the publisher link is Elsevier full text behind a subscription, so no figure, legend, methods section or supplement was opened. Four of the five questions the round-4 work order asks about this paper cannot be answered from it: the abstract does not mention I129S/L130S at all, does not name liproxstatin-1 or any other inhibitor, does not say which membrane systems were reconstituted, and does not distinguish which of death, biomarker, structure, behaviour or survival was rescued. Every figure-level and method-level claim about this paper therefore remains archive-derived.",
+          "sourceId": "pubmed-41349546",
+          "reviewEventId": "claude-r4-pubmed-41349546"
         }
       ],
       "derivation": {
@@ -293,7 +301,9 @@
           "reviewState": "source-checked",
           "verificationDepth": "metadata-checked",
           "sourceVersion": "crossref response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
-          "boundary": "A registration record settles title, journal, pagination, dates, author list and version relations. It establishes nothing about what any figure, method or supplement of the paper contains."
+          "boundary": "A registration record settles title, journal, pagination, dates, author list and version relations. It establishes nothing about what any figure, method or supplement of the paper contains.",
+          "sourceId": "crossref-10-1038-s41589-020-0472-6",
+          "reviewEventId": "ingest-crossref-10-1038-s41589-020-0472-6"
         },
         {
           "kind": "pubmed",
@@ -309,7 +319,9 @@
           "reviewState": "source-checked",
           "verificationDepth": "abstract-checked",
           "sourceVersion": "pubmed response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
-          "boundary": "The indexed citation and abstract were read. An abstract is the authors' summary; it does not establish any figure-level or methods-level detail."
+          "boundary": "The indexed citation and abstract were read. An abstract is the authors' summary; it does not establish any figure-level or methods-level detail.",
+          "sourceId": "pubmed-32080622",
+          "reviewEventId": "ingest-pubmed-32080622"
         },
         {
           "kind": "correction-notice",
@@ -327,7 +339,9 @@
           "reviewState": "source-checked",
           "verificationDepth": "full-text-rechecked",
           "sourceVersion": "Nature Chemical Biology volume 17, page 501 (2021); Author Correction published 02 March 2021; publisher HTML retrieved in full 2026-07-24",
-          "boundary": "Complete for the notice itself. It is not a reading of the corrected article. The notice names the Methods section it fixes but names no figure, so the mapping onto the POR immunoblot panels is inference, not something the notice states. It makes no claim about conclusions and none should be read into it."
+          "boundary": "Complete for the notice itself. It is not a reading of the corrected article. The notice names the Methods section it fixes but names no figure, so the mapping onto the POR immunoblot panels is inference, not something the notice states. It makes no claim about conclusions and none should be read into it.",
+          "sourceId": "correction-s41589-021-00767-w",
+          "reviewEventId": "claude-r4-correction-s41589-021-00767-w"
         },
         {
           "kind": "publisher-full-text",
@@ -340,7 +354,9 @@
           "reviewState": "recorded-unverified",
           "verificationDepth": "not-read",
           "sourceVersion": null,
-          "boundary": "Declared but not opened."
+          "boundary": "Declared but not opened.",
+          "sourceId": "doi-10-1038-s41589-020-0472-6",
+          "reviewEventId": null
         },
         {
           "kind": "pmc-author-manuscript",
@@ -416,7 +432,9 @@
           "finding": "Full text read, including all five main figure captions and the complete Online Methods. The lipid-peroxidation conclusion rests on four readouts in Fig. 5: BODIPY-C11 flow cytometry, BODIPY-C11 imaging, a malondialdehyde kit assay and species-resolved redox-lipidomics of hydroperoxy- and hydroxy-PUFA-PE, against an unchanged global lipidome in Fig. 5a. Hydroperoxyl-PUFA-phosphatidylcholines were not detected at all; hydroxyl-PUFA-PCs were detected but not significantly induced by ML210.",
           "boundary": "Read as the PMC author manuscript, not the publisher's version of record. Figure panels were read as captions only; the rendered images, the Supplementary Information and Supplementary Datasets 1-3 were not opened. Critically, this manuscript still carries the POR antibody catalogue information that the 2021 Author Correction superseded (Abcam ab133303, clone UOTR1B493, lot GR290350-7). The corrected reagent appears only in the publisher's version of record and in the correction notice, so a reader who works from this free full text will order the wrong antibody.",
           "id": "zou2020-pmc7353921",
-          "reviewerId": "claude-code-round4-implementer"
+          "reviewerId": "claude-code-round4-implementer",
+          "sourceId": "pmc7353921",
+          "reviewEventId": "claude-r4-zou2020"
         }
       ],
       "derivation": {
@@ -517,7 +535,9 @@
           "reviewState": "source-checked",
           "verificationDepth": "metadata-checked",
           "sourceVersion": "crossref response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
-          "boundary": "A registration record settles title, journal, pagination, dates, author list and version relations. It establishes nothing about what any figure, method or supplement of the paper contains."
+          "boundary": "A registration record settles title, journal, pagination, dates, author list and version relations. It establishes nothing about what any figure, method or supplement of the paper contains.",
+          "sourceId": "crossref-10-1038-s41586-020-2732-8",
+          "reviewEventId": "ingest-crossref-10-1038-s41586-020-2732-8"
         },
         {
           "kind": "pubmed",
@@ -533,7 +553,9 @@
           "reviewState": "source-checked",
           "verificationDepth": "abstract-checked",
           "sourceVersion": "pubmed response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
-          "boundary": "The indexed citation and abstract were read. An abstract is the authors' summary; it does not establish any figure-level or methods-level detail."
+          "boundary": "The indexed citation and abstract were read. An abstract is the authors' summary; it does not establish any figure-level or methods-level detail.",
+          "sourceId": "pubmed-32939090",
+          "reviewEventId": "ingest-pubmed-32939090"
         },
         {
           "kind": "publisher-full-text",
@@ -546,7 +568,9 @@
           "reviewState": "recorded-unverified",
           "verificationDepth": "not-read",
           "sourceVersion": null,
-          "boundary": "Declared but not opened."
+          "boundary": "Declared but not opened.",
+          "sourceId": "doi-10-1038-s41586-020-2732-8",
+          "reviewEventId": null
         }
       ],
       "derivation": {
@@ -647,7 +671,9 @@
           "reviewState": "source-checked",
           "verificationDepth": "metadata-checked",
           "sourceVersion": "crossref response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
-          "boundary": "A registration record settles title, journal, pagination, dates, author list and version relations. It establishes nothing about what any figure, method or supplement of the paper contains."
+          "boundary": "A registration record settles title, journal, pagination, dates, author list and version relations. It establishes nothing about what any figure, method or supplement of the paper contains.",
+          "sourceId": "crossref-10-1038-s41586-019-1707-0",
+          "reviewEventId": "ingest-crossref-10-1038-s41586-019-1707-0"
         },
         {
           "kind": "pubmed",
@@ -663,7 +689,9 @@
           "reviewState": "source-checked",
           "verificationDepth": "abstract-checked",
           "sourceVersion": "pubmed response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
-          "boundary": "The indexed citation and abstract were read. An abstract is the authors' summary; it does not establish any figure-level or methods-level detail."
+          "boundary": "The indexed citation and abstract were read. An abstract is the authors' summary; it does not establish any figure-level or methods-level detail.",
+          "sourceId": "pubmed-31634899",
+          "reviewEventId": "ingest-pubmed-31634899"
         },
         {
           "kind": "publisher-full-text",
@@ -676,7 +704,9 @@
           "reviewState": "recorded-unverified",
           "verificationDepth": "not-read",
           "sourceVersion": null,
-          "boundary": "Declared but not opened."
+          "boundary": "Declared but not opened.",
+          "sourceId": "doi-10-1038-s41586-019-1707-0",
+          "reviewEventId": null
         }
       ],
       "derivation": {
@@ -777,7 +807,9 @@
           "reviewState": "source-checked",
           "verificationDepth": "metadata-checked",
           "sourceVersion": "crossref response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
-          "boundary": "A registration record settles title, journal, pagination, dates, author list and version relations. It establishes nothing about what any figure, method or supplement of the paper contains."
+          "boundary": "A registration record settles title, journal, pagination, dates, author list and version relations. It establishes nothing about what any figure, method or supplement of the paper contains.",
+          "sourceId": "crossref-10-1038-s41586-022-05022-3",
+          "reviewEventId": "ingest-crossref-10-1038-s41586-022-05022-3"
         },
         {
           "kind": "pubmed",
@@ -793,7 +825,9 @@
           "reviewState": "source-checked",
           "verificationDepth": "abstract-checked",
           "sourceVersion": "pubmed response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
-          "boundary": "The indexed citation and abstract were read. An abstract is the authors' summary; it does not establish any figure-level or methods-level detail."
+          "boundary": "The indexed citation and abstract were read. An abstract is the authors' summary; it does not establish any figure-level or methods-level detail.",
+          "sourceId": "pubmed-35922516",
+          "reviewEventId": "ingest-pubmed-35922516"
         },
         {
           "kind": "publisher-full-text",
@@ -806,7 +840,9 @@
           "reviewState": "recorded-unverified",
           "verificationDepth": "not-read",
           "sourceVersion": null,
-          "boundary": "Declared but not opened."
+          "boundary": "Declared but not opened.",
+          "sourceId": "doi-10-1038-s41586-022-05022-3",
+          "reviewEventId": null
         }
       ],
       "derivation": {
@@ -944,7 +980,9 @@
           "reviewState": "source-checked",
           "verificationDepth": "metadata-checked",
           "sourceVersion": "crossref response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
-          "boundary": "A registration record settles title, journal, pagination, dates, author list and version relations. It establishes nothing about what any figure, method or supplement of the paper contains."
+          "boundary": "A registration record settles title, journal, pagination, dates, author list and version relations. It establishes nothing about what any figure, method or supplement of the paper contains.",
+          "sourceId": "crossref-10-1038-nchembio-2238",
+          "reviewEventId": "ingest-crossref-10-1038-nchembio-2238"
         },
         {
           "kind": "pubmed",
@@ -960,7 +998,9 @@
           "reviewState": "source-checked",
           "verificationDepth": "abstract-checked",
           "sourceVersion": "pubmed response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
-          "boundary": "The indexed citation and abstract were read. An abstract is the authors' summary; it does not establish any figure-level or methods-level detail."
+          "boundary": "The indexed citation and abstract were read. An abstract is the authors' summary; it does not establish any figure-level or methods-level detail.",
+          "sourceId": "pubmed-27842066",
+          "reviewEventId": "ingest-pubmed-27842066"
         },
         {
           "kind": "publisher-full-text",
@@ -973,7 +1013,9 @@
           "reviewState": "recorded-unverified",
           "verificationDepth": "not-read",
           "sourceVersion": null,
-          "boundary": "Declared but not opened."
+          "boundary": "Declared but not opened.",
+          "sourceId": "doi-10-1038-nchembio-2238",
+          "reviewEventId": null
         },
         {
           "kind": "pmc-author-manuscript",
@@ -1058,7 +1100,9 @@
           "finding": "Full text read: 350 phospholipid species across PC, PE, PS, PG, PI and CL were detected in Pfa1 cells (220 non-oxygenated, 130 oxygenated), with no oxygenated cardiolipin in any condition. Four sieving criteria reduced 110 candidates to 44, 17, 8 and finally 4. Those four are doubly and triply oxygenated diacyl PE species in a single phospholipid class, structurally assigned by MS2/MS3 as 15-hydroperoxy-AA-PE, 15-hydroperoxy-8-hydroxy-, 15-hydroperoxy-9-hydroxy- and 15-hydroperoxy-12-hydroxy-AA-PE.",
           "boundary": "Read as the PMC author manuscript (accepted version), not the publisher's version of record: page and panel numbering may differ from the typeset article. Figure panels were read as captions; the rendered figure images, the Supplementary Information and the supplementary datasets were not opened, and nothing in them was used. The author list was not taken from this manuscript — attribution stays anchored on the Crossref record. The specific internal standard compounds used for phospholipid quantification are not named anywhere in the accessible text.",
           "id": "kagan2017-pmc5506843",
-          "reviewerId": "claude-code-round4-implementer"
+          "reviewerId": "claude-code-round4-implementer",
+          "sourceId": "pmc5506843",
+          "reviewEventId": "claude-r4-kagan2017"
         }
       ],
       "derivation": {
@@ -1159,7 +1203,9 @@
           "reviewState": "source-checked",
           "verificationDepth": "metadata-checked",
           "sourceVersion": "crossref response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
-          "boundary": "A registration record settles title, journal, pagination, dates, author list and version relations. It establishes nothing about what any figure, method or supplement of the paper contains."
+          "boundary": "A registration record settles title, journal, pagination, dates, author list and version relations. It establishes nothing about what any figure, method or supplement of the paper contains.",
+          "sourceId": "crossref-10-1038-s41586-025-08974-4",
+          "reviewEventId": "ingest-crossref-10-1038-s41586-025-08974-4"
         },
         {
           "kind": "pubmed",
@@ -1175,7 +1221,9 @@
           "reviewState": "source-checked",
           "verificationDepth": "abstract-checked",
           "sourceVersion": "pubmed response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
-          "boundary": "The indexed citation and abstract were read. An abstract is the authors' summary; it does not establish any figure-level or methods-level detail."
+          "boundary": "The indexed citation and abstract were read. An abstract is the authors' summary; it does not establish any figure-level or methods-level detail.",
+          "sourceId": "pubmed-40335696",
+          "reviewEventId": "ingest-pubmed-40335696"
         },
         {
           "kind": "publisher-full-text",
@@ -1188,7 +1236,9 @@
           "reviewState": "recorded-unverified",
           "verificationDepth": "not-read",
           "sourceVersion": null,
-          "boundary": "Declared but not opened."
+          "boundary": "Declared but not opened.",
+          "sourceId": "doi-10-1038-s41586-025-08974-4",
+          "reviewEventId": null
         }
       ],
       "derivation": {
@@ -1316,7 +1366,9 @@
           "reviewState": "source-checked",
           "verificationDepth": "metadata-checked",
           "sourceVersion": "crossref response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
-          "boundary": "A registration record settles title, journal, pagination, dates, author list and version relations. It establishes nothing about what any figure, method or supplement of the paper contains."
+          "boundary": "A registration record settles title, journal, pagination, dates, author list and version relations. It establishes nothing about what any figure, method or supplement of the paper contains.",
+          "sourceId": "crossref-10-1038-s41467-025-58175-w",
+          "reviewEventId": "ingest-crossref-10-1038-s41467-025-58175-w"
         },
         {
           "kind": "pubmed",
@@ -1332,7 +1384,9 @@
           "reviewState": "source-checked",
           "verificationDepth": "abstract-checked",
           "sourceVersion": "pubmed response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
-          "boundary": "The indexed citation and abstract were read. An abstract is the authors' summary; it does not establish any figure-level or methods-level detail."
+          "boundary": "The indexed citation and abstract were read. An abstract is the authors' summary; it does not establish any figure-level or methods-level detail.",
+          "sourceId": "pubmed-40140422",
+          "reviewEventId": "ingest-pubmed-40140422"
         },
         {
           "kind": "publisher-full-text",
@@ -1345,7 +1399,9 @@
           "reviewState": "recorded-unverified",
           "verificationDepth": "not-read",
           "sourceVersion": null,
-          "boundary": "Declared but not opened."
+          "boundary": "Declared but not opened.",
+          "sourceId": "doi-10-1038-s41467-025-58175-w",
+          "reviewEventId": null
         }
       ],
       "derivation": {
@@ -1478,7 +1534,9 @@
           "reviewState": "source-checked",
           "verificationDepth": "metadata-checked",
           "sourceVersion": "crossref response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
-          "boundary": "A registration record settles title, journal, pagination, dates, author list and version relations. It establishes nothing about what any figure, method or supplement of the paper contains."
+          "boundary": "A registration record settles title, journal, pagination, dates, author list and version relations. It establishes nothing about what any figure, method or supplement of the paper contains.",
+          "sourceId": "crossref-10-1016-j-cell-2026-04-024",
+          "reviewEventId": "ingest-crossref-10-1016-j-cell-2026-04-024"
         },
         {
           "kind": "pubmed",
@@ -1494,7 +1552,9 @@
           "reviewState": "source-checked",
           "verificationDepth": "abstract-checked",
           "sourceVersion": "pubmed response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
-          "boundary": "The indexed citation and abstract were read. An abstract is the authors' summary; it does not establish any figure-level or methods-level detail."
+          "boundary": "The indexed citation and abstract were read. An abstract is the authors' summary; it does not establish any figure-level or methods-level detail.",
+          "sourceId": "pubmed-42105762",
+          "reviewEventId": "ingest-pubmed-42105762"
         },
         {
           "kind": "publisher-full-text",
@@ -1507,7 +1567,9 @@
           "reviewState": "recorded-unverified",
           "verificationDepth": "not-read",
           "sourceVersion": null,
-          "boundary": "Declared but not opened."
+          "boundary": "Declared but not opened.",
+          "sourceId": "doi-10-1016-j-cell-2026-04-024",
+          "reviewEventId": null
         }
       ],
       "derivation": {
@@ -1688,7 +1750,9 @@
           "reviewState": "source-checked",
           "verificationDepth": "metadata-checked",
           "sourceVersion": "crossref response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
-          "boundary": "A registration record settles title, journal, pagination, dates, author list and version relations. It establishes nothing about what any figure, method or supplement of the paper contains."
+          "boundary": "A registration record settles title, journal, pagination, dates, author list and version relations. It establishes nothing about what any figure, method or supplement of the paper contains.",
+          "sourceId": "crossref-10-1038-s41586-025-09389-x",
+          "reviewEventId": "ingest-crossref-10-1038-s41586-025-09389-x"
         },
         {
           "kind": "pubmed",
@@ -1704,7 +1768,9 @@
           "reviewState": "source-checked",
           "verificationDepth": "abstract-checked",
           "sourceVersion": "pubmed response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
-          "boundary": "The indexed citation and abstract were read. An abstract is the authors' summary; it does not establish any figure-level or methods-level detail."
+          "boundary": "The indexed citation and abstract were read. An abstract is the authors' summary; it does not establish any figure-level or methods-level detail.",
+          "sourceId": "pubmed-40804518",
+          "reviewEventId": "ingest-pubmed-40804518"
         },
         {
           "kind": "correction-notice",
@@ -1722,7 +1788,9 @@
           "reviewState": "source-checked",
           "verificationDepth": "full-text-rechecked",
           "sourceVersion": "Nature volume 645, page E9 (2025); Publisher Correction published 26 August 2025; publisher HTML retrieved in full 2026-07-24",
-          "boundary": "Complete for the notice. It changes one sentence of the Discussion; no figure, method, sample size or dataset is touched. This is not a reading of the corrected article."
+          "boundary": "Complete for the notice. It changes one sentence of the Discussion; no figure, method, sample size or dataset is touched. This is not a reading of the corrected article.",
+          "sourceId": "correction-s41586-025-09562-2",
+          "reviewEventId": "claude-r4-correction-s41586-025-09562-2"
         },
         {
           "kind": "correction-notice",
@@ -1740,7 +1808,9 @@
           "reviewState": "source-checked",
           "verificationDepth": "full-text-rechecked",
           "sourceVersion": "Nature volume 650, page E5 (2026); Publisher Correction published 21 January 2026; publisher HTML retrieved in full 2026-07-24",
-          "boundary": "Complete for the notice. The corrected sample sizes are the notice's own statement, not a re-analysis: nobody in this repository has checked whether any statistic in the article was recomputed against n = 6 rather than n = 2. The notice asserts no effect on conclusions; that assertion is the authors' and the publisher's, and is recorded as theirs."
+          "boundary": "Complete for the notice. The corrected sample sizes are the notice's own statement, not a re-analysis: nobody in this repository has checked whether any statistic in the article was recomputed against n = 6 rather than n = 2. The notice asserts no effect on conclusions; that assertion is the authors' and the publisher's, and is recorded as theirs.",
+          "sourceId": "correction-s41586-026-10148-9",
+          "reviewEventId": "claude-r4-correction-s41586-026-10148-9"
         },
         {
           "kind": "publisher-full-text",
@@ -1753,7 +1823,9 @@
           "reviewState": "recorded-unverified",
           "verificationDepth": "not-read",
           "sourceVersion": null,
-          "boundary": "Declared but not opened."
+          "boundary": "Declared but not opened.",
+          "sourceId": "doi-10-1038-s41586-025-09389-x",
+          "reviewEventId": null
         }
       ],
       "derivation": {
@@ -1918,7 +1990,9 @@
           "reviewState": "source-checked",
           "verificationDepth": "metadata-checked",
           "sourceVersion": "crossref response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
-          "boundary": "A registration record settles title, journal, pagination, dates, author list and version relations. It establishes nothing about what any figure, method or supplement of the paper contains."
+          "boundary": "A registration record settles title, journal, pagination, dates, author list and version relations. It establishes nothing about what any figure, method or supplement of the paper contains.",
+          "sourceId": "crossref-10-1038-s41586-021-03539-7",
+          "reviewEventId": "ingest-crossref-10-1038-s41586-021-03539-7"
         },
         {
           "kind": "pubmed",
@@ -1934,7 +2008,9 @@
           "reviewState": "source-checked",
           "verificationDepth": "abstract-checked",
           "sourceVersion": "pubmed response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
-          "boundary": "The indexed citation and abstract were read. An abstract is the authors' summary; it does not establish any figure-level or methods-level detail."
+          "boundary": "The indexed citation and abstract were read. An abstract is the authors' summary; it does not establish any figure-level or methods-level detail.",
+          "sourceId": "pubmed-33981038",
+          "reviewEventId": "ingest-pubmed-33981038"
         },
         {
           "kind": "correction-notice",
@@ -1952,7 +2028,9 @@
           "reviewState": "source-checked",
           "verificationDepth": "full-text-rechecked",
           "sourceVersion": "Nature volume 596, page E13 (2021); Author Correction published 02 August 2021; publisher HTML retrieved in full 2026-07-24",
-          "boundary": "Complete for the notice. It is a funding-attribution change and carries no information about the disputed DHODH target attribution, which is the subject of a separate Matters Arising and Reply that were not opened here."
+          "boundary": "Complete for the notice. It is a funding-attribution change and carries no information about the disputed DHODH target attribution, which is the subject of a separate Matters Arising and Reply that were not opened here.",
+          "sourceId": "correction-s41586-021-03820-9",
+          "reviewEventId": "claude-r4-correction-s41586-021-03820-9"
         },
         {
           "kind": "publisher-full-text",
@@ -1965,7 +2043,9 @@
           "reviewState": "recorded-unverified",
           "verificationDepth": "not-read",
           "sourceVersion": null,
-          "boundary": "Declared but not opened."
+          "boundary": "Declared but not opened.",
+          "sourceId": "doi-10-1038-s41586-021-03539-7",
+          "reviewEventId": null
         }
       ],
       "derivation": {
