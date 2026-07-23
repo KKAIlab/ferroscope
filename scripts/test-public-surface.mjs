@@ -144,6 +144,14 @@ fail(/no evidence recorded/.test(methodHtml), "Laboratories listed by curated ju
 fail(/Demonstrated through a source-checked claim/.test(methodHtml), "No capability claim is presented as evidence-backed, so the split proves nothing.");
 fail(/reviewPending/.test(methodHtml), "A module built on a dataset with no independent review does not disclose it.");
 
+// Round-5 P0-C/§10: a source-checked decision field must show its support mode, its
+// scope-specific access depth and a link to the source that was actually opened, so an
+// analytical leap is inspectable rather than hidden behind a citation.
+fail(/Explicit in source/.test(methodHtml), "A source-checked decision field does not show an explicit support mode.");
+fail(/Analytical inference/.test(methodHtml), "The support-mode axis does not distinguish an analytical inference from an explicit statement.");
+fail(/Opened source ↗/.test(methodHtml), "A source-checked decision field does not link to the source that was actually opened.");
+fail(/Not established here:/.test(methodHtml), "A source-checked decision field does not state the scope boundary of its evidence.");
+
 for (const method of app.state.methods) {
   const profile = method.decisionProfile;
   fail(Boolean(profile), `Method ${method.id} has no decision profile.`);
