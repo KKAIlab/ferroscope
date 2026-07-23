@@ -292,75 +292,213 @@
     "source": "https://www.thermofisher.com/order/catalog/product/D3861",
     "decisionProfile": {
       "reviewState": "pending-source-review",
-      "provisionalBecause": "No declared source for this module has been read and dated in this repository, so every decision field below is unverified. The module's published guidance is curated judgement, not a source-checked protocol.",
-      "sourceCheckedFields": 0,
-      "pendingFields": 13,
+      "provisionalBecause": "10 of 13 decision axes were read from a primary source on 2026-07-24; the remaining 3 name the exact section still to be read. Values record a demonstrating study's implementation, not a universal protocol.",
+      "sourceCheckedFields": 10,
+      "pendingFields": 3,
       "fields": {
         "specimen": {
-          "status": "pending-source-review",
-          "value": null,
-          "unresolved": "Which specimen or model system this module is written for is not recorded. Resolving it requires reading https://www.thermofisher.com/order/catalog/product/D3861 and recording the value with its scope and check date."
+          "status": "source-checked",
+          "value": "In the demonstrating study (Zou 2020): UACC-257 melanoma and 786-O / 769-P clear-cell renal carcinoma lines, wild-type against POR-depleted.",
+          "evidence": [
+            {
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7353921/",
+              "checkedAt": "2026-07-24",
+              "checkedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)",
+              "scope": [
+                "Methods: Flow cytometry analysis",
+                "Methods: BODIPY-C11 imaging assay"
+              ]
+            }
+          ]
         },
         "question": {
-          "status": "pending-source-review",
-          "value": null,
-          "unresolved": "The biological question this measurement is chosen to answer is not recorded as a separate field. Resolving it requires reading https://www.thermofisher.com/order/catalog/product/D3861 and recording the value with its scope and check date."
+          "status": "source-checked",
+          "value": "Whether membrane lipid peroxidation rises under a ferroptotic perturbation, read as a shift in probe emission rather than as an identified lipid species.",
+          "evidence": [
+            {
+              "url": "https://www.thermofisher.com/order/catalog/product/D3861",
+              "checkedAt": "2026-07-24",
+              "checkedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)",
+              "scope": [
+                "product description"
+              ]
+            },
+            {
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7353921/",
+              "checkedAt": "2026-07-24",
+              "checkedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)",
+              "scope": [
+                "Results: POR mediates ferroptosis by promoting lipid peroxidation"
+              ]
+            }
+          ]
         },
         "perturbation": {
-          "status": "pending-source-review",
-          "value": null,
-          "unresolved": "What must be deliberately changed for this measurement to be interpretable is not recorded. Resolving it requires reading https://www.thermofisher.com/order/catalog/product/D3861 and recording the value with its scope and check date."
+          "status": "source-checked",
+          "value": "The probe is a reporter, not the perturbation; in the demonstrating study the perturbation is GPX4 inhibition by ML210 (5 micromolar) against DMSO, with POR depletion as the genetic arm.",
+          "evidence": [
+            {
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7353921/",
+              "checkedAt": "2026-07-24",
+              "checkedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)",
+              "scope": [
+                "Methods: Flow cytometry analysis",
+                "Methods: BODIPY-C11 imaging assay"
+              ]
+            }
+          ]
         },
         "readout": {
-          "status": "pending-source-review",
-          "value": null,
-          "unresolved": "What is measured is stated by the module itself, but that statement has not been checked against a source. Resolving it requires reading https://www.thermofisher.com/order/catalog/product/D3861 and recording the value with its scope and check date.",
-          "curatedStatement": "Oxidation of the probe in its local membrane environment."
+          "status": "source-checked",
+          "value": "Oxidation of the probe's polyunsaturated butadienyl group shifts its fluorescence emission peak from approximately 590 nm (reduced) to approximately 510 nm (oxidised); read by flow cytometry (reduced in the PE-Texas Red channel, oxidised in FITC) or by fluorescence microscopy.",
+          "evidence": [
+            {
+              "url": "https://www.thermofisher.com/order/catalog/product/D3861",
+              "checkedAt": "2026-07-24",
+              "checkedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)",
+              "scope": [
+                "product description",
+                "specifications"
+              ]
+            },
+            {
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7353921/",
+              "checkedAt": "2026-07-24",
+              "checkedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)",
+              "scope": [
+                "Methods: Flow cytometry analysis",
+                "Methods: BODIPY-C11 imaging assay"
+              ]
+            }
+          ]
         },
         "quantificationUnit": {
           "status": "pending-source-review",
           "value": null,
-          "unresolved": "The unit the result is expressed in is not recorded, so two studies using this module cannot be compared numerically from this record. Resolving it requires reading https://www.thermofisher.com/order/catalog/product/D3861 and recording the value with its scope and check date."
+          "unresolved": "The vendor page states the emission shift qualitatively and Zou 2020's Methods describe channel assignment but do not state the exact quantification unit (e.g. oxidised/reduced ratio or percentage-shifted). Resolving it requires the figure and its legend (Fig. 5b,c) or the version of record, which were not opened."
         },
         "instrument": {
-          "status": "pending-source-review",
-          "value": null,
-          "unresolved": "The instrument or platform is not recorded. Resolving it requires reading https://www.thermofisher.com/order/catalog/product/D3861 and recording the value with its scope and check date."
+          "status": "source-checked",
+          "value": "Fluorescence detection: a flow cytometer (Zou used a SONY SH800) or a fluorescence imager (Zou used a Perkin Elmer Operetta); excitation/emission 581/591 nm for the reduced probe per the vendor specification.",
+          "evidence": [
+            {
+              "url": "https://www.thermofisher.com/order/catalog/product/D3861",
+              "checkedAt": "2026-07-24",
+              "checkedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)",
+              "scope": [
+                "specifications"
+              ]
+            },
+            {
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7353921/",
+              "checkedAt": "2026-07-24",
+              "checkedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)",
+              "scope": [
+                "Methods: Flow cytometry analysis",
+                "Methods: BODIPY-C11 imaging assay"
+              ]
+            }
+          ]
         },
         "positiveControl": {
           "status": "pending-source-review",
           "value": null,
-          "unresolved": "No essential positive control is recorded. Resolving it requires reading https://www.thermofisher.com/order/catalog/product/D3861 and recording the value with its scope and check date."
+          "unresolved": "Neither the vendor page nor the Zou 2020 BODIPY sections name a positive oxidation control for the probe itself (e.g. cumene hydroperoxide). Resolving it requires a protocol source that specifies one."
         },
         "negativeControl": {
           "status": "pending-source-review",
           "value": null,
-          "unresolved": "No essential negative control is recorded. Resolving it requires reading https://www.thermofisher.com/order/catalog/product/D3861 and recording the value with its scope and check date."
+          "unresolved": "The demonstrating study reads the probe against a DMSO condition, but does not describe a radical-trapping-antioxidant control (Fer-1/Lip-1) specifically for the BODIPY readout in the sections read. Resolving it requires the figure legend or a dedicated protocol."
         },
         "processControl": {
-          "status": "pending-source-review",
-          "value": null,
-          "unresolved": "No process control — the control that reports what the sample handling itself did — is recorded. Resolving it requires reading https://www.thermofisher.com/order/catalog/product/D3861 and recording the value with its scope and check date."
+          "status": "source-checked",
+          "value": "A parallel cytosolic-ROS reporter (H2-DCFDA) run alongside BODIPY-C11 in the same experiment, so a change specific to membrane lipids can be distinguished from a general rise in cytosolic reactive oxygen species.",
+          "evidence": [
+            {
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7353921/",
+              "checkedAt": "2026-07-24",
+              "checkedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)",
+              "scope": [
+                "Methods: Flow cytometry analysis",
+                "Results: POR mediates ferroptosis by promoting lipid peroxidation"
+              ]
+            }
+          ]
         },
         "orthogonalConfirmation": {
-          "status": "pending-source-review",
-          "value": null,
-          "unresolved": "Which independent measurement must agree before this result can be reused is not recorded as a field. Resolving it requires reading https://www.thermofisher.com/order/catalog/product/D3861 and recording the value with its scope and check date."
+          "status": "source-checked",
+          "value": "In the demonstrating study the probe is never read alone: it is paired with a malondialdehyde assay and with species-resolved redox-lipidomics, and the three readouts are required to move together before lipid peroxidation is concluded.",
+          "evidence": [
+            {
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7353921/",
+              "checkedAt": "2026-07-24",
+              "checkedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)",
+              "scope": [
+                "Fig. 5",
+                "Results: POR mediates ferroptosis by promoting lipid peroxidation"
+              ]
+            }
+          ]
         },
         "timing": {
-          "status": "pending-source-review",
-          "value": null,
-          "unresolved": "The timing constraint is not recorded. Resolving it requires reading https://www.thermofisher.com/order/catalog/product/D3861 and recording the value with its scope and check date."
+          "status": "source-checked",
+          "value": "Acute probe loading: 5 micromolar BODIPY-C11 for the final 45 minutes of a 90-minute ML210 treatment for flow cytometry; for imaging, probe added for the last 30 minutes of a 3-hour ML210 exposure.",
+          "evidence": [
+            {
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7353921/",
+              "checkedAt": "2026-07-24",
+              "checkedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)",
+              "scope": [
+                "Methods: Flow cytometry analysis",
+                "Methods: BODIPY-C11 imaging assay"
+              ]
+            }
+          ]
         },
         "compartmentResolution": {
-          "status": "pending-source-review",
-          "value": null,
-          "unresolved": "The spatial or compartment resolution this module can support is not recorded. Resolving it requires reading https://www.thermofisher.com/order/catalog/product/D3861 and recording the value with its scope and check date."
+          "status": "source-checked",
+          "value": "The probe partitions into membranes and reports their local oxidation, but resolves no molecular lipid species; fluorescence imaging gives only coarse subcellular localisation, not organelle-specific chemistry.",
+          "evidence": [
+            {
+              "url": "https://www.thermofisher.com/order/catalog/product/D3861",
+              "checkedAt": "2026-07-24",
+              "checkedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)",
+              "scope": [
+                "product description"
+              ]
+            },
+            {
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7353921/",
+              "checkedAt": "2026-07-24",
+              "checkedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)",
+              "scope": [
+                "Methods: BODIPY-C11 imaging assay"
+              ]
+            }
+          ]
         },
         "confounders": {
-          "status": "pending-source-review",
-          "value": null,
-          "unresolved": "What can produce the same signal without the underlying biology is not recorded as a field. Resolving it requires reading https://www.thermofisher.com/order/catalog/product/D3861 and recording the value with its scope and check date."
+          "status": "source-checked",
+          "value": "The probe reacts with peroxyl radicals and is not specific to phospholipid hydroperoxides - Kagan 2017 states directly that C11-BODIPY, unlike LiperFluo, does not interact with phospholipid hydroperoxides - so it is a surrogate, not a direct measure; it is also photosensitive, must be handled in DMSO and stored desiccated at -20 C in the dark, and can redistribute between compartments.",
+          "evidence": [
+            {
+              "url": "https://www.thermofisher.com/order/catalog/product/D3861",
+              "checkedAt": "2026-07-24",
+              "checkedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)",
+              "scope": [
+                "FAQ",
+                "product description"
+              ]
+            },
+            {
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5506843/",
+              "checkedAt": "2026-07-24",
+              "checkedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)",
+              "scope": [
+                "Results: Lipid hydroperoxides accumulate in ferroptotic ER"
+              ]
+            }
+          ]
         }
       }
     },
@@ -369,12 +507,34 @@
         "kind": "vendor-protocol",
         "kindBasis": "A reagent supplier's product page for the probe this module is built on, identified from the URL host and catalogue path.",
         "url": "https://www.thermofisher.com/order/catalog/product/D3861",
-        "status": "not-checked",
-        "checkedAt": null,
-        "checkedBy": null,
-        "verificationDepth": "not-read",
-        "scope": [],
-        "boundary": "A URL declared as this module's source is not evidence that the document specifies any field below. No reader is recorded against it in this repository."
+        "status": "source-checked",
+        "checkedAt": "2026-07-24",
+        "checkedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)",
+        "verificationDepth": "full-text-rechecked",
+        "scope": [
+          "product description",
+          "specifications",
+          "FAQ"
+        ],
+        "boundary": "The catalogue page gives the probe's chemistry, spectra, storage and reconstitution, but no assay design: it names no specimen, perturbation, control, timing or quantification. Those come from the demonstrating study, not from the vendor.",
+        "sourceVersion": "Thermo Fisher catalogue page D3861 (Invitrogen BODIPY 581/591 C11), retrieved 2026-07-24"
+      },
+      {
+        "kind": "original-research-demonstration",
+        "kindBasis": "10.1038/s41589-020-0472-6 (Zou 2020); its BODIPY-C11 flow and imaging Methods are read as a demonstration of this assay, added alongside the module's declared vendor-protocol source.",
+        "corpusPaperId": "doi:10.1038/s41589-020-0472-6",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7353921/",
+        "status": "source-checked",
+        "checkedAt": "2026-07-24",
+        "checkedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)",
+        "verificationDepth": "methods-checked",
+        "sourceVersion": "PMC7353921.1 / NIHMS1603967 author manuscript, retrieved 2026-07-24 via NCBI E-utilities efetch",
+        "scope": [
+          "Methods: Flow cytometry analysis",
+          "Methods: BODIPY-C11 imaging assay",
+          "Fig. 5"
+        ],
+        "boundary": "A demonstrating study's implementation, not the module's declared vendor source, and read as the author manuscript; the exact quantification unit was not stated in the accessible text."
       }
     ],
     "capabilityAttribution": {
@@ -553,75 +713,185 @@
     "source": "https://doi.org/10.1038/s41580-025-00843-2",
     "decisionProfile": {
       "reviewState": "pending-source-review",
-      "provisionalBecause": "No declared source for this module has been read and dated in this repository, so every decision field below is unverified. The module's published guidance is curated judgement, not a source-checked protocol.",
-      "sourceCheckedFields": 0,
-      "pendingFields": 13,
+      "provisionalBecause": "12 of 13 decision axes were read from a primary source on 2026-07-24; the remaining 1 name the exact section still to be read. Values record a demonstrating study's implementation, not a universal protocol.",
+      "sourceCheckedFields": 12,
+      "pendingFields": 1,
       "fields": {
         "specimen": {
-          "status": "pending-source-review",
-          "value": null,
-          "unresolved": "Which specimen or model system this module is written for is not recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+          "status": "source-checked",
+          "value": "In the demonstrating study (Zou 2020): 786-O clear-cell renal carcinoma cells, control against POR-depleted.",
+          "evidence": [
+            {
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7353921/",
+              "checkedAt": "2026-07-24",
+              "checkedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)",
+              "scope": [
+                "Methods: Malondialdehyde (MDA) assay"
+              ]
+            }
+          ]
         },
         "question": {
-          "status": "pending-source-review",
-          "value": null,
-          "unresolved": "The biological question this measurement is chosen to answer is not recorded as a separate field. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+          "status": "source-checked",
+          "value": "Whether a bulk downstream lipid-peroxidation product (malondialdehyde) rises under ferroptotic stress and falls when the pathway is blocked.",
+          "evidence": [
+            {
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7353921/",
+              "checkedAt": "2026-07-24",
+              "checkedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)",
+              "scope": [
+                "Results: POR mediates ferroptosis by promoting lipid peroxidation",
+                "Fig. 5"
+              ]
+            }
+          ]
         },
         "perturbation": {
-          "status": "pending-source-review",
-          "value": null,
-          "unresolved": "What must be deliberately changed for this measurement to be interpretable is not recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+          "status": "source-checked",
+          "value": "DMSO, ML210, or ML210 plus liproxstatin-1 for 90 minutes; POR depletion as the genetic arm.",
+          "evidence": [
+            {
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7353921/",
+              "checkedAt": "2026-07-24",
+              "checkedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)",
+              "scope": [
+                "Methods: Malondialdehyde (MDA) assay"
+              ]
+            }
+          ]
         },
         "readout": {
-          "status": "pending-source-review",
-          "value": null,
-          "unresolved": "What is measured is stated by the module itself, but that statement has not been checked against a source. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date.",
-          "curatedStatement": "Bulk downstream products of oxidative lipid damage."
+          "status": "source-checked",
+          "value": "The malondialdehyde-thiobarbituric-acid adduct, measured fluorometrically with a commercial kit (Abcam ab118970).",
+          "evidence": [
+            {
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7353921/",
+              "checkedAt": "2026-07-24",
+              "checkedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)",
+              "scope": [
+                "Methods: Malondialdehyde (MDA) assay"
+              ]
+            }
+          ]
         },
         "quantificationUnit": {
-          "status": "pending-source-review",
-          "value": null,
-          "unresolved": "The unit the result is expressed in is not recorded, so two studies using this module cannot be compared numerically from this record. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+          "status": "source-checked",
+          "value": "Fluorometric MDA signal read at excitation/emission 532/553 nm, normalised to protein concentration.",
+          "evidence": [
+            {
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7353921/",
+              "checkedAt": "2026-07-24",
+              "checkedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)",
+              "scope": [
+                "Methods: Malondialdehyde (MDA) assay"
+              ]
+            }
+          ]
         },
         "instrument": {
-          "status": "pending-source-review",
-          "value": null,
-          "unresolved": "The instrument or platform is not recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+          "status": "source-checked",
+          "value": "A fluorescence microplate reader; sample protein quantified on a Qubit; a Dounce homogeniser for lysis.",
+          "evidence": [
+            {
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7353921/",
+              "checkedAt": "2026-07-24",
+              "checkedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)",
+              "scope": [
+                "Methods: Malondialdehyde (MDA) assay"
+              ]
+            }
+          ]
         },
         "positiveControl": {
           "status": "pending-source-review",
           "value": null,
-          "unresolved": "No essential positive control is recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+          "unresolved": "The Methods section read does not name a defined MDA positive standard beyond the kit; whether the kit's own MDA standard curve was run is not stated in the accessible text. Resolving it requires the kit protocol or the figure legend."
         },
         "negativeControl": {
-          "status": "pending-source-review",
-          "value": null,
-          "unresolved": "No essential negative control is recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+          "status": "source-checked",
+          "value": "Liproxstatin-1 co-treatment with ML210, so a ferroptosis-specific reduction of the signal can be distinguished from a general one; the DMSO condition is the untreated baseline.",
+          "evidence": [
+            {
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7353921/",
+              "checkedAt": "2026-07-24",
+              "checkedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)",
+              "scope": [
+                "Methods: Malondialdehyde (MDA) assay",
+                "Fig. 5"
+              ]
+            }
+          ]
         },
         "processControl": {
-          "status": "pending-source-review",
-          "value": null,
-          "unresolved": "No process control — the control that reports what the sample handling itself did — is recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+          "status": "source-checked",
+          "value": "Butylated hydroxytoluene added to the lysis buffer to prevent ex vivo lipid oxidation during processing, and protein normalisation of every sample.",
+          "evidence": [
+            {
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7353921/",
+              "checkedAt": "2026-07-24",
+              "checkedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)",
+              "scope": [
+                "Methods: Malondialdehyde (MDA) assay"
+              ]
+            }
+          ]
         },
         "orthogonalConfirmation": {
-          "status": "pending-source-review",
-          "value": null,
-          "unresolved": "Which independent measurement must agree before this result can be reused is not recorded as a field. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+          "status": "source-checked",
+          "value": "In the demonstrating study MDA is read together with BODIPY-C11 and species-resolved redox-lipidomics; the bulk product is corroborated by, not substituted for, the species-level measurement.",
+          "evidence": [
+            {
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7353921/",
+              "checkedAt": "2026-07-24",
+              "checkedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)",
+              "scope": [
+                "Fig. 5",
+                "Results: POR mediates ferroptosis by promoting lipid peroxidation"
+              ]
+            }
+          ]
         },
         "timing": {
-          "status": "pending-source-review",
-          "value": null,
-          "unresolved": "The timing constraint is not recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+          "status": "source-checked",
+          "value": "Acute: 90-minute treatment before collection.",
+          "evidence": [
+            {
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7353921/",
+              "checkedAt": "2026-07-24",
+              "checkedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)",
+              "scope": [
+                "Methods: Malondialdehyde (MDA) assay"
+              ]
+            }
+          ]
         },
         "compartmentResolution": {
-          "status": "pending-source-review",
-          "value": null,
-          "unresolved": "The spatial or compartment resolution this module can support is not recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+          "status": "source-checked",
+          "value": "None: MDA is measured from a bulk cell homogenate, with no molecular-species or compartment resolution.",
+          "evidence": [
+            {
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7353921/",
+              "checkedAt": "2026-07-24",
+              "checkedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)",
+              "scope": [
+                "Methods: Malondialdehyde (MDA) assay"
+              ]
+            }
+          ]
         },
         "confounders": {
-          "status": "pending-source-review",
-          "value": null,
-          "unresolved": "What can produce the same signal without the underlying biology is not recorded as a field. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+          "status": "source-checked",
+          "value": "The thiobarbituric-acid reaction is not specific to malondialdehyde or to ferroptosis - it detects a class of aldehydes and rises after several kinds of oxidative injury - so butylated hydroxytoluene is needed to prevent artefactual oxidation and the result must be read as a bulk, non-specific marker.",
+          "evidence": [
+            {
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7353921/",
+              "checkedAt": "2026-07-24",
+              "checkedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)",
+              "scope": [
+                "Methods: Malondialdehyde (MDA) assay"
+              ]
+            }
+          ]
         }
       }
     },
@@ -636,6 +906,22 @@
         "verificationDepth": "not-read",
         "scope": [],
         "boundary": "A URL declared as this module's source is not evidence that the document specifies any field below. No reader is recorded against it in this repository."
+      },
+      {
+        "kind": "original-research-demonstration",
+        "kindBasis": "10.1038/s41589-020-0472-6 (Zou et al. 2020); its Methods are read here as a demonstration of this assay, which is not this module's originally declared source.",
+        "corpusPaperId": "doi:10.1038/s41589-020-0472-6",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7353921/",
+        "status": "source-checked",
+        "checkedAt": "2026-07-24",
+        "checkedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)",
+        "verificationDepth": "methods-checked",
+        "sourceVersion": "PMC7353921.1 / NIHMS1603967 author manuscript, retrieved 2026-07-24 via NCBI E-utilities efetch",
+        "scope": [
+          "Methods: Malondialdehyde (MDA) assay",
+          "Fig. 5"
+        ],
+        "boundary": "Read as the PMC author manuscript. This is a demonstrating study added alongside the module's originally declared source, so its values carry a transfer boundary: the module's declared source is the 2025 reproducibility recommendation, which is paywalled and was read only at abstract level; these values come from Zou 2020 instead."
       }
     ],
     "capabilityAttribution": {
@@ -686,76 +972,209 @@
     ],
     "source": "https://doi.org/10.1038/nchembio.2238",
     "decisionProfile": {
-      "reviewState": "pending-source-review",
-      "provisionalBecause": "No declared source for this module has been read and dated in this repository, so every decision field below is unverified. The module's published guidance is curated judgement, not a source-checked protocol.",
-      "sourceCheckedFields": 0,
-      "pendingFields": 13,
+      "reviewState": "source-checked",
+      "provisionalBecause": "All 13 decision axes were read from primary sources on 2026-07-24. Values record the demonstrating study's implementation, not a universal protocol.",
+      "sourceCheckedFields": 13,
+      "pendingFields": 0,
       "fields": {
         "specimen": {
-          "status": "pending-source-review",
-          "value": null,
-          "unresolved": "Which specimen or model system this module is written for is not recorded. Resolving it requires reading https://doi.org/10.1038/nchembio.2238 and recording the value with its scope and check date."
+          "status": "source-checked",
+          "value": "In the demonstrating study (Kagan 2017): Pfa1 mouse embryonic fibroblasts (wild-type, Acsl4-knockout and inducible Gpx4-knockout), mouse lung epithelial (MLE) cells, and kidney from tamoxifen-inducible Gpx4-knockout mice.",
+          "evidence": [
+            {
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5506843/",
+              "checkedAt": "2026-07-24",
+              "checkedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)",
+              "scope": [
+                "Methods: Cell lines conditions and treatments",
+                "Methods: Gpx4 KO mice"
+              ]
+            }
+          ]
         },
         "question": {
-          "status": "pending-source-review",
-          "value": null,
-          "unresolved": "The biological question this measurement is chosen to answer is not recorded as a separate field. Resolving it requires reading https://doi.org/10.1038/nchembio.2238 and recording the value with its scope and check date."
+          "status": "source-checked",
+          "value": "Which oxidised phospholipid molecular species accumulate specifically in ferroptotic cells and whether they track death rather than reporting bulk oxidation.",
+          "evidence": [
+            {
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5506843/",
+              "checkedAt": "2026-07-24",
+              "checkedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)",
+              "scope": [
+                "abstract",
+                "Results: Redox phospholipidomics of ferroptotic signals"
+              ]
+            }
+          ]
         },
         "perturbation": {
-          "status": "pending-source-review",
-          "value": null,
-          "unresolved": "What must be deliberately changed for this measurement to be interpretable is not recorded. Resolving it requires reading https://doi.org/10.1038/nchembio.2238 and recording the value with its scope and check date."
+          "status": "source-checked",
+          "value": "GPX4 inhibition by RSL3 (100 nM), genetic Gpx4 loss, ACSL4 loss, and arachidonic-acid or deuterated d8-arachidonic-acid supplementation; rosiglitazone to suppress AA/AdA esterification into PE.",
+          "evidence": [
+            {
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5506843/",
+              "checkedAt": "2026-07-24",
+              "checkedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)",
+              "scope": [
+                "Methods: Cell lines conditions and treatments",
+                "Results: PE ferroptotic precursors are decreased in Acs4 KO cells"
+              ]
+            }
+          ]
         },
         "readout": {
-          "status": "pending-source-review",
-          "value": null,
-          "unresolved": "What is measured is stated by the module itself, but that statement has not been checked against a source. Resolving it requires reading https://doi.org/10.1038/nchembio.2238 and recording the value with its scope and check date.",
-          "curatedStatement": "Specific oxidized lipid molecular species within the limits of extraction, chromatography, standards and fragmentation."
+          "status": "source-checked",
+          "value": "Oxygenated phospholipid molecular species resolved by LC-MS/MS, with esterified oxidised fatty acids released by PAF-acetylhydrolase and species assigned by MS2/MS3 fragmentation (e.g. 15-hydroperoxy-AA-PE and its di- and tri-oxygenated forms).",
+          "evidence": [
+            {
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5506843/",
+              "checkedAt": "2026-07-24",
+              "checkedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)",
+              "scope": [
+                "Methods: Identification of PE oxygenated products in cell lysates",
+                "Methods: LC-MS analysis of free and esterified fatty acids",
+                "Fig. 5",
+                "Fig. 6"
+              ]
+            }
+          ]
         },
         "quantificationUnit": {
-          "status": "pending-source-review",
-          "value": null,
-          "unresolved": "The unit the result is expressed in is not recorded, so two studies using this module cannot be compared numerically from this record. Resolving it requires reading https://doi.org/10.1038/nchembio.2238 and recording the value with its scope and check date."
+          "status": "source-checked",
+          "value": "Esterified oxygenated acyls in pmol per micromole of phospholipid (e.g. 199.3 +/- 26.2 pmol/micromole in wild-type against 72.2 +/- 27.0 in Acsl4-knockout); phospholipids quantified ratiometrically against a pre-selected internal standard using a per-class standard curve.",
+          "evidence": [
+            {
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5506843/",
+              "checkedAt": "2026-07-24",
+              "checkedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)",
+              "scope": [
+                "Results: AA enhances ferroptotic response in RSL3-treated cells",
+                "Methods: Statistical Analysis"
+              ]
+            }
+          ]
         },
         "instrument": {
-          "status": "pending-source-review",
-          "value": null,
-          "unresolved": "The instrument or platform is not recorded. Resolving it requires reading https://doi.org/10.1038/nchembio.2238 and recording the value with its scope and check date."
+          "status": "source-checked",
+          "value": "Thermo Fisher Orbitrap-class mass spectrometry: Q-Exactive hybrid quadrupole-Orbitrap for phospholipid and fatty-acid MS/MS, an Orbitrap Fusion Lumos for data-dependent MS2/targeted-MS3 structural work, and an LXQ ion trap for purity confirmation; normal-phase silica and reverse-phase C18/C8 HPLC upstream.",
+          "evidence": [
+            {
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5506843/",
+              "checkedAt": "2026-07-24",
+              "checkedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)",
+              "scope": [
+                "Methods: MS and MS/MS analysis of phospholipids",
+                "Methods: Identification of PE oxygenated products in cell lysates",
+                "Methods: Normal phase column separation of phospholipids"
+              ]
+            }
+          ]
         },
         "positiveControl": {
-          "status": "pending-source-review",
-          "value": null,
-          "unresolved": "No essential positive control is recorded. Resolving it requires reading https://doi.org/10.1038/nchembio.2238 and recording the value with its scope and check date."
+          "status": "source-checked",
+          "value": "Authentic 1-stearoyl-2-arachidonoyl-PE hydroperoxide (SAPE-OOH), prepared by 15-lipoxygenase oxidation and HPLC-purified to 99%, used as a structural reference to confirm the identity of the oxygenated PE species detected in cells.",
+          "evidence": [
+            {
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5506843/",
+              "checkedAt": "2026-07-24",
+              "checkedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)",
+              "scope": [
+                "Methods: Preparation of hydroperoxy PE",
+                "Methods: Identification of PE oxygenated products in cell lysates"
+              ]
+            }
+          ]
         },
         "negativeControl": {
-          "status": "pending-source-review",
-          "value": null,
-          "unresolved": "No essential negative control is recorded. Resolving it requires reading https://doi.org/10.1038/nchembio.2238 and recording the value with its scope and check date."
+          "status": "source-checked",
+          "value": "Non-ferroptotic comparison conditions: live cells (cell death < 15%) against ferroptotic cells (> 15%) in the ranking, and the non-oxygenated precursor phospholipids measured in parallel; Acsl4-knockout cells serve as a genetic condition in which the signal is reduced.",
+          "evidence": [
+            {
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5506843/",
+              "checkedAt": "2026-07-24",
+              "checkedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)",
+              "scope": [
+                "Fig. 3",
+                "Results: Redox phospholipidomics of ferroptotic signals"
+              ]
+            }
+          ]
         },
         "processControl": {
-          "status": "pending-source-review",
-          "value": null,
-          "unresolved": "No process control — the control that reports what the sample handling itself did — is recorded. Resolving it requires reading https://doi.org/10.1038/nchembio.2238 and recording the value with its scope and check date."
+          "status": "source-checked",
+          "value": "Internal standard added before extraction and used for ratiometric quantification; oxidation-sensitive handling with the Folch extraction performed on snap-frozen material to limit ex vivo autoxidation.",
+          "evidence": [
+            {
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5506843/",
+              "checkedAt": "2026-07-24",
+              "checkedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)",
+              "scope": [
+                "Methods: Statistical Analysis",
+                "Methods: LC-MS analysis of phospholipids and fatty acids"
+              ]
+            }
+          ]
         },
         "orthogonalConfirmation": {
-          "status": "pending-source-review",
-          "value": null,
-          "unresolved": "Which independent measurement must agree before this result can be reused is not recorded as a field. Resolving it requires reading https://doi.org/10.1038/nchembio.2238 and recording the value with its scope and check date."
+          "status": "source-checked",
+          "value": "MS2/MS3 fragmentation for structural assignment, stable-isotope d8-arachidonic-acid tracing to establish the precursor route, and convergent genetic (Acsl4 knockout) and pharmacological (rosiglitazone) suppression of the same species.",
+          "evidence": [
+            {
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5506843/",
+              "checkedAt": "2026-07-24",
+              "checkedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)",
+              "scope": [
+                "Results: LC-MS/MS identification of ferroptotic signals",
+                "Results: Direct oxygenation of PE generates ferroptotic signals",
+                "Fig. 5"
+              ]
+            }
+          ]
         },
         "timing": {
-          "status": "pending-source-review",
-          "value": null,
-          "unresolved": "The timing constraint is not recorded. Resolving it requires reading https://doi.org/10.1038/nchembio.2238 and recording the value with its scope and check date."
+          "status": "source-checked",
+          "value": "Acute: RSL3 at 100 nM for 6 hours in cells (MLE at 0.5-1.0 micromolar); in vivo, kidney sampled 8 days after inducible Gpx4 knockout.",
+          "evidence": [
+            {
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5506843/",
+              "checkedAt": "2026-07-24",
+              "checkedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)",
+              "scope": [
+                "Methods: Cell lines conditions and treatments",
+                "Results: Oxygenated PE in Gpx4 KO cells and kidney"
+              ]
+            }
+          ]
         },
         "compartmentResolution": {
-          "status": "pending-source-review",
-          "value": null,
-          "unresolved": "The spatial or compartment resolution this module can support is not recorded. Resolving it requires reading https://doi.org/10.1038/nchembio.2238 and recording the value with its scope and check date."
+          "status": "source-checked",
+          "value": "None within the mass spectrometry itself: species are measured from a whole-cell (or whole-tissue) lipid extract. The endoplasmic-reticulum localisation reported by the paper came from a separate LiperFluo live-imaging experiment, not from the LC-MS.",
+          "evidence": [
+            {
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5506843/",
+              "checkedAt": "2026-07-24",
+              "checkedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)",
+              "scope": [
+                "Methods: Live Cell Imaging",
+                "Results: Lipid hydroperoxides accumulate in ferroptotic ER"
+              ]
+            }
+          ]
         },
         "confounders": {
-          "status": "pending-source-review",
-          "value": null,
-          "unresolved": "What can produce the same signal without the underlying biology is not recorded as a field. Resolving it requires reading https://doi.org/10.1038/nchembio.2238 and recording the value with its scope and check date."
+          "status": "source-checked",
+          "value": "Ex vivo autoxidation during extraction (addressed by snap-freezing and antioxidant handling); the PAF-acetylhydrolase release step required to read esterified oxidised acyls; and targeted MS inclusion lists, which detect only the species they are set for, so an undetected species is not evidence of absence.",
+          "evidence": [
+            {
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5506843/",
+              "checkedAt": "2026-07-24",
+              "checkedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)",
+              "scope": [
+                "Methods: LC-MS analysis of free and esterified fatty acids",
+                "Methods: Identification of PE oxygenated products in cell lysates"
+              ]
+            }
+          ]
         }
       }
     },
@@ -765,12 +1184,19 @@
         "kindBasis": "This DOI is doi:10.1038/nchembio.2238 in the paper layer, whose reading record is archive-derived. That record describes the paper, not this module's fields.",
         "corpusPaperId": "doi:10.1038/nchembio.2238",
         "url": "https://doi.org/10.1038/nchembio.2238",
-        "status": "not-checked",
-        "checkedAt": null,
-        "checkedBy": null,
-        "verificationDepth": "not-read",
-        "scope": [],
-        "boundary": "A URL declared as this module's source is not evidence that the document specifies any field below. No reader is recorded against it in this repository."
+        "status": "source-checked",
+        "checkedAt": "2026-07-24",
+        "checkedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)",
+        "verificationDepth": "methods-checked",
+        "scope": [
+          "Methods: redox phospholipidomics",
+          "Fig. 3",
+          "Fig. 5",
+          "Fig. 6",
+          "Statistical Analysis"
+        ],
+        "boundary": "Read as the PMC author manuscript, not the version of record; figure images and supplements were not opened. Establishes that this DOI specifies the assay's fields; it is one study's implementation, not a universal protocol.",
+        "sourceVersion": "PMC5506843.1 / NIHMS873824 author manuscript, retrieved 2026-07-24 via NCBI E-utilities efetch"
       }
     ],
     "capabilityAttribution": {

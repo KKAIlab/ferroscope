@@ -165,6 +165,10 @@ const bodipy = app.state.bundles?.neverStandalone?.find((entry) => entry.methodI
 fail(Boolean(bodipy), "BODIPY 581/591 C11 is no longer listed as an assay that may never stand alone.");
 fail(/Never a standalone answer/.test(methodHtml), "The never-standalone prohibition is not rendered in any method dialog.");
 
+// The BODIPY-versus-direct-oxidised-phospholipid comparison box must render on both assays.
+fail(/BODIPY 581\/591 C11 versus direct oxidised-phospholipid/.test(methodHtml), "The BODIPY-versus-oxidised-PL comparison box does not render in the method dialog.");
+fail(/does not interact with phospholipid hydroperoxides/.test(methodHtml), "The comparison box does not carry the sourced specificity limit of BODIPY C11.");
+
 // ---------------------------------------------------- graph provenance visibility (P1-B)
 
 const networkHtml = harness.htmlFor("#networkDetail");
