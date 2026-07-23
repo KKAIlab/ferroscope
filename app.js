@@ -285,7 +285,7 @@ export function renderPaperDetail(paperId) {
   }).join("");
   const checkedSources = (verification.sources || []).filter((source) => source.status === "source-checked");
   const uncheckedSources = (verification.sources || []).filter((source) => source.status !== "source-checked");
-  const sourceRows = (verification.sources || []).map((source) => `<li class="source-row ${escapeHtml(source.status || "unknown")}"><b>${escapeHtml(source.kind)}</b><span>${source.status === "source-checked" ? `${escapeHtml(verificationDepthLabels[source.verificationDepth] || source.verificationDepth || "checked")}${source.checkedAt ? ` on ${escapeHtml(source.checkedAt)}` : ""}` : "not checked in this pass"}</span><span>${escapeHtml((source.scope || []).join(", ") || "no field was read from this source")}</span>${source.url ? `<a href="${safeUrl(source.url)}" target="_blank" rel="noreferrer">open ↗</a>` : ""}</li>`).join("");
+  const sourceRows = (verification.sources || []).map((source) => `<li class="source-row ${escapeHtml(source.status || "unknown")}"><b>${escapeHtml(source.kind)}</b><span>${source.status === "source-checked" ? `${escapeHtml(verificationDepthLabels[source.verificationDepth] || source.verificationDepth || "checked")}${source.checkedAt ? ` on ${escapeHtml(source.checkedAt)}` : ""}` : "not checked in this pass"}</span><span>${escapeHtml((source.scope || []).map((scope) => typeof scope === "string" ? scope : scope.label).join(", ") || "no field was read from this source")}</span>${source.url ? `<a href="${safeUrl(source.url)}" target="_blank" rel="noreferrer">open ↗</a>` : ""}</li>`).join("");
   // The one-line summary is generated from the structured source list, so it cannot
   // drift away from what the record actually says was checked.
   const verificationSummary = `Checked on ${verification.checkedAt || "an unrecorded date"} against ${checkedSources.map((source) => source.kind).join(", ") || "no source"}. Not opened in this pass: ${uncheckedSources.map((source) => source.kind).join(", ") || "nothing"}.`;
@@ -329,6 +329,12 @@ const SOURCE_ROUTE_LABELS = {
   "original-research-demonstration": "Original research demonstration",
   "local-laboratory-capability": "Local laboratory capability", "unclassified-source": "Source not yet classified",
 };
+// How the cited passage supports the sentence, shown so a reader can tell an explicit source
+// statement from an analytical leap rather than having both hide behind one citation.
+const SUPPORT_MODE_LABELS = {
+  explicit: "Explicit in source", derived: "Derived from source",
+  "analytical-inference": "Analytical inference", "curated-guidance": "Curated guidance",
+};
 
 // The decision schema is only useful if the gaps are as visible as the answers. A field
 // nobody has established renders as an unresolved question naming what has to be read,
@@ -336,12 +342,29 @@ const SOURCE_ROUTE_LABELS = {
 function decisionProfileHtml(method) {
   const profile = method.decisionProfile;
   if (!profile) return "";
+  // A checked field resolves each piece of evidence to the source record, review event and
+  // reviewed scope it cites, and shows the support mode, the scope-specific access depth, the
+  // scope boundary and the source that was actually opened.
+  const routesById = new Map((method.sourceRoutes || []).map((route) => [route.id, route]));
+  const evidenceHtml = (field) => (field.evidence || []).map((entry) => {
+    const route = routesById.get(entry.sourceRecordId);
+    const scope = (route?.reviewedScopes || []).find((item) => item.id === entry.scopeId);
+    const stateLabel = route?.status === "independently-rechecked" ? "Independently rechecked" : "Source checked";
+    const depthLabel = verificationDepthLabels[scope?.verificationDepth] || scope?.verificationDepth || "";
+    return `<li class="field-evidence ${escapeHtml(entry.supportMode || "")}">`
+      + `<span class="ev-mode">${escapeHtml(SUPPORT_MODE_LABELS[entry.supportMode] || entry.supportMode || "")}</span>`
+      + `<span class="ev-scope">${escapeHtml(scope?.label || entry.scopeId || "")}${depthLabel ? ` · ${escapeHtml(depthLabel)}` : ""}</span>`
+      + `<span class="ev-state">${escapeHtml(stateLabel)} · ${escapeHtml(SOURCE_ROUTE_LABELS[route?.kind] || route?.kind || "")}${route?.sourceVersion ? ` · ${escapeHtml(route.sourceVersion)}` : ""}</span>`
+      + `<p class="ev-note">${escapeHtml(entry.supportNote || "")}</p>`
+      + `${scope?.boundary ? `<p class="ev-boundary">Not established here: ${escapeHtml(scope.boundary)}</p>` : ""}`
+      + `${route?.url ? `<a href="${safeUrl(route.url)}" target="_blank" rel="noreferrer">Opened source ↗</a>` : ""}</li>`;
+  }).join("");
   const rows = Object.entries(DECISION_AXIS_LABELS).map(([axis, label]) => {
     const field = profile.fields?.[axis];
     if (!field) return "";
     const checked = field.status === "source-checked";
     const body = checked
-      ? `<p>${escapeHtml(field.value)}</p><small class="field-source">${(field.evidence || []).map((entry) => `checked ${escapeHtml(entry.checkedAt)} by ${escapeHtml(entry.checkedBy)} · ${escapeHtml((entry.scope || []).join(", "))}`).join(" · ")}</small>`
+      ? `<p>${escapeHtml(field.value)}</p><ul class="field-evidence-list">${evidenceHtml(field)}</ul>`
       : `<p class="field-unresolved">${escapeHtml(field.unresolved)}</p>${field.curatedStatement ? `<small class="field-curated">The module itself states: ${escapeHtml(field.curatedStatement)} This has not been checked against a source.</small>` : ""}`;
     return `<div class="decision-row ${checked ? "checked" : "pending"}"><b>${escapeHtml(label)}</b><span class="field-status">${checked ? "source-checked" : "pending source review"}</span>${body}</div>`;
   }).join("");
