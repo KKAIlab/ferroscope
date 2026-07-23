@@ -1,13 +1,24 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import {
+  canonicalIdentity,
+  classifyPubMedDocument,
+  calendarDateFromParts,
+  mergeSignalLayers,
+  pubmedDates,
+  retainOnFailure,
+  successStatus,
+} from "../lib/records.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const dataDir = path.join(root, "data");
 const now = new Date();
 const generatedAt = now.toISOString();
 const fromDate = new Date(now.getTime() - 90 * 86_400_000).toISOString().slice(0, 10);
-const toDate = now.toISOString().slice(0, 10);
+// The UTC calendar day. Publisher dates are calendar dates, so they are compared as
+// text against this value and never converted through the local timezone.
+const toDate = generatedAt.slice(0, 10);
 
 // Public topic labels are English at the point of ingestion. The interface no longer
 // has to translate or suppress them, so a label change is visible in the raw dataset.
@@ -38,14 +49,6 @@ function topicsFor(text) {
   return topics.length ? topics.slice(0, 5) : ["ferroptosis"];
 }
 
-function pubmedDate(item) {
-  const raw = item.epubdate || item.sortpubdate || item.pubdate || "";
-  const parsed = new Date(raw.replaceAll("/", "-"));
-  if (Number.isNaN(parsed.getTime())) return raw.slice(0, 10);
-  if (parsed > now) return toDate;
-  return parsed.toISOString().slice(0, 10);
-}
-
 function scoreFor(text, authors = "", journal = "") {
   let score = 35;
   const tracked = trackedAuthors.test(authors);
@@ -69,7 +72,63 @@ function scoreFor(text, authors = "", journal = "") {
   return Math.min(ceiling, Math.max(15, score));
 }
 
+// Every automated record states the route that found it and leaves evidence strength
+// unassessed. An automated query proves that a record matched a search; it does not
+// establish what kind of document it is or how far its result can be reused.
+function automatedRecord({ sourceName, id, url, doi, nctId, pmid, classification, ...rest }) {
+  const documentType = classification?.documentType || "unknown";
+  // PubMed indexes preprints alongside journal articles. A record the classifier reads as
+  // a preprint is presented as one, with the caveat attached, whichever query found it —
+  // otherwise a bioRxiv posting arrives through the laboratory watch looking like a paper.
+  const base = {
+    id, url, doi, nctId, pmid, ...rest,
+    sourceType: documentType === "preprint" ? "preprint" : rest.sourceType,
+    caveat: documentType === "preprint" ? rest.caveat || "Not peer reviewed." : rest.caveat,
+  };
+  const identity = canonicalIdentity(base);
+  return {
+    ...base,
+    ...identity,
+    documentType,
+    documentTypeBasis: classification?.documentTypeBasis || "not-classified",
+    documentSignals: classification?.signals || [],
+    evidenceGrade: null,
+    evidenceGradeBasis: "unassessed",
+    reviewStatus: "automated",
+    sourceName,
+    stale: false,
+    freshnessState: "current",
+    staleSourceNames: [],
+    freshSourceNames: [sourceName],
+    lastSuccessAt: generatedAt,
+    lastAttemptAt: generatedAt,
+    // Freshness is carried by the route, so a later merge can tell which of a record's
+    // discovery routes is current and which is a retained copy of a failed one.
+    sources: [{
+      route: sourceName,
+      kind: "automated",
+      recordId: id,
+      url,
+      retrievedAt: generatedAt,
+      stale: false,
+      lastSuccessAt: generatedAt,
+      lastAttemptAt: generatedAt,
+    }],
+  };
+}
+
 const delay = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds));
+
+// Network failures are classified so a retained dataset can say why it went stale.
+function errorClassOf(error) {
+  const message = String(error?.message || error || "");
+  if (/abort|timeout/i.test(message)) return "timeout";
+  if (/^\s*4\d\d/.test(message) || /\b4\d\d\b/.test(message)) return "http-client-error";
+  if (/^\s*5\d\d/.test(message) || /\b5\d\d\b/.test(message)) return "http-server-error";
+  if (/fetch failed|ENOTFOUND|ECONN/i.test(message)) return "network-unreachable";
+  if (/JSON|Unexpected token/i.test(message)) return "malformed-response";
+  return "unknown-error";
+}
 
 async function fetchJson(url, maxAttempts = 4) {
   let lastError;
@@ -99,6 +158,11 @@ async function fetchJson(url, maxAttempts = 4) {
   throw lastError || new Error("request failed");
 }
 
+const PUBMED_SOURCE = "PubMed";
+const LAB_WATCH_SOURCE = "Tracked labs / PubMed";
+const PREPRINT_SOURCE = "Preprints / Crossref";
+const TRIAL_SOURCE = "ClinicalTrials.gov";
+
 async function fetchPubMed() {
   const term = [
     "ferroptosis[Title/Abstract]",
@@ -120,17 +184,24 @@ async function fetchPubMed() {
     const journal = item.fulljournalname || "";
     const text = `${item.title || ""} ${authors} ${journal}`;
     const doi = (item.articleids || []).find((identifier) => identifier.idtype === "doi")?.value;
-    return {
+    const dates = pubmedDates(item, toDate);
+    return automatedRecord({
+      sourceName: PUBMED_SOURCE,
       id: `pubmed-${pmid}`,
+      pmid,
+      doi,
       title: (item.title || "Untitled").replace(/<[^>]+>/g, ""),
-      date: pubmedDate(item),
+      date: dates.displayDate,
+      onlineDate: dates.onlineDate,
+      issueDate: dates.issueDate,
+      datePrecision: dates.datePrecision,
       sourceType: "paper",
-      evidence: "B",
+      classification: classifyPubMedDocument(item),
       relevance: scoreFor(text, authors, journal),
       topics: topicsFor(text),
       takeaway: `${item.fulljournalname || "PubMed"} · ${authors || UNNAMED_AUTHORS}`,
       url: doi ? `https://doi.org/${doi}` : `https://pubmed.ncbi.nlm.nih.gov/${pmid}/`,
-    };
+    });
   }).filter(Boolean).filter((item) => item.relevance >= 60).slice(0, 35);
 }
 
@@ -168,12 +239,19 @@ async function fetchTrackedLabs(configs, publicLabName) {
     // Display names come from the public English laboratory overlay, keyed by laboratory id,
     // so the watch query never becomes the published name of a laboratory.
     const matchedNames = labs.map((lab) => publicLabName.get(lab.labId)).filter(Boolean);
-    return {
+    const dates = pubmedDates(item, toDate);
+    return automatedRecord({
+      sourceName: LAB_WATCH_SOURCE,
       id: `pubmed-${pmid}`,
+      pmid,
+      doi,
       title,
-      date: pubmedDate(item),
+      date: dates.displayDate,
+      onlineDate: dates.onlineDate,
+      issueDate: dates.issueDate,
+      datePrecision: dates.datePrecision,
       sourceType: "paper",
-      evidence: "B",
+      classification: classifyPubMedDocument(item),
       relevance: Math.max(60, Math.min(92, maxLabRelevance - 8 + Math.min(4, topicsFor(text).length) - (titleDirect ? 0 : 12))),
       topics: topicsFor(text),
       trackedLabIds: labs.map((lab) => lab.labId),
@@ -181,10 +259,11 @@ async function fetchTrackedLabs(configs, publicLabName) {
         ? `${journal} · Laboratory watch match: ${matchedNames.join(", ")}.`
         : `${journal} · Matched by a tracked laboratory author query.`,
       url: doi ? `https://doi.org/${doi}` : `https://pubmed.ncbi.nlm.nih.gov/${pmid}/`,
-    };
+    });
   }).filter(Boolean)
+    .filter((item) => !["commentary", "correction", "review", "protocol"].includes(item.documentType))
     .filter((item) => !/correction|erratum|editorial|commentary|perspective|protocol/i.test(item.title))
-    .sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0))
+    .sort((a, b) => String(b.date || "").localeCompare(String(a.date || "")))
     .slice(0, 35);
 }
 
@@ -201,21 +280,25 @@ async function fetchPreprints() {
   return results.map((item) => {
     const title = Array.isArray(item.title) ? item.title[0] : item.title;
     const authors = (item.author || []).map((author) => [author.given, author.family].filter(Boolean).join(" ")).join(", ");
-    const dateParts = item.published?.["date-parts"]?.[0] || [];
-    const date = dateParts.length ? `${dateParts[0]}-${String(dateParts[1] || 1).padStart(2, "0")}-${String(dateParts[2] || 1).padStart(2, "0")}` : "";
+    const posted = calendarDateFromParts(item.published?.["date-parts"]?.[0] || []);
     const text = `${title || ""} ${authors}`;
-    return {
+    return automatedRecord({
+      sourceName: PREPRINT_SOURCE,
       id: `preprint-${item.DOI}`,
+      doi: item.DOI,
       title,
-      date,
+      date: posted?.date || null,
+      onlineDate: posted?.date || null,
+      issueDate: null,
+      datePrecision: posted?.precision || null,
       sourceType: "preprint",
-      evidence: "C",
+      classification: { documentType: "preprint", documentTypeBasis: "crossref-posted-content", signals: [] },
       relevance: Math.min(92, scoreFor(text, authors) - 3),
       topics: topicsFor(text),
       takeaway: `${authors || UNNAMED_AUTHORS} · ${item.publisher || "Preprint server"}`,
       caveat: "Not peer reviewed.",
       url: `https://doi.org/${item.DOI}`,
-    };
+    });
   }).filter((item) => /ferroptosis|ferroptotic/i.test(item.title || ""))
     .filter((item) => !/^(figure|fig\.?|table|data|dataset|supplement|supplementary|supporting information)\b/i.test(item.title || ""))
     .filter((item) => item.relevance >= 54).sort((a, b) => b.relevance - a.relevance).slice(0, 30);
@@ -225,7 +308,9 @@ async function fetchTrials() {
   const url = new URL("https://clinicaltrials.gov/api/v2/studies");
   url.search = new URLSearchParams({ "query.term": "ferroptosis", pageSize: "100", format: "json" });
   const data = await fetchJson(url);
-  const statuses = { RECRUITING: 10, ACTIVE_NOT_RECRUITING: 8, NOT_YET_RECRUITING: 7, COMPLETED: 3, TERMINATED: -5, UNKNOWN: -8 };
+  // Named apart from the module-level `statuses` array of per-source results, which this
+  // function would otherwise shadow.
+  const statusScores = { RECRUITING: 10, ACTIVE_NOT_RECRUITING: 8, NOT_YET_RECRUITING: 7, COMPLETED: 3, TERMINATED: -5, UNKNOWN: -8 };
   const trials = (data.studies || []).map(({ protocolSection }) => {
     const identification = protocolSection?.identificationModule || {};
     const status = protocolSection?.statusModule || {};
@@ -237,13 +322,16 @@ async function fetchTrials() {
     const interventions = (arms.interventions || []).map((item) => item.name).join(", ");
     const text = `${title} ${(conditions.conditions || []).join(" ")} ${interventions}`;
     const direct = /iron|ferropt|nanoparticle|ferrostatin|liproxstatin|GPX4|FSP1/i.test(interventions);
-    const statusScore = statuses[status.overallStatus] || 0;
-    return {
+    const statusScore = statusScores[status.overallStatus] || 0;
+    const posted = status.studyFirstPostDateStruct?.date || status.startDateStruct?.date || "";
+    return automatedRecord({
+      sourceName: TRIAL_SOURCE,
       id: `trial-${nctId}`,
+      nctId,
       title,
-      date: status.studyFirstPostDateStruct?.date || status.startDateStruct?.date || "",
+      date: posted || null,
       sourceType: "trial",
-      evidence: direct && ["PHASE1", "PHASE2", "PHASE1|PHASE2"].includes((design.phases || []).join("|")) ? "C" : "D",
+      classification: { documentType: "trial-record", documentTypeBasis: "clinicaltrials-registry", signals: [design.studyType || "study-type-unreported"] },
       relevance: Math.min(84, 38 + statusScore + (direct ? 18 : 0) + (design.studyType === "INTERVENTIONAL" ? 10 : 0)),
       topics: ["clinical study", ...(topicsFor(text).filter((topic) => topic !== "ferroptosis"))].slice(0, 5),
       takeaway: `${status.overallStatus || "Status not reported"} · ${design.studyType || "Study type not reported"}${interventions ? ` · ${interventions}` : ""}`,
@@ -251,7 +339,7 @@ async function fetchTrials() {
         ? "An observational association cannot show that ferroptosis occurs in these patients."
         : "A clinical outcome does not by itself establish ferroptosis as the mechanism.",
       url: `https://clinicaltrials.gov/study/${nctId}`,
-    };
+    });
   });
   return { total: trials.length, items: trials.sort((a, b) => b.relevance - a.relevance).slice(0, 20) };
 }
@@ -266,46 +354,91 @@ let trialTotal = 0;
 const watchConfigs = await readJson(path.join(dataDir, "watch-queries.json"), []);
 const englishLabs = await readJson(path.join(dataDir, "labs-en.json"), []);
 const publicLabName = new Map(englishLabs.map((lab) => [lab.id, lab.pi]));
+const previousLive = await readJson(path.join(dataDir, "live.json"), []);
+const previousMeta = await readJson(path.join(dataDir, "meta.json"), {});
+const previousStatusFor = (name) => (previousMeta.sources || []).find((source) => source.name === name);
 
-for (const [name, loader] of [["Tracked labs / PubMed", () => fetchTrackedLabs(watchConfigs, publicLabName)], ["PubMed", fetchPubMed], ["Preprints / Crossref", fetchPreprints], ["ClinicalTrials.gov", fetchTrials]]) {
+const loaders = [
+  [LAB_WATCH_SOURCE, () => fetchTrackedLabs(watchConfigs, publicLabName)],
+  [PUBMED_SOURCE, fetchPubMed],
+  [PREPRINT_SOURCE, fetchPreprints],
+  [TRIAL_SOURCE, fetchTrials],
+];
+
+for (const [name, loader] of loaders) {
   try {
     const result = await loader();
-    if (name === "ClinicalTrials.gov") {
+    if (name === TRIAL_SOURCE) {
       trialTotal = result.total;
       collections.push(...result.items);
-      statuses.push({ name, ok: true, updatedAt: generatedAt, note: `Retrieved ${result.total} registry records; the ${result.items.length} most relevant are published.` });
+      statuses.push(successStatus({
+        sourceName: name,
+        count: result.items.length,
+        attemptedAt: generatedAt,
+        note: `Retrieved ${result.total} registry records; the ${result.items.length} most relevant are published.`,
+      }));
     } else {
       collections.push(...result);
-      statuses.push({ name, ok: true, updatedAt: generatedAt, note: `${result.length} ${result.length === 1 ? "record" : "records"} passed the quality filter in this run.` });
+      statuses.push(successStatus({ sourceName: name, count: result.length, attemptedAt: generatedAt }));
     }
   } catch (error) {
-    statuses.push({ name, ok: false, updatedAt: generatedAt, note: error.message });
-    console.error(`${name} update failed:`, error.message);
+    // A failed source keeps the records it last returned, marked stale, instead of
+    // silently disappearing from a dataset that is then published as current.
+    const previous = previousStatusFor(name);
+    const retention = retainOnFailure({
+      sourceName: name,
+      previousItems: previousLive,
+      lastSuccessAt: previous?.lastSuccessAt || (previous?.ok ? previous?.updatedAt : null),
+      attemptedAt: generatedAt,
+      errorClass: errorClassOf(error),
+    });
+    collections.push(...retention.items);
+    statuses.push(retention.status);
+    console.error(`${name} update failed (${retention.status.errorClass}); ${retention.status.retainedItems} retained records marked stale.`);
   }
 }
 
-const live = [...new Map(collections.map((item) => [item.id, item])).values()]
-  .sort((a, b) => b.relevance - a.relevance || new Date(b.date || 0) - new Date(a.date || 0));
+// Two discovery routes for the same study collapse onto one canonical record and the
+// union of their laboratory matches, instead of the later route overwriting the earlier.
+const live = mergeSignalLayers(collections)
+  .sort((a, b) => b.relevance - a.relevance || String(b.date || "").localeCompare(String(a.date || "")));
 const curated = await readJson(path.join(dataDir, "intelligence-curated.json"), []);
-const previousMeta = await readJson(path.join(dataDir, "meta.json"), {});
 // The laboratory-site row is maintained by the manual link check, so its timestamp is
-// carried over. Its note is always rewritten in English: earlier runs stored it in Chinese.
-const previousLabStatus = previousMeta.sources?.find((source) => source.name === "Lab / Network sites");
+// carried over. No automated crawler exists for laboratory pages, and the row says so.
+const previousLabStatus = previousStatusFor("Lab / Network sites");
 const labStatus = {
   name: "Lab / Network sites",
   ok: previousLabStatus?.ok ?? true,
-  updatedAt: previousLabStatus?.updatedAt || generatedAt,
-  note: "Official laboratory links are curated manually; heterogeneous laboratory sites are not automatically crawled.",
+  state: previousLabStatus?.state || "manual",
+  lastSuccessAt: previousLabStatus?.lastSuccessAt || previousLabStatus?.updatedAt || generatedAt,
+  lastAttemptAt: previousLabStatus?.lastAttemptAt || previousLabStatus?.updatedAt || generatedAt,
+  retainedItems: 0,
+  retainedAgeDays: null,
+  maxAgeDays: null,
+  errorClass: null,
+  note: "Official laboratory links are curated manually and checked by the scheduled link monitor. No automated crawler reads laboratory pages for new content.",
 };
 
 const meta = {
   generatedAt,
   version: "0.1.0",
-  schemaVersion: "1.0.0",
-  counts: { clinicalTrials: trialTotal || previousMeta.counts?.clinicalTrials || 0, curatedSignals: curated.length, liveSignals: live.length },
+  schemaVersion: "1.1.0",
+  // Declared here and cross-checked against data/schema-versions.json, so a dataset
+  // written by an older generator cannot be validated as if it carried the new fields.
+  generator: "scripts/update-data.mjs",
+  generatorVersion: "1.1.0",
+  counts: {
+    clinicalTrials: trialTotal || previousMeta.counts?.clinicalTrials || 0,
+    curatedSignals: curated.length,
+    liveSignals: live.length,
+    // A record every one of whose routes failed, and a record still backed by a route that
+    // succeeded, are different states and are counted separately.
+    staleSignals: live.filter((item) => item.stale).length,
+    partiallyStaleSignals: live.filter((item) => item.freshnessState === "partially-stale").length,
+  },
   sources: [...statuses, labStatus],
 };
 
 await fs.writeFile(path.join(dataDir, "live.json"), `${JSON.stringify(live, null, 2)}\n`);
 await fs.writeFile(path.join(dataDir, "meta.json"), `${JSON.stringify(meta, null, 2)}\n`);
-console.log(`FerroScope refresh complete: ${live.length} automated signals; ClinicalTrials.gov reported ${meta.counts.clinicalTrials} matching records.`);
+console.log(`FerroScope refresh complete: ${live.length} automated signals (${meta.counts.staleSignals} retained as stale, ${meta.counts.partiallyStaleSignals} still backed by a route that succeeded); ClinicalTrials.gov reported ${meta.counts.clinicalTrials} matching records.`);

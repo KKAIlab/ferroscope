@@ -1,0 +1,30 @@
+[
+  {
+    "canonicalId": "doi:10.1083/jcb.202606160",
+    "pmid": "42439891",
+    "documentType": "commentary",
+    "documentSubtype": "Journal of Cell Biology Spotlight",
+    "documentTypeBasis": "curated-audit",
+    "evidenceGrade": null,
+    "evidenceGradeBasis": "unassessed",
+    "reason": "A Spotlight piece that discusses another article in the same issue. It reports no primary experiment of its own, so it must not sit in the stream as original research.",
+    "checkedAt": "2026-07-23",
+    "checkedBy": "Independent review (Codex), recorded in HANDOFF.md section 3, finding P0.1",
+    "checkDepth": "review-report-only",
+    "checkLimit": "The classification is taken from the independent review report. The publisher page was not re-opened in the round-2 pass, which had no outbound network access."
+  },
+  {
+    "canonicalId": "doi:10.1038/s41556-026-01904-0",
+    "pmid": "41813884",
+    "documentType": "commentary",
+    "documentSubtype": "Nature Cell Biology News & Views style commentary",
+    "documentTypeBasis": "curated-audit",
+    "evidenceGrade": null,
+    "evidenceGradeBasis": "unassessed",
+    "reason": "A short commentary on other groups' papers, carrying no abstract and no primary data. Presenting it beside original research would overstate what the field reported.",
+    "checkedAt": "2026-07-23",
+    "checkedBy": "Independent review (Codex), recorded in HANDOFF.md section 3, finding P0.1",
+    "checkDepth": "review-report-only",
+    "checkLimit": "The classification is taken from the independent review report. The publisher page was not re-opened in the round-2 pass, which had no outbound network access."
+  }
+]
