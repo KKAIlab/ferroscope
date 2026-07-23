@@ -1,0 +1,134 @@
+[
+  {
+    "id": "robust-research-2025",
+    "name": "Robust and reproducible ferroptosis research",
+    "type": "Evidence standard",
+    "authority": "Expert recommendation",
+    "description": "The 2025 field recommendation on compounds, genetic models, evidence combinations and common experimental pitfalls.",
+    "url": "https://doi.org/10.1038/s41580-025-00843-2",
+    "language": "English",
+    "checkedAt": "2026-07-23",
+    "caution": "A consensus guide, not primary evidence for a specific biological claim."
+  },
+  {
+    "id": "pubmed-ferroptosis",
+    "name": "PubMed ferroptosis search",
+    "type": "Primary literature",
+    "authority": "Official index",
+    "description": "Peer-reviewed papers, publication types, corrections and linked metadata from the US National Library of Medicine.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/?term=ferroptosis%5BTitle%2FAbstract%5D&sort=date",
+    "language": "English",
+    "checkedAt": "2026-07-23",
+    "caution": "Indexing and publication dates may lag; search results are not quality-ranked."
+  },
+  {
+    "id": "europe-pmc-ferroptosis",
+    "name": "Europe PMC ferroptosis search",
+    "type": "Primary literature",
+    "authority": "Official index",
+    "description": "Literature search with full-text links, citation context, preprints and data connections.",
+    "url": "https://europepmc.org/search?query=ferroptosis",
+    "language": "English",
+    "checkedAt": "2026-07-23",
+    "caution": "Includes multiple publication statuses; verify the version of record."
+  },
+  {
+    "id": "biorxiv-ferroptosis",
+    "name": "bioRxiv ferroptosis search",
+    "type": "Preprints",
+    "authority": "Primary preprint source",
+    "description": "Early research signals before peer review, useful for methods, negative results and emerging mechanisms.",
+    "url": "https://www.biorxiv.org/search/ferroptosis",
+    "language": "English",
+    "checkedAt": "2026-07-23",
+    "caution": "Preprints are provisional and must not be presented as peer-reviewed evidence."
+  },
+  {
+    "id": "clinicaltrials-ferroptosis",
+    "name": "ClinicalTrials.gov ferroptosis search",
+    "type": "Clinical translation",
+    "authority": "Official trial registry",
+    "description": "Registered interventional and observational studies that mention ferroptosis.",
+    "url": "https://clinicaltrials.gov/search?term=ferroptosis",
+    "language": "English",
+    "checkedAt": "2026-07-23",
+    "caution": "A registered biomarker study does not prove ferroptosis occurs in patients or mediates treatment response."
+  },
+  {
+    "id": "spp2306",
+    "name": "DFG SPP 2306 Ferroptosis Network",
+    "type": "Research network",
+    "authority": "Funded research network",
+    "description": "Projects, investigators, publications, meetings and training across the German ferroptosis priority programme.",
+    "url": "https://www.dfg-ferroptosis.net/",
+    "language": "English",
+    "checkedAt": "2026-07-23",
+    "caution": "Network news highlights member output and is not an independent evidence assessment."
+  },
+  {
+    "id": "ferrdb-v2",
+    "name": "FerrDb V2",
+    "type": "Curated database",
+    "authority": "Third-party curated database",
+    "description": "Manually curated ferroptosis regulators, substances and disease associations with literature links.",
+    "url": "https://www.zhounan.org/ferrdb/",
+    "language": "English",
+    "checkedAt": "2026-07-23",
+    "caution": "Useful for discovery, but gene labels and disease associations must be checked against the original paper and update date."
+  },
+  {
+    "id": "kegg-ferroptosis",
+    "name": "KEGG Ferroptosis pathway",
+    "type": "Pathway map",
+    "authority": "Curated pathway database",
+    "description": "A compact reference map connecting iron handling, glutathione, lipid metabolism and canonical perturbagens.",
+    "url": "https://www.kegg.jp/pathway/map04216",
+    "language": "English / Japanese",
+    "checkedAt": "2026-07-23",
+    "caution": "A pathway map compresses context-dependent and disputed relationships; it is a navigator, not a causal model."
+  },
+  {
+    "id": "lipidmaps",
+    "name": "LIPID MAPS",
+    "type": "Lipid database",
+    "authority": "Community data resource",
+    "description": "Lipid structures, identifiers, nomenclature, spectra and analytical resources for ferroptosis lipid chemistry.",
+    "url": "https://lipidmaps.org/",
+    "language": "English",
+    "checkedAt": "2026-07-23",
+    "caution": "Database identity does not establish that a lipid was measured or causal in a specific study."
+  },
+  {
+    "id": "bodipy-vendor-protocol",
+    "name": "BODIPY 581/591 C11 reagent guide",
+    "type": "Method and reagent",
+    "authority": "Vendor protocol",
+    "description": "Official reagent properties, excitation/emission shift, handling and catalog information for the C11 lipid-oxidation sensor.",
+    "url": "https://www.thermofisher.com/order/catalog/product/D3861",
+    "language": "English / Japanese / Chinese",
+    "checkedAt": "2026-07-23",
+    "caution": "Vendor documentation explains the reagent; it is not an independent validation of biological specificity."
+  },
+  {
+    "id": "crossref-search",
+    "name": "Crossref Metadata Search",
+    "type": "Publication integrity",
+    "authority": "DOI infrastructure",
+    "description": "Check DOI metadata, versions, publication dates and linked corrections before recording a paper.",
+    "url": "https://search.crossref.org/",
+    "language": "English",
+    "checkedAt": "2026-07-23",
+    "caution": "Metadata may contain publisher errors; compare with the journal version and Crossmark when available."
+  },
+  {
+    "id": "rcsb-gpx4",
+    "name": "RCSB PDB: GPX4 structures",
+    "type": "Structure data",
+    "authority": "Primary structure archive",
+    "description": "Search experimentally deposited GPX4 structures and linked validation reports.",
+    "url": "https://www.rcsb.org/search?request=%7B%22query%22%3A%7B%22type%22%3A%22terminal%22%2C%22service%22%3A%22full_text%22%2C%22parameters%22%3A%7B%22value%22%3A%22GPX4%22%7D%7D%2C%22return_type%22%3A%22entry%22%7D",
+    "language": "English",
+    "checkedAt": "2026-07-23",
+    "caution": "A deposited structure supports a defined construct and condition, not every cellular conformation."
+  }
+]

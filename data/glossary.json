@@ -1,0 +1,215 @@
+[
+  {
+    "id": "ferroptosis",
+    "term": "ferroptosis",
+    "aliases": { "en": ["ferroptotic cell death"], "zh": ["铁死亡"], "ja": ["フェロトーシス", "鉄依存性細胞死"] },
+    "simpleEnglish": "A regulated cell-death process driven by iron-dependent damage to membrane lipids.",
+    "precisionNote": "No single marker proves ferroptosis. Cell death, iron dependence and lipid peroxidation should be connected with orthogonal perturbations.",
+    "related": ["lipid-peroxidation", "labile-iron", "gpx4", "radical-trapping-antioxidant"]
+  },
+  {
+    "id": "lipid-peroxidation",
+    "term": "lipid peroxidation",
+    "aliases": { "en": ["LPO"], "zh": ["脂质过氧化"], "ja": ["脂質過酸化"] },
+    "simpleEnglish": "A chain reaction in which radicals oxidize unsaturated lipids, especially membrane phospholipids containing PUFAs.",
+    "precisionNote": "Lipid peroxidation occurs in several biological processes. Its presence alone does not identify ferroptosis.",
+    "related": ["pufa-pl", "plooh", "bodipy-c11", "redox-lipidomics"]
+  },
+  {
+    "id": "plooh",
+    "term": "phospholipid hydroperoxide",
+    "abbreviation": "PLOOH",
+    "aliases": { "en": ["phospholipid-OOH"], "zh": ["磷脂氢过氧化物", "磷脂过氧化物"], "ja": ["リン脂質ヒドロペルオキシド", "リン脂質過酸化物"] },
+    "simpleEnglish": "An oxidized phospholipid carrying a hydroperoxide group; it can feed further radical-chain reactions.",
+    "precisionNote": "PLOOH is a chemical class, not one molecule. Lipid species, position and analytical method matter.",
+    "related": ["gpx4", "redox-lipidomics", "pufa-pl"]
+  },
+  {
+    "id": "gpx4",
+    "term": "glutathione peroxidase 4",
+    "abbreviation": "GPX4",
+    "aliases": { "en": ["PHGPx"], "zh": ["谷胱甘肽过氧化物酶4"], "ja": ["グルタチオンペルオキシダーゼ4"] },
+    "simpleEnglish": "A selenium-containing enzyme that reduces phospholipid hydroperoxides and protects membranes from runaway oxidation.",
+    "precisionNote": "Protein abundance is not equivalent to activity, membrane access or selenium sufficiency.",
+    "related": ["plooh", "selenium", "glutathione", "rsl3"]
+  },
+  {
+    "id": "system-xc",
+    "term": "system xᴄ⁻",
+    "aliases": { "en": ["cystine/glutamate antiporter", "SLC7A11–SLC3A2"], "zh": ["胱氨酸/谷氨酸逆向转运体"], "ja": ["シスチン/グルタミン酸交換輸送体"] },
+    "simpleEnglish": "A transporter that imports cystine in exchange for glutamate, helping cells make glutathione.",
+    "precisionNote": "Its importance varies with nutrient supply, transsulfuration and cell state.",
+    "related": ["slc7a11", "glutathione", "erastin"]
+  },
+  {
+    "id": "slc7a11",
+    "term": "SLC7A11",
+    "aliases": { "en": ["xCT"], "zh": ["溶质载体家族7成员11"], "ja": ["SLC7A11", "xCT"] },
+    "simpleEnglish": "The light-chain subunit of system xᴄ⁻ and a major controller of cystine uptake.",
+    "precisionNote": "Expression is a susceptibility clue, not a standalone ferroptosis marker.",
+    "related": ["system-xc", "glutathione", "erastin"]
+  },
+  {
+    "id": "glutathione",
+    "term": "glutathione",
+    "abbreviation": "GSH",
+    "aliases": { "en": ["reduced glutathione"], "zh": ["谷胱甘肽"], "ja": ["グルタチオン"] },
+    "simpleEnglish": "A small cellular antioxidant used by GPX4 to reduce lipid hydroperoxides.",
+    "precisionNote": "Total GSH or the GSH/GSSG ratio reports redox state but does not by itself prove ferroptosis.",
+    "related": ["gpx4", "system-xc", "coq"]
+  },
+  {
+    "id": "fsp1",
+    "term": "ferroptosis suppressor protein 1",
+    "abbreviation": "FSP1",
+    "aliases": { "en": ["AIFM2"], "zh": ["铁死亡抑制蛋白1"], "ja": ["フェロトーシス抑制タンパク質1"] },
+    "simpleEnglish": "An NAD(P)H-dependent oxidoreductase that supports membrane antioxidant systems, including reduced coenzyme Q.",
+    "precisionNote": "Its contribution is context- and compartment-dependent and should be tested genetically.",
+    "related": ["coq", "radical-trapping-antioxidant", "vitamin-k"]
+  },
+  {
+    "id": "coq",
+    "term": "coenzyme Q / ubiquinol",
+    "abbreviation": "CoQ / CoQH₂",
+    "aliases": { "en": ["ubiquinone", "ubiquinol"], "zh": ["辅酶Q", "泛醌", "泛醇"], "ja": ["コエンザイムQ", "ユビキノン", "ユビキノール"] },
+    "simpleEnglish": "A membrane redox pair; the reduced form can trap lipid radicals and help stop chain oxidation.",
+    "precisionNote": "CoQH₂ oxidizes during sampling, so extraction and redox-preserving quantification are critical.",
+    "related": ["fsp1", "radical-trapping-antioxidant"]
+  },
+  {
+    "id": "pufa-pl",
+    "term": "PUFA-containing phospholipid",
+    "abbreviation": "PUFA-PL",
+    "aliases": { "en": ["polyunsaturated phospholipid"], "zh": ["多不饱和脂肪酸磷脂"], "ja": ["多価不飽和脂肪酸含有リン脂質"] },
+    "simpleEnglish": "A membrane phospholipid containing a polyunsaturated fatty-acid chain that can enter radical oxidation.",
+    "precisionNote": "Total PUFA abundance is not the same as the abundance or flux of oxidized PUFA-PL species.",
+    "related": ["acsl4", "lpcat3", "lipid-peroxidation"]
+  },
+  {
+    "id": "acsl4",
+    "term": "acyl-CoA synthetase long-chain family member 4",
+    "abbreviation": "ACSL4",
+    "aliases": { "en": ["long-chain-fatty-acid–CoA ligase 4"], "zh": ["长链脂酰辅酶A合成酶4"], "ja": ["長鎖脂肪酸CoAリガーゼ4"] },
+    "simpleEnglish": "An enzyme that activates selected PUFAs for incorporation into lipids and often increases ferroptosis sensitivity.",
+    "precisionNote": "ACSL4 dependence is common but not universal across inducers, cells and tissues.",
+    "related": ["pufa-pl", "lpcat3"]
+  },
+  {
+    "id": "lpcat3",
+    "term": "lysophosphatidylcholine acyltransferase 3",
+    "abbreviation": "LPCAT3",
+    "aliases": { "en": ["lysophospholipid acyltransferase 3"], "zh": ["溶血磷脂酰胆碱酰基转移酶3"], "ja": ["リゾホスファチジルコリンアシルトランスフェラーゼ3"] },
+    "simpleEnglish": "A membrane-remodelling enzyme that helps place PUFA chains into phospholipids.",
+    "precisionNote": "Changing LPCAT3 also remodels broader membrane composition, so effects need lipid-species measurements.",
+    "related": ["pufa-pl", "acsl4"]
+  },
+  {
+    "id": "labile-iron",
+    "term": "labile iron pool",
+    "abbreviation": "LIP",
+    "aliases": { "en": ["chelatable iron", "redox-active iron"], "zh": ["游离铁池", "可螯合铁池", "活性铁池"], "ja": ["不安定鉄プール", "キレート可能鉄"] },
+    "simpleEnglish": "The exchangeable fraction of cellular iron that can participate in chemistry or be captured by probes and chelators.",
+    "precisionNote": "Iron probes differ in oxidation state, compartment and reaction mechanism; signal is not total cellular iron.",
+    "related": ["ferritinophagy", "lysosome", "ferroptosis"]
+  },
+  {
+    "id": "ferritinophagy",
+    "term": "ferritinophagy",
+    "aliases": { "en": ["NCOA4-mediated ferritin autophagy"], "zh": ["铁蛋白自噬"], "ja": ["フェリチノファジー", "フェリチン選択的オートファジー"] },
+    "simpleEnglish": "Selective delivery of ferritin to lysosomes, often through NCOA4, to release stored iron.",
+    "precisionNote": "NCOA4 abundance alone does not demonstrate ferritin flux or iron release.",
+    "related": ["labile-iron", "lysosome"]
+  },
+  {
+    "id": "radical-trapping-antioxidant",
+    "term": "radical-trapping antioxidant",
+    "abbreviation": "RTA",
+    "aliases": { "en": ["chain-breaking antioxidant"], "zh": ["自由基捕获抗氧化剂", "链断裂抗氧化剂"], "ja": ["ラジカル捕捉型抗酸化剤", "連鎖停止型抗酸化剤"] },
+    "simpleEnglish": "A molecule that intercepts chain-carrying radicals and slows lipid autoxidation.",
+    "precisionNote": "Cell rescue may reflect general radical chemistry rather than a unique ferroptosis target.",
+    "related": ["ferrostatin-1", "liproxstatin-1", "coq"]
+  },
+  {
+    "id": "ferrostatin-1",
+    "term": "ferrostatin-1",
+    "abbreviation": "Fer-1",
+    "aliases": { "en": ["ferroptosis inhibitor ferrostatin-1"], "zh": ["铁死亡抑制剂1"], "ja": ["フェロスタチン-1"] },
+    "simpleEnglish": "A research compound that suppresses lipid-radical chain reactions and often rescues ferroptotic death.",
+    "precisionNote": "A partial Fer-1 rescue alone is not sufficient to classify a death mechanism.",
+    "related": ["radical-trapping-antioxidant", "liproxstatin-1"]
+  },
+  {
+    "id": "liproxstatin-1",
+    "term": "liproxstatin-1",
+    "abbreviation": "Lip-1",
+    "aliases": { "en": ["ferroptosis inhibitor liproxstatin-1"], "zh": ["脂质氧化抑制剂1"], "ja": ["リプロクスタチン-1"] },
+    "simpleEnglish": "A potent radical-trapping research compound widely used to suppress ferroptosis in cells and models.",
+    "precisionNote": "Dose, exposure and model context must be reported; rescue still needs orthogonal support.",
+    "related": ["radical-trapping-antioxidant", "ferrostatin-1"]
+  },
+  {
+    "id": "rsl3",
+    "term": "RSL3",
+    "aliases": { "en": ["GPX4 inhibitor RSL3"], "zh": ["RSL3", "GPX4抑制剂"], "ja": ["RSL3", "GPX4阻害剤"] },
+    "simpleEnglish": "A covalent research inhibitor commonly used to disable GPX4 and trigger ferroptosis in susceptible cells.",
+    "precisionNote": "Nominal dose does not equal target engagement, and susceptibility varies strongly by cell state.",
+    "related": ["gpx4", "ferroptosis"]
+  },
+  {
+    "id": "erastin",
+    "term": "erastin",
+    "aliases": { "en": ["system xᴄ⁻ inhibitor"], "zh": ["erastin", "厄拉斯汀"], "ja": ["エラスチン"] },
+    "simpleEnglish": "A research compound that can limit cystine uptake through system xᴄ⁻ and induce ferroptosis in selected cells.",
+    "precisionNote": "Its effects are nutrient- and context-dependent; use a chemically distinct inducer or genetics for confirmation.",
+    "related": ["system-xc", "slc7a11", "glutathione"]
+  },
+  {
+    "id": "bodipy-c11",
+    "term": "BODIPY 581/591 C11",
+    "aliases": { "en": ["C11-BODIPY", "BODIPY-C11"], "zh": ["BODIPY 581/591 C11脂质过氧化探针"], "ja": ["BODIPY 581/591 C11脂質過酸化プローブ"] },
+    "simpleEnglish": "A membrane-localized fluorescent fatty-acid analogue whose emission shifts from red toward green after oxidation.",
+    "precisionNote": "The correct name is BODIPY 581/591 C11, not “BODIPY 11”. It reports probe oxidation, not a named endogenous oxidized phospholipid and not ferroptosis by itself.",
+    "related": ["lipid-peroxidation", "redox-lipidomics"]
+  },
+  {
+    "id": "redox-lipidomics",
+    "term": "redox lipidomics",
+    "aliases": { "en": ["oxidative lipidomics", "epilipidomics"], "zh": ["氧化脂质组学", "氧化还原脂质组学"], "ja": ["酸化脂質オミクス", "レドックスリピドミクス"] },
+    "simpleEnglish": "Mass-spectrometry workflows that identify and quantify specific oxidized lipid molecules rather than only a bulk oxidation signal.",
+    "precisionNote": "Extraction oxidation, isomers, low abundance and missing standards can create false assignments or uncertain quantification.",
+    "related": ["plooh", "lipid-peroxidation", "bodipy-c11"]
+  },
+  {
+    "id": "lysosome",
+    "term": "lysosome",
+    "aliases": { "en": ["lysosomal compartment"], "zh": ["溶酶体"], "ja": ["リソソーム"] },
+    "simpleEnglish": "An acidic organelle that degrades cargo and can concentrate iron released from ferritin or imported material.",
+    "precisionNote": "Showing that a targeted chemical can trigger lysosomal damage does not automatically prove the lysosome is the endogenous starting site in every model.",
+    "related": ["labile-iron", "ferritinophagy", "lmp"]
+  },
+  {
+    "id": "lmp",
+    "term": "lysosomal membrane permeabilization",
+    "abbreviation": "LMP",
+    "aliases": { "en": ["lysosomal rupture"], "zh": ["溶酶体膜通透化", "溶酶体破裂"], "ja": ["リソソーム膜透過性亢進", "リソソーム破裂"] },
+    "simpleEnglish": "Loss of lysosomal membrane integrity, allowing lysosomal contents to reach the cytosol.",
+    "precisionNote": "LMP may be upstream, downstream or parallel to lipid peroxidation depending on the inducer and cell state.",
+    "related": ["lysosome", "labile-iron"]
+  },
+  {
+    "id": "selenium",
+    "term": "selenium metabolism",
+    "aliases": { "en": ["selenoprotein synthesis", "selenocysteine utilization"], "zh": ["硒代谢", "硒蛋白合成"], "ja": ["セレン代謝", "セレノタンパク質合成"] },
+    "simpleEnglish": "The uptake, distribution and use of selenium to make selenoproteins such as GPX4.",
+    "precisionNote": "Supplementation, transport, intracellular utilization and GPX4 activity are different causal levels.",
+    "related": ["gpx4"]
+  },
+  {
+    "id": "vitamin-k",
+    "term": "vitamin K redox cycle",
+    "aliases": { "en": ["non-canonical vitamin K cycle"], "zh": ["维生素K氧化还原循环"], "ja": ["ビタミンK酸化還元サイクル"] },
+    "simpleEnglish": "A redox cycle that can generate reduced vitamin K forms with radical-trapping activity.",
+    "precisionNote": "Experimental high-dose protection is not equivalent to a dietary or clinical recommendation.",
+    "related": ["fsp1", "radical-trapping-antioxidant"]
+  }
+]

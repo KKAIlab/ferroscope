@@ -1,81 +1,86 @@
-# FerroScope｜铁死亡情报站
+# FerroScope · Global Ferroptosis Research System
 
-这是一个面向脂质生化研究者的可部署情报网站。它不是按论文数量做排行榜，而是把信息分成四类：核心机制、技术与化学、疾病与转化、相邻战略方向。
+FerroScope is an English-first research-intelligence website for ferroptosis and lipid biochemistry. It connects current research signals, laboratories, experimental methods, mechanisms, terminology and external research routes while keeping evidence limitations visible.
 
-## 本地打开
+## What v0.9 adds
 
-需要 Node.js 18 或更高版本。
+- English-only public narrative, with Chinese and Japanese retained as search aliases and terminology translations;
+- 37 global laboratory profiles, classified by capability rather than publication count;
+- a 16-module methods atlas that separates common identification assays from distinctive laboratory capabilities;
+- a typed knowledge network linking 10 mechanism nodes to methods and laboratories;
+- a 25-entry English–Chinese–Japanese terminology corpus;
+- a curated external research hub with authority labels, use boundaries and link-check dates;
+- English briefs for all curated research signals;
+- output escaping and URL-scheme checks for automatically ingested content.
+
+The legacy Chinese research archive remains in `data/lab-research.json` for provenance, but its narrative is not rendered publicly. English interpretations are released only after translation is checked against the primary paper.
+
+## Run locally
+
+Node.js 18 or newer is required.
 
 ```bash
 npm start
 ```
 
-然后访问 `http://127.0.0.1:4173`。不要直接双击 `index.html`，因为浏览器会阻止本地页面读取 JSON 数据。
+Open `http://127.0.0.1:4173`. Do not open `index.html` directly because browsers block local JSON requests.
 
-## 刷新一手数据
+## Validate
+
+```bash
+npm run check:v09
+npm run check
+```
+
+`check:v09` verifies English laboratory coverage, trilingual terminology fields, method-to-laboratory foreign keys, typed mechanism links, HTTPS resources and complete English curated-signal briefs.
+
+## Refresh first-party intelligence
 
 ```bash
 npm run update
 npm run check
 ```
 
-更新脚本读取：
+Automated source ingestion reads PubMed, preprint metadata and ClinicalTrials.gov. Curated interpretation and automated alerts are stored separately. The deployed workflow runs every six hours; this is near-real-time monitoring, not a live market feed.
 
-- PubMed：同行评议原创论文；
-- 预印本：通过 Crossref 的 `posted-content` 索引读取最近 90 天记录，再过滤 ferroptosis 标题；
-- ClinicalTrials.gov：登记中带有 ferroptosis 的研究。
+## Evidence model
 
-人工精选内容在 `data/intelligence-curated.json`，自动结果在 `data/live.json`。二者分开保存，自动任务不会覆盖人工判断。
+No single assay defines ferroptosis. FerroScope organizes evidence around four linked questions:
 
-`data/watch-queries.json` 保存重点实验室的“作者＋机构”定向检索。第一版接入 15 个与你的脂质生化方向最相关的团队；其余团队先保留官网观察，避免常见姓名造成作者误认。
+1. Is there time-resolved cell death rather than only growth inhibition?
+2. Does the phenotype depend on iron and lipid-radical chemistry?
+3. Do genetics, target engagement and direct chemical measurements support the proposed mechanism?
+4. Does the conclusion survive a physiological model without overstating clinical translation?
 
-## 三层阅读与研究档案
+BODIPY 581/591 C11, MDA, 4-HNE, GPX4 protein abundance, mitochondrial morphology or one Ferrostatin-1 rescue can support a study, but none is a standalone diagnosis.
 
-研究情报不把所有论文都写成长篇摘要，而按三个层次逐级升级：
+## Data layers
 
-1. 60 秒初筛：确定问题、新知识、关键证据、适用边界与下一步决定；
-2. 单篇机制深挖：按 Figure 重建干预—读出—救援—生理模型的因果链；
-3. 团队纵向综合：跨论文识别持续问题、能力演化、机制边界与下一监控问题。
+- `data/labs.json`: canonical links, categories and original internal records;
+- `data/labs-en.json`: public English laboratory identity, focus, question and multilingual search aliases;
+- `data/methods.json`: method principle, measurement boundary, best practice, failure modes and distinctive laboratories;
+- `data/knowledge-network.json`: typed mechanism relations and method links;
+- `data/glossary.json`: English definitions with Chinese and Japanese terminology aliases;
+- `data/resources.json`: external research resources with authority and caution labels;
+- `data/signal-briefs-en.json`: verified English overlays for curated signals;
+- `data/live.json`: automated alerts;
+- `data/lab-research.json`: legacy evidence and figure-audit archive, not directly rendered in public narrative.
 
-完整规范见 `docs/RESEARCH_INTELLIGENCE_METHOD.md`。`data/lab-research.json` 已覆盖并完成人工审计全部 37 个团队；当前 37 个团队已完成问题初筛、代表论文证据审计和实验室主线综合，0 个停留在 60 秒问题初筛。74 条团队—论文记录对应 69 篇唯一论文，其中五批共 25 篇达到逐 Figure 精读，其余为证据级精读；同一论文的阅读深度按 DOI 共享，而团队角色分别记录，防止把重复关系记录当成更多论文，也防止把方法协作误写为该实验室主导发现。用户提供的跨学科精读范例只用于学习提问和证据组织方式，不进入 ferroptosis 事实数据库。
+## Three-scale reading system
 
-更新或审核研究档案后运行：
+1. **60-second question card** — question, advance, evidence anchor, scope and next decision;
+2. **Figure-level causal audit** — intervention, readout, rescue, physiological model and missing link;
+3. **Longitudinal lab synthesis** — persistent question, capability evolution, attribution, contradictions and next watch point.
 
-```bash
-npm run build:research
-npm run test:research
-```
+Reading depth belongs to a unique paper identified by normalized DOI. Laboratory contribution is a separate relationship record. A shared paper must not be counted as several unique studies, and a methods collaborator must not be presented as the sole mechanism-discovery lab.
 
-## “实时”的准确含义
+## Important limitations
 
-本项目是近实时情报站，不是秒级行情系统。PubMed、bioRxiv 和 ClinicalTrials.gov 本身按各自节奏更新。部署到 GitHub 后，`.github/workflows/refresh-intelligence.yml` 每 6 小时运行一次，并把更新后的 JSON 提交回仓库。
+- automated capture is a navigation layer, not a literature conclusion;
+- an author-name match is not laboratory attribution;
+- pathway maps and databases are secondary navigators;
+- organelle localization is condition-dependent;
+- disease signatures and ex situ human organs are not clinical proof;
+- corrections, Editor’s Notes and retractions must remain attached to the publication record.
 
-实验室官网结构差异很大，且经常改版。第一版不做脆弱的全网爬虫，而采用：
-
-1. 官网直达；
-2. 目标作者的 PubMed 自动监控；
-3. 人工更新团队动态与风险提示。
-
-## 证据等级
-
-- A：独立团队收敛证据、正式方法共识，或强正交验证；
-- B：高质量同行评议原创研究，通常仍需外部重复；
-- C：预印本、早期临床试验或存在待解决可靠性问题的论文；
-- D：观察性/间接临床研究，不能证明 ferroptosis 是人体机制。
-
-## 部署
-
-仓库已经包含两条 GitHub Actions：
-
-- `deploy-pages.yml`：每次 `main` 更新后部署 GitHub Pages，也监听情报刷新工作流的成功完成事件；
-- `refresh-intelligence.yml`：每 6 小时聚合一次一手来源，数据有变化时提交回仓库。由于 GitHub 不会让 `GITHUB_TOKEN` 产生的提交递归触发其他工作流，Pages 由上面的 `workflow_run` 事件可靠接力部署。
-
-首次部署时，在 GitHub Pages 设置中选择 **GitHub Actions** 作为 Source。工作流只把网站文件与 `data/` 上传到 Pages，不会把更新脚本部署到网页目录。
-
-## 重要限制
-
-- 自动筛选是导航工具，不替代阅读原文；
-- 标题包含 ferroptosis 不等于证据充分；
-- 临床试验搜索结果多数是观察性或伴随标志物研究；
-- Lab 分类按当前主要能力设置，不代表团队只做一个方向；
-- 任何 Editor’s Note、Correction、Retraction 都应在引用前重新核对。
+See `CLAUDE_CODE_HANDOFF.md` for the next implementation phase and acceptance criteria.

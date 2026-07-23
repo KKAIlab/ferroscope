@@ -30,7 +30,7 @@ jobs:
       - name: Build static artifact
         run: |
           mkdir _site
-          cp index.html app.js styles.css README.md _site/
+          cp index.html app.js styles.css v09.css README.md _site/
           cp -R data _site/data
           touch _site/.nojekyll
       - uses: actions/configure-pages@v5
