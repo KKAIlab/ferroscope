@@ -236,11 +236,11 @@ if (march7) fail(march7.readingLevel === "evidence-audited", "未获得完整主
 
 fail(research.counts.audited === 37, `37 个团队应全部完成档案审计，当前 ${research.counts.audited}`);
 fail(research.counts.screened === 0, `完成全量审计后不应保留 pending 初筛，当前 ${research.counts.screened}`);
-fail(app.includes("${state.researchCounts.figureAuditedStudies}/${state.researchCounts.studies} 篇唯一代表论文达到逐图精读") && app.includes("${state.researchCounts.studyRecords} 条团队—论文记录"), "页面必须同时公开唯一论文数与关系记录数，避免重复计算覆盖率");
-fail(app.includes("档案审计通过") && !app.includes('"精读通过"'), "团队层必须标为档案审计，不能冒充论文逐图精读");
-fail(app.includes("持续问题") && app.includes("能力与当前信号") && app.includes("代表工作与证据边界") && app.includes("下一步监控问题") && app.includes("profile.currentSignal"), "团队详情页未同时呈现单篇证据与跨论文纵向综合");
-fail(app.includes("维度 1 · 60 秒问题卡") && app.includes("Story｜问题") && app.includes("Advance｜推进") && app.includes("Evidence｜支点") && app.includes("Scope｜边界"), "代表论文卡没有显式呈现 60 秒阅读层");
-fail(app.includes("维度 2 · 展开逐图机制链") && app.includes("维度 3 · 团队纵向综合"), "团队档案没有显式区分逐图层与纵向综合层");
+fail(app.includes("${state.researchCounts.figureAuditedStudies}/${state.researchCounts.studies} unique representative papers reached figure-level audit") && app.includes("${state.researchCounts.studyRecords} lab–paper relationship records"), "Page must disclose unique-paper and relationship-record counts separately");
+fail(app.includes("evidence-audited archive") && !app.includes("reading complete"), "Team layer must be labelled as a profile archive, not a completed paper reading");
+fail(app.includes("Persistent question") && app.includes("Distinctive method capability") && app.includes("Representative source records") && app.includes("lab.focus"), "Team profile does not combine longitudinal synthesis with paper-level evidence");
+fail(app.includes("Scale 1 · 60-second paper card") && app.includes("English release status") && app.includes("interpretive text remains unpublished"), "Representative paper card does not expose the 60-second layer and English release gate");
+fail(app.includes("Scale 2 · Figure-level audit recorded") && app.includes("Scale 3 · longitudinal laboratory synthesis"), "Team profile does not distinguish the Figure-audit layer from longitudinal synthesis");
 fail(index.includes("id=\"quickStudyCount\"") && index.includes("id=\"figureStudyCount\"") && index.includes("id=\"longitudinalLabCount\""), "全球团队页缺少三维阅读覆盖概览");
 
 if (errors.length) {
