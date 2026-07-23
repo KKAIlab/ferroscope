@@ -1,4 +1,4 @@
-name: Check FerroScope lab links
+name: Check FerroScope external links
 
 on:
   workflow_dispatch:
@@ -16,5 +16,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Check lab websites and TLS
+      - name: Check laboratory sites, external resources and declared method sources
         run: npm run check:links
+      - name: Keep the link-health report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: link-health
+          path: docs/link-health.json
+          if-no-files-found: warn
