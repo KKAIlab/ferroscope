@@ -3,14 +3,21 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { METHOD_DECISION_AXES, validateMethodReview } from "../lib/method-review.mjs";
+import { createResolver, validateRegistry } from "../lib/source-registry.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const read = async (file) => JSON.parse(await fs.readFile(path.join(root, "data", file), "utf8"));
-const [labs, labsEn, methods, glossary, network, resources, curated, briefs, bundles, paperClaims, paperLinks] = await Promise.all([
-  read("labs.json"), read("labs-en.json"), read("methods.json"), read("glossary.json"), read("knowledge-network.json"), read("resources.json"), read("intelligence-curated.json"), read("signal-briefs-en.json"), read("evidence-bundles.json"), read("paper-claims.json"), read("lab-paper-links.json")
+const [labs, labsEn, methods, glossary, network, resources, curated, briefs, bundles, paperClaims, paperLinks, sourceReviews] = await Promise.all([
+  read("labs.json"), read("labs-en.json"), read("methods.json"), read("glossary.json"), read("knowledge-network.json"), read("resources.json"), read("intelligence-curated.json"), read("signal-briefs-en.json"), read("evidence-bundles.json"), read("paper-claims.json"), read("lab-paper-links.json"), read("source-reviews.json")
 ]);
 
 const errors = [];
+
+// The canonical source/scope/review-event registry is validated first: global id uniqueness,
+// every event resolving its source and scopes, and every independent-review chain holding.
+// Everything downstream resolves through it rather than embedding its own copy.
+errors.push(...validateRegistry(sourceReviews));
+const resolver = createResolver(sourceReviews);
 const cjk = /[㐀-鿿぀-ヿ가-힯]/u;
 const unique = (items, name) => {
   const ids = new Set();
@@ -59,7 +66,7 @@ for (const method of methods) {
   for (const field of ["name", "group", "evidenceRole", "plainEnglish", "measures", "cannotProve"]) if (!method[field]) errors.push(`Method ${method.id} is missing ${field}`);
   for (const id of method.distinctiveLabs || []) if (!labIds.has(id)) errors.push(`Method ${method.id} points to unknown lab ${id}`);
 
-  const review = validateMethodReview(method, { labIds, owner: METHOD_OWNER });
+  const review = validateMethodReview(method, { labIds, owner: METHOD_OWNER, resolver });
   errors.push(...review.problems);
   methodFieldsChecked += review.checked || 0;
   methodFieldsPending += review.pending || 0;
