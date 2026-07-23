@@ -33,12 +33,30 @@ const test = (name, run) => {
   }
 };
 
-const [papers, labs, labsEn, links, methods, network, claims] = await Promise.all([
+const [papers, labs, labsEn, links, methods, network, claims, sourceReviews] = await Promise.all([
   read("papers-en.json"), read("labs.json"), read("labs-en.json"), read("lab-paper-links.json"),
-  read("methods.json"), read("knowledge-network.json"), read("paper-claims.json"),
+  read("methods.json"), read("knowledge-network.json"), read("paper-claims.json"), read("source-reviews.json"),
 ]);
-const inputs = { papers, labs, labsEn, links, methods, network, claims };
+const inputs = { papers, labs, labsEn, links, methods, network, claims, sourceReviews };
 const graph = buildGraph(inputs);
+
+// Helpers for the method-route promotion cases: a route now references the canonical registry
+// rather than embedding its own authority, so a fixture reading is added to the registry and
+// the death-kinetics route is pointed at it.
+const slug = (value) => String(value).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+const fixtureSource = (id, scopeLabels) => ({
+  id, documentClass: "accepted-author-manuscript", url: `https://example.org/${id}`, identifiers: {},
+  version: { label: `${id} v1`, retrievedAt: "2026-07-24", byteLength: 1, sha256: null },
+  scopes: scopeLabels.map((label) => ({ id: slug(label), label, surfaceType: "figure-caption", accessExtent: "complete-scope", boundary: "caption only" })),
+});
+const registryWith = ({ sources = [], events = [] }) => ({ ...sourceReviews, sources: [...sourceReviews.sources, ...sources], reviewEvents: [...sourceReviews.reviewEvents, ...events] });
+const dkMethodsWithRoute = ({ sourceId, reviewEventId }) => {
+  const patched = structuredClone(methods);
+  const dk = patched.find((entry) => entry.id === "death-kinetics");
+  dk.sourceRoutes = [{ id: "dk-route", kind: "original-research-demonstration", kindBasis: "test fixture", boundary: "test", routePurpose: reviewEventId ? "primary-source-reading" : "declared-source-not-opened", sourceId, reviewEventId: reviewEventId ?? null }];
+  dk.source = `https://example.org/${sourceId}`;
+  return patched;
+};
 
 const methodEdge = graph.edges.find((edge) => edge.provenanceClass === "curated-method-module");
 const checkedEdge = graph.edges.find((edge) => edge.reviewState === "source-checked");
@@ -217,81 +235,49 @@ test("a bare check date on a method link is refused rather than honoured", () =>
   );
 });
 
-test("a method route promotes only with status, reader, date, version and a covering scope", () => {
-  const base = structuredClone(methods);
-  const module = base.find((entry) => entry.id === "death-kinetics");
+test("a method route promotes only through a resolvable checked event and a covering scope", () => {
   const link = structuredClone(network);
   link.methodLinks.find((entry) => entry.method === "death-kinetics").assertionScopes = { MEASURES: "Box 1: death kinetics" };
 
-  // A module that has read its source both records the route and declares which scope entry
-  // covers each assertion. A module that has not done neither: the route stays not-checked
-  // and no assertionScope is declared, so there is nothing to promote and nothing to reject.
-  const promoteWith = (route, declareScope = true) => {
-    const patched = structuredClone(base);
-    patched.find((entry) => entry.id === "death-kinetics").sourceRoutes[0] = { ...module.sourceRoutes[0], ...route };
-    const network = structuredClone(link);
-    if (!declareScope) delete network.methodLinks.find((entry) => entry.method === "death-kinetics").assertionScopes;
-    const rebuilt = buildGraph({ ...inputs, methods: patched, network });
-    return rebuilt.edges.filter((edge) => edge.from === "method:death-kinetics" && isSourceChecked(edge.reviewState));
-  };
+  // A complete reading: a registry source with the covering scope, a source-checked event over
+  // it, and a route that references the event.
+  const source = fixtureSource("test-dk", ["Box 1: death kinetics"]);
+  const event = { id: "test-dk-event", sourceId: "test-dk", reviewState: "source-checked", reviewerId: "claude-code-round4-implementer", checkedAt: "2026-07-24", scopeIds: ["box-1-death-kinetics"], boundary: "fixture", priorReviewEventId: null, agreement: null, discrepancyNote: null };
+  const rebuilt = buildGraph({ ...inputs, methods: dkMethodsWithRoute({ sourceId: "test-dk", reviewEventId: "test-dk-event" }), network: link, sourceReviews: registryWith({ sources: [source], events: [event] }) });
+  assert.equal(rebuilt.edges.filter((edge) => edge.from === "method:death-kinetics" && isSourceChecked(edge.reviewState)).length, 2, "a complete reading must promote the MEASURES edges it covers");
 
-  const complete = {
-    status: "source-checked",
-    checkedAt: "2026-07-24",
-    checkedBy: "a named reviewer",
-    sourceVersion: "retrieved 2026-07-24",
-    verificationDepth: "figures-legends-checked",
-    reviewedScopes: [{ id: "box-1", label: "Box 1: death kinetics", verificationDepth: "figures-legends-checked", accessSurface: "x", boundary: "y" }],
-  };
-  assert.equal(promoteWith(complete).length, 2, "a complete route must promote the MEASURES edges it covers");
-
-  for (const missing of ["checkedBy", "sourceVersion", "checkedAt"]) {
-    const partial = { ...complete, [missing]: null };
-    assert.throws(() => promoteWith(partial), /./, `a route missing ${missing} must not promote silently`);
-  }
-  // A real not-checked route carries no scope and the module declares none, so it promotes nothing.
-  assert.equal(
-    promoteWith({ status: "not-checked", checkedAt: null, checkedBy: null, sourceVersion: null, verificationDepth: "not-read", reviewedScopes: [] }, false).length,
-    0,
-    "an unchecked status must not promote",
+  // A route naming an event that does not resolve fails the build rather than promoting silently.
+  assert.throws(
+    () => buildGraph({ ...inputs, methods: dkMethodsWithRoute({ sourceId: "test-dk", reviewEventId: "no-such-event" }), network: link, sourceReviews: registryWith({ sources: [source] }) }),
+    /does not resolve in the registry/,
+    "a route pointing at a nonexistent event must not promote",
   );
+
+  // A not-opened route (no event) with no assertion scope declared promotes nothing.
+  const noScope = structuredClone(link);
+  delete noScope.methodLinks.find((entry) => entry.method === "death-kinetics").assertionScopes;
+  const unread = buildGraph({ ...inputs, methods: dkMethodsWithRoute({ sourceId: "test-dk", reviewEventId: null }), network: noScope, sourceReviews: registryWith({ sources: [source] }) });
+  assert.equal(unread.edges.filter((edge) => edge.from === "method:death-kinetics" && isSourceChecked(edge.reviewState)).length, 0, "a not-opened route must not promote");
 });
 
-test("a method route with a scope that does not cover the assertion fails the build", () => {
-  const patched = structuredClone(methods);
-  patched.find((entry) => entry.id === "death-kinetics").sourceRoutes[0] = {
-    ...patched.find((entry) => entry.id === "death-kinetics").sourceRoutes[0],
-    status: "source-checked",
-    checkedAt: "2026-07-24",
-    checkedBy: "a named reviewer",
-    sourceVersion: "retrieved 2026-07-24",
-    verificationDepth: "figures-legends-checked",
-    reviewedScopes: [{ id: "box-2", label: "Box 2: something else", verificationDepth: "figures-legends-checked", accessSurface: "x", boundary: "y" }],
-  };
+test("a method route whose event does not cover the assertion fails the build", () => {
+  const source = fixtureSource("test-dk", ["Box 2: something else"]);
+  const event = { id: "test-dk-event", sourceId: "test-dk", reviewState: "source-checked", reviewerId: "claude-code-round4-implementer", checkedAt: "2026-07-24", scopeIds: ["box-2-something-else"], boundary: "fixture", priorReviewEventId: null, agreement: null, discrepancyNote: null };
   const link = structuredClone(network);
   link.methodLinks.find((entry) => entry.method === "death-kinetics").assertionScopes = { MEASURES: "Box 1: death kinetics" };
   assert.throws(
-    () => buildGraph({ ...inputs, methods: patched, network: link }),
+    () => buildGraph({ ...inputs, methods: dkMethodsWithRoute({ sourceId: "test-dk", reviewEventId: "test-dk-event" }), network: link, sourceReviews: registryWith({ sources: [source], events: [event] }) }),
     /no source-checked record covers it/,
     "a scope mismatch must fail rather than promote the wrong assertion",
   );
 });
 
 test("MEASURES and CANNOT_DISTINGUISH are promoted independently", () => {
-  const patched = structuredClone(methods);
-  const dkModule = patched.find((entry) => entry.id === "death-kinetics");
-  dkModule.sourceRoutes[0] = {
-    ...dkModule.sourceRoutes[0],
-    status: "source-checked",
-    checkedAt: "2026-07-24",
-    checkedBy: "a named reviewer",
-    sourceVersion: "retrieved 2026-07-24",
-    verificationDepth: "figures-legends-checked",
-    reviewedScopes: [{ id: "what-measures", label: "what the assay measures", verificationDepth: "figures-legends-checked", accessSurface: "x", boundary: "y" }],
-  };
+  const source = fixtureSource("test-dk", ["what the assay measures"]);
+  const event = { id: "test-dk-event", sourceId: "test-dk", reviewState: "source-checked", reviewerId: "claude-code-round4-implementer", checkedAt: "2026-07-24", scopeIds: ["what-the-assay-measures"], boundary: "fixture", priorReviewEventId: null, agreement: null, discrepancyNote: null };
   const link = structuredClone(network);
   link.methodLinks.find((entry) => entry.method === "death-kinetics").assertionScopes = { MEASURES: "what the assay measures" };
-  const rebuilt = buildGraph({ ...inputs, methods: patched, network: link });
+  const rebuilt = buildGraph({ ...inputs, methods: dkMethodsWithRoute({ sourceId: "test-dk", reviewEventId: "test-dk-event" }), network: link, sourceReviews: registryWith({ sources: [source], events: [event] }) });
   const edges = rebuilt.edges.filter((edge) => edge.from === "method:death-kinetics");
   assert.ok(edges.filter((edge) => edge.relation === "MEASURES").every((edge) => isSourceChecked(edge.reviewState)));
   assert.ok(
@@ -404,35 +390,46 @@ test("a checked figure-caption edge inherits figures-legends depth, never method
   }
 });
 
-test("array order never decides review state when two records cover one scope (P1-4)", () => {
-  // Two source records cover the same method scope: a source-checked reading and a stronger
-  // independent recheck. Whichever order they sit in the array, the stronger state must win.
-  const scopeEntry = (depth) => ({ id: "s1", label: "shared scope", verificationDepth: depth, accessSurface: "x", boundary: "y" });
-  // The source-checked reading is the DEEPER one; the independent recheck is shallower. State
-  // rank must still win over depth, so the shallower recheck is selected.
-  const checked = {
-    status: "source-checked", checkedAt: "2026-07-24", checkedBy: "first reader", reviewerId: "reader-a",
-    reviewEventId: "ev-a", sourceVersion: "v1", verificationDepth: "methods-checked", reviewedScopes: [scopeEntry("methods-checked")],
-  };
-  const rechecked = {
-    status: "independently-rechecked", checkedAt: "2026-07-24", checkedBy: "second reader", reviewerId: "reader-b",
-    reviewEventId: "ev-b", sourceVersion: "v1", verificationDepth: "abstract-checked", reviewedScopes: [scopeEntry("abstract-checked")],
-  };
-  const build = (order) => {
+test("array order never decides review state, and a recheck attributes to the second reader (P0-3, P1-4)", () => {
+  // Two review events cover one method scope: a first source-checked reading and a genuine
+  // independent recheck that resolves it as its prior event. Whichever order the routes sit in,
+  // the stronger independent state must win — and the promoted edge must name the independent
+  // reviewer and their agreement, not the original implementer.
+  const source = fixtureSource("test-shared", ["shared scope"]);
+  const first = { id: "ev-first", sourceId: "test-shared", reviewState: "source-checked", reviewerId: "claude-code-round4-implementer", checkedAt: "2026-07-24", scopeIds: ["shared-scope"], boundary: "first reading", priorReviewEventId: null, agreement: null, discrepancyNote: null };
+  const recheck = { id: "ev-recheck", sourceId: "test-shared", reviewState: "independently-rechecked", reviewerId: "independent-review-codex", checkedAt: "2026-07-25", scopeIds: ["shared-scope"], boundary: "second reading", priorReviewEventId: "ev-first", agreement: "agrees", discrepancyNote: null };
+  const reg = registryWith({ sources: [source], events: [first, recheck] });
+  const build = (routeOrder) => {
     const patched = structuredClone(methods);
-    const module = patched.find((entry) => entry.id === "death-kinetics");
-    const first = { ...module.sourceRoutes[0] };
-    module.sourceRoutes = order.map((route, i) => ({ ...first, ...route, id: `dk-${i}`, kind: "original-research-demonstration", url: `https://example.org/${i}`, kindBasis: "test", boundary: "test" }));
-    module.source = module.sourceRoutes[0].url;
+    const dk = patched.find((entry) => entry.id === "death-kinetics");
+    dk.sourceRoutes = routeOrder.map((eventId, i) => ({ id: `dk-${i}`, kind: "original-research-demonstration", kindBasis: "test", boundary: "test", routePurpose: "primary-source-reading", sourceId: "test-shared", reviewEventId: eventId }));
+    dk.source = "https://example.org/test-shared";
     const net = structuredClone(network);
     net.methodLinks.find((entry) => entry.method === "death-kinetics").assertionScopes = { MEASURES: "shared scope" };
-    return buildGraph({ ...inputs, methods: patched, network: net }).edges.filter((edge) => edge.from === "method:death-kinetics" && edge.relation === "MEASURES");
+    return buildGraph({ ...inputs, methods: patched, network: net, sourceReviews: reg }).edges.filter((edge) => edge.from === "method:death-kinetics" && edge.relation === "MEASURES");
   };
-  for (const order of [[checked, rechecked], [rechecked, checked]]) {
+  for (const order of [["ev-first", "ev-recheck"], ["ev-recheck", "ev-first"]]) {
     const edges = build(order);
     assert.ok(edges.length > 0, "the shared scope must promote the MEASURES edges");
     assert.ok(edges.every((edge) => edge.reviewState === "independently-rechecked"), "the stronger independent recheck must win regardless of array order");
+    assert.ok(edges.every((edge) => edge.reviewerId === "independent-review-codex"), "a promoted recheck attributes to the independent reviewer, not the original implementer");
+    assert.ok(edges.every((edge) => edge.checkedBy && !/implementer/i.test(edge.checkedBy)), "the edge names the second reader, not the round-4 implementer");
+    assert.ok(edges.every((edge) => edge.agreement === "agrees"), "a promoted recheck carries its agreement outcome");
   }
+});
+
+test("buildGraph refuses an invalid independent-review chain even when called directly (P0-C)", () => {
+  // An independent event whose prior id does not resolve must fail the build, not render.
+  const source = fixtureSource("test-bad", ["shared scope"]);
+  const broken = { id: "ev-broken", sourceId: "test-bad", reviewState: "independently-rechecked", reviewerId: "independent-review-codex", checkedAt: "2026-07-25", scopeIds: ["shared-scope"], boundary: "x", priorReviewEventId: "DOES-NOT-EXIST", agreement: "agrees", discrepancyNote: null };
+  const reg = registryWith({ sources: [source], events: [broken] });
+  const net = structuredClone(network);
+  net.methodLinks.find((entry) => entry.method === "death-kinetics").assertionScopes = { MEASURES: "shared scope" };
+  assert.throws(
+    () => buildGraph({ ...inputs, methods: dkMethodsWithRoute({ sourceId: "test-bad", reviewEventId: "ev-broken" }), network: net, sourceReviews: reg }),
+    /does not resolve to a real event/,
+    "a fabricated independent recheck must fail the build",
+  );
 });
 
 // ----------------------------------------------------------------------- reporting
