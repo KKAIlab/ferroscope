@@ -2,7 +2,34 @@
 
 FerroScope is an English-first research-intelligence website for ferroptosis and lipid biochemistry. It connects current research signals, laboratories, experimental methods, mechanisms, terminology and external research routes while keeping evidence limitations visible.
 
-## What v0.9.1 adds
+## What v0.9.3 adds
+
+Round 3 answers the independent review in [`CODEX_REVIEW_ROUND2.md`](CODEX_REVIEW_ROUND2.md), executed against [`HANDOFF_ROUND3.md`](HANDOFF_ROUND3.md).
+
+- **A calendar date reads the same to every reader.** The ingestion parser was already timezone-invariant, but `app.js` formatted the result with `new Date(date)`, so `2025-12-04` rendered as **03 Dec** in any negative UTC offset. `formatCalendarDate()` in `lib/records.mjs` reads the components out of the string and never builds a local instant. `npm run check:dates` renders the real interface under UTC, Asia/Tokyo and America/Los_Angeles and asserts the visible day is identical.
+- **Freshness belongs to the discovery route, not to the card.** Each entry in `sources[]` carries its own `stale`, `lastSuccessAt` and `lastAttemptAt`. A failing source retains only its own route from a multi-route cached record — matching on the single top-level `sourceName` used to lose the secondary route entirely. A card is labelled retained only when every automated route has failed and no curated record supplies it; anything in between renders as partial degradation.
+- **Method modules answer thirteen decision axes or say they cannot.** Specimen, question, perturbation, readout, unit, instrument, the three essential controls, orthogonal confirmation, timing, compartment resolution and confounders each carry `source-checked` or `pending-source-review`. Nothing was filled from general knowledge: all 208 fields are currently pending, each naming what has to be read to resolve it, and the method dialog shows the gaps rather than leaving blanks.
+- **Laboratory capability is derived from evidence, not asserted.** A capability claim counts only where a source-checked `USES_METHOD` claim links a paper to the module and the attribution layer independently places the laboratory on that paper. 13 rows qualify; the remaining 48 `distinctiveLabs` entries are published as curated claims with no evidence recorded.
+- **A graph edge cannot be quietly unchecked.** Every edge declares a `provenanceClass` and a `reviewState`; a null `checkedAt` must be accompanied by `pending-source-review` and a reason, and the validator rejects it otherwise. The 74 curated method-module edges render as provisional rather than with the confidence of a claim read out of a figure. The graph names `lib/graph.mjs` as its generator, and the validator checks that the file exists.
+- **Declared method sources are monitored.** `npm run check:links` now also resolves the eight distinct URLs the method modules rest on. Resolving is not reading, and the report says so.
+
+## What v0.9.2 adds
+
+Round 2 answers the independent review in [`HANDOFF.md`](HANDOFF.md). Every change below exists because a claim on the page was stronger than the evidence behind it.
+
+- **Automated records no longer carry an evidence grade.** Ingestion writes `evidenceGrade: null` with `evidenceGradeBasis: "unassessed"`; only a curated audit in `data/record-overlays.json`, or a published reading record in `data/papers-en.json`, may assign A–D. Document class is separate from review status and from evidence strength, and an unclassified PubMed hit renders as “PubMed record”, never as “Peer reviewed”.
+- **Dates are parsed as calendar dates.** `lib/records.mjs` decomposes a publisher date textually instead of round-tripping it through local time, which used to shift a date back one day east of UTC. `npm run check:ingestion` runs the fixtures under three timezones.
+- **One study renders once.** Curated and automated layers merge on a canonical identity — normalized DOI, then PMID, then NCT, then canonical URL — keeping the curated narrative, the current date and the union of laboratory matches, with every discovery route preserved in `sources`.
+- **A failed source degrades honestly.** Its previous records are retained, marked `stale`, and published with the last success, the last attempt and the error class. Past a 14-day limit that source publishes nothing and validation fails.
+- **Reading depth and verification depth are separate and visible.** Every paper card and dialog header states `Archive-derived figure chain · abstract cross-checked · full figures pending` rather than a bare “figure-level audit”.
+- **Provenance is structured.** `verification.sources[]` records each route with its scope, status, date and who checked it; the UI summary is generated from those fields.
+- **Article stage and post-publication status are separate axes,** and all four previously unread correction notices are classified with `affectedDomains`, `conclusionImpact`, `noticeType` and `sourceUrl`. No `pending-source-check` remains.
+- **Monitoring coverage is stated, not implied.** `data/monitoring-coverage.json` records the watch tier, watch state and review dates for all 37 laboratories. No laboratory claims a site monitor, because no site crawler exists.
+- **The manifest enforces ownership and review.** Every dataset names an accountable owner. A dataset is either awaiting review, or names an independent reviewer and pins a sha256 of the reviewed bytes; a later edit then fails validation. Mutation tests prove both gates.
+- **A provenance graph is derived at load time** from the audited figure chains, so mechanisms resolve to the individual paper claims that support, replicate, contradict or cannot separate them, each with its condition vector.
+- **Methods are a decision system.** `data/evidence-bundles.json` maps a question and a model scale to a minimum evidence bundle and to the sentence the result still cannot support. BODIPY 581/591 C11 is reachable only inside a bundle.
+
+## What v0.9.1 added
 
 - an English paper layer, `data/papers-en.json`, holding 11 source-checked reading records that are readable at all three scales, each carrying a condition vector, a version and correction history and a statement of what was verified and what was not;
 - a separate laboratory attribution layer, `data/lab-paper-links.json`, so a role claim can never become a property of the paper;
@@ -37,17 +64,34 @@ Open `http://127.0.0.1:4173`. Do not open `index.html` directly because browsers
 ## Validate
 
 ```bash
-npm run check          # everything below, in order
-npm run check:v09      # coverage, foreign keys, schema manifest and dates
-npm run check:papers   # paper layer and laboratory attribution layer
-npm run check:surface  # rendered-DOM language gate and injection gate
+npm run check            # everything below, in order
+npm run check:data       # laboratory coverage, automated-record gate, monitoring coverage
+npm run check:v09        # foreign keys, schema manifest, ownership, review fingerprints
+npm run check:papers     # paper layer, correction notices and laboratory attribution
+npm run check:graph      # provenance graph contract
+npm run check:graph-contract # negative cases: an unchecked edge with no provisional state is rejected
+npm run check:surface    # rendered-DOM language, evidence, merge, depth and decision-schema gates
+npm run check:dates      # the interface renders one calendar date identically in three timezones
+npm run check:ingestion  # offline ingestion fixtures under three timezones
+npm run check:manifest   # manifest mutation tests
+npm run check:links      # laboratory sites, external resources and declared method sources (needs network)
 ```
 
-`check:v09` verifies English laboratory coverage, trilingual terminology fields, method-to-laboratory foreign keys, typed mechanism links, HTTPS resources, complete English curated-signal briefs, and that every file in `data/` is registered in the manifest with a valid schema version and a review date that is neither in the future nor stale.
+`check:data` fails if any automated record carries an evidence grade of its own, claims to be original research, omits its source, or collides with another record on canonical identity. It also requires exactly one monitoring-coverage row per laboratory and keeps `watch-queries.json` and `monitoring-coverage.json` in agreement.
 
-`check:papers` enforces one reading level per normalized DOI, a condition vector, a boundary statement on every figure record, a correction history that forces `publicationStatus` to `corrected`, a `contested` flag whenever a Matters Arising or Reply exists, a verification block recording what was actually checked, and rejection of priority, proof and disease-causation language in published narrative. It also fails if the English layer silently disagrees with the legacy archive.
+`check:v09` verifies English laboratory coverage, trilingual terminology fields, method-to-laboratory foreign keys, typed mechanism links, HTTPS resources, complete English curated-signal briefs, the evidence-bundle decision paths, and that every file in `data/` is registered in the manifest with an accountable owner, a valid schema version and either a pending-review flag or a matching review fingerprint.
 
-`check:surface` renders the real interface through a DOM harness and fails if Chinese or Japanese text reaches the page outside `#glossaryGrid`, or if a hostile title, topic, takeaway or URL scheme survives into the rendered markup.
+`check:papers` enforces one reading record per normalized DOI, a condition vector, a boundary statement on every figure record, separate article stage and post-publication status, a classified notice with an affected domain and a conclusion impact for every version event, a structured verification source list, and rejection of priority, proof and disease-causation language in published narrative. It also fails if the English layer silently disagrees with the legacy archive.
+
+`check:surface` renders the real interface through a DOM harness and fails if Chinese or Japanese text reaches the page outside `#glossaryGrid`, if a hostile title, topic, takeaway or URL scheme survives into the rendered markup, if an automated record is graded or labelled peer reviewed, if two layers of the same study render twice, or if the archive-derived verification depth is not visible on the card.
+
+## Record a review
+
+```bash
+npm run seal -- --reviewer=<owner-id> [files...]
+```
+
+Sealing states that a named party other than the owner read those exact bytes. It writes the reviewer, the date and a sha256 of the file; any later edit then fails `check:v09` until the file is reviewed again. Declared parties are the keys of `owners` in `data/schema-versions.json`. Running this to turn a red check green defeats the mechanism it exists to provide.
 
 ## Refresh first-party intelligence
 
@@ -57,6 +101,8 @@ npm run check
 ```
 
 Automated source ingestion reads PubMed, preprint metadata and ClinicalTrials.gov. Curated interpretation and automated alerts are stored separately. The deployed workflow runs every six hours; this is near-real-time monitoring, not a live market feed.
+
+When a source fails, the records it last returned are retained, marked `stale`, and published together with the date of the last success and the class of the error, while the other sources are unaffected. If those retained records are more than 14 days old, that source publishes nothing and validation fails rather than presenting an old dataset as current. The freshness dialog states this policy in the same words.
 
 ## Evidence model
 
@@ -73,16 +119,21 @@ BODIPY 581/591 C11, MDA, 4-HNE, GPX4 protein abundance, mitochondrial morphology
 
 - `data/labs.json`: canonical links, categories and original internal records;
 - `data/labs-en.json`: public English laboratory identity, focus, question and multilingual search aliases;
-- `data/methods.json`: method principle, measurement boundary, best practice, failure modes and distinctive laboratories;
+- `data/methods.json`: method principle, measurement boundary, best practice, failure modes, the thirteen decision axes with their review status, the declared source routes and the evidence-derived laboratory capability;
 - `data/knowledge-network.json`: typed mechanism relations and method links;
 - `data/glossary.json`: English definitions with Chinese and Japanese terminology aliases;
 - `data/resources.json`: external research resources with authority and caution labels;
 - `data/signal-briefs-en.json`: verified English overlays for curated signals;
-- `data/papers-en.json`: canonical English paper records, keyed by normalized DOI, with the 60-second card, the figure-level audit, version events and a verification block;
+- `data/papers-en.json`: canonical English paper records, keyed by normalized DOI, with the 60-second card, the audited figure chain, classified version events, separate article stage and post-publication status, separate reading and verification depth, and a structured verification source list;
 - `data/lab-paper-links.json`: laboratory contribution records, deliberately separate from paper facts;
-- `data/schema-versions.json`: the manifest that registers every dataset with a schema version, shape, maintenance mode and review date;
-- `data/live.json`: automated alerts;
-- `data/lab-research.json`: legacy evidence and figure-audit archive, not directly rendered in public narrative.
+- `data/paper-claims.json`: typed claims read out of the audited figure chain, each naming its figure, condition vector and confidence basis; the seed for the provenance graph;
+- `data/evidence-bundles.json`: question-to-minimum-evidence-bundle decision paths and the assays that may never stand alone;
+- `data/record-overlays.json`: curated document-class and evidence-grade decisions for automated records;
+- `data/monitoring-coverage.json`: per-laboratory watch tier, watch state, site-monitor state and review dates;
+- `data/schema-versions.json`: the manifest that registers every dataset with an owner, schema version, shape, maintenance mode and either a pending-review flag or a review fingerprint;
+- `data/live.json`: automated alerts, each stating its source, its document class and that its evidence grade is unassessed;
+- `data/lab-research.json`: legacy evidence and figure-audit archive, not directly rendered in public narrative;
+- `lib/records.mjs` and `lib/graph.mjs`: the record semantics and the provenance graph, shared by the ingestion pipeline, the validators and the browser. The deployment workflow copies `lib/` alongside `data/`; without it the page loads no module at all.
 
 ## Three-scale reading system
 
@@ -101,4 +152,7 @@ Reading depth belongs to a unique paper identified by normalized DOI. Laboratory
 - disease signatures and ex situ human organs are not clinical proof;
 - corrections, Editor’s Notes and retractions must remain attached to the publication record.
 
-See `CLAUDE_CODE_HANDOFF.md` for the next implementation phase and acceptance criteria.
+- a laboratory URL that returns 200 proves the URL resolves, not that the page still describes that laboratory;
+- an author watch that has never run is coverage on paper, not coverage in fact, and is labelled as pending.
+
+`HANDOFF.md` holds the independent review this round answers, and `DELIVERY_AUDIT_ROUND2.md` records what was changed, what was tested and what remains open. `CLAUDE_CODE_HANDOFF.md` is the superseded round-1 plan.

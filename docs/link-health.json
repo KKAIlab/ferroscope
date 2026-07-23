@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-07-23T16:46:38.341Z",
+  "checkedAt": "2026-07-23T16:50:32.462Z",
   "note": "A healthy result means the URL resolved. It is not evidence that the page still describes the intended laboratory or resource, and a restricted result means an automated client was refused rather than that the link is broken.",
   "counts": {
     "total": 57,
@@ -17,8 +17,8 @@
       "finalUrl": "https://www.yilongzou-lab.com/",
       "redirected": false,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
-      "lastSuccessAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
+      "lastSuccessAt": "2026-07-23T16:50:32.462Z",
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
     {
@@ -30,8 +30,8 @@
       "finalUrl": "https://www.phar.kyushu-u.ac.jp/lab/gaiyou_15.php",
       "redirected": false,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
-      "lastSuccessAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
+      "lastSuccessAt": "2026-07-23T16:50:32.462Z",
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
     {
@@ -43,8 +43,8 @@
       "finalUrl": "https://www.kitasato-u.ac.jp/pharm/research/laboratory/laboratory-detail/content/?lab_pk=1671597518",
       "redirected": false,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
-      "lastSuccessAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
+      "lastSuccessAt": "2026-07-23T16:50:32.462Z",
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
     {
@@ -56,8 +56,8 @@
       "finalUrl": "https://www.helmholtz-munich.de/en/mcd",
       "redirected": false,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
-      "lastSuccessAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
+      "lastSuccessAt": "2026-07-23T16:50:32.462Z",
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
     {
@@ -69,8 +69,8 @@
       "finalUrl": "https://www.uni-wuerzburg.de/rvz/forschungsgruppen/ag-friedmann-angeli/",
       "redirected": false,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
-      "lastSuccessAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
+      "lastSuccessAt": "2026-07-23T16:50:32.462Z",
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
     {
@@ -82,8 +82,8 @@
       "finalUrl": "https://www.olzmannlab.com/",
       "redirected": false,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
-      "lastSuccessAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
+      "lastSuccessAt": "2026-07-23T16:50:32.462Z",
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
     {
@@ -95,8 +95,8 @@
       "finalUrl": "https://www.publichealth.pitt.edu/directory/valerian-kagan",
       "redirected": false,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
-      "lastSuccessAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
+      "lastSuccessAt": "2026-07-23T16:50:32.462Z",
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
     {
@@ -108,8 +108,8 @@
       "finalUrl": "https://fedorovalab.net/research-projects/lipidomics/",
       "redirected": false,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
-      "lastSuccessAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
+      "lastSuccessAt": "2026-07-23T16:50:32.462Z",
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
     {
@@ -121,8 +121,8 @@
       "finalUrl": "https://www.uottawa.ca/faculty-science/professors/derek-pratt",
       "redirected": false,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
-      "lastSuccessAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
+      "lastSuccessAt": "2026-07-23T16:50:32.462Z",
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
     {
@@ -134,8 +134,8 @@
       "finalUrl": "https://institut-curie.org/person/raphael-rodriguez",
       "redirected": false,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
-      "lastSuccessAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
+      "lastSuccessAt": "2026-07-23T16:50:32.462Z",
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
     {
@@ -147,8 +147,8 @@
       "finalUrl": "https://www.env.med.tohoku.ac.jp/en/home-english/",
       "redirected": true,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
-      "lastSuccessAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
+      "lastSuccessAt": "2026-07-23T16:50:32.462Z",
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
     {
@@ -160,8 +160,8 @@
       "finalUrl": "https://www.cityu.edu.hk/bms/profile/huiyongyin.htm",
       "redirected": false,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
-      "lastSuccessAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
+      "lastSuccessAt": "2026-07-23T16:50:32.462Z",
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
     {
@@ -173,7 +173,7 @@
       "finalUrl": "https://stockwelllab.fas.columbia.edu/",
       "redirected": false,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
       "lastSuccessAt": null,
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
@@ -186,8 +186,8 @@
       "finalUrl": "https://www.dixonlaboratory.com/",
       "redirected": false,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
-      "lastSuccessAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
+      "lastSuccessAt": "2026-07-23T16:50:32.462Z",
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
     {
@@ -199,8 +199,8 @@
       "finalUrl": "https://person.zju.edu.cn/FudiWang",
       "redirected": false,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
-      "lastSuccessAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
+      "lastSuccessAt": "2026-07-23T16:50:32.462Z",
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
     {
@@ -212,8 +212,8 @@
       "finalUrl": "https://www.mskcc.org/research/ski/labs/xuejun-jiang",
       "redirected": false,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
-      "lastSuccessAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
+      "lastSuccessAt": "2026-07-23T16:50:32.462Z",
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
     {
@@ -225,8 +225,8 @@
       "finalUrl": "https://www.mdanderson.org/research/departments-labs-institutes/labs/gan-laboratory.html",
       "redirected": false,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
-      "lastSuccessAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
+      "lastSuccessAt": "2026-07-23T16:50:32.462Z",
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
     {
@@ -238,8 +238,8 @@
       "finalUrl": "https://www.papaglab.com/",
       "redirected": false,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
-      "lastSuccessAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
+      "lastSuccessAt": "2026-07-23T16:50:32.462Z",
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
     {
@@ -251,8 +251,8 @@
       "finalUrl": "https://hsph.harvard.edu/profile/jessalyn-ubellacker/",
       "redirected": false,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
-      "lastSuccessAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
+      "lastSuccessAt": "2026-07-23T16:50:32.462Z",
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
     {
@@ -264,8 +264,8 @@
       "finalUrl": "https://www.mskcc.org/research/ski/labs/michael-overholtzer",
       "redirected": false,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
-      "lastSuccessAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
+      "lastSuccessAt": "2026-07-23T16:50:32.462Z",
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
     {
@@ -277,8 +277,8 @@
       "finalUrl": "https://www.biophys.mpg.de/2777139/projects",
       "redirected": false,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
-      "lastSuccessAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
+      "lastSuccessAt": "2026-07-23T16:50:32.462Z",
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
     {
@@ -290,8 +290,8 @@
       "finalUrl": "https://www.vanden-berghe-lab.com/",
       "redirected": false,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
-      "lastSuccessAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
+      "lastSuccessAt": "2026-07-23T16:50:32.462Z",
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
     {
@@ -303,8 +303,8 @@
       "finalUrl": "https://www.umm.uni-heidelberg.de/mi3/people/andreas-linkermann/",
       "redirected": false,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
-      "lastSuccessAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
+      "lastSuccessAt": "2026-07-23T16:50:32.462Z",
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
     {
@@ -316,8 +316,8 @@
       "finalUrl": "https://sklmcb-en.nankai.edu.cn/About/Administration.htm",
       "redirected": false,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
-      "lastSuccessAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
+      "lastSuccessAt": "2026-07-23T16:50:32.462Z",
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
     {
@@ -329,8 +329,8 @@
       "finalUrl": "https://www.pharm.tohoku.ac.jp/~taisya/english/index.html",
       "redirected": false,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
-      "lastSuccessAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
+      "lastSuccessAt": "2026-07-23T16:50:32.462Z",
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
     {
@@ -342,8 +342,8 @@
       "finalUrl": "https://kdb.iimc.kyoto-u.ac.jp/profile/ja.8dbc40240733fb54.html",
       "redirected": false,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
-      "lastSuccessAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
+      "lastSuccessAt": "2026-07-23T16:50:32.462Z",
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
     {
@@ -355,8 +355,8 @@
       "finalUrl": "https://www.med.nagoya-u.ac.jp/medical_E/laboratory/basic-med/pathology/pathology1/",
       "redirected": false,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
-      "lastSuccessAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
+      "lastSuccessAt": "2026-07-23T16:50:32.462Z",
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
     {
@@ -368,7 +368,7 @@
       "finalUrl": "https://slst.hit.edu.cn/d3/17/c8600a185111/page.htm",
       "redirected": false,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
       "lastSuccessAt": null,
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
@@ -381,8 +381,8 @@
       "finalUrl": "https://genetics.cas.cn/aiyouwei/",
       "redirected": false,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
-      "lastSuccessAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
+      "lastSuccessAt": "2026-07-23T16:50:32.462Z",
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
     {
@@ -394,8 +394,8 @@
       "finalUrl": "https://snupharm.snu.ac.kr/en/snu__professor/yun-pyo-kang/",
       "redirected": false,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
-      "lastSuccessAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
+      "lastSuccessAt": "2026-07-23T16:50:32.462Z",
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
     {
@@ -407,8 +407,8 @@
       "finalUrl": "https://labs.utsouthwestern.edu/taxonomy/term/8126",
       "redirected": false,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
-      "lastSuccessAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
+      "lastSuccessAt": "2026-07-23T16:50:32.462Z",
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
     {
@@ -420,8 +420,8 @@
       "finalUrl": "https://wertheim.scripps.ufl.edu/profile/zhang-donna/",
       "redirected": false,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
-      "lastSuccessAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
+      "lastSuccessAt": "2026-07-23T16:50:32.462Z",
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
     {
@@ -433,8 +433,8 @@
       "finalUrl": "https://www.vagelos.columbia.edu/profile/hulya-bayir-md",
       "redirected": false,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
-      "lastSuccessAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
+      "lastSuccessAt": "2026-07-23T16:50:32.462Z",
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
     {
@@ -446,8 +446,8 @@
       "finalUrl": "https://pathology.med.umich.edu/faculty/wzou",
       "redirected": false,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
-      "lastSuccessAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
+      "lastSuccessAt": "2026-07-23T16:50:32.462Z",
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
     {
@@ -459,8 +459,8 @@
       "finalUrl": "https://vandenabeelelab.sites.vib.be/en",
       "redirected": false,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
-      "lastSuccessAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
+      "lastSuccessAt": "2026-07-23T16:50:32.462Z",
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
     {
@@ -472,8 +472,8 @@
       "finalUrl": "https://www.imperial.ac.uk/news/articles/research-groups/tate-group/2026/new-senolytic-strategy-targets-a-key-vulnerability-in-ageing-cells/",
       "redirected": false,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
-      "lastSuccessAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
+      "lastSuccessAt": "2026-07-23T16:50:32.462Z",
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
     {
@@ -485,7 +485,7 @@
       "finalUrl": "https://pursuit.unimelb.edu.au/individuals/professor-ashley-bush",
       "redirected": false,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
       "lastSuccessAt": null,
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
@@ -495,11 +495,11 @@
       "url": "https://doi.org/10.1038/s41580-025-00843-2",
       "status": 200,
       "state": "healthy",
-      "finalUrl": "https://idp.nature.com/transit?redirect_uri=https%3A%2F%2Fwww.nature.com%2Farticles%2Fs41580-025-00843-2&code=064f96a4-2770-41e9-aeb9-6c0eda2a9369",
+      "finalUrl": "https://idp.nature.com/transit?redirect_uri=https%3A%2F%2Fwww.nature.com%2Farticles%2Fs41580-025-00843-2&code=4634831c-6d94-486d-b446-9ea80cf8740b",
       "redirected": true,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
-      "lastSuccessAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
+      "lastSuccessAt": "2026-07-23T16:50:32.462Z",
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
     {
@@ -511,8 +511,8 @@
       "finalUrl": "https://pubmed.ncbi.nlm.nih.gov/?term=ferroptosis%5BTitle%2FAbstract%5D&sort=date",
       "redirected": false,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
-      "lastSuccessAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
+      "lastSuccessAt": "2026-07-23T16:50:32.462Z",
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
     {
@@ -524,8 +524,8 @@
       "finalUrl": "https://europepmc.org/search?query=ferroptosis",
       "redirected": false,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
-      "lastSuccessAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
+      "lastSuccessAt": "2026-07-23T16:50:32.462Z",
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
     {
@@ -537,7 +537,7 @@
       "finalUrl": "https://www.biorxiv.org/search/ferroptosis",
       "redirected": false,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
       "lastSuccessAt": null,
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
@@ -550,8 +550,8 @@
       "finalUrl": "https://clinicaltrials.gov/search?term=ferroptosis",
       "redirected": false,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
-      "lastSuccessAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
+      "lastSuccessAt": "2026-07-23T16:50:32.462Z",
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
     {
@@ -563,8 +563,8 @@
       "finalUrl": "https://www.dfg-ferroptosis.net/",
       "redirected": false,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
-      "lastSuccessAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
+      "lastSuccessAt": "2026-07-23T16:50:32.462Z",
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
     {
@@ -576,8 +576,8 @@
       "finalUrl": "https://www.zhounan.org/ferrdb/",
       "redirected": false,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
-      "lastSuccessAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
+      "lastSuccessAt": "2026-07-23T16:50:32.462Z",
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
     {
@@ -589,8 +589,8 @@
       "finalUrl": "https://www.kegg.jp/pathway/map04216",
       "redirected": false,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
-      "lastSuccessAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
+      "lastSuccessAt": "2026-07-23T16:50:32.462Z",
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
     {
@@ -602,7 +602,7 @@
       "finalUrl": "https://lipidmaps.org/",
       "redirected": false,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
       "lastSuccessAt": null,
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
@@ -615,8 +615,8 @@
       "finalUrl": "https://www.thermofisher.com/order/catalog/product/D3861",
       "redirected": false,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
-      "lastSuccessAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
+      "lastSuccessAt": "2026-07-23T16:50:32.462Z",
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
     {
@@ -628,8 +628,8 @@
       "finalUrl": "https://search.crossref.org/",
       "redirected": false,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
-      "lastSuccessAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
+      "lastSuccessAt": "2026-07-23T16:50:32.462Z",
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
     {
@@ -641,8 +641,8 @@
       "finalUrl": "https://www.rcsb.org/search?request=%7B%22query%22%3A%7B%22type%22%3A%22terminal%22%2C%22service%22%3A%22full_text%22%2C%22parameters%22%3A%7B%22value%22%3A%22GPX4%22%7D%7D%2C%22return_type%22%3A%22entry%22%7D",
       "redirected": false,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
-      "lastSuccessAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
+      "lastSuccessAt": "2026-07-23T16:50:32.462Z",
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
     {
@@ -668,8 +668,8 @@
       "finalUrl": "https://www.nature.com/articles/s41580-025-00843-2",
       "redirected": true,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
-      "lastSuccessAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
+      "lastSuccessAt": "2026-07-23T16:50:32.462Z",
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
     {
@@ -687,8 +687,8 @@
       "finalUrl": "https://www.thermofisher.com/order/catalog/product/D3861",
       "redirected": false,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
-      "lastSuccessAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
+      "lastSuccessAt": "2026-07-23T16:50:32.462Z",
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
     {
@@ -706,8 +706,8 @@
       "finalUrl": "https://pubmed.ncbi.nlm.nih.gov/32275865/",
       "redirected": false,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
-      "lastSuccessAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
+      "lastSuccessAt": "2026-07-23T16:50:32.462Z",
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
     {
@@ -725,8 +725,8 @@
       "finalUrl": "https://www.nature.com/articles/nchembio.2238",
       "redirected": true,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
-      "lastSuccessAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
+      "lastSuccessAt": "2026-07-23T16:50:32.462Z",
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
     {
@@ -744,8 +744,8 @@
       "finalUrl": "https://linkinghub.elsevier.com/retrieve/pii/S2451945619302855",
       "redirected": true,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
-      "lastSuccessAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
+      "lastSuccessAt": "2026-07-23T16:50:32.462Z",
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
     {
@@ -763,8 +763,8 @@
       "finalUrl": "https://pubmed.ncbi.nlm.nih.gov/36747055/",
       "redirected": false,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
-      "lastSuccessAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
+      "lastSuccessAt": "2026-07-23T16:50:32.462Z",
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
     {
@@ -782,8 +782,8 @@
       "finalUrl": "https://www.nature.com/articles/s41467-025-58175-w",
       "redirected": true,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
-      "lastSuccessAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
+      "lastSuccessAt": "2026-07-23T16:50:32.462Z",
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     },
     {
@@ -801,8 +801,8 @@
       "finalUrl": "https://linkinghub.elsevier.com/retrieve/pii/S009286742600454X",
       "redirected": true,
       "tls": true,
-      "checkedAt": "2026-07-23T16:46:38.341Z",
-      "lastSuccessAt": "2026-07-23T16:46:38.341Z",
+      "checkedAt": "2026-07-23T16:50:32.462Z",
+      "lastSuccessAt": "2026-07-23T16:50:32.462Z",
       "proves": "the URL resolves; it does not prove the page still describes this laboratory or resource, and for a method source it does not mean anyone has read it"
     }
   ]
