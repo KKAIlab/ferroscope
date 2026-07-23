@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-07-23T14:31:05.160Z",
+  "generatedAt": "2026-07-23T19:45:58.197Z",
   "version": "0.1.0",
   "counts": {
-    "clinicalTrials": 27,
+    "clinicalTrials": 28,
     "curatedSignals": 23,
     "liveSignals": 57
   },
@@ -10,26 +10,26 @@
     {
       "name": "Tracked labs / PubMed",
       "ok": true,
-      "updatedAt": "2026-07-23T14:31:05.160Z",
+      "updatedAt": "2026-07-23T19:45:58.197Z",
       "note": "本轮通过质量筛选 35 条。"
     },
     {
       "name": "PubMed",
       "ok": true,
-      "updatedAt": "2026-07-23T14:31:05.160Z",
+      "updatedAt": "2026-07-23T19:45:58.197Z",
       "note": "本轮通过质量筛选 1 条。"
     },
     {
       "name": "Preprints / Crossref",
       "ok": true,
-      "updatedAt": "2026-07-23T14:31:05.160Z",
+      "updatedAt": "2026-07-23T19:45:58.197Z",
       "note": "本轮通过质量筛选 1 条。"
     },
     {
       "name": "ClinicalTrials.gov",
       "ok": true,
-      "updatedAt": "2026-07-23T14:31:05.160Z",
-      "note": "检索到 27 条记录，前端保留相关度较高的 20 条。"
+      "updatedAt": "2026-07-23T19:45:58.197Z",
+      "note": "检索到 28 条记录，前端保留相关度较高的 20 条。"
     },
     {
       "name": "Lab / Network sites",
