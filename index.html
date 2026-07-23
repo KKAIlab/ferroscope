@@ -16,7 +16,7 @@
     <div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
     <header class="topbar">
       <a class="brand" href="#top" aria-label="FerroScope home"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span><strong>FerroScope</strong><small>FERROPTOSIS RESEARCH SYSTEM</small></span></a>
-      <nav aria-label="Main navigation"><a href="#signals">Signals</a><a href="#methods">Methods</a><a href="#network">Network</a><a href="#labs">Labs</a><a href="#glossary">Glossary</a><a href="#resources">Resources</a></nav>
+      <nav aria-label="Main navigation"><a href="#signals">Signals</a><a href="#papers">Papers</a><a href="#methods">Methods</a><a href="#network">Network</a><a href="#labs">Labs</a><a href="#glossary">Glossary</a><a href="#resources">Resources</a></nav>
       <button id="freshnessButton" class="freshness" type="button" aria-label="View data freshness"><span class="pulse"></span><span><b>Data status</b><small id="topUpdated">Loading…</small></span></button>
     </header>
 
@@ -31,7 +31,7 @@
         </div>
         <div class="hero-panel">
           <div class="signal-radar" aria-hidden="true"><div class="orbit orbit-1"></div><div class="orbit orbit-2"></div><div class="orbit orbit-3"></div><span class="radar-core">Fe<sup>2+</sup></span><span class="radar-node n1">GPX4</span><span class="radar-node n2">FSP1</span><span class="radar-node n3">PUFA-PL</span><span class="radar-node n4">Lysosome</span></div>
-          <div class="hero-metric"><span>Tracked laboratories</span><strong id="labCount">—</strong></div><div class="hero-metric"><span>Method modules</span><strong id="methodCount">—</strong></div><div class="hero-metric"><span>Clinical records</span><strong id="trialCount">—</strong></div>
+          <div class="hero-metric"><span>Tracked laboratories</span><strong id="labCount">—</strong></div><div class="hero-metric"><span>Source-checked papers</span><strong id="paperCount">—</strong></div><div class="hero-metric"><span>Method modules</span><strong id="methodCount">—</strong></div><div class="hero-metric"><span>Clinical records</span><strong id="trialCount">—</strong></div>
         </div>
       </section>
 
@@ -52,36 +52,42 @@
         <div id="signalList" class="signal-list" aria-live="polite"></div><button id="loadMoreSignals" class="load-more" type="button">Show more signals</button>
       </section>
 
+      <section id="papers" class="section papers-section"><div class="shell">
+        <div class="section-heading"><div><p class="eyebrow">02 · PAPER READING RECORDS</p><h2>Papers read to their evidence boundary</h2></div><p>Each record is one normalized DOI with one reading level. The 60-second card, the figure-level causal audit, the correction history and the laboratory attribution are separate objects, and every record states what was verified and what was not.</p></div>
+        <div class="paper-controls"><div class="filter-row light" id="paperThemes"></div><label class="search-box light"><span>⌕</span><input id="paperSearch" type="search" placeholder="Search paper, journal, mechanism or laboratory" /></label></div>
+        <div id="paperGrid" class="paper-grid"></div>
+      </div></section>
+
       <section id="methods" class="section methods-section"><div class="shell">
-        <div class="section-heading"><div><p class="eyebrow">02 · METHODS ATLAS</p><h2>What each experiment can—and cannot—show</h2></div><p>Core identification assays are separated from direct chemistry and distinctive laboratory capabilities. A method is evidence only within its measurement boundary.</p></div>
+        <div class="section-heading"><div><p class="eyebrow">03 · METHODS ATLAS</p><h2>What each experiment can—and cannot—show</h2></div><p>Core identification assays are separated from direct chemistry and distinctive laboratory capabilities. A method is evidence only within its measurement boundary.</p></div>
         <div class="method-gate"><div><span>01</span><b>Death</b><small>time-resolved loss of viability or membrane integrity</small></div><i>+</i><div><span>02</span><b>Iron dependence</b><small>chelation, labile iron or genetic iron control</small></div><i>+</i><div><span>03</span><b>Lipid oxidation</b><small>probe plus orthogonal or molecular evidence</small></div><i>+</i><div><span>04</span><b>Causal control</b><small>genetics, rescue and physiological context</small></div></div>
         <div class="method-controls"><div class="filter-row light" id="methodGroups"></div><label class="search-box light"><span>⌕</span><input id="methodSearch" type="search" placeholder="Search method, readout, limitation or laboratory" /></label></div>
         <div id="methodGrid" class="method-grid"></div>
       </div></section>
 
       <section id="network" class="section network-section"><div class="shell">
-        <div class="section-heading"><div><p class="eyebrow">03 · KNOWLEDGE NETWORK</p><h2>Mechanisms connected to evidence</h2></div><p>Select a mechanism to see its directional relationships, matching methods and laboratories. Links encode a typed claim—not universal causality.</p></div>
+        <div class="section-heading"><div><p class="eyebrow">04 · KNOWLEDGE NETWORK</p><h2>Mechanisms connected to evidence</h2></div><p>Select a mechanism to see its directional relationships, matching methods and laboratories. Links encode a typed claim—not universal causality.</p></div>
         <div class="network-layout"><div id="networkMap" class="network-map" role="list" aria-label="Ferroptosis mechanism network"></div><aside id="networkDetail" class="network-detail" aria-live="polite"></aside></div>
       </div></section>
 
       <section id="labs" class="section labs-section"><div class="shell">
-        <div class="section-heading"><div><p class="eyebrow">04 · GLOBAL LAB WATCH</p><h2>Laboratories as capability nodes</h2></div><p>Sorted by relevance to lipid biochemistry and ferroptosis, not by country or publication count. <span id="researchCoverage">Loading research coverage…</span></p></div>
+        <div class="section-heading"><div><p class="eyebrow">05 · GLOBAL LAB WATCH</p><h2>Laboratories as capability nodes</h2></div><p>Sorted by relevance to lipid biochemistry and ferroptosis, not by country or publication count. <span id="researchCoverage">Loading research coverage…</span></p></div>
         <div class="lab-controls"><label class="search-box"><span>⌕</span><input id="labSearch" type="search" placeholder="Search PI, institution, mechanism, method—or a Chinese/Japanese alias" /></label><div class="filter-row" id="labCategories"></div></div>
         <div id="labGrid" class="lab-grid"></div>
       </div></section>
 
       <section id="glossary" class="section shell">
-        <div class="section-heading"><div><p class="eyebrow">05 · TERMINOLOGY CORPUS</p><h2>Precise English, searchable in three languages</h2></div><p>English definitions are paired with Chinese and Japanese search terms. Each entry includes a simple explanation and a precision warning.</p></div>
+        <div class="section-heading"><div><p class="eyebrow">06 · TERMINOLOGY CORPUS</p><h2>Precise English, searchable in three languages</h2></div><p>English definitions are paired with Chinese and Japanese search terms. Each entry includes a simple explanation and a precision warning.</p></div>
         <label class="search-box light glossary-search"><span>⌕</span><input id="glossarySearch" type="search" placeholder="Try GPX4, 铁死亡, フェロトーシス or BODIPY" /></label><div id="glossaryGrid" class="glossary-grid"></div><button id="loadMoreGlossary" class="load-more" type="button">Show full terminology corpus</button>
       </section>
 
       <section id="resources" class="section resources-section"><div class="shell">
-        <div class="section-heading"><div><p class="eyebrow">06 · EXTERNAL RESEARCH HUB</p><h2>Routes out to the field</h2></div><p>Primary literature, networks, pathway and lipid databases, trial registries, structures and reagent documentation—classified by authority and limitation.</p></div>
+        <div class="section-heading"><div><p class="eyebrow">07 · EXTERNAL RESEARCH HUB</p><h2>Routes out to the field</h2></div><p>Primary literature, networks, pathway and lipid databases, trial registries, structures and reagent documentation—classified by authority and limitation.</p></div>
         <div class="filter-row light" id="resourceTypes"></div><div id="resourceGrid" class="resource-grid"></div>
       </div></section>
 
       <section id="standards" class="section standards-section"><div class="shell standards-grid">
-        <div><p class="eyebrow">07 · EVIDENCE GATE</p><h2>What counts as ferroptosis evidence?</h2><p class="standards-lead">BODIPY 581/591 C11 oxidation, MDA, 4-HNE, altered GPX4 abundance, mitochondrial morphology or partial Ferrostatin-1 rescue are each insufficient on their own.</p><a href="https://doi.org/10.1038/s41580-025-00843-2" target="_blank" rel="noreferrer" class="text-link">Open the 2025 reproducibility recommendation ↗</a></div>
+        <div><p class="eyebrow">08 · EVIDENCE GATE</p><h2>What counts as ferroptosis evidence?</h2><p class="standards-lead">BODIPY 581/591 C11 oxidation, MDA, 4-HNE, altered GPX4 abundance, mitochondrial morphology or partial Ferrostatin-1 rescue are each insufficient on their own.</p><a href="https://doi.org/10.1038/s41580-025-00843-2" target="_blank" rel="noreferrer" class="text-link">Open the 2025 reproducibility recommendation ↗</a></div>
         <ol class="evidence-ladder"><li><b>Death</b><span>Show actual loss of cell viability or membrane integrity over time.</span></li><li><b>Dependence</b><span>Connect death to iron and lipid-radical chemistry with orthogonal rescue.</span></li><li><b>Mechanism</b><span>Use genetics, target engagement and direct lipid or iron measurements.</span></li><li><b>Physiology</b><span>Test tissue, organoid, animal or human material without overstating translation.</span></li></ol>
       </div></section>
     </main>
@@ -90,6 +96,7 @@
     <dialog id="freshnessDialog"><button class="dialog-close" type="button" aria-label="Close">×</button><p class="eyebrow">DATA FRESHNESS</p><h3>Source status</h3><div id="freshnessList" class="freshness-list"></div><p class="dialog-note">When a source fails, the site retains the previous successful dataset and reports the failure. It does not present stale or empty data as live.</p></dialog>
     <dialog id="labResearchDialog" class="research-dialog"><button class="dialog-close" type="button" aria-label="Close">×</button><div id="labResearchContent"></div></dialog>
     <dialog id="methodDialog" class="research-dialog"><button class="dialog-close" type="button" aria-label="Close">×</button><div id="methodContent"></div></dialog>
+    <dialog id="paperDialog" class="research-dialog"><button class="dialog-close" type="button" aria-label="Close">×</button><div id="paperContent"></div></dialog>
     <script type="module" src="app.js"></script>
   </body>
 </html>

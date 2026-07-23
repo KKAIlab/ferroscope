@@ -8,8 +8,10 @@
     "update": "node scripts/update-data.mjs",
     "build:research": "node scripts/build-lab-research.mjs",
     "test:research": "node scripts/test-research-method.mjs",
-    "check": "node scripts/validate-data.mjs && node scripts/validate-v09.mjs && node scripts/test-research-method.mjs",
+    "check": "node scripts/validate-data.mjs && node scripts/validate-v09.mjs && node scripts/validate-papers.mjs && node scripts/test-research-method.mjs && node scripts/test-public-surface.mjs",
     "check:v09": "node scripts/validate-v09.mjs",
+    "check:papers": "node scripts/validate-papers.mjs",
+    "check:surface": "node scripts/test-public-surface.mjs",
     "check:links": "node scripts/check-lab-links.mjs --strict"
   }
 }
