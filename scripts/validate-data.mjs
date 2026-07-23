@@ -3,7 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const files = ["labs.json", "intelligence-curated.json", "live.json", "meta.json", "watch-queries.json"];
+const files = ["labs.json", "intelligence-curated.json", "live.json", "meta.json", "watch-queries.json", "lab-research-audits.json", "lab-research.json"];
 const errors = [];
 
 for (const file of files) {

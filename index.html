@@ -92,7 +92,12 @@
         <div class="shell">
           <div class="section-heading">
             <div><p class="eyebrow">02 · GLOBAL LAB WATCH</p><h2>全球研究团队</h2></div>
-            <p>按团队的主要能力分类，而不是按国家或论文数量排榜。一个团队只给一个主标签，跨方向能力放入副标签。</p>
+            <p>按团队的主要能力分类，而不是按国家或论文数量排榜。<span id="researchCoverage">研究档案读取中…</span></p>
+          </div>
+          <div class="reading-layers" aria-label="三维阅读系统">
+            <article><span>维度 1</span><b>60 秒问题卡</b><p>每篇代表工作先回答问题、推进、证据与边界。</p><small id="quickStudyCount">读取中…</small></article>
+            <article><span>维度 2</span><b>逐图机制链</b><p>只把高相关或高不确定论文升级为 Figure 级因果审计。</p><small id="figureStudyCount">读取中…</small></article>
+            <article><span>维度 3</span><b>团队纵向综合</b><p>跨论文与官网识别持续问题、能力演化和下一监控点。</p><small id="longitudinalLabCount">读取中…</small></article>
           </div>
           <div class="lab-controls">
             <label class="search-box"><span>⌕</span><input id="labSearch" type="search" placeholder="搜索 PI、机构、机制或地区" /></label>
@@ -146,6 +151,11 @@
       <h3>数据新鲜度</h3>
       <div id="freshnessList" class="freshness-list"></div>
       <p class="dialog-note">出现来源失败时，网站会保留上次成功数据，并明确显示错误；不会用空白或旧数据冒充实时结果。</p>
+    </dialog>
+
+    <dialog id="labResearchDialog" class="research-dialog">
+      <button class="dialog-close" type="button" aria-label="关闭">×</button>
+      <div id="labResearchContent"></div>
     </dialog>
 
     <script type="module" src="app.js"></script>
