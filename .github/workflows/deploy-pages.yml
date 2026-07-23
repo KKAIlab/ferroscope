@@ -32,7 +32,12 @@ jobs:
           mkdir _site
           cp index.html app.js styles.css v09.css README.md _site/
           cp -R data _site/data
+          # app.js imports lib/records.mjs and lib/graph.mjs at runtime; without them the
+          # page loads no module at all, so the copy is not optional.
+          cp -R lib _site/lib
           touch _site/.nojekyll
+      - name: Fail if the artifact is missing a runtime module
+        run: test -f _site/lib/records.mjs && test -f _site/lib/graph.mjs
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

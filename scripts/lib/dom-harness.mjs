@@ -41,6 +41,11 @@ class StubElement {
     return this._textContent;
   }
 
+  setAttribute(name, value) {
+    this.attributes = this.attributes || {};
+    this.attributes[name] = String(value);
+  }
+
   addEventListener(type, handler) {
     if (!this.listeners.has(type)) this.listeners.set(type, []);
     this.listeners.get(type).push(handler);
