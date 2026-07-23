@@ -1,0 +1,107 @@
+{
+  "schemaVersion": "1.0.0",
+  "checkedAt": "2026-07-23",
+  "note": "A decision path from a question to the smallest set of measurements that can answer it, and to the sentence that must still be refused afterwards. The bundles exist so that no single assay is ever returned as an answer on its own; a probe that reports oxidation is a component of an argument, not a diagnosis.",
+  "source": "https://doi.org/10.1038/s41580-025-00843-2",
+  "sourceNote": "The 2025 recommendation is the baseline for what counts as ferroptosis evidence. Where a bundle goes beyond it, the reason is stated in the bundle itself.",
+  "neverStandalone": [
+    { "methodId": "bodipy-c11-assay", "reason": "The probe reports oxidation of a membrane-localised fatty-acid analogue. It does not identify a named endogenous oxidised phospholipid, and it responds to oxidative stress that is not ferroptosis." },
+    { "methodId": "mda-4hne", "reason": "Malondialdehyde and 4-hydroxynonenal are downstream breakdown products of many oxidation routes and are not specific to the lethal species." },
+    { "methodId": "electron-microscopy", "reason": "Mitochondrial shrinkage is a morphological correlate reported in some models and absent in others; it cannot carry a mechanism claim." },
+    { "methodId": "lipid-hydroperoxide-probes", "reason": "A hydroperoxide probe reports a class of species in a compartment the probe can reach, not the identity of the species that executes death." }
+  ],
+  "bundles": [
+    {
+      "id": "bundle-culture-identity",
+      "model": "cell culture",
+      "question": "Is the death I am seeing in these cells ferroptosis?",
+      "minimumBundle": [
+        { "methodId": "death-kinetics", "why": "Establish that cells actually die, and when, rather than inferring death from a single endpoint after secondary damage." },
+        { "methodId": "orthogonal-rescue", "why": "Show dependence on lipid-radical chemistry and iron using two chemically distinct suppressors, with a non-ferroptotic death control." },
+        { "methodId": "bodipy-c11-assay", "why": "Show that membrane lipid oxidation rises on the same timescale as death, as a supporting readout and never as the diagnosis." },
+        { "methodId": "genetic-epistasis", "why": "Replace a pharmacological claim with a genetic one: GPX4, ACSL4 or FSP1 manipulation should move the phenotype in the predicted direction." }
+      ],
+      "optionalDepth": [
+        { "methodId": "oxidized-pl-lcms", "adds": "Names the oxidised phospholipid species instead of reporting bulk probe oxidation." },
+        { "methodId": "labile-iron-assays", "adds": "Distinguishes a requirement for iron from a general requirement for redox balance." }
+      ],
+      "interpretationBoundary": "A complete bundle supports \"this death, in this line, under this inducer and exposure, has the properties of ferroptosis\". It does not support \"ferroptosis occurs in this disease\", and it does not identify which lipid species executed the death unless the optional lipidomic arm was run."
+    },
+    {
+      "id": "bundle-culture-species",
+      "model": "cell culture",
+      "question": "Which lipid species actually carry the lethal oxidation?",
+      "minimumBundle": [
+        { "methodId": "oxidized-pl-lcms", "why": "Only species-resolved mass spectrometry can name an oxidised phospholipid; probes report a class." },
+        { "methodId": "genetic-epistasis", "why": "Loss of ACSL4 or LPCAT3 should remove the candidate species if esterification is required to form it." },
+        { "methodId": "orthogonal-rescue", "why": "Tie the species to death rather than to oxidative stress in general." }
+      ],
+      "optionalDepth": [
+        { "methodId": "epilipidomics", "adds": "Places the candidate species in the context of the whole modified lipidome rather than a targeted list." },
+        { "methodId": "radical-kinetics", "adds": "Tests whether a proposed suppressor reacts fast enough in a defined bilayer to explain the cellular effect." }
+      ],
+      "interpretationBoundary": "A named species that falls when death is prevented is a correlate with a genetic requirement. Sufficiency needs delivery of the defined species to cells that were not otherwise dying, and even then the delivered concentration is a pharmacological one."
+    },
+    {
+      "id": "bundle-culture-geography",
+      "model": "cell culture",
+      "question": "Where in the cell does the lethal oxidation begin?",
+      "minimumBundle": [
+        { "methodId": "spatial-live-imaging", "why": "Compartment claims need time-resolved, compartment-resolved imaging rather than an endpoint measurement of the whole cell." },
+        { "methodId": "labile-iron-assays", "why": "A compartment claim about iron chemistry needs the iron measured where the claim places it." },
+        { "methodId": "orthogonal-rescue", "why": "A compartment-targeted suppressor should protect if the compartment is where the chemistry matters." }
+      ],
+      "optionalDepth": [
+        { "methodId": "membrane-reconstitution", "adds": "Tests whether the proposed chemistry works at all in a defined bilayer of that composition." },
+        { "methodId": "oxidized-pl-lcms", "adds": "Connects the compartment to a named oxidised species rather than to probe signal alone." }
+      ],
+      "interpretationBoundary": "First detected is not first occurring, and detection depends on where the probe partitions. A result here describes one inducer, one probe set and one cell type; it must not be generalised into a universal organelle sequence for ferroptosis."
+    },
+    {
+      "id": "bundle-animal-causality",
+      "model": "animal",
+      "question": "Does ferroptosis contribute to injury in this animal model?",
+      "minimumBundle": [
+        { "methodId": "conditional-animal-genetics", "why": "A tissue-restricted, inducible genetic perturbation is what separates a contribution from a correlation." },
+        { "methodId": "death-kinetics", "why": "Injury has to be measured as tissue damage over time, not as a single terminal endpoint." },
+        { "methodId": "oxidized-pl-lcms", "why": "In tissue, a lipid probe is unreliable; species-resolved measurement is what makes an oxidation claim." },
+        { "methodId": "orthogonal-rescue", "why": "A pharmacological arm has to state route, dose, timing relative to injury and exposure achieved in the target tissue." }
+      ],
+      "optionalDepth": [
+        { "methodId": "labile-iron-assays", "adds": "Connects the genetic result to iron availability in the injured tissue." },
+        { "methodId": "electron-microscopy", "adds": "Adds morphological context, which supports but cannot carry the claim." }
+      ],
+      "interpretationBoundary": "Protection by a pre-injury dose in a rodent model is not a treatment window. Conditional deletion is a strong stress and does not report the contribution of ferroptosis at physiological gene dosage. Nothing here establishes a mechanism in human disease."
+    },
+    {
+      "id": "bundle-human-tissue",
+      "model": "human tissue",
+      "question": "Is there evidence that this process occurs in human material?",
+      "minimumBundle": [
+        { "methodId": "oxidized-pl-lcms", "why": "A human claim needs a measurement of the molecules themselves, not a gene-expression signature." },
+        { "methodId": "human-organoid-perfusion", "why": "An intact human specimen under controlled perfusion is the closest available setting in which an intervention can be applied and measured." },
+        { "methodId": "death-kinetics", "why": "Tissue injury has to be quantified with a defined readout and time course." }
+      ],
+      "optionalDepth": [
+        { "methodId": "redox-metabolites", "adds": "Describes the redox environment the specimen was actually in, which differs sharply between donors." },
+        { "methodId": "epilipidomics", "adds": "Places the finding in the context of donor-to-donor lipidome variation." }
+      ],
+      "interpretationBoundary": "An organoid or an ex situ perfused organ is not a clinical trial, and local perfusion is not a systemic treatment window. A gene-expression or signature score in patient samples is not a measurement that ferroptosis occurred, and must never be reported as one."
+    },
+    {
+      "id": "bundle-organoid-screen",
+      "model": "organoid",
+      "question": "Does this compound act through ferroptosis in a three-dimensional model?",
+      "minimumBundle": [
+        { "methodId": "death-kinetics", "why": "Organoid viability assays report metabolic signal easily; death has to be resolved in space and time." },
+        { "methodId": "orthogonal-rescue", "why": "Penetration differs in three dimensions, so rescue has to be shown at a dose demonstrated to reach the interior." },
+        { "methodId": "genetic-epistasis", "why": "A genetic arm is what separates on-target ferroptosis induction from general cytotoxicity." }
+      ],
+      "optionalDepth": [
+        { "methodId": "spatial-live-imaging", "adds": "Shows whether death starts at the exposed surface or throughout, which changes the pharmacological interpretation." },
+        { "methodId": "oxidized-pl-lcms", "adds": "Confirms that the oxidation chemistry, and not only the phenotype, is present." }
+      ],
+      "interpretationBoundary": "A three-dimensional model adds architecture, not immunity, vasculature or clearance. Activity here does not predict a therapeutic index, and an organoid result must not be described as a preclinical efficacy result."
+    }
+  ]
+}
