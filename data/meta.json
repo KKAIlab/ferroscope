@@ -1,34 +1,34 @@
 {
-  "generatedAt": "2026-07-23T03:44:27.257Z",
+  "generatedAt": "2026-07-23T08:44:41.864Z",
   "version": "0.1.0",
   "counts": {
     "clinicalTrials": 27,
-    "curatedSignals": 22,
+    "curatedSignals": 23,
     "liveSignals": 58
   },
   "sources": [
     {
       "name": "Tracked labs / PubMed",
       "ok": true,
-      "updatedAt": "2026-07-23T03:44:27.257Z",
+      "updatedAt": "2026-07-23T08:44:41.864Z",
       "note": "本轮通过质量筛选 35 条。"
     },
     {
       "name": "PubMed",
       "ok": true,
-      "updatedAt": "2026-07-23T03:44:27.257Z",
+      "updatedAt": "2026-07-23T08:44:41.864Z",
       "note": "本轮通过质量筛选 2 条。"
     },
     {
       "name": "Preprints / Crossref",
       "ok": true,
-      "updatedAt": "2026-07-23T03:44:27.257Z",
+      "updatedAt": "2026-07-23T08:44:41.864Z",
       "note": "本轮通过质量筛选 1 条。"
     },
     {
       "name": "ClinicalTrials.gov",
       "ok": true,
-      "updatedAt": "2026-07-23T03:44:27.257Z",
+      "updatedAt": "2026-07-23T08:44:41.864Z",
       "note": "检索到 27 条记录，前端保留相关度较高的 20 条。"
     },
     {
