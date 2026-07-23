@@ -2,6 +2,7 @@ import crypto from "node:crypto";
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { METHOD_DECISION_AXES, validateMethodReview } from "../lib/method-review.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const read = async (file) => JSON.parse(await fs.readFile(path.join(root, "data", file), "utf8"));
@@ -40,18 +41,13 @@ for (const lab of labsEn) {
 }
 // ------------------------------------------------------------- method decision schema
 //
-// Every module answers the same thirteen questions a reader has to answer before reusing a
-// result. A field is either source-checked, with a route that names who read what and when,
-// or explicitly pending-source-review. There is no third state, because an absent field
-// reads as "not applicable" when the truth is "nobody has established it".
+// The claim-specific review contract lives in lib/method-review.mjs so the validator and the
+// mutation tests read one rule. A source-checked decision field references a source record, a
+// review event and a reviewed scope by stable id, and declares how the passage supports it —
+// explicit, derived, analytical inference or curated guidance. Shape-checking a loose URL,
+// date and reviewer string is exactly what round 4 showed was not enough.
 
-const METHOD_DECISION_AXES = [
-  "specimen", "question", "perturbation", "readout", "quantificationUnit", "instrument",
-  "positiveControl", "negativeControl", "processControl", "orthogonalConfirmation",
-  "timing", "compartmentResolution", "confounders",
-];
-const SOURCE_ROUTE_KINDS = ["vendor-protocol", "field-recommendation", "original-research-demonstration", "local-laboratory-capability", "unclassified-source"];
-const FIELD_STATUSES = ["source-checked", "pending-source-review"];
+const METHOD_OWNER = "ferroscope-maintainer";
 
 let methodFieldsChecked = 0;
 let methodFieldsPending = 0;
@@ -63,66 +59,10 @@ for (const method of methods) {
   for (const field of ["name", "group", "evidenceRole", "plainEnglish", "measures", "cannotProve"]) if (!method[field]) errors.push(`Method ${method.id} is missing ${field}`);
   for (const id of method.distinctiveLabs || []) if (!labIds.has(id)) errors.push(`Method ${method.id} points to unknown lab ${id}`);
 
-  const profile = method.decisionProfile;
-  if (!profile) { errors.push(`Method ${method.id} has no decisionProfile; every module must answer the decision axes or say it cannot`); continue; }
-  if (!FIELD_STATUSES.includes(profile.reviewState)) errors.push(`Method ${method.id}: decisionProfile.reviewState must be one of ${FIELD_STATUSES.join(", ")}`);
-
-  let checked = 0;
-  let pending = 0;
-  for (const axis of METHOD_DECISION_AXES) {
-    const field = profile.fields?.[axis];
-    if (!field) { errors.push(`Method ${method.id} does not answer the ${axis} axis, not even to say it is unresolved`); continue; }
-    if (!FIELD_STATUSES.includes(field.status)) { errors.push(`Method ${method.id}.${axis}: status must be one of ${FIELD_STATUSES.join(", ")}`); continue; }
-    if (field.status === "source-checked") {
-      checked += 1;
-      if (!field.value) errors.push(`Method ${method.id}.${axis} is marked source-checked but records no value`);
-      const evidence = field.evidence || [];
-      if (!evidence.length) errors.push(`Method ${method.id}.${axis} is marked source-checked but names no source route that establishes it`);
-      for (const entry of evidence) {
-        if (!/^https:\/\//.test(entry.url || "")) errors.push(`Method ${method.id}.${axis}: a source-checked field must cite an HTTPS source`);
-        if (!/^\d{4}-\d{2}-\d{2}$/.test(entry.checkedAt || "")) errors.push(`Method ${method.id}.${axis}: a source-checked field must record when the source was read`);
-        if (!entry.checkedBy) errors.push(`Method ${method.id}.${axis}: a source-checked field must record who read the source`);
-        if (!(entry.scope || []).length) errors.push(`Method ${method.id}.${axis}: a source-checked field must state what part of the source it was read from`);
-      }
-    } else {
-      pending += 1;
-      if (field.value) errors.push(`Method ${method.id}.${axis} carries a value while declaring itself unverified; promote it with a source or leave it null`);
-      if (!field.unresolved) errors.push(`Method ${method.id}.${axis} is pending but does not say what has to be read to resolve it`);
-    }
-  }
-  if (profile.sourceCheckedFields !== checked) errors.push(`Method ${method.id}: decisionProfile.sourceCheckedFields says ${profile.sourceCheckedFields} but ${checked} fields are source-checked`);
-  if (profile.pendingFields !== pending) errors.push(`Method ${method.id}: decisionProfile.pendingFields says ${profile.pendingFields} but ${pending} fields are pending`);
-  // A module with any unresolved field cannot describe itself as reviewed.
-  if (pending > 0 && profile.reviewState !== "pending-source-review") errors.push(`Method ${method.id} has ${pending} unresolved fields but does not declare itself provisional`);
-  if (pending > 0 && !profile.provisionalBecause) errors.push(`Method ${method.id} is provisional but does not say why`);
-  methodFieldsChecked += checked;
-  methodFieldsPending += pending;
-
-  const routes = method.sourceRoutes || [];
-  if (!routes.length) errors.push(`Method ${method.id} declares no source route`);
-  for (const [index, route] of routes.entries()) {
-    const where = `Method ${method.id} sourceRoutes[${index}]`;
-    if (!SOURCE_ROUTE_KINDS.includes(route.kind)) errors.push(`${where}: unknown route kind ${route.kind}`);
-    if (!route.kindBasis) errors.push(`${where}: a route must say how its kind was decided`);
-    if (!/^https:\/\//.test(route.url || "")) errors.push(`${where}: an HTTPS source URL is required`);
-    // P0-B: the status that promotes an edge is spelled out, and it is the only one that
-    // does. A route may not be promoted by acquiring a date somewhere else in the tree.
-    if (!["source-checked", "not-checked", "unavailable"].includes(route.status)) errors.push(`${where}: unknown status ${route.status}`);
-    if (!route.verificationDepth) errors.push(`${where}: a route must record how far it was read`);
-    if (!route.boundary) errors.push(`${where}: a route must state what declaring it does not prove`);
-    if (route.status === "source-checked") {
-      if (!/^\d{4}-\d{2}-\d{2}$/.test(route.checkedAt || "")) errors.push(`${where}: a source-checked route must record an ISO check date`);
-      if (!route.checkedBy) errors.push(`${where}: a source-checked route must record who read it`);
-      if (!(route.scope || []).length) errors.push(`${where}: a source-checked route must state what was read`);
-      // Sources move. Without a pinned version the reader cannot tell whether the thing
-      // that was read is the thing they are now looking at.
-      if (!route.sourceVersion) errors.push(`${where}: a source-checked route must pin the version, accession or retrieval it read`);
-    } else {
-      if (route.checkedAt) errors.push(`${where}: an unchecked route must not carry a check date`);
-      if ((route.scope || []).length) errors.push(`${where}: an unchecked route must not claim a scope; "not read" cannot be dressed as partial coverage`);
-    }
-  }
-  if (method.sourceRoutes?.[0]?.url !== method.source) errors.push(`Method ${method.id}: the first source route must be the module's declared source`);
+  const review = validateMethodReview(method, { labIds, owner: METHOD_OWNER });
+  errors.push(...review.problems);
+  methodFieldsChecked += review.checked || 0;
+  methodFieldsPending += review.pending || 0;
 
   const attribution = method.capabilityAttribution;
   if (!attribution) { errors.push(`Method ${method.id} has no capabilityAttribution; distinctiveLabs alone is not evidence`); continue; }
@@ -331,9 +271,19 @@ for (const [file, entry] of Object.entries(manifest.files || {})) {
   else if (entry.reviewer === entry.owner) errors.push(`${file} lists the same party as owner and reviewer; a review has to be independent of the owner`);
   else if (entry.reviewPending === true) errors.push(`${file} names a reviewer and also declares reviewPending; a dataset is one or the other`);
 
-  if (!isoDate.test(entry.reviewedAt || "")) { errors.push(`${file} has no valid reviewedAt date`); continue; }
-  if (entry.reviewedAt > today) errors.push(`${file} carries a review date in the future: ${entry.reviewedAt}`);
-  else if (daysSince(entry.reviewedAt) > staleAfterDays) errors.push(`${file} was last reviewed ${daysSince(entry.reviewedAt)} days ago; re-check it and update the manifest.`);
+  // A review date belongs to a review (round-4 P1-2). A dataset awaiting review has none, so
+  // reviewedAt must be null; a maintenance timestamp lives in registeredAt instead. A field
+  // named reviewedAt populated on an unreviewed dataset is exactly the false assurance the
+  // pending flag exists to avoid.
+  if (reviewed) {
+    if (!isoDate.test(entry.reviewedAt || "")) { errors.push(`${file} names a reviewer but has no valid reviewedAt date`); continue; }
+    if (entry.reviewedAt > today) errors.push(`${file} carries a review date in the future: ${entry.reviewedAt}`);
+    else if (daysSince(entry.reviewedAt) > staleAfterDays) errors.push(`${file} was last reviewed ${daysSince(entry.reviewedAt)} days ago; re-check it and update the manifest.`);
+  } else {
+    if (entry.reviewedAt !== null) errors.push(`${file} is awaiting review but records reviewedAt ${JSON.stringify(entry.reviewedAt)}; a review date asserts a review that has not happened. Set reviewedAt: null and use registeredAt for maintenance timing.`);
+    if ("registeredAt" in entry && !isoDate.test(entry.registeredAt || "")) errors.push(`${file} has a malformed registeredAt date: ${entry.registeredAt}`);
+    else if ("registeredAt" in entry && entry.registeredAt > today) errors.push(`${file} carries a registeredAt date in the future: ${entry.registeredAt}`);
+  }
   if (!onDisk.includes(file)) continue;
   const contents = await read(file);
   const shape = Array.isArray(contents) ? "array" : "object";
