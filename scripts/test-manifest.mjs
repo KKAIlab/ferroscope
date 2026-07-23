@@ -65,6 +65,17 @@ await check("a manifest sealed by an independent reviewer passes validation", {
   expectExit: 0,
 });
 
+await check("a dataset awaiting review may not carry a review date", {
+  seal: false,
+  mutate: async (dir) => {
+    const manifest = await readManifest(dir);
+    manifest.files["glossary.json"].reviewedAt = "2026-07-23";
+    await writeManifest(dir, manifest);
+  },
+  expectExit: 1,
+  expectMessage: /awaiting review but records reviewedAt/,
+});
+
 await check("a dataset awaiting review may not carry a review fingerprint", {
   seal: false,
   mutate: async (dir) => {
