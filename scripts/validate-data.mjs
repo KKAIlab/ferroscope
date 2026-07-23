@@ -8,7 +8,7 @@ const errors = [];
 
 for (const file of files) {
   try { JSON.parse(await fs.readFile(path.join(root, "data", file), "utf8")); }
-  catch (error) { errors.push(`${file}: JSON 无效（${error.message}）`); }
+  catch (error) { errors.push(`${file}: invalid JSON (${error.message})`); }
 }
 
 const labs = JSON.parse(await fs.readFile(path.join(root, "data/labs.json"), "utf8"));
@@ -19,37 +19,37 @@ const allowedCategories = new Set(["core", "methods", "translational", "adjacent
 for (const [name, items] of [["labs", labs], ["curated", curated]]) {
   const ids = new Set();
   for (const [index, item] of items.entries()) {
-    if (!item.id) errors.push(`${name}[${index}] 缺少 id`);
-    if (ids.has(item.id)) errors.push(`${name} 存在重复 id: ${item.id}`);
+    if (!item.id) errors.push(`${name}[${index}] has no id`);
+    if (ids.has(item.id)) errors.push(`${name} has a duplicate id: ${item.id}`);
     ids.add(item.id);
-    if (!item.url && !item.website) errors.push(`${name}[${index}] 缺少一手链接`);
+    if (!item.url && !item.website) errors.push(`${name}[${index}] has no primary-source link`);
   }
 }
 
-if (labs.length < 30) errors.push(`全球团队覆盖不足：当前仅 ${labs.length} 个，最低要求 30 个`);
+if (labs.length < 30) errors.push(`Laboratory coverage is too small: ${labs.length} records, minimum 30`);
 for (const category of allowedCategories) {
-  if (!labs.some((lab) => lab.category === category)) errors.push(`缺少团队分类: ${category}`);
+  if (!labs.some((lab) => lab.category === category)) errors.push(`No laboratory carries the category: ${category}`);
 }
 const representedRegions = new Set(labs.map((lab) => lab.region.split("·")[0].trim()));
-if (representedRegions.size < 8) errors.push(`地区覆盖不足：当前仅 ${representedRegions.size} 个国家/地区标签，最低要求 8 个`);
+if (representedRegions.size < 8) errors.push(`Regional coverage is too narrow: ${representedRegions.size} country or region labels, minimum 8`);
 for (const lab of labs) {
-  if (!allowedCategories.has(lab.category)) errors.push(`团队分类无效: ${lab.id} -> ${lab.category}`);
-  if (!lab.website?.startsWith("https://")) errors.push(`团队官网不是 HTTPS: ${lab.id}`);
-  if (!lab.region || !lab.focus || !lab.institution) errors.push(`团队信息不完整: ${lab.id}`);
+  if (!allowedCategories.has(lab.category)) errors.push(`Invalid laboratory category: ${lab.id} -> ${lab.category}`);
+  if (!lab.website?.startsWith("https://")) errors.push(`Laboratory website is not HTTPS: ${lab.id}`);
+  if (!lab.region || !lab.focus || !lab.institution) errors.push(`Incomplete laboratory record: ${lab.id}`);
 }
 
 const requiredLiveSources = ["Tracked labs / PubMed", "PubMed", "Preprints / Crossref", "ClinicalTrials.gov"];
 for (const sourceName of requiredLiveSources) {
   const source = meta.sources?.find((item) => item.name === sourceName);
-  if (!source) errors.push(`实时来源缺失: ${sourceName}`);
-  else if (!source.ok) errors.push(`实时来源更新失败: ${sourceName} (${source.note || "无错误说明"})`);
+  if (!source) errors.push(`Live source is missing from meta.json: ${sourceName}`);
+  else if (!source.ok) errors.push(`Live source reported a failure: ${sourceName} (${source.note || "no error detail"})`);
 }
 
 const labIds = new Set(labs.map((lab) => lab.id));
 for (const watch of watches) {
-  if (!labIds.has(watch.labId)) errors.push(`watch-queries 指向不存在的团队: ${watch.labId}`);
-  if (!watch.query?.includes("[Author]")) errors.push(`watch-queries 缺少作者限定: ${watch.labId}`);
+  if (!labIds.has(watch.labId)) errors.push(`watch-queries points to an unknown laboratory: ${watch.labId}`);
+  if (!watch.query?.includes("[Author]")) errors.push(`watch-queries has no author restriction: ${watch.labId}`);
 }
 
 if (errors.length) { console.error(errors.join("\n")); process.exit(1); }
-console.log(`数据检查通过：${labs.length} 个团队，${representedRegions.size} 个国家/地区标签，${watches.length} 个定向监控，${curated.length} 条人工精选信号。`);
+console.log(`Data check passed: ${labs.length} laboratories, ${representedRegions.size} country or region labels, ${watches.length} author watches and ${curated.length} curated signals.`);

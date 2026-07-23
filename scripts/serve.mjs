@@ -22,4 +22,4 @@ const server = http.createServer((request, response) => {
   });
 });
 
-server.listen(port, "127.0.0.1", () => console.log(`FerroScope 已启动：http://127.0.0.1:${port}`));
+server.listen(port, "127.0.0.1", () => console.log(`FerroScope preview running at http://127.0.0.1:${port}`));

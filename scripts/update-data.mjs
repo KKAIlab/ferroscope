@@ -9,22 +9,28 @@ const generatedAt = now.toISOString();
 const fromDate = new Date(now.getTime() - 90 * 86_400_000).toISOString().slice(0, 10);
 const toDate = now.toISOString().slice(0, 10);
 
+// Public topic labels are English at the point of ingestion. The interface no longer
+// has to translate or suppress them, so a label change is visible in the raw dataset.
 const topicRules = [
-  ["脂质过氧化", /lipid peroxid|phospholipid|oxidized lipid|oxidised lipid|PUFA|polyunsaturated/i],
+  ["lipid peroxidation", /lipid peroxid|phospholipid|oxidized lipid|oxidised lipid|PUFA|polyunsaturated/i],
   ["FSP1", /\bFSP1\b|AIFM2/i],
   ["GPX4", /\bGPX4\b|glutathione peroxidase 4/i],
-  ["铁稳态", /iron homeostasis|labile iron|ferritin|NCOA4|TFR1|transferrin|ferroportin/i],
-  ["溶酶体", /lysosom|ferritinophagy/i],
-  ["线粒体", /mitochond/i],
-  ["硒代谢", /selenium|selenoprotein|PRDX6/i],
-  ["细胞器接触", /organelle|contact site|endoplasmic reticulum/i],
-  ["肿瘤转化", /cancer|tumou?r|metasta|leukemia|glioma/i],
-  ["肾损伤", /kidney|renal|ischemia.reperfusion/i],
-  ["方法学", /method|reproduc|screen|probe|imaging/i],
+  ["iron homeostasis", /iron homeostasis|labile iron|ferritin|NCOA4|TFR1|transferrin|ferroportin/i],
+  ["lysosome", /lysosom|ferritinophagy/i],
+  ["mitochondria", /mitochond/i],
+  ["selenium metabolism", /selenium|selenoprotein|PRDX6/i],
+  ["organelle contacts", /organelle|contact site|endoplasmic reticulum/i],
+  ["cancer translation", /cancer|tumou?r|metasta|leukemia|glioma/i],
+  ["kidney injury", /kidney|renal|ischemia.reperfusion/i],
+  ["methods", /method|reproduc|screen|probe|imaging/i],
 ];
 
-// 只自动匹配低歧义作者名。Wang F、Zhang Q、Jiang X 等常见缩写会制造大量假阳性，
-// 这些团队通过人工精选层和单独作者查询维护，不在宽泛标题流中加权。
+const UNNAMED_AUTHORS = "Authors listed in the primary record";
+
+// Only low-ambiguity author names are matched automatically. Common abbreviated names
+// such as Wang F, Zhang Q or Jiang X produce large numbers of false positives, so those
+// laboratories are maintained through the curated layer and dedicated author queries
+// instead of being weighted inside the broad title stream.
 const trackedAuthors = /Stockwell BS|Brent Stockwell|Dixon SJ|Scott (J )?Dixon|Conrad M|Marcus Conrad|Friedmann Angeli|Olzmann JA|James Olzmann|Kagan VE|Valerian Kagan|Fedorova M|Maria Fedorova|Pratt DA|Derek Pratt|Rodriguez R|Rapha[eë]l Rodriguez|Mishima E|Eikan Mishima|Papagiannakopoulos T|Thales Papagiannakopoulos|Ubellacker J|Jessalyn Ubellacker|Linkermann A|Andreas Linkermann|Vanden Berghe T|Tom Vanden Berghe|Garcia-Saez A|Garc[ií]a-S[aá]ez A|Ana Garc/i;
 
 function topicsFor(text) {
@@ -80,13 +86,13 @@ async function fetchJson(url, maxAttempts = 4) {
       const backoff = Number.isFinite(retryAfterSeconds) && retryAfterSeconds > 0
         ? retryAfterSeconds * 1_000
         : 1_500 * (2 ** attempt);
-      console.warn(`${new URL(url).hostname} 返回 ${response.status}，${backoff} ms 后重试（${attempt + 2}/${maxAttempts}）`);
+      console.warn(`${new URL(url).hostname} returned ${response.status}; retrying in ${backoff} ms (attempt ${attempt + 2} of ${maxAttempts}).`);
       await delay(Math.min(backoff, 15_000));
     } catch (error) {
       lastError = error;
       if (attempt === maxAttempts - 1 || /^(4\d\d)/.test(error.message) && !error.message.startsWith("429")) throw error;
       const backoff = 1_500 * (2 ** attempt);
-      console.warn(`${new URL(url).hostname} 请求失败，${backoff} ms 后重试（${attempt + 2}/${maxAttempts}）：${error.message}`);
+      console.warn(`${new URL(url).hostname} request failed; retrying in ${backoff} ms (attempt ${attempt + 2} of ${maxAttempts}): ${error.message}`);
       await delay(Math.min(backoff, 15_000));
     }
   }
@@ -122,13 +128,13 @@ async function fetchPubMed() {
       evidence: "B",
       relevance: scoreFor(text, authors, journal),
       topics: topicsFor(text),
-      takeaway: `${item.fulljournalname || "PubMed"} · ${authors || "作者信息见原文"}`,
+      takeaway: `${item.fulljournalname || "PubMed"} · ${authors || UNNAMED_AUTHORS}`,
       url: doi ? `https://doi.org/${doi}` : `https://pubmed.ncbi.nlm.nih.gov/${pmid}/`,
     };
   }).filter(Boolean).filter((item) => item.relevance >= 60).slice(0, 35);
 }
 
-async function fetchTrackedLabs(configs) {
+async function fetchTrackedLabs(configs, publicLabName) {
   const idToLabs = new Map();
   const since = new Date(now.getTime() - 365 * 86_400_000).toISOString().slice(0, 10);
   for (const config of configs) {
@@ -159,6 +165,9 @@ async function fetchTrackedLabs(configs) {
     const maxLabRelevance = Math.max(...labs.map((lab) => lab.relevance || 80));
     const title = (item.title || "Untitled").replace(/<[^>]+>/g, "");
     const titleDirect = /ferropt|lipid|iron|FSP1|GPX4|NCOA4|ACSL4|selen|ferritin|peroxid/i.test(title);
+    // Display names come from the public English laboratory overlay, keyed by laboratory id,
+    // so the watch query never becomes the published name of a laboratory.
+    const matchedNames = labs.map((lab) => publicLabName.get(lab.labId)).filter(Boolean);
     return {
       id: `pubmed-${pmid}`,
       title,
@@ -167,9 +176,10 @@ async function fetchTrackedLabs(configs) {
       evidence: "B",
       relevance: Math.max(60, Math.min(92, maxLabRelevance - 8 + Math.min(4, topicsFor(text).length) - (titleDirect ? 0 : 12))),
       topics: topicsFor(text),
-      trackedLabs: labs.map((lab) => lab.label),
       trackedLabIds: labs.map((lab) => lab.labId),
-      takeaway: `${journal} · 定向命中：${labs.map((lab) => lab.label).join("、")}`,
+      takeaway: matchedNames.length
+        ? `${journal} · Laboratory watch match: ${matchedNames.join(", ")}.`
+        : `${journal} · Matched by a tracked laboratory author query.`,
       url: doi ? `https://doi.org/${doi}` : `https://pubmed.ncbi.nlm.nih.gov/${pmid}/`,
     };
   }).filter(Boolean)
@@ -202,8 +212,8 @@ async function fetchPreprints() {
       evidence: "C",
       relevance: Math.min(92, scoreFor(text, authors) - 3),
       topics: topicsFor(text),
-      takeaway: `${authors || "作者信息见原文"} · ${item.publisher || "预印本平台"}`,
-      caveat: "尚未同行评议。",
+      takeaway: `${authors || UNNAMED_AUTHORS} · ${item.publisher || "Preprint server"}`,
+      caveat: "Not peer reviewed.",
       url: `https://doi.org/${item.DOI}`,
     };
   }).filter((item) => /ferroptosis|ferroptotic/i.test(item.title || ""))
@@ -235,9 +245,11 @@ async function fetchTrials() {
       sourceType: "trial",
       evidence: direct && ["PHASE1", "PHASE2", "PHASE1|PHASE2"].includes((design.phases || []).join("|")) ? "C" : "D",
       relevance: Math.min(84, 38 + statusScore + (direct ? 18 : 0) + (design.studyType === "INTERVENTIONAL" ? 10 : 0)),
-      topics: ["临床试验", ...(topicsFor(text).filter((topic) => topic !== "ferroptosis"))].slice(0, 5),
-      takeaway: `${status.overallStatus || "状态未知"} · ${design.studyType || "研究类型未知"}${interventions ? ` · ${interventions}` : ""}`,
-      caveat: design.studyType === "OBSERVATIONAL" ? "观察性关联不能证明患者体内发生 ferroptosis。" : "临床结局不能自动证明 ferroptosis 是作用机制。",
+      topics: ["clinical study", ...(topicsFor(text).filter((topic) => topic !== "ferroptosis"))].slice(0, 5),
+      takeaway: `${status.overallStatus || "Status not reported"} · ${design.studyType || "Study type not reported"}${interventions ? ` · ${interventions}` : ""}`,
+      caveat: design.studyType === "OBSERVATIONAL"
+        ? "An observational association cannot show that ferroptosis occurs in these patients."
+        : "A clinical outcome does not by itself establish ferroptosis as the mechanism.",
       url: `https://clinicaltrials.gov/study/${nctId}`,
     };
   });
@@ -252,21 +264,23 @@ const statuses = [];
 const collections = [];
 let trialTotal = 0;
 const watchConfigs = await readJson(path.join(dataDir, "watch-queries.json"), []);
+const englishLabs = await readJson(path.join(dataDir, "labs-en.json"), []);
+const publicLabName = new Map(englishLabs.map((lab) => [lab.id, lab.pi]));
 
-for (const [name, loader] of [["Tracked labs / PubMed", () => fetchTrackedLabs(watchConfigs)], ["PubMed", fetchPubMed], ["Preprints / Crossref", fetchPreprints], ["ClinicalTrials.gov", fetchTrials]]) {
+for (const [name, loader] of [["Tracked labs / PubMed", () => fetchTrackedLabs(watchConfigs, publicLabName)], ["PubMed", fetchPubMed], ["Preprints / Crossref", fetchPreprints], ["ClinicalTrials.gov", fetchTrials]]) {
   try {
     const result = await loader();
     if (name === "ClinicalTrials.gov") {
       trialTotal = result.total;
       collections.push(...result.items);
-      statuses.push({ name, ok: true, updatedAt: generatedAt, note: `检索到 ${result.total} 条记录，前端保留相关度较高的 ${result.items.length} 条。` });
+      statuses.push({ name, ok: true, updatedAt: generatedAt, note: `Retrieved ${result.total} registry records; the ${result.items.length} most relevant are published.` });
     } else {
       collections.push(...result);
-      statuses.push({ name, ok: true, updatedAt: generatedAt, note: `本轮通过质量筛选 ${result.length} 条。` });
+      statuses.push({ name, ok: true, updatedAt: generatedAt, note: `${result.length} ${result.length === 1 ? "record" : "records"} passed the quality filter in this run.` });
     }
   } catch (error) {
     statuses.push({ name, ok: false, updatedAt: generatedAt, note: error.message });
-    console.error(`${name} 更新失败：`, error.message);
+    console.error(`${name} update failed:`, error.message);
   }
 }
 
@@ -274,17 +288,24 @@ const live = [...new Map(collections.map((item) => [item.id, item])).values()]
   .sort((a, b) => b.relevance - a.relevance || new Date(b.date || 0) - new Date(a.date || 0));
 const curated = await readJson(path.join(dataDir, "intelligence-curated.json"), []);
 const previousMeta = await readJson(path.join(dataDir, "meta.json"), {});
-const labStatus = previousMeta.sources?.find((source) => source.name === "Lab / Network sites") || {
-  name: "Lab / Network sites", ok: true, updatedAt: generatedAt, note: "官网链接由人工维护。",
+// The laboratory-site row is maintained by the manual link check, so its timestamp is
+// carried over. Its note is always rewritten in English: earlier runs stored it in Chinese.
+const previousLabStatus = previousMeta.sources?.find((source) => source.name === "Lab / Network sites");
+const labStatus = {
+  name: "Lab / Network sites",
+  ok: previousLabStatus?.ok ?? true,
+  updatedAt: previousLabStatus?.updatedAt || generatedAt,
+  note: "Official laboratory links are curated manually; heterogeneous laboratory sites are not automatically crawled.",
 };
 
 const meta = {
   generatedAt,
   version: "0.1.0",
+  schemaVersion: "1.0.0",
   counts: { clinicalTrials: trialTotal || previousMeta.counts?.clinicalTrials || 0, curatedSignals: curated.length, liveSignals: live.length },
   sources: [...statuses, labStatus],
 };
 
 await fs.writeFile(path.join(dataDir, "live.json"), `${JSON.stringify(live, null, 2)}\n`);
 await fs.writeFile(path.join(dataDir, "meta.json"), `${JSON.stringify(meta, null, 2)}\n`);
-console.log(`FerroScope 更新完成：${live.length} 条自动信号，ClinicalTrials.gov 共 ${meta.counts.clinicalTrials} 条记录。`);
+console.log(`FerroScope refresh complete: ${live.length} automated signals; ClinicalTrials.gov reported ${meta.counts.clinicalTrials} matching records.`);

@@ -1,41 +1,42 @@
 {
-  "generatedAt": "2026-07-23T03:44:27.257Z",
+  "generatedAt": "2026-07-23T14:09:58.415Z",
   "version": "0.1.0",
+  "schemaVersion": "1.0.0",
   "counts": {
     "clinicalTrials": 27,
-    "curatedSignals": 22,
-    "liveSignals": 58
+    "curatedSignals": 23,
+    "liveSignals": 57
   },
   "sources": [
     {
       "name": "Tracked labs / PubMed",
       "ok": true,
-      "updatedAt": "2026-07-23T03:44:27.257Z",
-      "note": "本轮通过质量筛选 35 条。"
+      "updatedAt": "2026-07-23T14:09:58.415Z",
+      "note": "35 records passed the quality filter in this run."
     },
     {
       "name": "PubMed",
       "ok": true,
-      "updatedAt": "2026-07-23T03:44:27.257Z",
-      "note": "本轮通过质量筛选 2 条。"
+      "updatedAt": "2026-07-23T14:09:58.415Z",
+      "note": "1 record passed the quality filter in this run."
     },
     {
       "name": "Preprints / Crossref",
       "ok": true,
-      "updatedAt": "2026-07-23T03:44:27.257Z",
-      "note": "本轮通过质量筛选 1 条。"
+      "updatedAt": "2026-07-23T14:09:58.415Z",
+      "note": "1 record passed the quality filter in this run."
     },
     {
       "name": "ClinicalTrials.gov",
       "ok": true,
-      "updatedAt": "2026-07-23T03:44:27.257Z",
-      "note": "检索到 27 条记录，前端保留相关度较高的 20 条。"
+      "updatedAt": "2026-07-23T14:09:58.415Z",
+      "note": "Retrieved 27 registry records; the 20 most relevant are published."
     },
     {
       "name": "Lab / Network sites",
       "ok": true,
       "updatedAt": "2026-07-22T08:00:00.000Z",
-      "note": "官网链接经人工筛选；异构官网不承诺自动抓取。"
+      "note": "Official laboratory links are curated manually; heterogeneous laboratory sites are not automatically crawled."
     }
   ]
 }
