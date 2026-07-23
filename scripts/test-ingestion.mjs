@@ -14,6 +14,7 @@ import {
   canonicalIdentity,
   classifyPubMedDocument,
   evidenceGradeFor,
+  formatCalendarDate,
   mergeSignalLayers,
   parseCalendarDate,
   pubmedDates,
@@ -137,6 +138,38 @@ test("a publisher date after today is clamped to today rather than published as 
 test("an unparsable date yields null rather than a silently wrong day", () => {
   assert.equal(parseCalendarDate("no date at all"), null);
   assert.equal(pubmedDates({}, "2026-07-23").displayDate, null);
+});
+
+// P1-C: the parser validated numeric ranges loosely, so 31 February and 30 February slipped
+// through as if real. A calendar date is validated against the actual month length and the
+// actual leap year, without ever constructing a Date.
+test("an impossible calendar date is rejected rather than stored as a plausible day", () => {
+  assert.equal(parseCalendarDate("2025-02-31"), null, "31 February is not a date");
+  assert.equal(parseCalendarDate("2025 Feb 30"), null);
+  assert.equal(parseCalendarDate("2025/04/31"), null, "April has 30 days");
+  assert.equal(parseCalendarDate("2025-13-01"), null, "there is no thirteenth month");
+  assert.equal(parseCalendarDate("2025-00-10"), null, "there is no zeroth month");
+  assert.equal(parseCalendarDate("2025-06-00"), null, "there is no zeroth day");
+});
+
+test("29 February is accepted only in a leap year", () => {
+  assert.equal(parseCalendarDate("2024-02-29").date, "2024-02-29", "2024 is a leap year");
+  assert.equal(parseCalendarDate("2000-02-29").date, "2000-02-29", "2000 is a leap year: divisible by 400");
+  assert.equal(parseCalendarDate("2025-02-29"), null, "2025 is not a leap year");
+  assert.equal(parseCalendarDate("1900-02-29"), null, "1900 is not a leap year: divisible by 100 but not 400");
+});
+
+test("the display formatter rejects the same impossible dates", () => {
+  assert.equal(formatCalendarDate("2025-02-31"), null);
+  assert.equal(formatCalendarDate("2025-02-29"), null, "not a leap year");
+  assert.equal(formatCalendarDate("2024-02-29"), "29 Feb 2024", "leap year renders");
+  assert.equal(formatCalendarDate("2025-12-04"), "04 Dec 2025");
+});
+
+test("a month-precision fallback is never invented from an impossible day", () => {
+  // The malformed day must fail the whole parse, not silently drop to "2025-02-01".
+  assert.equal(parseCalendarDate("2025-02-31"), null);
+  assert.equal(pubmedDates({ epubdate: "2025 Feb 31" }, "2026-07-23").displayDate, null);
 });
 
 // A local-time round trip is what produced the original defect. Recording it here shows
@@ -292,6 +325,38 @@ test("a source that never succeeded cannot retain anything", () => {
   const result = retainOnFailure({ sourceName: "PubMed", previousItems, lastSuccessAt: null, attemptedAt: "2026-07-23T00:00:00.000Z", errorClass: "network-unreachable" });
   assert.equal(result.status.state, "failed");
   assert.equal(result.items.length, 0);
+});
+
+// P1-B: the cached route supplies the only success date. A merged record discovered through
+// both a laboratory watch and the generic PubMed query keeps every route in `sources[]`, and
+// when the secondary route fails the caller has no top-level lastSuccessAt for it. Deriving
+// age from the argument alone treated the route as infinitely old and discarded a current
+// record; the route's own lastSuccessAt is now used instead.
+test("a cached route supplies the only success date and the record is retained", () => {
+  const routedItems = [{
+    id: "pubmed-merged", title: "Discovered by two routes",
+    sources: [{ route: "PubMed", kind: "automated", stale: false, lastSuccessAt: "2026-07-20T00:00:00.000Z", lastAttemptAt: "2026-07-20T00:00:00.000Z", recordId: "pubmed-merged" }],
+  }];
+  const result = retainOnFailure({
+    sourceName: "PubMed", previousItems: routedItems,
+    lastSuccessAt: undefined, attemptedAt: "2026-07-23T00:00:00.000Z",
+    errorClass: "timeout",
+  });
+  assert.equal(result.items.length, 1, "the route's own success date must keep the record alive");
+  assert.equal(result.status.state, "degraded");
+  assert.equal(result.status.retainedAgeDays, 3, "age must be measured from the cached route, not treated as infinite");
+  assert.equal(result.status.lastSuccessAt, "2026-07-20T00:00:00.000Z");
+  assert.ok(result.items[0].stale === true);
+});
+
+test("a cached route past the age limit still publishes nothing", () => {
+  const routedItems = [{
+    id: "pubmed-old", title: "Stale by the route's own date",
+    sources: [{ route: "PubMed", kind: "automated", stale: false, lastSuccessAt: "2026-06-01T00:00:00.000Z", lastAttemptAt: "2026-06-01T00:00:00.000Z", recordId: "pubmed-old" }],
+  }];
+  const result = retainOnFailure({ sourceName: "PubMed", previousItems: routedItems, lastSuccessAt: undefined, attemptedAt: "2026-07-23T00:00:00.000Z", errorClass: "timeout" });
+  assert.equal(result.items.length, 0, "the fallback date must still be subject to the maximum age");
+  assert.equal(result.status.state, "failed");
 });
 
 test("a failing source leaves the other sources untouched", () => {

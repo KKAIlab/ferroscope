@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 import { DOCUMENT_TYPES, EVIDENCE_GRADES, canonicalIdentity, freshnessOf, sourceRoutesOf } from "../lib/records.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const files = ["labs.json", "intelligence-curated.json", "live.json", "meta.json", "watch-queries.json", "lab-research-audits.json", "lab-research.json", "monitoring-coverage.json", "record-overlays.json"];
+const files = ["labs.json", "intelligence-curated.json", "live.json", "meta.json", "watch-queries.json", "lab-research-audits.json", "lab-research.json", "monitoring-coverage.json", "record-overlays.json", "historical-link-overlays.json"];
 const errors = [];
 
 for (const file of files) {
@@ -20,6 +20,8 @@ const watches = await read("watch-queries.json");
 const meta = await read("meta.json");
 const coverage = await read("monitoring-coverage.json");
 const overlays = await read("record-overlays.json");
+const linkOverlays = await read("historical-link-overlays.json");
+const labResearch = await read("lab-research.json");
 const allowedCategories = new Set(["core", "methods", "translational", "adjacent"]);
 for (const [name, items] of [["labs", labs], ["curated", curated]]) {
   const ids = new Set();
@@ -124,6 +126,44 @@ for (const [index, overlay] of overlays.entries()) {
   if (!overlay.reason) errors.push(`${where}: a curated overlay must state why the record carries this class`);
 }
 
+// ------------------------------------------------- historical-link correction overlays
+//
+// A superseded historical link is corrected by an overlay, never by editing the archive.
+// The archive keeps its original assertion; the overlay records the reachability actually
+// observed and must stay bound to the exact archive record it qualifies. If that record no
+// longer carries the quoted assertion, the overlay has drifted and this fails — which is
+// what stops a correction from silently pointing at nothing.
+const researchProfiles = labResearch.profiles || [];
+for (const [index, overlay] of (linkOverlays.overlays || []).entries()) {
+  const where = `historical-link-overlays[${index}] ${overlay.id || "(no id)"}`;
+  if (!overlay.id) errors.push(`${where}: an overlay needs a stable id`);
+  const target = overlay.supersedes || {};
+  if (!target.file || !target.url) { errors.push(`${where}: an overlay must name the archive file and the URL it supersedes`); continue; }
+
+  const profile = researchProfiles.find((item) => item.labId === target.profileId);
+  if (!profile) errors.push(`${where}: names archive profile ${target.profileId}, which is not in lab-research.json`);
+  else {
+    // The overlay quotes the assertion it supersedes; the archive must still carry it byte
+    // for byte, so the correction cannot drift away from what it corrects.
+    const official = profile.officialSource || {};
+    if (official.url !== target.url) errors.push(`${where}: the archive officialSource url is ${JSON.stringify(official.url)}, not the ${JSON.stringify(target.url)} this overlay supersedes`);
+    for (const [key, value] of Object.entries(target.originalAssertion || {})) {
+      if (official[key] !== value) errors.push(`${where}: the archive no longer asserts ${key}=${JSON.stringify(value)} (found ${JSON.stringify(official[key])}); the overlay has drifted or the archive was rewritten`);
+    }
+  }
+
+  const correction = overlay.correction || {};
+  if (!["reachable", "unreachable", "restricted"].includes(correction.reachability)) errors.push(`${where}: correction.reachability must be reachable, unreachable or restricted`);
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(correction.checkedAt || "")) errors.push(`${where}: the correction must record an ISO check date`);
+  if (!correction.checkedBy) errors.push(`${where}: the correction must name who observed the reachability`);
+  if (!correction.boundary) errors.push(`${where}: the correction must state what it does not re-review`);
+  if (correction.supersededField && !("correctedValue" in correction)) errors.push(`${where}: a superseded field must record the value that replaces it`);
+  if (overlay.replacement) {
+    if (!/^https:\/\//.test(overlay.replacement.url || "")) errors.push(`${where}: a replacement link must be an HTTPS URL`);
+    if (!overlay.replacement.boundary) errors.push(`${where}: a replacement must state that reachability is not a content review`);
+  }
+}
+
 // --------------------------------------------------------------- monitoring coverage
 //
 // Every laboratory publishes what is and is not watching it. A laboratory with no author
@@ -178,4 +218,9 @@ console.log(
 console.log(
   `Route-level freshness: ${routeCount} discovery routes across ${live.length} records (${multiRoute} multi-route), ` +
     `${byFreshness("current")} current, ${byFreshness("partially-stale")} partially stale, ${byFreshness("stale")} wholly retained.`,
+);
+const supersededLinks = (linkOverlays.overlays || []).filter((overlay) => overlay.correction?.reachability !== "reachable").length;
+console.log(
+  `Historical-link overlays: ${(linkOverlays.overlays || []).length} correction(s), ${supersededLinks} superseding a link the archive still records as reachable, ` +
+    "each bound to an unchanged archive assertion.",
 );
