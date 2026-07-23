@@ -1,5 +1,7 @@
 # Claude Code Handoff · FerroScope v0.9 → v1.0
 
+> **Status on 2026-07-23:** this original plan has been implemented through local commit `f307ea6` and independently reviewed. The authoritative next-round instructions are now in [`HANDOFF.md`](HANDOFF.md). Read that file before making further changes. Do not push the current local HEAD.
+
 Date: 2026-07-23  
 Canonical project path: `/Users/chenjingquan/Projects/ferroscope`  
 Public repository: `KKAIlab/ferroscope`  
