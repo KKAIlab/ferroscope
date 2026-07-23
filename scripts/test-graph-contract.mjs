@@ -241,7 +241,7 @@ test("a method route promotes only with status, reader, date, version and a cove
     checkedBy: "a named reviewer",
     sourceVersion: "retrieved 2026-07-24",
     verificationDepth: "figures-legends-checked",
-    scope: ["Box 1: death kinetics"],
+    reviewedScopes: [{ id: "box-1", label: "Box 1: death kinetics", verificationDepth: "figures-legends-checked", accessSurface: "x", boundary: "y" }],
   };
   assert.equal(promoteWith(complete).length, 2, "a complete route must promote the MEASURES edges it covers");
 
@@ -251,7 +251,7 @@ test("a method route promotes only with status, reader, date, version and a cove
   }
   // A real not-checked route carries no scope and the module declares none, so it promotes nothing.
   assert.equal(
-    promoteWith({ status: "not-checked", checkedAt: null, checkedBy: null, sourceVersion: null, verificationDepth: "not-read", scope: [] }, false).length,
+    promoteWith({ status: "not-checked", checkedAt: null, checkedBy: null, sourceVersion: null, verificationDepth: "not-read", reviewedScopes: [] }, false).length,
     0,
     "an unchecked status must not promote",
   );
@@ -266,7 +266,7 @@ test("a method route with a scope that does not cover the assertion fails the bu
     checkedBy: "a named reviewer",
     sourceVersion: "retrieved 2026-07-24",
     verificationDepth: "figures-legends-checked",
-    scope: ["Box 2: something else"],
+    reviewedScopes: [{ id: "box-2", label: "Box 2: something else", verificationDepth: "figures-legends-checked", accessSurface: "x", boundary: "y" }],
   };
   const link = structuredClone(network);
   link.methodLinks.find((entry) => entry.method === "death-kinetics").assertionScopes = { MEASURES: "Box 1: death kinetics" };
@@ -287,7 +287,7 @@ test("MEASURES and CANNOT_DISTINGUISH are promoted independently", () => {
     checkedBy: "a named reviewer",
     sourceVersion: "retrieved 2026-07-24",
     verificationDepth: "figures-legends-checked",
-    scope: ["what the assay measures"],
+    reviewedScopes: [{ id: "what-measures", label: "what the assay measures", verificationDepth: "figures-legends-checked", accessSurface: "x", boundary: "y" }],
   };
   const link = structuredClone(network);
   link.methodLinks.find((entry) => entry.method === "death-kinetics").assertionScopes = { MEASURES: "what the assay measures" };
@@ -375,6 +375,64 @@ test("the counts separate every review state and every verification depth", () =
 const generatorExists = await fs.stat(path.join(root, graph.generator)).then((entry) => entry.isFile()).catch(() => false);
 test("the declared generator resolves to a real file", () => {
   assert.ok(generatorExists, `${graph.generator} does not exist on disk`);
+});
+
+// ------------------------------------------------- P0-B: the edge links to the opened source
+
+test("the shipped MDA method edge links to the source that was opened, not the unread recommendation", () => {
+  // The round-4 defect: the MEASURES edge was checked against Zou's PMC author manuscript but
+  // its clickable sourceUrl was the 2025 field recommendation DOI, which was never opened.
+  const mda = graph.edges.filter((edge) => edge.from === "method:mda-4hne" && edge.relation === "MEASURES");
+  assert.ok(mda.length > 0, "the MDA module must contribute MEASURES edges");
+  for (const edge of mda) {
+    assert.ok(isSourceChecked(edge.reviewState), "the MDA MEASURES edge is promoted");
+    assert.match(edge.sourceUrl, /PMC7353921/, `expected the opened Zou manuscript, got ${edge.sourceUrl}`);
+    assert.doesNotMatch(edge.sourceUrl, /s41580-025-00843-2/, "the edge must not link to the unread 2025 recommendation");
+  }
+});
+
+test("a checked figure-caption edge inherits figures-legends depth, never methods depth", () => {
+  // P0-2: a manuscript whose Methods were read must not lend methods depth to a figure caption.
+  const figureEdges = graph.edges.filter((edge) => isSourceChecked(edge.reviewState) && /^Fig\. \d+$/.test(edge.scopeRef || ""));
+  assert.ok(figureEdges.length > 0, "the corpus must contain promoted figure-caption edges");
+  for (const edge of figureEdges) {
+    assert.equal(edge.verificationDepth, "figures-legends-checked", `${edge.relation} at ${edge.scopeRef} must not inherit ${edge.verificationDepth}`);
+    assert.ok(
+      ["methods-checked", "figures-legends-checked", "supplement-checked", "full-text-rechecked", "raw-data-rechecked"].includes(edge.sourceVerificationDepth),
+      "the record's summary maximum is the ceiling, reported separately from the scope depth",
+    );
+  }
+});
+
+test("array order never decides review state when two records cover one scope (P1-4)", () => {
+  // Two source records cover the same method scope: a source-checked reading and a stronger
+  // independent recheck. Whichever order they sit in the array, the stronger state must win.
+  const scopeEntry = (depth) => ({ id: "s1", label: "shared scope", verificationDepth: depth, accessSurface: "x", boundary: "y" });
+  // The source-checked reading is the DEEPER one; the independent recheck is shallower. State
+  // rank must still win over depth, so the shallower recheck is selected.
+  const checked = {
+    status: "source-checked", checkedAt: "2026-07-24", checkedBy: "first reader", reviewerId: "reader-a",
+    reviewEventId: "ev-a", sourceVersion: "v1", verificationDepth: "methods-checked", reviewedScopes: [scopeEntry("methods-checked")],
+  };
+  const rechecked = {
+    status: "independently-rechecked", checkedAt: "2026-07-24", checkedBy: "second reader", reviewerId: "reader-b",
+    reviewEventId: "ev-b", sourceVersion: "v1", verificationDepth: "abstract-checked", reviewedScopes: [scopeEntry("abstract-checked")],
+  };
+  const build = (order) => {
+    const patched = structuredClone(methods);
+    const module = patched.find((entry) => entry.id === "death-kinetics");
+    const first = { ...module.sourceRoutes[0] };
+    module.sourceRoutes = order.map((route, i) => ({ ...first, ...route, id: `dk-${i}`, kind: "original-research-demonstration", url: `https://example.org/${i}`, kindBasis: "test", boundary: "test" }));
+    module.source = module.sourceRoutes[0].url;
+    const net = structuredClone(network);
+    net.methodLinks.find((entry) => entry.method === "death-kinetics").assertionScopes = { MEASURES: "shared scope" };
+    return buildGraph({ ...inputs, methods: patched, network: net }).edges.filter((edge) => edge.from === "method:death-kinetics" && edge.relation === "MEASURES");
+  };
+  for (const order of [[checked, rechecked], [rechecked, checked]]) {
+    const edges = build(order);
+    assert.ok(edges.length > 0, "the shared scope must promote the MEASURES edges");
+    assert.ok(edges.every((edge) => edge.reviewState === "independently-rechecked"), "the stronger independent recheck must win regardless of array order");
+  }
 });
 
 // ----------------------------------------------------------------------- reporting

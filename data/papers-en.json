@@ -355,11 +355,41 @@
             "Results: POR mediates ferroptosis by promoting lipid peroxidation",
             "Results: ALOX mRNAs exhibit limited tissue expression",
             "Discussion",
-            "Fig. 1",
-            "Fig. 2",
-            "Fig. 3",
-            "Fig. 4",
-            "Fig. 5",
+            {
+              "id": "fig-1",
+              "label": "Fig. 1",
+              "verificationDepth": "figures-legends-checked",
+              "accessSurface": "author-manuscript XML figure caption",
+              "boundary": "Only the caption text was read; rendered figure panels and the supplement were not opened."
+            },
+            {
+              "id": "fig-2",
+              "label": "Fig. 2",
+              "verificationDepth": "figures-legends-checked",
+              "accessSurface": "author-manuscript XML figure caption",
+              "boundary": "Only the caption text was read; rendered figure panels and the supplement were not opened."
+            },
+            {
+              "id": "fig-3",
+              "label": "Fig. 3",
+              "verificationDepth": "figures-legends-checked",
+              "accessSurface": "author-manuscript XML figure caption",
+              "boundary": "Only the caption text was read; rendered figure panels and the supplement were not opened."
+            },
+            {
+              "id": "fig-4",
+              "label": "Fig. 4",
+              "verificationDepth": "figures-legends-checked",
+              "accessSurface": "author-manuscript XML figure caption",
+              "boundary": "Only the caption text was read; rendered figure panels and the supplement were not opened."
+            },
+            {
+              "id": "fig-5",
+              "label": "Fig. 5",
+              "verificationDepth": "figures-legends-checked",
+              "accessSurface": "author-manuscript XML figure caption",
+              "boundary": "Only the caption text was read; rendered figure panels and the supplement were not opened."
+            },
             "Methods: Cell lines and culture conditions",
             "Methods: Chemicals",
             "Methods: Viability assays",
@@ -384,7 +414,9 @@
           "checkedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)",
           "sourceVersion": "PMC7353921.1 / NIHMS1603967 NIHPA author manuscript, pmc-last-change 2025-04-25, retrieved 2026-07-24 through the NCBI E-utilities efetch endpoint (db=pmc, retmode=xml, 117289 bytes)",
           "finding": "Full text read, including all five main figure captions and the complete Online Methods. The lipid-peroxidation conclusion rests on four readouts in Fig. 5: BODIPY-C11 flow cytometry, BODIPY-C11 imaging, a malondialdehyde kit assay and species-resolved redox-lipidomics of hydroperoxy- and hydroxy-PUFA-PE, against an unchanged global lipidome in Fig. 5a. Hydroperoxyl-PUFA-phosphatidylcholines were not detected at all; hydroxyl-PUFA-PCs were detected but not significantly induced by ML210.",
-          "boundary": "Read as the PMC author manuscript, not the publisher's version of record. Figure panels were read as captions only; the rendered images, the Supplementary Information and Supplementary Datasets 1-3 were not opened. Critically, this manuscript still carries the POR antibody catalogue information that the 2021 Author Correction superseded (Abcam ab133303, clone UOTR1B493, lot GR290350-7). The corrected reagent appears only in the publisher's version of record and in the correction notice, so a reader who works from this free full text will order the wrong antibody."
+          "boundary": "Read as the PMC author manuscript, not the publisher's version of record. Figure panels were read as captions only; the rendered images, the Supplementary Information and Supplementary Datasets 1-3 were not opened. Critically, this manuscript still carries the POR antibody catalogue information that the 2021 Author Correction superseded (Abcam ab133303, clone UOTR1B493, lot GR290350-7). The corrected reagent appears only in the publisher's version of record and in the correction notice, so a reader who works from this free full text will order the wrong antibody.",
+          "id": "zou2020-pmc7353921",
+          "reviewerId": "claude-code-round4-implementer"
         }
       ],
       "derivation": {
@@ -958,12 +990,48 @@
             "Results: Direct oxygenation of PE generates ferroptotic signals",
             "Results: Enzymatic generators of peroxidation signals",
             "Discussion",
-            "Fig. 1",
-            "Fig. 2",
-            "Fig. 3",
-            "Fig. 4",
-            "Fig. 5",
-            "Fig. 6",
+            {
+              "id": "fig-1",
+              "label": "Fig. 1",
+              "verificationDepth": "figures-legends-checked",
+              "accessSurface": "author-manuscript XML figure caption",
+              "boundary": "Only the caption text was read; rendered figure panels and the supplement were not opened."
+            },
+            {
+              "id": "fig-2",
+              "label": "Fig. 2",
+              "verificationDepth": "figures-legends-checked",
+              "accessSurface": "author-manuscript XML figure caption",
+              "boundary": "Only the caption text was read; rendered figure panels and the supplement were not opened."
+            },
+            {
+              "id": "fig-3",
+              "label": "Fig. 3",
+              "verificationDepth": "figures-legends-checked",
+              "accessSurface": "author-manuscript XML figure caption",
+              "boundary": "Only the caption text was read; rendered figure panels and the supplement were not opened."
+            },
+            {
+              "id": "fig-4",
+              "label": "Fig. 4",
+              "verificationDepth": "figures-legends-checked",
+              "accessSurface": "author-manuscript XML figure caption",
+              "boundary": "Only the caption text was read; rendered figure panels and the supplement were not opened."
+            },
+            {
+              "id": "fig-5",
+              "label": "Fig. 5",
+              "verificationDepth": "figures-legends-checked",
+              "accessSurface": "author-manuscript XML figure caption",
+              "boundary": "Only the caption text was read; rendered figure panels and the supplement were not opened."
+            },
+            {
+              "id": "fig-6",
+              "label": "Fig. 6",
+              "verificationDepth": "figures-legends-checked",
+              "accessSurface": "author-manuscript XML figure caption",
+              "boundary": "Only the caption text was read; rendered figure panels and the supplement were not opened."
+            },
             "Methods: Materials",
             "Methods: Gpx4 KO mice",
             "Methods: Cell lines conditions and treatments",
@@ -988,7 +1056,9 @@
           "checkedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)",
           "sourceVersion": "PMC5506843.1 / NIHMS873824 NIHPA author manuscript, retrieved 2026-07-24 through the NCBI E-utilities efetch endpoint (db=pmc, retmode=xml, 140459 bytes)",
           "finding": "Full text read: 350 phospholipid species across PC, PE, PS, PG, PI and CL were detected in Pfa1 cells (220 non-oxygenated, 130 oxygenated), with no oxygenated cardiolipin in any condition. Four sieving criteria reduced 110 candidates to 44, 17, 8 and finally 4. Those four are doubly and triply oxygenated diacyl PE species in a single phospholipid class, structurally assigned by MS2/MS3 as 15-hydroperoxy-AA-PE, 15-hydroperoxy-8-hydroxy-, 15-hydroperoxy-9-hydroxy- and 15-hydroperoxy-12-hydroxy-AA-PE.",
-          "boundary": "Read as the PMC author manuscript (accepted version), not the publisher's version of record: page and panel numbering may differ from the typeset article. Figure panels were read as captions; the rendered figure images, the Supplementary Information and the supplementary datasets were not opened, and nothing in them was used. The author list was not taken from this manuscript — attribution stays anchored on the Crossref record. The specific internal standard compounds used for phospholipid quantification are not named anywhere in the accessible text."
+          "boundary": "Read as the PMC author manuscript (accepted version), not the publisher's version of record: page and panel numbering may differ from the typeset article. Figure panels were read as captions; the rendered figure images, the Supplementary Information and the supplementary datasets were not opened, and nothing in them was used. The author list was not taken from this manuscript — attribution stays anchored on the Crossref record. The specific internal standard compounds used for phospholipid quantification are not named anywhere in the accessible text.",
+          "id": "kagan2017-pmc5506843",
+          "reviewerId": "claude-code-round4-implementer"
         }
       ],
       "derivation": {
