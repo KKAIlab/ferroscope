@@ -236,6 +236,18 @@
       "purpose": "This manifest. It is excluded from its own fingerprint check.",
       "registeredAt": "2026-07-23"
     },
+    "source-reviews.json": {
+      "schemaVersion": "1.0.0",
+      "shape": "object",
+      "maintenance": "curated",
+      "owner": "ferroscope-maintainer",
+      "reviewer": null,
+      "reviewPending": true,
+      "reviewedAt": null,
+      "reviewedContentSha256": null,
+      "purpose": "Canonical source/scope/review-event registry. One source record, one review event, resolved by every method, paper, notice, graph edge and UI statement. Surfaces are described by surfaceType and accessExtent, not an ordinal depth ladder. The two PMC author manuscripts carry objective byte pins; no independent second-reader event exists yet. Created in the round-6 pass and not yet independently reviewed.",
+      "registeredAt": "2026-07-23"
+    },
     "signal-briefs-en.json": {
       "schemaVersion": "1.0.0",
       "shape": "array",

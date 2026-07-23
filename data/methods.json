@@ -102,15 +102,10 @@
         "id": "death-kinetics-route-0",
         "kind": "field-recommendation",
         "kindBasis": "This repository already publishes this DOI as the 2025 reproducibility recommendation (index.html, evidence-gate section). The document itself was not opened in this round.",
-        "url": "https://doi.org/10.1038/s41580-025-00843-2",
-        "status": "not-checked",
-        "checkedAt": null,
-        "checkedBy": null,
-        "verificationDepth": "not-read",
-        "boundary": "A URL declared as this module's source is not evidence that the document specifies any field below. No reader is recorded against it in this repository.",
+        "sourceId": "field-rec-2025-nrmcb",
         "reviewEventId": null,
-        "reviewerId": null,
-        "reviewedScopes": []
+        "routePurpose": "declared-source-not-opened",
+        "boundary": "A URL declared as this module's source is not evidence that the document specifies any field below. No reader is recorded against it in this repository."
       }
     ],
     "capabilityAttribution": {
@@ -236,15 +231,10 @@
         "id": "orthogonal-rescue-route-0",
         "kind": "field-recommendation",
         "kindBasis": "This repository already publishes this DOI as the 2025 reproducibility recommendation (index.html, evidence-gate section). The document itself was not opened in this round.",
-        "url": "https://doi.org/10.1038/s41580-025-00843-2",
-        "status": "not-checked",
-        "checkedAt": null,
-        "checkedBy": null,
-        "verificationDepth": "not-read",
-        "boundary": "A URL declared as this module's source is not evidence that the document specifies any field below. No reader is recorded against it in this repository.",
+        "sourceId": "field-rec-2025-nrmcb",
         "reviewEventId": null,
-        "reviewerId": null,
-        "reviewedScopes": []
+        "routePurpose": "declared-source-not-opened",
+        "boundary": "A URL declared as this module's source is not evidence that the document specifies any field below. No reader is recorded against it in this repository."
       }
     ],
     "capabilityAttribution": {
@@ -309,15 +299,17 @@
             {
               "sourceRecordId": "zou2020-pmc7353921",
               "reviewEventId": "claude-r4-zou2020",
-              "scopeId": "methods-flow",
+              "scopeId": "methods-flow-cytometry-analysis",
               "supportMode": "explicit",
+              "claimFragment": "In the demonstrating study (Zou 2020): UACC-257 melanoma and 786-O / 769-P clear-cell renal carci…",
               "supportNote": "The flow and imaging Methods name the cell lines and the wild-type/POR-depleted comparison."
             },
             {
               "sourceRecordId": "zou2020-pmc7353921",
               "reviewEventId": "claude-r4-zou2020",
-              "scopeId": "methods-bodipy-imaging",
+              "scopeId": "methods-bodipy-c11-imaging-assay",
               "supportMode": "explicit",
+              "claimFragment": "In the demonstrating study (Zou 2020): UACC-257 melanoma and 786-O / 769-P clear-cell renal carci… (clause 2)",
               "supportNote": "The imaging Methods repeat the cell system used for the probe."
             }
           ]
@@ -331,14 +323,24 @@
               "reviewEventId": "claude-r4-thermofisher-d3861",
               "scopeId": "product-description",
               "supportMode": "explicit",
+              "claimFragment": "the probe reports membrane lipid peroxidation as a shift in its fluorescence emission",
               "supportNote": "The vendor page describes the probe as reporting membrane lipid peroxidation via an emission shift."
             },
             {
               "sourceRecordId": "zou2020-pmc7353921",
               "reviewEventId": "claude-r4-zou2020",
-              "scopeId": "results-por-peroxidation",
+              "scopeId": "results-por-mediates-ferroptosis-by-promoting-lipid-peroxidation",
               "supportMode": "explicit",
+              "claimFragment": "the emission shift rises under a ferroptotic perturbation",
               "supportNote": "The results read the probe's emission shift as membrane lipid peroxidation under the ferroptotic perturbation."
+            },
+            {
+              "sourceRecordId": "kagan2017-pmc5506843",
+              "reviewEventId": "claude-r4-kagan2017",
+              "scopeId": "results-lipid-hydroperoxides-accumulate-in-ferroptotic-er",
+              "supportMode": "derived",
+              "claimFragment": "the probe reports an emission shift rather than an identified molecular lipid species",
+              "supportNote": "Kagan states that C11-BODIPY, unlike LiperFluo, does not interact with phospholipid hydroperoxides; reading this as a method boundary — an emission shift, not a species identification — is a derivation from that specificity limit, not a claim the assay itself makes."
             }
           ]
         },
@@ -349,8 +351,9 @@
             {
               "sourceRecordId": "zou2020-pmc7353921",
               "reviewEventId": "claude-r4-zou2020",
-              "scopeId": "methods-flow",
+              "scopeId": "methods-flow-cytometry-analysis",
               "supportMode": "explicit",
+              "claimFragment": "The probe is a reporter, not the perturbation",
               "supportNote": "The flow Methods state ML210 (5 uM) against DMSO and the POR-depletion arm."
             }
           ]
@@ -364,13 +367,15 @@
               "reviewEventId": "claude-r4-thermofisher-d3861",
               "scopeId": "product-description",
               "supportMode": "explicit",
+              "claimFragment": "Oxidation of the probe's polyunsaturated butadienyl group shifts its fluorescence emission peak f…",
               "supportNote": "The vendor page states the reduced-to-oxidised emission shift and its wavelengths."
             },
             {
               "sourceRecordId": "zou2020-pmc7353921",
               "reviewEventId": "claude-r4-zou2020",
-              "scopeId": "methods-flow",
+              "scopeId": "methods-flow-cytometry-analysis",
               "supportMode": "explicit",
+              "claimFragment": "read by flow cytometry (reduced in the PE-Texas Red channel, oxidised in FITC) or by fluorescence… (clause 2)",
               "supportNote": "The flow Methods assign the reduced probe to PE-Texas Red and the oxidised probe to FITC."
             }
           ]
@@ -389,13 +394,15 @@
               "reviewEventId": "claude-r4-thermofisher-d3861",
               "scopeId": "specifications",
               "supportMode": "explicit",
+              "claimFragment": "Fluorescence detection: a flow cytometer (Zou used a SONY SH800) or a fluorescence imager (Zou us…",
               "supportNote": "The vendor specification gives excitation/emission 581/591 nm for the reduced probe."
             },
             {
               "sourceRecordId": "zou2020-pmc7353921",
               "reviewEventId": "claude-r4-zou2020",
-              "scopeId": "methods-flow",
+              "scopeId": "methods-flow-cytometry-analysis",
               "supportMode": "explicit",
+              "claimFragment": "excitation/emission 581/591 nm for the reduced probe per the vendor specification (clause 2)",
               "supportNote": "The flow Methods name the SONY SH800; the imaging Methods name the Operetta."
             }
           ]
@@ -422,15 +429,17 @@
             {
               "sourceRecordId": "zou2020-pmc7353921",
               "reviewEventId": "claude-r4-zou2020",
-              "scopeId": "methods-flow",
+              "scopeId": "methods-flow-cytometry-analysis",
               "supportMode": "explicit",
+              "claimFragment": "In the demonstrating study the probe is read alongside other lipid-peroxidation readouts: a paral…",
               "supportNote": "The flow Methods run H2-DCFDA in parallel with BODIPY-C11 as a separate ROS readout."
             },
             {
               "sourceRecordId": "zou2020-pmc7353921",
               "reviewEventId": "claude-r4-zou2020",
-              "scopeId": "results-por-peroxidation",
+              "scopeId": "results-por-mediates-ferroptosis-by-promoting-lipid-peroxidation",
               "supportMode": "explicit",
+              "claimFragment": "The study presents these readouts together (clause 2)",
               "supportNote": "The results present BODIPY-C11 together with H2-DCFDA, MDA and redox-lipidomics, without asserting a universal must-move-together rule."
             },
             {
@@ -438,6 +447,7 @@
               "reviewEventId": "claude-r4-zou2020",
               "scopeId": "fig-5",
               "supportMode": "explicit",
+              "claimFragment": "it does not state a rule that they must move together (clause 3)",
               "supportNote": "Fig. 5 shows these readouts side by side."
             }
           ]
@@ -449,15 +459,17 @@
             {
               "sourceRecordId": "zou2020-pmc7353921",
               "reviewEventId": "claude-r4-zou2020",
-              "scopeId": "methods-flow",
+              "scopeId": "methods-flow-cytometry-analysis",
               "supportMode": "explicit",
+              "claimFragment": "Acute probe loading: 5 micromolar BODIPY-C11 for the final 45 minutes of a 90-minute ML210 treatm…",
               "supportNote": "The flow Methods state 5 uM probe for the final 45 min of a 90-min ML210 treatment."
             },
             {
               "sourceRecordId": "zou2020-pmc7353921",
               "reviewEventId": "claude-r4-zou2020",
-              "scopeId": "methods-bodipy-imaging",
+              "scopeId": "methods-bodipy-c11-imaging-assay",
               "supportMode": "explicit",
+              "claimFragment": "for imaging, probe added for the last 30 minutes of a 3-hour ML210 exposure (clause 2)",
               "supportNote": "The imaging Methods state probe added for the last 30 min of a 3-hour ML210 exposure."
             }
           ]
@@ -471,13 +483,15 @@
               "reviewEventId": "claude-r4-thermofisher-d3861",
               "scopeId": "product-description",
               "supportMode": "explicit",
+              "claimFragment": "The probe partitions into membranes and reports their local oxidation, but resolves no molecular …",
               "supportNote": "The vendor page describes the probe as a membrane-partitioning reporter with no species resolution."
             },
             {
               "sourceRecordId": "zou2020-pmc7353921",
               "reviewEventId": "claude-r4-zou2020",
-              "scopeId": "methods-bodipy-imaging",
+              "scopeId": "methods-bodipy-c11-imaging-assay",
               "supportMode": "analytical-inference",
+              "claimFragment": "fluorescence imaging gives only coarse subcellular localisation, not organelle-specific chemistry (clause 2)",
               "supportNote": "That imaging gives only coarse subcellular localisation is inferred from the probe's membrane partitioning and the imaging setup, not stated as a limitation in the text."
             }
           ]
@@ -489,8 +503,9 @@
             {
               "sourceRecordId": "kagan2017-pmc5506843",
               "reviewEventId": "claude-r4-kagan2017",
-              "scopeId": "results-liperfluo-er",
+              "scopeId": "results-lipid-hydroperoxides-accumulate-in-ferroptotic-er",
               "supportMode": "explicit",
+              "claimFragment": "The probe reacts with peroxyl radicals and is not specific to phospholipid hydroperoxides: Kagan …",
               "supportNote": "Kagan states verbatim that C11-BODIPY and LiperFluo both react with peroxyl radicals while LiperFluo, but not C11-BODIPY, interacts with (phospho)lipid hydroperoxides."
             },
             {
@@ -498,6 +513,7 @@
               "reviewEventId": "claude-r4-thermofisher-d3861",
               "scopeId": "faq",
               "supportMode": "explicit",
+              "claimFragment": "It is also photosensitive and, per the vendor, is handled in DMSO and stored desiccated at -20 C … (clause 2)",
               "supportNote": "The vendor page states the probe is photosensitive, handled in DMSO and stored desiccated at -20 C in the dark."
             }
           ]
@@ -509,107 +525,30 @@
         "id": "thermofisher-d3861",
         "kind": "vendor-protocol",
         "kindBasis": "A reagent supplier's product page for the probe this module is built on, identified from the URL host and catalogue path.",
-        "url": "https://www.thermofisher.com/order/catalog/product/D3861",
-        "status": "source-checked",
+        "sourceId": "thermofisher-d3861",
         "reviewEventId": "claude-r4-thermofisher-d3861",
-        "reviewerId": "claude-code-round4-implementer",
-        "checkedAt": "2026-07-24",
-        "checkedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)",
-        "verificationDepth": "full-text-rechecked",
-        "sourceVersion": "Thermo Fisher catalogue page D3861 (Invitrogen BODIPY 581/591 C11), retrieved 2026-07-24",
-        "boundary": "The catalogue page gives the probe's chemistry, spectra, storage and reconstitution, but no assay design: it names no specimen, perturbation, control, timing or quantification.",
-        "reviewedScopes": [
-          {
-            "id": "product-description",
-            "label": "product description",
-            "verificationDepth": "full-text-rechecked",
-            "accessSurface": "vendor catalogue page, read in full",
-            "boundary": "A reagent product page, read in full; it is a catalogue description, not a peer-reviewed protocol."
-          },
-          {
-            "id": "specifications",
-            "label": "specifications",
-            "verificationDepth": "full-text-rechecked",
-            "accessSurface": "vendor catalogue page, read in full",
-            "boundary": "A reagent product page, read in full; it is a catalogue description, not a peer-reviewed protocol."
-          },
-          {
-            "id": "faq",
-            "label": "FAQ",
-            "verificationDepth": "full-text-rechecked",
-            "accessSurface": "vendor catalogue page, read in full",
-            "boundary": "A reagent product page, read in full; it is a catalogue description, not a peer-reviewed protocol."
-          }
-        ]
+        "routePurpose": "primary-source-reading",
+        "boundary": "The catalogue page gives the probe's chemistry, spectra, storage and reconstitution, but no assay design: it names no specimen, perturbation, control, timing or quantification."
       },
       {
         "id": "zou2020-pmc7353921",
         "kind": "original-research-demonstration",
         "kindBasis": "10.1038/s41589-020-0472-6 (Zou et al. 2020); its Methods, results text and figure captions are read here as a demonstration of this assay, which is not this module's originally declared source.",
-        "corpusPaperId": "doi:10.1038/s41589-020-0472-6",
-        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7353921/",
-        "status": "source-checked",
+        "sourceId": "pmc7353921",
         "reviewEventId": "claude-r4-zou2020",
-        "reviewerId": "claude-code-round4-implementer",
-        "checkedAt": "2026-07-24",
-        "checkedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)",
-        "verificationDepth": "methods-checked",
-        "sourceVersion": "PMC7353921.1 / NIHMS1603967 author manuscript, retrieved 2026-07-24 via NCBI E-utilities efetch",
+        "routePurpose": "primary-source-reading",
         "boundary": "Read as the PMC author manuscript, not the paywalled version of record; rendered figure panels and the supplement were not opened. One study's implementation, not a universal protocol.",
-        "reviewedScopes": [
-          {
-            "id": "methods-flow",
-            "label": "Methods: Flow cytometry analysis",
-            "verificationDepth": "methods-checked",
-            "accessSurface": "author-manuscript XML section text",
-            "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
-          },
-          {
-            "id": "methods-bodipy-imaging",
-            "label": "Methods: BODIPY-C11 imaging assay",
-            "verificationDepth": "methods-checked",
-            "accessSurface": "author-manuscript XML section text",
-            "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
-          },
-          {
-            "id": "results-por-peroxidation",
-            "label": "Results: POR mediates ferroptosis by promoting lipid peroxidation",
-            "verificationDepth": "methods-checked",
-            "accessSurface": "author-manuscript XML section text",
-            "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
-          },
-          {
-            "id": "fig-5",
-            "label": "Fig. 5",
-            "verificationDepth": "figures-legends-checked",
-            "accessSurface": "author-manuscript XML figure caption",
-            "boundary": "Only the caption text was read; rendered figure panels and the supplement were not opened."
-          }
-        ]
+        "corpusPaperId": "doi:10.1038/s41589-020-0472-6"
       },
       {
         "id": "kagan2017-pmc5506843",
         "kind": "original-research-demonstration",
         "kindBasis": "10.1038/nchembio.2238 (Kagan et al. 2017); its Methods, results text and figure captions are read here as a demonstration of this assay.",
-        "corpusPaperId": "doi:10.1038/nchembio.2238",
-        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5506843/",
-        "status": "source-checked",
+        "sourceId": "pmc5506843",
         "reviewEventId": "claude-r4-kagan2017",
-        "reviewerId": "claude-code-round4-implementer",
-        "checkedAt": "2026-07-24",
-        "checkedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)",
-        "verificationDepth": "methods-checked",
-        "sourceVersion": "PMC5506843.1 / NIHMS873824 author manuscript, retrieved 2026-07-24 via NCBI E-utilities efetch",
+        "routePurpose": "primary-source-reading",
         "boundary": "Read as the PMC author manuscript, not the paywalled version of record; rendered figure panels and the supplement were not opened. One study's implementation, not a universal protocol.",
-        "reviewedScopes": [
-          {
-            "id": "results-liperfluo-er",
-            "label": "Results: Lipid hydroperoxides accumulate in ferroptotic ER",
-            "verificationDepth": "methods-checked",
-            "accessSurface": "author-manuscript XML section text",
-            "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
-          }
-        ]
+        "corpusPaperId": "doi:10.1038/nchembio.2238"
       }
     ],
     "capabilityAttribution": {
@@ -735,15 +674,10 @@
         "id": "lipid-hydroperoxide-probes-route-0",
         "kind": "unclassified-source",
         "kindBasis": "The record behind this URL has not been opened, so whether it is a vendor protocol, a field recommendation or an original research demonstration is not established.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/32275865/",
-        "status": "not-checked",
-        "checkedAt": null,
-        "checkedBy": null,
-        "verificationDepth": "not-read",
-        "boundary": "A URL declared as this module's source is not evidence that the document specifies any field below. No reader is recorded against it in this repository.",
+        "sourceId": "pubmed-32275865",
         "reviewEventId": null,
-        "reviewerId": null,
-        "reviewedScopes": []
+        "routePurpose": "declared-source-not-opened",
+        "boundary": "A URL declared as this module's source is not evidence that the document specifies any field below. No reader is recorded against it in this repository."
       }
     ],
     "capabilityAttribution": {
@@ -802,8 +736,9 @@
             {
               "sourceRecordId": "zou2020-pmc7353921",
               "reviewEventId": "claude-r4-zou2020",
-              "scopeId": "methods-mda",
+              "scopeId": "methods-malondialdehyde-mda-assay",
               "supportMode": "derived",
+              "claimFragment": "In the demonstrating study (Zou 2020): the ferroptosis cell system read out in Fig",
               "supportNote": "The MDA Methods give the assay protocol; the cell system and control/POR-depleted comparison are read from the Fig. 5 experiment the assay reports on."
             },
             {
@@ -811,6 +746,7 @@
               "reviewEventId": "claude-r4-zou2020",
               "scopeId": "fig-5",
               "supportMode": "derived",
+              "claimFragment": "5 (786-O clear-cell renal carcinoma), comparing control against POR-depleted cells (clause 2)",
               "supportNote": "Fig. 5 is where the MDA readout is placed, against the POR-depletion arm."
             }
           ]
@@ -822,8 +758,9 @@
             {
               "sourceRecordId": "zou2020-pmc7353921",
               "reviewEventId": "claude-r4-zou2020",
-              "scopeId": "results-por-peroxidation",
+              "scopeId": "results-por-mediates-ferroptosis-by-promoting-lipid-peroxidation",
               "supportMode": "explicit",
+              "claimFragment": "Whether a bulk downstream lipid-peroxidation product (malondialdehyde) rises under ferroptotic st…",
               "supportNote": "The POR-peroxidation results describe MDA rising with ferroptotic stress and falling on rescue."
             }
           ]
@@ -835,8 +772,9 @@
             {
               "sourceRecordId": "zou2020-pmc7353921",
               "reviewEventId": "claude-r4-zou2020",
-              "scopeId": "methods-mda",
+              "scopeId": "methods-malondialdehyde-mda-assay",
               "supportMode": "explicit",
+              "claimFragment": "DMSO, ML210, or ML210 plus liproxstatin-1 for 90 minutes",
               "supportNote": "The MDA Methods state the DMSO / ML210 / ML210+Lip-1 90-minute treatment and the POR-depletion genetic arm."
             }
           ]
@@ -848,9 +786,18 @@
             {
               "sourceRecordId": "zou2020-pmc7353921",
               "reviewEventId": "claude-r4-zou2020",
-              "scopeId": "methods-mda",
+              "scopeId": "methods-malondialdehyde-mda-assay",
               "supportMode": "explicit",
-              "supportNote": "The Methods name the Abcam ab118970 kit and the TBA-adduct fluorometric readout verbatim."
+              "claimFragment": "measured fluorometrically with a commercial kit (Abcam ab118970) after thiobarbituric-acid addition",
+              "supportNote": "The Methods name the Abcam ab118970 kit, the TBA addition and the fluorometric readout verbatim."
+            },
+            {
+              "sourceRecordId": "zou2020-pmc7353921",
+              "reviewEventId": "claude-r4-zou2020",
+              "scopeId": "methods-malondialdehyde-mda-assay",
+              "supportMode": "derived",
+              "claimFragment": "the measured species is the malondialdehyde–thiobarbituric-acid (MDA–TBA) adduct",
+              "supportNote": "The kit reports a fluorescent TBARS signal; identifying that signal specifically as the MDA–TBA adduct is the standard reading of the assay, not a species identification the Methods make, so it is derived rather than explicit."
             }
           ]
         },
@@ -861,8 +808,9 @@
             {
               "sourceRecordId": "zou2020-pmc7353921",
               "reviewEventId": "claude-r4-zou2020",
-              "scopeId": "methods-mda",
+              "scopeId": "methods-malondialdehyde-mda-assay",
               "supportMode": "explicit",
+              "claimFragment": "Fluorometric MDA signal read at excitation/emission 532/553 nm, normalised to protein concentration",
               "supportNote": "The Methods state Ex/Em 532/553 nm and protein normalisation."
             }
           ]
@@ -874,8 +822,9 @@
             {
               "sourceRecordId": "zou2020-pmc7353921",
               "reviewEventId": "claude-r4-zou2020",
-              "scopeId": "methods-mda",
+              "scopeId": "methods-malondialdehyde-mda-assay",
               "supportMode": "explicit",
+              "claimFragment": "A fluorescence microplate reader",
               "supportNote": "The Methods name the plate reader, Qubit protein quantification and Dounce homogenisation."
             }
           ]
@@ -892,9 +841,18 @@
             {
               "sourceRecordId": "zou2020-pmc7353921",
               "reviewEventId": "claude-r4-zou2020",
-              "scopeId": "methods-mda",
+              "scopeId": "methods-malondialdehyde-mda-assay",
               "supportMode": "explicit",
-              "supportNote": "The Methods record the DMSO, ML210 and ML210+Lip-1 conditions; their negative/baseline control roles are labelled here per the control-axis definitions."
+              "claimFragment": "the DMSO, ML210 and ML210-plus-liproxstatin-1 conditions are run",
+              "supportNote": "The Methods record the DMSO baseline, ML210 and ML210+Lip-1 rescue conditions verbatim."
+            },
+            {
+              "sourceRecordId": "zou2020-pmc7353921",
+              "reviewEventId": "claude-r4-zou2020",
+              "scopeId": "methods-malondialdehyde-mda-assay",
+              "supportMode": "derived",
+              "claimFragment": "DMSO baseline and the liproxstatin-1 rescue serve as the negative-control axis",
+              "supportNote": "Assigning the baseline and rescue conditions to the negative-control axis is a classification per the control-axis definitions, not a label the Methods themselves apply."
             }
           ]
         },
@@ -905,9 +863,18 @@
             {
               "sourceRecordId": "zou2020-pmc7353921",
               "reviewEventId": "claude-r4-zou2020",
-              "scopeId": "methods-mda",
+              "scopeId": "methods-malondialdehyde-mda-assay",
               "supportMode": "explicit",
-              "supportNote": "Zou's MDA Methods add BHT to the lysis buffer to limit ex vivo oxidation and normalise every sample to protein."
+              "claimFragment": "butylated hydroxytoluene is added to the lysis buffer and every sample is protein-normalised",
+              "supportNote": "The Methods state that BHT is added to the lysis buffer and that signal is normalised to protein."
+            },
+            {
+              "sourceRecordId": "zou2020-pmc7353921",
+              "reviewEventId": "claude-r4-zou2020",
+              "scopeId": "methods-malondialdehyde-mda-assay",
+              "supportMode": "derived",
+              "claimFragment": "BHT functions as a process control that limits ex-vivo lipid oxidation during handling",
+              "supportNote": "That BHT is present is explicit; reading its role as a process control against ex-vivo oxidation is the accepted rationale for the additive, classified here, not stated as such in the Methods."
             }
           ]
         },
@@ -920,14 +887,16 @@
               "reviewEventId": "claude-r4-zou2020",
               "scopeId": "fig-5",
               "supportMode": "explicit",
-              "supportNote": "Fig. 5 places MDA alongside BODIPY-C11 and redox-lipidomics."
+              "claimFragment": "MDA is placed alongside BODIPY-C11 and species-resolved redox-lipidomics",
+              "supportNote": "Fig. 5 shows the MDA readout together with BODIPY-C11 and redox-lipidomics."
             },
             {
               "sourceRecordId": "zou2020-pmc7353921",
               "reviewEventId": "claude-r4-zou2020",
-              "scopeId": "results-por-peroxidation",
-              "supportMode": "explicit",
-              "supportNote": "The POR-peroxidation results read these lipid-peroxidation measures together."
+              "scopeId": "results-por-mediates-ferroptosis-by-promoting-lipid-peroxidation",
+              "supportMode": "derived",
+              "claimFragment": "the bulk product corroborates, rather than substitutes for, the species-level measurement",
+              "supportNote": "The readouts appear together in the results; reading them as mutually corroborating is a derivation, not a statement that the study requires them to move together."
             }
           ]
         },
@@ -938,8 +907,9 @@
             {
               "sourceRecordId": "zou2020-pmc7353921",
               "reviewEventId": "claude-r4-zou2020",
-              "scopeId": "methods-mda",
+              "scopeId": "methods-malondialdehyde-mda-assay",
               "supportMode": "explicit",
+              "claimFragment": "Acute: 90-minute treatment before collection",
               "supportNote": "The Methods state a 90-minute treatment before collection."
             }
           ]
@@ -951,9 +921,18 @@
             {
               "sourceRecordId": "zou2020-pmc7353921",
               "reviewEventId": "claude-r4-zou2020",
-              "scopeId": "methods-mda",
+              "scopeId": "methods-malondialdehyde-mda-assay",
               "supportMode": "explicit",
-              "supportNote": "The Methods measure MDA from a bulk homogenate, with no species or compartment resolution."
+              "claimFragment": "MDA is measured from a bulk cell homogenate",
+              "supportNote": "The Methods measure MDA from a bulk homogenate workflow."
+            },
+            {
+              "sourceRecordId": "zou2020-pmc7353921",
+              "reviewEventId": "claude-r4-zou2020",
+              "scopeId": "methods-malondialdehyde-mda-assay",
+              "supportMode": "analytical-inference",
+              "claimFragment": "so the assay carries no molecular-species or compartment resolution",
+              "supportNote": "The absence of species or compartment resolution follows from the bulk-homogenate design; it is an analytical inference, not a limitation the Methods state."
             }
           ]
         },
@@ -969,53 +948,20 @@
         "id": "mda-2025-recommendation",
         "kind": "field-recommendation",
         "kindBasis": "This repository already publishes this DOI as the 2025 reproducibility recommendation (index.html, evidence-gate section). The document itself was not opened in this round.",
-        "url": "https://doi.org/10.1038/s41580-025-00843-2",
-        "status": "not-checked",
+        "sourceId": "field-rec-2025-nrmcb",
         "reviewEventId": null,
-        "reviewerId": null,
-        "checkedAt": null,
-        "checkedBy": null,
-        "verificationDepth": "not-read",
-        "reviewedScopes": [],
+        "routePurpose": "declared-source-not-opened",
         "boundary": "A URL declared as this module's source is not evidence that the document specifies any field below. No reader is recorded against it; it was read only at abstract level and cannot support the specificity boundary."
       },
       {
         "id": "zou2020-pmc7353921",
         "kind": "original-research-demonstration",
         "kindBasis": "10.1038/s41589-020-0472-6 (Zou et al. 2020); its Methods, results text and figure captions are read here as a demonstration of this assay, which is not this module's originally declared source.",
-        "corpusPaperId": "doi:10.1038/s41589-020-0472-6",
-        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7353921/",
-        "status": "source-checked",
+        "sourceId": "pmc7353921",
         "reviewEventId": "claude-r4-zou2020",
-        "reviewerId": "claude-code-round4-implementer",
-        "checkedAt": "2026-07-24",
-        "checkedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)",
-        "verificationDepth": "methods-checked",
-        "sourceVersion": "PMC7353921.1 / NIHMS1603967 author manuscript, retrieved 2026-07-24 via NCBI E-utilities efetch",
+        "routePurpose": "primary-source-reading",
         "boundary": "Read as the PMC author manuscript, not the paywalled version of record; rendered figure panels and the supplement were not opened. One study's implementation, not a universal protocol.",
-        "reviewedScopes": [
-          {
-            "id": "methods-mda",
-            "label": "Methods: Malondialdehyde (MDA) assay",
-            "verificationDepth": "methods-checked",
-            "accessSurface": "author-manuscript XML section text",
-            "boundary": "The kit workflow, BHT, temperature and wavelengths are read; the commercial kit's own SOP was not opened."
-          },
-          {
-            "id": "results-por-peroxidation",
-            "label": "Results: POR mediates ferroptosis by promoting lipid peroxidation",
-            "verificationDepth": "methods-checked",
-            "accessSurface": "author-manuscript XML section text",
-            "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
-          },
-          {
-            "id": "fig-5",
-            "label": "Fig. 5",
-            "verificationDepth": "figures-legends-checked",
-            "accessSurface": "author-manuscript XML figure caption",
-            "boundary": "Only the caption text was read; rendered figure panels and the supplement were not opened."
-          }
-        ]
+        "corpusPaperId": "doi:10.1038/s41589-020-0472-6"
       }
     ],
     "capabilityAttribution": {
@@ -1078,15 +1024,17 @@
             {
               "sourceRecordId": "kagan2017-pmc5506843",
               "reviewEventId": "claude-r4-kagan2017",
-              "scopeId": "methods-cell-lines",
+              "scopeId": "methods-cell-lines-conditions-and-treatments",
               "supportMode": "explicit",
+              "claimFragment": "In the demonstrating study (Kagan 2017): Pfa1 mouse embryonic fibroblasts (wild-type, Acsl4-knock…",
               "supportNote": "The cell-lines Methods name the Pfa1, Acsl4-KO, Gpx4-KO and MLE systems."
             },
             {
               "sourceRecordId": "kagan2017-pmc5506843",
               "reviewEventId": "claude-r4-kagan2017",
-              "scopeId": "methods-gpx4-mice",
+              "scopeId": "methods-gpx4-ko-mice",
               "supportMode": "explicit",
+              "claimFragment": "In the demonstrating study (Kagan 2017): Pfa1 mouse embryonic fibroblasts (wild-type, Acsl4-knock… (clause 2)",
               "supportNote": "The Gpx4 KO mice Methods name the tamoxifen-inducible kidney model."
             }
           ]
@@ -1100,13 +1048,15 @@
               "reviewEventId": "claude-r4-kagan2017",
               "scopeId": "abstract",
               "supportMode": "explicit",
+              "claimFragment": "Which oxidised phospholipid molecular species accumulate specifically in ferroptotic cells and wh…",
               "supportNote": "The abstract frames the question of which oxygenated PE species drive ferroptosis."
             },
             {
               "sourceRecordId": "kagan2017-pmc5506843",
               "reviewEventId": "claude-r4-kagan2017",
-              "scopeId": "results-redox-phospholipidomics",
+              "scopeId": "results-redox-phospholipidomics-of-ferroptotic-signals",
               "supportMode": "explicit",
+              "claimFragment": "Which oxidised phospholipid molecular species accumulate specifically in ferroptotic cells and wh… (clause 2)",
               "supportNote": "The redox-phospholipidomics results pose the species-specific question."
             }
           ]
@@ -1118,15 +1068,17 @@
             {
               "sourceRecordId": "kagan2017-pmc5506843",
               "reviewEventId": "claude-r4-kagan2017",
-              "scopeId": "methods-cell-lines",
+              "scopeId": "methods-cell-lines-conditions-and-treatments",
               "supportMode": "explicit",
+              "claimFragment": "GPX4 inhibition by RSL3 (100 nM), genetic Gpx4 loss, ACSL4 loss, and arachidonic-acid or deuterat…",
               "supportNote": "The Methods state RSL3 100 nM, Gpx4/ACSL4 loss, AA/d8-AA supplementation and rosiglitazone."
             },
             {
               "sourceRecordId": "kagan2017-pmc5506843",
               "reviewEventId": "claude-r4-kagan2017",
-              "scopeId": "results-acsl4",
+              "scopeId": "results-pe-ferroptotic-precursors-are-decreased-in-acs4-ko-cells",
               "supportMode": "explicit",
+              "claimFragment": "rosiglitazone to suppress AA/AdA esterification into PE (clause 2)",
               "supportNote": "The Acsl4-KO results describe the loss-of-substrate perturbation."
             }
           ]
@@ -1138,15 +1090,17 @@
             {
               "sourceRecordId": "kagan2017-pmc5506843",
               "reviewEventId": "claude-r4-kagan2017",
-              "scopeId": "methods-identification-pe-ox",
+              "scopeId": "methods-identification-of-pe-oxygenated-products-in-cell-lysates",
               "supportMode": "explicit",
+              "claimFragment": "Oxygenated phospholipid molecular species resolved by LC-MS/MS, with esterified oxidised fatty ac…",
               "supportNote": "The identification Methods assign species by MS2/MS3 fragmentation."
             },
             {
               "sourceRecordId": "kagan2017-pmc5506843",
               "reviewEventId": "claude-r4-kagan2017",
-              "scopeId": "methods-lcms-free-esterified",
+              "scopeId": "methods-lc-ms-analysis-of-free-and-esterified-fatty-acids",
               "supportMode": "explicit",
+              "claimFragment": "g (clause 2)",
               "supportNote": "The free/esterified LC-MS Methods use PAF-AH to release esterified oxidised acyls."
             },
             {
@@ -1154,6 +1108,7 @@
               "reviewEventId": "claude-r4-kagan2017",
               "scopeId": "fig-5",
               "supportMode": "explicit",
+              "claimFragment": "15-hydroperoxy-AA-PE and its di- and tri-oxygenated forms) (clause 3)",
               "supportNote": "Fig. 5 shows the assigned oxygenated-PE species."
             },
             {
@@ -1161,6 +1116,7 @@
               "reviewEventId": "claude-r4-kagan2017",
               "scopeId": "fig-6",
               "supportMode": "explicit",
+              "claimFragment": "15-hydroperoxy-AA-PE and its di- and tri-oxygenated forms) (clause 4)",
               "supportNote": "Fig. 6 shows the di-/tri-oxygenated forms."
             }
           ]
@@ -1172,15 +1128,17 @@
             {
               "sourceRecordId": "kagan2017-pmc5506843",
               "reviewEventId": "claude-r4-kagan2017",
-              "scopeId": "results-aa-enhances",
+              "scopeId": "results-aa-enhances-ferroptotic-response-in-rsl3-treated-cells",
               "supportMode": "explicit",
+              "claimFragment": "Esterified oxygenated acyls in pmol per micromole of phospholipid (e",
               "supportNote": "The results give the pmol/micromole figures for wild-type against Acsl4-KO."
             },
             {
               "sourceRecordId": "kagan2017-pmc5506843",
               "reviewEventId": "claude-r4-kagan2017",
-              "scopeId": "methods-statistical",
+              "scopeId": "methods-statistical-analysis",
               "supportMode": "explicit",
+              "claimFragment": "g (clause 2)",
               "supportNote": "The Statistical Analysis Methods state ratiometric comparison to a pre-selected internal standard using a standard curve for each phospholipid class."
             }
           ]
@@ -1192,15 +1150,17 @@
             {
               "sourceRecordId": "kagan2017-pmc5506843",
               "reviewEventId": "claude-r4-kagan2017",
-              "scopeId": "methods-ms-phospholipids",
+              "scopeId": "methods-ms-and-ms-ms-analysis-of-phospholipids",
               "supportMode": "explicit",
+              "claimFragment": "Thermo Fisher Orbitrap-class mass spectrometry: Q-Exactive hybrid quadrupole-Orbitrap for phospho…",
               "supportNote": "The MS Methods name the Q-Exactive, Orbitrap Fusion Lumos and LXQ instruments."
             },
             {
               "sourceRecordId": "kagan2017-pmc5506843",
               "reviewEventId": "claude-r4-kagan2017",
-              "scopeId": "methods-np-column",
+              "scopeId": "methods-normal-phase-column-separation-of-phospholipids",
               "supportMode": "explicit",
+              "claimFragment": "normal-phase silica and reverse-phase C18/C8 HPLC upstream (clause 2)",
               "supportNote": "The Methods describe the normal-phase and reverse-phase HPLC separation."
             }
           ]
@@ -1212,16 +1172,18 @@
             {
               "sourceRecordId": "kagan2017-pmc5506843",
               "reviewEventId": "claude-r4-kagan2017",
-              "scopeId": "methods-hydroperoxy-pe",
+              "scopeId": "methods-preparation-of-hydroperoxy-pe",
               "supportMode": "explicit",
+              "claimFragment": "authentic SAPE-OOH is prepared by 15-lipoxygenase oxidation and HPLC-purified to 99%",
               "supportNote": "The Methods prepare and HPLC-purify authentic SAPE-OOH to 99%."
             },
             {
               "sourceRecordId": "kagan2017-pmc5506843",
               "reviewEventId": "claude-r4-kagan2017",
-              "scopeId": "methods-identification-pe-ox",
-              "supportMode": "explicit",
-              "supportNote": "The authentic standard is used to confirm the identity of the oxygenated PE detected in cells; classified here as an analytical identity/reference standard per the control-axis definitions."
+              "scopeId": "methods-identification-of-pe-oxygenated-products-in-cell-lysates",
+              "supportMode": "derived",
+              "claimFragment": "it serves as the assay's positive-control / analytical identity-reference axis",
+              "supportNote": "The authentic standard is used to confirm the identity of the oxygenated PE detected in cells; classifying it as the positive-control axis is a control-axis assignment, not a term the Methods use."
             }
           ]
         },
@@ -1232,9 +1194,18 @@
             {
               "sourceRecordId": "kagan2017-pmc5506843",
               "reviewEventId": "claude-r4-kagan2017",
-              "scopeId": "results-acsl4",
+              "scopeId": "results-pe-ferroptotic-precursors-are-decreased-in-acs4-ko-cells",
               "supportMode": "explicit",
-              "supportNote": "The Acsl4-KO results show the oxygenated-PE signal strongly reduced when the substrate-generating enzyme is lost - a matched genetic negative condition. The <15%/>15% cell-death threshold is a ranking device and is not used as the assay negative control."
+              "claimFragment": "the oxygenated-PE signal is strongly reduced in Acsl4-knockout cells (199.3 vs 72.2 pmol/µmol)",
+              "supportNote": "The Acsl4-KO results show the oxygenated-PE signal strongly reduced when the substrate-generating enzyme is lost."
+            },
+            {
+              "sourceRecordId": "kagan2017-pmc5506843",
+              "reviewEventId": "claude-r4-kagan2017",
+              "scopeId": "results-pe-ferroptotic-precursors-are-decreased-in-acs4-ko-cells",
+              "supportMode": "derived",
+              "claimFragment": "Acsl4-knockout is read as the assay's matched genetic negative-control condition",
+              "supportNote": "The reduction is explicit; treating Acsl4-KO as the negative-control axis is a classification per the control-axis definitions."
             }
           ]
         },
@@ -1245,9 +1216,18 @@
             {
               "sourceRecordId": "kagan2017-pmc5506843",
               "reviewEventId": "claude-r4-kagan2017",
-              "scopeId": "methods-statistical",
+              "scopeId": "methods-statistical-analysis",
               "supportMode": "explicit",
-              "supportNote": "Kagan's quantification uses ratiometric comparison to a pre-selected internal standard with a per-class standard curve. The cited scopes do not state that the standard was added before extraction, nor snap-freezing or antioxidant handling, so those claims are removed."
+              "claimFragment": "phospholipids are quantified ratiometrically against a pre-selected internal standard using a per-class standard curve",
+              "supportNote": "The Statistical Analysis Methods state ratiometric comparison to a pre-selected internal standard with a per-class standard curve."
+            },
+            {
+              "sourceRecordId": "kagan2017-pmc5506843",
+              "reviewEventId": "claude-r4-kagan2017",
+              "scopeId": "methods-statistical-analysis",
+              "supportMode": "derived",
+              "claimFragment": "this internal-standard quantification is read as the analytical process control",
+              "supportNote": "The quantification scheme is explicit; naming it the process control that governs analytical performance is a control-axis classification, not a statement the Methods make."
             }
           ]
         },
@@ -1258,23 +1238,26 @@
             {
               "sourceRecordId": "kagan2017-pmc5506843",
               "reviewEventId": "claude-r4-kagan2017",
-              "scopeId": "results-lcms-identification",
+              "scopeId": "results-lc-ms-ms-identification-of-ferroptotic-signals",
               "supportMode": "explicit",
-              "supportNote": "The identification results use MS2/MS3 and d8-AA tracing."
+              "claimFragment": "structural assignment uses MS2/MS3 fragmentation and stable-isotope d8-arachidonic-acid tracing",
+              "supportNote": "The identification results use MS2/MS3 and d8-AA tracing verbatim."
             },
             {
               "sourceRecordId": "kagan2017-pmc5506843",
               "reviewEventId": "claude-r4-kagan2017",
-              "scopeId": "results-direct-oxygenation",
-              "supportMode": "explicit",
-              "supportNote": "Direct-oxygenation results show convergent genetic and pharmacological suppression."
+              "scopeId": "results-direct-oxygenation-of-pe-generates-ferroptotic-signals",
+              "supportMode": "derived",
+              "claimFragment": "convergent genetic (Acsl4-KO) and pharmacological (rosiglitazone) suppression of the same species tests the conclusion by another principle",
+              "supportNote": "The individual suppressions are explicit; reading them as orthogonal confirmation of one biological conclusion is a derivation."
             },
             {
               "sourceRecordId": "kagan2017-pmc5506843",
               "reviewEventId": "claude-r4-kagan2017",
               "scopeId": "fig-5",
               "supportMode": "explicit",
-              "supportNote": "Fig. 5 shows the convergent readouts."
+              "claimFragment": "the convergent readouts are shown together in Fig. 5",
+              "supportNote": "Fig. 5 shows the convergent readouts side by side."
             }
           ]
         },
@@ -1285,15 +1268,17 @@
             {
               "sourceRecordId": "kagan2017-pmc5506843",
               "reviewEventId": "claude-r4-kagan2017",
-              "scopeId": "methods-cell-lines",
+              "scopeId": "methods-cell-lines-conditions-and-treatments",
               "supportMode": "explicit",
+              "claimFragment": "Acute: RSL3 at 100 nM for 6 hours in cells (MLE at 0",
               "supportNote": "The Methods state RSL3 100 nM for 6 h (MLE 0.5-1.0 uM)."
             },
             {
               "sourceRecordId": "kagan2017-pmc5506843",
               "reviewEventId": "claude-r4-kagan2017",
-              "scopeId": "results-oxygenated-gpx4-kidney",
+              "scopeId": "results-oxygenated-pe-in-gpx4-ko-cells-and-kidney",
               "supportMode": "explicit",
+              "claimFragment": "5-1 (clause 2)",
               "supportNote": "The kidney results state sampling 8 days after inducible Gpx4 knockout."
             }
           ]
@@ -1305,16 +1290,26 @@
             {
               "sourceRecordId": "kagan2017-pmc5506843",
               "reviewEventId": "claude-r4-kagan2017",
-              "scopeId": "methods-live-imaging",
-              "supportMode": "explicit",
-              "supportNote": "The ER localisation is from a separate LiperFluo live-imaging experiment, not the LC-MS."
+              "scopeId": "methods-lc-ms-analysis-of-phospholipids-and-fatty-acids",
+              "supportMode": "analytical-inference",
+              "claimFragment": "the LC-MS measures species from a whole-cell or whole-tissue lipid extract, so it carries no compartment resolution",
+              "supportNote": "The whole-extract LC-MS preparation is explicit; that it therefore resolves no compartment is an analytical inference from the extraction design. The absence of spatial resolution is cited to the extraction/LC-MS scope, not to the imaging scopes."
             },
             {
               "sourceRecordId": "kagan2017-pmc5506843",
               "reviewEventId": "claude-r4-kagan2017",
-              "scopeId": "results-liperfluo-er",
+              "scopeId": "methods-live-cell-imaging",
               "supportMode": "explicit",
-              "supportNote": "The ER-accumulation result is the imaging experiment, distinct from the whole-extract LC-MS."
+              "claimFragment": "the endoplasmic-reticulum localisation came from a separate LiperFluo live-imaging experiment",
+              "supportNote": "The Live Cell Imaging Methods establish the ER localisation through LiperFluo imaging, which is a different experiment from the LC-MS."
+            },
+            {
+              "sourceRecordId": "kagan2017-pmc5506843",
+              "reviewEventId": "claude-r4-kagan2017",
+              "scopeId": "results-lipid-hydroperoxides-accumulate-in-ferroptotic-er",
+              "supportMode": "explicit",
+              "claimFragment": "the ER-accumulation result is the imaging experiment, distinct from the whole-extract LC-MS",
+              "supportNote": "The LiperFluo ER-accumulation result establishes only where the paper obtained its ER localisation; it does not give the LC-MS spatial resolution."
             }
           ]
         },
@@ -1325,23 +1320,26 @@
             {
               "sourceRecordId": "kagan2017-pmc5506843",
               "reviewEventId": "claude-r4-kagan2017",
-              "scopeId": "methods-lcms-free-esterified",
+              "scopeId": "methods-lc-ms-analysis-of-free-and-esterified-fatty-acids",
               "supportMode": "explicit",
+              "claimFragment": "esterified oxidised acyls are read only after release by PAF-acetylhydrolase",
               "supportNote": "The Methods state that esterified oxidised acyls are released by PAF-acetylhydrolase before analysis."
             },
             {
               "sourceRecordId": "kagan2017-pmc5506843",
               "reviewEventId": "claude-r4-kagan2017",
-              "scopeId": "methods-identification-pe-ox",
+              "scopeId": "methods-identification-of-pe-oxygenated-products-in-cell-lysates",
               "supportMode": "explicit",
+              "claimFragment": "detection uses targeted MS inclusion lists that see only the species they are set for",
               "supportNote": "The identification Methods state the use of targeted MS inclusion lists."
             },
             {
               "sourceRecordId": "kagan2017-pmc5506843",
               "reviewEventId": "claude-r4-kagan2017",
-              "scopeId": "methods-identification-pe-ox",
+              "scopeId": "methods-identification-of-pe-oxygenated-products-in-cell-lysates",
               "supportMode": "analytical-inference",
-              "supportNote": "That an undetected species is not evidence of absence follows from the targeted inclusion-list design; it is analytical inference, not a stated limitation. Ex vivo autoxidation / antioxidant handling is not claimed, because the cited Kagan scopes do not state it."
+              "claimFragment": "an undetected species is therefore not evidence of absence",
+              "supportNote": "That an undetected species is not evidence of absence follows from the targeted inclusion-list design; it is analytical inference, not a stated limitation."
             }
           ]
         }
@@ -1352,186 +1350,20 @@
         "id": "nchembio2238-version-of-record",
         "kind": "original-research-demonstration",
         "kindBasis": "The Nature Chemical Biology version of record for Kagan et al. 2017. The paywalled version of record was not opened this round; the NIH author manuscript (PMC5506843) was read instead.",
-        "url": "https://doi.org/10.1038/nchembio.2238",
-        "status": "not-checked",
+        "sourceId": "doi-10-1038-nchembio-2238",
         "reviewEventId": null,
-        "reviewerId": null,
-        "checkedAt": null,
-        "checkedBy": null,
-        "verificationDepth": "not-read",
-        "reviewedScopes": [],
+        "routePurpose": "declared-source-not-opened",
         "boundary": "The version of record was not opened. Its paper-layer reading record is archive-derived and describes the paper, not this module's fields; the fields below come from the author manuscript route."
       },
       {
         "id": "kagan2017-pmc5506843",
         "kind": "original-research-demonstration",
         "kindBasis": "10.1038/nchembio.2238 (Kagan et al. 2017); its Methods, results text and figure captions are read here as a demonstration of this assay.",
-        "corpusPaperId": "doi:10.1038/nchembio.2238",
-        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5506843/",
-        "status": "source-checked",
+        "sourceId": "pmc5506843",
         "reviewEventId": "claude-r4-kagan2017",
-        "reviewerId": "claude-code-round4-implementer",
-        "checkedAt": "2026-07-24",
-        "checkedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)",
-        "verificationDepth": "methods-checked",
-        "sourceVersion": "PMC5506843.1 / NIHMS873824 author manuscript, retrieved 2026-07-24 via NCBI E-utilities efetch",
+        "routePurpose": "primary-source-reading",
         "boundary": "Read as the PMC author manuscript, not the paywalled version of record; rendered figure panels and the supplement were not opened. One study's implementation, not a universal protocol.",
-        "reviewedScopes": [
-          {
-            "id": "methods-redox-lipidomics",
-            "label": "Methods: redox phospholipidomics",
-            "verificationDepth": "methods-checked",
-            "accessSurface": "author-manuscript XML section text",
-            "boundary": "Umbrella label over the granular LC-MS phospholipidomics Methods; section text read, SOPs not opened."
-          },
-          {
-            "id": "methods-cell-lines",
-            "label": "Methods: Cell lines conditions and treatments",
-            "verificationDepth": "methods-checked",
-            "accessSurface": "author-manuscript XML section text",
-            "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
-          },
-          {
-            "id": "methods-gpx4-mice",
-            "label": "Methods: Gpx4 KO mice",
-            "verificationDepth": "methods-checked",
-            "accessSurface": "author-manuscript XML section text",
-            "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
-          },
-          {
-            "id": "methods-identification-pe-ox",
-            "label": "Methods: Identification of PE oxygenated products in cell lysates",
-            "verificationDepth": "methods-checked",
-            "accessSurface": "author-manuscript XML section text",
-            "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
-          },
-          {
-            "id": "methods-lcms-free-esterified",
-            "label": "Methods: LC-MS analysis of free and esterified fatty acids",
-            "verificationDepth": "methods-checked",
-            "accessSurface": "author-manuscript XML section text",
-            "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
-          },
-          {
-            "id": "methods-lcms-phospholipids",
-            "label": "Methods: LC-MS analysis of phospholipids and fatty acids",
-            "verificationDepth": "methods-checked",
-            "accessSurface": "author-manuscript XML section text",
-            "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
-          },
-          {
-            "id": "methods-ms-phospholipids",
-            "label": "Methods: MS and MS/MS analysis of phospholipids",
-            "verificationDepth": "methods-checked",
-            "accessSurface": "author-manuscript XML section text",
-            "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
-          },
-          {
-            "id": "methods-np-column",
-            "label": "Methods: Normal phase column separation of phospholipids",
-            "verificationDepth": "methods-checked",
-            "accessSurface": "author-manuscript XML section text",
-            "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
-          },
-          {
-            "id": "methods-hydroperoxy-pe",
-            "label": "Methods: Preparation of hydroperoxy PE",
-            "verificationDepth": "methods-checked",
-            "accessSurface": "author-manuscript XML section text",
-            "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
-          },
-          {
-            "id": "methods-live-imaging",
-            "label": "Methods: Live Cell Imaging",
-            "verificationDepth": "methods-checked",
-            "accessSurface": "author-manuscript XML section text",
-            "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
-          },
-          {
-            "id": "methods-statistical",
-            "label": "Methods: Statistical Analysis",
-            "verificationDepth": "methods-checked",
-            "accessSurface": "author-manuscript XML section text",
-            "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
-          },
-          {
-            "id": "results-redox-phospholipidomics",
-            "label": "Results: Redox phospholipidomics of ferroptotic signals",
-            "verificationDepth": "methods-checked",
-            "accessSurface": "author-manuscript XML section text",
-            "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
-          },
-          {
-            "id": "results-aa-enhances",
-            "label": "Results: AA enhances ferroptotic response in RSL3-treated cells",
-            "verificationDepth": "methods-checked",
-            "accessSurface": "author-manuscript XML section text",
-            "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
-          },
-          {
-            "id": "results-lcms-identification",
-            "label": "Results: LC-MS/MS identification of ferroptotic signals",
-            "verificationDepth": "methods-checked",
-            "accessSurface": "author-manuscript XML section text",
-            "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
-          },
-          {
-            "id": "results-acsl4",
-            "label": "Results: PE ferroptotic precursors are decreased in Acs4 KO cells",
-            "verificationDepth": "methods-checked",
-            "accessSurface": "author-manuscript XML section text",
-            "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
-          },
-          {
-            "id": "results-direct-oxygenation",
-            "label": "Results: Direct oxygenation of PE generates ferroptotic signals",
-            "verificationDepth": "methods-checked",
-            "accessSurface": "author-manuscript XML section text",
-            "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
-          },
-          {
-            "id": "results-oxygenated-gpx4-kidney",
-            "label": "Results: Oxygenated PE in Gpx4 KO cells and kidney",
-            "verificationDepth": "methods-checked",
-            "accessSurface": "author-manuscript XML section text",
-            "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
-          },
-          {
-            "id": "results-liperfluo-er",
-            "label": "Results: Lipid hydroperoxides accumulate in ferroptotic ER",
-            "verificationDepth": "methods-checked",
-            "accessSurface": "author-manuscript XML section text",
-            "boundary": "Section text read; underlying kit protocols, instrument SOPs and figure panels were not opened."
-          },
-          {
-            "id": "abstract",
-            "label": "abstract",
-            "verificationDepth": "abstract-checked",
-            "accessSurface": "author-manuscript XML abstract",
-            "boundary": "Only the abstract was read at this scope."
-          },
-          {
-            "id": "fig-3",
-            "label": "Fig. 3",
-            "verificationDepth": "figures-legends-checked",
-            "accessSurface": "author-manuscript XML figure caption",
-            "boundary": "Only the caption text was read; rendered figure panels and the supplement were not opened."
-          },
-          {
-            "id": "fig-5",
-            "label": "Fig. 5",
-            "verificationDepth": "figures-legends-checked",
-            "accessSurface": "author-manuscript XML figure caption",
-            "boundary": "Only the caption text was read; rendered figure panels and the supplement were not opened."
-          },
-          {
-            "id": "fig-6",
-            "label": "Fig. 6",
-            "verificationDepth": "figures-legends-checked",
-            "accessSurface": "author-manuscript XML figure caption",
-            "boundary": "Only the caption text was read; rendered figure panels and the supplement were not opened."
-          }
-        ]
+        "corpusPaperId": "doi:10.1038/nchembio.2238"
       }
     ],
     "capabilityAttribution": {
@@ -1691,15 +1523,10 @@
         "id": "epilipidomics-route-0",
         "kind": "field-recommendation",
         "kindBasis": "This repository already publishes this DOI as the 2025 reproducibility recommendation (index.html, evidence-gate section). The document itself was not opened in this round.",
-        "url": "https://doi.org/10.1038/s41580-025-00843-2",
-        "status": "not-checked",
-        "checkedAt": null,
-        "checkedBy": null,
-        "verificationDepth": "not-read",
-        "boundary": "A URL declared as this module's source is not evidence that the document specifies any field below. No reader is recorded against it in this repository.",
+        "sourceId": "field-rec-2025-nrmcb",
         "reviewEventId": null,
-        "reviewerId": null,
-        "reviewedScopes": []
+        "routePurpose": "declared-source-not-opened",
+        "boundary": "A URL declared as this module's source is not evidence that the document specifies any field below. No reader is recorded against it in this repository."
       }
     ],
     "capabilityAttribution": {
@@ -1843,15 +1670,10 @@
         "id": "labile-iron-assays-route-0",
         "kind": "field-recommendation",
         "kindBasis": "This repository already publishes this DOI as the 2025 reproducibility recommendation (index.html, evidence-gate section). The document itself was not opened in this round.",
-        "url": "https://doi.org/10.1038/s41580-025-00843-2",
-        "status": "not-checked",
-        "checkedAt": null,
-        "checkedBy": null,
-        "verificationDepth": "not-read",
-        "boundary": "A URL declared as this module's source is not evidence that the document specifies any field below. No reader is recorded against it in this repository.",
+        "sourceId": "field-rec-2025-nrmcb",
         "reviewEventId": null,
-        "reviewerId": null,
-        "reviewedScopes": []
+        "routePurpose": "declared-source-not-opened",
+        "boundary": "A URL declared as this module's source is not evidence that the document specifies any field below. No reader is recorded against it in this repository."
       }
     ],
     "capabilityAttribution": {
@@ -1993,15 +1815,10 @@
         "id": "genetic-epistasis-route-0",
         "kind": "field-recommendation",
         "kindBasis": "This repository already publishes this DOI as the 2025 reproducibility recommendation (index.html, evidence-gate section). The document itself was not opened in this round.",
-        "url": "https://doi.org/10.1038/s41580-025-00843-2",
-        "status": "not-checked",
-        "checkedAt": null,
-        "checkedBy": null,
-        "verificationDepth": "not-read",
-        "boundary": "A URL declared as this module's source is not evidence that the document specifies any field below. No reader is recorded against it in this repository.",
+        "sourceId": "field-rec-2025-nrmcb",
         "reviewEventId": null,
-        "reviewerId": null,
-        "reviewedScopes": []
+        "routePurpose": "declared-source-not-opened",
+        "boundary": "A URL declared as this module's source is not evidence that the document specifies any field below. No reader is recorded against it in this repository."
       }
     ],
     "capabilityAttribution": {
@@ -2149,15 +1966,10 @@
         "id": "redox-metabolites-route-0",
         "kind": "field-recommendation",
         "kindBasis": "This repository already publishes this DOI as the 2025 reproducibility recommendation (index.html, evidence-gate section). The document itself was not opened in this round.",
-        "url": "https://doi.org/10.1038/s41580-025-00843-2",
-        "status": "not-checked",
-        "checkedAt": null,
-        "checkedBy": null,
-        "verificationDepth": "not-read",
-        "boundary": "A URL declared as this module's source is not evidence that the document specifies any field below. No reader is recorded against it in this repository.",
+        "sourceId": "field-rec-2025-nrmcb",
         "reviewEventId": null,
-        "reviewerId": null,
-        "reviewedScopes": []
+        "routePurpose": "declared-source-not-opened",
+        "boundary": "A URL declared as this module's source is not evidence that the document specifies any field below. No reader is recorded against it in this repository."
       }
     ],
     "capabilityAttribution": {
@@ -2284,15 +2096,10 @@
         "id": "radical-kinetics-route-0",
         "kind": "unclassified-source",
         "kindBasis": "The record behind this URL has not been opened, so whether it is a vendor protocol, a field recommendation or an original research demonstration is not established.",
-        "url": "https://doi.org/10.1016/j.chembiol.2019.09.007",
-        "status": "not-checked",
-        "checkedAt": null,
-        "checkedBy": null,
-        "verificationDepth": "not-read",
-        "boundary": "A URL declared as this module's source is not evidence that the document specifies any field below. No reader is recorded against it in this repository.",
+        "sourceId": "doi-10-1016-j-chembiol-2019-09-007",
         "reviewEventId": null,
-        "reviewerId": null,
-        "reviewedScopes": []
+        "routePurpose": "declared-source-not-opened",
+        "boundary": "A URL declared as this module's source is not evidence that the document specifies any field below. No reader is recorded against it in this repository."
       }
     ],
     "capabilityAttribution": {
@@ -2443,15 +2250,10 @@
         "id": "spatial-live-imaging-route-0",
         "kind": "unclassified-source",
         "kindBasis": "The record behind this URL has not been opened, so whether it is a vendor protocol, a field recommendation or an original research demonstration is not established.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/36747055/",
-        "status": "not-checked",
-        "checkedAt": null,
-        "checkedBy": null,
-        "verificationDepth": "not-read",
-        "boundary": "A URL declared as this module's source is not evidence that the document specifies any field below. No reader is recorded against it in this repository.",
+        "sourceId": "pubmed-36747055",
         "reviewEventId": null,
-        "reviewerId": null,
-        "reviewedScopes": []
+        "routePurpose": "declared-source-not-opened",
+        "boundary": "A URL declared as this module's source is not evidence that the document specifies any field below. No reader is recorded against it in this repository."
       }
     ],
     "capabilityAttribution": {
@@ -2589,16 +2391,11 @@
         "id": "membrane-reconstitution-route-0",
         "kind": "original-research-demonstration",
         "kindBasis": "This DOI is doi:10.1038/s41467-025-58175-w in the paper layer, whose reading record is archive-derived. That record describes the paper, not this module's fields.",
-        "corpusPaperId": "doi:10.1038/s41467-025-58175-w",
-        "url": "https://doi.org/10.1038/s41467-025-58175-w",
-        "status": "not-checked",
-        "checkedAt": null,
-        "checkedBy": null,
-        "verificationDepth": "not-read",
-        "boundary": "A URL declared as this module's source is not evidence that the document specifies any field below. No reader is recorded against it in this repository.",
+        "sourceId": "doi-10-1038-s41467-025-58175-w",
         "reviewEventId": null,
-        "reviewerId": null,
-        "reviewedScopes": []
+        "routePurpose": "declared-source-not-opened",
+        "boundary": "A URL declared as this module's source is not evidence that the document specifies any field below. No reader is recorded against it in this repository.",
+        "corpusPaperId": "doi:10.1038/s41467-025-58175-w"
       }
     ],
     "capabilityAttribution": {
@@ -2738,15 +2535,10 @@
         "id": "conditional-animal-genetics-route-0",
         "kind": "field-recommendation",
         "kindBasis": "This repository already publishes this DOI as the 2025 reproducibility recommendation (index.html, evidence-gate section). The document itself was not opened in this round.",
-        "url": "https://doi.org/10.1038/s41580-025-00843-2",
-        "status": "not-checked",
-        "checkedAt": null,
-        "checkedBy": null,
-        "verificationDepth": "not-read",
-        "boundary": "A URL declared as this module's source is not evidence that the document specifies any field below. No reader is recorded against it in this repository.",
+        "sourceId": "field-rec-2025-nrmcb",
         "reviewEventId": null,
-        "reviewerId": null,
-        "reviewedScopes": []
+        "routePurpose": "declared-source-not-opened",
+        "boundary": "A URL declared as this module's source is not evidence that the document specifies any field below. No reader is recorded against it in this repository."
       }
     ],
     "capabilityAttribution": {
@@ -2886,15 +2678,10 @@
         "id": "human-organoid-perfusion-route-0",
         "kind": "unclassified-source",
         "kindBasis": "The record behind this URL has not been opened, so whether it is a vendor protocol, a field recommendation or an original research demonstration is not established.",
-        "url": "https://doi.org/10.1016/j.cell.2026.04.019",
-        "status": "not-checked",
-        "checkedAt": null,
-        "checkedBy": null,
-        "verificationDepth": "not-read",
-        "boundary": "A URL declared as this module's source is not evidence that the document specifies any field below. No reader is recorded against it in this repository.",
+        "sourceId": "doi-10-1016-j-cell-2026-04-019",
         "reviewEventId": null,
-        "reviewerId": null,
-        "reviewedScopes": []
+        "routePurpose": "declared-source-not-opened",
+        "boundary": "A URL declared as this module's source is not evidence that the document specifies any field below. No reader is recorded against it in this repository."
       }
     ],
     "capabilityAttribution": {
@@ -3031,15 +2818,10 @@
         "id": "electron-microscopy-route-0",
         "kind": "field-recommendation",
         "kindBasis": "This repository already publishes this DOI as the 2025 reproducibility recommendation (index.html, evidence-gate section). The document itself was not opened in this round.",
-        "url": "https://doi.org/10.1038/s41580-025-00843-2",
-        "status": "not-checked",
-        "checkedAt": null,
-        "checkedBy": null,
-        "verificationDepth": "not-read",
-        "boundary": "A URL declared as this module's source is not evidence that the document specifies any field below. No reader is recorded against it in this repository.",
+        "sourceId": "field-rec-2025-nrmcb",
         "reviewEventId": null,
-        "reviewerId": null,
-        "reviewedScopes": []
+        "routePurpose": "declared-source-not-opened",
+        "boundary": "A URL declared as this module's source is not evidence that the document specifies any field below. No reader is recorded against it in this repository."
       }
     ],
     "capabilityAttribution": {
