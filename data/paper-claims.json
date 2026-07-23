@@ -1,592 +1,1048 @@
 {
   "schemaVersion": "1.0.0",
-  "checkedAt": "2026-07-23",
-  "note": "Typed claims read out of the audited figure chain in papers-en.json. Every claim names the figure it came from, keeps its condition vector attached, and is limited to what that figure was recorded as showing. No claim is generated from shared keywords, and no claim is promoted to a universal statement about ferroptosis.",
+  "checkedAt": "2026-07-24",
+  "note": "Claims carry no bare check date. A claim is promoted out of archive-derived only by naming a scope entry that a reviewer recorded against that paper in papers-en.json; everything else stays at the paper's baseline state however recently the file was touched.",
   "verificationDepth": "archive-derived",
   "contexts": [
-    { "id": "ctx-inherited-neurodegeneration", "label": "Inherited GPX4 hypofunction and neurodegeneration", "scale": "patient, iPSC neuron, organoid and conditional mouse" },
-    { "id": "ctx-cancer-cell-state", "label": "Cancer cell state and therapy tolerance", "scale": "cultured carcinoma lines, xenograft and persister populations" },
-    { "id": "ctx-kidney-ischaemia-reperfusion", "label": "Kidney ischaemia-reperfusion injury", "scale": "mouse in vivo and freshly isolated tubules" },
-    { "id": "ctx-organ-transplantation", "label": "Organ preservation and transplantation", "scale": "porcine ex situ perfusion, declined human lungs and recipient plasma" },
-    { "id": "ctx-warfarin-overdose", "label": "Warfarin overdose and vitamin K reduction", "scale": "mouse pharmacology" },
-    { "id": "ctx-tissue-propagation", "label": "Propagation of death through a contacting cell population", "scale": "cultured monolayer and reconstituted bilayers" }
+    {
+      "id": "ctx-inherited-neurodegeneration",
+      "label": "Inherited GPX4 hypofunction and neurodegeneration",
+      "scale": "patient, iPSC neuron, organoid and conditional mouse"
+    },
+    {
+      "id": "ctx-cancer-cell-state",
+      "label": "Cancer cell state and therapy tolerance",
+      "scale": "cultured carcinoma lines, xenograft and persister populations"
+    },
+    {
+      "id": "ctx-kidney-ischaemia-reperfusion",
+      "label": "Kidney ischaemia-reperfusion injury",
+      "scale": "mouse in vivo and freshly isolated tubules"
+    },
+    {
+      "id": "ctx-organ-transplantation",
+      "label": "Organ preservation and transplantation",
+      "scale": "porcine ex situ perfusion, declined human lungs and recipient plasma"
+    },
+    {
+      "id": "ctx-warfarin-overdose",
+      "label": "Warfarin overdose and vitamin K reduction",
+      "scale": "mouse pharmacology"
+    },
+    {
+      "id": "ctx-tissue-propagation",
+      "label": "Propagation of death through a contacting cell population",
+      "scale": "cultured monolayer and reconstituted bilayers"
+    }
   ],
   "perturbations": [
-    { "id": "pert-rsl3", "label": "RSL3", "kind": "covalent GPX4 inhibitor" },
-    { "id": "pert-ml210", "label": "ML210", "kind": "covalent GPX4 inhibitor" },
-    { "id": "pert-erastin", "label": "Erastin", "kind": "system xc- inhibitor" },
-    { "id": "pert-fin56", "label": "FIN56", "kind": "GPX4-depleting inducer" },
-    { "id": "pert-fino2", "label": "FINO2", "kind": "iron-oxidising endoperoxide" },
-    { "id": "pert-bso", "label": "Buthionine sulfoximine", "kind": "glutathione synthesis inhibitor" },
-    { "id": "pert-liproxstatin-1", "label": "Liproxstatin-1", "kind": "radical-trapping antioxidant" },
-    { "id": "pert-ferrostatin-1", "label": "Ferrostatin-1", "kind": "radical-trapping antioxidant" },
-    { "id": "pert-ifsp1", "label": "iFSP1", "kind": "FSP1 inhibitor" },
-    { "id": "pert-fentomycin-1", "label": "Fentomycin-1", "kind": "designed activator of lysosomal iron" },
-    { "id": "pert-fxt-001", "label": "FXT-001", "kind": "membrane radical trap with iron binding" },
-    { "id": "pert-brequinar", "label": "Brequinar", "kind": "DHODH inhibitor, disputed selectivity" },
-    { "id": "pert-warfarin", "label": "Warfarin", "kind": "vitamin K epoxide reductase inhibitor" },
-    { "id": "pert-vitamin-k", "label": "Vitamin K forms", "kind": "supranutritional supplementation" },
-    { "id": "pert-gpx4-deletion", "label": "Conditional or complete GPX4 deletion", "kind": "genetic perturbation" },
-    { "id": "pert-optogenetic-gpx4-degradation", "label": "Light-driven GPX4 degradation in a chosen cell", "kind": "optogenetic perturbation" },
-    { "id": "pert-hydroxyoestradiol", "label": "Hydroxyoestradiol derivatives", "kind": "endogenous radical trap" },
-    { "id": "pert-pufa-loading", "label": "Exogenous polyunsaturated fatty-acid loading", "kind": "substrate supplementation" }
+    {
+      "id": "pert-rsl3",
+      "label": "RSL3",
+      "kind": "covalent GPX4 inhibitor"
+    },
+    {
+      "id": "pert-ml210",
+      "label": "ML210",
+      "kind": "covalent GPX4 inhibitor"
+    },
+    {
+      "id": "pert-erastin",
+      "label": "Erastin",
+      "kind": "system xc- inhibitor"
+    },
+    {
+      "id": "pert-fin56",
+      "label": "FIN56",
+      "kind": "GPX4-depleting inducer"
+    },
+    {
+      "id": "pert-fino2",
+      "label": "FINO2",
+      "kind": "iron-oxidising endoperoxide"
+    },
+    {
+      "id": "pert-bso",
+      "label": "Buthionine sulfoximine",
+      "kind": "glutathione synthesis inhibitor"
+    },
+    {
+      "id": "pert-liproxstatin-1",
+      "label": "Liproxstatin-1",
+      "kind": "radical-trapping antioxidant"
+    },
+    {
+      "id": "pert-ferrostatin-1",
+      "label": "Ferrostatin-1",
+      "kind": "radical-trapping antioxidant"
+    },
+    {
+      "id": "pert-ifsp1",
+      "label": "iFSP1",
+      "kind": "FSP1 inhibitor"
+    },
+    {
+      "id": "pert-fentomycin-1",
+      "label": "Fentomycin-1",
+      "kind": "designed activator of lysosomal iron"
+    },
+    {
+      "id": "pert-fxt-001",
+      "label": "FXT-001",
+      "kind": "membrane radical trap with iron binding"
+    },
+    {
+      "id": "pert-brequinar",
+      "label": "Brequinar",
+      "kind": "DHODH inhibitor, disputed selectivity"
+    },
+    {
+      "id": "pert-warfarin",
+      "label": "Warfarin",
+      "kind": "vitamin K epoxide reductase inhibitor"
+    },
+    {
+      "id": "pert-vitamin-k",
+      "label": "Vitamin K forms",
+      "kind": "supranutritional supplementation"
+    },
+    {
+      "id": "pert-gpx4-deletion",
+      "label": "Conditional or complete GPX4 deletion",
+      "kind": "genetic perturbation"
+    },
+    {
+      "id": "pert-optogenetic-gpx4-degradation",
+      "label": "Light-driven GPX4 degradation in a chosen cell",
+      "kind": "optogenetic perturbation"
+    },
+    {
+      "id": "pert-hydroxyoestradiol",
+      "label": "Hydroxyoestradiol derivatives",
+      "kind": "endogenous radical trap"
+    },
+    {
+      "id": "pert-pufa-loading",
+      "label": "Exogenous polyunsaturated fatty-acid loading",
+      "kind": "substrate supplementation"
+    }
   ],
   "claims": [
     {
       "id": "claim-gpx4-finloop-membrane",
       "paperId": "doi:10.1016/j.cell.2025.11.014",
       "relation": "SUPPORTS_IN_CONTEXT",
-      "object": { "type": "mechanism", "id": "gpx4-gsh" },
+      "object": {
+        "type": "mechanism",
+        "id": "gpx4-gsh"
+      },
       "figure": "Fig. 3",
       "claimScope": "Membrane access, not catalytic rate, is the property lost in the R152H variant: the double-serine mutant keeps its fold and purified activity yet cannot rescue GPX4-null cells.",
-      "conditionVector": { "model": "GPX4-null human cells, bicelles and phosphatidylserine giant vesicles", "perturbation": "I129S and L130S substitutions, R152K", "readout": "membrane binding, fractionation, TIRF and survival", "compartment": "membrane surface", "timeWindow": "acute rescue assay" },
+      "conditionVector": {
+        "model": "GPX4-null human cells, bicelles and phosphatidylserine giant vesicles",
+        "perturbation": "I129S and L130S substitutions, R152K",
+        "readout": "membrane binding, fractionation, TIRF and survival",
+        "compartment": "membrane surface",
+        "timeWindow": "acute rescue assay"
+      },
       "confidence": "supported-with-orthogonal-confirmation",
       "confidenceBasis": "Structural, biophysical and cellular rescue readouts agree, and a separation-of-function mutant dissociates catalysis from rescue.",
-      "sourceUrl": "https://doi.org/10.1016/j.cell.2025.11.014",
-      "checkedAt": "2026-07-23"
+      "sourceUrl": "https://doi.org/10.1016/j.cell.2025.11.014"
     },
     {
       "id": "claim-gpx4-finloop-neuro",
       "paperId": "doi:10.1016/j.cell.2025.11.014",
       "relation": "TESTS_IN",
-      "object": { "type": "disease_context", "id": "ctx-inherited-neurodegeneration" },
+      "object": {
+        "type": "disease_context",
+        "id": "ctx-inherited-neurodegeneration"
+      },
       "figure": "Fig. 4",
       "claimScope": "Neuronal GPX4 loss or R152H hypofunction produces cortical and cerebellar degeneration in mice, with plasma neurofilament light as the biomarker that liproxstatin-1 lowers.",
-      "conditionVector": { "model": "inducible Camk2a and L7Cre mice", "perturbation": "conditional Gpx4 deletion, ten-day liproxstatin-1", "readout": "serial MRI, Nissl, TUNEL, plasma neurofilament light", "compartment": "brain", "timeWindow": "days to weeks" },
+      "conditionVector": {
+        "model": "inducible Camk2a and L7Cre mice",
+        "perturbation": "conditional Gpx4 deletion, ten-day liproxstatin-1",
+        "readout": "serial MRI, Nissl, TUNEL, plasma neurofilament light",
+        "compartment": "brain",
+        "timeWindow": "days to weeks"
+      },
       "confidence": "supported-in-model",
       "confidenceBasis": "Two neuron-specific genetic models agree, but the rescue is a short-term biomarker readout without recovery of volume, behaviour or survival.",
-      "sourceUrl": "https://doi.org/10.1016/j.cell.2025.11.014",
-      "checkedAt": "2026-07-23"
+      "sourceUrl": "https://doi.org/10.1016/j.cell.2025.11.014"
     },
     {
       "id": "claim-gpx4-finloop-methods",
       "paperId": "doi:10.1016/j.cell.2025.11.014",
       "relation": "USES_METHOD",
-      "object": { "type": "method", "id": "membrane-reconstitution" },
+      "object": {
+        "type": "method",
+        "id": "membrane-reconstitution"
+      },
       "figure": "Fig. 3",
       "claimScope": "Bicelle NMR and giant-vesicle binding are used to place the fin-loop at the membrane interface in a defined-lipid system.",
-      "conditionVector": { "model": "bicelles and giant unilamellar vesicles", "perturbation": "point substitutions", "readout": "NMR chemical shift and vesicle binding", "compartment": "reconstituted bilayer", "timeWindow": "equilibrium binding" },
+      "conditionVector": {
+        "model": "bicelles and giant unilamellar vesicles",
+        "perturbation": "point substitutions",
+        "readout": "NMR chemical shift and vesicle binding",
+        "compartment": "reconstituted bilayer",
+        "timeWindow": "equilibrium binding"
+      },
       "confidence": "supported-in-model",
       "confidenceBasis": "Reconstituted lipid composition is simpler than a neuronal membrane, so binding is measured rather than residence time in situ.",
-      "sourceUrl": "https://doi.org/10.1016/j.cell.2025.11.014",
-      "checkedAt": "2026-07-23"
+      "sourceUrl": "https://doi.org/10.1016/j.cell.2025.11.014"
     },
     {
       "id": "claim-gpx4-finloop-genetics",
       "paperId": "doi:10.1016/j.cell.2025.11.014",
       "relation": "USES_METHOD",
-      "object": { "type": "method", "id": "conditional-animal-genetics" },
+      "object": {
+        "type": "method",
+        "id": "conditional-animal-genetics"
+      },
       "figure": "Fig. 4",
       "claimScope": "Inducible neuron-restricted deletion is the causal control that connects the variant to degeneration in a mature brain.",
-      "conditionVector": { "model": "Camk2a and L7Cre conditional mice", "perturbation": "tamoxifen-inducible Gpx4 deletion", "readout": "imaging, histology and biomarker", "compartment": "cortex and cerebellum", "timeWindow": "days to weeks" },
+      "conditionVector": {
+        "model": "Camk2a and L7Cre conditional mice",
+        "perturbation": "tamoxifen-inducible Gpx4 deletion",
+        "readout": "imaging, histology and biomarker",
+        "compartment": "cortex and cerebellum",
+        "timeWindow": "days to weeks"
+      },
       "confidence": "supported-in-model",
       "confidenceBasis": "Conditional deletion is a strong genetic stress and is not equivalent to the hypomorphic patient allele.",
-      "sourceUrl": "https://doi.org/10.1016/j.cell.2025.11.014",
-      "checkedAt": "2026-07-23"
+      "sourceUrl": "https://doi.org/10.1016/j.cell.2025.11.014"
     },
     {
       "id": "claim-gpx4-finloop-perturbation",
       "paperId": "doi:10.1016/j.cell.2025.11.014",
       "relation": "USES_PERTURBATION",
-      "object": { "type": "compound_or_perturbation", "id": "pert-liproxstatin-1" },
+      "object": {
+        "type": "compound_or_perturbation",
+        "id": "pert-liproxstatin-1"
+      },
       "figure": "Fig. 1",
       "claimScope": "Ferroptosis is unmasked by liproxstatin-1 withdrawal rather than by an added inducer, which is why the model reports a maintained dependence rather than an induced death.",
-      "conditionVector": { "model": "patient iPSC neurons and forebrain organoids", "perturbation": "liproxstatin-1 withdrawal and re-supply", "readout": "live-cell death imaging and organoid degeneration", "compartment": "whole cell", "timeWindow": "days" },
+      "conditionVector": {
+        "model": "patient iPSC neurons and forebrain organoids",
+        "perturbation": "liproxstatin-1 withdrawal and re-supply",
+        "readout": "live-cell death imaging and organoid degeneration",
+        "compartment": "whole cell",
+        "timeWindow": "days"
+      },
       "confidence": "supported-in-model",
       "confidenceBasis": "Early organoid culture depended on antioxidant support, so the baseline is a rescued state rather than an untreated one.",
-      "sourceUrl": "https://doi.org/10.1016/j.cell.2025.11.014",
-      "checkedAt": "2026-07-23"
+      "sourceUrl": "https://doi.org/10.1016/j.cell.2025.11.014"
     },
-
     {
       "id": "claim-por-peroxidation-step",
       "paperId": "doi:10.1038/s41589-020-0472-6",
       "relation": "SUPPORTS_IN_CONTEXT",
-      "object": { "type": "mechanism", "id": "lipid-peroxidation" },
+      "object": {
+        "type": "mechanism",
+        "id": "lipid-peroxidation"
+      },
       "figure": "Fig. 5",
-      "claimScope": "POR acts at the peroxidation step rather than at substrate supply: the global lipidome is largely unchanged while oxidised arachidonoyl and adrenoyl phosphatidylethanolamines fall.",
-      "conditionVector": { "model": "786-O and UACC-257 carcinoma lines", "perturbation": "POR knockout with add-back", "readout": "lipidomics, C11-BODIPY, malondialdehyde and targeted LC-MS", "compartment": "whole-cell membranes", "timeWindow": "acute dose-response" },
+      "claimScope": "POR acts at the peroxidation step rather than at substrate supply: the global lipidome is essentially unchanged while four separate oxidation readouts fall together - BODIPY-C11 by flow cytometry, BODIPY-C11 by imaging, malondialdehyde, and species-resolved hydroperoxy- and hydroxy-PUFA-phosphatidylethanolamine.",
+      "conditionVector": {
+        "model": "786-O and UACC-257 carcinoma lines",
+        "perturbation": "POR knockout with add-back",
+        "readout": "lipidomics, C11-BODIPY, malondialdehyde and targeted LC-MS",
+        "compartment": "whole-cell membranes",
+        "timeWindow": "acute dose-response"
+      },
       "confidence": "supported-with-orthogonal-confirmation",
-      "confidenceBasis": "Three independent oxidation readouts move together while the substrate pool does not, but no direct electron acceptor is identified.",
+      "confidenceBasis": "Four independent oxidation readouts move together while the substrate pool does not. Cytosolic reactive oxygen species measured in parallel with H2-DCFDA were only modestly altered, and no direct electron acceptor is identified.",
       "sourceUrl": "https://doi.org/10.1038/s41589-020-0472-6",
-      "checkedAt": "2026-07-23"
+      "review": {
+        "scopeRef": "Fig. 5"
+      }
     },
     {
       "id": "claim-por-cannot-distinguish",
       "paperId": "doi:10.1038/s41589-020-0472-6",
       "relation": "CANNOT_DISTINGUISH",
-      "object": { "type": "mechanism", "id": "lipid-peroxidation" },
+      "object": {
+        "type": "mechanism",
+        "id": "lipid-peroxidation"
+      },
       "figure": "Fig. 3",
       "claimScope": "The data cannot separate a direct enzymatic role for POR from a global shift in cellular redox state; the double knockout only delays death rather than abolishing it.",
-      "conditionVector": { "model": "GPX4-deleted cells", "perturbation": "combined GPX4 and POR deletion", "readout": "death kinetics after ferrostatin-1 withdrawal", "compartment": "whole cell", "timeWindow": "acute" },
+      "conditionVector": {
+        "model": "GPX4-deleted cells",
+        "perturbation": "combined GPX4 and POR deletion",
+        "readout": "death kinetics after ferrostatin-1 withdrawal",
+        "compartment": "whole cell",
+        "timeWindow": "acute"
+      },
       "confidence": "single-assay",
       "confidenceBasis": "Two drug-processing explanations are excluded, but the positive mechanism is not resolved.",
       "sourceUrl": "https://doi.org/10.1038/s41589-020-0472-6",
-      "checkedAt": "2026-07-23"
+      "review": {
+        "scopeRef": "Fig. 3"
+      }
     },
     {
       "id": "claim-por-methods",
       "paperId": "doi:10.1038/s41589-020-0472-6",
       "relation": "USES_METHOD",
-      "object": { "type": "method", "id": "oxidized-pl-lcms" },
+      "object": {
+        "type": "method",
+        "id": "oxidized-pl-lcms"
+      },
       "figure": "Fig. 5",
       "claimScope": "Targeted LC-MS of oxidised phosphatidylethanolamines is what places POR downstream of substrate supply.",
-      "conditionVector": { "model": "POR-null versus wild-type cells", "perturbation": "genetic deletion", "readout": "oxidised PE species", "compartment": "membrane lipids", "timeWindow": "acute" },
+      "conditionVector": {
+        "model": "POR-null versus wild-type cells",
+        "perturbation": "genetic deletion",
+        "readout": "oxidised PE species",
+        "compartment": "membrane lipids",
+        "timeWindow": "acute"
+      },
       "confidence": "supported-in-model",
       "confidenceBasis": "Failure to detect oxidised phosphatidylcholine is method- and model-limited, so absence is not evidence of absence.",
       "sourceUrl": "https://doi.org/10.1038/s41589-020-0472-6",
-      "checkedAt": "2026-07-23"
+      "review": {
+        "scopeRef": "Fig. 5"
+      }
     },
     {
       "id": "claim-por-screen",
       "paperId": "doi:10.1038/s41589-020-0472-6",
       "relation": "USES_METHOD",
-      "object": { "type": "method", "id": "genetic-epistasis" },
+      "object": {
+        "type": "method",
+        "id": "genetic-epistasis"
+      },
       "figure": "Fig. 1",
       "claimScope": "Genome-wide CRISPR suppressor screening across two sensitisation states is the unbiased basis for naming POR at all.",
-      "conditionVector": { "model": "786-O and PUFA-supplemented UACC-257", "perturbation": "genome-wide knockout with ML210 and RSL3", "readout": "enrichment of resistance hits", "compartment": "whole cell", "timeWindow": "screen window" },
+      "conditionVector": {
+        "model": "786-O and PUFA-supplemented UACC-257",
+        "perturbation": "genome-wide knockout with ML210 and RSL3",
+        "readout": "enrichment of resistance hits",
+        "compartment": "whole cell",
+        "timeWindow": "screen window"
+      },
       "confidence": "supported-with-orthogonal-confirmation",
       "confidenceBasis": "Calibrated against the known ACSL4 hit and reproduced across guides, clones and lineages.",
       "sourceUrl": "https://doi.org/10.1038/s41589-020-0472-6",
-      "checkedAt": "2026-07-23"
+      "review": {
+        "scopeRef": "Fig. 1"
+      }
     },
     {
       "id": "claim-por-perturbation",
       "paperId": "doi:10.1038/s41589-020-0472-6",
       "relation": "USES_PERTURBATION",
-      "object": { "type": "compound_or_perturbation", "id": "pert-pufa-loading" },
+      "object": {
+        "type": "compound_or_perturbation",
+        "id": "pert-pufa-loading"
+      },
       "figure": "Fig. 1",
       "claimScope": "One arm of the screen depends on exogenous fatty-acid loading, which is a sensitised state rather than a physiological lipid exposure.",
-      "conditionVector": { "model": "UACC-257", "perturbation": "supplementation with six polyunsaturated fatty acids", "readout": "sensitisation to GPX4 inhibition", "compartment": "membrane lipids", "timeWindow": "hours" },
+      "conditionVector": {
+        "model": "UACC-257",
+        "perturbation": "supplementation with six polyunsaturated fatty acids",
+        "readout": "sensitisation to GPX4 inhibition",
+        "compartment": "membrane lipids",
+        "timeWindow": "hours"
+      },
       "confidence": "supported-in-model",
       "confidenceBasis": "Oleic acid does not sensitise in the same way, which supports specificity but not physiological relevance.",
       "sourceUrl": "https://doi.org/10.1038/s41589-020-0472-6",
-      "checkedAt": "2026-07-23"
+      "review": {
+        "scopeRef": "Fig. 1"
+      }
     },
-
     {
       "id": "claim-ether-lipid-substrate",
       "paperId": "doi:10.1038/s41586-020-2732-8",
       "relation": "SUPPORTS_IN_CONTEXT",
-      "object": { "type": "mechanism", "id": "pufa-remodelling" },
+      "object": {
+        "type": "mechanism",
+        "id": "pufa-remodelling"
+      },
       "figure": "Fig. 2",
       "claimScope": "Peroxisomal ether-lipid synthesis sets the polyunsaturated substrate pool that ferroptosis draws on; rescue converges on the sn-2 polyunsaturated chain rather than the ether bond.",
-      "conditionVector": { "model": "OVCAR-8 and 786-O", "perturbation": "PEX, FAR1, AGPS or AGPAT3 loss with add-back", "readout": "ether-phospholipid lipidomics and sensitivity", "compartment": "peroxisome to membrane", "timeWindow": "days" },
+      "conditionVector": {
+        "model": "OVCAR-8 and 786-O",
+        "perturbation": "PEX, FAR1, AGPS or AGPAT3 loss with add-back",
+        "readout": "ether-phospholipid lipidomics and sensitivity",
+        "compartment": "peroxisome to membrane",
+        "timeWindow": "days"
+      },
       "confidence": "supported-with-orthogonal-confirmation",
       "confidenceBasis": "Convergent hits across two screens with genetic add-back, though no oxidised ether-lipid species is shown to carry the lethal oxidation.",
-      "sourceUrl": "https://doi.org/10.1038/s41586-020-2732-8",
-      "checkedAt": "2026-07-23"
+      "sourceUrl": "https://doi.org/10.1038/s41586-020-2732-8"
     },
     {
       "id": "claim-ether-lipid-resistance",
       "paperId": "doi:10.1038/s41586-020-2732-8",
       "relation": "TESTS_IN",
-      "object": { "type": "disease_context", "id": "ctx-cancer-cell-state" },
+      "object": {
+        "type": "disease_context",
+        "id": "ctx-cancer-cell-state"
+      },
       "figure": "Fig. 3",
       "claimScope": "Xenografts that recur after GPX4 loss stay GPX4-null and instead lower ether lipids, AGPS and TMEM189, so resistance runs through lipid remodelling.",
-      "conditionVector": { "model": "engineered GPX4-null xenografts in mice", "perturbation": "combined GPX4 and ether-lipid pathway disruption", "readout": "tumour growth, GPX4 status and lipid content", "compartment": "tumour", "timeWindow": "weeks" },
+      "conditionVector": {
+        "model": "engineered GPX4-null xenografts in mice",
+        "perturbation": "combined GPX4 and ether-lipid pathway disruption",
+        "readout": "tumour growth, GPX4 status and lipid content",
+        "compartment": "tumour",
+        "timeWindow": "weeks"
+      },
       "confidence": "supported-in-model",
       "confidenceBasis": "A heavily selected engineered system; it does not show that patient tumours adapt this way to clinical GPX4 inhibitors.",
-      "sourceUrl": "https://doi.org/10.1038/s41586-020-2732-8",
-      "checkedAt": "2026-07-23"
+      "sourceUrl": "https://doi.org/10.1038/s41586-020-2732-8"
     },
     {
       "id": "claim-ether-lipid-methods",
       "paperId": "doi:10.1038/s41586-020-2732-8",
       "relation": "USES_METHOD",
-      "object": { "type": "method", "id": "epilipidomics" },
+      "object": {
+        "type": "method",
+        "id": "epilipidomics"
+      },
       "figure": "Fig. 2",
       "claimScope": "Lipidomic quantification of ether phospholipids is the measurement that distinguishes a substrate change from a defence change.",
-      "conditionVector": { "model": "carcinoma lines and differentiated cells", "perturbation": "pathway gene loss", "readout": "ether-phospholipid class abundance", "compartment": "membrane lipids", "timeWindow": "days" },
+      "conditionVector": {
+        "model": "carcinoma lines and differentiated cells",
+        "perturbation": "pathway gene loss",
+        "readout": "ether-phospholipid class abundance",
+        "compartment": "membrane lipids",
+        "timeWindow": "days"
+      },
       "confidence": "supported-in-model",
       "confidenceBasis": "Class-level abundance is measured; species-level oxidation in situ is not.",
-      "sourceUrl": "https://doi.org/10.1038/s41586-020-2732-8",
-      "checkedAt": "2026-07-23"
+      "sourceUrl": "https://doi.org/10.1038/s41586-020-2732-8"
     },
-
     {
       "id": "claim-fsp1-parallel-defence",
       "paperId": "doi:10.1038/s41586-019-1707-0",
       "relation": "SUPPORTS_IN_CONTEXT",
-      "object": { "type": "mechanism", "id": "fsp1-coq" },
+      "object": {
+        "type": "mechanism",
+        "id": "fsp1-coq"
+      },
       "figure": "Fig. 3",
       "claimScope": "FSP1 suppresses ferroptosis in parallel with GPX4 by regenerating the radical-trapping form of coenzyme Q, and the effect requires myristoylation-dependent membrane localisation.",
-      "conditionVector": { "model": "human cancer lines with GPX4 deleted or inhibited", "perturbation": "expression cloning, FSP1 loss and membrane-targeting mutants", "readout": "survival, lipid-radical probes and NAD(P)H consumption", "compartment": "membrane", "timeWindow": "acute" },
+      "conditionVector": {
+        "model": "human cancer lines with GPX4 deleted or inhibited",
+        "perturbation": "expression cloning, FSP1 loss and membrane-targeting mutants",
+        "readout": "survival, lipid-radical probes and NAD(P)H consumption",
+        "compartment": "membrane",
+        "timeWindow": "acute"
+      },
       "confidence": "supported-with-orthogonal-confirmation",
       "confidenceBasis": "Cellular genetics and purified-protein liposome assays agree on the same requirement.",
-      "sourceUrl": "https://doi.org/10.1038/s41586-019-1707-0",
-      "checkedAt": "2026-07-23"
+      "sourceUrl": "https://doi.org/10.1038/s41586-019-1707-0"
     },
     {
       "id": "claim-fsp1-gpx4-parallel",
       "paperId": "doi:10.1038/s41586-019-1707-0",
       "relation": "SUPPORTS_IN_CONTEXT",
-      "object": { "type": "mechanism", "id": "gpx4-gsh" },
+      "object": {
+        "type": "mechanism",
+        "id": "gpx4-gsh"
+      },
       "figure": "Fig. 1",
       "claimScope": "The defence operates without glutathione, which places it beside rather than downstream of the GPX4 axis in these cells.",
-      "conditionVector": { "model": "GPX4-null cancer lines", "perturbation": "expression cloning of AIFM2", "readout": "survival under GPX4 loss", "compartment": "whole cell", "timeWindow": "acute" },
+      "conditionVector": {
+        "model": "GPX4-null cancer lines",
+        "perturbation": "expression cloning of AIFM2",
+        "readout": "survival under GPX4 loss",
+        "compartment": "whole cell",
+        "timeWindow": "acute"
+      },
       "confidence": "supported-in-model",
       "confidenceBasis": "Parallelism is established in cultured cells under acute GPX4 loss, not across tissues.",
-      "sourceUrl": "https://doi.org/10.1038/s41586-019-1707-0",
-      "checkedAt": "2026-07-23"
+      "sourceUrl": "https://doi.org/10.1038/s41586-019-1707-0"
     },
     {
       "id": "claim-fsp1-methods",
       "paperId": "doi:10.1038/s41586-019-1707-0",
       "relation": "USES_METHOD",
-      "object": { "type": "method", "id": "radical-kinetics" },
+      "object": {
+        "type": "method",
+        "id": "radical-kinetics"
+      },
       "figure": "Fig. 4",
       "claimScope": "Purified protein and liposome co-oxidation kinetics are what turn a genetic association into a chemical mechanism.",
-      "conditionVector": { "model": "liposome co-oxidation", "perturbation": "recombinant FSP1 and coenzyme Q", "readout": "radical-trapping kinetics", "compartment": "reconstituted bilayer", "timeWindow": "seconds to minutes" },
+      "conditionVector": {
+        "model": "liposome co-oxidation",
+        "perturbation": "recombinant FSP1 and coenzyme Q",
+        "readout": "radical-trapping kinetics",
+        "compartment": "reconstituted bilayer",
+        "timeWindow": "seconds to minutes"
+      },
       "confidence": "supported-with-orthogonal-confirmation",
       "confidenceBasis": "A defined chemical system supports the proposed reaction independently of cellular context.",
-      "sourceUrl": "https://doi.org/10.1038/s41586-019-1707-0",
-      "checkedAt": "2026-07-23"
+      "sourceUrl": "https://doi.org/10.1038/s41586-019-1707-0"
     },
-
     {
       "id": "claim-vitk-fsp1",
       "paperId": "doi:10.1038/s41586-022-05022-3",
       "relation": "SUPPORTS_IN_CONTEXT",
-      "object": { "type": "mechanism", "id": "fsp1-coq" },
+      "object": {
+        "type": "mechanism",
+        "id": "fsp1-coq"
+      },
       "figure": "Fig. 1",
       "claimScope": "FSP1 reduces vitamin K to a hydroquinone that traps radicals in membranes, adding a second reducible substrate to the same enzyme.",
-      "conditionVector": { "model": "cells with GPX4 deleted or inhibited and FENIX liposomes", "perturbation": "recombinant FSP1 with vitamin K forms, iFSP1, G2A mutant", "readout": "death, oxidised PE and liposome kinetics", "compartment": "membrane", "timeWindow": "acute" },
+      "conditionVector": {
+        "model": "cells with GPX4 deleted or inhibited and FENIX liposomes",
+        "perturbation": "recombinant FSP1 with vitamin K forms, iFSP1, G2A mutant",
+        "readout": "death, oxidised PE and liposome kinetics",
+        "compartment": "membrane",
+        "timeWindow": "acute"
+      },
       "confidence": "supported-with-orthogonal-confirmation",
       "confidenceBasis": "Chemistry, cellular genetics and a membrane-defective mutant agree.",
-      "sourceUrl": "https://doi.org/10.1038/s41586-022-05022-3",
-      "checkedAt": "2026-07-23"
+      "sourceUrl": "https://doi.org/10.1038/s41586-022-05022-3"
     },
     {
       "id": "claim-vitk-warfarin",
       "paperId": "doi:10.1038/s41586-022-05022-3",
       "relation": "TESTS_IN",
-      "object": { "type": "disease_context", "id": "ctx-warfarin-overdose" },
+      "object": {
+        "type": "disease_context",
+        "id": "ctx-warfarin-overdose"
+      },
       "figure": "Fig. 4",
       "claimScope": "Fsp1-null mice cannot be rescued from warfarin overdose by high-dose vitamin K, which identifies the warfarin-resistant reducing activity.",
-      "conditionVector": { "model": "Fsp1-null mice", "perturbation": "warfarin overdose with supranutritional vitamin K", "readout": "clotting parameters and survival", "compartment": "liver", "timeWindow": "acute pharmacology" },
+      "conditionVector": {
+        "model": "Fsp1-null mice",
+        "perturbation": "warfarin overdose with supranutritional vitamin K",
+        "readout": "clotting parameters and survival",
+        "compartment": "liver",
+        "timeWindow": "acute pharmacology"
+      },
       "confidence": "supported-in-model",
       "confidenceBasis": "Supranutritional dosing given before injury; this is pharmacology, not a dietary claim.",
-      "sourceUrl": "https://doi.org/10.1038/s41586-022-05022-3",
-      "checkedAt": "2026-07-23"
+      "sourceUrl": "https://doi.org/10.1038/s41586-022-05022-3"
     },
     {
       "id": "claim-vitk-perturbation",
       "paperId": "doi:10.1038/s41586-022-05022-3",
       "relation": "USES_PERTURBATION",
-      "object": { "type": "compound_or_perturbation", "id": "pert-vitamin-k" },
+      "object": {
+        "type": "compound_or_perturbation",
+        "id": "pert-vitamin-k"
+      },
       "figure": "Fig. 3",
       "claimScope": "Vitamin K is supplied at nutritional excess, so protection is measured under supplementation rather than at endogenous concentrations.",
-      "conditionVector": { "model": "hepatocyte-specific Gpx4 knockout mice and ischaemia-reperfusion", "perturbation": "vitamin K forms before injury", "readout": "organ injury markers", "compartment": "liver and kidney", "timeWindow": "hours" },
+      "conditionVector": {
+        "model": "hepatocyte-specific Gpx4 knockout mice and ischaemia-reperfusion",
+        "perturbation": "vitamin K forms before injury",
+        "readout": "organ injury markers",
+        "compartment": "liver and kidney",
+        "timeWindow": "hours"
+      },
       "confidence": "supported-in-model",
       "confidenceBasis": "The in vivo anti-ferroptotic arm was not tested on an Fsp1-null background.",
-      "sourceUrl": "https://doi.org/10.1038/s41586-022-05022-3",
-      "checkedAt": "2026-07-23"
+      "sourceUrl": "https://doi.org/10.1038/s41586-022-05022-3"
     },
-
     {
       "id": "claim-oxpe-species",
       "paperId": "doi:10.1038/nchembio.2238",
       "relation": "SUPPORTS_IN_CONTEXT",
-      "object": { "type": "mechanism", "id": "lipid-peroxidation" },
+      "object": {
+        "type": "mechanism",
+        "id": "lipid-peroxidation"
+      },
       "figure": "Fig. 3",
-      "claimScope": "The lethal oxidation signal narrows to a small set of doubly and triply oxygenated phosphatidylethanolamines carrying arachidonoyl or adrenoyl chains.",
-      "conditionVector": { "model": "cultured cells with RSL3 or Gpx4 loss and inducible Gpx4-knockout mouse kidney", "perturbation": "RSL3, genetic Gpx4 loss, arachidonic acid loading", "readout": "quantitative redox lipidomics of about 350 phospholipids", "compartment": "membrane lipids", "timeWindow": "acute" },
+      "claimScope": "The lethal oxidation signal narrows to four molecular species within a single phospholipid class: doubly and triply oxygenated diacyl phosphatidylethanolamines carrying arachidonoyl or adrenoyl chains at sn-2. Of 62 phosphatidylethanolamine species and 36 oxidisable ones, 2 were identified as precursors; of 57 oxygenated phosphatidylethanolamines, 4 were identified as signals.",
+      "conditionVector": {
+        "model": "cultured cells with RSL3 or Gpx4 loss and inducible Gpx4-knockout mouse kidney",
+        "perturbation": "RSL3, genetic Gpx4 loss, arachidonic acid loading",
+        "readout": "quantitative redox lipidomics of about 350 phospholipids",
+        "compartment": "membrane lipids",
+        "timeWindow": "acute"
+      },
       "confidence": "supported-with-orthogonal-confirmation",
       "confidenceBasis": "Species-resolved lipidomics plus deuterated tracing and defined oxidised-lipid supplementation.",
       "sourceUrl": "https://doi.org/10.1038/nchembio.2238",
-      "checkedAt": "2026-07-23"
+      "review": {
+        "scopeRef": "Fig. 3"
+      }
     },
     {
       "id": "claim-oxpe-acsl4",
       "paperId": "doi:10.1038/nchembio.2238",
       "relation": "SUPPORTS_IN_CONTEXT",
-      "object": { "type": "mechanism", "id": "pufa-remodelling" },
-      "figure": "Fig. 4",
-      "claimScope": "Formation of the lethal oxidised species requires ACSL4 and LPCAT3 esterification, tying the executing chemistry to the remodelling pathway that builds the substrate.",
-      "conditionVector": { "model": "cultured cells", "perturbation": "ACSL4 and LPCAT3 loss", "readout": "oxidised PE species abundance", "compartment": "membrane lipids", "timeWindow": "acute" },
+      "object": {
+        "type": "mechanism",
+        "id": "pufa-remodelling"
+      },
+      "figure": "Fig. 2",
+      "claimScope": "Entry of arachidonate and adrenate into phosphatidylethanolamine is ACSL4-dependent: supplementing arachidonic acid raises oxygenated esterified C20:4 and C22:4, and Acsl4-knockout cells accumulate less of both (72.2 +/- 27.0 and 28.2 +/- 8.0 against 199.3 +/- 26.2 and 137.8 +/- 77.7 pmol per micromole phospholipid, p < 0.01).",
+      "conditionVector": {
+        "model": "Pfa1 mouse embryonic fibroblasts, wild-type and Acsl4 knockout; MLE cells for the LPCAT3 arm",
+        "perturbation": "arachidonic acid 2.5 micromolar for 16 h, then RSL3 100 nanomolar for 6 h; Acsl4 knockout; Lpcat3 knockdown",
+        "dose": "RSL3 100 nanomolar (0.5-1.0 micromolar in MLE cells)",
+        "exposure": "6 h RSL3 after 16 h precursor loading",
+        "medium": "DMEM with 10% fetal bovine serum; HITES medium with 10% serum for MLE cells",
+        "readout": "oxygenated esterified C20:4 and C22:4 by LC-MS/MS after PAF-AH release, plus cell death",
+        "compartment": "whole-cell phospholipid extract; no organelle resolution",
+        "timeWindow": "acute"
+      },
       "confidence": "supported-with-orthogonal-confirmation",
-      "confidenceBasis": "Genetic requirement matches the lipidomic signature.",
+      "confidenceBasis": "Species-resolved quantification of oxygenated esterified acyls in wild-type against Acsl4-knockout cells, in the same figure as the death readout.",
       "sourceUrl": "https://doi.org/10.1038/nchembio.2238",
-      "checkedAt": "2026-07-23"
+      "correction": {
+        "correctedOn": "2026-07-24",
+        "correctedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)",
+        "was": "Fig. 4",
+        "why": "Fig. 4 of this paper is titled \"Oxygenated PE species are identified in ferroptotic GPX4 deficient cells and kidney of GPX4-deficient mice\" and its five panels are all Gpx4-knockout cell or mouse-kidney measurements. It contains no ACSL4 or LPCAT3 arm. The claim's own condition vector already named ACSL4 and LPCAT3 loss, which is Fig. 2.",
+        "alsoNarrowed": "The previous wording said the lethal species \"requires ACSL4 and LPCAT3 esterification\". The LPCAT3 arm (Fig. 2e) is a death readout in Lpcat3-knockdown MLE cells; the paper reports no oxidised-PE measurement under Lpcat3 knockdown, so the lipidomic requirement is stated for ACSL4 only."
+      },
+      "review": {
+        "scopeRef": "Fig. 2"
+      }
     },
     {
       "id": "claim-oxpe-methods",
       "paperId": "doi:10.1038/nchembio.2238",
       "relation": "USES_METHOD",
-      "object": { "type": "method", "id": "oxidized-pl-lcms" },
+      "object": {
+        "type": "method",
+        "id": "oxidized-pl-lcms"
+      },
       "figure": "Fig. 2",
       "claimScope": "Quantitative redox lipidomics is the only readout in this set that names an individual oxidised species rather than reporting bulk oxidation.",
-      "conditionVector": { "model": "cells and mouse kidney", "perturbation": "RSL3 and genetic Gpx4 loss", "readout": "about 350 phospholipids and their oxidation products", "compartment": "membrane lipids", "timeWindow": "acute" },
+      "conditionVector": {
+        "model": "cells and mouse kidney",
+        "perturbation": "RSL3 and genetic Gpx4 loss",
+        "readout": "about 350 phospholipids and their oxidation products",
+        "compartment": "membrane lipids",
+        "timeWindow": "acute"
+      },
       "confidence": "supported-with-orthogonal-confirmation",
       "confidenceBasis": "This measurement is what separates a named oxidised phospholipid from a probe signal.",
       "sourceUrl": "https://doi.org/10.1038/nchembio.2238",
-      "checkedAt": "2026-07-23"
+      "review": {
+        "scopeRef": "Fig. 2"
+      }
     },
-
     {
       "id": "claim-lysosomal-iron-geography",
       "paperId": "doi:10.1038/s41586-025-08974-4",
       "relation": "SUPPORTS_IN_CONTEXT",
-      "object": { "type": "mechanism", "id": "organelle-spatial" },
+      "object": {
+        "type": "mechanism",
+        "id": "organelle-spatial"
+      },
       "figure": "Fig. 1",
       "claimScope": "RSL3-initiated oxidation is detected first in lysosomes, and liproxstatin-1 acts in part by inactivating lysosomal iron, which places an organelle at the start of the measured sequence.",
-      "conditionVector": { "model": "cancer lines, primary sarcoma and PDAC cells, organoids and persisters", "perturbation": "RSL3 and liproxstatin-1", "readout": "clickable-probe localisation, iron probes, LiperFluo and C11-BODIPY", "compartment": "lysosome", "timeWindow": "one to four hours" },
+      "conditionVector": {
+        "model": "cancer lines, primary sarcoma and PDAC cells, organoids and persisters",
+        "perturbation": "RSL3 and liproxstatin-1",
+        "readout": "clickable-probe localisation, iron probes, LiperFluo and C11-BODIPY",
+        "compartment": "lysosome",
+        "timeWindow": "one to four hours"
+      },
       "confidence": "supported-in-model",
       "confidenceBasis": "A first-detected compartment in one inducer and probe set is not a universal organelle sequence for ferroptosis.",
-      "sourceUrl": "https://doi.org/10.1038/s41586-025-08974-4",
-      "checkedAt": "2026-07-23"
+      "sourceUrl": "https://doi.org/10.1038/s41586-025-08974-4"
     },
     {
       "id": "claim-lysosomal-iron-tumour",
       "paperId": "doi:10.1038/s41586-025-08974-4",
       "relation": "TESTS_IN",
-      "object": { "type": "disease_context", "id": "ctx-cancer-cell-state" },
+      "object": {
+        "type": "disease_context",
+        "id": "ctx-cancer-cell-state"
+      },
       "figure": "Fig. 3",
       "claimScope": "Activating lysosomal iron kills iron-rich CD44-high tumour cells including drug-tolerant persisters, with intranodal dosing in a metastasis model.",
-      "conditionVector": { "model": "4T1 lymph-node metastasis", "perturbation": "fentomycin-1, intranodal", "readout": "cell death and proteomics", "compartment": "lysosome and tumour", "timeWindow": "hours to 48 hours" },
+      "conditionVector": {
+        "model": "4T1 lymph-node metastasis",
+        "perturbation": "fentomycin-1, intranodal",
+        "readout": "cell death and proteomics",
+        "compartment": "lysosome and tumour",
+        "timeWindow": "hours to 48 hours"
+      },
       "confidence": "supported-in-model",
       "confidenceBasis": "Intranodal dosing is local delivery and does not establish a systemic treatment window.",
-      "sourceUrl": "https://doi.org/10.1038/s41586-025-08974-4",
-      "checkedAt": "2026-07-23"
+      "sourceUrl": "https://doi.org/10.1038/s41586-025-08974-4"
     },
     {
       "id": "claim-lysosomal-iron-perturbation",
       "paperId": "doi:10.1038/s41586-025-08974-4",
       "relation": "USES_PERTURBATION",
-      "object": { "type": "compound_or_perturbation", "id": "pert-fentomycin-1" },
+      "object": {
+        "type": "compound_or_perturbation",
+        "id": "pert-fentomycin-1"
+      },
       "figure": "Fig. 2",
       "claimScope": "Fentomycin-1 is a purpose-built activator of lysosomal iron, so the result is a designed chemical test of the proposed geography rather than an observation.",
-      "conditionVector": { "model": "cancer lines and organoids", "perturbation": "fentomycin-1", "readout": "phospholipid degradation and death", "compartment": "lysosome", "timeWindow": "one to four hours" },
+      "conditionVector": {
+        "model": "cancer lines and organoids",
+        "perturbation": "fentomycin-1",
+        "readout": "phospholipid degradation and death",
+        "compartment": "lysosome",
+        "timeWindow": "one to four hours"
+      },
       "confidence": "supported-with-orthogonal-confirmation",
       "confidenceBasis": "A designed activator and a radical-trapping antioxidant give converging evidence for the same compartment.",
-      "sourceUrl": "https://doi.org/10.1038/s41586-025-08974-4",
-      "checkedAt": "2026-07-23"
+      "sourceUrl": "https://doi.org/10.1038/s41586-025-08974-4"
     },
     {
       "id": "claim-lysosomal-iron-methods",
       "paperId": "doi:10.1038/s41586-025-08974-4",
       "relation": "USES_METHOD",
-      "object": { "type": "method", "id": "labile-iron-assays" },
+      "object": {
+        "type": "method",
+        "id": "labile-iron-assays"
+      },
       "figure": "Fig. 1",
       "claimScope": "Compartment-resolved iron probes are what turn a general iron dependence into a claim about where the iron is.",
-      "conditionVector": { "model": "cancer lines", "perturbation": "RSL3 and liproxstatin-1", "readout": "iron probe localisation", "compartment": "lysosome", "timeWindow": "one to four hours" },
+      "conditionVector": {
+        "model": "cancer lines",
+        "perturbation": "RSL3 and liproxstatin-1",
+        "readout": "iron probe localisation",
+        "compartment": "lysosome",
+        "timeWindow": "one to four hours"
+      },
       "confidence": "supported-in-model",
       "confidenceBasis": "Probe localisation reports where a signal is detected, not where the reaction is rate-limiting.",
-      "sourceUrl": "https://doi.org/10.1038/s41586-025-08974-4",
-      "checkedAt": "2026-07-23"
+      "sourceUrl": "https://doi.org/10.1038/s41586-025-08974-4"
     },
-
     {
       "id": "claim-propagation-contacts",
       "paperId": "doi:10.1038/s41467-025-58175-w",
       "relation": "SUPPORTS_IN_CONTEXT",
-      "object": { "type": "mechanism", "id": "death-execution" },
+      "object": {
+        "type": "mechanism",
+        "id": "death-execution"
+      },
       "figure": "Fig. 3",
       "claimScope": "Lipid peroxidation and death spread to immediate neighbours in a distance-dependent way that requires alpha-catenin-dependent contacts and extracellular iron.",
-      "conditionVector": { "model": "monolayers at defined confluency", "perturbation": "patterned blue light degrading GPX4 in single cells", "readout": "C11-BODIPY oxidation and death timing versus distance", "compartment": "plasma membrane contacts", "timeWindow": "minutes to hours" },
+      "conditionVector": {
+        "model": "monolayers at defined confluency",
+        "perturbation": "patterned blue light degrading GPX4 in single cells",
+        "readout": "C11-BODIPY oxidation and death timing versus distance",
+        "compartment": "plasma membrane contacts",
+        "timeWindow": "minutes to hours"
+      },
       "confidence": "supported-with-orthogonal-confirmation",
       "confidenceBasis": "Single-cell initiation plus reconstitution between pure contacting bilayers isolates the transfer from bulk medium effects.",
-      "sourceUrl": "https://doi.org/10.1038/s41467-025-58175-w",
-      "checkedAt": "2026-07-23"
+      "sourceUrl": "https://doi.org/10.1038/s41467-025-58175-w"
     },
     {
       "id": "claim-propagation-context",
       "paperId": "doi:10.1038/s41467-025-58175-w",
       "relation": "TESTS_IN",
-      "object": { "type": "disease_context", "id": "ctx-tissue-propagation" },
+      "object": {
+        "type": "disease_context",
+        "id": "ctx-tissue-propagation"
+      },
       "figure": "Fig. 7",
       "claimScope": "Propagation is measured in a cultured monolayer and in reconstituted bilayers, not in tissue.",
-      "conditionVector": { "model": "monolayer and supported bilayers", "perturbation": "optogenetic GPX4 degradation", "readout": "oxidation transfer and death timing", "compartment": "cell-cell contact", "timeWindow": "minutes to hours" },
+      "conditionVector": {
+        "model": "monolayer and supported bilayers",
+        "perturbation": "optogenetic GPX4 degradation",
+        "readout": "oxidation transfer and death timing",
+        "compartment": "cell-cell contact",
+        "timeWindow": "minutes to hours"
+      },
       "confidence": "supported-in-model",
       "confidenceBasis": "A monolayer is a controlled geometry, not a tissue with stroma, flow or immune cells.",
-      "sourceUrl": "https://doi.org/10.1038/s41467-025-58175-w",
-      "checkedAt": "2026-07-23"
+      "sourceUrl": "https://doi.org/10.1038/s41467-025-58175-w"
     },
     {
       "id": "claim-propagation-methods",
       "paperId": "doi:10.1038/s41467-025-58175-w",
       "relation": "USES_METHOD",
-      "object": { "type": "method", "id": "spatial-live-imaging" },
+      "object": {
+        "type": "method",
+        "id": "spatial-live-imaging"
+      },
       "figure": "Fig. 2",
       "claimScope": "Death timing against distance from the initiating cell is the measurement that makes propagation a claim rather than an impression.",
-      "conditionVector": { "model": "monolayers", "perturbation": "patterned light in single cells or small groups", "readout": "time-resolved oxidation and death imaging", "compartment": "monolayer", "timeWindow": "minutes to hours" },
+      "conditionVector": {
+        "model": "monolayers",
+        "perturbation": "patterned light in single cells or small groups",
+        "readout": "time-resolved oxidation and death imaging",
+        "compartment": "monolayer",
+        "timeWindow": "minutes to hours"
+      },
       "confidence": "supported-with-orthogonal-confirmation",
       "confidenceBasis": "Spatially controlled initiation is what separates propagation from synchronous bulk induction.",
-      "sourceUrl": "https://doi.org/10.1038/s41467-025-58175-w",
-      "checkedAt": "2026-07-23"
+      "sourceUrl": "https://doi.org/10.1038/s41467-025-58175-w"
     },
     {
       "id": "claim-propagation-perturbation",
       "paperId": "doi:10.1038/s41467-025-58175-w",
       "relation": "USES_PERTURBATION",
-      "object": { "type": "compound_or_perturbation", "id": "pert-optogenetic-gpx4-degradation" },
+      "object": {
+        "type": "compound_or_perturbation",
+        "id": "pert-optogenetic-gpx4-degradation"
+      },
       "figure": "Fig. 1",
       "claimScope": "Optogenetic GPX4 degradation replaces a dish-wide inducer, which is the design change that makes a propagation question answerable.",
-      "conditionVector": { "model": "monolayers", "perturbation": "blue-light-driven GPX4 degradation", "readout": "initiation confined to chosen cells", "compartment": "single cell", "timeWindow": "minutes" },
+      "conditionVector": {
+        "model": "monolayers",
+        "perturbation": "blue-light-driven GPX4 degradation",
+        "readout": "initiation confined to chosen cells",
+        "compartment": "single cell",
+        "timeWindow": "minutes"
+      },
       "confidence": "supported-with-orthogonal-confirmation",
       "confidenceBasis": "The perturbation is spatially defined, so neighbouring-cell death cannot be explained by direct induction.",
-      "sourceUrl": "https://doi.org/10.1038/s41467-025-58175-w",
-      "checkedAt": "2026-07-23"
+      "sourceUrl": "https://doi.org/10.1038/s41467-025-58175-w"
     },
-
     {
       "id": "claim-graft-window",
       "paperId": "doi:10.1016/j.cell.2026.04.024",
       "relation": "SUPPORTS_IN_CONTEXT",
-      "object": { "type": "mechanism", "id": "tissue-injury" },
+      "object": {
+        "type": "mechanism",
+        "id": "tissue-injury"
+      },
       "figure": "Fig. 1",
       "claimScope": "An early, transient window of lipid oxidation is identified in human liver transplant recipients, which is when an intervention would have to act.",
-      "conditionVector": { "model": "plasma from 116 human liver transplant recipients", "perturbation": "none; observational sampling", "readout": "malondialdehyde and cytokines", "compartment": "circulating plasma", "timeWindow": "early post-reperfusion" },
+      "conditionVector": {
+        "model": "plasma from 116 human liver transplant recipients",
+        "perturbation": "none; observational sampling",
+        "readout": "malondialdehyde and cytokines",
+        "compartment": "circulating plasma",
+        "timeWindow": "early post-reperfusion"
+      },
       "confidence": "single-assay",
       "confidenceBasis": "Circulating oxidation markers in patients are an association; they do not measure ferroptosis in graft tissue.",
-      "sourceUrl": "https://doi.org/10.1016/j.cell.2026.04.024",
-      "checkedAt": "2026-07-23"
+      "sourceUrl": "https://doi.org/10.1016/j.cell.2026.04.024"
     },
     {
       "id": "claim-graft-transplantation",
       "paperId": "doi:10.1016/j.cell.2026.04.024",
       "relation": "TESTS_IN",
-      "object": { "type": "disease_context", "id": "ctx-organ-transplantation" },
+      "object": {
+        "type": "disease_context",
+        "id": "ctx-organ-transplantation"
+      },
       "figure": "Fig. 5",
       "claimScope": "FXT-001 added to the preservation or perfusion circuit improves ex situ function of porcine liver and lung grafts and of declined human lungs.",
-      "conditionVector": { "model": "porcine liver reperfused ex situ for six hours, porcine lung for eight hours, five declined human lungs as split pairs", "perturbation": "FXT-001 in the circuit", "readout": "transaminases, bile production, wet-to-dry ratio, compliance and CT density", "compartment": "whole organ", "timeWindow": "six to eight hours" },
+      "conditionVector": {
+        "model": "porcine liver reperfused ex situ for six hours, porcine lung for eight hours, five declined human lungs as split pairs",
+        "perturbation": "FXT-001 in the circuit",
+        "readout": "transaminases, bile production, wet-to-dry ratio, compliance and CT density",
+        "compartment": "whole organ",
+        "timeWindow": "six to eight hours"
+      },
       "confidence": "supported-in-model",
       "confidenceBasis": "Ex situ perfusion of a declined human organ is not a clinical trial and no recipient outcome is measured.",
-      "sourceUrl": "https://doi.org/10.1016/j.cell.2026.04.024",
-      "checkedAt": "2026-07-23"
+      "sourceUrl": "https://doi.org/10.1016/j.cell.2026.04.024"
     },
     {
       "id": "claim-graft-methods",
       "paperId": "doi:10.1016/j.cell.2026.04.024",
       "relation": "USES_METHOD",
-      "object": { "type": "method", "id": "human-organoid-perfusion" },
+      "object": {
+        "type": "method",
+        "id": "human-organoid-perfusion"
+      },
       "figure": "Fig. 6",
       "claimScope": "Split left-and-right perfusion of the same declined human lung is the design that gives an internal control at organ scale.",
-      "conditionVector": { "model": "five declined human donor lungs", "perturbation": "FXT-001 in one side of a split pair", "readout": "compliance and CT density", "compartment": "whole organ", "timeWindow": "eight hours" },
+      "conditionVector": {
+        "model": "five declined human donor lungs",
+        "perturbation": "FXT-001 in one side of a split pair",
+        "readout": "compliance and CT density",
+        "compartment": "whole organ",
+        "timeWindow": "eight hours"
+      },
       "confidence": "supported-in-model",
       "confidenceBasis": "A paired design controls for donor variability but the sample is five organs and the endpoint is ex situ function.",
-      "sourceUrl": "https://doi.org/10.1016/j.cell.2026.04.024",
-      "checkedAt": "2026-07-23"
+      "sourceUrl": "https://doi.org/10.1016/j.cell.2026.04.024"
     },
     {
       "id": "claim-graft-perturbation",
       "paperId": "doi:10.1016/j.cell.2026.04.024",
       "relation": "USES_PERTURBATION",
-      "object": { "type": "compound_or_perturbation", "id": "pert-fxt-001" },
+      "object": {
+        "type": "compound_or_perturbation",
+        "id": "pert-fxt-001"
+      },
       "figure": "Fig. 4",
       "claimScope": "FXT-001 both traps radicals in membranes and binds iron, so protection cannot be attributed to a single chemical activity.",
-      "conditionVector": { "model": "cells and porcine organs", "perturbation": "FXT-001 in the preservation circuit", "readout": "organ function and oxidation markers", "compartment": "membrane and circuit", "timeWindow": "hours" },
+      "conditionVector": {
+        "model": "cells and porcine organs",
+        "perturbation": "FXT-001 in the preservation circuit",
+        "readout": "organ function and oxidation markers",
+        "compartment": "membrane and circuit",
+        "timeWindow": "hours"
+      },
       "confidence": "single-assay",
       "confidenceBasis": "A dual-activity compound cannot separate radical trapping from iron binding without a separation-of-function analogue.",
-      "sourceUrl": "https://doi.org/10.1016/j.cell.2026.04.024",
-      "checkedAt": "2026-07-23"
+      "sourceUrl": "https://doi.org/10.1016/j.cell.2026.04.024"
     },
-
     {
       "id": "claim-oestradiol-radical-trap",
       "paperId": "doi:10.1038/s41586-025-09389-x",
       "relation": "SUPPORTS_IN_CONTEXT",
-      "object": { "type": "mechanism", "id": "fsp1-coq" },
+      "object": {
+        "type": "mechanism",
+        "id": "fsp1-coq"
+      },
       "figure": "Fig. 2",
       "claimScope": "Hydroxyoestradiol derivatives directly trap lipid radicals and can be regenerated by FSP1, which makes an endogenous steroid part of the membrane antioxidant network.",
-      "conditionVector": { "model": "FENIX liposomes and isolated tubules", "perturbation": "oestradiol derivatives at about ten micromolar", "readout": "radical-trapping kinetics", "compartment": "membrane", "timeWindow": "seconds to minutes" },
+      "conditionVector": {
+        "model": "FENIX liposomes and isolated tubules",
+        "perturbation": "oestradiol derivatives at about ten micromolar",
+        "readout": "radical-trapping kinetics",
+        "compartment": "membrane",
+        "timeWindow": "seconds to minutes"
+      },
       "confidence": "supported-with-orthogonal-confirmation",
       "confidenceBasis": "Defined chemical kinetics plus cellular genetics, though the cellular concentration used is far above physiological oestradiol.",
-      "sourceUrl": "https://doi.org/10.1038/s41586-025-09389-x",
-      "checkedAt": "2026-07-23"
+      "sourceUrl": "https://doi.org/10.1038/s41586-025-09389-x"
     },
     {
       "id": "claim-oestradiol-kidney",
       "paperId": "doi:10.1038/s41586-025-09389-x",
       "relation": "TESTS_IN",
-      "object": { "type": "disease_context", "id": "ctx-kidney-ischaemia-reperfusion" },
+      "object": {
+        "type": "disease_context",
+        "id": "ctx-kidney-ischaemia-reperfusion"
+      },
       "figure": "Fig. 4",
       "claimScope": "Tubule-specific Gpx4, Fsp1 and Esr1 deletion together with ovariectomy connect the sex difference in kidney injury to two separable oestradiol routes.",
-      "conditionVector": { "model": "male and female mouse kidney ischaemia-reperfusion and isolated tubules", "perturbation": "ovariectomy, tubule-specific deletions, oestradiol before injury", "readout": "creatinine, urea and synchronised tubular death imaging", "compartment": "kidney tubule", "timeWindow": "hours" },
+      "conditionVector": {
+        "model": "male and female mouse kidney ischaemia-reperfusion and isolated tubules",
+        "perturbation": "ovariectomy, tubule-specific deletions, oestradiol before injury",
+        "readout": "creatinine, urea and synchronised tubular death imaging",
+        "compartment": "kidney tubule",
+        "timeWindow": "hours"
+      },
       "confidence": "supported-in-model",
       "confidenceBasis": "Strong mouse genetics with only small human sample sets; the human arm does not measure ferroptosis in patients.",
-      "sourceUrl": "https://doi.org/10.1038/s41586-025-09389-x",
-      "checkedAt": "2026-07-23"
+      "sourceUrl": "https://doi.org/10.1038/s41586-025-09389-x"
     },
     {
       "id": "claim-oestradiol-etherlipid",
       "paperId": "doi:10.1038/s41586-025-09389-x",
       "relation": "REPLICATES",
-      "object": { "type": "mechanism", "id": "pufa-remodelling" },
+      "object": {
+        "type": "mechanism",
+        "id": "pufa-remodelling"
+      },
       "figure": "Fig. 5",
       "claimScope": "ESR1 suppresses pro-ferroptotic ether-lipid enzymes in female tubules, which reproduces in a physiological setting the substrate-pool control first shown in cancer lines.",
-      "conditionVector": { "model": "female mouse tubules", "perturbation": "tubule-specific Esr1 deletion", "readout": "ether-lipid enzyme expression and injury", "compartment": "kidney tubule", "timeWindow": "hours" },
+      "conditionVector": {
+        "model": "female mouse tubules",
+        "perturbation": "tubule-specific Esr1 deletion",
+        "readout": "ether-lipid enzyme expression and injury",
+        "compartment": "kidney tubule",
+        "timeWindow": "hours"
+      },
       "confidence": "supported-in-model",
       "confidenceBasis": "Expression-level replication in a different tissue; the oxidised species themselves are not re-measured here.",
-      "sourceUrl": "https://doi.org/10.1038/s41586-025-09389-x",
-      "checkedAt": "2026-07-23"
+      "sourceUrl": "https://doi.org/10.1038/s41586-025-09389-x"
     },
     {
       "id": "claim-oestradiol-perturbation",
       "paperId": "doi:10.1038/s41586-025-09389-x",
       "relation": "USES_PERTURBATION",
-      "object": { "type": "compound_or_perturbation", "id": "pert-hydroxyoestradiol" },
+      "object": {
+        "type": "compound_or_perturbation",
+        "id": "pert-hydroxyoestradiol"
+      },
       "figure": "Fig. 3",
       "claimScope": "Derivatives are applied at about ten micromolar in cells and ten milligrams per kilogram before injury, so the result is pharmacology on top of an endogenous mechanism.",
-      "conditionVector": { "model": "cells and mice", "perturbation": "hydroxyoestradiol derivatives before injury", "readout": "injury markers", "compartment": "kidney", "timeWindow": "hours" },
+      "conditionVector": {
+        "model": "cells and mice",
+        "perturbation": "hydroxyoestradiol derivatives before injury",
+        "readout": "injury markers",
+        "compartment": "kidney",
+        "timeWindow": "hours"
+      },
       "confidence": "supported-in-model",
       "confidenceBasis": "Pre-injury dosing at supraphysiological concentration does not establish that endogenous oestradiol acts at the same site.",
-      "sourceUrl": "https://doi.org/10.1038/s41586-025-09389-x",
-      "checkedAt": "2026-07-23"
+      "sourceUrl": "https://doi.org/10.1038/s41586-025-09389-x"
     },
-
     {
       "id": "claim-dhodh-coq",
       "paperId": "doi:10.1038/s41586-021-03539-7",
       "relation": "SUPPORTS_IN_CONTEXT",
-      "object": { "type": "mechanism", "id": "fsp1-coq" },
+      "object": {
+        "type": "mechanism",
+        "id": "fsp1-coq"
+      },
       "figure": "Fig. 2",
       "claimScope": "The work proposes that dihydroorotate dehydrogenase reduces coenzyme Q in the inner mitochondrial membrane in parallel with mitochondrial GPX4.",
-      "conditionVector": { "model": "cancer lines stratified by GPX4 expression", "perturbation": "brequinar often at 500 micromolar with uridine supplied", "readout": "mitochondrial C11-BODIPY, coenzyme Q redox ratio and 4-hydroxynonenal", "compartment": "inner mitochondrial membrane", "timeWindow": "acute" },
+      "conditionVector": {
+        "model": "cancer lines stratified by GPX4 expression",
+        "perturbation": "brequinar often at 500 micromolar with uridine supplied",
+        "readout": "mitochondrial C11-BODIPY, coenzyme Q redox ratio and 4-hydroxynonenal",
+        "compartment": "inner mitochondrial membrane",
+        "timeWindow": "acute"
+      },
       "confidence": "disputed",
       "confidenceBasis": "A 2023 Matters Arising argues the brequinar concentrations also inhibit FSP1, so the attribution to DHODH is contested and the authors' Reply disagrees.",
-      "sourceUrl": "https://doi.org/10.1038/s41586-021-03539-7",
-      "checkedAt": "2026-07-23"
+      "sourceUrl": "https://doi.org/10.1038/s41586-021-03539-7"
     },
     {
       "id": "claim-dhodh-tumour",
       "paperId": "doi:10.1038/s41586-021-03539-7",
       "relation": "TESTS_IN",
-      "object": { "type": "disease_context", "id": "ctx-cancer-cell-state" },
+      "object": {
+        "type": "disease_context",
+        "id": "ctx-cancer-cell-state"
+      },
       "figure": "Fig. 4",
       "claimScope": "Brequinar and sulfasalazine dosing in xenografts and patient-derived xenografts is presented as a GPX4-low therapeutic window.",
-      "conditionVector": { "model": "xenografts and patient-derived xenografts in immunodeficient mice", "perturbation": "brequinar 30 mg/kg every three days, sulfasalazine 100 mg/kg daily", "readout": "tumour growth", "compartment": "tumour", "timeWindow": "weeks" },
+      "conditionVector": {
+        "model": "xenografts and patient-derived xenografts in immunodeficient mice",
+        "perturbation": "brequinar 30 mg/kg every three days, sulfasalazine 100 mg/kg daily",
+        "readout": "tumour growth",
+        "compartment": "tumour",
+        "timeWindow": "weeks"
+      },
       "confidence": "disputed",
       "confidenceBasis": "Dosing is in immunodeficient hosts and, given the 2023 dispute, the proposed drug selectivity and GPX4 stratification are not established as translatable.",
-      "sourceUrl": "https://doi.org/10.1038/s41586-021-03539-7",
-      "checkedAt": "2026-07-23"
+      "sourceUrl": "https://doi.org/10.1038/s41586-021-03539-7"
     },
     {
       "id": "claim-dhodh-perturbation",
       "paperId": "doi:10.1038/s41586-021-03539-7",
       "relation": "USES_PERTURBATION",
-      "object": { "type": "compound_or_perturbation", "id": "pert-brequinar" },
+      "object": {
+        "type": "compound_or_perturbation",
+        "id": "pert-brequinar"
+      },
       "figure": "Fig. 1",
       "claimScope": "Brequinar is used at concentrations that the later Matters Arising identifies as also inhibiting FSP1, which is the centre of the dispute.",
-      "conditionVector": { "model": "cancer lines", "perturbation": "brequinar often at 500 micromolar with uridine rescue", "readout": "sensitisation to RSL3 or ML162", "compartment": "mitochondria", "timeWindow": "acute" },
+      "conditionVector": {
+        "model": "cancer lines",
+        "perturbation": "brequinar often at 500 micromolar with uridine rescue",
+        "readout": "sensitisation to RSL3 or ML162",
+        "compartment": "mitochondria",
+        "timeWindow": "acute"
+      },
       "confidence": "disputed",
       "confidenceBasis": "Uridine supplementation removes the pyrimidine deficit but does not address off-target FSP1 inhibition.",
-      "sourceUrl": "https://doi.org/10.1038/s41586-021-03539-7",
-      "checkedAt": "2026-07-23"
+      "sourceUrl": "https://doi.org/10.1038/s41586-021-03539-7"
     },
     {
       "id": "claim-dhodh-cannot-distinguish",
       "paperId": "doi:10.1038/s41586-021-03539-7",
       "relation": "CANNOT_DISTINGUISH",
-      "object": { "type": "mechanism", "id": "fsp1-coq" },
+      "object": {
+        "type": "mechanism",
+        "id": "fsp1-coq"
+      },
       "figure": "Fig. 3",
       "claimScope": "At the concentrations used, a DHODH-dependent and an FSP1-dependent explanation of the same protection cannot be separated by these experiments.",
-      "conditionVector": { "model": "cancer lines", "perturbation": "brequinar", "readout": "mitochondrial lipid oxidation and coenzyme Q redox ratio", "compartment": "mitochondria", "timeWindow": "acute" },
+      "conditionVector": {
+        "model": "cancer lines",
+        "perturbation": "brequinar",
+        "readout": "mitochondrial lipid oxidation and coenzyme Q redox ratio",
+        "compartment": "mitochondria",
+        "timeWindow": "acute"
+      },
       "confidence": "disputed",
       "confidenceBasis": "This is the explicit content of the 2023 Matters Arising; the record shows both positions rather than adjudicating between them.",
-      "sourceUrl": "https://doi.org/10.1038/s41586-023-06269-0",
-      "checkedAt": "2026-07-23"
+      "sourceUrl": "https://doi.org/10.1038/s41586-023-06269-0"
     }
   ]
 }
