@@ -3,49 +3,294 @@
   "updatedAt": "2026-07-23",
   "principle": "Relations are typed and directional. A connection means the linked evidence addresses the relation; it does not imply universal causality.",
   "mechanisms": [
-    { "id": "iron-homeostasis", "label": "Labile iron & iron homeostasis", "short": "Iron", "description": "Iron uptake, storage, release, compartmentalization and chelatable Fe²⁺." },
-    { "id": "pufa-remodelling", "label": "PUFA phospholipid remodelling", "short": "PUFA-PL", "description": "Formation, transport and depletion of oxidizable membrane phospholipid substrates." },
-    { "id": "lipid-peroxidation", "label": "Lipid radical-chain oxidation", "short": "LPO", "description": "Initiation, propagation and termination of phospholipid peroxidation." },
-    { "id": "gpx4-gsh", "label": "GPX4–glutathione defence", "short": "GPX4", "description": "Selenium-dependent reduction of phospholipid hydroperoxides and its metabolic support." },
-    { "id": "fsp1-coq", "label": "FSP1–CoQ defence", "short": "FSP1", "description": "GPX4-independent membrane radical control through quinone redox systems." },
-    { "id": "organelle-spatial", "label": "Organelle and membrane geography", "short": "Space", "description": "Where oxidation, iron release and defence occur and how signals move between compartments." },
-    { "id": "death-execution", "label": "Membrane failure and death execution", "short": "Death", "description": "The transition from lipid damage to ion imbalance, rupture and population propagation." },
-    { "id": "tumour-ecology", "label": "Tumour state and microenvironment", "short": "Tumour", "description": "How genotype, nutrients, oxygen, immunity and anatomical niche reshape sensitivity." },
-    { "id": "tissue-injury", "label": "Tissue injury and organ protection", "short": "Tissue", "description": "Ferroptosis-related damage in kidney, brain, grafts and other physiological contexts." },
-    { "id": "translation", "label": "Chemical intervention and translation", "short": "Therapy", "description": "Inducers, inhibitors, target engagement, exposure and treatment windows." }
+    {
+      "id": "iron-homeostasis",
+      "label": "Labile iron & iron homeostasis",
+      "short": "Iron",
+      "description": "Iron uptake, storage, release, compartmentalization and chelatable Fe²⁺."
+    },
+    {
+      "id": "pufa-remodelling",
+      "label": "PUFA phospholipid remodelling",
+      "short": "PUFA-PL",
+      "description": "Formation, transport and depletion of oxidizable membrane phospholipid substrates."
+    },
+    {
+      "id": "lipid-peroxidation",
+      "label": "Lipid radical-chain oxidation",
+      "short": "LPO",
+      "description": "Initiation, propagation and termination of phospholipid peroxidation."
+    },
+    {
+      "id": "gpx4-gsh",
+      "label": "GPX4–glutathione defence",
+      "short": "GPX4",
+      "description": "Selenium-dependent reduction of phospholipid hydroperoxides and its metabolic support."
+    },
+    {
+      "id": "fsp1-coq",
+      "label": "FSP1–CoQ defence",
+      "short": "FSP1",
+      "description": "GPX4-independent membrane radical control through quinone redox systems."
+    },
+    {
+      "id": "organelle-spatial",
+      "label": "Organelle and membrane geography",
+      "short": "Space",
+      "description": "Where oxidation, iron release and defence occur and how signals move between compartments."
+    },
+    {
+      "id": "death-execution",
+      "label": "Membrane failure and death execution",
+      "short": "Death",
+      "description": "The transition from lipid damage to ion imbalance, rupture and population propagation."
+    },
+    {
+      "id": "tumour-ecology",
+      "label": "Tumour state and microenvironment",
+      "short": "Tumour",
+      "description": "How genotype, nutrients, oxygen, immunity and anatomical niche reshape sensitivity."
+    },
+    {
+      "id": "tissue-injury",
+      "label": "Tissue injury and organ protection",
+      "short": "Tissue",
+      "description": "Ferroptosis-related damage in kidney, brain, grafts and other physiological contexts."
+    },
+    {
+      "id": "translation",
+      "label": "Chemical intervention and translation",
+      "short": "Therapy",
+      "description": "Inducers, inhibitors, target engagement, exposure and treatment windows."
+    }
   ],
   "mechanismEdges": [
-    { "source": "iron-homeostasis", "target": "lipid-peroxidation", "relation": "enables", "label": "redox-active iron supports radical chemistry", "confidence": "established, context-dependent" },
-    { "source": "pufa-remodelling", "target": "lipid-peroxidation", "relation": "supplies substrate", "label": "PUFA-PL expands the oxidizable membrane pool", "confidence": "strong" },
-    { "source": "gpx4-gsh", "target": "lipid-peroxidation", "relation": "suppresses", "label": "reduces phospholipid hydroperoxides", "confidence": "strong" },
-    { "source": "fsp1-coq", "target": "lipid-peroxidation", "relation": "suppresses", "label": "regenerates membrane radical-trapping capacity", "confidence": "strong" },
-    { "source": "lipid-peroxidation", "target": "death-execution", "relation": "drives", "label": "uncontrolled chain oxidation precedes membrane failure", "confidence": "strong; terminal mechanism incomplete" },
-    { "source": "organelle-spatial", "target": "iron-homeostasis", "relation": "localizes", "label": "lysosomes and other compartments shape reactive iron", "confidence": "model-dependent" },
-    { "source": "organelle-spatial", "target": "lipid-peroxidation", "relation": "localizes", "label": "ER, lysosome and plasma membrane conclusions depend on condition", "confidence": "actively contested" },
-    { "source": "tumour-ecology", "target": "pufa-remodelling", "relation": "reprograms", "label": "cell state and niche remodel lipid substrates", "confidence": "strong in selected models" },
-    { "source": "tumour-ecology", "target": "fsp1-coq", "relation": "creates dependency", "label": "FSP1 targetability varies by tumour and anatomical site", "confidence": "strong in selected in vivo models" },
-    { "source": "death-execution", "target": "tissue-injury", "relation": "may contribute to", "label": "requires tissue-level genetic and chemical evidence", "confidence": "disease-specific" },
-    { "source": "translation", "target": "gpx4-gsh", "relation": "targets", "label": "GPX4 and cystine metabolism are common experimental entry points", "confidence": "preclinical" },
-    { "source": "translation", "target": "fsp1-coq", "relation": "targets", "label": "FSP1 inhibition is advancing in defined tumour models", "confidence": "preclinical" },
-    { "source": "translation", "target": "iron-homeostasis", "relation": "modulates", "label": "iron chelation, delivery and compartment activation have opposite goals", "confidence": "strategy-specific" },
-    { "source": "translation", "target": "tissue-injury", "relation": "tests protection", "label": "local perfusion and organ protection do not yet equal clinical efficacy", "confidence": "preclinical / ex situ" }
+    {
+      "source": "iron-homeostasis",
+      "target": "lipid-peroxidation",
+      "relation": "enables",
+      "label": "redox-active iron supports radical chemistry",
+      "confidence": "established, context-dependent"
+    },
+    {
+      "source": "pufa-remodelling",
+      "target": "lipid-peroxidation",
+      "relation": "supplies substrate",
+      "label": "PUFA-PL expands the oxidizable membrane pool",
+      "confidence": "strong"
+    },
+    {
+      "source": "gpx4-gsh",
+      "target": "lipid-peroxidation",
+      "relation": "suppresses",
+      "label": "reduces phospholipid hydroperoxides",
+      "confidence": "strong"
+    },
+    {
+      "source": "fsp1-coq",
+      "target": "lipid-peroxidation",
+      "relation": "suppresses",
+      "label": "regenerates membrane radical-trapping capacity",
+      "confidence": "strong"
+    },
+    {
+      "source": "lipid-peroxidation",
+      "target": "death-execution",
+      "relation": "drives",
+      "label": "uncontrolled chain oxidation precedes membrane failure",
+      "confidence": "strong; terminal mechanism incomplete"
+    },
+    {
+      "source": "organelle-spatial",
+      "target": "iron-homeostasis",
+      "relation": "localizes",
+      "label": "lysosomes and other compartments shape reactive iron",
+      "confidence": "model-dependent"
+    },
+    {
+      "source": "organelle-spatial",
+      "target": "lipid-peroxidation",
+      "relation": "localizes",
+      "label": "ER, lysosome and plasma membrane conclusions depend on condition",
+      "confidence": "actively contested"
+    },
+    {
+      "source": "tumour-ecology",
+      "target": "pufa-remodelling",
+      "relation": "reprograms",
+      "label": "cell state and niche remodel lipid substrates",
+      "confidence": "strong in selected models"
+    },
+    {
+      "source": "tumour-ecology",
+      "target": "fsp1-coq",
+      "relation": "creates dependency",
+      "label": "FSP1 targetability varies by tumour and anatomical site",
+      "confidence": "strong in selected in vivo models"
+    },
+    {
+      "source": "death-execution",
+      "target": "tissue-injury",
+      "relation": "may contribute to",
+      "label": "requires tissue-level genetic and chemical evidence",
+      "confidence": "disease-specific"
+    },
+    {
+      "source": "translation",
+      "target": "gpx4-gsh",
+      "relation": "targets",
+      "label": "GPX4 and cystine metabolism are common experimental entry points",
+      "confidence": "preclinical"
+    },
+    {
+      "source": "translation",
+      "target": "fsp1-coq",
+      "relation": "targets",
+      "label": "FSP1 inhibition is advancing in defined tumour models",
+      "confidence": "preclinical"
+    },
+    {
+      "source": "translation",
+      "target": "iron-homeostasis",
+      "relation": "modulates",
+      "label": "iron chelation, delivery and compartment activation have opposite goals",
+      "confidence": "strategy-specific"
+    },
+    {
+      "source": "translation",
+      "target": "tissue-injury",
+      "relation": "tests protection",
+      "label": "local perfusion and organ protection do not yet equal clinical efficacy",
+      "confidence": "preclinical / ex situ"
+    }
   ],
   "methodLinks": [
-    { "method": "death-kinetics", "mechanisms": ["death-execution", "tissue-injury"] },
-    { "method": "orthogonal-rescue", "mechanisms": ["lipid-peroxidation", "iron-homeostasis", "death-execution"] },
-    { "method": "bodipy-c11-assay", "mechanisms": ["lipid-peroxidation", "organelle-spatial"] },
-    { "method": "lipid-hydroperoxide-probes", "mechanisms": ["lipid-peroxidation", "organelle-spatial"] },
-    { "method": "mda-4hne", "mechanisms": ["lipid-peroxidation", "tissue-injury"] },
-    { "method": "oxidized-pl-lcms", "mechanisms": ["pufa-remodelling", "lipid-peroxidation"] },
-    { "method": "epilipidomics", "mechanisms": ["pufa-remodelling", "lipid-peroxidation", "tumour-ecology"] },
-    { "method": "labile-iron-assays", "mechanisms": ["iron-homeostasis", "organelle-spatial"] },
-    { "method": "genetic-epistasis", "mechanisms": ["gpx4-gsh", "fsp1-coq", "pufa-remodelling", "iron-homeostasis"] },
-    { "method": "redox-metabolites", "mechanisms": ["gpx4-gsh", "fsp1-coq"] },
-    { "method": "radical-kinetics", "mechanisms": ["lipid-peroxidation", "fsp1-coq", "translation"] },
-    { "method": "spatial-live-imaging", "mechanisms": ["organelle-spatial", "death-execution"] },
-    { "method": "membrane-reconstitution", "mechanisms": ["lipid-peroxidation", "death-execution"] },
-    { "method": "conditional-animal-genetics", "mechanisms": ["tissue-injury", "tumour-ecology"] },
-    { "method": "human-organoid-perfusion", "mechanisms": ["tissue-injury", "translation"] },
-    { "method": "electron-microscopy", "mechanisms": ["death-execution", "tissue-injury"] }
+    {
+      "method": "death-kinetics",
+      "mechanisms": [
+        "death-execution",
+        "tissue-injury"
+      ]
+    },
+    {
+      "method": "orthogonal-rescue",
+      "mechanisms": [
+        "lipid-peroxidation",
+        "iron-homeostasis",
+        "death-execution"
+      ]
+    },
+    {
+      "method": "bodipy-c11-assay",
+      "mechanisms": [
+        "lipid-peroxidation",
+        "organelle-spatial"
+      ],
+      "assertionScopes": {
+        "MEASURES": "product description"
+      }
+    },
+    {
+      "method": "lipid-hydroperoxide-probes",
+      "mechanisms": [
+        "lipid-peroxidation",
+        "organelle-spatial"
+      ]
+    },
+    {
+      "method": "mda-4hne",
+      "mechanisms": [
+        "lipid-peroxidation",
+        "tissue-injury"
+      ],
+      "assertionScopes": {
+        "MEASURES": "Methods: Malondialdehyde (MDA) assay"
+      }
+    },
+    {
+      "method": "oxidized-pl-lcms",
+      "mechanisms": [
+        "pufa-remodelling",
+        "lipid-peroxidation"
+      ],
+      "assertionScopes": {
+        "MEASURES": "Methods: redox phospholipidomics",
+        "CANNOT_DISTINGUISH": "Fig. 3"
+      }
+    },
+    {
+      "method": "epilipidomics",
+      "mechanisms": [
+        "pufa-remodelling",
+        "lipid-peroxidation",
+        "tumour-ecology"
+      ]
+    },
+    {
+      "method": "labile-iron-assays",
+      "mechanisms": [
+        "iron-homeostasis",
+        "organelle-spatial"
+      ]
+    },
+    {
+      "method": "genetic-epistasis",
+      "mechanisms": [
+        "gpx4-gsh",
+        "fsp1-coq",
+        "pufa-remodelling",
+        "iron-homeostasis"
+      ]
+    },
+    {
+      "method": "redox-metabolites",
+      "mechanisms": [
+        "gpx4-gsh",
+        "fsp1-coq"
+      ]
+    },
+    {
+      "method": "radical-kinetics",
+      "mechanisms": [
+        "lipid-peroxidation",
+        "fsp1-coq",
+        "translation"
+      ]
+    },
+    {
+      "method": "spatial-live-imaging",
+      "mechanisms": [
+        "organelle-spatial",
+        "death-execution"
+      ]
+    },
+    {
+      "method": "membrane-reconstitution",
+      "mechanisms": [
+        "lipid-peroxidation",
+        "death-execution"
+      ]
+    },
+    {
+      "method": "conditional-animal-genetics",
+      "mechanisms": [
+        "tissue-injury",
+        "tumour-ecology"
+      ]
+    },
+    {
+      "method": "human-organoid-perfusion",
+      "mechanisms": [
+        "tissue-injury",
+        "translation"
+      ]
+    },
+    {
+      "method": "electron-microscopy",
+      "mechanisms": [
+        "death-execution",
+        "tissue-injury"
+      ]
+    }
   ]
 }

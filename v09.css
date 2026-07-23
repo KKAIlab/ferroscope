@@ -235,6 +235,24 @@ nav { gap: 21px; font-size: 12px; }
 .bundle-card b { display: block; font: 600 12px/1.5 var(--serif); }
 .bundle-card p { margin: 8px 0 0; color: var(--muted); font-size: 10px; line-height: 1.6; }
 .bundle-companions b, .bundle-boundary b { display: block; margin-bottom: 4px; font: 700 8px var(--mono); text-transform: uppercase; }
+
+/* Assay comparison box. A three-column grid on desktop (axis + two methods) that collapses
+   to stacked rows on a narrow viewport so nothing overflows horizontally. */
+.comparison-question { margin: 6px 0 10px; color: var(--muted); font-size: 11px; line-height: 1.6; }
+.comparison-grid { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.comparison-head, .comparison-row { display: grid; grid-template-columns: 1.1fr 2fr 2fr; gap: 1px; }
+.comparison-head { background: var(--line); }
+.comparison-head span, .comparison-head b { padding: 8px 10px; background: var(--paper-2); font: 700 9px var(--mono); text-transform: uppercase; }
+.comparison-row { background: var(--line); }
+.comparison-row .comparison-axis { padding: 9px 10px; background: var(--paper-2); font: 700 9px var(--mono); text-transform: uppercase; color: var(--teal); }
+.comparison-row p { margin: 0; padding: 9px 10px; background: var(--white); color: var(--muted); font-size: 10px; line-height: 1.6; }
+.comparison-bottom { margin-top: 10px; }
+.comparison-bottom b { display: block; margin-bottom: 4px; font: 700 8px var(--mono); text-transform: uppercase; }
+.comparison-boundary { margin-top: 8px; color: var(--muted); font-size: 9px; line-height: 1.6; font-style: italic; }
+@media (max-width: 760px) {
+  .comparison-head { display: none; }
+  .comparison-row { grid-template-columns: 1fr; }
+}
 .bundle-companions { color: var(--teal) !important; }
 .bundle-boundary { padding: 10px; background: #f0e2d9; color: #7c3c26 !important; }
 .bundle-boundary b { color: #9f3e20; }

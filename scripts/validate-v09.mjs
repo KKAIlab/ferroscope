@@ -105,13 +105,18 @@ for (const method of methods) {
     if (!SOURCE_ROUTE_KINDS.includes(route.kind)) errors.push(`${where}: unknown route kind ${route.kind}`);
     if (!route.kindBasis) errors.push(`${where}: a route must say how its kind was decided`);
     if (!/^https:\/\//.test(route.url || "")) errors.push(`${where}: an HTTPS source URL is required`);
-    if (!["checked", "not-checked", "unavailable"].includes(route.status)) errors.push(`${where}: unknown status ${route.status}`);
+    // P0-B: the status that promotes an edge is spelled out, and it is the only one that
+    // does. A route may not be promoted by acquiring a date somewhere else in the tree.
+    if (!["source-checked", "not-checked", "unavailable"].includes(route.status)) errors.push(`${where}: unknown status ${route.status}`);
     if (!route.verificationDepth) errors.push(`${where}: a route must record how far it was read`);
     if (!route.boundary) errors.push(`${where}: a route must state what declaring it does not prove`);
-    if (route.status === "checked") {
-      if (!/^\d{4}-\d{2}-\d{2}$/.test(route.checkedAt || "")) errors.push(`${where}: a checked route must record an ISO check date`);
-      if (!route.checkedBy) errors.push(`${where}: a checked route must record who read it`);
-      if (!(route.scope || []).length) errors.push(`${where}: a checked route must state what was read`);
+    if (route.status === "source-checked") {
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(route.checkedAt || "")) errors.push(`${where}: a source-checked route must record an ISO check date`);
+      if (!route.checkedBy) errors.push(`${where}: a source-checked route must record who read it`);
+      if (!(route.scope || []).length) errors.push(`${where}: a source-checked route must state what was read`);
+      // Sources move. Without a pinned version the reader cannot tell whether the thing
+      // that was read is the thing they are now looking at.
+      if (!route.sourceVersion) errors.push(`${where}: a source-checked route must pin the version, accession or retrieval it read`);
     } else {
       if (route.checkedAt) errors.push(`${where}: an unchecked route must not carry a check date`);
       if ((route.scope || []).length) errors.push(`${where}: an unchecked route must not claim a scope; "not read" cannot be dressed as partial coverage`);
@@ -226,6 +231,30 @@ for (const [index, bundle] of (bundles.bundles || []).entries()) {
 }
 if (!(bundles.bundles || []).some((bundle) => (bundle.minimumBundle || []).some((step) => step.methodId === "bodipy-c11-assay"))) {
   errors.push("No evidence bundle places BODIPY 581/591 C11 inside a larger bundle; the probe must never be reachable as a standalone answer.");
+}
+
+// Assay comparison boxes. Each row must contrast both methods, and the box must cite the
+// sources its rows were read from, so a comparison cannot be asserted from general knowledge.
+for (const [index, comparison] of (bundles.comparisons || []).entries()) {
+  const where = `evidence-bundles comparisons[${index}] ${comparison.id || "(no id)"}`;
+  if (!comparison.id || !comparison.title || !comparison.question) errors.push(`${where}: id, title and question are required`);
+  if ((comparison.methodIds || []).length !== 2) errors.push(`${where}: a comparison must name exactly two methods`);
+  for (const id of comparison.methodIds || []) if (!methodIds.has(id)) errors.push(`${where}: unknown method ${id}`);
+  if ((comparison.rows || []).length < 3) errors.push(`${where}: a comparison needs at least three axes to be useful`);
+  for (const row of comparison.rows || []) {
+    if (!row.axis || !row.bodipy || !row.lcms) errors.push(`${where}: every row must name an axis and describe both methods`);
+  }
+  if ((comparison.bottomLine || "").length < 40) errors.push(`${where}: a comparison must state a bottom line`);
+  if ((comparison.boundary || "").length < 40) errors.push(`${where}: a comparison must state what it is not claiming`);
+  if (!(comparison.evidence || []).length) errors.push(`${where}: a comparison must cite the sources its rows were read from`);
+  for (const entry of comparison.evidence || []) {
+    if (!/^https:\/\//.test(entry.url || "")) errors.push(`${where}: each evidence entry needs an HTTPS source`);
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(entry.checkedAt || "")) errors.push(`${where}: each evidence entry needs an ISO check date`);
+    if (!entry.checkedBy || !(entry.scope || []).length) errors.push(`${where}: each evidence entry needs a reader and a read scope`);
+  }
+}
+if (!(bundles.comparisons || []).some((entry) => (entry.methodIds || []).includes("bodipy-c11-assay") && (entry.methodIds || []).includes("oxidized-pl-lcms"))) {
+  errors.push("The BODIPY C11 versus direct oxidised-phospholipid comparison box is required by the round-4 handoff and is missing.");
 }
 
 const html = await fs.readFile(path.join(root, "index.html"), "utf8");

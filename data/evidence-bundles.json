@@ -10,6 +10,29 @@
     { "methodId": "electron-microscopy", "reason": "Mitochondrial shrinkage is a morphological correlate reported in some models and absent in others; it cannot carry a mechanism claim." },
     { "methodId": "lipid-hydroperoxide-probes", "reason": "A hydroperoxide probe reports a class of species in a compartment the probe can reach, not the identity of the species that executes death." }
   ],
+  "comparisons": [
+    {
+      "id": "bodipy-vs-oxidized-pl",
+      "title": "BODIPY 581/591 C11 versus direct oxidised-phospholipid LC-MS/MS",
+      "methodIds": ["bodipy-c11-assay", "oxidized-pl-lcms"],
+      "question": "When a study reports \"lipid peroxidation\", was a bulk probe signal read or was an actual oxidised phospholipid species measured?",
+      "rows": [
+        { "axis": "What is measured", "bodipy": "Oxidation of a synthetic membrane-partitioning fatty-acid analogue, read as a shift of its fluorescence emission peak from ~590 nm to ~510 nm.", "lcms": "Named endogenous oxidised phospholipid molecular species (e.g. doubly and triply oxygenated arachidonoyl/adrenoyl-phosphatidylethanolamine), assigned by MS2/MS3 fragmentation." },
+        { "axis": "Chemical specificity", "bodipy": "Reacts with peroxyl radicals; Kagan 2017 states directly that C11-BODIPY, unlike LiperFluo, does not interact with phospholipid hydroperoxides. It is a surrogate, not a measure of the lethal species.", "lcms": "Resolves individual species and their oxygen adducts, so a specific lethal species can in principle be named and quantified." },
+        { "axis": "Quantification", "bodipy": "A ratio or shift of fluorescence, in arbitrary units, over a whole cell population.", "lcms": "Absolute-ish abundance, e.g. pmol per micromole phospholipid, ratiometric to an internal standard." },
+        { "axis": "Compartment", "bodipy": "Wherever the probe partitions; imaging gives only coarse subcellular localisation.", "lcms": "None within the mass spectrometry itself - a whole-cell extract; the endoplasmic-reticulum origin in Kagan 2017 came from separate LiperFluo imaging, not the LC-MS." },
+        { "axis": "Throughput and cost", "bodipy": "Fast, cheap, live-cell and single-cell compatible; ideal as a screening or time-course readout.", "lcms": "Slow, expensive, destructive, needs specialised instruments and standards; not a screening tool." },
+        { "axis": "Standing as evidence", "bodipy": "Never a standalone ferroptosis diagnosis; a supporting readout that must move together with orthogonal measures.", "lcms": "High-value direct chemistry, but association of one species with death still does not establish that it is necessary or sufficient to execute death." }
+      ],
+      "bottomLine": "BODIPY C11 tells you that membrane oxidation rose; oxidised-phospholipid LC-MS/MS tells you which molecule was oxidised. The first is a screen, the second is the identity. A ferroptosis claim rests on the second (plus genetic and rescue evidence), never on the first alone.",
+      "evidence": [
+        { "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5506843/", "checkedAt": "2026-07-24", "checkedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)", "scope": ["Results: Lipid hydroperoxides accumulate in ferroptotic ER", "Methods: redox phospholipidomics"], "sourceVersion": "PMC5506843.1 author manuscript, retrieved 2026-07-24" },
+        { "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7353921/", "checkedAt": "2026-07-24", "checkedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)", "scope": ["Methods: Flow cytometry analysis", "Methods: Redox-lipidomics analysis", "Fig. 5"], "sourceVersion": "PMC7353921.1 author manuscript, retrieved 2026-07-24" },
+        { "url": "https://www.thermofisher.com/order/catalog/product/D3861", "checkedAt": "2026-07-24", "checkedBy": "Claude Code round-4 primary-source pass (implementer, not an independent reviewer)", "scope": ["product description", "specifications"], "sourceVersion": "Thermo Fisher catalogue page D3861, retrieved 2026-07-24" }
+      ],
+      "boundary": "Rows are read from Kagan 2017, Zou 2020 and the D3861 catalogue page. The quantitative unit for BODIPY is left qualitative because neither read source stated an exact unit. This compares the two assays' properties; it is not a claim about any one experiment's result."
+    }
+  ],
   "bundles": [
     {
       "id": "bundle-culture-identity",
