@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0.0",
+  "updatedAt": "2026-07-23",
+  "note": "Every file in data/ must be registered here. Validation fails on an unregistered file, a missing file, a malformed version or a review date in the future, so a new dataset cannot enter the site without an owner and a review date.",
+  "files": {
+    "glossary.json": { "schemaVersion": "1.0.0", "shape": "array", "reviewedAt": "2026-07-23", "maintenance": "curated", "purpose": "Trilingual terminology corpus; the only published location for Chinese and Japanese narrative." },
+    "intelligence-curated.json": { "schemaVersion": "1.0.0", "shape": "array", "reviewedAt": "2026-07-23", "maintenance": "curated", "purpose": "Hand-selected research signals; legacy Chinese fields are overridden by signal-briefs-en.json." },
+    "knowledge-network.json": { "schemaVersion": "1.0.0", "shape": "object", "reviewedAt": "2026-07-23", "maintenance": "curated", "purpose": "Typed mechanism nodes, directional mechanism edges and method-to-mechanism links." },
+    "lab-paper-links.json": { "schemaVersion": "1.0.0", "shape": "array", "reviewedAt": "2026-07-23", "maintenance": "curated", "purpose": "Laboratory-to-paper contribution records; kept separate from canonical paper data." },
+    "lab-research-audits.json": { "schemaVersion": "0.3.0", "shape": "array", "reviewedAt": "2026-07-23", "maintenance": "archive", "purpose": "Legacy audit sample records retained as provenance." },
+    "lab-research.json": { "schemaVersion": "0.3.0", "shape": "object", "reviewedAt": "2026-07-23", "maintenance": "archive", "purpose": "Legacy Chinese evidence archive, including figure-level audits; not published as interpretation." },
+    "labs-en.json": { "schemaVersion": "1.0.0", "shape": "array", "reviewedAt": "2026-07-23", "maintenance": "curated", "purpose": "Public English overlay for every tracked laboratory." },
+    "labs.json": { "schemaVersion": "1.0.0", "shape": "array", "reviewedAt": "2026-07-23", "maintenance": "curated", "purpose": "Canonical laboratory records: id, website, category, tags and relevance." },
+    "live.json": { "schemaVersion": "1.0.0", "shape": "array", "reviewedAt": "2026-07-23", "maintenance": "generated", "purpose": "Automated signals written by scripts/update-data.mjs." },
+    "meta.json": { "schemaVersion": "1.0.0", "shape": "object", "reviewedAt": "2026-07-23", "maintenance": "generated", "purpose": "Aggregation timestamp, counts and per-source status." },
+    "methods.json": { "schemaVersion": "1.0.0", "shape": "array", "reviewedAt": "2026-07-23", "maintenance": "curated", "purpose": "Method modules with evidence roles and cannot-prove boundaries." },
+    "papers-en.json": { "schemaVersion": "1.0.0", "shape": "array", "reviewedAt": "2026-07-23", "maintenance": "curated", "purpose": "Canonical English paper layer with source-checked three-scale reading records." },
+    "resources.json": { "schemaVersion": "1.0.0", "shape": "array", "reviewedAt": "2026-07-23", "maintenance": "curated", "purpose": "External research routes with authority, language and use boundary." },
+    "schema-versions.json": { "schemaVersion": "1.0.0", "shape": "object", "reviewedAt": "2026-07-23", "maintenance": "curated", "purpose": "This manifest." },
+    "signal-briefs-en.json": { "schemaVersion": "1.0.0", "shape": "array", "reviewedAt": "2026-07-23", "maintenance": "curated", "purpose": "English overlays for curated signals." },
+    "watch-queries.json": { "schemaVersion": "1.0.0", "shape": "array", "reviewedAt": "2026-07-23", "maintenance": "curated", "purpose": "PubMed author queries for tracked laboratories; labels are internal, never published." }
+  }
+}

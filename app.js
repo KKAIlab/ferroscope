@@ -1,9 +1,11 @@
-const state = {
+export const state = {
   labs: [], methods: [], glossary: [], resources: [], signals: [], network: null, meta: null,
   researchProfiles: new Map(), researchCounts: null, watchedLabIds: new Set(),
+  papers: [], paperLinks: [], papersByDoi: new Map(), linksByPaper: new Map(),
   source: "all", topic: "all", signalSort: "relevance", visibleSignals: 8,
   labCategory: "All", labSearch: "", methodGroup: "All", methodSearch: "",
   resourceType: "All", glossarySearch: "", visibleGlossary: 8, selectedMechanism: "lipid-peroxidation",
+  paperTheme: "All", paperSearch: "",
 };
 
 const categoryLabels = { core: "Core mechanisms", methods: "Methods & chemistry", translational: "Disease & translation", adjacent: "Strategic adjacent fields" };
@@ -111,11 +113,60 @@ function renderLabs() {
   $("#labGrid").innerHTML = labs.length ? labs.map((lab, index) => { const profile = state.researchProfiles.get(lab.id); const audited = profile?.audit?.status !== "pending"; return `<article class="lab-card"><span class="lab-number">${String(index + 1).padStart(2,"0")} / ${String(labs.length).padStart(2,"0")}</span><span class="lab-class">${escapeHtml(categoryLabels[lab.category])}</span><span class="research-stage ${audited ? "audited" : "screened"}">${audited ? "evidence-audited archive" : "screened profile"}</span><h3>${escapeHtml(lab.pi)}</h3><div class="institution">${escapeHtml(lab.institution)}</div><p class="lab-question">${escapeHtml(lab.question || lab.focus)}</p><div class="lab-tags">${(lab.tags || []).slice(0,5).map((tag) => `<span>${escapeHtml(tag)}</span>`).join("")}</div><div class="lab-bottom"><span class="region">${escapeHtml(lab.region)}</span><span class="watch-state ${state.watchedLabIds.has(lab.id) ? "on" : ""}">● ${state.watchedLabIds.has(lab.id) ? "author watch" : "site watch"}</span><button class="research-open" data-lab-id="${escapeHtml(lab.id)}" type="button">profile</button><a class="visit" href="${safeUrl(lab.website)}" target="_blank" rel="noreferrer">lab ↗</a></div></article>`; }).join("") : '<div class="empty">No laboratory matches this search.</div>';
 }
 
-function renderResearchProfile(labId) {
+export function renderResearchProfile(labId) {
   const lab = state.labs.find((item) => item.id === labId), profile = state.researchProfiles.get(labId); if (!lab) return;
-  const methods = labMethods(labId); const studies = (profile?.majorStudies || []).map((study) => `<article class="research-study"><div class="reading-layer-label"><span>Scale 1 · 60-second paper card</span><small>${study.readingLevel === "figure-audited" ? "Scale 2 · Figure-level audit recorded" : "Evidence audit recorded"} · ${escapeHtml(study.publicationStatus || "status to verify")}</small></div><div class="study-meta">${escapeHtml(study.journal)} · ${escapeHtml(study.year)}</div><h5>${escapeHtml(study.title)}</h5><p class="study-limit"><b>English release status</b>The source and audit metadata are retained. The interpretive text remains unpublished until English translation is checked against the paper.</p><a href="${safeUrl(study.url)}" target="_blank" rel="noreferrer">Open original paper ↗</a></article>`).join("");
+  const methods = labMethods(labId); const studies = (profile?.majorStudies || []).map((study) => {
+    const english = paperFor(study.url);
+    const link = paperLabs(english?.id || "").find((entry) => entry.labId === labId);
+    const status = english?.publicationStatus || study.publicationStatus || "status to verify";
+    const released = english
+      ? `<p class="study-released"><b>English reading record</b>Published at all three scales and re-checked against the DOI record on ${escapeHtml(english.verification?.checkedAt || "")}${link ? `. This laboratory is recorded as ${escapeHtml(roleLabels[link.role] || link.role)}.` : "."}</p><div class="study-actions"><button type="button" class="paper-open" data-paper-id="${escapeHtml(english.id)}">Open reading record ↗</button><a href="${safeUrl(study.url)}" target="_blank" rel="noreferrer">Open original paper ↗</a></div>`
+      : `<p class="study-limit"><b>English release status</b>The source and audit metadata are retained. The interpretive text remains unpublished until English translation is checked against the paper.</p><a href="${safeUrl(study.url)}" target="_blank" rel="noreferrer">Open original paper ↗</a>`;
+    return `<article class="research-study"><div class="reading-layer-label"><span>Scale 1 · 60-second paper card</span><small>${study.readingLevel === "figure-audited" ? "Scale 2 · Figure-level audit recorded" : "Evidence audit recorded"} · ${escapeHtml(status)}</small></div><div class="study-meta">${escapeHtml(study.journal)} · ${escapeHtml(study.year)}</div><h5>${escapeHtml(study.title)}</h5>${released}</article>`;
+  }).join("");
   $("#labResearchContent").innerHTML = `<p class="eyebrow">GLOBAL LAB PROFILE · ENGLISH VERIFIED LAYER</p><h3>${escapeHtml(lab.pi)}</h3><p class="research-institution">${escapeHtml(lab.institution)} · ${escapeHtml(lab.region)}</p><p class="reading-layer-kicker">Scale 3 · longitudinal laboratory synthesis</p><section class="research-question"><span>Persistent question</span><strong>${escapeHtml(lab.question)}</strong><p>${escapeHtml(lab.focus)}</p></section><section class="research-block"><h4>Distinctive method capability</h4><div class="research-chips">${methods.length ? methods.map((method) => `<span>${escapeHtml(method.name)}</span>`).join("") : '<span>Capability mapping in progress</span>'}</div></section><section class="research-block"><h4>Representative source records · paper-level evidence</h4>${studies || '<p class="research-pending">No representative paper has passed the source-attribution gate yet.</p>'}</section><section class="research-block audit-block"><h4>Language and evidence control</h4><p class="audit-good">✓ English PI, institution, focus and question are published.</p><p class="audit-open">? Chinese/Japanese names are search aliases, not parallel narrative copies.</p><p class="audit-fix">↺ Legacy Chinese figure notes remain offline until source-checked English migration.</p></section><div class="research-actions"><a href="${safeUrl(lab.website)}" target="_blank" rel="noreferrer">Lab website ↗</a></div>`;
   $("#labResearchDialog").showModal();
+}
+
+const statusLabels = { "version-of-record": "version of record", corrected: "carries a registered correction", preprint: "preprint", accepted: "accepted manuscript", retracted: "retracted" };
+const roleLabels = { lead: "lead laboratory", "co-lead": "co-lead laboratory", "method collaborator": "method collaborator", "conceptual collaborator": "conceptual collaborator", "pre-independence": "first-author work before independent appointment", "contributing-author": "contributing author, role unverified" };
+
+function paperFor(url = "") { return state.papersByDoi.get(url.toLowerCase().replace(/^https?:\/\/(?:dx\.)?doi\.org\//, "").replace(/\/$/, "")); }
+function paperLabs(paperId) { return (state.linksByPaper.get(paperId) || []).map((link) => ({ ...link, lab: state.labs.find((lab) => lab.id === link.labId) })).filter((entry) => entry.lab); }
+
+function renderPaperThemes() {
+  const themes = ["All", ...new Set(state.papers.map((paper) => paper.theme))];
+  $("#paperThemes").innerHTML = themes.map((theme) => `<button type="button" data-paper-theme="${escapeHtml(theme)}" class="${theme === state.paperTheme ? "active" : ""}">${escapeHtml(theme)}</button>`).join("");
+  $$("#paperThemes button").forEach((button) => button.addEventListener("click", () => { state.paperTheme = button.dataset.paperTheme; renderPaperThemes(); renderPapers(); }));
+}
+
+function renderPapers() {
+  const term = state.paperSearch.trim().toLowerCase();
+  const papers = state.papers
+    .filter((paper) => state.paperTheme === "All" || paper.theme === state.paperTheme)
+    .filter((paper) => !term || [paper.title, paper.journal, paper.theme, paper.sixtySecond?.story, paper.sixtySecond?.advance, ...paperLabs(paper.id).map((entry) => entry.lab.pi)].join(" ").toLowerCase().includes(term))
+    .sort((a, b) => b.year - a.year || a.title.localeCompare(b.title, "en"));
+  $("#paperGrid").innerHTML = papers.length ? papers.map((paper) => {
+    const leads = paperLabs(paper.id).filter((entry) => ["lead", "co-lead", "pre-independence"].includes(entry.role));
+    return `<article class="paper-card"><div class="paper-top"><span>${escapeHtml(paper.journal)} · ${escapeHtml(String(paper.year))}</span><b class="paper-status ${paper.publicationStatus === "corrected" ? "flagged" : ""}">${escapeHtml(statusLabels[paper.publicationStatus] || paper.publicationStatus)}</b></div><h3>${escapeHtml(paper.title)}</h3><p>${escapeHtml(paper.sixtySecond.advance)}</p><div class="paper-tags">${paper.contested ? '<span class="chip contested">formally contested</span>' : ""}<span class="chip">${escapeHtml(paper.readingLevel === "figure-audited" ? "figure-level audit" : "evidence audit")}</span>${leads.slice(0, 2).map((entry) => `<span class="chip lab-hit">LAB · ${escapeHtml(entry.lab.pi)}</span>`).join("")}</div><div class="paper-bottom"><button type="button" class="paper-open" data-paper-id="${escapeHtml(paper.id)}">Open reading record ↗</button><a href="${safeUrl(paper.url)}" target="_blank" rel="noreferrer">Primary source ↗</a></div></article>`;
+  }).join("") : '<div class="empty">No paper matches this filter.</div>';
+}
+
+export function renderPaperDetail(paperId) {
+  const paper = state.papers.find((item) => item.id === paperId); if (!paper) return;
+  const sixty = paper.sixtySecond, verification = paper.verification || {};
+  const events = (paper.versionEvents || []).map((event) => `<li><b>${escapeHtml(event.type)}</b>${event.doi ? ` · <a href="${safeUrl(`https://doi.org/${event.doi}`)}" target="_blank" rel="noreferrer">${escapeHtml(event.doi)}</a>` : ""} · ${escapeHtml(event.date)} · affects ${escapeHtml(event.affects)}<span>${escapeHtml(event.note)}</span></li>`).join("");
+  const figures = (paper.figureAudit || []).map((figure) => `<article class="figure-unit"><div class="figure-head"><b>${escapeHtml(figure.figure)}</b><small>${escapeHtml(figure.sourceScope)}</small></div><p class="figure-question">${escapeHtml(figure.question)}</p><dl><dt>Intervention</dt><dd>${escapeHtml(figure.intervention)}</dd><dt>Readout</dt><dd>${escapeHtml(figure.readout)}</dd><dt>Answer</dt><dd>${escapeHtml(figure.answer)}</dd></dl><p class="figure-boundary"><b>Cannot show</b>${escapeHtml(figure.boundary)}</p></article>`).join("");
+  const attribution = paperLabs(paper.id).map((entry) => `<li><b>${escapeHtml(entry.lab.pi)}</b> · ${escapeHtml(roleLabels[entry.role] || entry.role)}<span>${escapeHtml(entry.roleBasis)}</span><span>${escapeHtml(entry.continuity)}</span></li>`).join("");
+  $("#paperContent").innerHTML = `<p class="eyebrow">${escapeHtml(paper.journal)} · ${escapeHtml(String(paper.year))} · ${escapeHtml(statusLabels[paper.publicationStatus] || paper.publicationStatus)}${paper.contested ? " · FORMALLY CONTESTED" : ""}</p><h3>${escapeHtml(paper.title)}</h3><p class="paper-citation">${escapeHtml(paper.citation || "")} · ${escapeHtml(paper.doi)}</p>
+<section class="research-block"><p class="reading-layer-kicker">Scale 1 · 60-second question card</p><div class="sixty-grid"><div><span>What was open</span><p>${escapeHtml(sixty.story)}</p></div><div><span>What this adds</span><p>${escapeHtml(sixty.advance)}</p></div><div><span>Evidence anchor</span><p>${escapeHtml(sixty.evidenceAnchor)}</p></div><div><span>Scope limit</span><p>${escapeHtml(sixty.scope)}</p></div><div><span>Still open</span><p>${escapeHtml(sixty.openQuestion)}</p></div></div></section>
+<section class="research-block"><h4>Condition vector</h4><p class="condition-vector">${escapeHtml(paper.conditionVector)}</p></section>
+${events ? `<section class="research-block"><h4>Version and correction history</h4><ul class="version-events">${events}</ul></section>` : ""}
+<section class="research-block"><p class="reading-layer-kicker">Scale 2 · Figure-level causal audit</p><div class="figure-chain">${figures}</div></section>
+<section class="research-block"><h4>Laboratory attribution</h4><ul class="attribution-list">${attribution || "<li>No attribution record.</li>"}</ul></section>
+<section class="research-block audit-block"><h4>What was verified, and when</h4><p class="audit-good">✓ ${escapeHtml(verification.metadata || "")}</p><p class="audit-good">✓ ${escapeHtml(verification.claims || "")}</p><p class="audit-open">? ${escapeHtml(verification.figureLayer || "")}</p>${(verification.unresolved || []).map((item) => `<p class="audit-fix">↺ ${escapeHtml(item)}</p>`).join("")}</section>
+<div class="research-actions"><a href="${safeUrl(paper.url)}" target="_blank" rel="noreferrer">Open the primary source ↗</a></div>`;
+  $("#paperDialog").showModal();
 }
 
 function renderMethodGroups() {
@@ -130,7 +181,7 @@ function renderMethods() {
   $("#methodGrid").innerHTML = methods.length ? methods.map((method) => `<article class="method-card"><div class="method-top"><span>${escapeHtml(method.group)}</span><b>${escapeHtml(method.evidenceRole)}</b></div><h3>${escapeHtml(method.name)}</h3><p>${escapeHtml(method.plainEnglish)}</p><div class="method-boundary"><span>Cannot prove alone</span>${escapeHtml(method.cannotProve)}</div><div class="method-labs">${method.distinctiveLabs.slice(0,4).map((id) => state.labs.find((lab) => lab.id === id)?.pi).filter(Boolean).map((name) => `<span>${escapeHtml(name)}</span>`).join("")}</div><button type="button" class="method-open" data-method-id="${escapeHtml(method.id)}">Open evidence card ↗</button></article>`).join("") : '<div class="empty">No method matches this search.</div>';
 }
 
-function renderMethodDetail(methodId) {
+export function renderMethodDetail(methodId) {
   const method = state.methods.find((item) => item.id === methodId); if (!method) return;
   $("#methodContent").innerHTML = `<p class="eyebrow">${escapeHtml(method.group)} · ${escapeHtml(method.evidenceRole)}</p><h3>${escapeHtml(method.name)}</h3><section class="research-question"><span>In simple English</span><strong>${escapeHtml(method.plainEnglish)}</strong><p><b>Measures:</b> ${escapeHtml(method.measures)}</p></section><section class="research-block"><h4>What it cannot prove alone</h4><p class="method-warning">${escapeHtml(method.cannotProve)}</p></section><section class="research-block two-columns"><div><h4>Better practice</h4><ol>${method.bestPractice.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ol></div><div><h4>Common failure modes</h4><ol>${method.commonPitfalls.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ol></div></section><section class="research-block"><h4>Laboratories with distinctive capability</h4><div class="research-chips">${method.distinctiveLabs.map((id) => state.labs.find((lab) => lab.id === id)?.pi).filter(Boolean).map((name) => `<span>${escapeHtml(name)}</span>`).join("")}</div></section><div class="research-actions"><a href="${safeUrl(method.source)}" target="_blank" rel="noreferrer">Method source ↗</a></div>`;
   $("#methodDialog").showModal();
@@ -145,7 +196,7 @@ function renderNetwork() {
   renderNetworkDetail();
 }
 
-function renderNetworkDetail() {
+export function renderNetworkDetail() {
   const node = state.network.mechanisms.find((item) => item.id === state.selectedMechanism); if (!node) return;
   const edges = state.network.mechanismEdges.filter((edge) => edge.source === node.id || edge.target === node.id);
   const methodIds = state.network.methodLinks.filter((link) => link.mechanisms.includes(node.id)).map((link) => link.method);
@@ -178,7 +229,11 @@ function renderResources() {
 function renderFreshness() {
   const updated = state.meta?.generatedAt; $("#topUpdated").textContent = updated ? timeAgo(updated) : "offline data"; $("#footerUpdated").textContent = `Last aggregation: ${updated ? formatDate(updated) : "unknown"}`;
   $("#labCount").textContent = state.labs.length; $("#methodCount").textContent = state.methods.length; $("#trialCount").textContent = state.meta?.counts?.clinicalTrials ?? state.signals.filter((item) => item.sourceType === "trial").length;
-  if (state.researchCounts) { $("#researchCoverage").textContent = `${state.researchCounts.audited} lab archives audited; ${state.researchCounts.figureAuditedStudies}/${state.researchCounts.studies} unique representative papers reached figure-level audit; ${state.researchCounts.studyRecords} lab–paper relationship records.`; $("#quickStudyCount").textContent = `${state.researchCounts.studies} unique papers indexed`; $("#figureStudyCount").textContent = `${state.researchCounts.figureAuditedStudies} figure-audited`; $("#longitudinalLabCount").textContent = `${state.researchCounts.audited} lab syntheses`; }
+  if (state.researchCounts) { $("#researchCoverage").textContent = `${state.researchCounts.audited} lab archives audited; ${state.researchCounts.figureAuditedStudies}/${state.researchCounts.studies} unique representative papers reached figure-level audit; ${state.researchCounts.studyRecords} lab–paper relationship records.`; $("#longitudinalLabCount").textContent = `${state.researchCounts.audited} lab syntheses`; }
+  const englishFigureAudits = state.papers.filter((paper) => paper.readingLevel === "figure-audited").length;
+  $("#paperCount").textContent = state.papers.length;
+  $("#quickStudyCount").textContent = `${state.papers.length} papers published in English${state.researchCounts ? ` of ${state.researchCounts.studies} indexed` : ""}`;
+  $("#figureStudyCount").textContent = `${englishFigureAudits} English figure-level audits`;
   $("#freshnessList").innerHTML = (state.meta?.sources || []).map((row) => `<div class="freshness-row"><b>${escapeHtml(row.name)}</b><span>${row.ok ? "success" : "failed"} · ${timeAgo(row.updatedAt)}</span><small>${escapeHtml(plain(row.note, row.ok ? "The latest scheduled source fetch completed." : "The source update reported an error; inspect the refresh workflow."))}</small></div>`).join("") || '<div class="empty">No update record is available.</div>';
 }
 
@@ -189,6 +244,9 @@ function bindEvents() {
   $("#loadMoreSignals").addEventListener("click", () => { state.visibleSignals += 8; renderSignals(); });
   $("#labSearch").addEventListener("input", (event) => { state.labSearch = event.target.value; renderLabs(); });
   $("#labGrid").addEventListener("click", (event) => { const button = event.target.closest(".research-open"); if (button) renderResearchProfile(button.dataset.labId); });
+  $("#paperSearch").addEventListener("input", (event) => { state.paperSearch = event.target.value; renderPapers(); });
+  $("#paperGrid").addEventListener("click", (event) => { const button = event.target.closest(".paper-open"); if (button) renderPaperDetail(button.dataset.paperId); });
+  $("#labResearchContent").addEventListener("click", (event) => { const button = event.target.closest(".paper-open"); if (button) { $("#labResearchDialog").close(); renderPaperDetail(button.dataset.paperId); } });
   $("#methodSearch").addEventListener("input", (event) => { state.methodSearch = event.target.value; renderMethods(); });
   $("#methodGrid").addEventListener("click", (event) => { const button = event.target.closest(".method-open"); if (button) renderMethodDetail(button.dataset.methodId); });
   $("#glossarySearch").addEventListener("input", (event) => { state.glossarySearch = event.target.value; renderGlossary(); });
@@ -198,16 +256,19 @@ function bindEvents() {
 }
 
 async function init() {
-  const [rawLabs, englishLabs, curated, live, meta, watchQueries, research, methods, glossary, network, resources, briefs] = await Promise.all([
-    readJson("data/labs.json", []), readJson("data/labs-en.json", []), readJson("data/intelligence-curated.json", []), readJson("data/live.json", []), readJson("data/meta.json", null), readJson("data/watch-queries.json", []), readJson("data/lab-research.json", { profiles: [], counts: null }), readJson("data/methods.json", []), readJson("data/glossary.json", []), readJson("data/knowledge-network.json", { mechanisms: [], mechanismEdges: [], methodLinks: [] }), readJson("data/resources.json", []), readJson("data/signal-briefs-en.json", [])
+  const [rawLabs, englishLabs, curated, live, meta, watchQueries, research, methods, glossary, network, resources, briefs, papers, paperLinks] = await Promise.all([
+    readJson("data/labs.json", []), readJson("data/labs-en.json", []), readJson("data/intelligence-curated.json", []), readJson("data/live.json", []), readJson("data/meta.json", null), readJson("data/watch-queries.json", []), readJson("data/lab-research.json", { profiles: [], counts: null }), readJson("data/methods.json", []), readJson("data/glossary.json", []), readJson("data/knowledge-network.json", { mechanisms: [], mechanismEdges: [], methodLinks: [] }), readJson("data/resources.json", []), readJson("data/signal-briefs-en.json", []), readJson("data/papers-en.json", []), readJson("data/lab-paper-links.json", [])
   ]);
   const overlays = new Map(englishLabs.map((item) => [item.id, item]));
   state.labs = rawLabs.map((lab) => ({ ...lab, ...(overlays.get(lab.id) || {}) })).filter((lab) => overlays.has(lab.id));
   state.methods = methods; state.glossary = glossary; state.network = network; state.resources = resources; state.meta = meta;
   state.researchProfiles = new Map(research.profiles.map((profile) => [profile.labId, profile])); state.researchCounts = research.counts; state.watchedLabIds = new Set(watchQueries.map((item) => item.labId));
+  state.papers = papers; state.paperLinks = paperLinks;
+  state.papersByDoi = new Map(papers.map((paper) => [paper.doi.toLowerCase(), paper]));
+  state.linksByPaper = paperLinks.reduce((map, link) => map.set(link.paperId, [...(map.get(link.paperId) || []), link]), new Map());
   const labMap = new Map(state.labs.map((lab) => [lab.id, lab])), briefMap = new Map(briefs.map((item) => [item.id, item]));
   state.signals = uniqueSignals([...curated.map((item) => ({ ...item, reviewStatus: "curated" })), ...live.map((item) => ({ ...item, reviewStatus: "auto" }))]).map((item) => normalizeSignal(item, briefMap, labMap));
-  renderFrontiers(); renderTopicOptions(); renderSignals(); renderMethodGroups(); renderMethods(); renderNetwork(); renderLabCategories(); renderLabs(); renderGlossary(); renderResourceTypes(); renderResources(); renderFreshness(); bindEvents();
+  renderFrontiers(); renderTopicOptions(); renderSignals(); renderPaperThemes(); renderPapers(); renderMethodGroups(); renderMethods(); renderNetwork(); renderLabCategories(); renderLabs(); renderGlossary(); renderResourceTypes(); renderResources(); renderFreshness(); bindEvents();
 }
 
-init();
+export const ready = init();
