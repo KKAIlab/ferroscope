@@ -714,21 +714,6 @@
     "url": "https://clinicaltrials.gov/study/NCT06491394"
   },
   {
-    "id": "pubmed-42463647",
-    "title": "SUV39H2-mediated NCOA4 methylation controls ferritinophagy and ferroptosis in triple-negative breast cancer.",
-    "date": "2026-07-16",
-    "sourceType": "paper",
-    "evidence": "B",
-    "relevance": 62,
-    "topics": [
-      "铁稳态",
-      "溶酶体",
-      "肿瘤转化"
-    ],
-    "takeaway": "Cell death & disease · Liu L, Pei X, Li D, Huo Y, Wang Z, Zhang Q, Yue Y, Deng B, Yu M, Xu T, Zhong L, Ruan X, Li X",
-    "url": "https://doi.org/10.1038/s41419-026-09008-1"
-  },
-  {
     "id": "pubmed-42481294",
     "title": "Ferritin-mediated copper delivery induces dual cell death across diverse leukemia types.",
     "date": "2026-07-07",
