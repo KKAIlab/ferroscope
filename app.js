@@ -1,5 +1,6 @@
 import { DOCUMENT_TYPE_LABELS, canonicalIdentity, evidenceGradeFor, formatCalendarDate, mergeSignalLayers } from "./lib/records.mjs";
 import { buildGraph, isSourceChecked } from "./lib/graph.mjs";
+import { createResolver, SURFACE_TYPE_LABELS, ACCESS_EXTENT_LABELS, isIndependentEvent } from "./lib/source-registry.mjs";
 
 export const state = {
   labs: [], methods: [], glossary: [], resources: [], signals: [], network: null, meta: null,
@@ -342,22 +343,34 @@ const SUPPORT_MODE_LABELS = {
 function decisionProfileHtml(method) {
   const profile = method.decisionProfile;
   if (!profile) return "";
-  // A checked field resolves each piece of evidence to the source record, review event and
-  // reviewed scope it cites, and shows the support mode, the scope-specific access depth, the
-  // scope boundary and the source that was actually opened.
+  // A checked field resolves each piece of evidence through the canonical registry: the source
+  // record, the review event and the reviewed scope it cites. It shows the exact clause the
+  // evidence supports, its support mode, the document surface that was opened and how much of
+  // it (never an ordinal depth), the reader and date of the selected event, the source document
+  // class and version, the scope boundary and a link to the source that was actually opened.
+  const registry = state.registry || createResolver(state.sourceReviews || {});
   const routesById = new Map((method.sourceRoutes || []).map((route) => [route.id, route]));
   const evidenceHtml = (field) => (field.evidence || []).map((entry) => {
     const route = routesById.get(entry.sourceRecordId);
-    const scope = (route?.reviewedScopes || []).find((item) => item.id === entry.scopeId);
-    const stateLabel = route?.status === "independently-rechecked" ? "Independently rechecked" : "Source checked";
-    const depthLabel = verificationDepthLabels[scope?.verificationDepth] || scope?.verificationDepth || "";
+    const source = route ? registry.source(route.sourceId) : null;
+    const event = route?.reviewEventId ? registry.event(route.reviewEventId) : null;
+    const scope = source ? registry.scope(source.id, entry.scopeId) : null;
+    const independent = event ? isIndependentEvent(event) : false;
+    const stateLabel = independent ? "Independently rechecked" : "Source checked";
+    const surfaceLabel = scope ? `${SURFACE_TYPE_LABELS[scope.surfaceType] || scope.surfaceType}, ${ACCESS_EXTENT_LABELS[scope.accessExtent] || scope.accessExtent}` : "";
+    const readerLine = event ? `${registry.reviewerName(event.reviewerId)}${event.checkedAt ? ` · ${event.checkedAt}` : ""}` : "";
+    const versionLine = source ? `${SOURCE_ROUTE_LABELS[route.kind] || route.kind} · ${source.documentClass}${source.version?.label ? ` · ${source.version.label}` : ""}` : "";
+    const agreementLine = independent && event ? `Second reader agreement: ${escapeHtml(event.agreement || "")}${event.discrepancyNote ? ` — ${escapeHtml(event.discrepancyNote)}` : ""}` : "";
     return `<li class="field-evidence ${escapeHtml(entry.supportMode || "")}">`
       + `<span class="ev-mode">${escapeHtml(SUPPORT_MODE_LABELS[entry.supportMode] || entry.supportMode || "")}</span>`
-      + `<span class="ev-scope">${escapeHtml(scope?.label || entry.scopeId || "")}${depthLabel ? ` · ${escapeHtml(depthLabel)}` : ""}</span>`
-      + `<span class="ev-state">${escapeHtml(stateLabel)} · ${escapeHtml(SOURCE_ROUTE_LABELS[route?.kind] || route?.kind || "")}${route?.sourceVersion ? ` · ${escapeHtml(route.sourceVersion)}` : ""}</span>`
+      + `<span class="ev-fragment">${escapeHtml(entry.claimFragment || "")}</span>`
+      + `<span class="ev-scope">${escapeHtml(scope?.label || entry.scopeId || "")}${surfaceLabel ? ` · ${escapeHtml(surfaceLabel)}` : ""}</span>`
+      + `<span class="ev-state">${escapeHtml(stateLabel)} · ${escapeHtml(versionLine)}</span>`
+      + `${readerLine ? `<span class="ev-reader">Read by ${escapeHtml(readerLine)}</span>` : ""}`
+      + `${agreementLine ? `<span class="ev-agreement">${agreementLine}</span>` : ""}`
       + `<p class="ev-note">${escapeHtml(entry.supportNote || "")}</p>`
       + `${scope?.boundary ? `<p class="ev-boundary">Not established here: ${escapeHtml(scope.boundary)}</p>` : ""}`
-      + `${route?.url ? `<a href="${safeUrl(route.url)}" target="_blank" rel="noreferrer">Opened source ↗</a>` : ""}</li>`;
+      + `${source?.url ? `<a href="${safeUrl(source.url)}" target="_blank" rel="noreferrer">Opened source ↗</a>` : ""}</li>`;
   }).join("");
   const rows = Object.entries(DECISION_AXIS_LABELS).map(([axis, label]) => {
     const field = profile.fields?.[axis];
@@ -377,7 +390,17 @@ function decisionProfileHtml(method) {
 function sourceRoutesHtml(method) {
   const routes = method.sourceRoutes || [];
   if (!routes.length) return "";
-  return `<section class="research-block"><h4>Declared sources</h4><div class="source-routes">${routes.map((route) => `<article class="source-route ${escapeHtml(route.status)}"><div class="route-top"><span>${escapeHtml(SOURCE_ROUTE_LABELS[route.kind] || route.kind)}</span><b>${route.status === "source-checked" ? `read ${escapeHtml(route.checkedAt || "")}` : "not read"}</b></div><p>${escapeHtml(route.kindBasis)}</p><p class="route-boundary"><b>What declaring it does not prove</b>${escapeHtml(route.boundary)}</p><a href="${safeUrl(route.url)}" target="_blank" rel="noreferrer">Open source ↗</a></article>`).join("")}</div></section>`;
+  const registry = state.registry || createResolver(state.sourceReviews || {});
+  return `<section class="research-block"><h4>Declared sources</h4><div class="source-routes">${routes.map((route) => {
+    const source = registry.source(route.sourceId);
+    const event = route.reviewEventId ? registry.event(route.reviewEventId) : null;
+    const independent = event ? isIndependentEvent(event) : false;
+    const statusClass = event ? (independent ? "independently-rechecked" : "source-checked") : "not-checked";
+    // A vendor page is shown as a vendor page, never as a scientific "full text": the surface
+    // label comes from the registry surface vocabulary, not from an ordinal depth.
+    const readLabel = event ? `${independent ? "independently rechecked" : "read"} ${escapeHtml(event.checkedAt || "")}` : "not read";
+    return `<article class="source-route ${escapeHtml(statusClass)}"><div class="route-top"><span>${escapeHtml(SOURCE_ROUTE_LABELS[route.kind] || route.kind)}</span><b>${readLabel}</b></div><p>${escapeHtml(route.kindBasis)}</p>${source ? `<p class="route-class">${escapeHtml(source.documentClass)}${source.version?.label ? ` · ${escapeHtml(source.version.label)}` : ""}</p>` : ""}<p class="route-boundary"><b>What declaring it does not prove</b>${escapeHtml(route.boundary)}</p>${source?.url ? `<a href="${safeUrl(source.url)}" target="_blank" rel="noreferrer">Open source ↗</a>` : ""}</article>`;
+  }).join("")}</div></section>`;
 }
 
 // distinctiveLabs is a curated shortlist, not evidence. A capability claim counts here only
@@ -529,8 +552,8 @@ function bindEvents() {
 }
 
 async function init() {
-  const [rawLabs, englishLabs, curated, live, meta, watchQueries, research, methods, glossary, network, resources, briefs, papers, paperLinks, recordOverlays, coverage, claims, bundles, manifest] = await Promise.all([
-    readJson("data/labs.json", []), readJson("data/labs-en.json", []), readJson("data/intelligence-curated.json", []), readJson("data/live.json", []), readJson("data/meta.json", null), readJson("data/watch-queries.json", []), readJson("data/lab-research.json", { profiles: [], counts: null }), readJson("data/methods.json", []), readJson("data/glossary.json", []), readJson("data/knowledge-network.json", { mechanisms: [], mechanismEdges: [], methodLinks: [] }), readJson("data/resources.json", []), readJson("data/signal-briefs-en.json", []), readJson("data/papers-en.json", []), readJson("data/lab-paper-links.json", []), readJson("data/record-overlays.json", []), readJson("data/monitoring-coverage.json", { labs: [] }), readJson("data/paper-claims.json", { contexts: [], perturbations: [], claims: [] }), readJson("data/evidence-bundles.json", { bundles: [], neverStandalone: [] }), readJson("data/schema-versions.json", { files: {} })
+  const [rawLabs, englishLabs, curated, live, meta, watchQueries, research, methods, glossary, network, resources, briefs, papers, paperLinks, recordOverlays, coverage, claims, bundles, manifest, sourceReviews] = await Promise.all([
+    readJson("data/labs.json", []), readJson("data/labs-en.json", []), readJson("data/intelligence-curated.json", []), readJson("data/live.json", []), readJson("data/meta.json", null), readJson("data/watch-queries.json", []), readJson("data/lab-research.json", { profiles: [], counts: null }), readJson("data/methods.json", []), readJson("data/glossary.json", []), readJson("data/knowledge-network.json", { mechanisms: [], mechanismEdges: [], methodLinks: [] }), readJson("data/resources.json", []), readJson("data/signal-briefs-en.json", []), readJson("data/papers-en.json", []), readJson("data/lab-paper-links.json", []), readJson("data/record-overlays.json", []), readJson("data/monitoring-coverage.json", { labs: [] }), readJson("data/paper-claims.json", { contexts: [], perturbations: [], claims: [] }), readJson("data/evidence-bundles.json", { bundles: [], neverStandalone: [] }), readJson("data/schema-versions.json", { files: {} }), readJson("data/source-reviews.json", { sources: [], reviewEvents: [], reviewers: [] })
   ]);
   const overlays = new Map(englishLabs.map((item) => [item.id, item]));
   state.labs = rawLabs.map((lab) => ({ ...lab, ...(overlays.get(lab.id) || {}) })).filter((lab) => overlays.has(lab.id));
@@ -538,7 +561,8 @@ async function init() {
   state.researchProfiles = new Map(research.profiles.map((profile) => [profile.labId, profile])); state.researchCounts = research.counts; state.watchedLabIds = new Set(watchQueries.map((item) => item.labId));
   state.coverage = coverage; state.coverageByLab = new Map((coverage.labs || []).map((row) => [row.labId, row])); state.bundles = bundles; state.manifest = manifest;
   state.recordOverlays = new Map(recordOverlays.map((row) => [row.canonicalId, row]));
-  state.papers = papers; state.paperLinks = paperLinks;
+  state.papers = papers; state.paperLinks = paperLinks; state.sourceReviews = sourceReviews;
+  state.registry = createResolver(sourceReviews);
   state.papersByDoi = new Map(papers.map((paper) => [paper.doi.toLowerCase(), paper]));
   state.papersByCanonicalId = new Map(papers.map((paper) => [canonicalIdentity(paper).canonicalId, paper]));
   state.linksByPaper = paperLinks.reduce((map, link) => map.set(link.paperId, [...(map.get(link.paperId) || []), link]), new Map());
@@ -546,7 +570,7 @@ async function init() {
   // describe a version of the records that is no longer on disk. A malformed input is
   // surfaced in the console and leaves the rest of the interface working.
   try {
-    state.graph = buildGraph({ papers, labs: rawLabs, labsEn: englishLabs, links: paperLinks, methods, network, claims });
+    state.graph = buildGraph({ papers, labs: rawLabs, labsEn: englishLabs, links: paperLinks, methods, network, claims, sourceReviews });
   } catch (error) {
     console.error("The provenance graph could not be built", error);
     state.graph = null;

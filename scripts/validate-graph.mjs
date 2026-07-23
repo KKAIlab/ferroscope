@@ -14,15 +14,15 @@ import { EDGE_PROVENANCE_CLASSES, EDGE_REVIEW_STATES, NODE_TYPES, RELATIONS, bui
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const read = async (file) => JSON.parse(await fs.readFile(path.join(root, "data", file), "utf8"));
 
-const [papers, labs, labsEn, links, methods, network, claims] = await Promise.all([
+const [papers, labs, labsEn, links, methods, network, claims, sourceReviews] = await Promise.all([
   read("papers-en.json"), read("labs.json"), read("labs-en.json"), read("lab-paper-links.json"),
-  read("methods.json"), read("knowledge-network.json"), read("paper-claims.json"),
+  read("methods.json"), read("knowledge-network.json"), read("paper-claims.json"), read("source-reviews.json"),
 ]);
 
 const errors = [];
 let graph;
 try {
-  graph = buildGraph({ papers, labs, labsEn, links, methods, network, claims });
+  graph = buildGraph({ papers, labs, labsEn, links, methods, network, claims, sourceReviews });
 } catch (error) {
   console.error(error.message);
   process.exit(1);

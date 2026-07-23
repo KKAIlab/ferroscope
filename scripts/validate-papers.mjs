@@ -16,12 +16,14 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { VERIFICATION_DEPTHS, checkReviewRecord, verificationDepthRank } from "../lib/graph.mjs";
+import { createResolver, isCheckedState } from "../lib/source-registry.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const read = async (file) => JSON.parse(await fs.readFile(path.join(root, "data", file), "utf8"));
-const [papers, links, labs, archive] = await Promise.all([
-  read("papers-en.json"), read("lab-paper-links.json"), read("labs.json"), read("lab-research.json"),
+const [papers, links, labs, archive, sourceReviews] = await Promise.all([
+  read("papers-en.json"), read("lab-paper-links.json"), read("labs.json"), read("lab-research.json"), read("source-reviews.json"),
 ]);
+const resolver = createResolver(sourceReviews);
 
 const errors = [];
 const fail = (condition, message) => {
@@ -170,6 +172,27 @@ for (const [index, paper] of papers.entries()) {
     // The shared review contract, so a paper source and a graph edge are held to one rule.
     for (const problem of checkReviewRecord({ ...source, sourceUrl: source.url }, sourceWhere)) fail(false, problem);
     fail(verificationDepths.has(source.verificationDepth), `${sourceWhere}: unknown verificationDepth ${source.verificationDepth}`);
+
+    // P0-D: a paper source references the canonical registry. The registry is the authority
+    // for the URL, the pinned version and the reviewer; the denormalised copy here must agree
+    // byte-for-byte, so a forged version in the paper layer is caught rather than trusted.
+    fail(Boolean(source.sourceId), `${sourceWhere}: a verification source must reference a canonical sourceId`);
+    const registrySource = source.sourceId ? resolver.source(source.sourceId) : null;
+    fail(!source.sourceId || Boolean(registrySource), `${sourceWhere}: sourceId ${JSON.stringify(source.sourceId)} does not resolve in the source registry`);
+    if (registrySource) {
+      fail(registrySource.url === source.url, `${sourceWhere}: the denormalised url disagrees with registry source ${registrySource.id}`);
+    }
+    if (isCheckedState(source.reviewState)) {
+      fail(Boolean(source.reviewEventId), `${sourceWhere}: a checked verification source must reference a reviewEventId`);
+      const event = source.reviewEventId ? resolver.event(source.reviewEventId) : null;
+      fail(!source.reviewEventId || Boolean(event), `${sourceWhere}: reviewEventId ${JSON.stringify(source.reviewEventId)} does not resolve in the source registry`);
+      if (event) {
+        fail(event.sourceId === source.sourceId, `${sourceWhere}: review event ${event.id} covers source ${event.sourceId}, not ${source.sourceId}`);
+        fail(isCheckedState(event.reviewState), `${sourceWhere}: review event ${event.id} is ${event.reviewState}, not a checked reading`);
+      }
+    } else {
+      fail(!source.reviewEventId, `${sourceWhere}: an unchecked verification source must not reference a review event`);
+    }
     fail(
       (source.status === "source-checked") === (source.reviewState === "source-checked"),
       `${sourceWhere}: status ${JSON.stringify(source.status)} and reviewState ${JSON.stringify(source.reviewState)} disagree; a source may not be checked on one axis and unread on the other`,

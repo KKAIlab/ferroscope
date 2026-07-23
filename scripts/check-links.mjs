@@ -23,19 +23,24 @@ const checkedAt = new Date().toISOString();
 const labs = JSON.parse(await fs.readFile(path.join(root, "data/labs.json"), "utf8"));
 const resources = JSON.parse(await fs.readFile(path.join(root, "data/resources.json"), "utf8"));
 const methods = JSON.parse(await fs.readFile(path.join(root, "data/methods.json"), "utf8"));
+const sourceReviews = JSON.parse(await fs.readFile(path.join(root, "data/source-reviews.json"), "utf8"));
 const previous = await fs.readFile(reportPath, "utf8").then((text) => JSON.parse(text)).catch(() => ({ targets: [] }));
 const previousByKey = new Map((previous.targets || []).map((target) => [`${target.kind}:${target.id}`, target]));
 
-// A method module declares the source its guidance rests on. Nine modules share one DOI, so
-// the URLs are deduplicated and each target records which modules declare it. Resolving is
-// still not reading: a healthy result here says the document is reachable, nothing more.
+// A method module declares the source its guidance rests on. Its routes now reference the
+// canonical registry, so the URL is resolved from the registry source rather than embedded in
+// the route. Many modules share one DOI, so the URLs are deduplicated and each target records
+// which modules declare it. Resolving is still not reading: a healthy result says the document
+// is reachable, nothing more.
+const sourceUrlById = new Map((sourceReviews.sources || []).map((source) => [source.id, source.url]));
 const methodSources = new Map();
 for (const method of methods) {
   for (const route of method.sourceRoutes || []) {
-    if (!route.url) continue;
-    if (!methodSources.has(route.url)) methodSources.set(route.url, { modules: [], kinds: new Set() });
-    methodSources.get(route.url).modules.push(method.id);
-    methodSources.get(route.url).kinds.add(route.kind);
+    const url = sourceUrlById.get(route.sourceId);
+    if (!url) continue;
+    if (!methodSources.has(url)) methodSources.set(url, { modules: [], kinds: new Set() });
+    methodSources.get(url).modules.push(method.id);
+    methodSources.get(url).kinds.add(route.kind);
   }
 }
 
