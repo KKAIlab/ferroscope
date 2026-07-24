@@ -451,17 +451,33 @@ export function renderMethodDetail(methodId) {
 // recomputed only when the SET of node ids changes, so selecting a node never reshuffles the layout.
 // Every mechanism in the data is laid out and drawn — the previous hardcoded coordinate table
 // silently hid any node it did not list (the four round-10 nodes were invisible for exactly that reason).
-// Colour encodes a curated functional family; an unmapped node falls back to "context", never dropped.
+// The graph is laid out as a directional reasoning chain, and colour/layer encode each node's ROLE in
+// that chain. The six roles are grounded in the mechanistic scheme of the field's consensus paper
+// (Mishima et al., Nat Rev Mol Cell Biol 2025, Fig. 1): drivers feed the core peroxidation reaction,
+// membrane composition (pro-ferroptotic PUFA vs anti-ferroptotic MUFA) tunes susceptibility, enzymatic
+// defence systems restrain it, execution follows, and disease/therapy context modulates the whole. This
+// is our own re-expression informed by that scheme, not a copy of the figure. An unmapped node falls
+// back to "context" and is still drawn (a missing node is never dropped). y/x are pre-normalisation
+// target coordinates that place each role's band; the force pass relaxes within the bands.
 const MECHANISM_GROUP = {
-  "iron-homeostasis": "substrate", "pufa-remodelling": "substrate", "lipid-peroxidation": "substrate",
-  "organelle-spatial": "substrate", "mitochondrial-metabolism": "substrate",
-  "gpx4-gsh": "defence", "fsp1-coq": "defence", "mufa-membrane-remodelling": "defence", "selenium-selenoprotein": "defence",
-  "death-execution": "outcome", "tissue-injury": "outcome",
-  "tumour-ecology": "context", "translation": "context", "immune-regulation": "context",
+  "iron-homeostasis": "drive", "mitochondrial-metabolism": "drive", "organelle-spatial": "drive",
+  "pufa-remodelling": "composition", "mufa-membrane-remodelling": "composition",
+  "lipid-peroxidation": "core",
+  "gpx4-gsh": "defence", "fsp1-coq": "defence", "selenium-selenoprotein": "defence",
+  "death-execution": "execution", "tissue-injury": "execution",
+  "tumour-ecology": "context", "immune-regulation": "context", "translation": "context",
 };
-const GROUP_HUE = { substrate: 33, defence: 158, outcome: 4, context: 276 };
-const groupOf = (id) => MECHANISM_GROUP[id] || "context";
-const hueOf = (id) => GROUP_HUE[groupOf(id)];
+const ROLE_META = {
+  drive:       { hue: 22,  label: "Drivers",              y: 14, x: 44 },
+  composition: { hue: 45,  label: "Membrane composition", y: 30, x: 44 },
+  core:        { hue: 194, label: "Core reaction",        y: 48, x: 44 },
+  defence:     { hue: 150, label: "Defence systems",      y: 48, x: 80 },
+  execution:   { hue: 352, label: "Execution",            y: 70, x: 44 },
+  context:     { hue: 274, label: "Disease & therapy",    y: 88, x: 50 },
+};
+const ROLE_ORDER = ["drive", "composition", "core", "defence", "execution", "context"];
+const groupOf = (id) => (MECHANISM_GROUP[id] && ROLE_META[MECHANISM_GROUP[id]] ? MECHANISM_GROUP[id] : "context");
+const hueOf = (id) => ROLE_META[groupOf(id)].hue;
 
 // A tiny seeded PRNG (mulberry32) keeps the initial placement deterministic without Math.random.
 function seededRandom(seed) { return function () { seed = (seed + 0x6d2b79f5) | 0; let t = Math.imul(seed ^ (seed >>> 15), 1 | seed); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
@@ -475,6 +491,11 @@ function edgeWeight(confidence) {
   return "moderate";
 }
 
+// A layered ("Sugiyama-lite") force pass: each node is pulled hard toward its role band's Y so the
+// causal chain reads top -> bottom (drivers -> composition -> core -> execution -> context, with the
+// defence systems held to the right as a restraining arm), while node repulsion spreads a band out
+// horizontally and weak edge springs pull connected nodes together without collapsing the bands.
+// Deterministic (seeded, no Math.random), recomputed only when the node-id SET changes.
 let networkLayout = null;
 function computeNetworkLayout(mechanisms, edges) {
   const ids = mechanisms.map((m) => m.id);
@@ -482,32 +503,37 @@ function computeNetworkLayout(mechanisms, edges) {
   if (networkLayout && networkLayout.key === key) return networkLayout.pos;
   const n = ids.length, index = new Map(ids.map((id, i) => [id, i]));
   const rand = seededRandom(0x9e3779b1);
-  const pos = ids.map((_, i) => { const a = (2 * Math.PI * i) / n; return [50 + 26 * Math.cos(a) + (rand() - 0.5) * 8, 50 + 26 * Math.sin(a) + (rand() - 0.5) * 8]; });
+  const target = ids.map((id) => ROLE_META[groupOf(id)]);
+  const pos = target.map((t) => [t.x + (rand() - 0.5) * 16, t.y + (rand() - 0.5) * 4]);
   const links = edges.map((e) => [index.get(e.source), index.get(e.target)]).filter(([a, b]) => a != null && b != null);
-  const K = 32;
-  let temp = 14;
-  for (let step = 0; step < 460; step++) {
+  const K = 15;
+  for (let step = 0; step < 600; step++) {
     const disp = pos.map(() => [0, 0]);
     for (let i = 0; i < n; i++) for (let j = i + 1; j < n; j++) {
       const dx = pos[i][0] - pos[j][0], dy = pos[i][1] - pos[j][1], d = Math.hypot(dx, dy) || 0.01, f = (K * K) / (d * d);
       disp[i][0] += dx * f; disp[i][1] += dy * f; disp[j][0] -= dx * f; disp[j][1] -= dy * f;
     }
     for (const [a, b] of links) {
-      const dx = pos[a][0] - pos[b][0], dy = pos[a][1] - pos[b][1], d = Math.hypot(dx, dy) || 0.01, f = d / K;
+      const dx = pos[a][0] - pos[b][0], dy = pos[a][1] - pos[b][1], d = Math.hypot(dx, dy) || 0.01, f = (d / K) * 0.10;
       disp[a][0] -= dx * f; disp[a][1] -= dy * f; disp[b][0] += dx * f; disp[b][1] += dy * f;
     }
     for (let i = 0; i < n; i++) {
-      disp[i][0] += (50 - pos[i][0]) * 0.022; disp[i][1] += (50 - pos[i][1]) * 0.022;
-      const dl = Math.hypot(disp[i][0], disp[i][1]) || 0.01, cap = Math.min(dl, temp);
+      // integrate the repulsion/spring forces (capped), THEN snap toward the role band: a strong Y snap
+      // holds the layer and a moderate X snap holds the column, so the causal chain stays legible while
+      // repulsion still spreads each band out horizontally.
+      const dl = Math.hypot(disp[i][0], disp[i][1]) || 0.01, cap = Math.min(dl, 3.5);
       pos[i][0] += (disp[i][0] / dl) * cap; pos[i][1] += (disp[i][1] / dl) * cap;
+      pos[i][1] += (target[i].y - pos[i][1]) * 0.32;
+      pos[i][0] += (target[i].x - pos[i][0]) * 0.24;
     }
-    temp = Math.max(0.5, temp * 0.985);
   }
-  const xs = pos.map((p) => p[0]), ys = pos.map((p) => p[1]);
-  const minX = Math.min(...xs), maxX = Math.max(...xs), minY = Math.min(...ys), maxY = Math.max(...ys);
-  const pad = 11, span = 100 - 2 * pad;
+  // Y fills the vertical space (min-max), but X keeps its raw role-column value (clamped, not stretched):
+  // the lone defence arm on the right must not skew the central spine left, which a min-max X would do.
+  const ys = pos.map((p) => p[1]), minY = Math.min(...ys), maxY = Math.max(...ys);
+  const padX = 10, padY = 9, spanY = 100 - 2 * padY;
+  const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
   const scale = (v, lo, hi) => (hi > lo ? (v - lo) / (hi - lo) : 0.5);
-  const map = new Map(ids.map((id, i) => [id, [pad + scale(pos[i][0], minX, maxX) * span, pad + scale(pos[i][1], minY, maxY) * span]]));
+  const map = new Map(ids.map((id, i) => [id, [clamp(pos[i][0], padX, 100 - padX), padY + scale(pos[i][1], minY, maxY) * spanY]]));
   networkLayout = { key, pos: map };
   return map;
 }
@@ -544,7 +570,17 @@ function renderNetwork() {
     return `<button type="button" role="listitem" data-mechanism-id="${escapeHtml(node.id)}" data-group="${groupOf(node.id)}" aria-pressed="${isSel}" class="network-node ${emphasis}" style="left:${p[0].toFixed(2)}%;top:${p[1].toFixed(2)}%;--r:${r.toFixed(1)}px;--hue:${hueOf(node.id)}"><span class="node-orb"><b>${escapeHtml(node.short)}</b></span><span class="node-label">${escapeHtml(node.label)}</span></button>`;
   }).join("");
 
-  $("#networkMap").innerHTML = `<svg class="network-links" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><defs>${defs}</defs>${links}</svg>${nodes}<div class="network-legend"><span><i class="lg-size"></i>node size = evidence connections</span><span><i class="lg-dash"></i>dashed = contested / model-limited</span><span class="lg-fam">family<i style="--h:33"></i>substrate<i style="--h:158"></i>defence<i style="--h:4"></i>outcome<i style="--h:276"></i>context</span></div>`;
+  // Role-band captions: a faint uppercase label above each role cluster so the reasoning-chain layers
+  // (drivers -> composition -> core -> defence -> execution -> context) name themselves in place, which
+  // documents the colour coding far better than a swatch key in the corner.
+  const roleGroups = new Map();
+  for (const node of mechanisms) { const g = groupOf(node.id); const p = layout.get(node.id); if (!p) continue; (roleGroups.get(g) || roleGroups.set(g, []).get(g)).push(p); }
+  const captions = ROLE_ORDER.filter((g) => roleGroups.has(g)).map((g) => {
+    const pts = roleGroups.get(g), cx = pts.reduce((s, p) => s + p[0], 0) / pts.length, topY = Math.min(...pts.map((p) => p[1]));
+    return `<span class="role-caption" style="left:${cx.toFixed(2)}%;top:${Math.max(2.5, topY - 7).toFixed(2)}%;--hue:${ROLE_META[g].hue}">${escapeHtml(ROLE_META[g].label)}</span>`;
+  }).join("");
+
+  $("#networkMap").innerHTML = `<svg class="network-links" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><defs>${defs}</defs>${links}</svg>${captions}${nodes}<div class="network-legend"><span><i class="lg-size"></i>node size = evidence connections</span><span><i class="lg-dash"></i>dashed = contested / model-limited</span><span class="lg-note">layers read cause → effect (top → bottom); defence arm at right</span></div>`;
   $$(".network-node").forEach((button) => {
     button.addEventListener("click", () => { state.selectedMechanism = button.dataset.mechanismId; renderNetwork(); });
     button.addEventListener("mouseenter", () => applyNetworkFocus(button.dataset.mechanismId, edges));
