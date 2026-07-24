@@ -3936,5 +3936,212 @@
    "baselineBoundary": "The figure chain and sixty-second card for this paper were rewritten from this project's own archive. A migration date records when the rewrite happened, not that the published source was re-opened.",
    "baselineVerificationDepth": "archive-derived"
   }
+ },
+ {
+  "id": "doi:10.1016/j.cell.2012.03.042",
+  "doi": "10.1016/j.cell.2012.03.042",
+  "url": "https://doi.org/10.1016/j.cell.2012.03.042",
+  "title": "Ferroptosis: an iron-dependent form of nonapoptotic cell death",
+  "journal": "Cell",
+  "year": 2012,
+  "citation": "Dixon SJ, et al. Cell. 2012;149(5):1060-1072.",
+  "articleStage": "version-of-record",
+  "postPublicationStatus": "none",
+  "versionEvents": [],
+  "readingDepth": "abstract",
+  "verificationDepth": "metadata-checked",
+  "theme": "the report that named ferroptosis and its system xc- dependence",
+  "conditionVector": "Human cancer cell lines including engineered RAS-mutant fibrosarcoma and HT-1080, treated with the small molecules erastin and RSL3 over hours; readouts of viability, cytosolic and lipid reactive oxygen species, and rescue by iron chelators (deferoxamine) and lipophilic antioxidants; mechanism assessed by cystine deprivation and glutathione measurement rather than by a single in vivo model.",
+  "sixtySecond": {
+   "story": "A RAS-selective lethal compound killed cells in a way that did not look like apoptosis, necrosis or autophagy, and the identity of that death pathway was unresolved.",
+   "advance": "The paper introduced the term ferroptosis for an iron-dependent, non-apoptotic death and tied it pharmacologically to loss of cystine import through system xc- and to glutathione depletion.",
+   "evidenceAnchor": "Erastin blocks the cystine/glutamate antiporter system xc-, depleting glutathione; the resulting death needs iron and is rescued by iron chelation and by lipophilic radical-trapping antioxidants.",
+   "scope": "The 2012 work defined ferroptosis pharmacologically in cultured cancer cells; it did not resolve the terminal membrane-execution chemistry and did not rest on animal models.",
+   "openQuestion": "What exactly executes the lethal membrane damage downstream of glutathione loss, and where system xc- dependence does and does not hold in vivo."
+  },
+  "verification": {
+   "checkedAt": "2026-07-24",
+   "sources": [
+    {
+     "kind": "crossref",
+     "url": "https://api.crossref.org/works/10.1016/j.cell.2012.03.042",
+     "scope": [
+      "title",
+      "journal",
+      "volume-pages",
+      "issued-date",
+      "authors",
+      "version-relations"
+     ],
+     "status": "source-checked",
+     "checkedAt": "2026-07-24",
+     "checkedBy": "Claude Code round-11 bibliographic-migration pass (implementer, not an independent reviewer)",
+     "finding": "Crossref confirms this is the paper: the same DOI, Cell volume 149 issue 5 pages 1060-1072 (2012), and the twelve-author list opening with Scott J. Dixon and closing with Brent R. Stockwell. The title is recorded here in the sentence case used by this project's archive, which differs only in capitalisation from the publisher's title-case rendering. The check settles the bibliographic record only and establishes nothing about the paper's figures, methods or specific quantitative claims.",
+     "reviewState": "source-checked",
+     "verificationDepth": "metadata-checked",
+     "sourceVersion": "crossref response as retrieved on 2026-07-24; no content hash was captured at the time of that query",
+     "boundary": "A registration record settles title, journal, pagination, dates, author list and version relations. It establishes nothing about what any figure, method or supplement of the paper contains.",
+     "sourceId": "crossref-10-1016-j-cell-2012-03-042",
+     "reviewEventId": "ingest-crossref-10-1016-j-cell-2012-03-042"
+    },
+    {
+     "kind": "publisher-full-text",
+     "url": "https://doi.org/10.1016/j.cell.2012.03.042",
+     "scope": [],
+     "status": "not-checked",
+     "checkedAt": null,
+     "checkedBy": null,
+     "finding": "The full text, figures and supplements were not opened. This record is bibliographic: only the Crossref metadata spine was verified and the scientific content is summarised at abstract level.",
+     "reviewState": "recorded-unverified",
+     "verificationDepth": "not-read",
+     "sourceVersion": "https://doi.org/10.1016/j.cell.2012.03.042 (declared source)",
+     "boundary": "Declared but not opened.",
+     "sourceId": "doi-10-1016-j-cell-2012-03-042",
+     "reviewEventId": null
+    }
+   ],
+   "unresolved": [],
+   "baselineReviewState": "recorded-unverified",
+   "baselineBoundary": "This record is bibliographic: only the Crossref metadata spine was source-checked. The scientific summary is abstract-level and no figure, method or supplement of the paper was opened, so every scientific claim falls back to a recorded-unverified baseline.",
+   "baselineVerificationDepth": "metadata-checked"
+  }
+ },
+ {
+  "id": "doi:10.1021/acscentsci.9b01063",
+  "doi": "10.1021/acscentsci.9b01063",
+  "url": "https://doi.org/10.1021/acscentsci.9b01063",
+  "title": "GTP Cyclohydrolase 1/Tetrahydrobiopterin Counteract Ferroptosis through Lipid Remodeling",
+  "journal": "ACS Central Science",
+  "year": 2020,
+  "citation": "Kraft VAN, et al. ACS Cent Sci. 2020;6(1):41-53.",
+  "articleStage": "version-of-record",
+  "postPublicationStatus": "none",
+  "versionEvents": [],
+  "readingDepth": "abstract",
+  "verificationDepth": "metadata-checked",
+  "theme": "GCH1-BH4 as an endogenous radical-trapping defence arm",
+  "conditionVector": "Cancer cell lines with GTP cyclohydrolase 1 (GCH1) overexpression and depletion, challenged with GPX4-inhibitor and system xc--inhibitor ferroptosis inducers over hours; readouts of tetrahydrobiopterin and dihydrobiopterin levels, C11-BODIPY lipid peroxidation, and untargeted lipidomics, with dihydrofolate reductase inhibition used to probe BH4 recycling; conclusions drawn in cell culture rather than a single in vivo model.",
+  "sixtySecond": {
+   "story": "A genetic screen flagged GCH1 as a ferroptosis-suppressing gene, but how the GCH1-tetrahydrobiopterin pathway protected membranes was not defined.",
+   "advance": "The paper describes GCH1-derived tetrahydrobiopterin (BH4) as an endogenous radical-trapping antioxidant that, together with lipid remodelling, raises the ferroptosis threshold independently of GPX4.",
+   "evidenceAnchor": "Raising GCH1 increases BH4 and protects against ferroptosis inducers, while the protection tracks with BH4 abundance and with a shift in membrane lipid composition rather than with GPX4 activity.",
+   "scope": "The mechanism is characterised in cultured cells with genetic and pharmacological manipulation of the BH4 pathway; tissue-level and therapeutic relevance are not settled here.",
+   "openQuestion": "How large the GCH1-BH4 arm's contribution is relative to GPX4 and FSP1 across tissues, and how its lipid-remodelling and radical-trapping roles are weighted."
+  },
+  "verification": {
+   "checkedAt": "2026-07-24",
+   "sources": [
+    {
+     "kind": "crossref",
+     "url": "https://api.crossref.org/works/10.1021/acscentsci.9b01063",
+     "scope": [
+      "title",
+      "journal",
+      "volume-pages",
+      "issued-date",
+      "authors",
+      "version-relations"
+     ],
+     "status": "source-checked",
+     "checkedAt": "2026-07-24",
+     "checkedBy": "Claude Code round-11 bibliographic-migration pass (implementer, not an independent reviewer)",
+     "finding": "Crossref confirms the exact title, ACS Central Science volume 6 issue 1 pages 41-53, the seventeen-author list opening with Vanessa A. N. Kraft, and the DOI. It settles the bibliographic record only and establishes nothing about the paper's figures, lipidomics or specific quantitative claims.",
+     "reviewState": "source-checked",
+     "verificationDepth": "metadata-checked",
+     "sourceVersion": "crossref response as retrieved on 2026-07-24; no content hash was captured at the time of that query",
+     "boundary": "A registration record settles title, journal, pagination, dates, author list and version relations. It establishes nothing about what any figure, method or supplement of the paper contains.",
+     "sourceId": "crossref-10-1021-acscentsci-9b01063",
+     "reviewEventId": "ingest-crossref-10-1021-acscentsci-9b01063"
+    },
+    {
+     "kind": "publisher-full-text",
+     "url": "https://doi.org/10.1021/acscentsci.9b01063",
+     "scope": [],
+     "status": "not-checked",
+     "checkedAt": null,
+     "checkedBy": null,
+     "finding": "The full text, figures and supplements were not opened. This record is bibliographic: only the Crossref metadata spine was verified and the scientific content is summarised at abstract level.",
+     "reviewState": "recorded-unverified",
+     "verificationDepth": "not-read",
+     "sourceVersion": "https://doi.org/10.1021/acscentsci.9b01063 (declared source)",
+     "boundary": "Declared but not opened.",
+     "sourceId": "doi-10-1021-acscentsci-9b01063",
+     "reviewEventId": null
+    }
+   ],
+   "unresolved": [],
+   "baselineReviewState": "recorded-unverified",
+   "baselineBoundary": "This record is bibliographic: only the Crossref metadata spine was source-checked. The scientific summary is abstract-level and no figure, method or supplement of the paper was opened, so every scientific claim falls back to a recorded-unverified baseline.",
+   "baselineVerificationDepth": "metadata-checked"
+  }
+ },
+ {
+  "id": "doi:10.1038/s41586-023-06878-9",
+  "doi": "10.1038/s41586-023-06878-9",
+  "url": "https://doi.org/10.1038/s41586-023-06878-9",
+  "title": "7-Dehydrocholesterol is an endogenous suppressor of ferroptosis",
+  "journal": "Nature",
+  "year": 2024,
+  "citation": "Freitas FP, et al. Nature. 2024;626(7998):401-410.",
+  "articleStage": "version-of-record",
+  "postPublicationStatus": "none",
+  "versionEvents": [],
+  "readingDepth": "abstract",
+  "verificationDepth": "metadata-checked",
+  "theme": "7-dehydrocholesterol from the mevalonate-sterol pathway as an anti-ferroptotic lipid",
+  "conditionVector": "Cancer cell lines and tumour models in which the sterol-biosynthesis enzyme DHCR7 and 7-dehydrocholesterol (7-DHC) levels are manipulated genetically and pharmacologically, challenged with GPX4-inhibitor and other ferroptosis inducers; readouts of lipid peroxidation, 7-DHC accumulation and cell death, extended into xenograft and lymphoma models rather than cell culture alone.",
+  "sixtySecond": {
+   "story": "The mevalonate-sterol pathway was known to influence ferroptosis mainly through coenzyme Q, but whether a sterol intermediate itself protected membranes was unclear.",
+   "advance": "The paper identifies 7-dehydrocholesterol, a cholesterol precursor made through the mevalonate pathway, as an endogenous lipid that suppresses ferroptosis by shielding membranes from peroxidation.",
+   "evidenceAnchor": "Raising 7-DHC, for example by blocking the downstream enzyme DHCR7, reduces phospholipid peroxidation and protects cells and tumours from ferroptosis, while lowering 7-DHC sensitises them.",
+   "scope": "The protective role is shown for 7-DHC across cell and tumour models; the balance between this arm and the GPX4, FSP1 and BH4 defences in normal tissue is not resolved here.",
+   "openQuestion": "How broadly 7-DHC accumulation shapes ferroptosis sensitivity in normal physiology and disease, and how it can be exploited without disturbing sterol metabolism."
+  },
+  "verification": {
+   "checkedAt": "2026-07-24",
+   "sources": [
+    {
+     "kind": "crossref",
+     "url": "https://api.crossref.org/works/10.1038/s41586-023-06878-9",
+     "scope": [
+      "title",
+      "journal",
+      "volume-pages",
+      "issued-date",
+      "authors",
+      "version-relations"
+     ],
+     "status": "source-checked",
+     "checkedAt": "2026-07-24",
+     "checkedBy": "Claude Code round-11 bibliographic-migration pass (implementer, not an independent reviewer)",
+     "finding": "Crossref confirms the exact title, Nature volume 626 issue 7998 pages 401-410 (2024), the forty-seven-author list opening with Florencio Porto Freitas and closing with Jose Pedro Friedmann Angeli, and the DOI. It settles the bibliographic record only and establishes nothing about the paper's figures, in vivo models or specific quantitative claims.",
+     "reviewState": "source-checked",
+     "verificationDepth": "metadata-checked",
+     "sourceVersion": "crossref response as retrieved on 2026-07-24; no content hash was captured at the time of that query",
+     "boundary": "A registration record settles title, journal, pagination, dates, author list and version relations. It establishes nothing about what any figure, method or supplement of the paper contains.",
+     "sourceId": "crossref-10-1038-s41586-023-06878-9",
+     "reviewEventId": "ingest-crossref-10-1038-s41586-023-06878-9"
+    },
+    {
+     "kind": "publisher-full-text",
+     "url": "https://doi.org/10.1038/s41586-023-06878-9",
+     "scope": [],
+     "status": "not-checked",
+     "checkedAt": null,
+     "checkedBy": null,
+     "finding": "The full text, figures and supplements were not opened. This record is bibliographic: only the Crossref metadata spine was verified and the scientific content is summarised at abstract level.",
+     "reviewState": "recorded-unverified",
+     "verificationDepth": "not-read",
+     "sourceVersion": "https://doi.org/10.1038/s41586-023-06878-9 (declared source)",
+     "boundary": "Declared but not opened.",
+     "sourceId": "doi-10-1038-s41586-023-06878-9",
+     "reviewEventId": null
+    }
+   ],
+   "unresolved": [],
+   "baselineReviewState": "recorded-unverified",
+   "baselineBoundary": "This record is bibliographic: only the Crossref metadata spine was source-checked. The scientific summary is abstract-level and no figure, method or supplement of the paper was opened, so every scientific claim falls back to a recorded-unverified baseline.",
+   "baselineVerificationDepth": "metadata-checked"
+  }
  }
 ]

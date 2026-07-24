@@ -86,6 +86,24 @@
       "label": "Immune regulation of ferroptosis",
       "short": "Immune",
       "description": "How immune signalling, in particular CD8+ T-cell interferon-gamma, reshapes tumour-cell cystine metabolism and ferroptosis sensitivity during immunotherapy."
+    },
+    {
+      "id": "system-xc",
+      "label": "System xc- cystine supply",
+      "short": "xCT",
+      "description": "The cystine/glutamate antiporter (SLC7A11, xCT) that imports cystine for glutathione synthesis; its blockade by erastin is a founding trigger of ferroptosis."
+    },
+    {
+      "id": "gch1-bh4",
+      "label": "GCH1-BH4 radical trapping",
+      "short": "BH4",
+      "description": "GTP cyclohydrolase 1 makes tetrahydrobiopterin (BH4), an endogenous radical-trapping antioxidant that raises the ferroptosis threshold independently of GPX4."
+    },
+    {
+      "id": "mevalonate-sterol",
+      "label": "Mevalonate-sterol antioxidants",
+      "short": "MVA",
+      "description": "The mevalonate pathway supplies CoQ10 and sterol intermediates such as 7-dehydrocholesterol that suppress phospholipid peroxidation."
     }
   ],
   "mechanismEdges": [
@@ -288,7 +306,7 @@
     },
     {
       "source": "immune-regulation",
-      "target": "gpx4-gsh",
+      "target": "system-xc",
       "relation": "suppresses",
       "label": "CD8+ T-cell IFN-gamma lowers system xc- cystine uptake and glutathione",
       "confidence": "strong in selected in vivo models",
@@ -305,6 +323,36 @@
       "evidence": [
         "10.1038/s41586-025-09709-1",
         "10.1038/s41556-025-01790-y"
+      ]
+    },
+    {
+      "source": "system-xc",
+      "target": "gpx4-gsh",
+      "relation": "supplies",
+      "label": "cystine import through system xc- feeds glutathione synthesis for the GPX4 axis",
+      "confidence": "established; founding mechanism",
+      "evidence": [
+        "10.1016/j.cell.2012.03.042"
+      ]
+    },
+    {
+      "source": "gch1-bh4",
+      "target": "lipid-peroxidation",
+      "relation": "suppresses",
+      "label": "GCH1-derived BH4 acts as an endogenous radical-trapping antioxidant, independent of GPX4",
+      "confidence": "established in selected models",
+      "evidence": [
+        "10.1021/acscentsci.9b01063"
+      ]
+    },
+    {
+      "source": "mevalonate-sterol",
+      "target": "lipid-peroxidation",
+      "relation": "suppresses",
+      "label": "7-dehydrocholesterol from the mevalonate pathway shields membranes from peroxidation",
+      "confidence": "established in selected models",
+      "evidence": [
+        "10.1038/s41586-023-06878-9"
       ]
     }
   ],

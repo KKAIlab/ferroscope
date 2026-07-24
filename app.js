@@ -464,16 +464,20 @@ const MECHANISM_GROUP = {
   "pufa-remodelling": "composition", "mufa-membrane-remodelling": "composition",
   "lipid-peroxidation": "core",
   "gpx4-gsh": "defence", "fsp1-coq": "defence", "selenium-selenoprotein": "defence",
+  "system-xc": "defence", "gch1-bh4": "defence", "mevalonate-sterol": "defence",
   "death-execution": "execution", "tissue-injury": "execution",
   "tumour-ecology": "context", "immune-regulation": "context", "translation": "context",
 };
+// x/y place each role's band; sy/sx are how hard a node snaps to that band's row and column. The spine
+// roles snap hard in Y (they are horizontal layers); the defence arm is a vertical column on the right,
+// so it snaps hard in X but loosely in Y, letting its now-six systems stack instead of piling onto one point.
 const ROLE_META = {
-  drive:       { hue: 22,  label: "Drivers",              y: 14, x: 44 },
-  composition: { hue: 45,  label: "Membrane composition", y: 30, x: 44 },
-  core:        { hue: 194, label: "Core reaction",        y: 48, x: 44 },
-  defence:     { hue: 150, label: "Defence systems",      y: 48, x: 80 },
-  execution:   { hue: 352, label: "Execution",            y: 70, x: 44 },
-  context:     { hue: 274, label: "Disease & therapy",    y: 88, x: 50 },
+  drive:       { hue: 22,  label: "Drivers",              y: 14, x: 44, sy: 0.32, sx: 0.20 },
+  composition: { hue: 45,  label: "Membrane composition", y: 30, x: 44, sy: 0.32, sx: 0.20 },
+  core:        { hue: 194, label: "Core reaction",        y: 48, x: 42, sy: 0.34, sx: 0.22 },
+  defence:     { hue: 150, label: "Defence systems",      y: 48, x: 82, sy: 0.10, sx: 0.34 },
+  execution:   { hue: 352, label: "Execution",            y: 70, x: 42, sy: 0.32, sx: 0.22 },
+  context:     { hue: 274, label: "Disease & therapy",    y: 88, x: 50, sy: 0.30, sx: 0.14 },
 };
 const ROLE_ORDER = ["drive", "composition", "core", "defence", "execution", "context"];
 const groupOf = (id) => (MECHANISM_GROUP[id] && ROLE_META[MECHANISM_GROUP[id]] ? MECHANISM_GROUP[id] : "context");
@@ -482,13 +486,41 @@ const hueOf = (id) => ROLE_META[groupOf(id)].hue;
 // A tiny seeded PRNG (mulberry32) keeps the initial placement deterministic without Math.random.
 function seededRandom(seed) { return function () { seed = (seed + 0x6d2b79f5) | 0; let t = Math.imul(seed ^ (seed >>> 15), 1 | seed); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
 
-// A free-text confidence string maps to one of three visual weights. Contested, model- or
-// context-limited claims render thin and dashed; strong/established claims render thick and solid.
-function edgeWeight(confidence) {
-  const c = String(confidence || "").toLowerCase();
-  if (/contested|may contribute|model-dependent|preclinical|induction-specific/.test(c)) return "tentative";
-  if (/strong|established/.test(c)) return "strong";
-  return "moderate";
+// Resolve a mechanism edge's evidence DOIs to the paper records that anchor it.
+function edgeEvidence(edge) {
+  return (edge.evidence || []).map((doi) => state.papersByDoi.get(String(doi).toLowerCase())).filter(Boolean);
+}
+// Per-paper reading depth: was THIS paper read to its figure chain, or only at abstract/metadata level?
+const paperReadDepth = (paper) => (paper.readingDepth === "figure-chain" ? "figure" : "abstract");
+const READ_DEPTH_LABEL = { figure: "figure chain audited", abstract: "abstract-level · figures not audited" };
+// The edge's depth is the SHALLOWEST of its anchors: it may claim "figure chain audited" and the thick
+// "strong" visual only if EVERY cited paper was figure-audited. One abstract anchor pulls the whole edge
+// down, so a shallow paper can never ride along a figure-chain paper looking verified — however
+// established the underlying biology is, the reader sees how deeply this project actually read it.
+function edgeAnchorDepth(edge) {
+  const papers = edgeEvidence(edge);
+  if (!papers.length) return "unbacked";
+  return papers.every((paper) => paperReadDepth(paper) === "figure") ? "figure" : "abstract";
+}
+function edgeAnchorHtml(edge) {
+  const papers = edgeEvidence(edge);
+  if (!papers.length) return `<small class="edge-anchor unbacked">no paper anchor recorded</small>`;
+  const shortTitle = (paper) => { const title = paper.title || paper.doi; return title.length > 46 ? `${title.slice(0, 44)}…` : title; };
+  // Each anchor carries ITS OWN depth, so a figure-audited paper and an abstract-level one on the same
+  // edge are never merged under a single reassuring label.
+  const items = papers.map((paper) => { const d = paperReadDepth(paper); return `<button type="button" class="paper-open" data-paper-id="${escapeHtml(paper.id)}">${escapeHtml(shortTitle(paper))}</button> <em class="anchor-${d}">${READ_DEPTH_LABEL[d]}</em>`; }).join("; ");
+  return `<small class="edge-anchor anchor-${edgeAnchorDepth(edge)}">anchored to ${items}</small>`;
+}
+
+// A free-text confidence string maps to one of three visual weights: contested/model-limited claims
+// render thin and dashed, strong/established claims thick and solid. But an edge whose only evidence was
+// read at abstract level is not figure-verified, so it may NOT claim the thick "strong" tier however
+// established the biology — it caps at "moderate" and carries an anchor-depth class the reader can see.
+function edgeWeight(edge) {
+  const c = String(edge.confidence || "").toLowerCase();
+  const base = /contested|may contribute|model-dependent|preclinical|induction-specific/.test(c) ? "tentative"
+    : /strong|established/.test(c) ? "strong" : "moderate";
+  return base === "strong" && edgeAnchorDepth(edge) !== "figure" ? "moderate" : base;
 }
 
 // A layered ("Sugiyama-lite") force pass: each node is pulled hard toward its role band's Y so the
@@ -523,8 +555,8 @@ function computeNetworkLayout(mechanisms, edges) {
       // repulsion still spreads each band out horizontally.
       const dl = Math.hypot(disp[i][0], disp[i][1]) || 0.01, cap = Math.min(dl, 3.5);
       pos[i][0] += (disp[i][0] / dl) * cap; pos[i][1] += (disp[i][1] / dl) * cap;
-      pos[i][1] += (target[i].y - pos[i][1]) * 0.32;
-      pos[i][0] += (target[i].x - pos[i][0]) * 0.24;
+      pos[i][1] += (target[i].y - pos[i][1]) * target[i].sy;
+      pos[i][0] += (target[i].x - pos[i][0]) * target[i].sx;
     }
   }
   // Y fills the vertical space (min-max), but X keeps its raw role-column value (clamped, not stretched):
@@ -559,7 +591,7 @@ function renderNetwork() {
     let nx = -(b[1] - a[1]), ny = b[0] - a[0]; const nl = Math.hypot(nx, ny) || 1; nx /= nl; ny /= nl;
     const cx = mx + nx * 5, cy = my + ny * 5;
     const active = e.source === selected || e.target === selected;
-    return `<path d="M${a[0].toFixed(2)} ${a[1].toFixed(2)} Q${cx.toFixed(2)} ${cy.toFixed(2)} ${b[0].toFixed(2)} ${b[1].toFixed(2)}" class="network-link ${edgeWeight(e.confidence)} ${active ? "active" : "dim"}" data-source="${escapeHtml(e.source)}" data-target="${escapeHtml(e.target)}" stroke="url(#edge${i})" fill="none" />`;
+    return `<path d="M${a[0].toFixed(2)} ${a[1].toFixed(2)} Q${cx.toFixed(2)} ${cy.toFixed(2)} ${b[0].toFixed(2)} ${b[1].toFixed(2)}" class="network-link ${edgeWeight(e)} anchor-${edgeAnchorDepth(e)} ${active ? "active" : "dim"}" data-source="${escapeHtml(e.source)}" data-target="${escapeHtml(e.target)}" stroke="url(#edge${i})" fill="none" />`;
   }).join("");
 
   const nodes = mechanisms.map((node) => {
@@ -580,7 +612,7 @@ function renderNetwork() {
     return `<span class="role-caption" style="left:${cx.toFixed(2)}%;top:${Math.max(2.5, topY - 7).toFixed(2)}%;--hue:${ROLE_META[g].hue}">${escapeHtml(ROLE_META[g].label)}</span>`;
   }).join("");
 
-  $("#networkMap").innerHTML = `<svg class="network-links" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><defs>${defs}</defs>${links}</svg>${captions}${nodes}<div class="network-legend"><span><i class="lg-size"></i>node size = evidence connections</span><span><i class="lg-dash"></i>dashed = contested / model-limited</span><span class="lg-note">layers read cause → effect (top → bottom); defence arm at right</span></div>`;
+  $("#networkMap").innerHTML = `<svg class="network-links" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><defs>${defs}</defs>${links}</svg>${captions}${nodes}<div class="network-legend"><span><i class="lg-size"></i>node size = evidence connections</span><span><i class="lg-dash"></i>dashed = contested / model-limited</span><span><i class="lg-dot"></i>dotted = abstract-level anchor, figures not audited</span><span class="lg-note">layers read cause → effect (top → bottom); defence arm at right</span></div>`;
   $$(".network-node").forEach((button) => {
     button.addEventListener("click", () => { state.selectedMechanism = button.dataset.mechanismId; renderNetwork(); });
     button.addEventListener("mouseenter", () => applyNetworkFocus(button.dataset.mechanismId, edges));
@@ -641,7 +673,7 @@ export function renderNetworkDetail() {
   const boundaryEdges = (state.graph?.edges || []).filter((edge) => edge.relation === "CANNOT_DISTINGUISH" && edge.to === mechanismNode && edge.provenanceClass === "curated-method-module");
   const boundaryItems = [...new Map(boundaryEdges.map((edge) => [edge.claimScope, edge])).values()];
   const provisionalBoundaries = boundaryItems.filter((edge) => !isSourceChecked(edge.reviewState)).length;
-  $("#networkDetail").innerHTML = `<p class="eyebrow">SELECTED MECHANISM</p><h3>${escapeHtml(node.label)}</h3><p>${escapeHtml(node.description)}</p><div class="network-relations">${edges.map((edge) => { const otherId = edge.source === node.id ? edge.target : edge.source; const other = state.network.mechanisms.find((item) => item.id === otherId); return `<section><span>${escapeHtml(edge.relation)}</span><b>${escapeHtml(other?.label || otherId)}</b><p>${escapeHtml(edge.label)}</p><small>${escapeHtml(edge.confidence)}</small></section>`; }).join("")}</div><h4>Paper-level evidence for this node</h4><div class="claim-groups">${claimHtml || '<p class="research-pending">No source-checked paper claim has been recorded against this node yet.</p>'}</div><h4>Methods that interrogate this node</h4><div class="research-chips">${methods.map((method) => `<span>${escapeHtml(method.name)}</span>`).join("")}</div>${boundaryItems.length ? `<div class="assay-boundaries"><span>What these assays cannot establish alone</span>${provisionalBoundaries ? `<p class="provisional-note">${provisionalBoundaries} of ${boundaryItems.length} of these boundaries are curated method-module statements whose declared source has not been read and dated. They are not paper claims and are shown as provisional.</p>` : ""}<ul>${boundaryItems.map((edge) => `<li>${escapeHtml(edge.claimScope)}${isSourceChecked(edge.reviewState) ? `<small class="edge-review">method source checked ${escapeHtml(edge.checkedAt || "")}</small>` : '<small class="edge-review pending">curated method module · awaiting source review</small>'}</li>`).join("")}</ul></div>` : ""}<h4>Laboratories connected through those methods</h4><div class="network-labs">${labs.map((lab) => `<button type="button" data-network-lab="${escapeHtml(lab.id)}">${escapeHtml(lab.pi)}</button>`).join("")}</div>`;
+  $("#networkDetail").innerHTML = `<p class="eyebrow">SELECTED MECHANISM</p><h3>${escapeHtml(node.label)}</h3><p>${escapeHtml(node.description)}</p><div class="network-relations">${edges.map((edge) => { const otherId = edge.source === node.id ? edge.target : edge.source; const other = state.network.mechanisms.find((item) => item.id === otherId); return `<section><span>${escapeHtml(edge.relation)}</span><b>${escapeHtml(other?.label || otherId)}</b><p>${escapeHtml(edge.label)}</p><small>${escapeHtml(edge.confidence)}</small>${edgeAnchorHtml(edge)}</section>`; }).join("")}</div><h4>Figure-audited paper claims for this node</h4><div class="claim-groups">${claimHtml || '<p class="research-pending">No figure-audited paper claim has been recorded against this node yet. The relationships above show its evidence anchors and how deeply each was read.</p>'}</div><h4>Methods that interrogate this node</h4><div class="research-chips">${methods.map((method) => `<span>${escapeHtml(method.name)}</span>`).join("")}</div>${boundaryItems.length ? `<div class="assay-boundaries"><span>What these assays cannot establish alone</span>${provisionalBoundaries ? `<p class="provisional-note">${provisionalBoundaries} of ${boundaryItems.length} of these boundaries are curated method-module statements whose declared source has not been read and dated. They are not paper claims and are shown as provisional.</p>` : ""}<ul>${boundaryItems.map((edge) => `<li>${escapeHtml(edge.claimScope)}${isSourceChecked(edge.reviewState) ? `<small class="edge-review">method source checked ${escapeHtml(edge.checkedAt || "")}</small>` : '<small class="edge-review pending">curated method module · awaiting source review</small>'}</li>`).join("")}</ul></div>` : ""}<h4>Laboratories connected through those methods</h4><div class="network-labs">${labs.map((lab) => `<button type="button" data-network-lab="${escapeHtml(lab.id)}">${escapeHtml(lab.pi)}</button>`).join("")}</div>`;
   $$("[data-network-lab]").forEach((button) => button.addEventListener("click", () => renderResearchProfile(button.dataset.networkLab)));
 }
 

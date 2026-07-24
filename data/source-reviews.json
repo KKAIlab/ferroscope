@@ -33,6 +33,11 @@
    "id": "claude-code-round9-migration",
    "name": "Claude Code round-9 content-migration pass (implementer, not an independent reviewer)",
    "role": "implementer"
+  },
+  {
+   "id": "claude-code-round11-migration",
+   "name": "Claude Code round-11 bibliographic-migration pass (implementer, not an independent reviewer)",
+   "role": "implementer"
   }
  ],
  "surfaceTypeReference": "surfaceType is the document surface that was opened; accessExtent is how much of it. A legacy verificationDepth is derived from the surface for backward-compatible counts but is not the statement shown to a reader.",
@@ -2971,6 +2976,225 @@
     "sha256": null
    },
    "scopes": []
+  },
+  {
+   "id": "crossref-10-1016-j-cell-2012-03-042",
+   "documentClass": "crossref-metadata-record",
+   "url": "https://api.crossref.org/works/10.1016/j.cell.2012.03.042",
+   "identifiers": {
+    "doi": "10.1016/j.cell.2012.03.042"
+   },
+   "version": {
+    "label": "crossref response as retrieved on 2026-07-24; no content hash was captured at the time of that query",
+    "retrievedAt": "2026-07-24",
+    "byteLength": null,
+    "sha256": null
+   },
+   "scopes": [
+    {
+     "id": "title",
+     "label": "title",
+     "surfaceType": "metadata-record",
+     "accessExtent": "complete-scope",
+     "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+    },
+    {
+     "id": "journal",
+     "label": "journal",
+     "surfaceType": "metadata-record",
+     "accessExtent": "complete-scope",
+     "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+    },
+    {
+     "id": "volume-pages",
+     "label": "volume-pages",
+     "surfaceType": "metadata-record",
+     "accessExtent": "complete-scope",
+     "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+    },
+    {
+     "id": "issued-date",
+     "label": "issued-date",
+     "surfaceType": "metadata-record",
+     "accessExtent": "complete-scope",
+     "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+    },
+    {
+     "id": "authors",
+     "label": "authors",
+     "surfaceType": "metadata-record",
+     "accessExtent": "complete-scope",
+     "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+    },
+    {
+     "id": "version-relations",
+     "label": "version-relations",
+     "surfaceType": "metadata-record",
+     "accessExtent": "complete-scope",
+     "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+    }
+   ]
+  },
+  {
+   "id": "doi-10-1016-j-cell-2012-03-042",
+   "documentClass": "version-of-record",
+   "url": "https://doi.org/10.1016/j.cell.2012.03.042",
+   "identifiers": {
+    "doi": "10.1016/j.cell.2012.03.042"
+   },
+   "version": {
+    "label": "https://doi.org/10.1016/j.cell.2012.03.042 (declared source)",
+    "retrievedAt": "2026-07-24",
+    "byteLength": null,
+    "sha256": null
+   },
+   "scopes": []
+  },
+  {
+   "id": "crossref-10-1021-acscentsci-9b01063",
+   "documentClass": "crossref-metadata-record",
+   "url": "https://api.crossref.org/works/10.1021/acscentsci.9b01063",
+   "identifiers": {
+    "doi": "10.1021/acscentsci.9b01063"
+   },
+   "version": {
+    "label": "crossref response as retrieved on 2026-07-24; no content hash was captured at the time of that query",
+    "retrievedAt": "2026-07-24",
+    "byteLength": null,
+    "sha256": null
+   },
+   "scopes": [
+    {
+     "id": "title",
+     "label": "title",
+     "surfaceType": "metadata-record",
+     "accessExtent": "complete-scope",
+     "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+    },
+    {
+     "id": "journal",
+     "label": "journal",
+     "surfaceType": "metadata-record",
+     "accessExtent": "complete-scope",
+     "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+    },
+    {
+     "id": "volume-pages",
+     "label": "volume-pages",
+     "surfaceType": "metadata-record",
+     "accessExtent": "complete-scope",
+     "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+    },
+    {
+     "id": "issued-date",
+     "label": "issued-date",
+     "surfaceType": "metadata-record",
+     "accessExtent": "complete-scope",
+     "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+    },
+    {
+     "id": "authors",
+     "label": "authors",
+     "surfaceType": "metadata-record",
+     "accessExtent": "complete-scope",
+     "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+    },
+    {
+     "id": "version-relations",
+     "label": "version-relations",
+     "surfaceType": "metadata-record",
+     "accessExtent": "complete-scope",
+     "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+    }
+   ]
+  },
+  {
+   "id": "doi-10-1021-acscentsci-9b01063",
+   "documentClass": "version-of-record",
+   "url": "https://doi.org/10.1021/acscentsci.9b01063",
+   "identifiers": {
+    "doi": "10.1021/acscentsci.9b01063"
+   },
+   "version": {
+    "label": "https://doi.org/10.1021/acscentsci.9b01063 (declared source)",
+    "retrievedAt": "2026-07-24",
+    "byteLength": null,
+    "sha256": null
+   },
+   "scopes": []
+  },
+  {
+   "id": "crossref-10-1038-s41586-023-06878-9",
+   "documentClass": "crossref-metadata-record",
+   "url": "https://api.crossref.org/works/10.1038/s41586-023-06878-9",
+   "identifiers": {
+    "doi": "10.1038/s41586-023-06878-9"
+   },
+   "version": {
+    "label": "crossref response as retrieved on 2026-07-24; no content hash was captured at the time of that query",
+    "retrievedAt": "2026-07-24",
+    "byteLength": null,
+    "sha256": null
+   },
+   "scopes": [
+    {
+     "id": "title",
+     "label": "title",
+     "surfaceType": "metadata-record",
+     "accessExtent": "complete-scope",
+     "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+    },
+    {
+     "id": "journal",
+     "label": "journal",
+     "surfaceType": "metadata-record",
+     "accessExtent": "complete-scope",
+     "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+    },
+    {
+     "id": "volume-pages",
+     "label": "volume-pages",
+     "surfaceType": "metadata-record",
+     "accessExtent": "complete-scope",
+     "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+    },
+    {
+     "id": "issued-date",
+     "label": "issued-date",
+     "surfaceType": "metadata-record",
+     "accessExtent": "complete-scope",
+     "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+    },
+    {
+     "id": "authors",
+     "label": "authors",
+     "surfaceType": "metadata-record",
+     "accessExtent": "complete-scope",
+     "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+    },
+    {
+     "id": "version-relations",
+     "label": "version-relations",
+     "surfaceType": "metadata-record",
+     "accessExtent": "complete-scope",
+     "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+    }
+   ]
+  },
+  {
+   "id": "doi-10-1038-s41586-023-06878-9",
+   "documentClass": "version-of-record",
+   "url": "https://doi.org/10.1038/s41586-023-06878-9",
+   "identifiers": {
+    "doi": "10.1038/s41586-023-06878-9"
+   },
+   "version": {
+    "label": "https://doi.org/10.1038/s41586-023-06878-9 (declared source)",
+    "retrievedAt": "2026-07-24",
+    "byteLength": null,
+    "sha256": null
+   },
+   "scopes": []
   }
  ],
  "reviewEvents": [
@@ -3802,6 +4026,63 @@
     "volume-pages"
    ],
    "boundary": "Nature Chemical Biology, volume 12, issue 8, pages 608-613, published 2016, 13 authors, first author Ken-ichi Yamada, last author Mayumi Yamato. Crossref marks no corresponding author. No correction, erratum, retraction or update relation is registered against this DOI at Crossref, verified 2026-07-24.",
+   "priorReviewEventId": null,
+   "agreement": null,
+   "discrepancyNote": null
+  },
+  {
+   "id": "ingest-crossref-10-1016-j-cell-2012-03-042",
+   "sourceId": "crossref-10-1016-j-cell-2012-03-042",
+   "reviewState": "source-checked",
+   "reviewerId": "claude-code-round11-migration",
+   "checkedAt": "2026-07-24",
+   "scopeIds": [
+    "authors",
+    "issued-date",
+    "journal",
+    "title",
+    "version-relations",
+    "volume-pages"
+   ],
+   "boundary": "Crossref confirms this is the paper: the same DOI, Cell volume 149 issue 5 pages 1060-1072 (2012), and the twelve-author list opening with Scott J. Dixon and closing with Brent R. Stockwell. The title is recorded here in the sentence case used by this project's archive, which differs only in capitalisation from the publisher's title-case rendering. The check settles the bibliographic record only and establishes nothing about the paper's figures, methods or specific quantitative claims.",
+   "priorReviewEventId": null,
+   "agreement": null,
+   "discrepancyNote": null
+  },
+  {
+   "id": "ingest-crossref-10-1021-acscentsci-9b01063",
+   "sourceId": "crossref-10-1021-acscentsci-9b01063",
+   "reviewState": "source-checked",
+   "reviewerId": "claude-code-round11-migration",
+   "checkedAt": "2026-07-24",
+   "scopeIds": [
+    "authors",
+    "issued-date",
+    "journal",
+    "title",
+    "version-relations",
+    "volume-pages"
+   ],
+   "boundary": "Crossref confirms the exact title, ACS Central Science volume 6 issue 1 pages 41-53, the seventeen-author list opening with Vanessa A. N. Kraft, and the DOI. It settles the bibliographic record only and establishes nothing about the paper's figures, lipidomics or specific quantitative claims.",
+   "priorReviewEventId": null,
+   "agreement": null,
+   "discrepancyNote": null
+  },
+  {
+   "id": "ingest-crossref-10-1038-s41586-023-06878-9",
+   "sourceId": "crossref-10-1038-s41586-023-06878-9",
+   "reviewState": "source-checked",
+   "reviewerId": "claude-code-round11-migration",
+   "checkedAt": "2026-07-24",
+   "scopeIds": [
+    "authors",
+    "issued-date",
+    "journal",
+    "title",
+    "version-relations",
+    "volume-pages"
+   ],
+   "boundary": "Crossref confirms the exact title, Nature volume 626 issue 7998 pages 401-410 (2024), the forty-seven-author list opening with Florencio Porto Freitas and closing with Jose Pedro Friedmann Angeli, and the DOI. It settles the bibliographic record only and establishes nothing about the paper's figures, in vivo models or specific quantitative claims.",
    "priorReviewEventId": null,
    "agreement": null,
    "discrepancyNote": null
