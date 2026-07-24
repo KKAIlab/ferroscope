@@ -72,6 +72,7 @@ nav { gap: 21px; font-size: 12px; }
 .network-legend i { width: 16px; height: 3px; border-radius: 2px; background: #7c8b83; display: inline-block; }
 .network-legend .lg-size { width: 11px; height: 11px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #8fd6a8, #2f6a49); }
 .network-legend .lg-dash { height: 0; border-top: 2px dashed #9aa4a0; background: none; }
+.network-legend .lg-dot { height: 0; border-top: 2px dotted #d7b06a; background: none; }
 .network-legend .lg-note { gap: 0; }
 .network-legend .lg-fam { gap: 5px; }
 .network-legend .lg-fam i { width: 9px; height: 9px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, hsl(var(--h) 78% 62%), hsl(var(--h) 62% 34%)); }
@@ -86,6 +87,15 @@ nav { gap: 21px; font-size: 12px; }
 .network-relations b { display: block; margin-top: 4px; font-size: 12px; }
 .network-relations p { margin: 6px 0; color: #aab4af; font-size: 11px; line-height: 1.55; }
 .network-relations small { color: var(--acid); font: 9px var(--mono); }
+/* Each relation discloses the paper(s) it is anchored to and how deeply this project read them, so an
+   "established" edge resting only on an abstract-level record cannot read as figure-verified. */
+.edge-anchor { display: block; margin-top: 7px; padding-top: 6px; border-top: 1px dotted #3a4842; color: #8fb0a4; font: 8.5px/1.6 var(--mono); }
+.edge-anchor .paper-open { padding: 0; border: 0; background: none; color: var(--acid); font: inherit; text-decoration: underline dotted; cursor: pointer; }
+.edge-anchor em { font-style: normal; }
+.edge-anchor em.anchor-figure { color: #7fae8f; }
+.edge-anchor em.anchor-abstract { color: #d7b06a; }
+.edge-anchor.unbacked { color: #d98a7a; }
+.network-link.anchor-abstract:not(.active) { stroke-dasharray: 0.6 3; }
 .network-labs { display: flex; flex-wrap: wrap; gap: 6px; }
 .network-labs button { padding: 6px 8px; border: 1px solid #415049; color: #c5ceca; background: transparent; font-size: 10px; cursor: pointer; }
 

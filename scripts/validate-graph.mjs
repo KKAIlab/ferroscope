@@ -71,6 +71,12 @@ for (const paper of papers) {
   const paperNode = `paper:${paper.doi}`;
   const attributed = graph.edges.some((edge) => edge.to === paperNode && ["CONTRIBUTED_TO", "PRE_INDEPENDENCE_WORK"].includes(edge.relation));
   if (!attributed) errors.push(`${paper.id} has no laboratory attribution edge`);
+  // A bibliographic (abstract-level) record legitimately carries no figure boundary: its figures were
+  // never opened, so fabricating one would be the dishonesty this project exists to prevent. Its limit
+  // is instead the metadata-checked depth and recorded-unverified baseline that validate-papers enforces,
+  // and it cannot carry a figure-level claim — a paper-claim citing it fails the audited-figure check
+  // above. Papers read to a figure chain still must state at least one boundary.
+  if (paper.readingDepth === "abstract") continue;
   const bounded = graph.edges.some((edge) => edge.from === paperNode && edge.relation === "BOUNDED_BY");
   if (!bounded) errors.push(`${paper.id} contributes no evidence-boundary node`);
 }

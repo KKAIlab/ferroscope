@@ -199,6 +199,11 @@ fail(/does not interact with phospholipid hydroperoxides/.test(methodHtml), "The
 const networkHtml = harness.htmlFor("#networkDetail");
 fail(/awaiting source review/.test(networkHtml), "A curated method-module boundary is presented without its provisional state.");
 fail(/curated method-module statements/.test(networkHtml), "The mechanism view does not separate curated assay boundaries from paper claims.");
+// A mechanism edge must disclose the paper it is anchored to AND how deeply that paper was read, so an
+// "established" edge resting only on an abstract-level (metadata-checked, figures-unaudited) record can
+// never reach a reader looking figure-verified. This is the hole the round-11 bibliographic tier exposed.
+fail(/figure chain audited/.test(networkHtml), "Mechanism edges do not disclose that their evidence anchor was read to its figure chain.");
+fail(/figures not audited/.test(networkHtml), "A mechanism edge anchored only to an abstract-level paper is shown without disclosing that its figures were not audited by this project.");
 
 // The terminology corpus is the only place where Chinese and Japanese are published.
 const glossaryHtml = harness.htmlFor("#glossaryGrid");

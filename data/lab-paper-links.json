@@ -208,5 +208,40 @@
   "role": "co-lead",
   "roleBasis": "First author of the 13-author Crossref author list (Ken-ichi Yamada) and originator of the NBD-Pen lipid-radical probe that defines this laboratory's method line; the last author is Mayumi Yamato, the senior radical-detection collaborator. Crossref marks no corresponding author; positions verified 2026-07-24. Attributed as co-lead rather than sole lead because seniority is shared and not machine-verifiable here.",
   "continuity": "Origin of the laboratory's radical-trapping fluorescence-probe methods later used in its lysosomal ferroptosis work, here first developed for lipid-derived radicals."
+ },
+ {
+  "labId": "stockwell-columbia",
+  "paperId": "doi:10.1016/j.cell.2012.03.042",
+  "role": "lead",
+  "roleBasis": "Brent Stockwell is the last (senior) author on the Crossref author record for this paper and the study was carried out in his Columbia laboratory.",
+  "continuity": "Anchors the Stockwell laboratory's founding role in defining ferroptosis and the system xc- axis this dashboard tracks."
+ },
+ {
+  "labId": "dixon-stanford",
+  "paperId": "doi:10.1016/j.cell.2012.03.042",
+  "role": "pre-independence",
+  "roleBasis": "Scott Dixon is the first author on the Crossref author record; the work predates his independent Stanford laboratory, so it is recorded as pre-independence rather than as his laboratory's own output.",
+  "continuity": "The founding ferroptosis paper on which Dixon's later independent system xc- and membrane-lipid work builds."
+ },
+ {
+  "labId": "stockwell-columbia",
+  "paperId": "doi:10.1021/acscentsci.9b01063",
+  "role": "contributing-author",
+  "roleBasis": "Brent Stockwell appears as author fifteen of seventeen on the Crossref author record; a contributing author, not the senior or corresponding laboratory of this paper.",
+  "continuity": "Connects to the Stockwell laboratory's continuing work on ferroptosis-suppressing metabolism and radical-trapping antioxidants."
+ },
+ {
+  "labId": "angeli-wurzburg",
+  "paperId": "doi:10.1038/s41586-023-06878-9",
+  "role": "lead",
+  "roleBasis": "Jose Pedro Friedmann Angeli is the last (senior) author on the Crossref author record for this paper.",
+  "continuity": "Extends the Angeli laboratory's work on endogenous radical-trapping and lipid defences against ferroptosis."
+ },
+ {
+  "labId": "conrad-helmholtz",
+  "paperId": "doi:10.1038/s41586-023-06878-9",
+  "role": "contributing-author",
+  "roleBasis": "Marcus Conrad appears as author forty-six of forty-seven (second to last) on the Crossref author record; recorded conservatively as a contributing author absent confirmation of co-corresponding status.",
+  "continuity": "Links to the Conrad laboratory's long study of the ferroptosis-suppressing defence network."
  }
 ]

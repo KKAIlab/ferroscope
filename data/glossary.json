@@ -756,5 +756,52 @@
       "slc7a11",
       "glutathione"
     ]
+  },
+  {
+    "id": "gch1-bh4",
+    "term": "GCH1-BH4 pathway",
+    "aliases": {
+      "en": [
+        "GTP cyclohydrolase 1",
+        "tetrahydrobiopterin"
+      ],
+      "zh": [
+        "GTP环化水解酶1–四氢生物蝶呤"
+      ],
+      "ja": [
+        "GTPシクロヒドロラーゼ1–テトラヒドロビオプテリン"
+      ]
+    },
+    "simpleEnglish": "An endogenous defence in which the enzyme GCH1 makes tetrahydrobiopterin (BH4), a molecule that traps lipid radicals and remodels membrane lipids to resist peroxidation, working in parallel to GPX4.",
+    "precisionNote": "Characterised mainly by genetic overexpression and knockdown in cultured cells; how much it contributes across normal tissues relative to GPX4 and FSP1 is not settled.",
+    "related": [
+      "fsp1",
+      "coq",
+      "radical-trapping-antioxidant"
+    ]
+  },
+  {
+    "id": "mevalonate-7dhc",
+    "term": "Mevalonate pathway / 7-DHC",
+    "aliases": {
+      "en": [
+        "7-dehydrocholesterol",
+        "squalene",
+        "DHCR7"
+      ],
+      "zh": [
+        "甲羟戊酸通路 / 7-脱氢胆固醇"
+      ],
+      "ja": [
+        "メバロン酸経路 / 7-デヒドロコレステロール"
+      ]
+    },
+    "simpleEnglish": "The cholesterol-synthesis pathway that also suppresses ferroptosis: it supplies CoQ10 for FSP1, and its intermediate 7-dehydrocholesterol accumulates to shield membranes from peroxidation.",
+    "precisionNote": "The anti-ferroptotic role of 7-DHC is shown across cell and tumour models; balancing it against normal sterol metabolism and the other defence arms is unresolved.",
+    "related": [
+      "fsp1",
+      "coq",
+      "lipid-peroxidation"
+    ]
   }
 ]

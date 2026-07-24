@@ -2,7 +2,16 @@
 
 FerroScope is an English-first research-intelligence website for ferroptosis and lipid biochemistry. It connects current research signals, laboratories, experimental methods, mechanisms, terminology and external research routes while keeping evidence limitations visible.
 
-## Current release status — v0.9.9 (round 10)
+## Current release status — v0.9.10 (round 11)
+
+Round 11 rebuilds the mechanism graph as a directional reasoning chain and completes its defence arms with honestly sourced nodes, introducing a shallower bibliographic evidence tier so a node is never added without a real source.
+
+- **Mechanism graph rebuilt as a consensus-grounded reasoning chain.** The "Mechanisms connected to evidence" view was a fixed diagram driven by a hardcoded coordinate table that listed only the original ten nodes, so the four round-10 nodes were silently dropped from the canvas. `app.js` now lays the graph out with a deterministic, seeded, layered force pass (pure arithmetic, no browser APIs, no `Math.random`) that reads top→bottom as a causal chain — drivers → membrane composition → the core peroxidation reaction → execution → disease/therapy context, with the enzymatic defence systems held to the right as a restraining arm. Nodes are sized by evidence-connection degree and coloured by the six roles they play in that chain, grounded in the mechanistic scheme of the field's consensus paper (Mishima et al., Nat Rev Mol Cell Biol 2025, Fig. 1) and re-expressed as this project's own graph, not a copy of the figure.
+- **Defence arms completed, with a bibliographic evidence tier.** `data/knowledge-network.json` grows from 14 to 17 mechanism nodes — adding the system xc- cystine supply, the GCH1-BH4 radical-trapping arm and the mevalonate-sterol arm that Fig. 1 treats as first-class — and from 20 to 23 evidence-anchored edges. Because none of those arms had a source in the audited corpus, `data/papers-en.json` grows from 25 to 28 with three founding/defining papers brought in at a new **bibliographic level** (`scripts/migrate-round11.mjs`): Dixon 2012 (system xc-), Kraft 2020 (GCH1-BH4) and Freitas 2024 (7-DHC). Their Crossref metadata spine is re-verified live (`verificationDepth: metadata-checked`), but their figures are **not** audited (`readingDepth: abstract`, no figure chain), so nothing here can read as a figure-level claim; `scripts/validate-graph.mjs` exempts an abstract-level record from the figure-boundary requirement rather than letting a fabricated boundary satisfy it.
+- **Terminology corpus grown.** `data/glossary.json` grows from 33 to 35 trilingual terms (the GCH1-BH4 pathway and the mevalonate/7-DHC arm), each with a full English/Chinese/Japanese alias set, a simple explanation and a precision note.
+- **Provenance graph.** The graph holds 263 nodes and 292 edges. By review state: recorded-unverified 69, archive-derived 157, source-checked 66 and independently-rechecked 0. The three new mechanism nodes add nodes, not edges (`buildGraph` does not consume mechanism→mechanism edges); the five new edges are the attribution edges of the three bibliographic papers. `data/source-reviews.json` now holds 79 canonical source records and 47 review events. Method decision fields are unchanged: 33 of 208 method decision fields are source-checked and 175 remain pending, and 0 datasets are sealed.
+
+## Previous release status — v0.9.9 (round 10)
 
 Round 10 turns to the axes named as frozen — the mechanism network and the terminology corpus — and grounds the mechanism map in the papers now in the layer.
 
