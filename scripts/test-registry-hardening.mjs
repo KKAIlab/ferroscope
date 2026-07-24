@@ -173,5 +173,23 @@ test("a method's MEASURES and CANNOT_DISTINGUISH cannot cite the same reading", 
   assert.throws(() => buildGraph(input), /same reading cannot separately establish/, "borrowing the boundary's reading for the measurement claim must fail the build");
 });
 
+// ---- a metadata source cannot carry an experimental content surface (round-8 audit HOLE-1) --
+// The edge-level allowlist trusts a scope's self-declared surfaceType, so a crossref metadata
+// record could carry a scope claiming surfaceType "figure-caption"; a paper figureAudit pointing
+// at it would then promote a figure edge to source-checked backed only by bibliographic metadata
+// no reader opened. The registry now binds a scope's surfaceType to the source's documentClass.
+test("a crossref metadata source cannot declare an experimental content surface", () => {
+  const input = graphInputs();
+  const crossref = input.sourceReviews.sources.find((s) => s.documentClass === "crossref-metadata-record");
+  assert.ok(crossref, "the fixture needs a crossref metadata source");
+  crossref.scopes.push({ id: "forged-fig-caption", label: "Fig. 1", surfaceType: "figure-caption", accessExtent: "complete-scope", boundary: "a forged content surface on a metadata record" });
+  assert.ok(caught(validateRegistry(input.sourceReviews), 'cannot expose a "figure-caption" surface'), "a figure-caption scope on a metadata record must be rejected by the registry");
+  assert.throws(() => buildGraph(input), /cannot expose a "figure-caption" surface/, "the build must refuse a metadata source carrying an experimental content surface");
+});
+test("a pubmed record may still carry its abstract, and a version-of-record any content surface", () => {
+  // the constraint must not over-reach: legitimate abstract/content scopes still validate
+  assert.deepEqual(validateRegistry(rd("source-reviews.json")), [], "the real registry must stay clean under the new documentClass/surface constraint");
+});
+
 if (failures) { console.error(`\n${failures} registry-hardening case(s) failed.`); process.exit(1); }
 console.log(`\nRegistry-hardening tests passed: circular chains, unopened-scope readings, unopened-prior and masquerading rechecks, unhashed byte-identity claims, and paper private-field forgery are all rejected while a valid recheck passes.`);
