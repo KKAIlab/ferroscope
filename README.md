@@ -2,7 +2,15 @@
 
 FerroScope is an English-first research-intelligence website for ferroptosis and lipid biochemistry. It connects current research signals, laboratories, experimental methods, mechanisms, terminology and external research routes while keeping evidence limitations visible.
 
-## Current release status — v0.9.7 (round 8)
+## Current release status — v0.9.8 (round 9)
+
+Round 9 continues the content pivot: it migrates the remaining 6 figure-audited backlog papers (2016–2023) into the English-first layer, taking `data/papers-en.json` from 19 to 25 papers, by the same honest recipe as round 8 (`scripts/migrate-round9.mjs`, driven by the translated `scripts/round9-specs.mjs`, regression-checked by `npm run check`).
+
+- **Same honest floor.** Figure chains are translated from the audited archive and enter `archive-derived` with no `scopeRef`, so all 34 new figure `BOUNDED_BY` edges stay `archive-derived`; only each paper's Crossref metadata spine is `source-checked`, promoting the 6 new attribution edges. Crossref re-verification set two roles the archive would have mis-stated as lead: Minghui Gao is the first author of "Role of Mitochondria in Ferroptosis" (senior author Xuejun Jiang), so gao-hit is `pre-independence`, not lead; and Ken-ichi Yamada is the first author and originator of the NBD-Pen probe (senior last author Mayumi Yamato, no marked corresponding author), so yamada-kyushu is `co-lead`, not sole lead.
+- **The auditor gate closed a bypass of the round-8 fix.** Round 8's `DOCUMENT_CLASS_SURFACES` binds a scope's `surfaceType` to its source's `documentClass`, but trusted the `documentClass` itself: relabelling a crossref metadata source as an (unconstrained) `version-of-record` while keeping its `api.crossref.org` URL re-opened the figure-caption promotion, caught only by a README count. `lib/source-registry.mjs` now pins `documentClass` to the URL for the machine-checkable metadata endpoints (`URL_PINNED_DOCUMENT_CLASS`: an `api.crossref.org` URL must be `crossref-metadata-record`, a `pubmed.ncbi.nlm.nih.gov` URL must be `pubmed-record`), so the relabel is rejected in `validateRegistry`/`buildGraph` before any content surface can attach. Regression-locked in `scripts/test-registry-hardening.mjs` (now 20 cases). The residual — fabricating a primary-document source with a plausible publisher URL that claims a reading nobody performed — is the trust boundary documented in `DELIVERY_AUDIT_ROUND7.md` §6, not machine-disprovable.
+- **Provenance graph.** The graph holds 253 nodes and 287 edges. By review state: recorded-unverified 69, archive-derived 157, source-checked 61 and independently-rechecked 0. `data/source-reviews.json` now holds 73 canonical source records and 44 review events. Method decision fields are unchanged: 33 of 208 method decision fields are source-checked and 175 remain pending. 0 datasets are sealed and 0 scopes are independently rechecked; Claude Code is the implementer this round and may not sign its own work as a second reading.
+
+## Previous release status — v0.9.7 (round 8)
 
 Round 8 acts on the strategic finding of [`DELIVERY_AUDIT_ROUND7.md`](DELIVERY_AUDIT_ROUND7.md) §6: with the provenance contract now correct for the honest-report threat and regression-locked, effort moves from provenance plumbing to content. This round surfaces eight legacy figure-audited papers into the English-first layer, taking `data/papers-en.json` from 11 to 19 papers. The migration is honest by construction (`scripts/migrate-round8.mjs`, driven by the translated specs in `scripts/round8-specs.mjs`, regression-checked by `npm run check`):
 
@@ -73,7 +81,7 @@ Round 2 answers the independent review in [`HANDOFF.md`](HANDOFF.md). Every chan
 
 ## What v0.9.1 added
 
-- an English paper layer, `data/papers-en.json`, holding 19 papers whose baseline is an archive-derived figure chain, each carrying structured verification sources (metadata, abstract, and where opened, author-manuscript scopes), a condition vector, a version and correction history and a statement of what was verified and what was not;
+- an English paper layer, `data/papers-en.json`, holding 25 papers whose baseline is an archive-derived figure chain, each carrying structured verification sources (metadata, abstract, and where opened, author-manuscript scopes), a condition vector, a version and correction history and a statement of what was verified and what was not;
 - a separate laboratory attribution layer, `data/lab-paper-links.json`, so a role claim can never become a property of the paper;
 - an English-native ingestion pipeline: `scripts/update-data.mjs` writes English topic labels, takeaways, caveats and source-status notes, and resolves public laboratory names from `labs-en.json` by id rather than from watch-query labels;
 - a rendered-DOM language gate and an injection gate, `scripts/test-public-surface.mjs`, which drive the real `app.js` through a small DOM harness and fail if CJK reaches the page outside the terminology corpus or if hostile source metadata survives escaping;

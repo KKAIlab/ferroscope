@@ -186,6 +186,20 @@ test("a crossref metadata source cannot declare an experimental content surface"
   assert.ok(caught(validateRegistry(input.sourceReviews), 'cannot expose a "figure-caption" surface'), "a figure-caption scope on a metadata record must be rejected by the registry");
   assert.throws(() => buildGraph(input), /cannot expose a "figure-caption" surface/, "the build must refuse a metadata source carrying an experimental content surface");
 });
+// ---- documentClass cannot be relabelled to bypass the surface constraint (round-9 audit HOLE) --
+// DOCUMENT_CLASS_SURFACES binds surfaceType to documentClass, but is worthless if documentClass
+// itself is forgeable: relabelling a crossref metadata record as an (unconstrained) version-of-record
+// while keeping its api.crossref.org URL would re-open the figure-caption promotion. The URL now pins
+// the class, so the relabel is rejected before any content surface can be attached.
+test("a crossref-API URL cannot be relabelled version-of-record to smuggle a content surface", () => {
+  const input = graphInputs();
+  const crossref = input.sourceReviews.sources.find((s) => s.documentClass === "crossref-metadata-record");
+  assert.ok(crossref && /^https:\/\/api\.crossref\.org\//.test(crossref.url), "the fixture needs a crossref-API source");
+  crossref.documentClass = "version-of-record"; // the relabel that used to unlock content surfaces
+  crossref.scopes.push({ id: "forged-fig-caption", label: "Fig. 1", surfaceType: "figure-caption", accessExtent: "complete-scope", boundary: "a forged content surface on a relabelled metadata record" });
+  assert.ok(caught(validateRegistry(input.sourceReviews), "may not be relabelled as a primary document"), "an api.crossref.org URL declared version-of-record must be rejected by the registry");
+  assert.throws(() => buildGraph(input), /may not be relabelled as a primary document/, "the build must refuse a metadata-API URL relabelled as a primary document");
+});
 test("a pubmed record may still carry its abstract, and a version-of-record any content surface", () => {
   // the constraint must not over-reach: legitimate abstract/content scopes still validate
   assert.deepEqual(validateRegistry(rd("source-reviews.json")), [], "the real registry must stay clean under the new documentClass/surface constraint");

@@ -28,6 +28,11 @@
    "id": "claude-code-round8-migration",
    "name": "Claude Code round-8 content-migration pass (implementer, not an independent reviewer)",
    "role": "implementer"
+  },
+  {
+   "id": "claude-code-round9-migration",
+   "name": "Claude Code round-9 content-migration pass (implementer, not an independent reviewer)",
+   "role": "implementer"
   }
  ],
  "surfaceTypeReference": "surfaceType is the document surface that was opened; accessExtent is how much of it. A legacy verificationDepth is derived from the surface for backward-compatible counts but is not the statement shown to a reader.",
@@ -2528,6 +2533,444 @@
     "sha256": null
    },
    "scopes": []
+  },
+  {
+   "id": "crossref-10-1016-j-cell-2023-05-003",
+   "documentClass": "crossref-metadata-record",
+   "url": "https://api.crossref.org/works/10.1016/j.cell.2023.05.003",
+   "identifiers": {
+    "doi": "10.1016/j.cell.2023.05.003"
+   },
+   "version": {
+    "label": "crossref response as retrieved on 2026-07-24; no content hash was captured at the time of that query",
+    "retrievedAt": "2026-07-24",
+    "byteLength": null,
+    "sha256": null
+   },
+   "scopes": [
+    {
+     "id": "title",
+     "label": "title",
+     "surfaceType": "metadata-record",
+     "accessExtent": "complete-scope",
+     "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+    },
+    {
+     "id": "journal",
+     "label": "journal",
+     "surfaceType": "metadata-record",
+     "accessExtent": "complete-scope",
+     "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+    },
+    {
+     "id": "volume-pages",
+     "label": "volume-pages",
+     "surfaceType": "metadata-record",
+     "accessExtent": "complete-scope",
+     "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+    },
+    {
+     "id": "issued-date",
+     "label": "issued-date",
+     "surfaceType": "metadata-record",
+     "accessExtent": "complete-scope",
+     "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+    },
+    {
+     "id": "authors",
+     "label": "authors",
+     "surfaceType": "metadata-record",
+     "accessExtent": "complete-scope",
+     "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+    },
+    {
+     "id": "version-relations",
+     "label": "version-relations",
+     "surfaceType": "metadata-record",
+     "accessExtent": "complete-scope",
+     "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+    }
+   ]
+  },
+  {
+   "id": "doi-10-1016-j-cell-2023-05-003",
+   "documentClass": "version-of-record",
+   "url": "https://doi.org/10.1016/j.cell.2023.05.003",
+   "identifiers": {
+    "doi": "10.1016/j.cell.2023.05.003"
+   },
+   "version": {
+    "label": "https://doi.org/10.1016/j.cell.2023.05.003 (declared source)",
+    "retrievedAt": "2026-07-24",
+    "byteLength": null,
+    "sha256": null
+   },
+   "scopes": []
+  },
+  {
+   "id": "crossref-10-1016-j-chembiol-2018-11-016",
+   "documentClass": "crossref-metadata-record",
+   "url": "https://api.crossref.org/works/10.1016/j.chembiol.2018.11.016",
+   "identifiers": {
+    "doi": "10.1016/j.chembiol.2018.11.016"
+   },
+   "version": {
+    "label": "crossref response as retrieved on 2026-07-24; no content hash was captured at the time of that query",
+    "retrievedAt": "2026-07-24",
+    "byteLength": null,
+    "sha256": null
+   },
+   "scopes": [
+    {
+     "id": "title",
+     "label": "title",
+     "surfaceType": "metadata-record",
+     "accessExtent": "complete-scope",
+     "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+    },
+    {
+     "id": "journal",
+     "label": "journal",
+     "surfaceType": "metadata-record",
+     "accessExtent": "complete-scope",
+     "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+    },
+    {
+     "id": "volume-pages",
+     "label": "volume-pages",
+     "surfaceType": "metadata-record",
+     "accessExtent": "complete-scope",
+     "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+    },
+    {
+     "id": "issued-date",
+     "label": "issued-date",
+     "surfaceType": "metadata-record",
+     "accessExtent": "complete-scope",
+     "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+    },
+    {
+     "id": "authors",
+     "label": "authors",
+     "surfaceType": "metadata-record",
+     "accessExtent": "complete-scope",
+     "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+    },
+    {
+     "id": "version-relations",
+     "label": "version-relations",
+     "surfaceType": "metadata-record",
+     "accessExtent": "complete-scope",
+     "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+    }
+   ]
+  },
+  {
+   "id": "doi-10-1016-j-chembiol-2018-11-016",
+   "documentClass": "version-of-record",
+   "url": "https://doi.org/10.1016/j.chembiol.2018.11.016",
+   "identifiers": {
+    "doi": "10.1016/j.chembiol.2018.11.016"
+   },
+   "version": {
+    "label": "https://doi.org/10.1016/j.chembiol.2018.11.016 (declared source)",
+    "retrievedAt": "2026-07-24",
+    "byteLength": null,
+    "sha256": null
+   },
+   "scopes": []
+  },
+  {
+   "id": "crossref-10-1016-j-molcel-2018-10-042",
+   "documentClass": "crossref-metadata-record",
+   "url": "https://api.crossref.org/works/10.1016/j.molcel.2018.10.042",
+   "identifiers": {
+    "doi": "10.1016/j.molcel.2018.10.042"
+   },
+   "version": {
+    "label": "crossref response as retrieved on 2026-07-24; no content hash was captured at the time of that query",
+    "retrievedAt": "2026-07-24",
+    "byteLength": null,
+    "sha256": null
+   },
+   "scopes": [
+    {
+     "id": "title",
+     "label": "title",
+     "surfaceType": "metadata-record",
+     "accessExtent": "complete-scope",
+     "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+    },
+    {
+     "id": "journal",
+     "label": "journal",
+     "surfaceType": "metadata-record",
+     "accessExtent": "complete-scope",
+     "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+    },
+    {
+     "id": "volume-pages",
+     "label": "volume-pages",
+     "surfaceType": "metadata-record",
+     "accessExtent": "complete-scope",
+     "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+    },
+    {
+     "id": "issued-date",
+     "label": "issued-date",
+     "surfaceType": "metadata-record",
+     "accessExtent": "complete-scope",
+     "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+    },
+    {
+     "id": "authors",
+     "label": "authors",
+     "surfaceType": "metadata-record",
+     "accessExtent": "complete-scope",
+     "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+    },
+    {
+     "id": "version-relations",
+     "label": "version-relations",
+     "surfaceType": "metadata-record",
+     "accessExtent": "complete-scope",
+     "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+    }
+   ]
+  },
+  {
+   "id": "doi-10-1016-j-molcel-2018-10-042",
+   "documentClass": "version-of-record",
+   "url": "https://doi.org/10.1016/j.molcel.2018.10.042",
+   "identifiers": {
+    "doi": "10.1016/j.molcel.2018.10.042"
+   },
+   "version": {
+    "label": "https://doi.org/10.1016/j.molcel.2018.10.042 (declared source)",
+    "retrievedAt": "2026-07-24",
+    "byteLength": null,
+    "sha256": null
+   },
+   "scopes": []
+  },
+  {
+   "id": "crossref-10-1038-s41586-019-1170-y",
+   "documentClass": "crossref-metadata-record",
+   "url": "https://api.crossref.org/works/10.1038/s41586-019-1170-y",
+   "identifiers": {
+    "doi": "10.1038/s41586-019-1170-y"
+   },
+   "version": {
+    "label": "crossref response as retrieved on 2026-07-24; no content hash was captured at the time of that query",
+    "retrievedAt": "2026-07-24",
+    "byteLength": null,
+    "sha256": null
+   },
+   "scopes": [
+    {
+     "id": "title",
+     "label": "title",
+     "surfaceType": "metadata-record",
+     "accessExtent": "complete-scope",
+     "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+    },
+    {
+     "id": "journal",
+     "label": "journal",
+     "surfaceType": "metadata-record",
+     "accessExtent": "complete-scope",
+     "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+    },
+    {
+     "id": "volume-pages",
+     "label": "volume-pages",
+     "surfaceType": "metadata-record",
+     "accessExtent": "complete-scope",
+     "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+    },
+    {
+     "id": "issued-date",
+     "label": "issued-date",
+     "surfaceType": "metadata-record",
+     "accessExtent": "complete-scope",
+     "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+    },
+    {
+     "id": "authors",
+     "label": "authors",
+     "surfaceType": "metadata-record",
+     "accessExtent": "complete-scope",
+     "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+    },
+    {
+     "id": "version-relations",
+     "label": "version-relations",
+     "surfaceType": "metadata-record",
+     "accessExtent": "complete-scope",
+     "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+    }
+   ]
+  },
+  {
+   "id": "doi-10-1038-s41586-019-1170-y",
+   "documentClass": "version-of-record",
+   "url": "https://doi.org/10.1038/s41586-019-1170-y",
+   "identifiers": {
+    "doi": "10.1038/s41586-019-1170-y"
+   },
+   "version": {
+    "label": "https://doi.org/10.1038/s41586-019-1170-y (declared source)",
+    "retrievedAt": "2026-07-24",
+    "byteLength": null,
+    "sha256": null
+   },
+   "scopes": []
+  },
+  {
+   "id": "crossref-10-1021-acscentsci-7b00028",
+   "documentClass": "crossref-metadata-record",
+   "url": "https://api.crossref.org/works/10.1021/acscentsci.7b00028",
+   "identifiers": {
+    "doi": "10.1021/acscentsci.7b00028"
+   },
+   "version": {
+    "label": "crossref response as retrieved on 2026-07-24; no content hash was captured at the time of that query",
+    "retrievedAt": "2026-07-24",
+    "byteLength": null,
+    "sha256": null
+   },
+   "scopes": [
+    {
+     "id": "title",
+     "label": "title",
+     "surfaceType": "metadata-record",
+     "accessExtent": "complete-scope",
+     "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+    },
+    {
+     "id": "journal",
+     "label": "journal",
+     "surfaceType": "metadata-record",
+     "accessExtent": "complete-scope",
+     "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+    },
+    {
+     "id": "volume-pages",
+     "label": "volume-pages",
+     "surfaceType": "metadata-record",
+     "accessExtent": "complete-scope",
+     "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+    },
+    {
+     "id": "issued-date",
+     "label": "issued-date",
+     "surfaceType": "metadata-record",
+     "accessExtent": "complete-scope",
+     "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+    },
+    {
+     "id": "authors",
+     "label": "authors",
+     "surfaceType": "metadata-record",
+     "accessExtent": "complete-scope",
+     "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+    },
+    {
+     "id": "version-relations",
+     "label": "version-relations",
+     "surfaceType": "metadata-record",
+     "accessExtent": "complete-scope",
+     "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+    }
+   ]
+  },
+  {
+   "id": "doi-10-1021-acscentsci-7b00028",
+   "documentClass": "version-of-record",
+   "url": "https://doi.org/10.1021/acscentsci.7b00028",
+   "identifiers": {
+    "doi": "10.1021/acscentsci.7b00028"
+   },
+   "version": {
+    "label": "https://doi.org/10.1021/acscentsci.7b00028 (declared source)",
+    "retrievedAt": "2026-07-24",
+    "byteLength": null,
+    "sha256": null
+   },
+   "scopes": []
+  },
+  {
+   "id": "crossref-10-1038-nchembio-2105",
+   "documentClass": "crossref-metadata-record",
+   "url": "https://api.crossref.org/works/10.1038/nchembio.2105",
+   "identifiers": {
+    "doi": "10.1038/nchembio.2105"
+   },
+   "version": {
+    "label": "crossref response as retrieved on 2026-07-24; no content hash was captured at the time of that query",
+    "retrievedAt": "2026-07-24",
+    "byteLength": null,
+    "sha256": null
+   },
+   "scopes": [
+    {
+     "id": "title",
+     "label": "title",
+     "surfaceType": "metadata-record",
+     "accessExtent": "complete-scope",
+     "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+    },
+    {
+     "id": "journal",
+     "label": "journal",
+     "surfaceType": "metadata-record",
+     "accessExtent": "complete-scope",
+     "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+    },
+    {
+     "id": "volume-pages",
+     "label": "volume-pages",
+     "surfaceType": "metadata-record",
+     "accessExtent": "complete-scope",
+     "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+    },
+    {
+     "id": "issued-date",
+     "label": "issued-date",
+     "surfaceType": "metadata-record",
+     "accessExtent": "complete-scope",
+     "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+    },
+    {
+     "id": "authors",
+     "label": "authors",
+     "surfaceType": "metadata-record",
+     "accessExtent": "complete-scope",
+     "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+    },
+    {
+     "id": "version-relations",
+     "label": "version-relations",
+     "surfaceType": "metadata-record",
+     "accessExtent": "complete-scope",
+     "boundary": "Bibliographic metadata field only; no full text was read at this scope."
+    }
+   ]
+  },
+  {
+   "id": "doi-10-1038-nchembio-2105",
+   "documentClass": "version-of-record",
+   "url": "https://doi.org/10.1038/nchembio.2105",
+   "identifiers": {
+    "doi": "10.1038/nchembio.2105"
+   },
+   "version": {
+    "label": "https://doi.org/10.1038/nchembio.2105 (declared source)",
+    "retrievedAt": "2026-07-24",
+    "byteLength": null,
+    "sha256": null
+   },
+   "scopes": []
   }
  ],
  "reviewEvents": [
@@ -3245,6 +3688,120 @@
     "volume-pages"
    ],
    "boundary": "Molecular Cell, volume 84, issue 23, pages 4629-4644.e9, published 2024, 25 authors, first author Junya Ito, last author Marcus Conrad (Eikan Mishima is author 24 of 25, second-to-last). A preprint relation is registered; no correction, erratum or update relation is registered against this DOI at Crossref, verified 2026-07-24.",
+   "priorReviewEventId": null,
+   "agreement": null,
+   "discrepancyNote": null
+  },
+  {
+   "id": "ingest-crossref-10-1016-j-cell-2023-05-003",
+   "sourceId": "crossref-10-1016-j-cell-2023-05-003",
+   "reviewState": "source-checked",
+   "reviewerId": "claude-code-round9-migration",
+   "checkedAt": "2026-07-24",
+   "scopeIds": [
+    "authors",
+    "issued-date",
+    "journal",
+    "title",
+    "version-relations",
+    "volume-pages"
+   ],
+   "boundary": "Cell, volume 186, issue 13, pages 2748-2764.e22, published 2023, 10 authors, first author Deguang Liang, last author Xuejun Jiang. No correction, erratum, retraction or update relation is registered against this DOI at Crossref, verified 2026-07-24.",
+   "priorReviewEventId": null,
+   "agreement": null,
+   "discrepancyNote": null
+  },
+  {
+   "id": "ingest-crossref-10-1016-j-chembiol-2018-11-016",
+   "sourceId": "crossref-10-1016-j-chembiol-2018-11-016",
+   "reviewState": "source-checked",
+   "reviewerId": "claude-code-round9-migration",
+   "checkedAt": "2026-07-24",
+   "scopeIds": [
+    "authors",
+    "issued-date",
+    "journal",
+    "title",
+    "version-relations",
+    "volume-pages"
+   ],
+   "boundary": "Cell Chemical Biology, volume 26, issue 3, pages 420-432.e9, published 2019 (issue year; the DOI dates online publication to 2018), 12 authors, first author Leslie Magtanong, last author Scott J. Dixon. No correction, erratum, retraction or update relation is registered against this DOI at Crossref, verified 2026-07-24.",
+   "priorReviewEventId": null,
+   "agreement": null,
+   "discrepancyNote": null
+  },
+  {
+   "id": "ingest-crossref-10-1016-j-molcel-2018-10-042",
+   "sourceId": "crossref-10-1016-j-molcel-2018-10-042",
+   "reviewState": "source-checked",
+   "reviewerId": "claude-code-round9-migration",
+   "checkedAt": "2026-07-24",
+   "scopeIds": [
+    "authors",
+    "issued-date",
+    "journal",
+    "title",
+    "version-relations",
+    "volume-pages"
+   ],
+   "boundary": "Molecular Cell, volume 73, issue 2, pages 354-363.e3, published 2019 (issue year; the DOI dates online publication to 2018), 7 authors, first author Minghui Gao, last author Xuejun Jiang. A has-review relation is registered; no correction, erratum, retraction or update relation is registered against this DOI at Crossref, verified 2026-07-24.",
+   "priorReviewEventId": null,
+   "agreement": null,
+   "discrepancyNote": null
+  },
+  {
+   "id": "ingest-crossref-10-1038-s41586-019-1170-y",
+   "sourceId": "crossref-10-1038-s41586-019-1170-y",
+   "reviewState": "source-checked",
+   "reviewerId": "claude-code-round9-migration",
+   "checkedAt": "2026-07-24",
+   "scopeIds": [
+    "authors",
+    "issued-date",
+    "journal",
+    "title",
+    "version-relations",
+    "volume-pages"
+   ],
+   "boundary": "Nature, volume 569, issue 7755, pages 270-274, published 2019, 30 authors, first author Weimin Wang, last author Weiping Zou. No correction, erratum, retraction or update relation is registered against this DOI at Crossref, verified 2026-07-24.",
+   "priorReviewEventId": null,
+   "agreement": null,
+   "discrepancyNote": null
+  },
+  {
+   "id": "ingest-crossref-10-1021-acscentsci-7b00028",
+   "sourceId": "crossref-10-1021-acscentsci-7b00028",
+   "reviewState": "source-checked",
+   "reviewerId": "claude-code-round9-migration",
+   "checkedAt": "2026-07-24",
+   "scopeIds": [
+    "authors",
+    "issued-date",
+    "journal",
+    "title",
+    "version-relations",
+    "volume-pages"
+   ],
+   "boundary": "ACS Central Science, volume 3, issue 3, pages 232-243, published 2017, 7 authors, first author Omkar Zilka, last author Derek A. Pratt. No correction, erratum, retraction or update relation is registered against this DOI at Crossref, verified 2026-07-24.",
+   "priorReviewEventId": null,
+   "agreement": null,
+   "discrepancyNote": null
+  },
+  {
+   "id": "ingest-crossref-10-1038-nchembio-2105",
+   "sourceId": "crossref-10-1038-nchembio-2105",
+   "reviewState": "source-checked",
+   "reviewerId": "claude-code-round9-migration",
+   "checkedAt": "2026-07-24",
+   "scopeIds": [
+    "authors",
+    "issued-date",
+    "journal",
+    "title",
+    "version-relations",
+    "volume-pages"
+   ],
+   "boundary": "Nature Chemical Biology, volume 12, issue 8, pages 608-613, published 2016, 13 authors, first author Ken-ichi Yamada, last author Mayumi Yamato. Crossref marks no corresponding author. No correction, erratum, retraction or update relation is registered against this DOI at Crossref, verified 2026-07-24.",
    "priorReviewEventId": null,
    "agreement": null,
    "discrepancyNote": null
