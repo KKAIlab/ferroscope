@@ -301,7 +301,7 @@
               "reviewEventId": "claude-r4-zou2020",
               "scopeId": "methods-flow-cytometry-analysis",
               "supportMode": "explicit",
-              "claimFragment": "In the demonstrating study (Zou 2020): UACC-257 melanoma and 786-O / 769-P clear-cell renal carci…",
+              "claimFragment": "UACC-257 melanoma and 786-O / 769-P clear-cell renal carcinoma lines",
               "supportNote": "The flow and imaging Methods name the cell lines and the wild-type/POR-depleted comparison."
             },
             {
@@ -309,8 +309,8 @@
               "reviewEventId": "claude-r4-zou2020",
               "scopeId": "methods-bodipy-c11-imaging-assay",
               "supportMode": "explicit",
-              "claimFragment": "In the demonstrating study (Zou 2020): UACC-257 melanoma and 786-O / 769-P clear-cell renal carci… (clause 2)",
-              "supportNote": "The imaging Methods repeat the cell system used for the probe."
+              "claimFragment": "wild-type against POR-depleted",
+              "supportNote": "The flow and imaging Methods state the wild-type against POR-depleted comparison."
             }
           ]
         },
@@ -323,7 +323,7 @@
               "reviewEventId": "claude-r4-thermofisher-d3861",
               "scopeId": "product-description",
               "supportMode": "explicit",
-              "claimFragment": "the probe reports membrane lipid peroxidation as a shift in its fluorescence emission",
+              "claimFragment": "read as a shift in probe emission",
               "supportNote": "The vendor page describes the probe as reporting membrane lipid peroxidation via an emission shift."
             },
             {
@@ -331,7 +331,7 @@
               "reviewEventId": "claude-r4-zou2020",
               "scopeId": "results-por-mediates-ferroptosis-by-promoting-lipid-peroxidation",
               "supportMode": "explicit",
-              "claimFragment": "the emission shift rises under a ferroptotic perturbation",
+              "claimFragment": "membrane lipid peroxidation rises under a ferroptotic perturbation",
               "supportNote": "The results read the probe's emission shift as membrane lipid peroxidation under the ferroptotic perturbation."
             },
             {
@@ -339,7 +339,7 @@
               "reviewEventId": "claude-r4-kagan2017",
               "scopeId": "results-lipid-hydroperoxides-accumulate-in-ferroptotic-er",
               "supportMode": "derived",
-              "claimFragment": "the probe reports an emission shift rather than an identified molecular lipid species",
+              "claimFragment": "rather than as an identified lipid species",
               "supportNote": "Kagan states that C11-BODIPY, unlike LiperFluo, does not interact with phospholipid hydroperoxides; reading this as a method boundary — an emission shift, not a species identification — is a derivation from that specificity limit, not a claim the assay itself makes."
             }
           ]
@@ -367,7 +367,7 @@
               "reviewEventId": "claude-r4-thermofisher-d3861",
               "scopeId": "product-description",
               "supportMode": "explicit",
-              "claimFragment": "Oxidation of the probe's polyunsaturated butadienyl group shifts its fluorescence emission peak f…",
+              "claimFragment": "Oxidation of the probe's polyunsaturated butadienyl group shifts its fluorescence emission peak from approximately 590 nm (reduced) to approximately 510 nm (oxidised)",
               "supportNote": "The vendor page states the reduced-to-oxidised emission shift and its wavelengths."
             },
             {
@@ -375,7 +375,7 @@
               "reviewEventId": "claude-r4-zou2020",
               "scopeId": "methods-flow-cytometry-analysis",
               "supportMode": "explicit",
-              "claimFragment": "read by flow cytometry (reduced in the PE-Texas Red channel, oxidised in FITC) or by fluorescence… (clause 2)",
+              "claimFragment": "read by flow cytometry (reduced in the PE-Texas Red channel, oxidised in FITC)",
               "supportNote": "The flow Methods assign the reduced probe to PE-Texas Red and the oxidised probe to FITC."
             }
           ]
@@ -394,7 +394,7 @@
               "reviewEventId": "claude-r4-thermofisher-d3861",
               "scopeId": "specifications",
               "supportMode": "explicit",
-              "claimFragment": "Fluorescence detection: a flow cytometer (Zou used a SONY SH800) or a fluorescence imager (Zou us…",
+              "claimFragment": "a flow cytometer (Zou used a SONY SH800) or a fluorescence imager (Zou used a Perkin Elmer Operetta)",
               "supportNote": "The vendor specification gives excitation/emission 581/591 nm for the reduced probe."
             },
             {
@@ -402,7 +402,7 @@
               "reviewEventId": "claude-r4-zou2020",
               "scopeId": "methods-flow-cytometry-analysis",
               "supportMode": "explicit",
-              "claimFragment": "excitation/emission 581/591 nm for the reduced probe per the vendor specification (clause 2)",
+              "claimFragment": "excitation/emission 581/591 nm for the reduced probe per the vendor specification",
               "supportNote": "The flow Methods name the SONY SH800; the imaging Methods name the Operetta."
             }
           ]
@@ -431,7 +431,7 @@
               "reviewEventId": "claude-r4-zou2020",
               "scopeId": "methods-flow-cytometry-analysis",
               "supportMode": "explicit",
-              "claimFragment": "In the demonstrating study the probe is read alongside other lipid-peroxidation readouts: a paral…",
+              "claimFragment": "a parallel cytosolic-ROS reporter (H2-DCFDA) distinguishes a membrane-lipid change from a general cytosolic ROS rise",
               "supportNote": "The flow Methods run H2-DCFDA in parallel with BODIPY-C11 as a separate ROS readout."
             },
             {
@@ -439,7 +439,7 @@
               "reviewEventId": "claude-r4-zou2020",
               "scopeId": "results-por-mediates-ferroptosis-by-promoting-lipid-peroxidation",
               "supportMode": "explicit",
-              "claimFragment": "The study presents these readouts together (clause 2)",
+              "claimFragment": "The study presents these readouts together",
               "supportNote": "The results present BODIPY-C11 together with H2-DCFDA, MDA and redox-lipidomics, without asserting a universal must-move-together rule."
             },
             {
@@ -447,7 +447,7 @@
               "reviewEventId": "claude-r4-zou2020",
               "scopeId": "fig-5",
               "supportMode": "explicit",
-              "claimFragment": "it does not state a rule that they must move together (clause 3)",
+              "claimFragment": "the study also pairs BODIPY-C11 with a malondialdehyde assay and species-resolved redox-lipidomics",
               "supportNote": "Fig. 5 shows these readouts side by side."
             }
           ]
@@ -461,7 +461,7 @@
               "reviewEventId": "claude-r4-zou2020",
               "scopeId": "methods-flow-cytometry-analysis",
               "supportMode": "explicit",
-              "claimFragment": "Acute probe loading: 5 micromolar BODIPY-C11 for the final 45 minutes of a 90-minute ML210 treatm…",
+              "claimFragment": "5 micromolar BODIPY-C11 for the final 45 minutes of a 90-minute ML210 treatment for flow cytometry",
               "supportNote": "The flow Methods state 5 uM probe for the final 45 min of a 90-min ML210 treatment."
             },
             {
@@ -469,7 +469,7 @@
               "reviewEventId": "claude-r4-zou2020",
               "scopeId": "methods-bodipy-c11-imaging-assay",
               "supportMode": "explicit",
-              "claimFragment": "for imaging, probe added for the last 30 minutes of a 3-hour ML210 exposure (clause 2)",
+              "claimFragment": "for imaging, probe added for the last 30 minutes of a 3-hour ML210 exposure",
               "supportNote": "The imaging Methods state probe added for the last 30 min of a 3-hour ML210 exposure."
             }
           ]
@@ -483,7 +483,7 @@
               "reviewEventId": "claude-r4-thermofisher-d3861",
               "scopeId": "product-description",
               "supportMode": "explicit",
-              "claimFragment": "The probe partitions into membranes and reports their local oxidation, but resolves no molecular …",
+              "claimFragment": "The probe partitions into membranes and reports their local oxidation, but resolves no molecular lipid species",
               "supportNote": "The vendor page describes the probe as a membrane-partitioning reporter with no species resolution."
             },
             {
@@ -491,7 +491,7 @@
               "reviewEventId": "claude-r4-zou2020",
               "scopeId": "methods-bodipy-c11-imaging-assay",
               "supportMode": "analytical-inference",
-              "claimFragment": "fluorescence imaging gives only coarse subcellular localisation, not organelle-specific chemistry (clause 2)",
+              "claimFragment": "fluorescence imaging gives only coarse subcellular localisation, not organelle-specific chemistry",
               "supportNote": "That imaging gives only coarse subcellular localisation is inferred from the probe's membrane partitioning and the imaging setup, not stated as a limitation in the text."
             }
           ]
@@ -505,7 +505,7 @@
               "reviewEventId": "claude-r4-kagan2017",
               "scopeId": "results-lipid-hydroperoxides-accumulate-in-ferroptotic-er",
               "supportMode": "explicit",
-              "claimFragment": "The probe reacts with peroxyl radicals and is not specific to phospholipid hydroperoxides: Kagan …",
+              "claimFragment": "The probe reacts with peroxyl radicals and is not specific to phospholipid hydroperoxides",
               "supportNote": "Kagan states verbatim that C11-BODIPY and LiperFluo both react with peroxyl radicals while LiperFluo, but not C11-BODIPY, interacts with (phospho)lipid hydroperoxides."
             },
             {
@@ -513,7 +513,7 @@
               "reviewEventId": "claude-r4-thermofisher-d3861",
               "scopeId": "faq",
               "supportMode": "explicit",
-              "claimFragment": "It is also photosensitive and, per the vendor, is handled in DMSO and stored desiccated at -20 C … (clause 2)",
+              "claimFragment": "It is also photosensitive and, per the vendor, is handled in DMSO and stored desiccated at -20 C in the dark",
               "supportNote": "The vendor page states the probe is photosensitive, handled in DMSO and stored desiccated at -20 C in the dark."
             }
           ]
@@ -738,7 +738,7 @@
               "reviewEventId": "claude-r4-zou2020",
               "scopeId": "methods-malondialdehyde-mda-assay",
               "supportMode": "derived",
-              "claimFragment": "In the demonstrating study (Zou 2020): the ferroptosis cell system read out in Fig",
+              "claimFragment": "the ferroptosis cell system read out in Fig. 5 (786-O clear-cell renal carcinoma)",
               "supportNote": "The MDA Methods give the assay protocol; the cell system and control/POR-depleted comparison are read from the Fig. 5 experiment the assay reports on."
             },
             {
@@ -746,7 +746,7 @@
               "reviewEventId": "claude-r4-zou2020",
               "scopeId": "fig-5",
               "supportMode": "derived",
-              "claimFragment": "5 (786-O clear-cell renal carcinoma), comparing control against POR-depleted cells (clause 2)",
+              "claimFragment": "comparing control against POR-depleted cells",
               "supportNote": "Fig. 5 is where the MDA readout is placed, against the POR-depletion arm."
             }
           ]
@@ -760,7 +760,7 @@
               "reviewEventId": "claude-r4-zou2020",
               "scopeId": "results-por-mediates-ferroptosis-by-promoting-lipid-peroxidation",
               "supportMode": "explicit",
-              "claimFragment": "Whether a bulk downstream lipid-peroxidation product (malondialdehyde) rises under ferroptotic st…",
+              "claimFragment": "a bulk downstream lipid-peroxidation product (malondialdehyde) rises under ferroptotic stress and falls when the pathway is blocked",
               "supportNote": "The POR-peroxidation results describe MDA rising with ferroptotic stress and falling on rescue."
             }
           ]
@@ -788,7 +788,7 @@
               "reviewEventId": "claude-r4-zou2020",
               "scopeId": "methods-malondialdehyde-mda-assay",
               "supportMode": "explicit",
-              "claimFragment": "measured fluorometrically with a commercial kit (Abcam ab118970) after thiobarbituric-acid addition",
+              "claimFragment": "measured fluorometrically with a commercial kit (Abcam ab118970)",
               "supportNote": "The Methods name the Abcam ab118970 kit, the TBA addition and the fluorometric readout verbatim."
             },
             {
@@ -796,7 +796,7 @@
               "reviewEventId": "claude-r4-zou2020",
               "scopeId": "methods-malondialdehyde-mda-assay",
               "supportMode": "derived",
-              "claimFragment": "the measured species is the malondialdehyde–thiobarbituric-acid (MDA–TBA) adduct",
+              "claimFragment": "The malondialdehyde-thiobarbituric-acid adduct",
               "supportNote": "The kit reports a fluorescent TBARS signal; identifying that signal specifically as the MDA–TBA adduct is the standard reading of the assay, not a species identification the Methods make, so it is derived rather than explicit."
             }
           ]
@@ -843,7 +843,7 @@
               "reviewEventId": "claude-r4-zou2020",
               "scopeId": "methods-malondialdehyde-mda-assay",
               "supportMode": "explicit",
-              "claimFragment": "the DMSO, ML210 and ML210-plus-liproxstatin-1 conditions are run",
+              "claimFragment": "Liproxstatin-1 co-treated with ML210 as a ferroptosis-specific rescue comparator",
               "supportNote": "The Methods record the DMSO baseline, ML210 and ML210+Lip-1 rescue conditions verbatim."
             },
             {
@@ -865,7 +865,7 @@
               "reviewEventId": "claude-r4-zou2020",
               "scopeId": "methods-malondialdehyde-mda-assay",
               "supportMode": "explicit",
-              "claimFragment": "butylated hydroxytoluene is added to the lysis buffer and every sample is protein-normalised",
+              "claimFragment": "Butylated hydroxytoluene (BHT) added to the lysis buffer",
               "supportNote": "The Methods state that BHT is added to the lysis buffer and that signal is normalised to protein."
             },
             {
@@ -887,7 +887,7 @@
               "reviewEventId": "claude-r4-zou2020",
               "scopeId": "fig-5",
               "supportMode": "explicit",
-              "claimFragment": "MDA is placed alongside BODIPY-C11 and species-resolved redox-lipidomics",
+              "claimFragment": "MDA is read together with BODIPY-C11 and species-resolved redox-lipidomics",
               "supportNote": "Fig. 5 shows the MDA readout together with BODIPY-C11 and redox-lipidomics."
             },
             {
@@ -1026,7 +1026,7 @@
               "reviewEventId": "claude-r4-kagan2017",
               "scopeId": "methods-cell-lines-conditions-and-treatments",
               "supportMode": "explicit",
-              "claimFragment": "In the demonstrating study (Kagan 2017): Pfa1 mouse embryonic fibroblasts (wild-type, Acsl4-knock…",
+              "claimFragment": "Pfa1 mouse embryonic fibroblasts (wild-type, Acsl4-knockout and inducible Gpx4-knockout), mouse lung epithelial (MLE) cells",
               "supportNote": "The cell-lines Methods name the Pfa1, Acsl4-KO, Gpx4-KO and MLE systems."
             },
             {
@@ -1034,7 +1034,7 @@
               "reviewEventId": "claude-r4-kagan2017",
               "scopeId": "methods-gpx4-ko-mice",
               "supportMode": "explicit",
-              "claimFragment": "In the demonstrating study (Kagan 2017): Pfa1 mouse embryonic fibroblasts (wild-type, Acsl4-knock… (clause 2)",
+              "claimFragment": "kidney from tamoxifen-inducible Gpx4-knockout mice",
               "supportNote": "The Gpx4 KO mice Methods name the tamoxifen-inducible kidney model."
             }
           ]
@@ -1048,7 +1048,7 @@
               "reviewEventId": "claude-r4-kagan2017",
               "scopeId": "abstract",
               "supportMode": "explicit",
-              "claimFragment": "Which oxidised phospholipid molecular species accumulate specifically in ferroptotic cells and wh…",
+              "claimFragment": "Which oxidised phospholipid molecular species accumulate specifically in ferroptotic cells",
               "supportNote": "The abstract frames the question of which oxygenated PE species drive ferroptosis."
             },
             {
@@ -1056,7 +1056,7 @@
               "reviewEventId": "claude-r4-kagan2017",
               "scopeId": "results-redox-phospholipidomics-of-ferroptotic-signals",
               "supportMode": "explicit",
-              "claimFragment": "Which oxidised phospholipid molecular species accumulate specifically in ferroptotic cells and wh… (clause 2)",
+              "claimFragment": "whether they track death rather than reporting bulk oxidation",
               "supportNote": "The redox-phospholipidomics results pose the species-specific question."
             }
           ]
@@ -1070,7 +1070,7 @@
               "reviewEventId": "claude-r4-kagan2017",
               "scopeId": "methods-cell-lines-conditions-and-treatments",
               "supportMode": "explicit",
-              "claimFragment": "GPX4 inhibition by RSL3 (100 nM), genetic Gpx4 loss, ACSL4 loss, and arachidonic-acid or deuterat…",
+              "claimFragment": "GPX4 inhibition by RSL3 (100 nM), genetic Gpx4 loss, ACSL4 loss, and arachidonic-acid or deuterated d8-arachidonic-acid supplementation",
               "supportNote": "The Methods state RSL3 100 nM, Gpx4/ACSL4 loss, AA/d8-AA supplementation and rosiglitazone."
             },
             {
@@ -1078,8 +1078,8 @@
               "reviewEventId": "claude-r4-kagan2017",
               "scopeId": "results-pe-ferroptotic-precursors-are-decreased-in-acs4-ko-cells",
               "supportMode": "explicit",
-              "claimFragment": "rosiglitazone to suppress AA/AdA esterification into PE (clause 2)",
-              "supportNote": "The Acsl4-KO results describe the loss-of-substrate perturbation."
+              "claimFragment": "rosiglitazone to suppress AA/AdA esterification into PE",
+              "supportNote": "The Methods describe rosiglitazone suppressing AA/AdA esterification into PE."
             }
           ]
         },
@@ -1092,15 +1092,15 @@
               "reviewEventId": "claude-r4-kagan2017",
               "scopeId": "methods-identification-of-pe-oxygenated-products-in-cell-lysates",
               "supportMode": "explicit",
-              "claimFragment": "Oxygenated phospholipid molecular species resolved by LC-MS/MS, with esterified oxidised fatty ac…",
-              "supportNote": "The identification Methods assign species by MS2/MS3 fragmentation."
+              "claimFragment": "Oxygenated phospholipid molecular species resolved by LC-MS/MS",
+              "supportNote": "The identification Methods resolve oxygenated phospholipid species by LC-MS/MS."
             },
             {
               "sourceRecordId": "kagan2017-pmc5506843",
               "reviewEventId": "claude-r4-kagan2017",
               "scopeId": "methods-lc-ms-analysis-of-free-and-esterified-fatty-acids",
               "supportMode": "explicit",
-              "claimFragment": "g (clause 2)",
+              "claimFragment": "esterified oxidised fatty acids released by PAF-acetylhydrolase",
               "supportNote": "The free/esterified LC-MS Methods use PAF-AH to release esterified oxidised acyls."
             },
             {
@@ -1108,15 +1108,15 @@
               "reviewEventId": "claude-r4-kagan2017",
               "scopeId": "fig-5",
               "supportMode": "explicit",
-              "claimFragment": "15-hydroperoxy-AA-PE and its di- and tri-oxygenated forms) (clause 3)",
-              "supportNote": "Fig. 5 shows the assigned oxygenated-PE species."
+              "claimFragment": "species assigned by MS2/MS3 fragmentation",
+              "supportNote": "Fig. 5 shows the species assigned by MS2/MS3 fragmentation."
             },
             {
               "sourceRecordId": "kagan2017-pmc5506843",
               "reviewEventId": "claude-r4-kagan2017",
               "scopeId": "fig-6",
               "supportMode": "explicit",
-              "claimFragment": "15-hydroperoxy-AA-PE and its di- and tri-oxygenated forms) (clause 4)",
+              "claimFragment": "15-hydroperoxy-AA-PE and its di- and tri-oxygenated forms",
               "supportNote": "Fig. 6 shows the di-/tri-oxygenated forms."
             }
           ]
@@ -1130,7 +1130,7 @@
               "reviewEventId": "claude-r4-kagan2017",
               "scopeId": "results-aa-enhances-ferroptotic-response-in-rsl3-treated-cells",
               "supportMode": "explicit",
-              "claimFragment": "Esterified oxygenated acyls in pmol per micromole of phospholipid (e",
+              "claimFragment": "Esterified oxygenated acyls in pmol per micromole of phospholipid",
               "supportNote": "The results give the pmol/micromole figures for wild-type against Acsl4-KO."
             },
             {
@@ -1138,7 +1138,7 @@
               "reviewEventId": "claude-r4-kagan2017",
               "scopeId": "methods-statistical-analysis",
               "supportMode": "explicit",
-              "claimFragment": "g (clause 2)",
+              "claimFragment": "phospholipids quantified ratiometrically against a pre-selected internal standard using a per-class standard curve",
               "supportNote": "The Statistical Analysis Methods state ratiometric comparison to a pre-selected internal standard using a standard curve for each phospholipid class."
             }
           ]
@@ -1152,7 +1152,7 @@
               "reviewEventId": "claude-r4-kagan2017",
               "scopeId": "methods-ms-and-ms-ms-analysis-of-phospholipids",
               "supportMode": "explicit",
-              "claimFragment": "Thermo Fisher Orbitrap-class mass spectrometry: Q-Exactive hybrid quadrupole-Orbitrap for phospho…",
+              "claimFragment": "Q-Exactive hybrid quadrupole-Orbitrap for phospholipid and fatty-acid MS/MS, an Orbitrap Fusion Lumos for data-dependent MS2/targeted-MS3 structural work, and an LXQ ion trap for purity confirmation",
               "supportNote": "The MS Methods name the Q-Exactive, Orbitrap Fusion Lumos and LXQ instruments."
             },
             {
@@ -1160,7 +1160,7 @@
               "reviewEventId": "claude-r4-kagan2017",
               "scopeId": "methods-normal-phase-column-separation-of-phospholipids",
               "supportMode": "explicit",
-              "claimFragment": "normal-phase silica and reverse-phase C18/C8 HPLC upstream (clause 2)",
+              "claimFragment": "normal-phase silica and reverse-phase C18/C8 HPLC upstream",
               "supportNote": "The Methods describe the normal-phase and reverse-phase HPLC separation."
             }
           ]
@@ -1174,7 +1174,7 @@
               "reviewEventId": "claude-r4-kagan2017",
               "scopeId": "methods-preparation-of-hydroperoxy-pe",
               "supportMode": "explicit",
-              "claimFragment": "authentic SAPE-OOH is prepared by 15-lipoxygenase oxidation and HPLC-purified to 99%",
+              "claimFragment": "prepared by 15-lipoxygenase oxidation and HPLC-purified to 99%",
               "supportNote": "The Methods prepare and HPLC-purify authentic SAPE-OOH to 99%."
             },
             {
@@ -1196,7 +1196,7 @@
               "reviewEventId": "claude-r4-kagan2017",
               "scopeId": "results-pe-ferroptotic-precursors-are-decreased-in-acs4-ko-cells",
               "supportMode": "explicit",
-              "claimFragment": "the oxygenated-PE signal is strongly reduced in Acsl4-knockout cells (199.3 vs 72.2 pmol/µmol)",
+              "claimFragment": "the oxygenated-PE signal is strongly reduced",
               "supportNote": "The Acsl4-KO results show the oxygenated-PE signal strongly reduced when the substrate-generating enzyme is lost."
             },
             {
@@ -1218,7 +1218,7 @@
               "reviewEventId": "claude-r4-kagan2017",
               "scopeId": "methods-statistical-analysis",
               "supportMode": "explicit",
-              "claimFragment": "phospholipids are quantified ratiometrically against a pre-selected internal standard using a per-class standard curve",
+              "claimFragment": "Phospholipids quantified ratiometrically against a pre-selected internal standard using a per-class standard curve",
               "supportNote": "The Statistical Analysis Methods state ratiometric comparison to a pre-selected internal standard with a per-class standard curve."
             },
             {
@@ -1240,7 +1240,7 @@
               "reviewEventId": "claude-r4-kagan2017",
               "scopeId": "results-lc-ms-ms-identification-of-ferroptotic-signals",
               "supportMode": "explicit",
-              "claimFragment": "structural assignment uses MS2/MS3 fragmentation and stable-isotope d8-arachidonic-acid tracing",
+              "claimFragment": "MS2/MS3 fragmentation for structural assignment",
               "supportNote": "The identification results use MS2/MS3 and d8-AA tracing verbatim."
             },
             {
@@ -1256,8 +1256,8 @@
               "reviewEventId": "claude-r4-kagan2017",
               "scopeId": "fig-5",
               "supportMode": "explicit",
-              "claimFragment": "the convergent readouts are shown together in Fig. 5",
-              "supportNote": "Fig. 5 shows the convergent readouts side by side."
+              "claimFragment": "stable-isotope d8-arachidonic-acid tracing to establish the precursor route",
+              "supportNote": "The identification results use d8-AA tracing to establish the precursor route."
             }
           ]
         },
@@ -1270,7 +1270,7 @@
               "reviewEventId": "claude-r4-kagan2017",
               "scopeId": "methods-cell-lines-conditions-and-treatments",
               "supportMode": "explicit",
-              "claimFragment": "Acute: RSL3 at 100 nM for 6 hours in cells (MLE at 0",
+              "claimFragment": "RSL3 at 100 nM for 6 hours in cells (MLE at 0.5-1.0 micromolar)",
               "supportNote": "The Methods state RSL3 100 nM for 6 h (MLE 0.5-1.0 uM)."
             },
             {
@@ -1278,7 +1278,7 @@
               "reviewEventId": "claude-r4-kagan2017",
               "scopeId": "results-oxygenated-pe-in-gpx4-ko-cells-and-kidney",
               "supportMode": "explicit",
-              "claimFragment": "5-1 (clause 2)",
+              "claimFragment": "kidney sampled 8 days after inducible Gpx4 knockout",
               "supportNote": "The kidney results state sampling 8 days after inducible Gpx4 knockout."
             }
           ]
@@ -1300,15 +1300,15 @@
               "reviewEventId": "claude-r4-kagan2017",
               "scopeId": "methods-live-cell-imaging",
               "supportMode": "explicit",
-              "claimFragment": "the endoplasmic-reticulum localisation came from a separate LiperFluo live-imaging experiment",
+              "claimFragment": "came from a separate LiperFluo live-imaging experiment",
               "supportNote": "The Live Cell Imaging Methods establish the ER localisation through LiperFluo imaging, which is a different experiment from the LC-MS."
             },
             {
               "sourceRecordId": "kagan2017-pmc5506843",
               "reviewEventId": "claude-r4-kagan2017",
               "scopeId": "results-lipid-hydroperoxides-accumulate-in-ferroptotic-er",
-              "supportMode": "explicit",
-              "claimFragment": "the ER-accumulation result is the imaging experiment, distinct from the whole-extract LC-MS",
+              "supportMode": "derived",
+              "claimFragment": "not from the LC-MS",
               "supportNote": "The LiperFluo ER-accumulation result establishes only where the paper obtained its ER localisation; it does not give the LC-MS spatial resolution."
             }
           ]

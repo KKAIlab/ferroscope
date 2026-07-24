@@ -173,14 +173,27 @@ for (const [index, paper] of papers.entries()) {
     for (const problem of checkReviewRecord({ ...source, sourceUrl: source.url }, sourceWhere)) fail(false, problem);
     fail(verificationDepths.has(source.verificationDepth), `${sourceWhere}: unknown verificationDepth ${source.verificationDepth}`);
 
-    // P0-D: a paper source references the canonical registry. The registry is the authority
-    // for the URL, the pinned version and the reviewer; the denormalised copy here must agree
-    // byte-for-byte, so a forged version in the paper layer is caught rather than trusted.
+    // P0-D: a paper source references the canonical registry. The registry is the authority for
+    // the URL, the pinned version, the reviewer and the review state. The denormalised copy here
+    // is documentation only: it may not disagree with the registry on any of those fields. This
+    // is a string comparison of the URL and the pinned version label — not a byte comparison of
+    // the document, which nothing in this repository performs. Byte identity is only asserted
+    // where the registry source carries a sha256, and even then only that the two readings named
+    // the same pinned bytes, not that the bytes were re-fetched and diffed.
     fail(Boolean(source.sourceId), `${sourceWhere}: a verification source must reference a canonical sourceId`);
     const registrySource = source.sourceId ? resolver.source(source.sourceId) : null;
     fail(!source.sourceId || Boolean(registrySource), `${sourceWhere}: sourceId ${JSON.stringify(source.sourceId)} does not resolve in the source registry`);
     if (registrySource) {
+      // The cited source must be about this paper, or one paper could borrow another's reading.
+      fail(registrySource.identifiers?.doi === paper.doi, `${sourceWhere}: registry source ${registrySource.id} is about ${JSON.stringify(registrySource.identifiers?.doi || null)}, not this paper's DOI ${JSON.stringify(paper.doi)}; a paper may not cite another paper's source as its own`);
       fail(registrySource.url === source.url, `${sourceWhere}: the denormalised url disagrees with registry source ${registrySource.id}`);
+      // The pinned version is the closest thing to a byte identity the record has. If the paper
+      // layer names a version at all, it must be the one the registry pins, so a forged version
+      // string in the paper copy is caught rather than silently trusted.
+      fail(
+        !source.sourceVersion || source.sourceVersion === registrySource.version?.label,
+        `${sourceWhere}: the denormalised sourceVersion ${JSON.stringify(source.sourceVersion)} disagrees with the registry's pinned version ${JSON.stringify(registrySource.version?.label)}`,
+      );
     }
     if (isCheckedState(source.reviewState)) {
       fail(Boolean(source.reviewEventId), `${sourceWhere}: a checked verification source must reference a reviewEventId`);
@@ -189,6 +202,9 @@ for (const [index, paper] of papers.entries()) {
       if (event) {
         fail(event.sourceId === source.sourceId, `${sourceWhere}: review event ${event.id} covers source ${event.sourceId}, not ${source.sourceId}`);
         fail(isCheckedState(event.reviewState), `${sourceWhere}: review event ${event.id} is ${event.reviewState}, not a checked reading`);
+        // The registry event is the authority on the state. A private copy that outranks it is
+        // the forgery this layer exists to prevent, so they must match exactly.
+        fail(source.reviewState === event.reviewState, `${sourceWhere}: the denormalised reviewState ${JSON.stringify(source.reviewState)} disagrees with registry event ${event.id} (${event.reviewState}); the registry is the authority`);
       }
     } else {
       fail(!source.reviewEventId, `${sourceWhere}: an unchecked verification source must not reference a review event`);

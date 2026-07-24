@@ -31,7 +31,9 @@
       "id": "correction-s41586-021-03820-9",
       "documentClass": "publisher-correction-notice",
       "url": "https://www.nature.com/articles/s41586-021-03820-9",
-      "identifiers": {},
+      "identifiers": {
+        "doi": "10.1038/s41586-021-03539-7"
+      },
       "version": {
         "label": "Nature volume 596, page E13 (2021); Author Correction published 02 August 2021; publisher HTML retrieved in full 2026-07-24",
         "retrievedAt": "2026-07-24",
@@ -73,7 +75,9 @@
       "id": "correction-s41586-025-09562-2",
       "documentClass": "publisher-correction-notice",
       "url": "https://www.nature.com/articles/s41586-025-09562-2",
-      "identifiers": {},
+      "identifiers": {
+        "doi": "10.1038/s41586-025-09389-x"
+      },
       "version": {
         "label": "Nature volume 645, page E9 (2025); Publisher Correction published 26 August 2025; publisher HTML retrieved in full 2026-07-24",
         "retrievedAt": "2026-07-24",
@@ -115,7 +119,9 @@
       "id": "correction-s41586-026-10148-9",
       "documentClass": "publisher-correction-notice",
       "url": "https://www.nature.com/articles/s41586-026-10148-9",
-      "identifiers": {},
+      "identifiers": {
+        "doi": "10.1038/s41586-025-09389-x"
+      },
       "version": {
         "label": "Nature volume 650, page E5 (2026); Publisher Correction published 21 January 2026; publisher HTML retrieved in full 2026-07-24",
         "retrievedAt": "2026-07-24",
@@ -157,7 +163,9 @@
       "id": "correction-s41589-021-00767-w",
       "documentClass": "publisher-correction-notice",
       "url": "https://www.nature.com/articles/s41589-021-00767-w",
-      "identifiers": {},
+      "identifiers": {
+        "doi": "10.1038/s41589-020-0472-6"
+      },
       "version": {
         "label": "Nature Chemical Biology volume 17, page 501 (2021); Author Correction published 02 March 2021; publisher HTML retrieved in full 2026-07-24",
         "retrievedAt": "2026-07-24",
@@ -199,7 +207,9 @@
       "id": "crossref-10-1016-j-cell-2025-11-014",
       "documentClass": "crossref-metadata-record",
       "url": "https://api.crossref.org/works/10.1016/j.cell.2025.11.014",
-      "identifiers": {},
+      "identifiers": {
+        "doi": "10.1016/j.cell.2025.11.014"
+      },
       "version": {
         "label": "crossref response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
         "retrievedAt": "2026-07-23",
@@ -255,7 +265,9 @@
       "id": "crossref-10-1016-j-cell-2026-04-024",
       "documentClass": "crossref-metadata-record",
       "url": "https://api.crossref.org/works/10.1016/j.cell.2026.04.024",
-      "identifiers": {},
+      "identifiers": {
+        "doi": "10.1016/j.cell.2026.04.024"
+      },
       "version": {
         "label": "crossref response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
         "retrievedAt": "2026-07-23",
@@ -311,7 +323,9 @@
       "id": "crossref-10-1038-nchembio-2238",
       "documentClass": "crossref-metadata-record",
       "url": "https://api.crossref.org/works/10.1038/nchembio.2238",
-      "identifiers": {},
+      "identifiers": {
+        "doi": "10.1038/nchembio.2238"
+      },
       "version": {
         "label": "crossref response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
         "retrievedAt": "2026-07-23",
@@ -374,7 +388,9 @@
       "id": "crossref-10-1038-s41467-025-58175-w",
       "documentClass": "crossref-metadata-record",
       "url": "https://api.crossref.org/works/10.1038/s41467-025-58175-w",
-      "identifiers": {},
+      "identifiers": {
+        "doi": "10.1038/s41467-025-58175-w"
+      },
       "version": {
         "label": "crossref response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
         "retrievedAt": "2026-07-23",
@@ -430,7 +446,9 @@
       "id": "crossref-10-1038-s41586-019-1707-0",
       "documentClass": "crossref-metadata-record",
       "url": "https://api.crossref.org/works/10.1038/s41586-019-1707-0",
-      "identifiers": {},
+      "identifiers": {
+        "doi": "10.1038/s41586-019-1707-0"
+      },
       "version": {
         "label": "crossref response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
         "retrievedAt": "2026-07-23",
@@ -486,7 +504,9 @@
       "id": "crossref-10-1038-s41586-020-2732-8",
       "documentClass": "crossref-metadata-record",
       "url": "https://api.crossref.org/works/10.1038/s41586-020-2732-8",
-      "identifiers": {},
+      "identifiers": {
+        "doi": "10.1038/s41586-020-2732-8"
+      },
       "version": {
         "label": "crossref response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
         "retrievedAt": "2026-07-23",
@@ -542,7 +562,9 @@
       "id": "crossref-10-1038-s41586-021-03539-7",
       "documentClass": "crossref-metadata-record",
       "url": "https://api.crossref.org/works/10.1038/s41586-021-03539-7",
-      "identifiers": {},
+      "identifiers": {
+        "doi": "10.1038/s41586-021-03539-7"
+      },
       "version": {
         "label": "crossref response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
         "retrievedAt": "2026-07-23",
@@ -598,7 +620,9 @@
       "id": "crossref-10-1038-s41586-022-05022-3",
       "documentClass": "crossref-metadata-record",
       "url": "https://api.crossref.org/works/10.1038/s41586-022-05022-3",
-      "identifiers": {},
+      "identifiers": {
+        "doi": "10.1038/s41586-022-05022-3"
+      },
       "version": {
         "label": "crossref response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
         "retrievedAt": "2026-07-23",
@@ -654,7 +678,9 @@
       "id": "crossref-10-1038-s41586-025-08974-4",
       "documentClass": "crossref-metadata-record",
       "url": "https://api.crossref.org/works/10.1038/s41586-025-08974-4",
-      "identifiers": {},
+      "identifiers": {
+        "doi": "10.1038/s41586-025-08974-4"
+      },
       "version": {
         "label": "crossref response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
         "retrievedAt": "2026-07-23",
@@ -710,7 +736,9 @@
       "id": "crossref-10-1038-s41586-025-09389-x",
       "documentClass": "crossref-metadata-record",
       "url": "https://api.crossref.org/works/10.1038/s41586-025-09389-x",
-      "identifiers": {},
+      "identifiers": {
+        "doi": "10.1038/s41586-025-09389-x"
+      },
       "version": {
         "label": "crossref response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
         "retrievedAt": "2026-07-23",
@@ -766,7 +794,9 @@
       "id": "crossref-10-1038-s41589-020-0472-6",
       "documentClass": "crossref-metadata-record",
       "url": "https://api.crossref.org/works/10.1038/s41589-020-0472-6",
-      "identifiers": {},
+      "identifiers": {
+        "doi": "10.1038/s41589-020-0472-6"
+      },
       "version": {
         "label": "crossref response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
         "retrievedAt": "2026-07-23",
@@ -822,7 +852,9 @@
       "id": "doi-10-1016-j-cell-2025-11-014",
       "documentClass": "version-of-record",
       "url": "https://doi.org/10.1016/j.cell.2025.11.014",
-      "identifiers": {},
+      "identifiers": {
+        "doi": "10.1016/j.cell.2025.11.014"
+      },
       "version": {
         "label": "https://doi.org/10.1016/j.cell.2025.11.014 (declared source)",
         "retrievedAt": "2026-07-24",
@@ -848,7 +880,9 @@
       "id": "doi-10-1016-j-cell-2026-04-024",
       "documentClass": "version-of-record",
       "url": "https://doi.org/10.1016/j.cell.2026.04.024",
-      "identifiers": {},
+      "identifiers": {
+        "doi": "10.1016/j.cell.2026.04.024"
+      },
       "version": {
         "label": "https://doi.org/10.1016/j.cell.2026.04.024 (declared source)",
         "retrievedAt": "2026-07-24",
@@ -874,7 +908,9 @@
       "id": "doi-10-1038-nchembio-2238",
       "documentClass": "version-of-record",
       "url": "https://doi.org/10.1038/nchembio.2238",
-      "identifiers": {},
+      "identifiers": {
+        "doi": "10.1038/nchembio.2238"
+      },
       "version": {
         "label": "https://doi.org/10.1038/nchembio.2238 (declared source)",
         "retrievedAt": "2026-07-24",
@@ -888,7 +924,8 @@
       "documentClass": "version-of-record",
       "url": "https://doi.org/10.1038/s41467-025-58175-w",
       "identifiers": {
-        "corpusPaperId": "doi:10.1038/s41467-025-58175-w"
+        "corpusPaperId": "doi:10.1038/s41467-025-58175-w",
+        "doi": "10.1038/s41467-025-58175-w"
       },
       "version": {
         "label": "https://doi.org/10.1038/s41467-025-58175-w (declared source)",
@@ -902,7 +939,9 @@
       "id": "doi-10-1038-s41586-019-1707-0",
       "documentClass": "version-of-record",
       "url": "https://doi.org/10.1038/s41586-019-1707-0",
-      "identifiers": {},
+      "identifiers": {
+        "doi": "10.1038/s41586-019-1707-0"
+      },
       "version": {
         "label": "https://doi.org/10.1038/s41586-019-1707-0 (declared source)",
         "retrievedAt": "2026-07-24",
@@ -915,7 +954,9 @@
       "id": "doi-10-1038-s41586-020-2732-8",
       "documentClass": "version-of-record",
       "url": "https://doi.org/10.1038/s41586-020-2732-8",
-      "identifiers": {},
+      "identifiers": {
+        "doi": "10.1038/s41586-020-2732-8"
+      },
       "version": {
         "label": "https://doi.org/10.1038/s41586-020-2732-8 (declared source)",
         "retrievedAt": "2026-07-24",
@@ -928,7 +969,9 @@
       "id": "doi-10-1038-s41586-021-03539-7",
       "documentClass": "version-of-record",
       "url": "https://doi.org/10.1038/s41586-021-03539-7",
-      "identifiers": {},
+      "identifiers": {
+        "doi": "10.1038/s41586-021-03539-7"
+      },
       "version": {
         "label": "https://doi.org/10.1038/s41586-021-03539-7 (declared source)",
         "retrievedAt": "2026-07-24",
@@ -941,7 +984,9 @@
       "id": "doi-10-1038-s41586-022-05022-3",
       "documentClass": "version-of-record",
       "url": "https://doi.org/10.1038/s41586-022-05022-3",
-      "identifiers": {},
+      "identifiers": {
+        "doi": "10.1038/s41586-022-05022-3"
+      },
       "version": {
         "label": "https://doi.org/10.1038/s41586-022-05022-3 (declared source)",
         "retrievedAt": "2026-07-24",
@@ -954,7 +999,9 @@
       "id": "doi-10-1038-s41586-025-08974-4",
       "documentClass": "version-of-record",
       "url": "https://doi.org/10.1038/s41586-025-08974-4",
-      "identifiers": {},
+      "identifiers": {
+        "doi": "10.1038/s41586-025-08974-4"
+      },
       "version": {
         "label": "https://doi.org/10.1038/s41586-025-08974-4 (declared source)",
         "retrievedAt": "2026-07-24",
@@ -967,7 +1014,9 @@
       "id": "doi-10-1038-s41586-025-09389-x",
       "documentClass": "version-of-record",
       "url": "https://doi.org/10.1038/s41586-025-09389-x",
-      "identifiers": {},
+      "identifiers": {
+        "doi": "10.1038/s41586-025-09389-x"
+      },
       "version": {
         "label": "https://doi.org/10.1038/s41586-025-09389-x (declared source)",
         "retrievedAt": "2026-07-24",
@@ -980,7 +1029,9 @@
       "id": "doi-10-1038-s41589-020-0472-6",
       "documentClass": "version-of-record",
       "url": "https://doi.org/10.1038/s41589-020-0472-6",
-      "identifiers": {},
+      "identifiers": {
+        "doi": "10.1038/s41589-020-0472-6"
+      },
       "version": {
         "label": "https://doi.org/10.1038/s41589-020-0472-6 (declared source)",
         "retrievedAt": "2026-07-24",
@@ -1007,7 +1058,8 @@
       "documentClass": "accepted-author-manuscript",
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5506843/",
       "identifiers": {
-        "corpusPaperId": "doi:10.1038/nchembio.2238"
+        "corpusPaperId": "doi:10.1038/nchembio.2238",
+        "doi": "10.1038/nchembio.2238"
       },
       "version": {
         "label": "PMC5506843.1 / NIHMS873824 author manuscript, retrieved 2026-07-24 via NCBI E-utilities efetch",
@@ -1261,7 +1313,8 @@
       "documentClass": "accepted-author-manuscript",
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7353921/",
       "identifiers": {
-        "corpusPaperId": "doi:10.1038/s41589-020-0472-6"
+        "corpusPaperId": "doi:10.1038/s41589-020-0472-6",
+        "doi": "10.1038/s41589-020-0472-6"
       },
       "version": {
         "label": "PMC7353921.1 / NIHMS1603967 author manuscript, retrieved 2026-07-24 via NCBI E-utilities efetch",
@@ -1486,7 +1539,9 @@
       "id": "pubmed-27842066",
       "documentClass": "pubmed-record",
       "url": "https://pubmed.ncbi.nlm.nih.gov/27842066/",
-      "identifiers": {},
+      "identifiers": {
+        "doi": "10.1038/nchembio.2238"
+      },
       "version": {
         "label": "pubmed response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
         "retrievedAt": "2026-07-23",
@@ -1514,7 +1569,9 @@
       "id": "pubmed-31634899",
       "documentClass": "pubmed-record",
       "url": "https://pubmed.ncbi.nlm.nih.gov/31634899/",
-      "identifiers": {},
+      "identifiers": {
+        "doi": "10.1038/s41586-019-1707-0"
+      },
       "version": {
         "label": "pubmed response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
         "retrievedAt": "2026-07-23",
@@ -1542,7 +1599,9 @@
       "id": "pubmed-32080622",
       "documentClass": "pubmed-record",
       "url": "https://pubmed.ncbi.nlm.nih.gov/32080622/",
-      "identifiers": {},
+      "identifiers": {
+        "doi": "10.1038/s41589-020-0472-6"
+      },
       "version": {
         "label": "pubmed response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
         "retrievedAt": "2026-07-23",
@@ -1583,7 +1642,9 @@
       "id": "pubmed-32939090",
       "documentClass": "pubmed-record",
       "url": "https://pubmed.ncbi.nlm.nih.gov/32939090/",
-      "identifiers": {},
+      "identifiers": {
+        "doi": "10.1038/s41586-020-2732-8"
+      },
       "version": {
         "label": "pubmed response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
         "retrievedAt": "2026-07-23",
@@ -1611,7 +1672,9 @@
       "id": "pubmed-33981038",
       "documentClass": "pubmed-record",
       "url": "https://pubmed.ncbi.nlm.nih.gov/33981038/",
-      "identifiers": {},
+      "identifiers": {
+        "doi": "10.1038/s41586-021-03539-7"
+      },
       "version": {
         "label": "pubmed response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
         "retrievedAt": "2026-07-23",
@@ -1639,7 +1702,9 @@
       "id": "pubmed-35922516",
       "documentClass": "pubmed-record",
       "url": "https://pubmed.ncbi.nlm.nih.gov/35922516/",
-      "identifiers": {},
+      "identifiers": {
+        "doi": "10.1038/s41586-022-05022-3"
+      },
       "version": {
         "label": "pubmed response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
         "retrievedAt": "2026-07-23",
@@ -1680,7 +1745,9 @@
       "id": "pubmed-40140422",
       "documentClass": "pubmed-record",
       "url": "https://pubmed.ncbi.nlm.nih.gov/40140422/",
-      "identifiers": {},
+      "identifiers": {
+        "doi": "10.1038/s41467-025-58175-w"
+      },
       "version": {
         "label": "pubmed response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
         "retrievedAt": "2026-07-23",
@@ -1708,7 +1775,9 @@
       "id": "pubmed-40335696",
       "documentClass": "pubmed-record",
       "url": "https://pubmed.ncbi.nlm.nih.gov/40335696/",
-      "identifiers": {},
+      "identifiers": {
+        "doi": "10.1038/s41586-025-08974-4"
+      },
       "version": {
         "label": "pubmed response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
         "retrievedAt": "2026-07-23",
@@ -1736,7 +1805,9 @@
       "id": "pubmed-40804518",
       "documentClass": "pubmed-record",
       "url": "https://pubmed.ncbi.nlm.nih.gov/40804518/",
-      "identifiers": {},
+      "identifiers": {
+        "doi": "10.1038/s41586-025-09389-x"
+      },
       "version": {
         "label": "pubmed response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
         "retrievedAt": "2026-07-23",
@@ -1764,7 +1835,9 @@
       "id": "pubmed-41349546",
       "documentClass": "pubmed-record",
       "url": "https://pubmed.ncbi.nlm.nih.gov/41349546/",
-      "identifiers": {},
+      "identifiers": {
+        "doi": "10.1016/j.cell.2025.11.014"
+      },
       "version": {
         "label": "pubmed response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
         "retrievedAt": "2026-07-23",
@@ -1806,7 +1879,9 @@
       "id": "pubmed-42105762",
       "documentClass": "pubmed-record",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42105762/",
-      "identifiers": {},
+      "identifiers": {
+        "doi": "10.1016/j.cell.2026.04.024"
+      },
       "version": {
         "label": "pubmed response as retrieved on 2026-07-23; no content hash was captured at the time of that query",
         "retrievedAt": "2026-07-23",
