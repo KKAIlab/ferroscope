@@ -1,0 +1,159 @@
+{
+  "schemaVersion": "1.0.0",
+  "updatedAt": "2026-07-24",
+  "owner": "ferroscope-maintainer",
+  "purpose": "FerroScope's own mapping from concept-level mechanism nodes to representative ferroptosis genes, each carrying a deep link to its FerrDb V3 single-gene (pan-RCD) page. This layer exists because the mechanism graph is concept-level while FerrDb is gene-level; it lets a reader jump from a named gene in the interface straight to that gene's FerrDb record.",
+  "boundary": "This mapping is FerroScope editorial curation, not FerrDb data. Gene symbols are HGNC facts and the deep-link URLs are constructed by FerroScope. This file deliberately does NOT reproduce any FerrDb curated content: no driver/suppressor/marker labels, no confidence levels and no literature counts are copied here. A gene listed under a node means only that FerroScope considers it a representative member of that mechanism concept; it does not assert how FerrDb classifies that gene. Follow the link to read FerrDb's own, dated, publication-centric record.",
+  "ferrdb": {
+    "name": "FerrDb V3",
+    "version": "V3",
+    "siteUrl": "https://www.zhounan.org/ferrdb/v3/",
+    "geneUrlTemplate": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol={SYMBOL}",
+    "geneUrlNote": "genedetail.html reads genesymbol (required) plus optional rcd and cat query params; genesymbol alone opens the pan-RCD view with Basics / Regulation model / Pan-RCD regulation network / Carrying ecDNAs / CRISPRi sequence sections.",
+    "paper": "Zhou N, et al. FerrDb V3. Nucleic Acids Res. 2026;54:D572-D582. doi:10.1093/nar/gkaf1119",
+    "checkedAt": "2026-07-24"
+  },
+  "graphSyncNote": "All 14 node ids here exist in the committed knowledge-network.json (the force-directed graph rework and round-10 additions are merged), so every node is marked presentInCommittedGraph:true. Consumers still look up by node id and no-op for any id absent from the live graph, so this file stays robust if the node set changes.",
+  "nodes": {
+    "iron-homeostasis": {
+      "presentInCommittedGraph": true,
+      "primaryGene": "TFRC",
+      "genes": [
+        { "symbol": "TFRC", "role": "transferrin-receptor iron uptake", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=TFRC" },
+        { "symbol": "NCOA4", "role": "ferritinophagy, releases stored iron", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=NCOA4" },
+        { "symbol": "FTH1", "role": "ferritin heavy chain, iron storage", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=FTH1" },
+        { "symbol": "SLC40A1", "role": "ferroportin, iron export", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=SLC40A1" },
+        { "symbol": "HMOX1", "role": "heme oxygenase, liberates redox-active iron", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=HMOX1" }
+      ]
+    },
+    "pufa-remodelling": {
+      "presentInCommittedGraph": true,
+      "primaryGene": "ACSL4",
+      "genes": [
+        { "symbol": "ACSL4", "role": "activates PUFAs for phospholipid incorporation", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=ACSL4" },
+        { "symbol": "LPCAT3", "role": "esterifies PUFA-CoA into membrane phospholipids", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=LPCAT3" },
+        { "symbol": "FADS2", "role": "fatty-acid desaturase in PUFA biosynthesis", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=FADS2" },
+        { "symbol": "PLA2G6", "role": "phospholipase remodelling of oxidizable acyl chains", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=PLA2G6" }
+      ]
+    },
+    "lipid-peroxidation": {
+      "presentInCommittedGraph": true,
+      "primaryGene": "ALOX15",
+      "genes": [
+        { "symbol": "ALOX15", "role": "15-lipoxygenase, enzymatic phospholipid oxidation", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=ALOX15" },
+        { "symbol": "ALOX5", "role": "5-lipoxygenase, arachidonate oxidation", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=ALOX5" },
+        { "symbol": "POR", "role": "cytochrome P450 reductase, non-enzymatic oxidation support", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=POR" },
+        { "symbol": "ALOXE3", "role": "epidermis-type lipoxygenase", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=ALOXE3" }
+      ]
+    },
+    "gpx4-gsh": {
+      "presentInCommittedGraph": true,
+      "primaryGene": "GPX4",
+      "genes": [
+        { "symbol": "GPX4", "role": "glutathione peroxidase 4, reduces phospholipid hydroperoxides", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=GPX4" },
+        { "symbol": "SLC7A11", "role": "xCT cystine/glutamate antiporter, supplies cysteine for GSH", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=SLC7A11" },
+        { "symbol": "GCLC", "role": "rate-limiting glutathione synthesis subunit", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=GCLC" },
+        { "symbol": "GSS", "role": "glutathione synthetase", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=GSS" }
+      ]
+    },
+    "fsp1-coq": {
+      "presentInCommittedGraph": true,
+      "primaryGene": "AIFM2",
+      "genes": [
+        { "symbol": "AIFM2", "role": "FSP1, GPX4-independent CoQ/ubiquinol radical defence", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=AIFM2" },
+        { "symbol": "DHODH", "role": "dihydroorotate dehydrogenase, mitochondrial CoQ-linked defence", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=DHODH" },
+        { "symbol": "GCH1", "role": "GTP cyclohydrolase 1, BH4 antioxidant metabolite", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=GCH1" },
+        { "symbol": "NQO1", "role": "quinone oxidoreductase, membrane radical control", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=NQO1" }
+      ]
+    },
+    "organelle-spatial": {
+      "presentInCommittedGraph": true,
+      "primaryGene": "NCOA4",
+      "genes": [
+        { "symbol": "NCOA4", "role": "lysosomal ferritinophagy, compartment iron release", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=NCOA4" },
+        { "symbol": "VDAC2", "role": "outer mitochondrial membrane channel", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=VDAC2" },
+        { "symbol": "ATG5", "role": "autophagy machinery shaping organelle iron/lipid pools", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=ATG5" },
+        { "symbol": "PROM2", "role": "multivesicular-body ferritin export at the membrane", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=PROM2" }
+      ]
+    },
+    "death-execution": {
+      "presentInCommittedGraph": true,
+      "primaryGene": "NINJ1",
+      "genes": [
+        { "symbol": "NINJ1", "role": "plasma-membrane rupture executor", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=NINJ1" },
+        { "symbol": "CHMP5", "role": "ESCRT-III membrane repair opposing lytic death", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=CHMP5" },
+        { "symbol": "CHMP6", "role": "ESCRT-III membrane repair opposing lytic death", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=CHMP6" }
+      ]
+    },
+    "tumour-ecology": {
+      "presentInCommittedGraph": true,
+      "primaryGene": "TP53",
+      "genes": [
+        { "symbol": "TP53", "role": "context-dependent modulation of SLC7A11 and sensitivity", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=TP53" },
+        { "symbol": "NFE2L2", "role": "NRF2 antioxidant program shaping ferroptosis resistance", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=NFE2L2" },
+        { "symbol": "KEAP1", "role": "NRF2 repressor, loss confers resistance", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=KEAP1" },
+        { "symbol": "SLC7A11", "role": "cystine import that many tumour states depend on", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=SLC7A11" }
+      ]
+    },
+    "tissue-injury": {
+      "presentInCommittedGraph": true,
+      "primaryGene": "PTGS2",
+      "genes": [
+        { "symbol": "PTGS2", "role": "COX2, commonly induced marker in ferroptotic tissue", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=PTGS2" },
+        { "symbol": "HMOX1", "role": "stress-induced heme oxygenase in injured tissue", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=HMOX1" },
+        { "symbol": "ACSL4", "role": "sets the oxidizable-lipid substrate in vulnerable tissue", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=ACSL4" },
+        { "symbol": "HAVCR1", "role": "KIM-1, kidney-injury readout in ferroptosis models", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=HAVCR1" }
+      ]
+    },
+    "translation": {
+      "presentInCommittedGraph": true,
+      "primaryGene": "GPX4",
+      "genes": [
+        { "symbol": "GPX4", "role": "target of RSL3/ML162-class inducers", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=GPX4" },
+        { "symbol": "SLC7A11", "role": "target of erastin-class system-xc- inhibitors", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=SLC7A11" },
+        { "symbol": "AIFM2", "role": "FSP1, target of iFSP1-class inhibitors", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=AIFM2" },
+        { "symbol": "DHODH", "role": "target explored for mitochondrial defence modulation", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=DHODH" }
+      ]
+    },
+    "mufa-membrane-remodelling": {
+      "presentInCommittedGraph": true,
+      "primaryGene": "SCD",
+      "genes": [
+        { "symbol": "SCD", "role": "stearoyl-CoA desaturase, MUFA supply that displaces oxidizable PUFAs", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=SCD" },
+        { "symbol": "ACSL3", "role": "activates MUFAs, protective membrane remodelling", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=ACSL3" },
+        { "symbol": "MBOAT2", "role": "lysophospholipid acyltransferase favouring MUFA-PLs", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=MBOAT2" },
+        { "symbol": "MBOAT1", "role": "lysophospholipid acyltransferase shifting the PL acyl profile", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=MBOAT1" }
+      ]
+    },
+    "selenium-selenoprotein": {
+      "presentInCommittedGraph": true,
+      "primaryGene": "GPX4",
+      "genes": [
+        { "symbol": "GPX4", "role": "selenocysteine-dependent phospholipid-hydroperoxidase", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=GPX4" },
+        { "symbol": "SEPHS2", "role": "selenophosphate synthetase, selenoprotein biosynthesis", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=SEPHS2" },
+        { "symbol": "SELENOP", "role": "selenium transport supporting GPX4 synthesis", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=SELENOP" },
+        { "symbol": "TXNRD1", "role": "thioredoxin reductase selenoprotein, redox support", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=TXNRD1" }
+      ]
+    },
+    "mitochondrial-metabolism": {
+      "presentInCommittedGraph": true,
+      "primaryGene": "DHODH",
+      "genes": [
+        { "symbol": "DHODH", "role": "mitochondrial CoQ-linked ferroptosis defence", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=DHODH" },
+        { "symbol": "GLS2", "role": "glutaminase 2, glutaminolysis feeding TCA and redox", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=GLS2" },
+        { "symbol": "CS", "role": "citrate synthase, TCA flux linked to lipid synthesis", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=CS" },
+        { "symbol": "VDAC2", "role": "outer-membrane channel implicated in mitochondrial sensitivity", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=VDAC2" }
+      ]
+    },
+    "immune-regulation": {
+      "presentInCommittedGraph": true,
+      "primaryGene": "IFNG",
+      "genes": [
+        { "symbol": "IFNG", "role": "CD8 T-cell IFN-gamma represses SLC7A11 and promotes ferroptosis", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=IFNG" },
+        { "symbol": "SLC7A11", "role": "immune-suppressible cystine importer", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=SLC7A11" },
+        { "symbol": "ACSL4", "role": "sets lipid substrate targeted by immune-driven ferroptosis", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=ACSL4" },
+        { "symbol": "CD274", "role": "PD-L1 axis intersecting immunotherapy and ferroptosis", "ferrdbUrl": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol=CD274" }
+      ]
+    }
+  }
+}

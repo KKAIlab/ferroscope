@@ -1,0 +1,39 @@
+{
+  "generatorVersion": "0.1.0",
+  "generatedAt": "2026-07-24",
+  "status": "pending-license-confirmation",
+  "source": {
+    "name": "FerrDb V3",
+    "version": "V3",
+    "siteUrl": "https://www.zhounan.org/ferrdb/v3/",
+    "downloadPage": "https://www.zhounan.org/ferrdb/v3/pages/download.html",
+    "downloadApi": "POST https://data.zhounan.org/pm2505/api/download/data/ (FormData selectRcd/selectDataset/selectFormat; formats txt|csv; ferroptosis and cuproptosis only)",
+    "geneUrlTemplate": "https://www.zhounan.org/ferrdb/v3/pages/genedetail.html?genesymbol={SYMBOL}",
+    "paper": {
+      "citation": "Zhou N, et al. FerrDb V3: expanding the manually curated resource for regulators and disease associations from ferroptosis to regulated cell death. Nucleic Acids Res. 2026;54:D572-D582.",
+      "doi": "10.1093/nar/gkaf1119",
+      "articleLicense": "CC BY-NC 4.0 (covers the article, not the database export)"
+    },
+    "checkedAt": "2026-07-24",
+    "license": {
+      "siteFooter": "©Copyright 2019- by FerrDb. All rights reserved.",
+      "visibleDataGrant": "Free access to all of its data for educational and scientific purposes.",
+      "ccByNcOnSite": "A CC BY-NC 4.0 statement exists in the V2 download-page HTML source but is commented out and not displayed; it is absent from the V3 download page.",
+      "redistribution": "NOT AUTHORISED. FerrDb data must not be mirrored onto FerroScope's public GitHub Pages until the maintainers (admin@zhounan.org) confirm redistribution rights in writing."
+    },
+    "useBoundary": "FerrDb is a third-party, dated, secondary source. Its labels are publication-centric: the same gene may be recorded as driver in one paper and suppressor in another, and both are kept with a per-gene confidence level. Disease links are association-level, not causal. Any number derived from it is a literature count, never a mechanistic claim."
+  },
+  "publishedCounts": {
+    "note": "Verbatim aggregate totals from FerrDb V3 paper Table 2 (ferroptosis modality, V3). Cited as published facts with attribution; NOT the per-gene database export.",
+    "driver": 734,
+    "suppressor": 1021,
+    "marker": 59,
+    "unclassified": 143,
+    "inducerSubstance": 563,
+    "inhibitorSubstance": 510,
+    "diseaseAssociation": 437,
+    "ferroptosisArticlesCurated": 18371
+  },
+  "regulators": [],
+  "regulatorsStatus": "empty-pending-license"
+}

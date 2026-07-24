@@ -25,6 +25,15 @@
       "purpose": "Question-to-minimum-evidence-bundle decision paths, and the assays that may never stand alone as a ferroptosis diagnosis. Created in the round-2 pass and not yet independently reviewed.",
       "registeredAt": "2026-07-23"
     },
+    "ferrdb-regulators.json": {
+      "schemaVersion": "1.0.0",
+      "shape": "object",
+      "maintenance": "generated",
+      "owner": "ferroscope-maintainer",
+      "generator": "scripts/ingest-ferrdb.mjs",
+      "generatorVersion": "0.1.0",
+      "purpose": "FerrDb V3 ferroptosis regulator ingestion target. License-gated: currently a placeholder carrying provenance and the paper's Table 2 aggregate counts only, with an empty regulators array, pending written redistribution permission from the FerrDb maintainers."
+    },
     "glossary.json": {
       "schemaVersion": "1.0.0",
       "shape": "array",
@@ -162,6 +171,18 @@
       "reviewedContentSha256": null,
       "purpose": "Per-laboratory monitoring coverage: author-watch tier, watch state, site-monitor state, review dates. Created in the round-2 pass and not yet independently reviewed.",
       "registeredAt": "2026-07-23"
+    },
+    "node-gene-map.json": {
+      "schemaVersion": "1.0.0",
+      "shape": "object",
+      "maintenance": "curated",
+      "owner": "ferroscope-maintainer",
+      "reviewer": null,
+      "reviewPending": true,
+      "reviewedAt": null,
+      "reviewedContentSha256": null,
+      "purpose": "FerroScope's own concept-node-to-representative-gene mapping with FerrDb V3 single-gene deep links. Editorial curation plus HGNC symbols only; contains no FerrDb curated data. Created in the FerrDb-V3 ingestion pass and not yet independently reviewed.",
+      "registeredAt": "2026-07-24"
     },
     "paper-claims.json": {
       "schemaVersion": "1.0.0",
