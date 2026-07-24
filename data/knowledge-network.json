@@ -62,6 +62,30 @@
       "label": "Chemical intervention and translation",
       "short": "Therapy",
       "description": "Inducers, inhibitors, target engagement, exposure and treatment windows."
+    },
+    {
+      "id": "mufa-membrane-remodelling",
+      "label": "MUFA membrane remodelling defence",
+      "short": "MUFA",
+      "description": "Writing monounsaturated fatty acids into membrane phospholipids to displace oxidizable PUFA and raise the ferroptosis threshold, independent of GPX4."
+    },
+    {
+      "id": "selenium-selenoprotein",
+      "label": "Selenium and selenoprotein supply",
+      "short": "Se",
+      "description": "Cellular selenium uptake, transfer and utilization that supports synthesis of GPX4 and other selenoproteins."
+    },
+    {
+      "id": "mitochondrial-metabolism",
+      "label": "Mitochondrial metabolic drive",
+      "short": "Mito",
+      "description": "A conditional, induction-specific mitochondrial contribution through glutaminolysis, the TCA cycle, the electron-transport chain and membrane potential."
+    },
+    {
+      "id": "immune-regulation",
+      "label": "Immune regulation of ferroptosis",
+      "short": "Immune",
+      "description": "How immune signalling, in particular CD8+ T-cell interferon-gamma, reshapes tumour-cell cystine metabolism and ferroptosis sensitivity during immunotherapy."
     }
   ],
   "mechanismEdges": [
@@ -70,98 +94,218 @@
       "target": "lipid-peroxidation",
       "relation": "enables",
       "label": "redox-active iron supports radical chemistry",
-      "confidence": "established, context-dependent"
+      "confidence": "established, context-dependent",
+      "evidence": [
+        "10.1038/s41586-025-08974-4",
+        "10.1038/nchembio.2238"
+      ]
     },
     {
       "source": "pufa-remodelling",
       "target": "lipid-peroxidation",
       "relation": "supplies substrate",
       "label": "PUFA-PL expands the oxidizable membrane pool",
-      "confidence": "strong"
+      "confidence": "strong",
+      "evidence": [
+        "10.1038/s41586-020-2732-8",
+        "10.1038/s41589-020-0472-6",
+        "10.1038/nchembio.2238"
+      ]
     },
     {
       "source": "gpx4-gsh",
       "target": "lipid-peroxidation",
       "relation": "suppresses",
       "label": "reduces phospholipid hydroperoxides",
-      "confidence": "strong"
+      "confidence": "strong",
+      "evidence": [
+        "10.1016/j.cell.2025.11.014",
+        "10.1038/nchembio.2238"
+      ]
     },
     {
       "source": "fsp1-coq",
       "target": "lipid-peroxidation",
       "relation": "suppresses",
       "label": "regenerates membrane radical-trapping capacity",
-      "confidence": "strong"
+      "confidence": "strong",
+      "evidence": [
+        "10.1038/s41586-019-1707-0",
+        "10.1038/s41586-022-05022-3"
+      ]
     },
     {
       "source": "lipid-peroxidation",
       "target": "death-execution",
       "relation": "drives",
       "label": "uncontrolled chain oxidation precedes membrane failure",
-      "confidence": "strong; terminal mechanism incomplete"
+      "confidence": "strong; terminal mechanism incomplete",
+      "evidence": [
+        "10.1038/s41467-025-58175-w",
+        "10.1038/s41586-025-08974-4"
+      ]
     },
     {
       "source": "organelle-spatial",
       "target": "iron-homeostasis",
       "relation": "localizes",
       "label": "lysosomes and other compartments shape reactive iron",
-      "confidence": "model-dependent"
+      "confidence": "model-dependent",
+      "evidence": [
+        "10.1038/s41586-025-08974-4",
+        "10.1038/s41467-025-58909-w"
+      ]
     },
     {
       "source": "organelle-spatial",
       "target": "lipid-peroxidation",
       "relation": "localizes",
       "label": "ER, lysosome and plasma membrane conclusions depend on condition",
-      "confidence": "actively contested"
+      "confidence": "actively contested",
+      "evidence": [
+        "10.1038/s41589-022-01249-3",
+        "10.1038/s41467-025-58909-w"
+      ]
     },
     {
       "source": "tumour-ecology",
       "target": "pufa-remodelling",
       "relation": "reprograms",
       "label": "cell state and niche remodel lipid substrates",
-      "confidence": "strong in selected models"
+      "confidence": "strong in selected models",
+      "evidence": [
+        "10.1038/s41586-020-2732-8",
+        "10.1016/j.cell.2023.05.003"
+      ]
     },
     {
       "source": "tumour-ecology",
       "target": "fsp1-coq",
       "relation": "creates dependency",
       "label": "FSP1 targetability varies by tumour and anatomical site",
-      "confidence": "strong in selected in vivo models"
+      "confidence": "strong in selected in vivo models",
+      "evidence": [
+        "10.1038/s41586-025-09710-8",
+        "10.1038/s41586-025-09709-1"
+      ]
     },
     {
       "source": "death-execution",
       "target": "tissue-injury",
       "relation": "may contribute to",
       "label": "requires tissue-level genetic and chemical evidence",
-      "confidence": "disease-specific"
+      "confidence": "disease-specific",
+      "evidence": [
+        "10.1038/s41586-025-09389-x",
+        "10.1038/s41419-024-07150-2",
+        "10.1016/j.cell.2026.04.024"
+      ]
     },
     {
       "source": "translation",
       "target": "gpx4-gsh",
       "relation": "targets",
       "label": "GPX4 and cystine metabolism are common experimental entry points",
-      "confidence": "preclinical"
+      "confidence": "preclinical",
+      "evidence": [
+        "10.1016/j.cell.2025.11.014",
+        "10.1161/CIRCULATIONAHA.125.075220"
+      ]
     },
     {
       "source": "translation",
       "target": "fsp1-coq",
       "relation": "targets",
       "label": "FSP1 inhibition is advancing in defined tumour models",
-      "confidence": "preclinical"
+      "confidence": "preclinical",
+      "evidence": [
+        "10.1038/s41586-025-09710-8",
+        "10.1038/s41586-022-05022-3"
+      ]
     },
     {
       "source": "translation",
       "target": "iron-homeostasis",
       "relation": "modulates",
       "label": "iron chelation, delivery and compartment activation have opposite goals",
-      "confidence": "strategy-specific"
+      "confidence": "strategy-specific",
+      "evidence": [
+        "10.1161/CIRCULATIONAHA.125.075220",
+        "10.1038/s41586-025-08974-4"
+      ]
     },
     {
       "source": "translation",
       "target": "tissue-injury",
       "relation": "tests protection",
       "label": "local perfusion and organ protection do not yet equal clinical efficacy",
-      "confidence": "preclinical / ex situ"
+      "confidence": "preclinical / ex situ",
+      "evidence": [
+        "10.1016/j.cell.2026.04.024",
+        "10.1038/s41586-025-09389-x"
+      ]
+    },
+    {
+      "source": "mufa-membrane-remodelling",
+      "target": "lipid-peroxidation",
+      "relation": "suppresses",
+      "label": "MUFA-loaded phospholipids displace oxidizable PUFA and raise the threshold",
+      "confidence": "strong in selected models",
+      "evidence": [
+        "10.1016/j.cell.2023.05.003",
+        "10.1016/j.chembiol.2018.11.016"
+      ]
+    },
+    {
+      "source": "selenium-selenoprotein",
+      "target": "gpx4-gsh",
+      "relation": "supplies",
+      "label": "selenium utilization supports GPX4 selenoprotein synthesis",
+      "confidence": "strong in selected models",
+      "evidence": [
+        "10.1016/j.molcel.2024.10.028"
+      ]
+    },
+    {
+      "source": "mitochondrial-metabolism",
+      "target": "lipid-peroxidation",
+      "relation": "conditionally drives",
+      "label": "metabolic and membrane-potential drive under cysteine deprivation, not under direct GPX4 loss",
+      "confidence": "induction-specific; actively contested",
+      "evidence": [
+        "10.1016/j.molcel.2018.10.042"
+      ]
+    },
+    {
+      "source": "translation",
+      "target": "mufa-membrane-remodelling",
+      "relation": "targets",
+      "label": "endocrine therapy dismantles the hormone-maintained MBOAT defence",
+      "confidence": "preclinical",
+      "evidence": [
+        "10.1016/j.cell.2023.05.003"
+      ]
+    },
+    {
+      "source": "immune-regulation",
+      "target": "gpx4-gsh",
+      "relation": "suppresses",
+      "label": "CD8+ T-cell IFN-gamma lowers system xc- cystine uptake and glutathione",
+      "confidence": "strong in selected in vivo models",
+      "evidence": [
+        "10.1038/s41586-019-1170-y"
+      ]
+    },
+    {
+      "source": "fsp1-coq",
+      "target": "organelle-spatial",
+      "relation": "localizes",
+      "label": "FSP1 acts at lysosome-associated membranes and lipid droplets, not only the plasma membrane",
+      "confidence": "model-dependent",
+      "evidence": [
+        "10.1038/s41586-025-09709-1",
+        "10.1038/s41556-025-01790-y"
+      ]
     }
   ],
   "methodLinks": [

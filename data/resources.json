@@ -130,5 +130,38 @@
     "language": "English",
     "checkedAt": "2026-07-23",
     "caution": "A deposited structure supports a defined construct and condition, not every cellular conformation."
+  },
+  {
+    "id": "protocols-io-ferroptosis",
+    "name": "protocols.io — ferroptosis methods",
+    "type": "Protocol",
+    "authority": "Community protocol repository",
+    "description": "An open, versioned repository of step-by-step experimental protocols; search ferroptosis for shared cell-death, lipid-peroxidation, iron and rescue assays as laboratories actually run them.",
+    "url": "https://www.protocols.io/",
+    "language": "English",
+    "checkedAt": "2026-07-24",
+    "caution": "A shared protocol is a method recipe, not validated evidence for a biological claim, and community protocols vary in how much peer scrutiny they have received."
+  },
+  {
+    "id": "bio-protocol-ferroptosis",
+    "name": "Bio-protocol — ferroptosis methods",
+    "type": "Protocol",
+    "authority": "Peer-reviewed protocol journal",
+    "description": "A peer-reviewed, open-access protocol journal; its ferroptosis and lipid-peroxidation entries give detailed, reviewed methods derived from published studies.",
+    "url": "https://bio-protocol.org/",
+    "language": "English",
+    "checkedAt": "2026-07-24",
+    "caution": "A protocol reproduces one laboratory's method; it is guidance for execution, not primary evidence for a specific biological claim."
+  },
+  {
+    "id": "star-protocols-cell",
+    "name": "STAR Protocols (Cell Press)",
+    "type": "Protocol",
+    "authority": "Peer-reviewed protocol journal",
+    "description": "Cell Press peer-reviewed protocols, many tied to a specific primary paper; useful for reproducing a study's ferroptosis induction, orthogonal rescue and lipid-oxidation readouts as its authors ran them.",
+    "url": "https://www.cell.com/star-protocols/home",
+    "language": "English",
+    "checkedAt": "2026-07-24",
+    "caution": "A protocol describes how one study was executed; it does not by itself establish that a readout proves ferroptosis."
   }
 ]

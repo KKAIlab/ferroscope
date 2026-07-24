@@ -97,7 +97,7 @@ h1 em { color: var(--teal); font-style: normal; }
 .section { padding-block: 110px; scroll-margin-top: 70px; }
 .section-heading { display: flex; justify-content: space-between; align-items: end; gap: 80px; margin-bottom: 48px; }
 .section-heading h2, .standards-grid h2 { margin: 0; font: 600 clamp(38px, 5vw, 62px)/1.05 var(--serif); letter-spacing: -.035em; }
-.section-heading > p { max-width: 510px; margin: 0 0 6px; color: var(--muted); font-size: 13px; line-height: 1.8; }
+.section-heading > p { max-width: 540px; margin: 0 0 6px; color: var(--muted); font-size: 14.5px; line-height: 1.75; }
 
 .frontier-grid { display: grid; grid-template-columns: 1.35fr 1fr 1fr; gap: 12px; margin-bottom: 42px; }
 .frontier-card { position: relative; min-height: 225px; padding: 23px; overflow: hidden; color: white; background: var(--ink); border-radius: 5px; box-shadow: var(--shadow); }
@@ -125,7 +125,7 @@ select { min-width: 128px; border: 1px solid var(--line); border-radius: 3px; pa
 .review-badge.auto { color: var(--muted); }
 .signal-source time { display: block; color: var(--muted); font: 9px var(--mono); }
 .signal-main h3 { margin: 0 0 9px; font: 600 17px/1.5 var(--serif); }
-.signal-main p { margin: 0; color: var(--muted); font-size: 11px; line-height: 1.55; }
+.signal-main p { margin: 0; color: var(--ink-soft); font-size: 12.5px; line-height: 1.55; }
 .signal-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
 .chip { padding: 4px 7px; background: var(--paper-2); border-radius: 2px; color: var(--ink-soft); font-size: 9px; }
 .chip.lab-hit { color: var(--teal); background: #dcece5; font-family: var(--mono); }
@@ -160,7 +160,7 @@ select { min-width: 128px; border: 1px solid var(--line); border-radius: 3px; pa
 .lab-card .research-stage.audited { color: var(--acid); }
 .lab-card h3 { margin: 70px 0 4px; font: 600 25px/1.2 var(--serif); }
 .lab-card .institution { min-height: 34px; color: #89938e; font-size: 10px; line-height: 1.5; }
-.lab-card .lab-question { min-height: 74px; margin: 18px 0; color: #d5dad7; font-size: 11px; line-height: 1.75; }
+.lab-card .lab-question { min-height: 74px; margin: 18px 0; color: #dfe4e1; font-size: 12.5px; line-height: 1.7; }
 .lab-card .lab-tags { display: flex; flex-wrap: wrap; gap: 5px; }
 .lab-card .lab-tags span { padding: 4px 6px; background: #26332e; color: #9ea8a3; font-size: 8px; }
 .lab-card .lab-bottom { position: absolute; bottom: 20px; left: 24px; right: 24px; display: flex; gap: 10px; align-items: center; }
@@ -175,7 +175,7 @@ select { min-width: 128px; border: 1px solid var(--line); border-radius: 3px; pa
 .source-card:nth-child(2) { border-color: var(--orange); }.source-card:nth-child(3) { border-color: #6e57a3; }.source-card:nth-child(4) { border-color: var(--acid-deep); }
 .source-card .source-type { color: var(--muted); font: 9px var(--mono); }
 .source-card h3 { margin: 38px 0 10px; font: 600 20px var(--serif); }
-.source-card p { color: var(--muted); font-size: 10px; line-height: 1.65; }
+.source-card p { color: var(--ink-soft); font-size: 12px; line-height: 1.6; }
 .source-card a { display: inline-block; margin-top: 12px; color: var(--teal); font-size: 10px; font-weight: 700; }
 .update-callout { display: grid; grid-template-columns: 160px 1fr auto; align-items: center; gap: 30px; margin-top: 12px; padding: 24px; background: var(--ink); color: white; }
 .update-callout > div { display: flex; align-items: center; gap: 12px; }
