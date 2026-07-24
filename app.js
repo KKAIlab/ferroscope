@@ -475,7 +475,10 @@ export function renderNetworkDetail() {
   const claimHtml = claimGroups.map(([heading, relation]) => {
     const group = paperEdges.filter((edge) => edge.relation === relation);
     if (!group.length) return "";
-    return `<section class="claim-group"><span>${escapeHtml(heading)}</span>${group.map((edge) => `<article class="claim-row"><button type="button" class="paper-open" data-paper-id="${escapeHtml(edge.paperId)}">${escapeHtml(paperTitle(edge.paperId))}</button><small>${escapeHtml(edge.figure || "figure not recorded")} · ${escapeHtml(edge.confidence)} · ${escapeHtml(edge.verificationDepth)}</small><p>${escapeHtml(edge.claimScope)}</p><small class="claim-conditions">${escapeHtml(Object.entries(edge.conditionVector || {}).map(([key, value]) => `${key}: ${value}`).join(" · ") || "conditions not recorded")}</small></article>`).join("")}</section>`;
+    // The access extent is shown alongside the depth so a scope read only in part does not render
+    // identically to one read in full; a bare depth label was hiding that qualification.
+    const extentNote = (edge) => (edge.scopeAccessExtent && edge.scopeAccessExtent !== "complete-scope" ? ` · ${ACCESS_EXTENT_LABELS[edge.scopeAccessExtent] || edge.scopeAccessExtent}` : "");
+    return `<section class="claim-group"><span>${escapeHtml(heading)}</span>${group.map((edge) => `<article class="claim-row"><button type="button" class="paper-open" data-paper-id="${escapeHtml(edge.paperId)}">${escapeHtml(paperTitle(edge.paperId))}</button><small>${escapeHtml(edge.figure || "figure not recorded")} · ${escapeHtml(edge.confidence)} · ${escapeHtml(edge.verificationDepth)}${escapeHtml(extentNote(edge))}</small><p>${escapeHtml(edge.claimScope)}</p><small class="claim-conditions">${escapeHtml(Object.entries(edge.conditionVector || {}).map(([key, value]) => `${key}: ${value}`).join(" · ") || "conditions not recorded")}</small></article>`).join("")}</section>`;
   }).join("");
   // A curated assay-class boundary and a claim read out of an audited figure are different
   // kinds of statement. The boundary list therefore says, per entry, whether its declared

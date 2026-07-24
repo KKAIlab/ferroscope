@@ -395,7 +395,10 @@ test("array order never decides review state, and a recheck attributes to the se
   // independent recheck that resolves it as its prior event. Whichever order the routes sit in,
   // the stronger independent state must win — and the promoted edge must name the independent
   // reviewer and their agreement, not the original implementer.
+  // An independent recheck now requires the shared source to pin a sha256, because byte
+  // identity is the whole claim two readers make; the fixture therefore carries a real hash.
   const source = fixtureSource("test-shared", ["shared scope"]);
+  source.version.sha256 = "b".repeat(64);
   const first = { id: "ev-first", sourceId: "test-shared", reviewState: "source-checked", reviewerId: "claude-code-round4-implementer", checkedAt: "2026-07-24", scopeIds: ["shared-scope"], boundary: "first reading", priorReviewEventId: null, agreement: null, discrepancyNote: null };
   const recheck = { id: "ev-recheck", sourceId: "test-shared", reviewState: "independently-rechecked", reviewerId: "independent-review-codex", checkedAt: "2026-07-25", scopeIds: ["shared-scope"], boundary: "second reading", priorReviewEventId: "ev-first", agreement: "agrees", discrepancyNote: null };
   const reg = registryWith({ sources: [source], events: [first, recheck] });
