@@ -166,5 +166,47 @@
   "role": "co-lead",
   "roleBasis": "Second-to-last author of the 25-author Crossref author list (Eikan Mishima), a co-senior position with last author Marcus Conrad. Position verified at Crossref on 2026-07-24, and the contribution statement was not re-read in this pass.",
   "continuity": "Extends the laboratory's work on selenium and selenoprotein biology in ferroptosis, here defining PRDX6 as a selenium carrier that supports GPX4 synthesis."
+ },
+ {
+  "labId": "jiang-msk",
+  "paperId": "doi:10.1016/j.cell.2023.05.003",
+  "role": "lead",
+  "roleBasis": "Last author of the 10-author Crossref author list (Xuejun Jiang), verified at Crossref on 2026-07-24. The contribution statement was not re-read in this pass.",
+  "continuity": "Extends the laboratory's work on GPX4-independent ferroptosis surveillance and how membrane lipid composition sets the ferroptosis threshold."
+ },
+ {
+  "labId": "dixon-stanford",
+  "paperId": "doi:10.1016/j.chembiol.2018.11.016",
+  "role": "lead",
+  "roleBasis": "Last author of the 12-author Crossref author list (Scott J. Dixon), verified at Crossref on 2026-07-24. The contribution statement was not re-read in this pass.",
+  "continuity": "Extends the laboratory's work on the lipid determinants of ferroptosis, here how exogenous monounsaturated fatty acids remodel membranes into a resistant state."
+ },
+ {
+  "labId": "gao-hit",
+  "paperId": "doi:10.1016/j.molcel.2018.10.042",
+  "role": "pre-independence",
+  "roleBasis": "First author of the 7-author Crossref author list (Minghui Gao), with senior last author Xuejun Jiang, verified at Crossref on 2026-07-24. The work predates the independent Harbin Institute of Technology laboratory and must not be presented as that laboratory leading it.",
+  "continuity": "Origin of the laboratory's later work on the metabolic and mitochondrial control of ferroptosis, done as first author before the independent laboratory."
+ },
+ {
+  "labId": "zoulab-michigan",
+  "paperId": "doi:10.1038/s41586-019-1170-y",
+  "role": "lead",
+  "roleBasis": "Last author of the 30-author Crossref author list (Weiping Zou), verified at Crossref on 2026-07-24. The contribution statement was not re-read in this pass.",
+  "continuity": "Extends the laboratory's tumour-immunology work, here linking CD8+ T-cell IFN-gamma to tumour ferroptosis sensitivity during checkpoint immunotherapy."
+ },
+ {
+  "labId": "pratt-ottawa",
+  "paperId": "doi:10.1021/acscentsci.7b00028",
+  "role": "lead",
+  "roleBasis": "Last author of the 7-author Crossref author list (Derek A. Pratt), verified at Crossref on 2026-07-24. The contribution statement was not re-read in this pass.",
+  "continuity": "Extends the laboratory's radical-trapping-antioxidant chemistry, here defining how ferrostatin-1 and liproxstatin-1 act in the membrane rather than on 15-LOX."
+ },
+ {
+  "labId": "yamada-kyushu",
+  "paperId": "doi:10.1038/nchembio.2105",
+  "role": "co-lead",
+  "roleBasis": "First author of the 13-author Crossref author list (Ken-ichi Yamada) and originator of the NBD-Pen lipid-radical probe that defines this laboratory's method line; the last author is Mayumi Yamato, the senior radical-detection collaborator. Crossref marks no corresponding author; positions verified 2026-07-24. Attributed as co-lead rather than sole lead because seniority is shared and not machine-verifiable here.",
+  "continuity": "Origin of the laboratory's radical-trapping fluorescence-probe methods later used in its lysosomal ferroptosis work, here first developed for lipid-derived radicals."
  }
 ]
