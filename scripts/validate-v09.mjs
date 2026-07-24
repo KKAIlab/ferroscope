@@ -7,9 +7,10 @@ import { createResolver, validateRegistry } from "../lib/source-registry.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const read = async (file) => JSON.parse(await fs.readFile(path.join(root, "data", file), "utf8"));
-const [labs, labsEn, methods, glossary, network, resources, curated, briefs, bundles, paperClaims, paperLinks, sourceReviews] = await Promise.all([
-  read("labs.json"), read("labs-en.json"), read("methods.json"), read("glossary.json"), read("knowledge-network.json"), read("resources.json"), read("intelligence-curated.json"), read("signal-briefs-en.json"), read("evidence-bundles.json"), read("paper-claims.json"), read("lab-paper-links.json"), read("source-reviews.json")
+const [labs, labsEn, methods, glossary, network, resources, curated, briefs, bundles, paperClaims, paperLinks, sourceReviews, papersEn] = await Promise.all([
+  read("labs.json"), read("labs-en.json"), read("methods.json"), read("glossary.json"), read("knowledge-network.json"), read("resources.json"), read("intelligence-curated.json"), read("signal-briefs-en.json"), read("evidence-bundles.json"), read("paper-claims.json"), read("lab-paper-links.json"), read("source-reviews.json"), read("papers-en.json")
 ]);
+const paperDois = new Set(papersEn.map((paper) => paper.doi).filter(Boolean));
 
 const errors = [];
 
@@ -132,6 +133,14 @@ for (const entry of glossary) {
 for (const edge of network.mechanismEdges || []) {
   if (!mechanismIds.has(edge.source) || !mechanismIds.has(edge.target)) errors.push(`Unknown mechanism in edge ${edge.source} -> ${edge.target}`);
   if (!edge.relation || !edge.confidence) errors.push(`Untyped or unqualified mechanism edge ${edge.source} -> ${edge.target}`);
+  // A mechanism edge is a curated claim, but it may not be asserted without evidence: it must
+  // name at least one English paper record that addresses the relation, and every named DOI must
+  // resolve. This keeps the conceptual map grounded in the paper layer rather than free-floating.
+  if (!Array.isArray(edge.evidence) || edge.evidence.length === 0) {
+    errors.push(`Mechanism edge ${edge.source} -> ${edge.target} has no evidence; every edge must cite at least one papers-en DOI that addresses it`);
+  } else {
+    for (const doi of edge.evidence) if (!paperDois.has(doi)) errors.push(`Mechanism edge ${edge.source} -> ${edge.target} cites ${doi}, which is not a paper in papers-en.json`);
+  }
 }
 for (const link of network.methodLinks || []) {
   if (!methodIds.has(link.method)) errors.push(`Network points to unknown method ${link.method}`);

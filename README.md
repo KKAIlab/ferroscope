@@ -2,7 +2,16 @@
 
 FerroScope is an English-first research-intelligence website for ferroptosis and lipid biochemistry. It connects current research signals, laboratories, experimental methods, mechanisms, terminology and external research routes while keeping evidence limitations visible.
 
-## Current release status — v0.9.8 (round 9)
+## Current release status — v0.9.9 (round 10)
+
+Round 10 turns to the axes named as frozen — the mechanism network and the terminology corpus — and grounds the mechanism map in the papers now in the layer.
+
+- **Mechanism network widened, every edge evidence-anchored.** `data/knowledge-network.json` grows from 10 to 14 mechanism nodes (adding MUFA membrane-remodelling, selenium/selenoprotein supply, mitochondrial metabolic drive and immune regulation) and from 14 to 20 typed edges. Every mechanism edge — the 14 existing and the 6 new — now names the `papers-en.json` DOIs that address it, and `scripts/validate-v09.mjs` rejects a mechanism edge that cites no paper or an unresolved DOI, so the conceptual map is grounded in the paper layer rather than free-floating.
+- **Terminology corpus grown.** `data/glossary.json` grows from 25 to 33 trilingual terms (MBOAT1/2, MUFA, ACSL3, selenoprotein, PRDX6, lipid droplet, mitochondria-in-ferroptosis, IFN-γ-in-ferroptosis), each with a full English/Chinese/Japanese alias set, a simple explanation and a precision note.
+- **External research hub given a real protocol column, and a readability pass.** `data/resources.json` grows from 12 to 15 external resources: the External Research Hub gains a proper `Protocol` category (protocols.io, Bio-protocol, STAR Protocols) rather than resting on a single reagent guide. The interface font sizes were raised for readability (card body text from 10–11px to 12.5–13px, translations and precision notes from 8–9px to 11px), and the terminology corpus was made denser (a three-column grid with tighter cards) so it no longer dominates the page. All new resource links are reachable or classified `restricted` by the link monitor, never broken.
+- **Provenance graph.** The graph holds 257 nodes and 287 edges. By review state: recorded-unverified 69, archive-derived 157, source-checked 61 and independently-rechecked 0. The four new mechanism nodes add nodes, not edges; the 73 canonical source records, 44 review events and 33 of 208 source-checked method decision fields (175 remain pending) are unchanged, and 0 datasets are sealed.
+
+## Previous release status — v0.9.8 (round 9)
 
 Round 9 continues the content pivot: it migrates the remaining 6 figure-audited backlog papers (2016–2023) into the English-first layer, taking `data/papers-en.json` from 19 to 25 papers, by the same honest recipe as round 8 (`scripts/migrate-round9.mjs`, driven by the translated `scripts/round9-specs.mjs`, regression-checked by `npm run check`).
 
