@@ -444,13 +444,132 @@ export function renderMethodDetail(methodId) {
   $("#methodDialog").showModal();
 }
 
-const networkPositions = { "iron-homeostasis":[12,23], "pufa-remodelling":[37,8], "lipid-peroxidation":[50,38], "gpx4-gsh":[78,12], "fsp1-coq":[88,38], "organelle-spatial":[23,56], "death-execution":[53,70], "tumour-ecology":[78,65], "tissue-injury":[34,90], "translation":[82,90] };
+// ---- mechanism graph: deterministic force-directed layout ------------------------------------
+// Positions come from a small seeded force simulation (node repulsion + edge springs + centering) so
+// the map reads like a relationship graph rather than a fixed diagram, yet is byte-identical on every
+// load and inside the Node render harness: pure arithmetic, no browser APIs and no Math.random. It is
+// recomputed only when the SET of node ids changes, so selecting a node never reshuffles the layout.
+// Every mechanism in the data is laid out and drawn — the previous hardcoded coordinate table
+// silently hid any node it did not list (the four round-10 nodes were invisible for exactly that reason).
+// Colour encodes a curated functional family; an unmapped node falls back to "context", never dropped.
+const MECHANISM_GROUP = {
+  "iron-homeostasis": "substrate", "pufa-remodelling": "substrate", "lipid-peroxidation": "substrate",
+  "organelle-spatial": "substrate", "mitochondrial-metabolism": "substrate",
+  "gpx4-gsh": "defence", "fsp1-coq": "defence", "mufa-membrane-remodelling": "defence", "selenium-selenoprotein": "defence",
+  "death-execution": "outcome", "tissue-injury": "outcome",
+  "tumour-ecology": "context", "translation": "context", "immune-regulation": "context",
+};
+const GROUP_HUE = { substrate: 33, defence: 158, outcome: 4, context: 276 };
+const groupOf = (id) => MECHANISM_GROUP[id] || "context";
+const hueOf = (id) => GROUP_HUE[groupOf(id)];
+
+// A tiny seeded PRNG (mulberry32) keeps the initial placement deterministic without Math.random.
+function seededRandom(seed) { return function () { seed = (seed + 0x6d2b79f5) | 0; let t = Math.imul(seed ^ (seed >>> 15), 1 | seed); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
+
+// A free-text confidence string maps to one of three visual weights. Contested, model- or
+// context-limited claims render thin and dashed; strong/established claims render thick and solid.
+function edgeWeight(confidence) {
+  const c = String(confidence || "").toLowerCase();
+  if (/contested|may contribute|model-dependent|preclinical|induction-specific/.test(c)) return "tentative";
+  if (/strong|established/.test(c)) return "strong";
+  return "moderate";
+}
+
+let networkLayout = null;
+function computeNetworkLayout(mechanisms, edges) {
+  const ids = mechanisms.map((m) => m.id);
+  const key = ids.slice().sort().join("|");
+  if (networkLayout && networkLayout.key === key) return networkLayout.pos;
+  const n = ids.length, index = new Map(ids.map((id, i) => [id, i]));
+  const rand = seededRandom(0x9e3779b1);
+  const pos = ids.map((_, i) => { const a = (2 * Math.PI * i) / n; return [50 + 26 * Math.cos(a) + (rand() - 0.5) * 8, 50 + 26 * Math.sin(a) + (rand() - 0.5) * 8]; });
+  const links = edges.map((e) => [index.get(e.source), index.get(e.target)]).filter(([a, b]) => a != null && b != null);
+  const K = 32;
+  let temp = 14;
+  for (let step = 0; step < 460; step++) {
+    const disp = pos.map(() => [0, 0]);
+    for (let i = 0; i < n; i++) for (let j = i + 1; j < n; j++) {
+      const dx = pos[i][0] - pos[j][0], dy = pos[i][1] - pos[j][1], d = Math.hypot(dx, dy) || 0.01, f = (K * K) / (d * d);
+      disp[i][0] += dx * f; disp[i][1] += dy * f; disp[j][0] -= dx * f; disp[j][1] -= dy * f;
+    }
+    for (const [a, b] of links) {
+      const dx = pos[a][0] - pos[b][0], dy = pos[a][1] - pos[b][1], d = Math.hypot(dx, dy) || 0.01, f = d / K;
+      disp[a][0] -= dx * f; disp[a][1] -= dy * f; disp[b][0] += dx * f; disp[b][1] += dy * f;
+    }
+    for (let i = 0; i < n; i++) {
+      disp[i][0] += (50 - pos[i][0]) * 0.022; disp[i][1] += (50 - pos[i][1]) * 0.022;
+      const dl = Math.hypot(disp[i][0], disp[i][1]) || 0.01, cap = Math.min(dl, temp);
+      pos[i][0] += (disp[i][0] / dl) * cap; pos[i][1] += (disp[i][1] / dl) * cap;
+    }
+    temp = Math.max(0.5, temp * 0.985);
+  }
+  const xs = pos.map((p) => p[0]), ys = pos.map((p) => p[1]);
+  const minX = Math.min(...xs), maxX = Math.max(...xs), minY = Math.min(...ys), maxY = Math.max(...ys);
+  const pad = 11, span = 100 - 2 * pad;
+  const scale = (v, lo, hi) => (hi > lo ? (v - lo) / (hi - lo) : 0.5);
+  const map = new Map(ids.map((id, i) => [id, [pad + scale(pos[i][0], minX, maxX) * span, pad + scale(pos[i][1], minY, maxY) * span]]));
+  networkLayout = { key, pos: map };
+  return map;
+}
+
 function renderNetwork() {
   const mechanisms = state.network?.mechanisms || [], edges = state.network?.mechanismEdges || [];
-  const lines = edges.map((edge) => { const a = networkPositions[edge.source], b = networkPositions[edge.target]; if (!a || !b) return ""; const active = edge.source === state.selectedMechanism || edge.target === state.selectedMechanism; return `<line x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}" class="${active ? "active" : ""}" />`; }).join("");
-  $("#networkMap").innerHTML = `<svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">${lines}</svg>${mechanisms.map((node) => { const position = networkPositions[node.id]; if (!position) return ""; const [x,y] = position; return `<button type="button" role="listitem" data-mechanism-id="${escapeHtml(node.id)}" aria-pressed="${node.id === state.selectedMechanism}" class="network-node ${node.id === state.selectedMechanism ? "active" : ""}" style="left:${x}%;top:${y}%"><b>${escapeHtml(node.short)}</b><span>${escapeHtml(node.label)}</span></button>`; }).join("")}`;
-  $$(".network-node").forEach((button) => button.addEventListener("click", () => { state.selectedMechanism = button.dataset.mechanismId; renderNetwork(); }));
+  if (!mechanisms.length) { $("#networkMap").innerHTML = ""; renderNetworkDetail(); return; }
+  const layout = computeNetworkLayout(mechanisms, edges);
+  const degree = new Map(mechanisms.map((m) => [m.id, 0]));
+  for (const e of edges) { if (degree.has(e.source)) degree.set(e.source, degree.get(e.source) + 1); if (degree.has(e.target)) degree.set(e.target, degree.get(e.target) + 1); }
+  const maxDeg = Math.max(1, ...degree.values());
+  const selected = state.selectedMechanism;
+  const neighbours = new Set();
+  for (const e of edges) { if (e.source === selected) neighbours.add(e.target); if (e.target === selected) neighbours.add(e.source); }
+
+  // Direction is carried by a per-edge gradient (source hue -> target hue) so it survives the
+  // stretched coordinate space that a triangular arrowhead would skew; a flowing dash on the active
+  // edges reinforces the cause -> effect reading. Thickness/dash come from the confidence weight.
+  const defs = edges.map((e, i) => { const a = layout.get(e.source), b = layout.get(e.target); if (!a || !b) return ""; return `<linearGradient id="edge${i}" gradientUnits="userSpaceOnUse" x1="${a[0].toFixed(2)}" y1="${a[1].toFixed(2)}" x2="${b[0].toFixed(2)}" y2="${b[1].toFixed(2)}"><stop offset="0" stop-color="hsl(${hueOf(e.source)} 70% 55%)"/><stop offset="1" stop-color="hsl(${hueOf(e.target)} 72% 62%)"/></linearGradient>`; }).join("");
+  const links = edges.map((e, i) => {
+    const a = layout.get(e.source), b = layout.get(e.target); if (!a || !b) return "";
+    const mx = (a[0] + b[0]) / 2, my = (a[1] + b[1]) / 2;
+    let nx = -(b[1] - a[1]), ny = b[0] - a[0]; const nl = Math.hypot(nx, ny) || 1; nx /= nl; ny /= nl;
+    const cx = mx + nx * 5, cy = my + ny * 5;
+    const active = e.source === selected || e.target === selected;
+    return `<path d="M${a[0].toFixed(2)} ${a[1].toFixed(2)} Q${cx.toFixed(2)} ${cy.toFixed(2)} ${b[0].toFixed(2)} ${b[1].toFixed(2)}" class="network-link ${edgeWeight(e.confidence)} ${active ? "active" : "dim"}" data-source="${escapeHtml(e.source)}" data-target="${escapeHtml(e.target)}" stroke="url(#edge${i})" fill="none" />`;
+  }).join("");
+
+  const nodes = mechanisms.map((node) => {
+    const p = layout.get(node.id); if (!p) return "";
+    const r = 15 + 13 * Math.sqrt((degree.get(node.id) || 0) / maxDeg);
+    const isSel = node.id === selected, isNb = neighbours.has(node.id);
+    const emphasis = isSel ? "focus" : isNb ? "neighbour" : (selected ? "dim" : "");
+    return `<button type="button" role="listitem" data-mechanism-id="${escapeHtml(node.id)}" data-group="${groupOf(node.id)}" aria-pressed="${isSel}" class="network-node ${emphasis}" style="left:${p[0].toFixed(2)}%;top:${p[1].toFixed(2)}%;--r:${r.toFixed(1)}px;--hue:${hueOf(node.id)}"><span class="node-orb"><b>${escapeHtml(node.short)}</b></span><span class="node-label">${escapeHtml(node.label)}</span></button>`;
+  }).join("");
+
+  $("#networkMap").innerHTML = `<svg class="network-links" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><defs>${defs}</defs>${links}</svg>${nodes}<div class="network-legend"><span><i class="lg-size"></i>node size = evidence connections</span><span><i class="lg-dash"></i>dashed = contested / model-limited</span><span class="lg-fam">family<i style="--h:33"></i>substrate<i style="--h:158"></i>defence<i style="--h:4"></i>outcome<i style="--h:276"></i>context</span></div>`;
+  $$(".network-node").forEach((button) => {
+    button.addEventListener("click", () => { state.selectedMechanism = button.dataset.mechanismId; renderNetwork(); });
+    button.addEventListener("mouseenter", () => applyNetworkFocus(button.dataset.mechanismId, edges));
+    button.addEventListener("mouseleave", () => applyNetworkFocus(state.selectedMechanism, edges));
+    button.addEventListener("focus", () => applyNetworkFocus(button.dataset.mechanismId, edges));
+    button.addEventListener("blur", () => applyNetworkFocus(state.selectedMechanism, edges));
+  });
   renderNetworkDetail();
+}
+
+// Hover/focus emphasis is a browser-only progressive enhancement: it re-labels the existing DOM nodes
+// and links in place (querySelectorAll returns [] in the render test harness, so this never runs there,
+// and the initial paint already dims correctly for the selected node without any JavaScript).
+function applyNetworkFocus(focusId, edges) {
+  const neighbours = new Set();
+  for (const e of edges) { if (e.source === focusId) neighbours.add(e.target); if (e.target === focusId) neighbours.add(e.source); }
+  $$(".network-node").forEach((el) => {
+    const id = el.dataset.mechanismId;
+    el.classList.remove("focus", "neighbour", "dim");
+    if (id === focusId) el.classList.add("focus"); else if (neighbours.has(id)) el.classList.add("neighbour"); else if (focusId) el.classList.add("dim");
+  });
+  $$(".network-link").forEach((el) => {
+    const on = el.dataset.source === focusId || el.dataset.target === focusId;
+    el.classList.toggle("active", on); el.classList.toggle("dim", !on);
+  });
 }
 
 export function renderNetworkDetail() {
