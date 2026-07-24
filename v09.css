@@ -38,36 +38,37 @@ nav { gap: 21px; font-size: 12px; }
 .network-section .eyebrow { color: var(--acid); }
 .network-section .section-heading > p { color: #aab4af; }
 .network-layout { display: grid; grid-template-columns: minmax(0,1.35fr) minmax(310px,.65fr); align-items: stretch; height: 680px; border: 1px solid #3a4842; }
-.network-map { position: relative; height: 680px; overflow: hidden; background: radial-gradient(circle at 50% 42%, rgba(29,116,100,.22), transparent 55%), #0f1a16; }
+.network-map { position: relative; height: 680px; overflow: hidden; background: radial-gradient(circle at 50% 44%, rgba(29,116,100,.15), transparent 60%), radial-gradient(circle at 50% 118%, rgba(0,0,0,.5), transparent 46%), #0b1310; }
 .network-links { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
-.network-link { vector-effect: non-scaling-stroke; fill: none; stroke-linecap: round; transition: opacity .25s, stroke-width .25s; }
-.network-link.strong { stroke-width: 2.1; }
-.network-link.moderate { stroke-width: 1.4; }
-.network-link.tentative { stroke-width: 1.1; stroke-dasharray: 4 4; }
-.network-link.dim { opacity: .16; }
-.network-link.active { opacity: .95; stroke-width: 2.6; stroke-dasharray: 5 5; animation: edge-flow .9s linear infinite; filter: drop-shadow(0 0 3px rgba(180,255,120,.35)); }
+.network-link { vector-effect: non-scaling-stroke; fill: none; stroke-linecap: round; opacity: .5; transition: opacity .25s, stroke-width .25s; }
+.network-link.strong { stroke-width: 1.8; }
+.network-link.moderate { stroke-width: 1.2; }
+.network-link.tentative { stroke-width: 1; stroke-dasharray: 2.5 5; opacity: .42; }
+.network-link.dim { opacity: .09; }
+.network-link.active { opacity: .95; stroke-width: 2.3; stroke-dasharray: 4 5; animation: edge-flow .9s linear infinite; filter: drop-shadow(0 0 4px hsl(84 90% 60% / .3)); }
 @keyframes edge-flow { to { stroke-dashoffset: -20; } }
 
 .network-node { position: absolute; transform: translate(-50%,-50%); display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 0; border: 0; background: none; cursor: pointer; transition: opacity .25s; z-index: 2; }
-.node-orb { display: grid; place-items: center; width: calc(var(--r) * 2); height: calc(var(--r) * 2); border-radius: 50%; background: radial-gradient(circle at 35% 30%, hsl(var(--hue) 78% 62%), hsl(var(--hue) 62% 30%)); border: 1.5px solid hsl(var(--hue) 60% 74% / .9); box-shadow: 0 0 0 1px rgba(0,0,0,.35), 0 6px 18px rgba(0,0,0,.4); transition: transform .2s, box-shadow .2s; }
-.node-orb b { font: 700 clamp(9px, calc(var(--r) * .42), 15px) var(--mono); color: #08110d; letter-spacing: .2px; }
+.node-orb { display: grid; place-items: center; width: calc(var(--r) * 1.84); height: calc(var(--r) * 1.84); border-radius: 50%; background: radial-gradient(circle at 42% 36%, hsl(var(--hue) 72% 63%), hsl(var(--hue) 66% 47%) 78%); border: 1px solid hsl(var(--hue) 55% 78% / .5); box-shadow: 0 0 0 5px hsl(var(--hue) 60% 50% / .07), 0 3px 12px rgba(0,0,0,.45); transition: transform .2s, box-shadow .2s, filter .2s; }
+.node-orb b { font: 700 clamp(9px, calc(var(--r) * .42), 15px) var(--mono); color: #0a1510; letter-spacing: .2px; }
 /* Labels hang below the orb (absolute, so they never shift the orb off its link endpoint) and, like
    Obsidian's graph, appear only for the focused node, its neighbours or the hovered node — the orb
    short-code always carries identity, so the canvas stays legible instead of a wall of overlapping text.
    The full label text stays in the DOM for screen readers regardless of visibility. */
-.node-label { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); margin-top: 5px; width: max-content; max-width: 132px; color: #cdd6d1; font: 500 10.5px/1.25 var(--mono); text-align: center; text-shadow: 0 1px 3px rgba(0,0,0,.9); opacity: 0; transition: opacity .2s; pointer-events: none; }
+.node-label { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); margin-top: 7px; width: max-content; max-width: 128px; padding: 3px 8px; border-radius: 7px; background: #1f2c26; border: 1px solid rgba(255,255,255,.1); color: #cdd7d1; font: 500 9.5px/1.3 var(--mono); text-align: center; box-shadow: 0 2px 9px rgba(0,0,0,.6); opacity: 0; transition: opacity .2s; pointer-events: none; z-index: 3; }
 .network-node.focus .node-label, .network-node.neighbour .node-label, .network-node:hover .node-label { opacity: 1; }
-.network-node:hover .node-orb, .network-node.focus .node-orb { transform: scale(1.08); box-shadow: 0 0 0 3px hsl(var(--hue) 70% 60% / .35), 0 0 22px hsl(var(--hue) 80% 55% / .5), 0 8px 22px rgba(0,0,0,.45); }
-.network-node.focus .node-label { color: #fff; font-weight: 600; opacity: 1; }
+.network-node.neighbour .node-label { background: #18241e; color: #aeb9b3; }
+.network-node:hover .node-orb, .network-node.focus .node-orb { transform: scale(1.1); box-shadow: 0 0 0 4px hsl(var(--hue) 70% 58% / .3), 0 0 26px hsl(var(--hue) 82% 55% / .45), 0 6px 20px rgba(0,0,0,.5); }
+.network-node.focus .node-label { color: #fff; font-weight: 600; opacity: 1; background: #26362e; border-color: hsl(var(--hue) 60% 58% / .7); box-shadow: 0 3px 14px rgba(0,0,0,.65); z-index: 5; }
 .network-node.neighbour { opacity: 1; }
-.network-node.dim { opacity: .34; }
+.network-node.dim { opacity: .3; filter: saturate(.55) brightness(.82); }
 .network-node:hover { opacity: 1; z-index: 4; }
 
 /* Role-band captions name the reasoning-chain layer above each cluster. */
 .role-caption { position: absolute; transform: translateX(-50%); z-index: 1; color: hsl(var(--hue) 55% 68%); font: 600 9.5px var(--mono); letter-spacing: 1.2px; text-transform: uppercase; white-space: nowrap; opacity: .82; text-shadow: 0 1px 4px rgba(0,0,0,.9); pointer-events: none; }
 .role-caption::after { content: ""; display: block; height: 1px; margin-top: 3px; background: linear-gradient(90deg, transparent, hsl(var(--hue) 55% 60% / .5), transparent); }
 
-.network-legend { position: absolute; left: 16px; bottom: 14px; display: flex; flex-wrap: wrap; gap: 6px 16px; max-width: 72%; z-index: 3; }
+.network-legend { position: absolute; left: 16px; bottom: 14px; display: flex; flex-wrap: wrap; gap: 6px 16px; max-width: 74%; padding: 8px 13px; border-radius: 10px; background: rgba(8,15,12,.5); border: 1px solid rgba(255,255,255,.05); backdrop-filter: blur(4px); z-index: 3; }
 .network-legend span { display: inline-flex; align-items: center; gap: 6px; color: #9aa4a0; font: 500 9.5px var(--mono); }
 .network-legend i { width: 16px; height: 3px; border-radius: 2px; background: #7c8b83; display: inline-block; }
 .network-legend .lg-size { width: 11px; height: 11px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #8fd6a8, #2f6a49); }
@@ -258,6 +259,34 @@ nav { gap: 21px; font-size: 12px; }
 .assay-boundaries .provisional-note { margin: 0 0 8px; font: 8px/1.6 var(--mono); opacity: .85; }
 .edge-review { display: block; margin: 2px 0 6px; font: 8px var(--mono); opacity: .75; }
 .edge-review.pending { border-left: 2px solid #b08a3c; padding-left: 5px; color: #6f5313; opacity: 1; }
+
+/* Inside the dark mechanism panel the evidence cards are restyled dark for one continuous surface —
+   the light paper/peach fills read as pasted-in on #0d1713. Scoped to .network-detail so the same
+   classes stay light wherever else they render (method and paper detail sit on the light theme). */
+.network-detail .claim-group > span { color: #5cc3ac; }
+.network-detail .claim-row { border: 1px solid #2b3a34; background: #16211b; }
+.network-detail .claim-row button.paper-open { color: #e6ede9; }
+.network-detail .claim-row button.paper-open:hover { color: var(--acid); }
+.network-detail .claim-row small { color: #8a968f; }
+.network-detail .claim-row p { color: #aeb8b2; }
+.network-detail .assay-boundaries { background: #241b15; color: #d8ac93; border-left: 2px solid var(--orange); }
+.network-detail .assay-boundaries span { color: #ef9163; }
+.network-detail .edge-review.pending { border-left-color: #c79a3c; color: #d3ab52; }
+.network-detail .research-chips span { color: #93dcc7; background: rgba(29,116,100,.18); border: 1px solid rgba(147,220,199,.2); }
+.network-detail .research-pending { background: #16211b; border: 1px solid #2b3a34; color: #aeb8b2; }
+
+/* FerrDb V3 deep-links + evidence-weighting badge at the foot of the mechanism panel. The gene
+   links jump straight to each gene's FerrDb single-gene page (linking, not redistribution); the
+   badge shows only the paper's published global counts, labelled as literature counts. */
+.network-detail .ferrdb-gene-links { margin-top: 24px; padding-top: 16px; border-top: 1px solid #24322c; }
+.network-detail .ferrdb-gene-links > span { display: block; margin-bottom: 9px; color: #5cc3ac; font: 700 8px var(--mono); text-transform: uppercase; letter-spacing: .4px; }
+.network-detail .ferrdb-gene-links a { display: inline-block; margin: 0 5px 5px 0; padding: 4px 9px; border: 1px solid rgba(147,220,199,.28); border-radius: 999px; color: #b7e6d8; background: rgba(29,116,100,.16); font: 600 10px var(--mono); text-decoration: none; transition: background .15s, color .15s, border-color .15s; }
+.network-detail .ferrdb-gene-links a:hover { background: rgba(29,116,100,.34); border-color: rgba(147,220,199,.55); color: #eafff8; }
+.network-detail .ferrdb-badge { margin-top: 12px; padding: 12px 13px; background: #14201b; border: 1px solid #24322c; border-left: 2px solid var(--teal); }
+.network-detail .ferrdb-badge > span { display: block; margin-bottom: 7px; color: #5cc3ac; font: 700 8px var(--mono); text-transform: uppercase; letter-spacing: .4px; }
+.network-detail .ferrdb-global { margin: 0 0 7px; color: #d5ddd8; font-size: 11px; line-height: 1.55; }
+.network-detail .ferrdb-boundary { margin: 0; color: #8a968f; font: 9px/1.6 var(--mono); }
+.network-detail .ferrdb-pending { margin: 7px 0 0; padding-left: 8px; border-left: 2px solid #c79a3c; color: #d3ab52; font: 9px/1.55 var(--mono); }
 
 .freshness-row.degraded { border-left: 2px solid var(--orange); padding-left: 9px; }
 .freshness-row.failed { border-left: 2px solid #c96a45; padding-left: 9px; }

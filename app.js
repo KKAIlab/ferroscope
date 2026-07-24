@@ -640,6 +640,35 @@ function applyNetworkFocus(focusId, edges) {
   });
 }
 
+// ------------------------------------------------- FerrDb V3 integration (non-visual)
+// These read the concept-node -> representative-gene map (data/node-gene-map.json, a
+// FerroScope-authored mapping) and the license-gated ingestion layer
+// (data/ferrdb-regulators.json). They render deep links to FerrDb single-gene pages and a
+// weighting badge, but never restate FerrDb's driver/suppressor classification as a claim:
+// the badge is explicitly labelled as literature counts, association-level and non-causal.
+// The .ferrdb-* classes are styled in v09.css.
+function ferrdbNodeGenes(nodeId) {
+  return state.nodeGeneMap?.nodes?.[nodeId]?.genes || [];
+}
+function ferrdbGeneLinksHtml(nodeId) {
+  const genes = ferrdbNodeGenes(nodeId);
+  if (!genes.length) return "";
+  return `<div class="ferrdb-gene-links"><span>Representative genes — open the FerrDb V3 record ↗</span>${genes.map((gene) => `<a href="${safeUrl(gene.ferrdbUrl)}" target="_blank" rel="noreferrer" title="${escapeHtml(gene.role || "")}">${escapeHtml(gene.symbol)}</a>`).join("")}</div>`;
+}
+function ferrdbBadgeHtml(nodeId) {
+  const genes = ferrdbNodeGenes(nodeId);
+  if (!genes.length) return "";
+  const ferrdb = state.ferrdb || {};
+  const counts = ferrdb.publishedCounts;
+  const licensed = ferrdb.status === "license-confirmed" && (ferrdb.regulators || []).length;
+  const globalLine = counts ? `FerrDb V3 (paper Table 2, ferroptosis): ${counts.driver} driver / ${counts.suppressor} suppressor / ${counts.marker} marker literature entries across the modality.` : "FerrDb V3 counts are not loaded.";
+  // A licensed run would compute this node's member-gene driver/suppressor literature totals
+  // and its most-disputed member here; until redistribution permission exists, only the
+  // paper's published global counts and the deep links are shown.
+  const pending = licensed ? "" : "Per-node member-gene aggregation (N driver / M suppressor papers, most-disputed gene) is pending FerrDb redistribution permission.";
+  return `<div class="ferrdb-badge"><span>FerrDb V3 · evidence weighting</span><p class="ferrdb-global">${escapeHtml(globalLine)}</p><p class="ferrdb-boundary">Literature counts, association-level, not causal. Publication-centric: one gene can be recorded as both driver and suppressor across different papers.</p>${pending ? `<p class="ferrdb-pending">${escapeHtml(pending)}</p>` : ""}</div>`;
+}
+
 export function renderNetworkDetail() {
   const node = state.network.mechanisms.find((item) => item.id === state.selectedMechanism); if (!node) return;
   const edges = state.network.mechanismEdges.filter((edge) => edge.source === node.id || edge.target === node.id);
@@ -673,7 +702,7 @@ export function renderNetworkDetail() {
   const boundaryEdges = (state.graph?.edges || []).filter((edge) => edge.relation === "CANNOT_DISTINGUISH" && edge.to === mechanismNode && edge.provenanceClass === "curated-method-module");
   const boundaryItems = [...new Map(boundaryEdges.map((edge) => [edge.claimScope, edge])).values()];
   const provisionalBoundaries = boundaryItems.filter((edge) => !isSourceChecked(edge.reviewState)).length;
-  $("#networkDetail").innerHTML = `<p class="eyebrow">SELECTED MECHANISM</p><h3>${escapeHtml(node.label)}</h3><p>${escapeHtml(node.description)}</p><div class="network-relations">${edges.map((edge) => { const otherId = edge.source === node.id ? edge.target : edge.source; const other = state.network.mechanisms.find((item) => item.id === otherId); return `<section><span>${escapeHtml(edge.relation)}</span><b>${escapeHtml(other?.label || otherId)}</b><p>${escapeHtml(edge.label)}</p><small>${escapeHtml(edge.confidence)}</small>${edgeAnchorHtml(edge)}</section>`; }).join("")}</div><h4>Figure-audited paper claims for this node</h4><div class="claim-groups">${claimHtml || '<p class="research-pending">No figure-audited paper claim has been recorded against this node yet. The relationships above show its evidence anchors and how deeply each was read.</p>'}</div><h4>Methods that interrogate this node</h4><div class="research-chips">${methods.map((method) => `<span>${escapeHtml(method.name)}</span>`).join("")}</div>${boundaryItems.length ? `<div class="assay-boundaries"><span>What these assays cannot establish alone</span>${provisionalBoundaries ? `<p class="provisional-note">${provisionalBoundaries} of ${boundaryItems.length} of these boundaries are curated method-module statements whose declared source has not been read and dated. They are not paper claims and are shown as provisional.</p>` : ""}<ul>${boundaryItems.map((edge) => `<li>${escapeHtml(edge.claimScope)}${isSourceChecked(edge.reviewState) ? `<small class="edge-review">method source checked ${escapeHtml(edge.checkedAt || "")}</small>` : '<small class="edge-review pending">curated method module · awaiting source review</small>'}</li>`).join("")}</ul></div>` : ""}<h4>Laboratories connected through those methods</h4><div class="network-labs">${labs.map((lab) => `<button type="button" data-network-lab="${escapeHtml(lab.id)}">${escapeHtml(lab.pi)}</button>`).join("")}</div>`;
+  $("#networkDetail").innerHTML = `<p class="eyebrow">SELECTED MECHANISM</p><h3>${escapeHtml(node.label)}</h3><p>${escapeHtml(node.description)}</p><div class="network-relations">${edges.map((edge) => { const otherId = edge.source === node.id ? edge.target : edge.source; const other = state.network.mechanisms.find((item) => item.id === otherId); return `<section><span>${escapeHtml(edge.relation)}</span><b>${escapeHtml(other?.label || otherId)}</b><p>${escapeHtml(edge.label)}</p><small>${escapeHtml(edge.confidence)}</small>${edgeAnchorHtml(edge)}</section>`; }).join("")}</div><h4>Figure-audited paper claims for this node</h4><div class="claim-groups">${claimHtml || '<p class="research-pending">No figure-audited paper claim has been recorded against this node yet. The relationships above show its evidence anchors and how deeply each was read.</p>'}</div><h4>Methods that interrogate this node</h4><div class="research-chips">${methods.map((method) => `<span>${escapeHtml(method.name)}</span>`).join("")}</div>${boundaryItems.length ? `<div class="assay-boundaries"><span>What these assays cannot establish alone</span>${provisionalBoundaries ? `<p class="provisional-note">${provisionalBoundaries} of ${boundaryItems.length} of these boundaries are curated method-module statements whose declared source has not been read and dated. They are not paper claims and are shown as provisional.</p>` : ""}<ul>${boundaryItems.map((edge) => `<li>${escapeHtml(edge.claimScope)}${isSourceChecked(edge.reviewState) ? `<small class="edge-review">method source checked ${escapeHtml(edge.checkedAt || "")}</small>` : '<small class="edge-review pending">curated method module · awaiting source review</small>'}</li>`).join("")}</ul></div>` : ""}<h4>Laboratories connected through those methods</h4><div class="network-labs">${labs.map((lab) => `<button type="button" data-network-lab="${escapeHtml(lab.id)}">${escapeHtml(lab.pi)}</button>`).join("")}</div>${ferrdbGeneLinksHtml(node.id)}${ferrdbBadgeHtml(node.id)}`;
   $$("[data-network-lab]").forEach((button) => button.addEventListener("click", () => renderResearchProfile(button.dataset.networkLab)));
 }
 
@@ -742,12 +771,13 @@ function bindEvents() {
 }
 
 async function init() {
-  const [rawLabs, englishLabs, curated, live, meta, watchQueries, research, methods, glossary, network, resources, briefs, papers, paperLinks, recordOverlays, coverage, claims, bundles, manifest, sourceReviews] = await Promise.all([
-    readJson("data/labs.json", []), readJson("data/labs-en.json", []), readJson("data/intelligence-curated.json", []), readJson("data/live.json", []), readJson("data/meta.json", null), readJson("data/watch-queries.json", []), readJson("data/lab-research.json", { profiles: [], counts: null }), readJson("data/methods.json", []), readJson("data/glossary.json", []), readJson("data/knowledge-network.json", { mechanisms: [], mechanismEdges: [], methodLinks: [] }), readJson("data/resources.json", []), readJson("data/signal-briefs-en.json", []), readJson("data/papers-en.json", []), readJson("data/lab-paper-links.json", []), readJson("data/record-overlays.json", []), readJson("data/monitoring-coverage.json", { labs: [] }), readJson("data/paper-claims.json", { contexts: [], perturbations: [], claims: [] }), readJson("data/evidence-bundles.json", { bundles: [], neverStandalone: [] }), readJson("data/schema-versions.json", { files: {} }), readJson("data/source-reviews.json", { sources: [], reviewEvents: [], reviewers: [] })
+  const [rawLabs, englishLabs, curated, live, meta, watchQueries, research, methods, glossary, network, resources, briefs, papers, paperLinks, recordOverlays, coverage, claims, bundles, manifest, sourceReviews, nodeGeneMap, ferrdbRegulators] = await Promise.all([
+    readJson("data/labs.json", []), readJson("data/labs-en.json", []), readJson("data/intelligence-curated.json", []), readJson("data/live.json", []), readJson("data/meta.json", null), readJson("data/watch-queries.json", []), readJson("data/lab-research.json", { profiles: [], counts: null }), readJson("data/methods.json", []), readJson("data/glossary.json", []), readJson("data/knowledge-network.json", { mechanisms: [], mechanismEdges: [], methodLinks: [] }), readJson("data/resources.json", []), readJson("data/signal-briefs-en.json", []), readJson("data/papers-en.json", []), readJson("data/lab-paper-links.json", []), readJson("data/record-overlays.json", []), readJson("data/monitoring-coverage.json", { labs: [] }), readJson("data/paper-claims.json", { contexts: [], perturbations: [], claims: [] }), readJson("data/evidence-bundles.json", { bundles: [], neverStandalone: [] }), readJson("data/schema-versions.json", { files: {} }), readJson("data/source-reviews.json", { sources: [], reviewEvents: [], reviewers: [] }), readJson("data/node-gene-map.json", { nodes: {} }), readJson("data/ferrdb-regulators.json", { status: "unavailable", publishedCounts: null, regulators: [] })
   ]);
   const overlays = new Map(englishLabs.map((item) => [item.id, item]));
   state.labs = rawLabs.map((lab) => ({ ...lab, ...(overlays.get(lab.id) || {}) })).filter((lab) => overlays.has(lab.id));
   state.methods = methods; state.glossary = glossary; state.network = network; state.resources = resources; state.meta = meta;
+  state.nodeGeneMap = nodeGeneMap; state.ferrdb = ferrdbRegulators;
   state.researchProfiles = new Map(research.profiles.map((profile) => [profile.labId, profile])); state.researchCounts = research.counts; state.watchedLabIds = new Set(watchQueries.map((item) => item.labId));
   state.coverage = coverage; state.coverageByLab = new Map((coverage.labs || []).map((row) => [row.labId, row])); state.bundles = bundles; state.manifest = manifest;
   state.recordOverlays = new Map(recordOverlays.map((row) => [row.canonicalId, row]));

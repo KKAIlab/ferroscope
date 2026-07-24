@@ -66,15 +66,15 @@
     "caution": "Network news highlights member output and is not an independent evidence assessment."
   },
   {
-    "id": "ferrdb-v2",
-    "name": "FerrDb V2",
+    "id": "ferrdb-v3",
+    "name": "FerrDb V3",
     "type": "Curated database",
     "authority": "Third-party curated database",
-    "description": "Manually curated ferroptosis regulators, substances and disease associations with literature links.",
-    "url": "https://www.zhounan.org/ferrdb/",
+    "description": "Manually curated regulators and disease associations across 22 regulated-cell-death modalities from >20,000 articles; the ferroptosis layer alone is curated from 18,371 articles. Publication-centric: the same gene can be recorded as both driver and suppressor in different papers, each kept with its own confidence level. Single-gene pages carry a pan-RCD regulation network. Includes a ChatRCD assistant usable only as a fact retriever, not a reasoner.",
+    "url": "https://www.zhounan.org/ferrdb/v3/",
     "language": "English",
-    "checkedAt": "2026-07-23",
-    "caution": "Useful for discovery, but gene labels and disease associations must be checked against the original paper and update date."
+    "checkedAt": "2026-07-24",
+    "caution": "A dated third-party secondary source. Its counts are literature counts, not mechanistic claims, and its disease links are association-level, not causal. Gene labels must be checked against the original paper and update date. The site footer states 'All rights reserved' and grants only free access for educational and scientific purposes, so its data are linked to here, not redistributed."
   },
   {
     "id": "kegg-ferroptosis",
