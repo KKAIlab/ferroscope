@@ -63,11 +63,16 @@ nav { gap: 21px; font-size: 12px; }
 .network-node.dim { opacity: .34; }
 .network-node:hover { opacity: 1; z-index: 4; }
 
+/* Role-band captions name the reasoning-chain layer above each cluster. */
+.role-caption { position: absolute; transform: translateX(-50%); z-index: 1; color: hsl(var(--hue) 55% 68%); font: 600 9.5px var(--mono); letter-spacing: 1.2px; text-transform: uppercase; white-space: nowrap; opacity: .82; text-shadow: 0 1px 4px rgba(0,0,0,.9); pointer-events: none; }
+.role-caption::after { content: ""; display: block; height: 1px; margin-top: 3px; background: linear-gradient(90deg, transparent, hsl(var(--hue) 55% 60% / .5), transparent); }
+
 .network-legend { position: absolute; left: 16px; bottom: 14px; display: flex; flex-wrap: wrap; gap: 6px 16px; max-width: 72%; z-index: 3; }
 .network-legend span { display: inline-flex; align-items: center; gap: 6px; color: #9aa4a0; font: 500 9.5px var(--mono); }
 .network-legend i { width: 16px; height: 3px; border-radius: 2px; background: #7c8b83; display: inline-block; }
 .network-legend .lg-size { width: 11px; height: 11px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #8fd6a8, #2f6a49); }
 .network-legend .lg-dash { height: 0; border-top: 2px dashed #9aa4a0; background: none; }
+.network-legend .lg-note { gap: 0; }
 .network-legend .lg-fam { gap: 5px; }
 .network-legend .lg-fam i { width: 9px; height: 9px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, hsl(var(--h) 78% 62%), hsl(var(--h) 62% 34%)); }
 .network-legend .lg-fam i:not(:first-of-type) { margin-left: 6px; }
