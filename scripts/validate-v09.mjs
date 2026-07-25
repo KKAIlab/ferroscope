@@ -7,8 +7,8 @@ import { createResolver, validateRegistry } from "../lib/source-registry.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const read = async (file) => JSON.parse(await fs.readFile(path.join(root, "data", file), "utf8"));
-const [labs, labsEn, methods, glossary, network, resources, curated, briefs, bundles, paperClaims, paperLinks, sourceReviews, papersEn] = await Promise.all([
-  read("labs.json"), read("labs-en.json"), read("methods.json"), read("glossary.json"), read("knowledge-network.json"), read("resources.json"), read("intelligence-curated.json"), read("signal-briefs-en.json"), read("evidence-bundles.json"), read("paper-claims.json"), read("lab-paper-links.json"), read("source-reviews.json"), read("papers-en.json")
+const [labs, labsEn, methods, glossary, network, resources, curated, briefs, bundles, paperClaims, paperLinks, sourceReviews, papersEn, ferrdbRegulators] = await Promise.all([
+  read("labs.json"), read("labs-en.json"), read("methods.json"), read("glossary.json"), read("knowledge-network.json"), read("resources.json"), read("intelligence-curated.json"), read("signal-briefs-en.json"), read("evidence-bundles.json"), read("paper-claims.json"), read("lab-paper-links.json"), read("source-reviews.json"), read("papers-en.json"), read("ferrdb-regulators.json")
 ]);
 const paperDois = new Set(papersEn.map((paper) => paper.doi).filter(Boolean));
 
@@ -337,6 +337,23 @@ for (const source of metaRecord.sources || []) {
 for (const resource of resources) {
   if (!isoDate.test(resource.checkedAt || "")) errors.push(`Resource ${resource.id} has a non-ISO checkedAt date: ${resource.checkedAt}`);
   else if (resource.checkedAt > today) errors.push(`Resource ${resource.id} carries a check date in the future: ${resource.checkedAt}`);
+}
+
+// FerrDb redistribution is license-gated and NOT yet authorised. The regulators payload and any status
+// other than "pending-license-confirmation" are honesty-bearing claims that app.js gates a rendered
+// "pending FerrDb permission" caveat on — yet nothing else read this file, so a silent flag flip could
+// drop that caveat with nothing behind it. A confirmed license must therefore be backed by a
+// licenseGrant record (who granted it, when, and the evidence URL); until that record exists the file
+// must stay in its empty pending state. This keeps the honesty flag under the same "no claim without a
+// backing record" rule as every review state in this project.
+{
+  const f = ferrdbRegulators || {};
+  const claimsLicense = f.status !== "pending-license-confirmation" || (f.regulators || []).length > 0 || f.regulatorsStatus !== "empty-pending-license";
+  if (claimsLicense) {
+    const grant = f.licenseGrant || {};
+    const backed = grant.grantedBy && isoDate.test(grant.date || "") && /^https?:\/\/\S+/.test(grant.evidenceUrl || "");
+    if (!backed) errors.push('ferrdb-regulators.json asserts a FerrDb license or a non-empty regulators payload without a backing licenseGrant record (grantedBy + ISO date + evidenceUrl); FerrDb redistribution is not authorised, so the file must keep status "pending-license-confirmation", an empty regulators array and regulatorsStatus "empty-pending-license" until that record exists.');
+  }
 }
 
 if (errors.length) { console.error(errors.join("\n")); process.exit(1); }
