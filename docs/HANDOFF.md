@@ -4,7 +4,7 @@ More than one agent commits to this repository. This file is what a new session 
 know before it touches anything: who owns which layer, how to push without destroying
 someone else's work, and what is currently open.
 
-Updated 2026-07-25 (round 12, stabilisation pass).
+Updated 2026-07-25 (round 13, acyl axis).
 
 ## Push discipline
 
@@ -31,10 +31,16 @@ of the same files.
 On conflict, the evidence/audit side is the integration point. **Do not cross-edit another
 owner's files** — leave a request in "Open items" below instead.
 
-`app.js` is shared in practice: the honesty disclosures in the mechanism-graph renderer
-(`edgeAnchorHtml`, `edgeAnchorDepth`, `edgeWeight`) belong to the evidence contract even
-though the file is front-end. Changing how those render is an evidence-layer decision. See
-`docs/HONESTY-CONTRACTS.md` §1.
+`app.js` is shared in practice, and two things in it belong to the evidence contract even
+though the file is front-end:
+
+- the honesty disclosures in the mechanism-graph renderer (`edgeAnchorHtml`,
+  `edgeAnchorDepth`, `edgeWeight`) — see `docs/HONESTY-CONTRACTS.md` §1;
+- the `MECHANISM_GROUP` table — which band of the reasoning chain a mechanism is drawn in is
+  a statement about where this project places that biology, not styling. Adding a row is an
+  evidence-side edit and `validate-coherence.mjs` now requires one per mechanism; changing how
+  the bands *look* (`ROLE_META` hues, spacing, snap strengths) is the front-end owner's call.
+  See `docs/HONESTY-CONTRACTS.md` §3.
 
 ## Before you change anything
 
@@ -46,39 +52,58 @@ though the file is front-end. Changing how those render is an evidence-layer dec
 - Adding a mechanism node with no method link, or an edge anchored only on abstracts? →
   declare it in `ACKNOWLEDGED_GAPS` in `scripts/validate-coherence.mjs`. The check fails
   otherwise, by design: widening the corpus's silence must be a deliberate, visible act.
+- Adding a mechanism node at all? → it also needs a band in `MECHANISM_GROUP` (`app.js`), or
+  the check fails. Without one it would render in "Disease & therapy" by fallback rather than
+  disappear, which is the harder failure to notice. `docs/HONESTY-CONTRACTS.md` §3.
+- Linking a method to one more mechanism? → check whether that method carries
+  `assertionScopes`. Those modules propagate **source-checked** state to every edge they
+  produce, so a new link there silently claims a reading of a scope covering the new mechanism
+  that nobody performed. `test-graph-contract.mjs` catches it; route the link through a module
+  without read scopes unless the scope genuinely covers the new mechanism.
 
 ## Open items
 
 ### For the front-end / FerrDb owner
 
-1. **`data/node-gene-map.json` is missing three nodes.** The graph has 17 mechanisms; the
-   map covers 14. Missing: `system-xc`, `gch1-bh4`, `mevalonate-sterol` (added in round 11).
-   Deep links silently no-op for them — an honest empty state, but a gap. Suggested mapping,
-   for the owner to verify and apply:
+1. **`data/node-gene-map.json` is missing four nodes.** The graph has 18 mechanisms; the
+   map covers 14. Missing: `system-xc`, `gch1-bh4`, `mevalonate-sterol` (round 11) and
+   `acsl4-lpcat3` (round 13). Deep links silently no-op for them — an honest empty state, but
+   a gap. Suggested mapping, for the owner to verify and apply:
    - `system-xc` → SLC7A11, SLC3A2
    - `gch1-bh4` → GCH1, DHFR
    - `mevalonate-sterol` → HMGCR, DHCR7
+   - `acsl4-lpcat3` → ACSL4, LPCAT3
 2. **`graphSyncNote` in that file is stale.** It states "All 14 node ids here exist in the
-   committed knowledge-network.json". The count is now 17 in the graph, 14 in the map. The
+   committed knowledge-network.json". The count is now 18 in the graph, 14 in the map. The
    note's substantive claim (consumers look up by node id and no-op for absent ids) still
    holds — only the number and the implied completeness are wrong.
 
 ### On the evidence side, deferred by decision
 
-3. **Seven mechanism nodes have no method link**, so their detail panel shows no
-   interrogating method: `mufa-membrane-remodelling`, `selenium-selenoprotein`,
-   `mitochondrial-metabolism`, `immune-regulation`, `system-xc`, `gch1-bh4`,
-   `mevalonate-sterol`. Declared in `ACKNOWLEDGED_GAPS`.
+3. **Six mechanism nodes have no method link**, so their detail panel shows no
+   interrogating method: `selenium-selenoprotein`, `mitochondrial-metabolism`,
+   `immune-regulation`, `system-xc`, `gch1-bh4`, `mevalonate-sterol`. Declared in
+   `ACKNOWLEDGED_GAPS`. (`mufa-membrane-remodelling` left this list in round 13.)
 4. **Three mechanism edges rest only on abstract-level anchors**: `system-xc→gpx4-gsh`,
    `gch1-bh4→lipid-peroxidation`, `mevalonate-sterol→lipid-peroxidation`. Disclosed to the
    reader per edge, and declared in `ACKNOWLEDGED_GAPS`. Deepening any of them means a
    figure audit, not a field edit.
 5. **~44 evidence-audited papers remain unmigrated** in the legacy archive with no figure
    chain. They would arrive at abstract level at best; not started.
-6. **Fig. 1 of the consensus review still has unmodelled arms.** The mechanism graph's
-   reasoning-chain layout is grounded in Mishima/Conrad, *Nat Rev Mol Cell Biol* 2025
-   (`robust-research-2025` in `resources.json`), deliberately not matching it one-to-one.
-   ACSL4 / LPCAT3 / SCD1 have no node yet.
+6. **The acyl axis is modelled; the Fig. 1 comparison itself is not.** Round 13 added
+   `acsl4-lpcat3` as a node anchored on Kagan 2017 at figure-chain/methods-checked depth, and
+   handled the MUFA side without a node by decision: `mufa-membrane-remodelling` already *is*
+   the act those enzymes perform, so SCD1/ACSL3/MBOAT1/2 are named in its description and
+   carried as glossary terms (`scd1` added, the other three already present) rather than
+   restated as a second node.
+
+   What remains open is the premise, and it should be stated plainly: **this project has never
+   systematically compared its graph against that figure.** Mishima/Conrad, *Nat Rev Mol Cell
+   Biol* 2025 is `robust-research-2025` in `resources.json` — an `Evidence standard` resource,
+   not a figure-audited paper in `papers-en`. So "what else is in Fig. 1" has no source-checked
+   answer here, and any future claim to have completed the figure needs the review migrated at
+   least to bibliographic tier first (`docs/RECIPE-bibliographic-migration.md`). The graph is
+   grounded in that scheme; it was never a checklist against it.
 
 ## Environment notes
 

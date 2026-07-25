@@ -43,7 +43,7 @@ const read = async (file) => JSON.parse(await fs.readFile(path.join(root, "data"
 const ACKNOWLEDGED_GAPS = {
   // No methodLink reaches these nodes, so their detail panel shows no interrogating method.
   mechanismsWithoutMethod: [
-    "mufa-membrane-remodelling", "selenium-selenoprotein", "mitochondrial-metabolism",
+    "selenium-selenoprotein", "mitochondrial-metabolism",
     "immune-regulation", "system-xc", "gch1-bh4", "mevalonate-sterol",
   ],
   // Every anchor of these edges was read at abstract level. The interface already discloses
@@ -245,6 +245,38 @@ compareToBaseline(
     .map((edge) => `${edge.source}->${edge.target}`),
   ACKNOWLEDGED_GAPS.edgesAnchoredOnlyOnAbstracts,
 );
+
+// The reasoning-chain layout lives in app.js as MECHANISM_GROUP, a table mapping each mechanism
+// id to the band it is drawn in. An unmapped node is not dropped — groupOf() falls back to
+// "context", so it renders inside the "Disease & therapy" band as though the project had placed
+// it there deliberately. Nothing read that table, which is the exact shape both honesty
+// contracts describe: a claim reaching the reader through a path no validator covers. Adding a
+// mechanism to the data was therefore enough to state a false thing about it on screen, with
+// every check green. A new mechanism must now declare its band.
+const appSource = await fs.readFile(path.join(root, "app.js"), "utf8");
+const groupBlock = appSource.match(/const MECHANISM_GROUP = \{([\s\S]*?)\n\};/);
+if (!groupBlock) {
+  // Failing closed is deliberate: if the table is renamed or restructured, this check must be
+  // rewritten, not silently skipped. A silent skip returns the corpus to the unguarded state.
+  contradictions.push(
+    "app.js: the MECHANISM_GROUP layout table could not be located. If it was renamed or restructured, " +
+    "update this check — an unmapped mechanism silently rendering in the \"Disease & therapy\" band is what it exists to catch.",
+  );
+} else {
+  const mapped = new Set([...groupBlock[1].matchAll(/"([a-z0-9-]+)"\s*:/g)].map((match) => match[1]));
+  const unmapped = network.mechanisms.map((mechanism) => mechanism.id).filter((id) => !mapped.has(id));
+  const stale = [...mapped].filter((id) => !mechanismById.has(id));
+  if (unmapped.length) {
+    contradictions.push(
+      `mechanisms with no declared layout band in app.js MECHANISM_GROUP: ${unmapped.join(", ")} — ` +
+      "each would fall back to the \"Disease & therapy\" band, placing it in the reasoning chain where it does not belong.",
+    );
+  }
+  if (stale.length) {
+    contradictions.push(`app.js MECHANISM_GROUP assigns a band to ids that are not mechanisms: ${stale.join(", ")}.`);
+  }
+  notes.push(`mechanism layout bands declared in app.js: ${mapped.size}, covering all ${network.mechanisms.length} mechanisms`);
+}
 
 if (contradictions.length) {
   console.error(contradictions.join("\n"));
