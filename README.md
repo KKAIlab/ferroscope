@@ -138,6 +138,8 @@ npm run check:v09        # foreign keys, schema manifest, ownership, review fing
 npm run check:papers     # paper layer, correction notices and laboratory attribution
 npm run check:graph      # provenance graph contract
 npm run check:graph-contract # negative cases: an unchecked edge with no provisional state is rejected
+npm run check:coherence  # cross-file agreement between the paper, attribution, registry and mechanism layers
+npm run check:coherence-mutations # negative cases: every coherence rule rejects the break it guards against
 npm run check:surface    # rendered-DOM language, evidence, merge, depth and decision-schema gates
 npm run check:dates      # the interface renders one calendar date identically in three timezones
 npm run check:ingestion  # offline ingestion fixtures under three timezones
@@ -150,6 +152,8 @@ npm run check:links      # laboratory sites, external resources and declared met
 `check:v09` verifies English laboratory coverage, trilingual terminology fields, method-to-laboratory foreign keys, typed mechanism links, HTTPS resources, complete English curated-signal briefs, the evidence-bundle decision paths, and that every file in `data/` is registered in the manifest with an accountable owner, a valid schema version and either a pending-review flag or a matching review fingerprint.
 
 `check:papers` enforces one reading record per normalized DOI, a condition vector, a boundary statement on every figure record, separate article stage and post-publication status, a classified notice with an affected domain and a conclusion impact for every version event, a structured verification source list, and rejection of priority, proof and disease-causation language in published narrative. It also fails if the English layer silently disagrees with the legacy archive.
+
+`check:coherence` checks what no single validator owns: whether the layers still agree with each other after a round of edits. It fails on a dangling source or review-event reference, a review event paired with a source it did not review, a paper advertising a deeper review state than its registry event recorded, a duplicate DOI or glossary alias, a paper with no laboratory attribution or two lead laboratories, a mechanism edge anchoring a DOI outside `papers-en.json`, an orphan mechanism, and a `data/` file the manifest never registered. It also pins the corpus's acknowledged gaps — mechanisms no method interrogates, edges anchored only on abstract-level readings — by exact identity, so widening or quietly closing one of those silences fails the check until it is declared. `check:coherence-mutations` breaks the corpus in each of those ways and asserts the check rejects it.
 
 `check:surface` renders the real interface through a DOM harness and fails if Chinese or Japanese text reaches the page outside `#glossaryGrid`, if a hostile title, topic, takeaway or URL scheme survives into the rendered markup, if an automated record is graded or labelled peer reviewed, if two layers of the same study render twice, or if the archive-derived verification depth is not visible on the card.
 
