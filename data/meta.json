@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-25T13:58:31.327Z",
+  "generatedAt": "2026-07-25T14:01:46.078Z",
   "version": "0.1.0",
   "schemaVersion": "1.1.0",
   "generator": "scripts/update-data.mjs",
@@ -9,15 +9,15 @@
     "curatedSignals": 23,
     "liveSignals": 56,
     "staleSignals": 0,
-    "partiallyStaleSignals": 0
+    "partiallyStaleSignals": 1
   },
   "sources": [
     {
       "name": "Tracked labs / PubMed",
       "ok": true,
       "state": "ok",
-      "lastSuccessAt": "2026-07-25T13:58:31.327Z",
-      "lastAttemptAt": "2026-07-25T13:58:31.327Z",
+      "lastSuccessAt": "2026-07-25T14:01:46.078Z",
+      "lastAttemptAt": "2026-07-25T14:01:46.078Z",
       "retainedItems": 0,
       "retainedAgeDays": null,
       "maxAgeDays": 14,
@@ -28,8 +28,8 @@
       "name": "PubMed",
       "ok": true,
       "state": "ok",
-      "lastSuccessAt": "2026-07-25T13:58:31.327Z",
-      "lastAttemptAt": "2026-07-25T13:58:31.327Z",
+      "lastSuccessAt": "2026-07-25T14:01:46.078Z",
+      "lastAttemptAt": "2026-07-25T14:01:46.078Z",
       "retainedItems": 0,
       "retainedAgeDays": null,
       "maxAgeDays": 14,
@@ -38,22 +38,22 @@
     },
     {
       "name": "Preprints / Crossref",
-      "ok": true,
-      "state": "ok",
+      "ok": false,
+      "state": "degraded",
       "lastSuccessAt": "2026-07-25T13:58:31.327Z",
-      "lastAttemptAt": "2026-07-25T13:58:31.327Z",
-      "retainedItems": 0,
-      "retainedAgeDays": null,
+      "lastAttemptAt": "2026-07-25T14:01:46.078Z",
+      "retainedItems": 1,
+      "retainedAgeDays": 0,
       "maxAgeDays": 14,
-      "errorClass": null,
-      "note": "1 record passed the quality filter in this run."
+      "errorClass": "network-unreachable",
+      "note": "This source failed on the last attempt (network-unreachable). The 1 records it returned on 2026-07-25 are retained and marked stale; they are 0 days old against a 14-day limit."
     },
     {
       "name": "ClinicalTrials.gov",
       "ok": true,
       "state": "ok",
-      "lastSuccessAt": "2026-07-25T13:58:31.327Z",
-      "lastAttemptAt": "2026-07-25T13:58:31.327Z",
+      "lastSuccessAt": "2026-07-25T14:01:46.078Z",
+      "lastAttemptAt": "2026-07-25T14:01:46.078Z",
       "retainedItems": 0,
       "retainedAgeDays": null,
       "maxAgeDays": 14,
