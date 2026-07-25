@@ -24,17 +24,25 @@ const sandbox = fs.mkdtempSync(path.join(os.tmpdir(), "ferroscope-coherence-"));
 fs.mkdirSync(path.join(sandbox, "scripts"));
 fs.cpSync(path.join(root, "data"), path.join(sandbox, "data"), { recursive: true });
 fs.copyFileSync(path.join(root, "scripts", "validate-coherence.mjs"), path.join(sandbox, "scripts", "validate-coherence.mjs"));
+// app.js is part of the sandbox because the coherence check reads the mechanism-graph layout
+// table out of it. The table is source, not data, but a mechanism missing from it renders in the
+// wrong reasoning-chain band, so it is a cross-file coherence surface like any other.
+fs.copyFileSync(path.join(root, "app.js"), path.join(sandbox, "app.js"));
 
 const pristine = new Map();
 for (const file of fs.readdirSync(path.join(sandbox, "data"))) {
   pristine.set(file, fs.readFileSync(path.join(sandbox, "data", file), "utf8"));
 }
+const pristineApp = fs.readFileSync(path.join(sandbox, "app.js"), "utf8");
 const restore = () => {
   for (const file of fs.readdirSync(path.join(sandbox, "data"))) {
     if (!pristine.has(file)) fs.unlinkSync(path.join(sandbox, "data", file));
   }
   for (const [file, contents] of pristine) fs.writeFileSync(path.join(sandbox, "data", file), contents);
+  fs.writeFileSync(path.join(sandbox, "app.js"), pristineApp);
 };
+const loadApp = () => fs.readFileSync(path.join(sandbox, "app.js"), "utf8");
+const saveApp = (contents) => fs.writeFileSync(path.join(sandbox, "app.js"), contents);
 const load = (file) => JSON.parse(fs.readFileSync(path.join(sandbox, "data", file), "utf8"));
 const save = (file, value) => fs.writeFileSync(path.join(sandbox, "data", file), JSON.stringify(value, null, 2));
 const check = () => {
@@ -153,6 +161,23 @@ const cases = [
       confidence: "strong", evidence: [abstractPaper.doi],
     });
     save("knowledge-network.json", network);
+  }, false],
+
+  // the reasoning-chain layout table in app.js
+  //
+  // These three exist because an unmapped mechanism does not disappear from the canvas — it is
+  // drawn in the "Disease & therapy" band by fallback, stating a position in the causal chain
+  // that the project never assigned it. Nothing checked that table before this round.
+  ["a mechanism with no declared layout band is rejected", () => {
+    // Drop the table's first mapping, whichever mechanism currently holds that slot, so the case
+    // keeps testing the rule rather than one node's name.
+    saveApp(loadApp().replace(/(const MECHANISM_GROUP = \{\s*\n\s*)"[a-z0-9-]+": "[a-z]+", /, "$1"));
+  }, false],
+  ["a layout band assigned to an id that is no longer a mechanism is rejected", () => {
+    saveApp(loadApp().replace("const MECHANISM_GROUP = {", "const MECHANISM_GROUP = {\n  \"mechanism-that-was-deleted\": \"defence\","));
+  }, false],
+  ["a renamed layout table fails closed instead of silently skipping the check", () => {
+    saveApp(loadApp().replace("const MECHANISM_GROUP = {", "const MECHANISM_LAYOUT_BANDS = {"));
   }, false],
 ];
 

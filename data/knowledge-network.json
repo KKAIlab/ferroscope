@@ -67,7 +67,7 @@
       "id": "mufa-membrane-remodelling",
       "label": "MUFA membrane remodelling defence",
       "short": "MUFA",
-      "description": "Writing monounsaturated fatty acids into membrane phospholipids to displace oxidizable PUFA and raise the ferroptosis threshold, independent of GPX4."
+      "description": "SCD1 desaturation, ACSL3 activation and MBOAT1/2 acyltransfer write monounsaturated fatty acids into membrane phospholipids, displacing oxidizable PUFA and raising the ferroptosis threshold independently of GPX4."
     },
     {
       "id": "selenium-selenoprotein",
@@ -104,6 +104,12 @@
       "label": "Mevalonate-sterol antioxidants",
       "short": "MVA",
       "description": "The mevalonate pathway supplies CoQ10 and sterol intermediates such as 7-dehydrocholesterol that suppress phospholipid peroxidation."
+    },
+    {
+      "id": "acsl4-lpcat3",
+      "label": "ACSL4–LPCAT3 PUFA esterification",
+      "short": "ACSL4",
+      "description": "The acyl-CoA synthetase and lysophospholipid acyltransferase step that activates arachidonoyl and adrenoyl chains and esterifies them into membrane phospholipids, setting how much oxidizable substrate the membrane carries."
     }
   ],
   "mechanismEdges": [
@@ -354,6 +360,16 @@
       "evidence": [
         "10.1038/s41586-023-06878-9"
       ]
+    },
+    {
+      "source": "acsl4-lpcat3",
+      "target": "pufa-remodelling",
+      "relation": "esterifies PUFA into",
+      "label": "ACSL4 activation and LPCAT3 esterification load arachidonoyl and adrenoyl chains into membrane phospholipids, and losing either enzyme lowers esterification and confers resistance",
+      "confidence": "strong; dependence not universal across inducers and tissues",
+      "evidence": [
+        "10.1038/nchembio.2238"
+      ]
     }
   ],
   "methodLinks": [
@@ -414,6 +430,8 @@
       "method": "epilipidomics",
       "mechanisms": [
         "pufa-remodelling",
+        "acsl4-lpcat3",
+        "mufa-membrane-remodelling",
         "lipid-peroxidation",
         "tumour-ecology"
       ]
@@ -431,6 +449,8 @@
         "gpx4-gsh",
         "fsp1-coq",
         "pufa-remodelling",
+        "acsl4-lpcat3",
+        "mufa-membrane-remodelling",
         "iron-homeostasis"
       ]
     },

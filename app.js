@@ -462,6 +462,7 @@ export function renderMethodDetail(methodId) {
 const MECHANISM_GROUP = {
   "iron-homeostasis": "drive", "mitochondrial-metabolism": "drive", "organelle-spatial": "drive",
   "pufa-remodelling": "composition", "mufa-membrane-remodelling": "composition",
+  "acsl4-lpcat3": "composition",
   "lipid-peroxidation": "core",
   "gpx4-gsh": "defence", "fsp1-coq": "defence", "selenium-selenoprotein": "defence",
   "system-xc": "defence", "gch1-bh4": "defence", "mevalonate-sterol": "defence",

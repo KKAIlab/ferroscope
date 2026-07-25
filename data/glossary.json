@@ -600,6 +600,7 @@
     "precisionNote": "A GPX4-independent, membrane-composition defence; its protective effect is shown mainly by overexpression and in selected tumours, not established for every tissue.",
     "related": [
       "mufa",
+      "scd1",
       "pufa-pl",
       "acsl4"
     ]
@@ -623,6 +624,7 @@
     "related": [
       "mboat",
       "acsl3",
+      "scd1",
       "pufa-pl"
     ]
   },
@@ -644,7 +646,31 @@
     "precisionNote": "The counterpart to ACSL4: ACSL3 favours MUFA (protective) whereas ACSL4 favours PUFA (sensitizing).",
     "related": [
       "acsl4",
-      "mufa"
+      "mufa",
+      "scd1"
+    ]
+  },
+  {
+    "id": "scd1",
+    "term": "stearoyl-CoA desaturase 1",
+    "abbreviation": "SCD1",
+    "aliases": {
+      "en": [
+        "delta-9 fatty acid desaturase"
+      ],
+      "zh": [
+        "硬脂酰辅酶A去饱和酶1"
+      ],
+      "ja": [
+        "ステアロイルCoA不飽和化酵素1"
+      ]
+    },
+    "simpleEnglish": "The enzyme that makes monounsaturated fatty acids inside the cell, supplying the endogenous MUFA that ACSL3 activates and MBOAT1/2 write into membrane phospholipids.",
+    "precisionNote": "How much SCD1 matters depends on the monounsaturated fatty acid available from outside: supplying oleic acid restores protection in cells lacking SCD1, so loss of SCD1 is not by itself a sensitiser under MUFA-rich conditions.",
+    "related": [
+      "mufa",
+      "acsl3",
+      "mboat"
     ]
   },
   {

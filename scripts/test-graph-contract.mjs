@@ -313,7 +313,12 @@ test("every edge in the shipped graph satisfies the contract", () => {
 
 test("every method-module edge is paperless, and unreviewed unless a read route covers it", () => {
   const moduleEdges = graph.edges.filter((edge) => edge.provenanceClass === "curated-method-module");
-  assert.equal(moduleEdges.length, 74, "the 16 method modules contribute a MEASURES and a CANNOT_DISTINGUISH edge per mechanism link");
+  // Derived from the data, not a snapshot constant: the invariant being asserted is that a
+  // method-mechanism link contributes exactly one MEASURES and one CANNOT_DISTINGUISH edge and
+  // nothing else. A hard-coded total says the same thing only until someone links a method to one
+  // more mechanism, at which point it fails for a reason that has nothing to do with the contract.
+  const declaredLinks = network.methodLinks.reduce((total, link) => total + (link.mechanisms || []).length, 0);
+  assert.equal(moduleEdges.length, declaredLinks * 2, "each method-mechanism link contributes exactly a MEASURES and a CANNOT_DISTINGUISH edge");
   for (const edge of moduleEdges) {
     assert.equal(edge.paperId, null, "a method module never borrows a paper as its backing");
     if (isSourceChecked(edge.reviewState)) {
