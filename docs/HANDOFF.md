@@ -60,6 +60,19 @@ though the file is front-end:
   produce, so a new link there silently claims a reading of a scope covering the new mechanism
   that nobody performed. `test-graph-contract.mjs` catches it; route the link through a module
   without read scopes unless the scope genuinely covers the new mechanism.
+- Writing a test assertion about a specific study? → **never look it up in `data/live.json`.**
+  That file is a moving PubMed window, not a corpus: `fetchTrackedLabs` in `update-data.mjs`
+  takes each laboratory's four most recent ferroptosis papers within one year, so any given
+  record leaves it within months. Three checks were written against records in it and all
+  three eventually broke the scheduled refresh — see the round-14 note in `README.md`. Build
+  the record as a fixture (`scripts/test-public-surface.mjs` and `scripts/test-display-dates.mjs`
+  both show the pattern: `mkdtemp`, copy `data/`, overwrite `live.json`, render). Records in
+  `intelligence-curated.json`, `papers-en.json`, `record-overlays.json` and the rest of `data/`
+  are hand-maintained and safe to name.
+- Note the asymmetry that hid this for six failed runs: `data/live.json` is **committed**, so a
+  local `npm run check` validates the snapshot in git while CI validates what it just fetched.
+  A green local run does not mean the refresh will pass. To reproduce CI: `npm run update`
+  then `npm run check`, and restore `data/live.json` + `data/meta.json` afterwards.
 
 ## Open items
 

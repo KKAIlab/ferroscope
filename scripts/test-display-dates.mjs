@@ -11,6 +11,8 @@
 // fixture proves it still has power instead of passing vacuously.
 
 import assert from "node:assert/strict";
+import fs from "node:fs/promises";
+import os from "node:os";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { DomHarness } from "./lib/dom-harness.mjs";
@@ -19,8 +21,16 @@ import { formatCalendarDate } from "../lib/records.mjs";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const appPath = path.join(root, "app.js");
 
-// The record the independent review named: PubMed reports 2025-12-04, and a negative UTC
-// offset is where the old formatter lost the day.
+// The date the independent review named: PubMed reported 2025-12-04 for the record it found,
+// and a negative UTC offset is where the old formatter lost the day.
+//
+// The probe record carrying it is now built rather than looked up. It used to be whichever
+// automated record happened to hold that date — the GPX4 fin-loop paper — but the automated
+// layer is a moving PubMed window (`fetchTrackedLabs` in update-data.mjs takes each
+// laboratory's four most recent papers within one year), so that record left the dataset and
+// would have taken this fixture's power with it: the assertion below would report that no
+// record with the probe date rendered, which is true and says nothing about the formatter.
+// The date is what is under test, not the study.
 const PROBE_DATE = "2025-12-04";
 const EXPECTED = "04 Dec 2025";
 const ZONES = ["UTC", "Asia/Tokyo", "America/Los_Angeles"];
@@ -38,9 +48,9 @@ function naiveFormat(date) {
   return new Intl.DateTimeFormat("en-GB", { year: "numeric", month: "short", day: "2-digit" }).format(value);
 }
 
-async function renderIn(timeZone, cacheKey) {
+async function renderIn(timeZone, cacheKey, dataRoot) {
   process.env.TZ = timeZone;
-  const harness = new DomHarness({ dataRoot: root }).install();
+  const harness = new DomHarness({ dataRoot }).install();
   const url = pathToFileURL(appPath);
   url.search = `?dates=${cacheKey}`;
   const app = await import(url.href);
@@ -51,11 +61,30 @@ async function renderIn(timeZone, cacheKey) {
   return harness;
 }
 
+// A dataset that is the real one in every respect except that the automated layer is a single
+// record pinned to the probe date, so the fixture cannot go quiet when the fetch window moves.
+const fixtureDir = await fs.mkdtemp(path.join(os.tmpdir(), "ferroscope-dates-"));
+await fs.cp(path.join(root, "data"), path.join(fixtureDir, "data"), { recursive: true });
+const probeSignals = [{
+  id: "display-date-probe",
+  title: "Display-date probe record",
+  date: PROBE_DATE,
+  sourceType: "paper",
+  relevance: 100,
+  featured: true,
+  topics: ["ferroptosis"],
+  takeaway: "Fixture record pinned to the calendar date under test.",
+  caveat: "Fixture record.",
+  url: "https://doi.org/10.0000/display-date-probe",
+  sourceName: "PubMed",
+}];
+await fs.writeFile(path.join(fixtureDir, "data", "live.json"), `${JSON.stringify(probeSignals, null, 2)}\n`);
+
 const rendered = new Map();
 const naive = new Map();
 
 for (const [index, timeZone] of zones.entries()) {
-  const harness = await renderIn(timeZone, `tz${index}`);
+  const harness = await renderIn(timeZone, `tz${index}`, fixtureDir);
   const html = harness.htmlFor("#signalList", "#frontierGrid");
   // The rendered signal carries the stored date in a machine-readable attribute and the
   // formatted date next to it, so the visible text can be pulled out of the real markup.
@@ -66,6 +95,7 @@ for (const [index, timeZone] of zones.entries()) {
 }
 
 process.env.TZ = ambient;
+await fs.rm(fixtureDir, { recursive: true, force: true });
 
 for (const [timeZone, visible] of rendered) {
   fail(visible === EXPECTED, `Under TZ=${timeZone} the interface rendered ${PROBE_DATE} as "${visible}" instead of "${EXPECTED}".`);

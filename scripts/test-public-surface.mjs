@@ -13,6 +13,7 @@ import os from "node:os";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { DomHarness, cjkFindings, cjkPattern } from "./lib/dom-harness.mjs";
+import { canonicalIdentity } from "../lib/records.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const appPath = path.join(root, "app.js");
@@ -71,17 +72,20 @@ for (const item of automated) {
   fail(item.documentType !== "original-research" || item.documentTypeBasis === "paper-layer-audit", `Automated record ${item.id} was promoted to original research without an audit.`);
 }
 
-// The two records the review named by PMID must render as commentary, not as research.
-const commentaries = [
-  ["doi:10.1083/jcb.202606160", "PMID 42439891, a Journal of Cell Biology Spotlight"],
-  ["doi:10.1038/s41556-026-01904-0", "PMID 41813884, a Nature Cell Biology commentary"],
-];
-for (const [canonicalId, description] of commentaries) {
-  const record = app.state.signals.find((item) => item.canonicalId === canonicalId);
-  fail(Boolean(record), `${description} is no longer in the dataset, so the classification fixture cannot run.`);
-  if (!record) continue;
-  fail(record.documentType === "commentary", `${description} renders as ${record.documentType} rather than commentary.`);
-  fail(record.evidenceGrade === null, `${description} carries an evidence grade.`);
+// The records the review reclassified must render as what the audit says they are, not as
+// research. This is checked on a fixture further down rather than here: every overlaid record
+// lives only in the automated layer, so requiring one to be present in live.json makes the
+// check expire when the fetch window moves past it — the same defect that took the scheduled
+// refresh down. Any that happen to be present today are still checked, but their absence is
+// not a failure.
+const overlaidToday = app.state.signals.filter((item) => app.state.recordOverlays.has(item.canonicalId));
+for (const record of overlaidToday) {
+  const overlay = app.state.recordOverlays.get(record.canonicalId);
+  fail(
+    record.documentType === overlay.documentType,
+    `${record.canonicalId} renders as ${record.documentType} rather than the audited ${overlay.documentType}.`,
+  );
+  fail(record.evidenceGrade === null, `${record.canonicalId} carries an evidence grade despite an unassessed audit overlay.`);
 }
 
 // ------------------------------------------------------------------ canonical merge
@@ -93,17 +97,24 @@ for (const item of app.state.signals) {
   }
   byCanonicalId.set(item.canonicalId, item.id);
 }
-// The four the review found rendering twice.
-for (const canonicalId of ["doi:10.1016/j.cell.2025.11.014", "nct:NCT07433283", "nct:NCT06218524", "nct:NCT06928649"]) {
-  const matches = app.state.signals.filter((item) => item.canonicalId === canonicalId);
-  fail(matches.length === 1, `${canonicalId} renders ${matches.length} times; curated and automated layers did not merge.`);
-  const merged = matches[0];
-  if (!merged) continue;
-  fail(merged.reviewStatus === "curated", `${canonicalId} lost its curated card in the merge.`);
-  fail((merged.sources || []).length >= 2, `${canonicalId} does not retain both discovery routes.`);
+// Whatever a record's layers, the rendered page must never show one study twice — that is a
+// property of the merge and holds for any dataset, so it is asserted above against the real
+// data. The rest of the merge contract (curated card wins, both discovery routes survive,
+// laboratory matches union) is asserted against a fixture further down, NOT against whichever
+// records happen to be in live.json today. See the note on the merge fixture for why: the
+// previous version of this check hard-coded four canonical ids and required each to be present
+// in both layers, which is a fact about the PubMed window rather than about the merge.
+//
+// Any curated record that did also arrive through an automated route must still hold both, so
+// the real data is checked for consistency without naming a single study:
+for (const merged of app.state.signals) {
+  const routes = merged.sources || [];
+  if (routes.length < 2) continue;
+  fail(
+    merged.reviewStatus === "curated" || routes.every((route) => route.route !== "curated"),
+    `${merged.canonicalId} carries a curated discovery route but no longer renders as curated.`,
+  );
 }
-const finLoop = app.state.signals.find((item) => item.canonicalId === "doi:10.1016/j.cell.2025.11.014");
-fail((finLoop?.trackedLabIds || []).includes("mishima-tohoku"), "The merged fin-loop record dropped the automated laboratory match.");
 
 // ------------------------------------------------------------- monitoring coverage
 
@@ -345,6 +356,126 @@ const partialIndex = freshnessHtml.indexOf("partial-stale");
 const staleIndex = freshnessHtml.indexOf('review-badge stale"');
 fail(partialIndex !== -1 && staleIndex !== -1 && partialIndex !== staleIndex, "The two freshness states render with the same badge.");
 
+// ------------------------------------------------------------- canonical merge fixture
+//
+// This contract used to be asserted by naming four canonical ids and requiring each to appear
+// in BOTH the curated and the automated layer. That is not a property of the merge — it is a
+// property of the PubMed window, and the window moves. `fetchTrackedLabs` in update-data.mjs
+// asks each laboratory for its four most recent ferroptosis papers within one year
+// (`retmax: 4`, `sort: date`), so an automated record leaves the layer as soon as its
+// laboratory publishes four newer ones, and unconditionally a year after publication. The GPX4
+// fin-loop paper aged out exactly that way and the scheduled refresh had been failing on it
+// ever since — six consecutive runs — while every local check stayed green, because the
+// repository's committed live.json still held the older fetch.
+//
+// So the contract is asserted here by construction instead: a curated record and an automated
+// record are placed on the same canonical identity, and the merge must produce one card that
+// keeps the curated review status, both discovery routes, and the union of the laboratory
+// matches. Nothing about it can expire.
+
+const mergeDir = await fs.mkdtemp(path.join(os.tmpdir(), "ferroscope-merge-"));
+await fs.cp(path.join(root, "data"), path.join(mergeDir, "data"), { recursive: true });
+
+const curatedRecords = JSON.parse(await fs.readFile(path.join(root, "data", "intelligence-curated.json"), "utf8"));
+const labRecords = JSON.parse(await fs.readFile(path.join(root, "data", "labs-en.json"), "utf8"));
+// Pick the target from the data rather than naming one: the curated layer is hand-maintained,
+// but an id written into a test is still one more thing that can go stale for no good reason.
+const mergeTarget = curatedRecords.find((record) => canonicalIdentity(record).canonicalIdKind === "doi");
+fail(Boolean(mergeTarget), "No curated record resolves to a DOI identity, so the merge fixture cannot be built.");
+
+if (mergeTarget) {
+  const targetId = canonicalIdentity(mergeTarget).canonicalId;
+  // A laboratory the curated card does not already claim, so the union is observable.
+  const curatedLabs = new Set(mergeTarget.trackedLabIds || []);
+  const automatedLab = labRecords.map((lab) => lab.id).find((id) => !curatedLabs.has(id));
+  fail(Boolean(automatedLab), "Every laboratory is already on the curated record, so the union cannot be observed.");
+
+  // The same fixture carries a probe for every curated classification overlay. An overlaid
+  // record only ever exists in the automated layer, so asserting against whichever ones are in
+  // live.json today has the same expiry defect; building the probe from the overlay file
+  // instead means the classification is proven for every overlay that exists, forever.
+  const overlayRecords = JSON.parse(await fs.readFile(path.join(root, "data", "record-overlays.json"), "utf8"));
+  const doiOverlays = overlayRecords.filter((overlay) => String(overlay.canonicalId || "").startsWith("doi:"));
+  fail(doiOverlays.length > 0, "No DOI-identified classification overlay exists, so the overlay fixture proves nothing.");
+
+  const mergeSignals = [
+    {
+      id: "merge-fixture-automated",
+      title: "Automated route probe for the canonical merge",
+      date: "2026-07-02",
+      sourceType: "paper",
+      relevance: 100,
+      featured: true,
+      topics: ["ferroptosis"],
+      takeaway: "Automated discovery of a study the curated layer already holds.",
+      caveat: "Fixture record.",
+      url: mergeTarget.url,
+      sourceName: "Tracked labs / PubMed",
+      trackedLabIds: automatedLab ? [automatedLab] : [],
+    },
+    // Deliberately carries no documentType: if the overlay is not consulted, the record falls
+    // through to "unknown" and the assertion below catches it.
+    ...doiOverlays.map((overlay, index) => ({
+      id: `merge-fixture-overlay-${index}`,
+      title: `Classification overlay probe ${index}`,
+      date: "2026-07-03",
+      sourceType: "paper",
+      relevance: 99,
+      topics: ["ferroptosis"],
+      takeaway: "Probe for a record the curated audit reclassified.",
+      caveat: "Fixture record.",
+      url: `https://doi.org/${overlay.canonicalId.slice(4)}`,
+      sourceName: "PubMed",
+    })),
+  ];
+  await fs.writeFile(path.join(mergeDir, "data", "live.json"), `${JSON.stringify(mergeSignals, null, 2)}\n`);
+
+  const { app: mergeApp } = await renderWith(mergeDir, "merge");
+  const matches = mergeApp.state.signals.filter((item) => item.canonicalId === targetId);
+
+  fail(matches.length === 1, `${targetId} renders ${matches.length} times; the curated and automated layers did not merge.`);
+  const merged = matches[0];
+  if (merged) {
+    fail(merged.reviewStatus === "curated", `${targetId} lost its curated card in the merge.`);
+    fail((merged.sources || []).length >= 2, `${targetId} does not retain both discovery routes.`);
+    fail(
+      (merged.sources || []).some((route) => route.route === "curated"),
+      `${targetId} dropped the curated discovery route.`,
+    );
+    fail(
+      (merged.sources || []).some((route) => route.route === "Tracked labs / PubMed"),
+      `${targetId} dropped the automated discovery route.`,
+    );
+    if (automatedLab) {
+      fail(
+        (merged.trackedLabIds || []).includes(automatedLab),
+        `${targetId} dropped the automated laboratory match; the merge must union the layers, not overwrite one with the other.`,
+      );
+    }
+    for (const labId of curatedLabs) {
+      fail((merged.trackedLabIds || []).includes(labId), `${targetId} dropped the curated laboratory ${labId} in the merge.`);
+    }
+  }
+
+  // Every classification overlay must reach the rendered record, whatever the ingestion
+  // classifier said and whether or not that study is inside the current fetch window.
+  for (const overlay of doiOverlays) {
+    const record = mergeApp.state.signals.find((item) => item.canonicalId === overlay.canonicalId);
+    fail(Boolean(record), `The overlay probe for ${overlay.canonicalId} did not render; the classification fixture proves nothing.`);
+    if (!record) continue;
+    fail(
+      record.documentType === overlay.documentType,
+      `${overlay.canonicalId} renders as ${record.documentType} rather than the audited ${overlay.documentType}.`,
+    );
+    fail(
+      record.documentTypeBasis === (overlay.documentTypeBasis || "curated-audit"),
+      `${overlay.canonicalId} does not attribute its classification to the audit that made it.`,
+    );
+    fail(record.evidenceGrade === null, `${overlay.canonicalId} carries an evidence grade despite an unassessed audit overlay.`);
+  }
+}
+await fs.rm(mergeDir, { recursive: true, force: true });
+
 if (errors.length) {
   console.error(errors.join("\n"));
   process.exit(1);
@@ -352,5 +483,6 @@ if (errors.length) {
 
 console.log(
   `Public surface tests passed: ${harness.writes.length} rendered fragments checked, ` +
-    `CJK confined to the terminology corpus, and hostile source metadata neutralised.`,
+    `CJK confined to the terminology corpus, hostile source metadata neutralised, ` +
+    `and the canonical merge proven on a fixture rather than on a moving fetch window.`,
 );
