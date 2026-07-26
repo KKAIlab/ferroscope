@@ -26,7 +26,15 @@ of the same files.
 | Layer | Owner | Files |
 |---|---|---|
 | Evidence / content / audit | this line of work | `data/papers-en.json`, `data/knowledge-network.json`, `data/source-reviews.json`, `data/lab-paper-links.json`, `data/glossary.json`, `scripts/validate-*`, `scripts/test-*`, `scripts/migrate-*`, `scripts/expand-*`, `README.md`, `docs/` |
-| Front end + FerrDb | the parallel agent (Fable, working out of `~/orca/workspaces/ferroscope/*`) | `app.js` presentation layer, `v09.css`, `data/node-gene-map.json`, `data/ferrdb-regulators.json`, `scripts/ingest-ferrdb.mjs` |
+| Front end + FerrDb | ~~the parallel agent (Fable, out of `~/orca/workspaces/ferroscope/*`)~~ — **that line has stopped; see below** | `app.js` presentation layer, `v09.css`, `data/node-gene-map.json`, `data/ferrdb-regulators.json`, `scripts/ingest-ferrdb.mjs` |
+
+**The front-end owner is currently absent.** `~/orca/workspaces/ferroscope/` is an empty
+directory and no longer a git repository, and the last commit from that line was `cb50169`
+(2026-07-24). Round 15 therefore took the presentation layer directly — type scale, dialog
+behaviour, expand/collapse — with the maintainer's instruction. Treat the split above as
+describing an arrangement that is not currently running: if that agent returns, this table is
+the thing to renegotiate first, and the round-15 changes to `styles.css` / `v09.css` / `app.js`
+are the ones most likely to conflict.
 
 On conflict, the evidence/audit side is the integration point. **Do not cross-edit another
 owner's files** — leave a request in "Open items" below instead.
