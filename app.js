@@ -14,6 +14,23 @@ export const state = {
   paperTheme: "All", paperSearch: "",
 };
 
+// Collapsing removes rows from above the viewport, so the document shortens under the reader and
+// the browser leaves them wherever that lands — usually somewhere unrelated, further down the
+// page. Returning to the top of the list they just collapsed keeps them where they were looking.
+// Optional-called throughout because the test harness's stub elements implement no geometry.
+function returnToListTop(selector) {
+  $(selector)?.scrollIntoView?.({ behavior: "smooth", block: "start" });
+}
+
+// One "show more" step, and the length each list returns to when collapsed. Expansion used to be
+// one-way: the signal list only ever grew by 8, and the terminology list jumped straight to every
+// entry with no way back. A control that can only go one direction is not an expand/collapse.
+const PAGE_STEP = 8;
+// The list length at the end of the previous render, so an expansion can animate only the records
+// it actually added rather than replaying the entrance for the whole list.
+let renderedSignalCount = 0;
+let renderedGlossaryCount = 0;
+
 const categoryLabels = { core: "Core mechanisms", methods: "Methods & chemistry", translational: "Disease & translation", adjacent: "Strategic adjacent fields" };
 // The badge states the route a record arrived by. What kind of document it is comes from
 // the separate document badge, because a PubMed hit can be original research, a Spotlight
@@ -169,8 +186,14 @@ function evidenceBlock(item) {
 
 export function renderSignals() {
   const all = filteredSignals(), visible = all.slice(0, state.visibleSignals);
-  $("#signalList").innerHTML = visible.length ? visible.map((item) => `<article class="signal-item"><div class="signal-source"><span class="source-badge ${escapeHtml(item.sourceType)}">${escapeHtml(sourceLabels[item.sourceType] || item.sourceType)}</span>${documentBadge(item)}<span class="review-badge ${escapeHtml(item.reviewStatus)}">${item.reviewStatus === "curated" ? "curated" : "automated alert"}</span>${item.alsoDiscoveredAutomatically ? '<span class="review-badge merged">also matched by the laboratory watch</span>' : ""}${freshnessBadge(item)}<time datetime="${escapeHtml(item.date || "")}">${formatDate(item.date)}</time></div><div class="signal-main"><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.takeaway)}${item.caveat ? ` <span class="inline-caveat">Boundary: ${escapeHtml(item.caveat)}</span>` : ""}</p><div class="signal-tags">${(item.trackedLabs || []).slice(0,2).map((lab) => `<span class="chip lab-hit">LAB · ${escapeHtml(lab)}</span>`).join("")}${(item.topics || []).slice(0,4).map((topic) => `<span class="chip">${escapeHtml(topic)}</span>`).join("")}</div></div>${evidenceBlock(item)}<a class="signal-arrow" href="${safeUrl(item.url)}" target="_blank" rel="noreferrer" aria-label="Open primary source">↗</a></article>`).join("") : '<div class="empty">No signals match the current filters.</div>';
+  // Only records that were not on screen a moment ago animate in. A filter change rebuilds every
+  // card, and without this the whole list would replay its entrance every time a dropdown moved —
+  // motion that carries no information is just noise.
+  const enterFrom = visible.length > renderedSignalCount ? renderedSignalCount : visible.length;
+  $("#signalList").innerHTML = visible.length ? visible.map((item, index) => `<article class="signal-item${index >= enterFrom ? " is-entering" : ""}"${index >= enterFrom ? ` style="--enter-index:${index - enterFrom}"` : ""}><div class="signal-source"><span class="source-badge ${escapeHtml(item.sourceType)}">${escapeHtml(sourceLabels[item.sourceType] || item.sourceType)}</span>${documentBadge(item)}<span class="review-badge ${escapeHtml(item.reviewStatus)}">${item.reviewStatus === "curated" ? "curated" : "automated alert"}</span>${item.alsoDiscoveredAutomatically ? '<span class="review-badge merged">also matched by the laboratory watch</span>' : ""}${freshnessBadge(item)}<time datetime="${escapeHtml(item.date || "")}">${formatDate(item.date)}</time></div><div class="signal-main"><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.takeaway)}${item.caveat ? ` <span class="inline-caveat">Boundary: ${escapeHtml(item.caveat)}</span>` : ""}</p><div class="signal-tags">${(item.trackedLabs || []).slice(0,2).map((lab) => `<span class="chip lab-hit">LAB · ${escapeHtml(lab)}</span>`).join("")}${(item.topics || []).slice(0,4).map((topic) => `<span class="chip">${escapeHtml(topic)}</span>`).join("")}</div></div>${evidenceBlock(item)}<a class="signal-arrow" href="${safeUrl(item.url)}" target="_blank" rel="noreferrer" aria-label="Open primary source">↗</a></article>`).join("") : '<div class="empty">No signals match the current filters.</div>';
+  renderedSignalCount = visible.length;
   $("#loadMoreSignals").hidden = visible.length >= all.length;
+  $("#collapseSignals").hidden = visible.length <= PAGE_STEP;
 }
 
 function labMethods(labId) { return state.methods.filter((method) => method.distinctiveLabs?.includes(labId)); }
@@ -711,8 +734,11 @@ function renderGlossary() {
   const term = state.glossarySearch.trim().toLowerCase();
   const filtered = state.glossary.filter((item) => !term || [item.term, item.abbreviation, item.simpleEnglish, item.precisionNote, ...Object.values(item.aliases || {}).flat()].join(" ").toLowerCase().includes(term));
   const visible = filtered.slice(0, term ? filtered.length : state.visibleGlossary);
-  $("#glossaryGrid").innerHTML = visible.length ? visible.map((item) => `<article class="glossary-card"><div class="glossary-term"><span>${escapeHtml(item.abbreviation || "TERM")}</span><h3>${escapeHtml(item.term)}</h3></div><p>${escapeHtml(item.simpleEnglish)}</p><div class="translations"><span><b>中文</b>${escapeHtml((item.aliases?.zh || []).join(" · "))}</span><span><b>日本語</b>${escapeHtml((item.aliases?.ja || []).join(" · "))}</span></div><div class="precision-note"><b>Precision note</b>${escapeHtml(item.precisionNote)}</div></article>`).join("") : '<div class="empty">No terminology entry matches this search.</div>';
+  const enterFrom = visible.length > renderedGlossaryCount ? renderedGlossaryCount : visible.length;
+  $("#glossaryGrid").innerHTML = visible.length ? visible.map((item, index) => `<article class="glossary-card${index >= enterFrom ? " is-entering" : ""}"${index >= enterFrom ? ` style="--enter-index:${index - enterFrom}"` : ""}><div class="glossary-term"><span>${escapeHtml(item.abbreviation || "TERM")}</span><h3>${escapeHtml(item.term)}</h3></div><p>${escapeHtml(item.simpleEnglish)}</p><div class="translations"><span><b>中文</b>${escapeHtml((item.aliases?.zh || []).join(" · "))}</span><span><b>日本語</b>${escapeHtml((item.aliases?.ja || []).join(" · "))}</span></div><div class="precision-note"><b>Precision note</b>${escapeHtml(item.precisionNote)}</div></article>`).join("") : '<div class="empty">No terminology entry matches this search.</div>';
+  renderedGlossaryCount = visible.length;
   $("#loadMoreGlossary").hidden = Boolean(term) || visible.length >= filtered.length;
+  $("#collapseGlossary").hidden = Boolean(term) || visible.length <= PAGE_STEP;
 }
 
 function renderResourceTypes() {
@@ -756,7 +782,8 @@ function bindEvents() {
   $("#topicFilter").addEventListener("change", (event) => { state.topic = event.target.value; state.visibleSignals = 8; renderSignals(); });
   $("#documentFilter").addEventListener("change", (event) => { state.documentClass = event.target.value; state.visibleSignals = 8; renderSignals(); });
   $("#signalSort").addEventListener("change", (event) => { state.signalSort = event.target.value; renderSignals(); });
-  $("#loadMoreSignals").addEventListener("click", () => { state.visibleSignals += 8; renderSignals(); });
+  $("#loadMoreSignals").addEventListener("click", () => { state.visibleSignals += PAGE_STEP; renderSignals(); });
+  $("#collapseSignals").addEventListener("click", () => { state.visibleSignals = PAGE_STEP; renderSignals(); returnToListTop("#signalList"); });
   $("#labSearch").addEventListener("input", (event) => { state.labSearch = event.target.value; renderLabs(); });
   $("#labGrid").addEventListener("click", (event) => { const button = event.target.closest(".research-open"); if (button) renderResearchProfile(button.dataset.labId); });
   $("#paperSearch").addEventListener("input", (event) => { state.paperSearch = event.target.value; renderPapers(); });
@@ -766,7 +793,8 @@ function bindEvents() {
   $("#methodSearch").addEventListener("input", (event) => { state.methodSearch = event.target.value; renderMethods(); });
   $("#methodGrid").addEventListener("click", (event) => { const button = event.target.closest(".method-open"); if (button) renderMethodDetail(button.dataset.methodId); });
   $("#glossarySearch").addEventListener("input", (event) => { state.glossarySearch = event.target.value; renderGlossary(); });
-  $("#loadMoreGlossary").addEventListener("click", () => { state.visibleGlossary = state.glossary.length; renderGlossary(); });
+  $("#loadMoreGlossary").addEventListener("click", () => { state.visibleGlossary += PAGE_STEP; renderGlossary(); });
+  $("#collapseGlossary").addEventListener("click", () => { state.visibleGlossary = PAGE_STEP; renderGlossary(); returnToListTop("#glossaryGrid"); });
   $("#freshnessButton").addEventListener("click", () => $("#freshnessDialog").showModal());
   for (const dialog of $$("dialog")) { dialog.querySelector(".dialog-close")?.addEventListener("click", () => dialog.close()); dialog.addEventListener("click", (event) => { if (event.target === dialog) dialog.close(); }); }
 }

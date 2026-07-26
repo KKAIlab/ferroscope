@@ -50,7 +50,7 @@
           <label class="select-wrap">Document type <select id="documentFilter"><option value="all">All document types</option></select></label><label class="select-wrap">Topic <select id="topicFilter"><option value="all">All topics</option></select></label><label class="select-wrap">Sort <select id="signalSort"><option value="relevance">Research fit</option><option value="date">Publication date</option><option value="evidence">Evidence level</option></select></label>
         </div>
         <p class="filter-note">A record found by an automated query carries no evidence grade until a curated audit records one, and its document type is “PubMed record” until its publication type is read. Commentary, Spotlight and registry records stay visible but are labelled, not mixed into original research.</p>
-        <div id="signalList" class="signal-list" aria-live="polite"></div><button id="loadMoreSignals" class="load-more" type="button">Show more signals</button>
+        <div id="signalList" class="signal-list" aria-live="polite"></div><div class="load-controls"><button id="loadMoreSignals" class="load-more" type="button">Show more signals</button><button id="collapseSignals" class="load-more subtle" type="button" hidden>Show fewer</button></div>
       </section>
 
       <section id="papers" class="section papers-section"><div class="shell">
@@ -79,7 +79,7 @@
 
       <section id="glossary" class="section shell">
         <div class="section-heading"><div><p class="eyebrow">06 · TERMINOLOGY CORPUS</p><h2>Precise English, searchable in three languages</h2></div><p>English definitions are paired with Chinese and Japanese search terms. Each entry includes a simple explanation and a precision warning.</p></div>
-        <label class="search-box light glossary-search"><span>⌕</span><input id="glossarySearch" type="search" placeholder="Try GPX4, 铁死亡, フェロトーシス or BODIPY" /></label><div id="glossaryGrid" class="glossary-grid"></div><button id="loadMoreGlossary" class="load-more" type="button">Show full terminology corpus</button>
+        <label class="search-box light glossary-search"><span>⌕</span><input id="glossarySearch" type="search" placeholder="Try GPX4, 铁死亡, フェロトーシス or BODIPY" /></label><div id="glossaryGrid" class="glossary-grid"></div><div class="load-controls"><button id="loadMoreGlossary" class="load-more" type="button">Show more terminology</button><button id="collapseGlossary" class="load-more subtle" type="button" hidden>Show fewer</button></div>
       </section>
 
       <section id="resources" class="section resources-section"><div class="shell">
