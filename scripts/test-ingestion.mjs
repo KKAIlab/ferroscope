@@ -17,6 +17,7 @@ import {
   formatCalendarDate,
   mergeSignalLayers,
   parseCalendarDate,
+  partitionByUsableDate,
   pubmedDates,
   retainOnFailure,
 } from "../lib/records.mjs";
@@ -176,6 +177,37 @@ test("a month-precision fallback is never invented from an impossible day", () =
 // what the parser is protecting against in the timezone this run is using.
 const naive = new Date("2025 Dec 4");
 const naiveRoundTrip = Number.isNaN(naive.getTime()) ? "an invalid date" : naive.toISOString().slice(0, 10);
+
+// ------------------------------------------------------------- undated-record gate
+//
+// validate-data.mjs requires an ISO calendar date on every automated record, and it runs in
+// the refresh workflow before the fetched data is committed. The Crossref and
+// ClinicalTrials.gov fetchers both emit `date: null` when the upstream record carries no
+// posted/published date, so one such record would fail that check and abort the whole
+// refresh — the fetched dataset is discarded and the live site stops updating. Undated
+// records are dropped at ingestion instead, and the partition reports what was dropped so
+// the count can be logged rather than hidden.
+
+test("a record with no usable calendar date is separated out so it cannot freeze the refresh", () => {
+  const { dated, undated } = partitionByUsableDate([
+    { id: "trial-NCT1", date: null },
+    { id: "preprint-x", date: undefined },
+    { id: "preprint-y", date: "" },
+    { id: "pubmed-1", date: "2026-05-01" },
+    { id: "preprint-z", date: "2026-06-15" },
+  ]);
+  assert.deepEqual(dated.map((item) => item.id), ["pubmed-1", "preprint-z"], "only records with an ISO date are published");
+  assert.deepEqual(undated.map((item) => item.id), ["trial-NCT1", "preprint-x", "preprint-y"], "every undated record is reported so the drop can be logged");
+});
+
+test("a malformed non-ISO date is treated as undated rather than published", () => {
+  const { dated, undated } = partitionByUsableDate([
+    { id: "a", date: "May 2026" },
+    { id: "b", date: "2026-05-01" },
+  ]);
+  assert.deepEqual(dated.map((item) => item.id), ["b"]);
+  assert.deepEqual(undated.map((item) => item.id), ["a"]);
+});
 
 // --------------------------------------------------------------- canonical identity
 
