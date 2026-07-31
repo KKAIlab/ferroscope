@@ -6,6 +6,7 @@ import {
   classifyPubMedDocument,
   calendarDateFromParts,
   mergeSignalLayers,
+  partitionByUsableDate,
   pubmedDates,
   retainOnFailure,
   successStatus,
@@ -400,7 +401,16 @@ for (const [name, loader] of loaders) {
 
 // Two discovery routes for the same study collapse onto one canonical record and the
 // union of their laboratory matches, instead of the later route overwriting the earlier.
-const live = mergeSignalLayers(collections)
+const merged = mergeSignalLayers(collections);
+// A record with no usable calendar date would fail the published data contract and, because
+// that check runs before the refresh commits, would abort the whole refresh and freeze the
+// site. It is dropped here — logged, not silently — so one undated upstream record cannot
+// take down every other record's update.
+const { dated, undated } = partitionByUsableDate(merged);
+if (undated.length) {
+  console.warn(`Dropped ${undated.length} record(s) with no usable calendar date so an undated upstream record cannot fail validation and freeze the refresh: ${undated.map((item) => item.id).join(", ")}.`);
+}
+const live = dated
   .sort((a, b) => b.relevance - a.relevance || String(b.date || "").localeCompare(String(a.date || "")));
 const curated = await readJson(path.join(dataDir, "intelligence-curated.json"), []);
 // The laboratory-site row is maintained by the manual link check, so its timestamp is
