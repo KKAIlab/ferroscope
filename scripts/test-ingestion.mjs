@@ -14,6 +14,7 @@ import {
   calendarDateFromParts,
   canonicalIdentity,
   classifyPubMedDocument,
+  emptyHarvestIsFailure,
   evidenceGradeFor,
   formatCalendarDate,
   mergeSignalLayers,
@@ -234,6 +235,21 @@ test("Crossref date-parts naming an impossible date fail the parse rather than b
   assert.equal(calendarDateFromParts([]), null);
 });
 
+// A quiet run and a broken upstream both arrive as a well-formed empty answer. The
+// repository's own history shows the general PubMed query legitimately oscillating
+// between one and zero published records, so "published something last run" alone is
+// not evidence of a malfunction — but losing five or more records in one cycle is,
+// and a source already failed for emptiness must not flip back to a false "ok" once
+// its retained records age out and there is nothing left to count.
+test("an empty harvest is a failure only when the loss is implausible or already chronic", () => {
+  assert.equal(emptyHarvestIsFailure({ previousCount: 35 }), true);
+  assert.equal(emptyHarvestIsFailure({ previousCount: 5 }), true);
+  assert.equal(emptyHarvestIsFailure({ previousCount: 1 }), false, "a low-volume source oscillating to zero is an ordinary quiet cycle");
+  assert.equal(emptyHarvestIsFailure({ previousCount: 0 }), false);
+  assert.equal(emptyHarvestIsFailure({ previousCount: 0, previousErrorClass: "empty-result" }), true, "a chronic empty outage stays failed after retention expires");
+  assert.equal(emptyHarvestIsFailure({ previousCount: 0, previousErrorClass: "timeout" }), false, "an unrelated past failure does not make a quiet run a failure");
+});
+
 // --------------------------------------------------------------- canonical identity
 
 test("a DOI, a Nature article URL and a doi.org link collapse onto one identity", () => {
@@ -337,6 +353,17 @@ test("unrelated records are not merged", () => {
   assert.equal(merged.length, 2);
 });
 
+// A legacy retained record can carry an ISO-shaped but impossible date written under
+// the older shape-only contract. If the merge copied it onto the card, the generator's
+// date partition would drop the whole card — including the fresh route's real date.
+test("a merged card prefers a usable date over an impossible legacy one", () => {
+  const [merged] = mergeSignalLayers([
+    { id: "pubmed-legacy", reviewStatus: "automated", sourceName: "PubMed", url: "https://doi.org/10.1000/legacy", relevance: 90, date: "2026-02-31" },
+    { id: "pubmed-fresh", reviewStatus: "automated", sourceName: "Tracked labs / PubMed", url: "https://doi.org/10.1000/legacy", relevance: 70, date: "2026-03-01" },
+  ]);
+  assert.equal(merged.date, "2026-03-01", "the impossible date must not shadow the real one");
+});
+
 // ------------------------------------------------------------------ source failure
 //
 // A source that fails does not invalidate what it previously returned. It invalidates
@@ -393,6 +420,18 @@ test("a corrupt previous dataset degrades instead of crashing the retention path
     assert.equal(result.items.length, 0, `previousItems=${JSON.stringify(corrupt)} must retain nothing, not throw`);
     assert.equal(result.status.state, "failed");
   }
+});
+
+// The same for a corrupt element inside an otherwise valid array: the healthy
+// neighbours are retained and the bad element is skipped, not fatal.
+test("a corrupt element inside the previous dataset is skipped rather than fatal", () => {
+  const result = retainOnFailure({
+    sourceName: "PubMed",
+    previousItems: [null, "junk", 7, { id: "pubmed-1", sourceName: "PubMed", title: "Survivor", stale: false }],
+    lastSuccessAt: "2026-07-20T00:00:00.000Z", attemptedAt: "2026-07-23T00:00:00.000Z", errorClass: "timeout",
+  });
+  assert.equal(result.items.length, 1, "the healthy record must survive its corrupt neighbours");
+  assert.equal(result.items[0].title, "Survivor");
 });
 
 // Retained records used to carry the canonical identity minted by the run that fetched

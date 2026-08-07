@@ -46,10 +46,14 @@ jobs:
           touch _site/.nojekyll
       # The guard is derived from app.js's actual import graph rather than a hand-kept
       # list, so adding an import without shipping the module fails the deploy instead
-      # of shipping a page that loads nothing.
+      # of shipping a page that loads nothing. The derivation checks itself: if the
+      # pattern stops matching app.js's import style, the guard fails rather than
+      # silently degrading to the hardcoded backstop.
       - name: Fail if the artifact is missing a runtime module
         run: |
-          for module in $(grep -oE 'from "\./lib/[a-z-]+\.mjs"' app.js | grep -oE 'lib/[a-z-]+\.mjs' | sort -u); do
+          modules=$(grep -oE 'from "\./lib/[a-z-]+\.mjs"' app.js | grep -oE 'lib/[a-z-]+\.mjs' | sort -u)
+          test -n "$modules" || { echo "No ./lib imports matched in app.js — the guard pattern is out of sync with the import style"; exit 1; }
+          for module in $modules; do
             test -f "_site/$module" || { echo "Missing runtime module: $module"; exit 1; }
           done
           test -f _site/lib/records.mjs && test -f _site/lib/graph.mjs && test -f _site/lib/source-registry.mjs
