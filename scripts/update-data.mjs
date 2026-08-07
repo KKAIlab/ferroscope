@@ -6,9 +6,12 @@ import {
   classifyPubMedDocument,
   calendarDateFromParts,
   mergeSignalLayers,
+  normalizeDoi,
+  parseCalendarDate,
   partitionByUsableDate,
   pubmedDates,
   retainOnFailure,
+  sourceRoutesOf,
   successStatus,
 } from "../lib/records.mjs";
 
@@ -123,6 +126,7 @@ const delay = (milliseconds) => new Promise((resolve) => setTimeout(resolve, mil
 // Network failures are classified so a retained dataset can say why it went stale.
 function errorClassOf(error) {
   const message = String(error?.message || error || "");
+  if (/empty-result/.test(message)) return "empty-result";
   if (/abort|timeout/i.test(message)) return "timeout";
   if (/^\s*4\d\d/.test(message) || /\b4\d\d\b/.test(message)) return "http-client-error";
   if (/^\s*5\d\d/.test(message) || /\b5\d\d\b/.test(message)) return "http-server-error";
@@ -278,7 +282,12 @@ async function fetchPreprints() {
   });
   const data = await fetchJson(url);
   const results = data.message?.items || [];
-  return results.map((item) => {
+  let skippedWithoutDoi = 0;
+  const records = results.map((item) => {
+    // A posted-content item with no parseable DOI has no registry identity. Its URL
+    // would be "https://doi.org/undefined", and every such item in a run shares that
+    // URL — the canonical merge would then fuse unrelated studies into one card.
+    if (!normalizeDoi(item.DOI)) { skippedWithoutDoi += 1; return null; }
     const title = Array.isArray(item.title) ? item.title[0] : item.title;
     const authors = (item.author || []).map((author) => [author.given, author.family].filter(Boolean).join(" ")).join(", ");
     const posted = calendarDateFromParts(item.published?.["date-parts"]?.[0] || []);
@@ -288,7 +297,9 @@ async function fetchPreprints() {
       id: `preprint-${item.DOI}`,
       doi: item.DOI,
       title,
-      date: posted?.date || null,
+      // A deposit date after today is a record-keeping artefact, not news — the same
+      // clamp pubmedDates applies; the unclamped date stays visible as onlineDate.
+      date: posted && posted.date > toDate ? toDate : posted?.date || null,
       onlineDate: posted?.date || null,
       issueDate: null,
       datePrecision: posted?.precision || null,
@@ -300,7 +311,9 @@ async function fetchPreprints() {
       caveat: "Not peer reviewed.",
       url: `https://doi.org/${item.DOI}`,
     });
-  }).filter((item) => /ferroptosis|ferroptotic/i.test(item.title || ""))
+  }).filter(Boolean);
+  if (skippedWithoutDoi) console.warn(`${PREPRINT_SOURCE}: skipped ${skippedWithoutDoi} posted-content item(s) with no parseable DOI.`);
+  return records.filter((item) => /ferroptosis|ferroptotic/i.test(item.title || ""))
     .filter((item) => !/^(figure|fig\.?|table|data|dataset|supplement|supplementary|supporting information)\b/i.test(item.title || ""))
     .filter((item) => item.relevance >= 54).sort((a, b) => b.relevance - a.relevance).slice(0, 30);
 }
@@ -312,6 +325,7 @@ async function fetchTrials() {
   // Named apart from the module-level `statuses` array of per-source results, which this
   // function would otherwise shadow.
   const statusScores = { RECRUITING: 10, ACTIVE_NOT_RECRUITING: 8, NOT_YET_RECRUITING: 7, COMPLETED: 3, TERMINATED: -5, UNKNOWN: -8 };
+  let skippedWithoutNct = 0;
   const trials = (data.studies || []).map(({ protocolSection }) => {
     const identification = protocolSection?.identificationModule || {};
     const status = protocolSection?.statusModule || {};
@@ -319,18 +333,26 @@ async function fetchTrials() {
     const conditions = protocolSection?.conditionsModule || {};
     const arms = protocolSection?.armsInterventionsModule || {};
     const nctId = identification.nctId;
+    // A study record without a real NCT number has no registry identity, and its URL
+    // would be ".../study/undefined" — shared by every such record in the run, which
+    // the canonical merge would fuse into one chimera card.
+    if (!/^NCT\d{8}$/.test(nctId || "")) { skippedWithoutNct += 1; return null; }
     const title = identification.briefTitle || identification.officialTitle || nctId;
     const interventions = (arms.interventions || []).map((item) => item.name).join(", ");
     const text = `${title} ${(conditions.conditions || []).join(" ")} ${interventions}`;
     const direct = /iron|ferropt|nanoparticle|ferrostatin|liproxstatin|GPX4|FSP1/i.test(interventions);
     const statusScore = statusScores[status.overallStatus] || 0;
-    const posted = status.studyFirstPostDateStruct?.date || status.startDateStruct?.date || "";
+    // Registry dates can arrive at month precision ("2026-05"); parsed as calendar
+    // dates so they normalise instead of failing the ISO contract, and clamped so a
+    // future-posted study cannot pin the top of the date sort.
+    const posted = parseCalendarDate(status.studyFirstPostDateStruct?.date || status.startDateStruct?.date || "");
     return automatedRecord({
       sourceName: TRIAL_SOURCE,
       id: `trial-${nctId}`,
       nctId,
       title,
-      date: posted || null,
+      date: posted && posted.date > toDate ? toDate : posted?.date || null,
+      datePrecision: posted?.precision || null,
       sourceType: "trial",
       classification: { documentType: "trial-record", documentTypeBasis: "clinicaltrials-registry", signals: [design.studyType || "study-type-unreported"] },
       relevance: Math.min(84, 38 + statusScore + (direct ? 18 : 0) + (design.studyType === "INTERVENTIONAL" ? 10 : 0)),
@@ -341,7 +363,8 @@ async function fetchTrials() {
         : "A clinical outcome does not by itself establish ferroptosis as the mechanism.",
       url: `https://clinicaltrials.gov/study/${nctId}`,
     });
-  });
+  }).filter(Boolean);
+  if (skippedWithoutNct) console.warn(`${TRIAL_SOURCE}: skipped ${skippedWithoutNct} registry record(s) with no usable NCT identifier.`);
   return { total: trials.length, items: trials.sort((a, b) => b.relevance - a.relevance).slice(0, 20) };
 }
 
@@ -355,8 +378,13 @@ let trialTotal = 0;
 const watchConfigs = await readJson(path.join(dataDir, "watch-queries.json"), []);
 const englishLabs = await readJson(path.join(dataDir, "labs-en.json"), []);
 const publicLabName = new Map(englishLabs.map((lab) => [lab.id, lab.pi]));
-const previousLive = await readJson(path.join(dataDir, "live.json"), []);
-const previousMeta = await readJson(path.join(dataDir, "meta.json"), {});
+// A previous dataset that parses but has the wrong shape (a truncated write, a hand
+// edit) degrades to the empty fallback instead of reaching the retention path as a
+// non-array, where it would crash the generator and freeze every source at once.
+const previousLiveRaw = await readJson(path.join(dataDir, "live.json"), []);
+const previousLive = Array.isArray(previousLiveRaw) ? previousLiveRaw : [];
+const previousMetaRaw = await readJson(path.join(dataDir, "meta.json"), {});
+const previousMeta = previousMetaRaw && typeof previousMetaRaw === "object" && !Array.isArray(previousMetaRaw) ? previousMetaRaw : {};
 const previousStatusFor = (name) => (previousMeta.sources || []).find((source) => source.name === name);
 
 const loaders = [
@@ -366,22 +394,42 @@ const loaders = [
   [TRIAL_SOURCE, fetchTrials],
 ];
 
+// How many records a source published in the previous run, counted by route so a
+// record merged from several discovery routes still counts for each of them.
+const previousPublishedCount = (name) =>
+  previousLive.filter((item) => sourceRoutesOf(item).some((route) => route.route === name)).length;
+
 for (const [name, loader] of loaders) {
   try {
     const result = await loader();
-    if (name === TRIAL_SOURCE) {
-      trialTotal = result.total;
-      collections.push(...result.items);
-      statuses.push(successStatus({
-        sourceName: name,
-        count: result.items.length,
-        attemptedAt: generatedAt,
-        note: `Retrieved ${result.total} registry records; the ${result.items.length} most relevant are published.`,
-      }));
-    } else {
-      collections.push(...result);
-      statuses.push(successStatus({ sourceName: name, count: result.length, attemptedAt: generatedAt }));
+    const harvested = name === TRIAL_SOURCE ? result.items : result;
+    // A record with no usable calendar date cannot satisfy the published data
+    // contract, and one such record failing validation used to abort the whole
+    // refresh. It is dropped here, and the drop is stated in the source's status
+    // note so a mass drop is visible in meta.json rather than only in this log.
+    const { dated, undated } = partitionByUsableDate(harvested);
+    if (undated.length) console.warn(`${name}: dropped ${undated.length} record(s) with no usable calendar date: ${undated.map((item) => item.id).join(", ")}.`);
+    // An API that changes response shape, a deprecated query syntax or a mass date
+    // regression all arrive as a well-formed empty answer, not as a thrown error.
+    // Publishing that emptiness as "ok" would silently clear the source's records.
+    // A source that published records last run and returns none now is treated as
+    // failed with class "empty-result", so its previous records are retained and
+    // marked stale like any other failure. A source whose previous run also
+    // published nothing keeps reporting ok: there is nothing to lose or retain.
+    if (!dated.length && previousPublishedCount(name) > 0) {
+      throw new Error("empty-result: the source answered but yielded no publishable records, while the previous run published some");
     }
+    if (name === TRIAL_SOURCE) trialTotal = result.total;
+    collections.push(...dated);
+    const dropNote = undated.length ? ` ${undated.length} record(s) were dropped for carrying no usable calendar date.` : "";
+    statuses.push(successStatus({
+      sourceName: name,
+      count: dated.length,
+      attemptedAt: generatedAt,
+      note: name === TRIAL_SOURCE
+        ? `Retrieved ${result.total} registry records; the ${dated.length} most relevant are published.${dropNote}`
+        : `${dated.length} records passed the quality filter in this run.${dropNote}`,
+    }));
   } catch (error) {
     // A failed source keeps the records it last returned, marked stale, instead of
     // silently disappearing from a dataset that is then published as current.
@@ -402,15 +450,15 @@ for (const [name, loader] of loaders) {
 // Two discovery routes for the same study collapse onto one canonical record and the
 // union of their laboratory matches, instead of the later route overwriting the earlier.
 const merged = mergeSignalLayers(collections);
-// A record with no usable calendar date would fail the published data contract and, because
-// that check runs before the refresh commits, would abort the whole refresh and freeze the
-// site. It is dropped here — logged, not silently — so one undated upstream record cannot
-// take down every other record's update.
-const { dated, undated } = partitionByUsableDate(merged);
-if (undated.length) {
-  console.warn(`Dropped ${undated.length} record(s) with no usable calendar date so an undated upstream record cannot fail validation and freeze the refresh: ${undated.map((item) => item.id).join(", ")}.`);
+// Backstop for the per-source partition above: the merge and the retention path can in
+// principle reintroduce an undated record (a retained copy written before this contract
+// existed). One such record failing validation would abort the whole refresh, so it is
+// dropped here — logged, never silently.
+const datedMerge = partitionByUsableDate(merged);
+if (datedMerge.undated.length) {
+  console.warn(`Dropped ${datedMerge.undated.length} merged record(s) with no usable calendar date so they cannot fail validation and freeze the refresh: ${datedMerge.undated.map((item) => item.id).join(", ")}.`);
 }
-const live = dated
+const live = datedMerge.dated
   .sort((a, b) => b.relevance - a.relevance || String(b.date || "").localeCompare(String(a.date || "")));
 const curated = await readJson(path.join(dataDir, "intelligence-curated.json"), []);
 // The laboratory-site row is maintained by the manual link check, so its timestamp is
