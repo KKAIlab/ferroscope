@@ -68,7 +68,9 @@ jobs:
         run: |
           title="Scheduled intelligence refresh is failing"
           run_url="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
-          existing=$(gh issue list --state open --limit 100 --json number,title \
+          # If the lookup itself fails, fall through to creating a new issue: a
+          # duplicate issue is noisy but visible, which beats a silent no-op.
+          existing=$( (gh issue list --state open --limit 100 --json number,title || echo "[]") \
             | jq -r --arg t "$title" '[.[] | select(.title == $t)][0].number // empty')
           if [ -n "$existing" ]; then
             gh issue comment "$existing" --body "The scheduled refresh failed again: $run_url"

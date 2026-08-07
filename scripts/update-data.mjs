@@ -5,6 +5,7 @@ import {
   canonicalIdentity,
   classifyPubMedDocument,
   calendarDateFromParts,
+  emptyHarvestIsFailure,
   mergeSignalLayers,
   normalizeDoi,
   parseCalendarDate,
@@ -380,9 +381,10 @@ const englishLabs = await readJson(path.join(dataDir, "labs-en.json"), []);
 const publicLabName = new Map(englishLabs.map((lab) => [lab.id, lab.pi]));
 // A previous dataset that parses but has the wrong shape (a truncated write, a hand
 // edit) degrades to the empty fallback instead of reaching the retention path as a
-// non-array, where it would crash the generator and freeze every source at once.
+// non-array, where it would crash the generator and freeze every source at once. The
+// same for corrupt elements inside an otherwise valid array.
 const previousLiveRaw = await readJson(path.join(dataDir, "live.json"), []);
-const previousLive = Array.isArray(previousLiveRaw) ? previousLiveRaw : [];
+const previousLive = (Array.isArray(previousLiveRaw) ? previousLiveRaw : []).filter((item) => item && typeof item === "object");
 const previousMetaRaw = await readJson(path.join(dataDir, "meta.json"), {});
 const previousMeta = previousMetaRaw && typeof previousMetaRaw === "object" && !Array.isArray(previousMetaRaw) ? previousMetaRaw : {};
 const previousStatusFor = (name) => (previousMeta.sources || []).find((source) => source.name === name);
@@ -412,12 +414,14 @@ for (const [name, loader] of loaders) {
     // An API that changes response shape, a deprecated query syntax or a mass date
     // regression all arrive as a well-formed empty answer, not as a thrown error.
     // Publishing that emptiness as "ok" would silently clear the source's records.
-    // A source that published records last run and returns none now is treated as
-    // failed with class "empty-result", so its previous records are retained and
-    // marked stale like any other failure. A source whose previous run also
-    // published nothing keeps reporting ok: there is nothing to lose or retain.
-    if (!dated.length && previousPublishedCount(name) > 0) {
-      throw new Error("empty-result: the source answered but yielded no publishable records, while the previous run published some");
+    // The heuristic in emptyHarvestIsFailure separates that from an honest quiet
+    // cycle: a low-volume source oscillating between one record and none keeps
+    // reporting ok (the repository's own history shows PubMed doing exactly that),
+    // while a source losing five or more records at once, or one already failed for
+    // emptiness, is treated as failed with class "empty-result" and its previous
+    // records are retained as stale like any other failure.
+    if (!dated.length && emptyHarvestIsFailure({ previousCount: previousPublishedCount(name), previousErrorClass: previousStatusFor(name)?.errorClass })) {
+      throw new Error(`empty-result: the source answered but yielded no publishable records, while the previous run published ${previousPublishedCount(name)}`);
     }
     if (name === TRIAL_SOURCE) trialTotal = result.total;
     collections.push(...dated);
@@ -493,6 +497,9 @@ const meta = {
     // succeeded, are different states and are counted separately.
     staleSignals: live.filter((item) => item.stale).length,
     partiallyStaleSignals: live.filter((item) => item.freshnessState === "partially-stale").length,
+    // The merge-level backstop's drops are published, not only logged: a truncation
+    // that appears nowhere in the dataset reads as "covered everything" when it didn't.
+    droppedUndatedRecords: datedMerge.undated.length,
   },
   sources: [...statuses, labStatus],
 };
