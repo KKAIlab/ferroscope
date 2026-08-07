@@ -11,6 +11,7 @@
 
 import assert from "node:assert/strict";
 import {
+  calendarDateFromParts,
   canonicalIdentity,
   classifyPubMedDocument,
   evidenceGradeFor,
@@ -209,6 +210,30 @@ test("a malformed non-ISO date is treated as undated rather than published", () 
   assert.deepEqual(undated.map((item) => item.id), ["a"]);
 });
 
+// "2026-02-31" satisfies an ISO-shaped regex, so shape alone would publish a date that
+// does not exist — and the validator, which tests reality, would then reject the record
+// and abort the refresh. The partition applies the same reality test as the validator.
+test("an ISO-shaped but impossible date is treated as undated, matching the validator", () => {
+  const { dated, undated } = partitionByUsableDate([
+    { id: "impossible-day", date: "2026-02-31" },
+    { id: "impossible-month", date: "2025-13-04" },
+    { id: "real", date: "2024-02-29" },
+  ]);
+  assert.deepEqual(dated.map((item) => item.id), ["real"], "a leap day in a leap year is a real date");
+  assert.deepEqual(undated.map((item) => item.id), ["impossible-day", "impossible-month"]);
+});
+
+// Crossref date-parts are integers, so they bypass parseCalendarDate — the same
+// rejection policy has to hold on that path or a deposit error becomes a published
+// "date" like 2026-02-31 that every downstream regex accepts.
+test("Crossref date-parts naming an impossible date fail the parse rather than being stored", () => {
+  assert.equal(calendarDateFromParts([2026, 2, 31]), null, "31 February is not a date");
+  assert.equal(calendarDateFromParts([2025, 13, 4]), null, "there is no thirteenth month");
+  assert.deepEqual(calendarDateFromParts([2024, 2, 29]), { date: "2024-02-29", precision: "day" }, "leap day in a leap year");
+  assert.deepEqual(calendarDateFromParts([2026, 6]), { date: "2026-06-01", precision: "month" });
+  assert.equal(calendarDateFromParts([]), null);
+});
+
 // --------------------------------------------------------------- canonical identity
 
 test("a DOI, a Nature article URL and a doi.org link collapse onto one identity", () => {
@@ -357,6 +382,34 @@ test("a source that never succeeded cannot retain anything", () => {
   const result = retainOnFailure({ sourceName: "PubMed", previousItems, lastSuccessAt: null, attemptedAt: "2026-07-23T00:00:00.000Z", errorClass: "network-unreachable" });
   assert.equal(result.status.state, "failed");
   assert.equal(result.items.length, 0);
+});
+
+// A previous live.json that parses but is not an array (truncated write, hand edit)
+// must degrade into the ordinary nothing-retained path. Crashing here would abort the
+// generator, publish nothing, and freeze every source at once.
+test("a corrupt previous dataset degrades instead of crashing the retention path", () => {
+  for (const corrupt of [null, {}, "not an array", 42]) {
+    const result = retainOnFailure({ sourceName: "PubMed", previousItems: corrupt, lastSuccessAt: "2026-07-20T00:00:00.000Z", attemptedAt: "2026-07-23T00:00:00.000Z", errorClass: "timeout" });
+    assert.equal(result.items.length, 0, `previousItems=${JSON.stringify(corrupt)} must retain nothing, not throw`);
+    assert.equal(result.status.state, "failed");
+  }
+});
+
+// Retained records used to carry the canonical identity minted by the run that fetched
+// them. When an identity rule changes (DOI version stripping, publisher URL mapping),
+// the retained copy and the fresh copy of the same study then derive different keys —
+// or worse, the validator re-derives a key the stored one no longer matches, and the
+// uniqueness contract aborts the refresh. Identity is dropped so every run re-derives.
+test("a retained record does not carry a stored canonical identity across runs", () => {
+  const result = retainOnFailure({
+    sourceName: "PubMed",
+    previousItems: [{ id: "pubmed-1", sourceName: "PubMed", doi: "10.1000/x", canonicalId: "doi:10.1000/minted-by-old-rules", canonicalIdKind: "doi", stale: false }],
+    lastSuccessAt: "2026-07-20T00:00:00.000Z", attemptedAt: "2026-07-23T00:00:00.000Z", errorClass: "timeout",
+  });
+  assert.equal(result.items.length, 1);
+  assert.ok(!("canonicalId" in result.items[0]), "the stored identity must be re-derived, not carried");
+  assert.ok(!("canonicalIdKind" in result.items[0]));
+  assert.equal(result.items[0].doi, "10.1000/x", "the fields identity derives from stay intact");
 });
 
 // P1-B: the cached route supplies the only success date. A merged record discovered through

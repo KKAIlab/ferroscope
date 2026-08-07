@@ -60,16 +60,25 @@ fail(harness.opened.has("#paperDialog"), "The paper reading-record dialog never 
 // and grading it B. Both claims are checked here against the rendered page, not against
 // the data, because the rendered page is what a researcher reads.
 
+// Anchored on the element boundary (">Peer reviewed<") rather than on the raw phrase:
+// record titles are rendered escaped but textually intact, so a paper legitimately
+// titled "Peer reviewed evidence for ..." must not trip the check for the retired
+// interface-authored badge. Only a label that is the entire text of an element can match.
 const signalHtml = harness.htmlFor("#signalList", "#frontierGrid");
-fail(!/Peer reviewed/.test(signalHtml), "The interface still labels an automated record as peer reviewed.");
+fail(!signalHtml.includes(">Peer reviewed<"), "The interface still labels an automated record as peer reviewed.");
 fail(signalHtml.includes("Evidence not assessed"), "No record renders as unassessed, so automated alerts are still being graded.");
 fail(signalHtml.includes("PubMed record"), "An unclassified automated record must render as a PubMed record rather than as research.");
 
 const automated = app.state.signals.filter((item) => item.reviewStatus === "automated");
 fail(automated.length > 0, "The harness rendered no automated signals, so the evidence gate proves nothing.");
 for (const item of automated) {
-  fail(item.evidenceGrade === null, `Automated record ${item.id} carries evidence grade ${item.evidenceGrade}; only a curated audit may assign one.`);
-  fail(item.documentType !== "original-research" || item.documentTypeBasis === "paper-layer-audit", `Automated record ${item.id} was promoted to original research without an audit.`);
+  // A curated audit overlay is the one pathway allowed to grade or promote an
+  // automated record (validate-data permits it; evidenceGradeFor stamps the basis).
+  // Requiring null unconditionally here contradicted that contract: the first graded
+  // overlay whose record re-entered the fetch window would have failed this test in
+  // CI only, freezing the refresh — the round-14 failure shape again.
+  fail(item.evidenceGrade === null || item.evidenceGradeBasis === "curated-audit", `Automated record ${item.id} carries evidence grade ${item.evidenceGrade} without a curated audit; only a curated audit may assign one.`);
+  fail(item.documentType !== "original-research" || ["paper-layer-audit", "curated-audit"].includes(item.documentTypeBasis), `Automated record ${item.id} was promoted to original research without an audit.`);
 }
 
 // The records the review reclassified must render as what the audit says they are, not as
@@ -85,7 +94,9 @@ for (const record of overlaidToday) {
     record.documentType === overlay.documentType,
     `${record.canonicalId} renders as ${record.documentType} rather than the audited ${overlay.documentType}.`,
   );
-  fail(record.evidenceGrade === null, `${record.canonicalId} carries an evidence grade despite an unassessed audit overlay.`);
+  // The rendered grade must be exactly what the overlay decided: null stays null, and
+  // a graded overlay must actually reach the page rather than being suppressed.
+  fail(record.evidenceGrade === (overlay.evidenceGrade ?? null), `${record.canonicalId} renders evidence grade ${record.evidenceGrade} but the audit overlay decided ${overlay.evidenceGrade ?? null}.`);
 }
 
 // ------------------------------------------------------------------ canonical merge
@@ -231,7 +242,10 @@ const staticLeaks = cjkFindings(staticOutsideGlossary);
 fail(staticLeaks.length === 0, `index.html carries CJK outside the terminology section:\n  ${staticLeaks.join("\n  ")}`);
 
 // The rendering layer suppresses CJK as a safety net. The ingestion layer must not
-// rely on that net for the fields it fully controls.
+// rely on that net for the fields it fully controls. `title` and `takeaway` are
+// deliberately excluded: they carry upstream author and journal names, which
+// legitimately contain CJK and are suppressed by plain() at render time — widening
+// this check to them would fail on a valid fetch, freezing the refresh.
 const live = JSON.parse(await fs.readFile(path.join(root, "data", "live.json"), "utf8"));
 const meta = JSON.parse(await fs.readFile(path.join(root, "data", "meta.json"), "utf8"));
 for (const item of live) {
