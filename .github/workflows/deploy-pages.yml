@@ -5,6 +5,10 @@ on:
     branches: [main]
   workflow_dispatch:
   workflow_run:
+    # This name must match refresh-intelligence.yml's `name` exactly — the bot's data
+    # push is made with the workflow's own GITHUB_TOKEN, which triggers no push event,
+    # so this workflow_run chain is the ONLY route by which a refresh reaches Pages.
+    # Renaming either side silently stops deploys.
     workflows: ["Refresh FerroScope intelligence"]
     types: [completed]
     branches: [main]
@@ -14,9 +18,12 @@ permissions:
   pages: write
   id-token: write
 
+# Queue deploys instead of cancelling the one in flight: a cancelled deploy whose
+# successor also fails leaves the site serving data older than what main carries.
+# Deploys are quick, and the newest queued run still wins the final state.
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   deploy:
@@ -32,12 +39,24 @@ jobs:
           mkdir _site
           cp index.html app.js styles.css v09.css README.md _site/
           cp -R data _site/data
-          # app.js imports lib/records.mjs and lib/graph.mjs at runtime; without them the
-          # page loads no module at all, so the copy is not optional.
+          # app.js imports lib/records.mjs, lib/graph.mjs and lib/source-registry.mjs at
+          # runtime; without them the page loads no module at all, so the copy is not
+          # optional.
           cp -R lib _site/lib
           touch _site/.nojekyll
+      # The guard is derived from app.js's actual import graph rather than a hand-kept
+      # list, so adding an import without shipping the module fails the deploy instead
+      # of shipping a page that loads nothing. The derivation checks itself: if the
+      # pattern stops matching app.js's import style, the guard fails rather than
+      # silently degrading to the hardcoded backstop.
       - name: Fail if the artifact is missing a runtime module
-        run: test -f _site/lib/records.mjs && test -f _site/lib/graph.mjs
+        run: |
+          modules=$(grep -oE 'from "\./lib/[a-z-]+\.mjs"' app.js | grep -oE 'lib/[a-z-]+\.mjs' | sort -u)
+          test -n "$modules" || { echo "No ./lib imports matched in app.js — the guard pattern is out of sync with the import style"; exit 1; }
+          for module in $modules; do
+            test -f "_site/$module" || { echo "Missing runtime module: $module"; exit 1; }
+          done
+          test -f _site/lib/records.mjs && test -f _site/lib/graph.mjs && test -f _site/lib/source-registry.mjs
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
