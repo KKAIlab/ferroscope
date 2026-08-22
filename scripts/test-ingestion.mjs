@@ -11,12 +11,15 @@
 
 import assert from "node:assert/strict";
 import {
+  calendarDateFromParts,
   canonicalIdentity,
   classifyPubMedDocument,
+  emptyHarvestIsFailure,
   evidenceGradeFor,
   formatCalendarDate,
   mergeSignalLayers,
   parseCalendarDate,
+  partitionByUsableDate,
   pubmedDates,
   retainOnFailure,
 } from "../lib/records.mjs";
@@ -177,6 +180,76 @@ test("a month-precision fallback is never invented from an impossible day", () =
 const naive = new Date("2025 Dec 4");
 const naiveRoundTrip = Number.isNaN(naive.getTime()) ? "an invalid date" : naive.toISOString().slice(0, 10);
 
+// ------------------------------------------------------------- undated-record gate
+//
+// validate-data.mjs requires an ISO calendar date on every automated record, and it runs in
+// the refresh workflow before the fetched data is committed. The Crossref and
+// ClinicalTrials.gov fetchers both emit `date: null` when the upstream record carries no
+// posted/published date, so one such record would fail that check and abort the whole
+// refresh — the fetched dataset is discarded and the live site stops updating. Undated
+// records are dropped at ingestion instead, and the partition reports what was dropped so
+// the count can be logged rather than hidden.
+
+test("a record with no usable calendar date is separated out so it cannot freeze the refresh", () => {
+  const { dated, undated } = partitionByUsableDate([
+    { id: "trial-NCT1", date: null },
+    { id: "preprint-x", date: undefined },
+    { id: "preprint-y", date: "" },
+    { id: "pubmed-1", date: "2026-05-01" },
+    { id: "preprint-z", date: "2026-06-15" },
+  ]);
+  assert.deepEqual(dated.map((item) => item.id), ["pubmed-1", "preprint-z"], "only records with an ISO date are published");
+  assert.deepEqual(undated.map((item) => item.id), ["trial-NCT1", "preprint-x", "preprint-y"], "every undated record is reported so the drop can be logged");
+});
+
+test("a malformed non-ISO date is treated as undated rather than published", () => {
+  const { dated, undated } = partitionByUsableDate([
+    { id: "a", date: "May 2026" },
+    { id: "b", date: "2026-05-01" },
+  ]);
+  assert.deepEqual(dated.map((item) => item.id), ["b"]);
+  assert.deepEqual(undated.map((item) => item.id), ["a"]);
+});
+
+// "2026-02-31" satisfies an ISO-shaped regex, so shape alone would publish a date that
+// does not exist — and the validator, which tests reality, would then reject the record
+// and abort the refresh. The partition applies the same reality test as the validator.
+test("an ISO-shaped but impossible date is treated as undated, matching the validator", () => {
+  const { dated, undated } = partitionByUsableDate([
+    { id: "impossible-day", date: "2026-02-31" },
+    { id: "impossible-month", date: "2025-13-04" },
+    { id: "real", date: "2024-02-29" },
+  ]);
+  assert.deepEqual(dated.map((item) => item.id), ["real"], "a leap day in a leap year is a real date");
+  assert.deepEqual(undated.map((item) => item.id), ["impossible-day", "impossible-month"]);
+});
+
+// Crossref date-parts are integers, so they bypass parseCalendarDate — the same
+// rejection policy has to hold on that path or a deposit error becomes a published
+// "date" like 2026-02-31 that every downstream regex accepts.
+test("Crossref date-parts naming an impossible date fail the parse rather than being stored", () => {
+  assert.equal(calendarDateFromParts([2026, 2, 31]), null, "31 February is not a date");
+  assert.equal(calendarDateFromParts([2025, 13, 4]), null, "there is no thirteenth month");
+  assert.deepEqual(calendarDateFromParts([2024, 2, 29]), { date: "2024-02-29", precision: "day" }, "leap day in a leap year");
+  assert.deepEqual(calendarDateFromParts([2026, 6]), { date: "2026-06-01", precision: "month" });
+  assert.equal(calendarDateFromParts([]), null);
+});
+
+// A quiet run and a broken upstream both arrive as a well-formed empty answer. The
+// repository's own history shows the general PubMed query legitimately oscillating
+// between one and zero published records, so "published something last run" alone is
+// not evidence of a malfunction — but losing five or more records in one cycle is,
+// and a source already failed for emptiness must not flip back to a false "ok" once
+// its retained records age out and there is nothing left to count.
+test("an empty harvest is a failure only when the loss is implausible or already chronic", () => {
+  assert.equal(emptyHarvestIsFailure({ previousCount: 35 }), true);
+  assert.equal(emptyHarvestIsFailure({ previousCount: 5 }), true);
+  assert.equal(emptyHarvestIsFailure({ previousCount: 1 }), false, "a low-volume source oscillating to zero is an ordinary quiet cycle");
+  assert.equal(emptyHarvestIsFailure({ previousCount: 0 }), false);
+  assert.equal(emptyHarvestIsFailure({ previousCount: 0, previousErrorClass: "empty-result" }), true, "a chronic empty outage stays failed after retention expires");
+  assert.equal(emptyHarvestIsFailure({ previousCount: 0, previousErrorClass: "timeout" }), false, "an unrelated past failure does not make a quiet run a failure");
+});
+
 // --------------------------------------------------------------- canonical identity
 
 test("a DOI, a Nature article URL and a doi.org link collapse onto one identity", () => {
@@ -280,6 +353,17 @@ test("unrelated records are not merged", () => {
   assert.equal(merged.length, 2);
 });
 
+// A legacy retained record can carry an ISO-shaped but impossible date written under
+// the older shape-only contract. If the merge copied it onto the card, the generator's
+// date partition would drop the whole card — including the fresh route's real date.
+test("a merged card prefers a usable date over an impossible legacy one", () => {
+  const [merged] = mergeSignalLayers([
+    { id: "pubmed-legacy", reviewStatus: "automated", sourceName: "PubMed", url: "https://doi.org/10.1000/legacy", relevance: 90, date: "2026-02-31" },
+    { id: "pubmed-fresh", reviewStatus: "automated", sourceName: "Tracked labs / PubMed", url: "https://doi.org/10.1000/legacy", relevance: 70, date: "2026-03-01" },
+  ]);
+  assert.equal(merged.date, "2026-03-01", "the impossible date must not shadow the real one");
+});
+
 // ------------------------------------------------------------------ source failure
 //
 // A source that fails does not invalidate what it previously returned. It invalidates
@@ -325,6 +409,46 @@ test("a source that never succeeded cannot retain anything", () => {
   const result = retainOnFailure({ sourceName: "PubMed", previousItems, lastSuccessAt: null, attemptedAt: "2026-07-23T00:00:00.000Z", errorClass: "network-unreachable" });
   assert.equal(result.status.state, "failed");
   assert.equal(result.items.length, 0);
+});
+
+// A previous live.json that parses but is not an array (truncated write, hand edit)
+// must degrade into the ordinary nothing-retained path. Crashing here would abort the
+// generator, publish nothing, and freeze every source at once.
+test("a corrupt previous dataset degrades instead of crashing the retention path", () => {
+  for (const corrupt of [null, {}, "not an array", 42]) {
+    const result = retainOnFailure({ sourceName: "PubMed", previousItems: corrupt, lastSuccessAt: "2026-07-20T00:00:00.000Z", attemptedAt: "2026-07-23T00:00:00.000Z", errorClass: "timeout" });
+    assert.equal(result.items.length, 0, `previousItems=${JSON.stringify(corrupt)} must retain nothing, not throw`);
+    assert.equal(result.status.state, "failed");
+  }
+});
+
+// The same for a corrupt element inside an otherwise valid array: the healthy
+// neighbours are retained and the bad element is skipped, not fatal.
+test("a corrupt element inside the previous dataset is skipped rather than fatal", () => {
+  const result = retainOnFailure({
+    sourceName: "PubMed",
+    previousItems: [null, "junk", 7, { id: "pubmed-1", sourceName: "PubMed", title: "Survivor", stale: false }],
+    lastSuccessAt: "2026-07-20T00:00:00.000Z", attemptedAt: "2026-07-23T00:00:00.000Z", errorClass: "timeout",
+  });
+  assert.equal(result.items.length, 1, "the healthy record must survive its corrupt neighbours");
+  assert.equal(result.items[0].title, "Survivor");
+});
+
+// Retained records used to carry the canonical identity minted by the run that fetched
+// them. When an identity rule changes (DOI version stripping, publisher URL mapping),
+// the retained copy and the fresh copy of the same study then derive different keys —
+// or worse, the validator re-derives a key the stored one no longer matches, and the
+// uniqueness contract aborts the refresh. Identity is dropped so every run re-derives.
+test("a retained record does not carry a stored canonical identity across runs", () => {
+  const result = retainOnFailure({
+    sourceName: "PubMed",
+    previousItems: [{ id: "pubmed-1", sourceName: "PubMed", doi: "10.1000/x", canonicalId: "doi:10.1000/minted-by-old-rules", canonicalIdKind: "doi", stale: false }],
+    lastSuccessAt: "2026-07-20T00:00:00.000Z", attemptedAt: "2026-07-23T00:00:00.000Z", errorClass: "timeout",
+  });
+  assert.equal(result.items.length, 1);
+  assert.ok(!("canonicalId" in result.items[0]), "the stored identity must be re-derived, not carried");
+  assert.ok(!("canonicalIdKind" in result.items[0]));
+  assert.equal(result.items[0].doi, "10.1000/x", "the fields identity derives from stay intact");
 });
 
 // P1-B: the cached route supplies the only success date. A merged record discovered through

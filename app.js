@@ -770,7 +770,16 @@ function renderResources() {
 }
 
 function renderFreshness() {
-  const updated = state.meta?.generatedAt; $("#topUpdated").textContent = updated ? timeAgo(updated) : "offline data"; $("#footerUpdated").textContent = `Last aggregation: ${updated ? formatDate(updated) : "unknown"}`;
+  const updated = state.meta?.generatedAt;
+  // Trouble is visible from the top bar, not only inside the dialog. Under the
+  // failure-publishing policy the aggregation timestamp stays fresh even while a
+  // source is degraded or failed, so without this cue the button would always read
+  // healthy and the one indirect signal the old freeze gave — a visibly stale
+  // timestamp — would be gone with nothing in its place.
+  const troubled = (state.meta?.sources || []).filter((row) => ["degraded", "failed"].includes(row.state || (row.ok ? "ok" : "failed")));
+  $("#topUpdated").textContent = updated ? `${timeAgo(updated)}${troubled.length ? ` · ${troubled.length} source ${troubled.length === 1 ? "alert" : "alerts"}` : ""}` : "offline data";
+  $("#freshnessButton").classList.toggle("attention", troubled.length > 0);
+  $("#footerUpdated").textContent = `Last aggregation: ${updated ? formatDate(updated) : "unknown"}`;
   $("#labCount").textContent = state.labs.length; $("#methodCount").textContent = state.methods.length; $("#trialCount").textContent = state.meta?.counts?.clinicalTrials ?? state.signals.filter((item) => item.sourceType === "trial").length;
   if (state.researchCounts) { $("#researchCoverage").textContent = `${state.researchCounts.audited} laboratory archives audited; ${state.researchCounts.figureAuditedStudies}/${state.researchCounts.studies} unique representative papers carry a figure chain in the legacy archive, which is the source the English records were rewritten from; ${state.researchCounts.studyRecords} lab–paper relationship records.`; $("#longitudinalLabCount").textContent = `${state.researchCounts.audited} lab syntheses`; }
   const figureChains = state.papers.filter((paper) => paper.readingDepth === "figure-chain").length;
