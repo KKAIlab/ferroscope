@@ -191,6 +191,8 @@ Automated source ingestion reads PubMed, preprint metadata and ClinicalTrials.go
 
 When a source fails, the records it last returned are retained, marked `stale`, and published together with the date of the last success and the class of the error, while the other sources are unaffected. If those retained records are more than 14 days old, that source publishes nothing and its failure — the error class and the date of the last success — is published in the freshness dialog instead, while the other sources continue to update. The freshness dialog states this policy in the same words.
 
+Automated discovery is deliberately shallow — a record that matched a search stays "Evidence not assessed" until a curated reading speaks for it. The bridge between the two layers is the enrichment queue: `npm run build:enrichment` (refreshed weekly by the "Build FerroScope enrichment queue" workflow) writes `docs/ENRICHMENT-QUEUE.md`, the pre-read work list of high-fit uncovered records with PubMed abstracts attached for triage. A reading round consumes it by the procedure in `docs/RECIPE-curated-enrichment.md`; the queue itself carries no review state and never reaches the site.
+
 ## Evidence model
 
 No single assay defines ferroptosis. FerroScope organizes evidence around four linked questions:
