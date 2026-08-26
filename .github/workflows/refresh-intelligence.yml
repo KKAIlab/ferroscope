@@ -1,3 +1,5 @@
+# deploy-pages.yml chains off this workflow's `name` via its workflow_run trigger.
+# Renaming this workflow silently stops Pages deploys — keep the two files in sync.
 name: Refresh FerroScope intelligence
 
 on:
@@ -7,10 +9,20 @@ on:
 
 permissions:
   contents: write
+  issues: write
+
+# One refresh at a time. Two overlapping runs race on the git push: the loser fails
+# non-fast-forward and discards a fetch that already passed validation.
+concurrency:
+  group: refresh-intelligence
+  cancel-in-progress: false
 
 jobs:
   refresh:
     runs-on: ubuntu-latest
+    # A hung upstream read must not occupy the runner for the default 360 minutes,
+    # which is the whole 6-hour cron interval — one hang would eat a full cycle.
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -18,12 +30,50 @@ jobs:
           node-version: 22
       - name: Fetch primary sources
         run: npm run update
-      - name: Validate generated data
-        run: npm run check
+      # This step is the ONLY validation a bot data commit ever gets: pushes made with
+      # the workflow's own GITHUB_TOKEN trigger no other workflow, so verify.yml never
+      # sees them. It therefore runs exactly the checks whose outcome depends on the
+      # fetched content — the generated-data contract (check:data) and the rendered
+      # public surface (check:surface). The corpus and code contracts run in verify.yml
+      # on every human push and pull request; running the full suite here as well meant
+      # any unrelated red check silently froze the data refresh (see the round-14 note
+      # in README.md — six consecutive failed runs before anyone noticed).
+      - name: Validate the fetched data against the published data contract
+        run: npm run check:data && npm run check:surface
       - name: Commit fresh data when changed
         run: |
           git config user.name "ferroscope-bot"
           git config user.email "ferroscope-bot@users.noreply.github.com"
           git add data/live.json data/meta.json
-          git diff --cached --quiet || git commit -m "data: refresh ferroptosis intelligence"
+          git diff --cached --quiet && exit 0
+          git commit -m "data: refresh ferroptosis intelligence"
+          # main can advance between checkout and push (a human push, or a run that
+          # started before the concurrency group existed). Rebase the data commit and
+          # retry instead of discarding a fetch that already passed validation; a
+          # genuine conflict on the generated files still fails loudly.
+          for attempt in 1 2 3 4; do
+            git push && exit 0
+            git fetch origin main
+            git rebase origin/main || { git rebase --abort; exit 1; }
+            sleep $((2 ** attempt))
+          done
           git push
+      # A refresh that fails silently is how the site froze for six consecutive runs in
+      # round 14 — the only signal was an email to the workflow author. A failure now
+      # opens (or extends) a visible issue, so a frozen site always has a paper trail.
+      - name: Surface a failing refresh as an issue
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          title="Scheduled intelligence refresh is failing"
+          run_url="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+          # If the lookup itself fails, fall through to creating a new issue: a
+          # duplicate issue is noisy but visible, which beats a silent no-op.
+          existing=$( (gh issue list --state open --limit 100 --json number,title || echo "[]") \
+            | jq -r --arg t "$title" '[.[] | select(.title == $t)][0].number // empty')
+          if [ -n "$existing" ]; then
+            gh issue comment "$existing" --body "The scheduled refresh failed again: $run_url"
+          else
+            gh issue create --title "$title" --body "The scheduled data refresh failed, so the site has stopped updating and keeps serving the last committed dataset. Latest failing run: $run_url"
+          fi
