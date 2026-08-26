@@ -1,7 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { DOCUMENT_TYPES, EVIDENCE_GRADES, canonicalIdentity, freshnessOf, sourceRoutesOf } from "../lib/records.mjs";
+import { DOCUMENT_TYPES, EVIDENCE_GRADES, canonicalIdentity, freshnessOf, isUsableCalendarDate, sourceRoutesOf } from "../lib/records.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const files = ["labs.json", "intelligence-curated.json", "live.json", "meta.json", "watch-queries.json", "lab-research-audits.json", "lab-research.json", "monitoring-coverage.json", "record-overlays.json", "historical-link-overlays.json"];
@@ -22,6 +22,7 @@ const coverage = await read("monitoring-coverage.json");
 const overlays = await read("record-overlays.json");
 const linkOverlays = await read("historical-link-overlays.json");
 const labResearch = await read("lab-research.json");
+const manifest = await read("schema-versions.json");
 const allowedCategories = new Set(["core", "methods", "translational", "adjacent"]);
 for (const [name, items] of [["labs", labs], ["curated", curated]]) {
   const ids = new Set();
@@ -45,22 +46,49 @@ for (const lab of labs) {
   if (!lab.region || !lab.focus || !lab.institution) errors.push(`Incomplete laboratory record: ${lab.id}`);
 }
 
+// ------------------------------------------------------------------ generated meta
+//
+// The refresh workflow gates the data commit on this script (plus the public-surface
+// test), so the generated files' whole contract lives here: a fresh meta.json that
+// declares the wrong generator version, or a timestamp from the future, must fail
+// before it is committed — this is the only validation a bot data commit ever gets,
+// because pushes made with the workflow's own token trigger no other workflow.
+
+const declaredMeta = manifest.files?.["meta.json"] || {};
+if (!Array.isArray(live)) errors.push("live.json must be an array of automated records");
+if (!meta.generatedAt || Number.isNaN(Date.parse(meta.generatedAt))) errors.push("meta.json generatedAt must be a parsable ISO timestamp");
+else if (Date.parse(meta.generatedAt) > Date.now() + 24 * 3_600_000) errors.push(`meta.json generatedAt is more than a day in the future: ${meta.generatedAt}`);
+if (meta.generator !== declaredMeta.generator) errors.push(`meta.json names generator ${meta.generator} but the manifest declares ${declaredMeta.generator}`);
+if (meta.generatorVersion !== declaredMeta.generatorVersion) errors.push(`meta.json names generatorVersion ${meta.generatorVersion} but the manifest declares ${declaredMeta.generatorVersion}`);
+if (meta.schemaVersion !== declaredMeta.schemaVersion) errors.push(`meta.json names schemaVersion ${meta.schemaVersion} but the manifest declares ${declaredMeta.schemaVersion}`);
+
 // ------------------------------------------------------------------ freshness state
 //
-// A failing source no longer invalidates the whole dataset. It invalidates the claim
-// that this source is current, so the run is allowed to publish a degraded state as
-// long as the retained records are inside their declared maximum age. Validation fails
-// when a source has no usable retained data, which is the only case in which the site
-// would otherwise present a gap as if it were the field going quiet.
+// A failing source does not invalidate the whole dataset. It invalidates the claim
+// that this source is current, so the run publishes a degraded state as long as the
+// retained records are inside their declared maximum age. Past that age the source
+// publishes nothing and its "failed" row is published instead: the freshness dialog
+// shows the failure, its error class and the date of the last success, while the
+// other sources keep updating. A hard-failed source used to be a validation error
+// here — which aborted the refresh before its commit step, so the site silently kept
+// serving every source's previous records with an "ok" status. Freezing the whole
+// dataset is the less honest outcome; the failure is required to be published with
+// its classification instead.
 
 const requiredLiveSources = ["Tracked labs / PubMed", "PubMed", "Preprints / Crossref", "ClinicalTrials.gov"];
 const degraded = [];
+const hardFailed = [];
 for (const sourceName of requiredLiveSources) {
   const source = meta.sources?.find((item) => item.name === sourceName);
   if (!source) { errors.push(`Live source is missing from meta.json: ${sourceName}`); continue; }
   if (!["ok", "degraded", "failed", "manual"].includes(source.state)) errors.push(`Live source ${sourceName} declares an unknown state: ${source.state}`);
   if (!source.lastAttemptAt || Number.isNaN(Date.parse(source.lastAttemptAt))) errors.push(`Live source ${sourceName} has no parsable lastAttemptAt timestamp`);
-  if (source.state === "failed") errors.push(`Live source ${sourceName} failed with no retained data inside its maximum age (${source.errorClass || "no error class"}).`);
+  if (source.state === "failed") {
+    hardFailed.push(`${sourceName} (${source.errorClass || "no error class"}; last success ${source.lastSuccessAt || "never"})`);
+    if (!source.errorClass) errors.push(`Live source ${sourceName} failed but records no errorClass; a published failure must be classified`);
+    if (!source.note) errors.push(`Live source ${sourceName} failed but carries no note explaining the failure to the reader`);
+    if (Number(source.retainedItems || 0) !== 0) errors.push(`Live source ${sourceName} is failed but claims retained records; that state must be "degraded"`);
+  }
   if (source.state === "degraded") {
     degraded.push(`${sourceName} (${source.retainedItems || 0} retained records, ${source.retainedAgeDays ?? "unknown"} days old, ${source.errorClass || "no error class"})`);
     if (!source.lastSuccessAt) errors.push(`Live source ${sourceName} is degraded but records no lastSuccessAt`);
@@ -111,7 +139,10 @@ for (const [index, item] of live.entries()) {
       if (stored !== [...derived[field]].sort().join("|")) errors.push(`${where}: ${field} does not match the routes it is derived from`);
     }
   }
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(item.date || "")) errors.push(`${where}: date must be an ISO calendar date, not a locale-parsed timestamp`);
+  // Shape and reality together: "2026-02-31" matches an ISO-shaped regex but is not a
+  // date. The generator's partition uses the same predicate, so a record it publishes
+  // can never be one this contract rejects.
+  if (!isUsableCalendarDate(item.date)) errors.push(`${where}: date must be a real ISO calendar date, not a locale-parsed timestamp or an impossible day`);
   const { canonicalId } = canonicalIdentity(item);
   if (seenCanonical.has(canonicalId)) errors.push(`${where}: canonical identity ${canonicalId} is already used by ${seenCanonical.get(canonicalId)}; the ingestion merge did not collapse them`);
   else seenCanonical.set(canonicalId, item.id);
@@ -207,6 +238,7 @@ const active = (coverage.labs || []).filter((row) => row.watchState === "active"
 const pending = (coverage.labs || []).filter((row) => row.watchState === "pending-first-run").length;
 const manual = (coverage.labs || []).filter((row) => row.authorWatch === "none").length;
 if (degraded.length) console.warn(`Degraded but publishable sources: ${degraded.join("; ")}`);
+if (hardFailed.length) console.warn(`Hard-failed sources published with no records — the failure is visible in the freshness dialog while the other sources keep updating: ${hardFailed.join("; ")}`);
 const routeCount = live.reduce((total, item) => total + (item.sources?.length || 0), 0);
 const multiRoute = live.filter((item) => (item.sources?.length || 0) > 1).length;
 const byFreshness = (state) => live.filter((item) => item.freshnessState === state).length;
