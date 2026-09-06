@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1.0.0",
+  "purpose": "Non-destructive corrections for links whose archival record asserts a reachability that is no longer true. The legacy archive is historical provenance: it records what was believed when it was written, and rewriting a stored verified:true would falsify that history. An overlay instead supersedes the current reachability status while pointing at the exact archive record it qualifies, so future tooling sees both the original assertion and its correction.",
+  "note": "An overlay never edits data/lab-research.json or data/lab-research-audits.json. It names the archive location, quotes the original assertion, and records the reachability actually observed, with who observed it and when. The validator fails if the named archive record no longer carries the quoted assertion, so an overlay cannot silently drift away from what it corrects.",
+  "overlays": [
+    {
+      "id": "chen-nankai-official-source-2026-07-24",
+      "supersedes": {
+        "file": "data/lab-research.json",
+        "profileId": "chen-nankai",
+        "path": "profiles[].officialSource",
+        "url": "https://sky.nankai.edu.cn/cq1/list.htm",
+        "originalAssertion": { "verified": true, "checkedAt": "2026-07-23" }
+      },
+      "alsoRecordedIn": [
+        { "file": "data/lab-research-audits.json", "url": "https://sky.nankai.edu.cn/cq1/list.htm" }
+      ],
+      "correction": {
+        "reachability": "unreachable",
+        "observedStatus": "connection timed out (curl exit 28, HTTP 000) after 25 seconds",
+        "checkedAt": "2026-07-24",
+        "checkedBy": "Claude Code round-4 link-health pass (implementer, not an independent reviewer)",
+        "supersededField": "verified",
+        "supersededValue": true,
+        "correctedValue": false,
+        "boundary": "This overlay corrects reachability only. It does not re-review the laboratory's identity, its capabilities or any scientific claim in the archived profile, and it does not assert that the replacement institutional page has been content-reviewed."
+      },
+      "replacement": {
+        "url": "https://sklmcb-en.nankai.edu.cn/About/Administration.htm",
+        "reachability": "reachable",
+        "observedStatus": "HTTP 200 in 0.84 s",
+        "checkedAt": "2026-07-24",
+        "checkedBy": "Claude Code round-4 link-health pass (implementer, not an independent reviewer)",
+        "namesThisLab": "The official State Key Laboratory of Medicinal Chemical Biology administration page names Quan Chen as director.",
+        "boundary": "A 200 response is reachability, not a content review. This overlay does not claim the replacement page was audited for the archived capabilities, and the archived profile bytes still have no independent reviewer."
+      },
+      "provenancePrinciple": "The archive keeps its original verified:true because that is what was believed on 2026-07-23. This overlay is the correction layer the archive lacked, not a rewrite of it."
+    }
+  ]
+}

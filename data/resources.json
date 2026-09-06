@@ -1,0 +1,167 @@
+[
+  {
+    "id": "robust-research-2025",
+    "name": "Robust and reproducible ferroptosis research",
+    "type": "Evidence standard",
+    "authority": "Expert recommendation",
+    "description": "The 2025 field recommendation on compounds, genetic models, evidence combinations and common experimental pitfalls.",
+    "url": "https://doi.org/10.1038/s41580-025-00843-2",
+    "language": "English",
+    "checkedAt": "2026-07-23",
+    "caution": "A consensus guide, not primary evidence for a specific biological claim."
+  },
+  {
+    "id": "pubmed-ferroptosis",
+    "name": "PubMed ferroptosis search",
+    "type": "Primary literature",
+    "authority": "Official index",
+    "description": "Peer-reviewed papers, publication types, corrections and linked metadata from the US National Library of Medicine.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/?term=ferroptosis%5BTitle%2FAbstract%5D&sort=date",
+    "language": "English",
+    "checkedAt": "2026-07-23",
+    "caution": "Indexing and publication dates may lag; search results are not quality-ranked."
+  },
+  {
+    "id": "europe-pmc-ferroptosis",
+    "name": "Europe PMC ferroptosis search",
+    "type": "Primary literature",
+    "authority": "Official index",
+    "description": "Literature search with full-text links, citation context, preprints and data connections.",
+    "url": "https://europepmc.org/search?query=ferroptosis",
+    "language": "English",
+    "checkedAt": "2026-07-23",
+    "caution": "Includes multiple publication statuses; verify the version of record."
+  },
+  {
+    "id": "biorxiv-ferroptosis",
+    "name": "bioRxiv ferroptosis search",
+    "type": "Preprints",
+    "authority": "Primary preprint source",
+    "description": "Early research signals before peer review, useful for methods, negative results and emerging mechanisms.",
+    "url": "https://www.biorxiv.org/search/ferroptosis",
+    "language": "English",
+    "checkedAt": "2026-07-23",
+    "caution": "Preprints are provisional and must not be presented as peer-reviewed evidence."
+  },
+  {
+    "id": "clinicaltrials-ferroptosis",
+    "name": "ClinicalTrials.gov ferroptosis search",
+    "type": "Clinical translation",
+    "authority": "Official trial registry",
+    "description": "Registered interventional and observational studies that mention ferroptosis.",
+    "url": "https://clinicaltrials.gov/search?term=ferroptosis",
+    "language": "English",
+    "checkedAt": "2026-07-23",
+    "caution": "A registered biomarker study does not prove ferroptosis occurs in patients or mediates treatment response."
+  },
+  {
+    "id": "spp2306",
+    "name": "DFG SPP 2306 Ferroptosis Network",
+    "type": "Research network",
+    "authority": "Funded research network",
+    "description": "Projects, investigators, publications, meetings and training across the German ferroptosis priority programme.",
+    "url": "https://www.dfg-ferroptosis.net/",
+    "language": "English",
+    "checkedAt": "2026-07-23",
+    "caution": "Network news highlights member output and is not an independent evidence assessment."
+  },
+  {
+    "id": "ferrdb-v3",
+    "name": "FerrDb V3",
+    "type": "Curated database",
+    "authority": "Third-party curated database",
+    "description": "Manually curated regulators and disease associations across 22 regulated-cell-death modalities from >20,000 articles; the ferroptosis layer alone is curated from 18,371 articles. Publication-centric: the same gene can be recorded as both driver and suppressor in different papers, each kept with its own confidence level. Single-gene pages carry a pan-RCD regulation network. Includes a ChatRCD assistant usable only as a fact retriever, not a reasoner.",
+    "url": "https://www.zhounan.org/ferrdb/v3/",
+    "language": "English",
+    "checkedAt": "2026-07-24",
+    "caution": "A dated third-party secondary source. Its counts are literature counts, not mechanistic claims, and its disease links are association-level, not causal. Gene labels must be checked against the original paper and update date. The site footer states 'All rights reserved' and grants only free access for educational and scientific purposes, so its data are linked to here, not redistributed."
+  },
+  {
+    "id": "kegg-ferroptosis",
+    "name": "KEGG Ferroptosis pathway",
+    "type": "Pathway map",
+    "authority": "Curated pathway database",
+    "description": "A compact reference map connecting iron handling, glutathione, lipid metabolism and canonical perturbagens.",
+    "url": "https://www.kegg.jp/pathway/map04216",
+    "language": "English / Japanese",
+    "checkedAt": "2026-07-23",
+    "caution": "A pathway map compresses context-dependent and disputed relationships; it is a navigator, not a causal model."
+  },
+  {
+    "id": "lipidmaps",
+    "name": "LIPID MAPS",
+    "type": "Lipid database",
+    "authority": "Community data resource",
+    "description": "Lipid structures, identifiers, nomenclature, spectra and analytical resources for ferroptosis lipid chemistry.",
+    "url": "https://lipidmaps.org/",
+    "language": "English",
+    "checkedAt": "2026-07-23",
+    "caution": "Database identity does not establish that a lipid was measured or causal in a specific study."
+  },
+  {
+    "id": "bodipy-vendor-protocol",
+    "name": "BODIPY 581/591 C11 reagent guide",
+    "type": "Method and reagent",
+    "authority": "Vendor protocol",
+    "description": "Official reagent properties, excitation/emission shift, handling and catalog information for the C11 lipid-oxidation sensor.",
+    "url": "https://www.thermofisher.com/order/catalog/product/D3861",
+    "language": "English / Japanese / Chinese",
+    "checkedAt": "2026-07-23",
+    "caution": "Vendor documentation explains the reagent; it is not an independent validation of biological specificity."
+  },
+  {
+    "id": "crossref-search",
+    "name": "Crossref Metadata Search",
+    "type": "Publication integrity",
+    "authority": "DOI infrastructure",
+    "description": "Check DOI metadata, versions, publication dates and linked corrections before recording a paper.",
+    "url": "https://search.crossref.org/",
+    "language": "English",
+    "checkedAt": "2026-07-23",
+    "caution": "Metadata may contain publisher errors; compare with the journal version and Crossmark when available."
+  },
+  {
+    "id": "rcsb-gpx4",
+    "name": "RCSB PDB: GPX4 structures",
+    "type": "Structure data",
+    "authority": "Primary structure archive",
+    "description": "Search experimentally deposited GPX4 structures and linked validation reports.",
+    "url": "https://www.rcsb.org/search?request=%7B%22query%22%3A%7B%22type%22%3A%22terminal%22%2C%22service%22%3A%22full_text%22%2C%22parameters%22%3A%7B%22value%22%3A%22GPX4%22%7D%7D%2C%22return_type%22%3A%22entry%22%7D",
+    "language": "English",
+    "checkedAt": "2026-07-23",
+    "caution": "A deposited structure supports a defined construct and condition, not every cellular conformation."
+  },
+  {
+    "id": "protocols-io-ferroptosis",
+    "name": "protocols.io — ferroptosis methods",
+    "type": "Protocol",
+    "authority": "Community protocol repository",
+    "description": "An open, versioned repository of step-by-step experimental protocols; search ferroptosis for shared cell-death, lipid-peroxidation, iron and rescue assays as laboratories actually run them.",
+    "url": "https://www.protocols.io/",
+    "language": "English",
+    "checkedAt": "2026-07-24",
+    "caution": "A shared protocol is a method recipe, not validated evidence for a biological claim, and community protocols vary in how much peer scrutiny they have received."
+  },
+  {
+    "id": "bio-protocol-ferroptosis",
+    "name": "Bio-protocol — ferroptosis methods",
+    "type": "Protocol",
+    "authority": "Peer-reviewed protocol journal",
+    "description": "A peer-reviewed, open-access protocol journal; its ferroptosis and lipid-peroxidation entries give detailed, reviewed methods derived from published studies.",
+    "url": "https://bio-protocol.org/",
+    "language": "English",
+    "checkedAt": "2026-07-24",
+    "caution": "A protocol reproduces one laboratory's method; it is guidance for execution, not primary evidence for a specific biological claim."
+  },
+  {
+    "id": "star-protocols-cell",
+    "name": "STAR Protocols (Cell Press)",
+    "type": "Protocol",
+    "authority": "Peer-reviewed protocol journal",
+    "description": "Cell Press peer-reviewed protocols, many tied to a specific primary paper; useful for reproducing a study's ferroptosis induction, orthogonal rescue and lipid-oxidation readouts as its authors ran them.",
+    "url": "https://www.cell.com/star-protocols/home",
+    "language": "English",
+    "checkedAt": "2026-07-24",
+    "caution": "A protocol describes how one study was executed; it does not by itself establish that a readout proves ferroptosis."
+  }
+]

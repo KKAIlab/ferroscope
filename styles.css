@@ -1,0 +1,413 @@
+:root {
+  --ink: #0e1714;
+  --ink-soft: #24332d;
+  --paper: #f3f0e8;
+  --paper-2: #e9e5da;
+  --white: #fffdf8;
+  --acid: #d8ff4f;
+  --acid-deep: #93b500;
+  --orange: #ff6f3c;
+  --teal: #1d7464;
+  --muted: #68746e;
+  --line: rgba(14, 23, 20, 0.15);
+  --shadow: 0 24px 70px rgba(28, 43, 36, 0.11);
+  --mono: "DM Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --sans: "Noto Sans SC", system-ui, sans-serif;
+  --serif: "Playfair Display", Georgia, serif;
+
+  /* Type scale.
+   *
+   * Every font size in this project resolves to one of these steps. They are in rem, so a
+   * reader who raises the browser's default text size actually gets larger text — with the
+   * previous hard-coded px values that setting did nothing, which is the accessibility half
+   * of "the fonts are too small".
+   *
+   * The scale is deliberately bottom-heavy in its correction: the old 8px steps grow by 50%
+   * while the old 30px headings grow by 13%. Half of the interface's text used to sit at 9px
+   * or below, including — worst of all — the evidence-boundary notes that this project exists
+   * to make legible (.method-boundary, .figure-boundary, .assay-boundaries, .ev-note were all
+   * 9px). Raising the floor matters more than raising the ceiling, and compressing the range
+   * is the point rather than a side effect.
+   *
+   * Names are semantic, not numeric, so new rules have an obvious step to pick.
+   * Nothing may go below --fs-micro; 12px is the floor. */
+  --fs-micro: 0.75rem;      /* 12px — tags, superscripts, corner labels   (was 7-8.5px) */
+  --fs-note: 0.8125rem;     /* 13px — boundaries, caveats, footnotes      (was 9-9.5px) */
+  --fs-body: 0.875rem;      /* 14px — the main body step                  (was 10-10.5px) */
+  --fs-body-lg: 0.9375rem;  /* 15px — secondary body, relations           (was 11px) */
+  --fs-card: 1rem;          /* 16px — card body, inputs                   (was 12-12.5px) */
+  --fs-ui: 1.0625rem;       /* 17px — navigation, buttons                 (was 13-14.5px) */
+  --fs-lead: 1.125rem;      /* 18px — lead paragraphs                     (was 15-16px) */
+  --fs-h4: 1.3125rem;       /* 21px                                       (was 17-19px) */
+  --fs-h3: 1.5rem;          /* 24px                                       (was 20px) */
+  --fs-h2: 1.75rem;         /* 28px                                       (was 23-25px) */
+  --fs-h1: 2.125rem;        /* 34px                                       (was 28-30px) */
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+/* Motion is an enhancement, never the mechanism. A reader who has asked their system to reduce
+   motion gets every state change instantly instead — including the decorative loops (the radar
+   orbit, the freshness pulse) and the smooth scrolling, which are the two things most likely to
+   cause trouble for someone who set this preference for vestibular reasons. Durations collapse
+   to ~0 rather than to `none`, so transitionend/animationend listeners still fire. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    transition-delay: 0ms !important;
+  }
+}
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+button, input, select { font: inherit; }
+button { color: inherit; }
+.shell { width: min(1200px, calc(100% - 48px)); margin-inline: auto; }
+.ambient { position: fixed; border-radius: 50%; filter: blur(90px); pointer-events: none; z-index: -1; opacity: .34; }
+.ambient-a { width: 560px; height: 560px; background: #d8ff4f; top: -380px; right: -90px; }
+.ambient-b { width: 460px; height: 460px; background: #ff7b4d; left: -330px; top: 560px; opacity: .17; }
+
+.topbar {
+  position: sticky; top: 0; z-index: 30; height: 82px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 max(24px, calc((100vw - 1200px) / 2));
+  background: rgba(243, 240, 232, .86); border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(18px);
+}
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand-mark { position: relative; display: grid; place-items: center; width: 38px; height: 38px; border: 1px solid var(--ink); border-radius: 50%; }
+.brand-mark i { position: absolute; width: 5px; height: 5px; border-radius: 50%; background: var(--ink); }
+.brand-mark i:nth-child(1) { transform: translate(-8px, 5px); }
+.brand-mark i:nth-child(2) { transform: translate(7px, -7px); }
+.brand-mark i:nth-child(3) { transform: translate(8px, 8px); background: var(--orange); }
+.brand strong { display: block; font-family: var(--serif); font-size: var(--fs-h3); line-height: 1; }
+.brand small { display: block; margin-top: 4px; color: var(--muted); font-size: var(--fs-body); letter-spacing: .14em; }
+nav { display: flex; gap: 32px; font-size: var(--fs-ui); font-weight: 600; }
+nav a { position: relative; }
+nav a::after { content: ""; position: absolute; width: 0; height: 2px; left: 0; bottom: -8px; background: var(--orange); transition: width .2s ease; }
+nav a:hover::after { width: 100%; }
+.freshness { display: flex; align-items: center; gap: 10px; background: var(--ink); color: white; border: 0; padding: 10px 14px; border-radius: 4px; cursor: pointer; }
+.freshness span:last-child { display: grid; text-align: left; }
+.freshness b { font-size: var(--fs-body); letter-spacing: .08em; }
+.freshness small { margin-top: 2px; color: #b8c0bc; font-family: var(--mono); font-size: var(--fs-note); }
+.pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--acid); box-shadow: 0 0 0 0 rgba(216,255,79,.7); animation: pulse 2s infinite; }
+@keyframes pulse { 70% { box-shadow: 0 0 0 8px rgba(216,255,79,0); } 100% { box-shadow: 0 0 0 0 rgba(216,255,79,0); } }
+
+.hero { min-height: 650px; display: grid; grid-template-columns: 1.35fr .65fr; align-items: center; gap: 70px; padding-block: 86px 74px; }
+.hero-copy, .hero-panel { min-width: 0; }
+.eyebrow { margin: 0 0 18px; font: 500 var(--fs-body-lg)/1.4 var(--mono); letter-spacing: .15em; color: var(--teal); text-transform: uppercase; }
+h1, h2, h3, p { margin-top: 0; }
+h1 { max-width: 760px; margin-bottom: 28px; font: 600 clamp(46px, 5.6vw, 80px)/1.03 var(--serif); letter-spacing: -.045em; }
+h1 em { color: var(--teal); font-style: normal; }
+.hero-intro { max-width: 680px; margin-bottom: 36px; color: var(--ink-soft); font-size: var(--fs-h4); line-height: 1.85; overflow-wrap: anywhere; }
+.hero-actions { display: flex; gap: 12px; }
+.button { display: inline-flex; align-items: center; justify-content: space-between; gap: 30px; min-width: 180px; padding: 15px 18px; border: 1px solid var(--ink); border-radius: 3px; font-size: var(--fs-ui); font-weight: 600; transition: .2s ease; }
+.button.primary { color: var(--white); background: var(--ink); }
+.button.primary:hover { background: var(--teal); border-color: var(--teal); transform: translateY(-2px); }
+.button.ghost:hover { background: var(--white); transform: translateY(-2px); }
+.hero-panel { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); align-self: stretch; align-content: end; padding-top: 360px; }
+.signal-radar { position: absolute; top: 10px; left: 50%; width: 330px; height: 330px; transform: translateX(-50%); }
+.orbit { position: absolute; left: 50%; top: 50%; border: 1px solid rgba(14,23,20,.22); border-radius: 50%; transform: translate(-50%,-50%); }
+.orbit-1 { width: 112px; height: 112px; }
+.orbit-2 { width: 218px; height: 218px; }
+.orbit-3 { width: 330px; height: 330px; border-style: dashed; animation: spin 40s linear infinite; }
+@keyframes spin { to { transform: translate(-50%,-50%) rotate(360deg); } }
+.radar-core { position: absolute; left: 50%; top: 50%; display: grid; place-items: center; width: 70px; height: 70px; transform: translate(-50%,-50%); border-radius: 50%; background: var(--orange); color: white; font: 500 var(--fs-h3) var(--mono); box-shadow: 0 12px 38px rgba(255,111,60,.35); }
+.radar-core sup { font-size: var(--fs-note); }
+.radar-node { position: absolute; padding: 7px 9px; border: 1px solid var(--line); background: rgba(255,253,248,.85); font: var(--fs-body) var(--mono); box-shadow: 0 7px 18px rgba(14,23,20,.08); }
+.n1 { top: 49px; left: 54px; }.n2 { top: 59px; right: 32px; }.n3 { bottom: 53px; left: 17px; }.n4 { right: 9px; bottom: 57px; }
+/* The figures align on their own baseline regardless of how many lines each label takes. A fixed
+   label height cannot do that — "Source-checked papers" wraps to three lines where its neighbours
+   take two — so the label box grows and the figure is pinned to the bottom of the cell instead. */
+.hero-metric { display: flex; flex-direction: column; padding: 17px 10px; border-top: 1px solid var(--ink); border-right: 1px solid var(--line); }
+.hero-metric:last-child { border-right: 0; }
+.hero-metric span { display: block; color: var(--muted); font-size: var(--fs-body); line-height: 1.35; }
+.hero-metric strong { margin-top: auto; padding-top: 10px; }
+.hero-metric strong { font: 600 var(--fs-h1) var(--serif); }
+
+.status-strip { overflow: hidden; border-block: 1px solid var(--ink); background: var(--ink); color: white; }
+.status-inner { height: 48px; display: flex; align-items: center; }
+.status-inner > span { padding-right: 22px; color: var(--acid); font: 500 var(--fs-body) var(--mono); letter-spacing: .2em; }
+.ticker { display: flex; align-items: center; gap: 22px; white-space: nowrap; color: #c9cfcc; font-size: var(--fs-body-lg); }
+.ticker i { width: 4px; height: 4px; border-radius: 50%; background: var(--orange); }
+
+.section { padding-block: 110px; scroll-margin-top: 70px; }
+.section-heading { display: flex; justify-content: space-between; align-items: end; gap: 80px; margin-bottom: 48px; }
+.section-heading h2, .standards-grid h2 { margin: 0; font: 600 clamp(38px, 5vw, 62px)/1.05 var(--serif); letter-spacing: -.035em; }
+.section-heading > p { max-width: 540px; margin: 0 0 6px; color: var(--muted); font-size: var(--fs-ui); line-height: 1.75; }
+
+.frontier-grid { display: grid; grid-template-columns: 1.35fr 1fr 1fr; gap: 12px; margin-bottom: 42px; }
+.frontier-card { position: relative; min-height: 225px; padding: 23px; overflow: hidden; color: white; background: var(--ink); border-radius: 5px; box-shadow: var(--shadow); }
+.frontier-card:first-child { background: var(--teal); }
+.frontier-card::after { content: attr(data-index); position: absolute; right: -4px; bottom: -37px; color: rgba(255,255,255,.07); font: 700 150px var(--serif); }
+.frontier-top { display: flex; justify-content: space-between; position: relative; z-index: 1; }
+.frontier-card .tag { color: var(--acid); font: var(--fs-body) var(--mono); letter-spacing: .12em; }
+.frontier-card .date { color: rgba(255,255,255,.54); font: var(--fs-body) var(--mono); }
+.frontier-card h3 { position: relative; z-index: 1; max-width: 96%; margin: 54px 0 13px; font: 600 var(--fs-h2)/1.3 var(--serif); }
+.frontier-card p { position: relative; z-index: 1; margin: 0; color: rgba(255,255,255,.68); font-size: var(--fs-body-lg); line-height: 1.6; }
+
+.toolbar { display: flex; align-items: center; gap: 12px; padding: 12px; margin-bottom: 10px; background: var(--paper-2); border-radius: 5px; }
+.segmented { display: flex; margin-right: auto; }
+.segmented button { border: 0; padding: 10px 13px; color: var(--muted); background: transparent; font-size: var(--fs-body-lg); cursor: pointer; }
+.segmented button.active { color: white; background: var(--teal); border-radius: 3px; }
+.select-wrap { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: var(--fs-body); }
+select { min-width: 128px; border: 1px solid var(--line); border-radius: 3px; padding: 8px 28px 8px 9px; background: var(--white); color: var(--ink); font-size: var(--fs-body); }
+.signal-list { border-top: 1px solid var(--ink); }
+/* The metadata column is sized to the badge text, not the other way round: at the old 8-9px it
+   fitted in 104px, and at the readable size "LITERATURE RECORD" wrapped into the badge below it. */
+.signal-item { display: grid; grid-template-columns: 152px minmax(0,1fr) 160px 38px; gap: 22px; align-items: center; min-height: 132px; padding: 22px 10px; border-bottom: 1px solid var(--line); transition: .2s ease; }
+.signal-item:hover { background: rgba(255,253,248,.65); padding-inline: 18px; }
+.signal-source { align-self: start; }
+.source-badge { display: inline-block; padding: 5px 7px; margin-bottom: 10px; border: 1px solid var(--ink); font: var(--fs-note) var(--mono); text-transform: uppercase; }
+.source-badge.preprint { border-color: var(--orange); color: #a33b18; }.source-badge.trial { border-color: var(--teal); color: var(--teal); }
+/* `width: max-content` let a long badge ("also matched by the laboratory watch") run out of the
+   column and under the headline, and the -4px pulled it up into the badge above. Both were
+   invisible at 8px and became collisions at 12px. */
+.review-badge { display: block; max-width: 100%; margin: 0 0 8px; color: var(--teal); font: var(--fs-micro) var(--mono); line-height: 1.35; overflow-wrap: anywhere; }
+.review-badge.auto { color: var(--muted); }
+.signal-source time { display: block; color: var(--muted); font: var(--fs-note) var(--mono); }
+.signal-main h3 { margin: 0 0 9px; font: 600 var(--fs-h4)/1.5 var(--serif); }
+.signal-main p { margin: 0; color: var(--ink-soft); font-size: var(--fs-card); line-height: 1.55; }
+/* The boundary used to run on from the finding as an inline clause, so the one sentence that says
+   what the result does NOT establish read as a continuation of the claim. It is now its own line
+   with its own label — and the label is the same words used at the paper level ("Stops at"), so a
+   reader meets one vocabulary for the limit of a claim wherever they are in the interface. */
+.signal-main .signal-boundary { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; margin: 9px 0 0; color: #8b3b22; font-size: var(--fs-body); line-height: 1.55; }
+.signal-main .signal-boundary span { font: 600 var(--fs-micro) var(--mono); text-transform: uppercase; letter-spacing: .06em; padding-top: 2px; }
+.signal-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.chip { padding: 4px 7px; background: var(--paper-2); border-radius: 2px; color: var(--ink-soft); font-size: var(--fs-note); }
+.chip.lab-hit { color: var(--teal); background: #dcece5; font-family: var(--mono); }
+.evidence { display: grid; gap: 9px; }
+.evidence > span { color: var(--muted); font-size: var(--fs-note); }
+.meter { display: flex; gap: 4px; }
+.meter i { width: 22px; height: 4px; background: #d7d4ca; }
+.meter i.on { background: var(--teal); }.meter.orange i.on { background: var(--orange); }
+.relevance { font: 500 var(--fs-body) var(--mono); color: var(--teal); }
+.signal-arrow { display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid var(--line); border-radius: 50%; transition: .2s; }
+.signal-item:hover .signal-arrow { background: var(--acid); border-color: var(--acid); transform: rotate(-10deg); }
+.load-controls { display: flex; gap: 10px; margin-top: 12px; }
+.load-more { flex: 1; display: block; padding: 14px; border: 1px solid var(--line); background: transparent; cursor: pointer; font-size: var(--fs-body-lg); transition: background .18s ease, border-color .18s ease, transform .18s ease; }
+.load-more:hover { background: var(--white); transform: translateY(-1px); }
+.load-more:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+/* The collapse control is secondary to the expand control and reads that way, but it is a real
+   button rather than a link: it is the only way back once a list has been expanded. */
+.load-more.subtle { flex: 0 0 auto; min-width: 150px; color: var(--muted); border-style: dashed; }
+.load-more.subtle:hover { color: var(--ink); border-style: solid; }
+.load-more[hidden] { display: none; }
+
+/* Records added by an expansion fade up in sequence, so it reads as "more arrived below" rather
+   than the list silently doubling in length. The stagger is capped: past the eighth item the
+   delay stops growing, otherwise a large expansion would end with a visible wait. */
+.is-entering { animation: record-enter .34s cubic-bezier(.22,.68,.36,1) both; animation-delay: calc(min(var(--enter-index, 0), 7) * 45ms); }
+@keyframes record-enter { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+.empty { padding: 60px 20px; color: var(--muted); text-align: center; }
+
+.labs-section { background: var(--ink); color: white; }
+.labs-section .eyebrow { color: var(--acid); }
+.labs-section .section-heading > p { color: #aab4af; }
+.lab-controls { display: flex; gap: 20px; align-items: center; margin-bottom: 26px; }
+.search-box { display: flex; align-items: center; gap: 9px; width: 320px; padding: 11px 13px; border-bottom: 1px solid #56615d; }
+.search-box input { width: 100%; border: 0; outline: 0; color: white; background: transparent; font-size: var(--fs-card); }
+.search-box input::placeholder { color: #78827e; }
+.filter-row { display: flex; flex-wrap: wrap; gap: 7px; }
+.filter-row button { border: 1px solid #43504b; padding: 8px 10px; color: #aab4af; background: transparent; border-radius: 30px; font-size: var(--fs-body); cursor: pointer; }
+.filter-row button.active { border-color: var(--acid); color: var(--ink); background: var(--acid); }
+.lab-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid #3c4742; border-left: 1px solid #3c4742; }
+/* A column, so the footer sits after the content instead of being pinned to the card's bottom
+   edge by absolute positioning. The old arrangement worked only while the question, the
+   institution line and the tag list all happened to fit the fixed heights they were given; at a
+   readable size a three-line question with a wrapped tag list ran straight under the footer. */
+.lab-card { position: relative; display: flex; flex-direction: column; min-height: 385px; padding: 24px; border-right: 1px solid #3c4742; border-bottom: 1px solid #3c4742; transition: .22s ease; }
+.lab-card:hover { background: #17231f; }
+.lab-card .lab-number { color: #68736e; font: var(--fs-note) var(--mono); }
+.lab-card .lab-class { position: absolute; top: 20px; right: 20px; padding: 5px 7px; border: 1px solid #48534f; color: var(--acid); font: var(--fs-micro) var(--mono); }
+.lab-card .research-stage { position: absolute; top: 51px; left: 24px; color: #88928d; font: var(--fs-micro) var(--mono); }
+.lab-card .research-stage.audited { color: var(--acid); }
+.lab-card h3 { margin: 70px 0 4px; font: 600 var(--fs-h2)/1.2 var(--serif); }
+.lab-card .institution { min-height: 3em; color: #89938e; font-size: var(--fs-body); line-height: 1.5; }
+.lab-card .lab-question { min-height: 5.2em; margin: 18px 0; color: #dfe4e1; font-size: var(--fs-card); line-height: 1.7; }
+.lab-card .lab-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+.lab-card .lab-tags span { padding: 4px 6px; background: #26332e; color: #9ea8a3; font-size: var(--fs-micro); }
+.lab-card .lab-bottom { margin-top: auto; padding-top: 18px; display: flex; gap: 10px; align-items: center; }
+.lab-card .region { color: #77817c; font: var(--fs-note) var(--mono); }
+.lab-card .watch-state { color: #68736e; font: var(--fs-micro) var(--mono); }
+.lab-card .watch-state.on { color: var(--acid); }
+.lab-card .research-open { margin-left: auto; padding: 0; border: 0; color: #dce6e1; background: transparent; font-size: var(--fs-note); cursor: pointer; border-bottom: 1px solid #56615d; }
+.lab-card .visit { color: var(--acid); font-size: var(--fs-note); }
+
+.source-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.source-card { min-height: 210px; padding: 22px; background: var(--white); border-top: 3px solid var(--teal); box-shadow: 0 9px 28px rgba(28,43,36,.06); }
+.source-card:nth-child(2) { border-color: var(--orange); }.source-card:nth-child(3) { border-color: #6e57a3; }.source-card:nth-child(4) { border-color: var(--acid-deep); }
+.source-card .source-type { color: var(--muted); font: var(--fs-note) var(--mono); }
+.source-card h3 { margin: 38px 0 10px; font: 600 var(--fs-h3) var(--serif); }
+.source-card p { color: var(--ink-soft); font-size: var(--fs-card); line-height: 1.6; }
+.source-card a { display: inline-block; margin-top: 12px; color: var(--teal); font-size: var(--fs-body); font-weight: 700; }
+.update-callout { display: grid; grid-template-columns: 160px 1fr auto; align-items: center; gap: 30px; margin-top: 12px; padding: 24px; background: var(--ink); color: white; }
+.update-callout > div { display: flex; align-items: center; gap: 12px; }
+.update-callout p { margin: 0; color: #aab4af; font-size: var(--fs-body); line-height: 1.7; }
+.update-callout code { padding: 9px 12px; color: var(--acid); background: #1d2a25; font: var(--fs-body) var(--mono); }
+
+.standards-section { background: var(--orange); }
+.standards-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 100px; align-items: center; }
+.standards-section .eyebrow { color: #5c2411; }
+.standards-lead { margin: 26px 0 22px; font-size: var(--fs-lead); line-height: 1.8; }
+.text-link { font-size: var(--fs-body-lg); font-weight: 700; border-bottom: 1px solid; }
+.evidence-ladder { list-style: none; padding: 0; margin: 0; counter-reset: evidence; border-top: 1px solid rgba(14,23,20,.3); }
+.evidence-ladder li { counter-increment: evidence; display: grid; grid-template-columns: 40px 120px 1fr; align-items: center; min-height: 76px; border-bottom: 1px solid rgba(14,23,20,.3); }
+.evidence-ladder li::before { content: "0" counter(evidence); font: var(--fs-body) var(--mono); }
+.evidence-ladder b { font-size: var(--fs-card); }
+.evidence-ladder span { font-size: var(--fs-body-lg); line-height: 1.6; }
+
+footer { padding-block: 36px; background: var(--ink); color: white; }
+.footer-inner { display: flex; justify-content: space-between; align-items: end; }
+.footer-inner strong { font: 600 var(--fs-h2) var(--serif); }.footer-inner p { margin: 5px 0 0; color: #7f8b85; font-size: var(--fs-note); }
+.footer-inner > div:last-child { display: flex; gap: 22px; color: #8e9994; font: var(--fs-note) var(--mono); }
+.footer-inner a { color: var(--acid); }
+
+/* Dialogs open and close through a transition rather than appearing and vanishing between two
+   frames. A native <dialog> toggles `display`, which is not animatable on its own, so the two
+   discrete properties (`display`, `overlay`) are transitioned with `allow-discrete` and the
+   entry frame is declared with @starting-style. Browsers without those features simply get the
+   old instant behaviour — nothing breaks, it just doesn't ease. */
+dialog {
+  width: min(520px, calc(100% - 32px)); border: 0; border-radius: 5px; padding: 34px;
+  color: var(--ink); background: var(--white); box-shadow: 0 30px 100px rgba(0,0,0,.3);
+  opacity: 0; transform: translateY(10px) scale(.985);
+  transition: opacity .24s ease, transform .24s cubic-bezier(.22,.68,.36,1),
+              overlay .24s ease allow-discrete, display .24s ease allow-discrete;
+}
+dialog[open] { opacity: 1; transform: translateY(0) scale(1); }
+@starting-style { dialog[open] { opacity: 0; transform: translateY(10px) scale(.985); } }
+
+dialog::backdrop {
+  background: rgba(7,14,11,.64); backdrop-filter: blur(5px);
+  opacity: 0;
+  transition: opacity .24s ease, overlay .24s ease allow-discrete, display .24s ease allow-discrete;
+}
+dialog[open]::backdrop { opacity: 1; }
+@starting-style { dialog[open]::backdrop { opacity: 0; } }
+
+/* A 28px glyph on a transparent background was a target with no edges. This is a real button:
+   a hit area of its own, a visible hover and a focus ring. */
+.dialog-close {
+  position: absolute; top: 14px; right: 16px; z-index: 2;
+  display: grid; place-items: center; width: 36px; height: 36px; padding: 0;
+  border: 1px solid transparent; border-radius: 50%;
+  background: transparent; color: var(--muted);
+  font-size: var(--fs-h3); line-height: 1; cursor: pointer;
+  transition: background .18s ease, color .18s ease, border-color .18s ease, transform .18s ease;
+}
+/* Not rotate(90deg): a multiplication sign is symmetric under it, so the "feedback" was a
+   quarter-turn that looked like nothing happening. */
+.dialog-close:hover { background: var(--paper-2); border-color: var(--line); color: var(--ink); transform: scale(1.12); }
+.dialog-close:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+dialog h3 { font: 600 var(--fs-h1) var(--serif); }
+.research-dialog { width: min(880px, calc(100% - 32px)); max-height: 88vh; overflow-y: auto; }
+.research-institution { margin-top: -17px; color: var(--muted); font-size: var(--fs-body); }
+.reading-layer-kicker { margin: 24px 0 -16px; color: var(--teal); font: 700 var(--fs-note) var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+.research-question { margin: 28px 0; padding: 22px; color: white; background: var(--ink); }
+.research-question span { display: block; margin-bottom: 10px; color: var(--acid); font: var(--fs-note) var(--mono); }
+.research-question strong { display: block; font: 600 var(--fs-h4)/1.55 var(--serif); }
+.research-question p { margin: 12px 0 0; color: #aab4af; font-size: var(--fs-body); line-height: 1.7; }
+.research-block { margin-top: 27px; }
+.research-block h4 { margin-bottom: 12px; font: 600 var(--fs-lead) var(--serif); }
+.research-block > p, .research-block li { color: var(--muted); font-size: var(--fs-body); line-height: 1.7; }
+.research-block ol { padding-left: 20px; }
+.research-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.research-chips span { padding: 5px 7px; color: var(--teal); background: #e3eee9; font: var(--fs-micro) var(--mono); }
+.reading-layers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin: -28px 0 30px; background: var(--line); border: 1px solid var(--line); }
+.reading-layers article { min-height: 142px; padding: 20px; background: var(--white); }
+.reading-layers article > span { display: block; color: var(--teal); font: var(--fs-micro) var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+.reading-layers b { display: block; margin-top: 8px; font: 600 var(--fs-lead) var(--serif); }
+/* The card headline is a block, but the same tag is used inline inside the body text to name the
+   reading steps, so it must not inherit the headline's size or break the sentence into lines. */
+.reading-layers p b { display: inline; margin: 0; color: var(--ink); font: inherit; font-weight: 700; }
+.reading-layers p { min-height: 34px; margin: 8px 0 14px; color: var(--muted); font-size: var(--fs-note); line-height: 1.7; }
+.reading-layers small { color: var(--ink); font: 700 var(--fs-note) var(--mono); }
+.research-study { margin-top: 10px; padding: 18px; border: 1px solid var(--line); }
+.reading-layer-label { display: flex; justify-content: space-between; gap: 12px; margin: -18px -18px 15px; padding: 8px 12px; background: var(--ink); color: white; font: var(--fs-micro) var(--mono); }
+.reading-layer-label span { color: var(--acid); }
+.reading-layer-label small { color: #aab4af; font: inherit; }
+.research-study .study-meta { color: var(--teal); font: var(--fs-note) var(--mono); }
+.research-study h5 { margin: 8px 0 13px; font: 600 var(--fs-ui)/1.45 var(--serif); }
+.research-study p { margin: 7px 0; color: var(--muted); font-size: var(--fs-body); line-height: 1.6; }
+.research-study p b { display: inline-block; min-width: 64px; color: var(--ink); }
+/* The paper layer is taught the way the laboratory layer is: the question first, then what the
+   work added, what it rests on, and where it stops. Same family as .research-question one level
+   up — a question block, an accent label, a serif statement — but lighter, because it sits inside
+   a card rather than opening the profile. The reader should recognise the shape immediately and
+   still see which level they are on. */
+.study-question { margin: 4px 0 14px; padding: 14px 16px; border-left: 3px solid var(--teal); background: var(--paper-2); }
+.study-question span { display: block; margin-bottom: 7px; color: var(--teal); font: var(--fs-micro) var(--mono); text-transform: uppercase; letter-spacing: .08em; }
+.study-question strong { display: block; color: var(--ink); font: 600 var(--fs-card)/1.6 var(--serif); }
+
+/* A definition list rather than paragraphs: each step is a labelled move in the same argument,
+   and the label column makes the four steps scannable as a chain instead of a wall of prose. */
+.study-chain { display: grid; grid-template-columns: minmax(88px, auto) 1fr; gap: 6px 16px; margin: 0 0 14px; }
+.study-chain dt { color: var(--ink); font: 600 var(--fs-micro) var(--mono); text-transform: uppercase; letter-spacing: .06em; padding-top: 3px; }
+.study-chain dd { margin: 0; color: var(--ink-soft); font-size: var(--fs-body); line-height: 1.65; }
+/* The limit and the open question are the two the reader is most likely to skip and most needs,
+   so they are coloured rather than left to look like more body text. */
+.study-chain dt.limit, .study-chain dd.limit { color: #8b3b22; }
+.study-chain dt.open, .study-chain dd.open { color: var(--teal); }
+
+.research-study .study-role { padding: 8px 10px; color: var(--ink); background: var(--paper-2); }
+.research-study .study-limit { color: #8b3b22; }
+.research-study a { display: inline-block; margin-top: 8px; color: var(--teal); font-size: var(--fs-note); font-weight: 700; }
+.deep-dive { margin: 14px 0 4px; padding: 12px; border: 1px solid #b9ccc3; background: #f4f8f5; }
+.deep-dive summary { cursor: pointer; color: var(--teal); font: 700 var(--fs-body) var(--mono); }
+.deep-dive > p { margin-top: 12px; }
+.figure-chain { display: grid; gap: 8px; margin: 12px 0; }
+.figure-chain section { padding: 12px; background: white; border-left: 3px solid var(--acid); }
+.figure-chain section > span { display: block; margin-bottom: 5px; color: var(--teal); font: var(--fs-note) var(--mono); }
+.figure-chain section > strong { display: block; font: 600 var(--fs-card)/1.45 var(--serif); }
+.research-pending { padding: 16px; background: var(--paper-2); }
+.audit-block { padding-top: 16px; border-top: 1px solid var(--line); }
+.audit-block p { margin: 7px 0; }.audit-good { color: var(--teal) !important; }.audit-open { color: #8b5a13 !important; }.audit-fix { color: #8b3b22 !important; }
+.research-actions { display: flex; gap: 10px; margin-top: 24px; }
+.research-actions a { padding: 10px 12px; color: white; background: var(--teal); font-size: var(--fs-body); }
+.freshness-list { margin-top: 25px; border-top: 1px solid var(--line); }
+.freshness-row { display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.freshness-row b { font-size: var(--fs-card); }.freshness-row span { color: var(--muted); font: var(--fs-note) var(--mono); }
+.freshness-row small { grid-column: 1 / -1; color: var(--muted); font-size: var(--fs-note); }
+.dialog-note { margin: 20px 0 0; color: var(--muted); font-size: var(--fs-body); line-height: 1.65; }
+
+@media (max-width: 980px) {
+  nav { display: none; }
+  .hero { grid-template-columns: 1fr; gap: 20px; }
+  .hero-panel { min-height: 450px; padding-top: 350px; }
+  .frontier-grid { grid-template-columns: 1fr 1fr; }.frontier-card:first-child { grid-column: 1 / -1; }
+  .lab-grid { grid-template-columns: repeat(2, 1fr); }
+  .source-grid { grid-template-columns: repeat(2, 1fr); }
+  .standards-grid { grid-template-columns: 1fr; gap: 55px; }
+}
+@media (max-width: 680px) {
+  .shell { width: calc(100% - 28px); max-width: 1200px; }
+  .topbar { width: 100vw; height: 70px; padding-inline: 14px; }.freshness b { display: none; }.freshness { padding: 9px; }.freshness small { margin: 0; }
+  .hero { min-height: auto; padding-block: 70px 40px; }.hero-intro { font-size: var(--fs-ui); }.hero-actions { flex-direction: column; }.button { width: 100%; }
+  .hero-copy { width: 100%; max-width: calc(100vw - 28px); overflow: hidden; }
+  .hero-intro { width: 100%; max-width: 100%; white-space: normal; word-break: normal; overflow-wrap: break-word; }
+  .signal-radar { width: 290px; height: 290px; }.orbit-3 { width: 290px; height: 290px; animation: none; }.hero-panel { padding-top: 318px; min-height: 420px; }
+  .section { padding-block: 80px; }.section-heading { display: block; }.section-heading > p { margin-top: 20px; }
+  .frontier-grid { grid-template-columns: 1fr; }.frontier-card:first-child { grid-column: auto; }
+  .toolbar { align-items: stretch; flex-direction: column; }.segmented { overflow-x: auto; }.select-wrap { justify-content: space-between; }select { flex: 1; }
+  .signal-item { grid-template-columns: 124px 1fr 32px; gap: 12px; }.evidence { grid-column: 2 / 4; grid-row: 2; }.signal-arrow { grid-column: 3; grid-row: 1; }.signal-main h3 { font-size: var(--fs-lead); }
+  .lab-controls { align-items: stretch; flex-direction: column; }.search-box { width: 100%; }.lab-grid { grid-template-columns: 1fr; }
+  .reading-layers { grid-template-columns: 1fr; }.reading-layers article { min-height: 0; }.reading-layers p { min-height: 0; }
+  .lab-card .lab-bottom { flex-wrap: wrap; }.research-dialog { padding: 25px 20px; }.research-study p b { display: block; }
+  .source-grid { grid-template-columns: 1fr; }.update-callout { grid-template-columns: 1fr; }
+  .evidence-ladder li { grid-template-columns: 34px 100px 1fr; }
+  .footer-inner { align-items: start; gap: 22px; flex-direction: column; }
+}
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; animation: none !important; transition: none !important; } }

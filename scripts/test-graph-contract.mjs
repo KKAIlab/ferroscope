@@ -1,0 +1,455 @@
+// Graph provenance contract tests (P0-A, P0-B).
+//
+// The previous version of this file asserted that setting `methodLinks[0].checkedAt` to
+// today's date promoted a method edge to source-checked. That encoded the defect as a
+// desired behaviour: a date says when something happened, never what was read. Every case
+// below is the negative form — an edge or a record that claims more review than it can
+// account for is *rejected*, not quietly rendered with a softer label.
+
+import assert from "node:assert/strict";
+import fs from "node:fs/promises";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import {
+  EDGE_PROVENANCE_CLASSES,
+  EDGE_REVIEW_STATES,
+  VERIFICATION_DEPTHS,
+  buildGraph,
+  checkEdgeContract,
+  checkReviewRecord,
+  isSourceChecked,
+} from "../lib/graph.mjs";
+
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const read = async (file) => JSON.parse(await fs.readFile(path.join(root, "data", file), "utf8"));
+
+const cases = [];
+const test = (name, run) => {
+  try {
+    run();
+    cases.push({ name, ok: true });
+  } catch (error) {
+    cases.push({ name, ok: false, message: error.message });
+  }
+};
+
+const [papers, labs, labsEn, links, methods, network, claims, sourceReviews] = await Promise.all([
+  read("papers-en.json"), read("labs.json"), read("labs-en.json"), read("lab-paper-links.json"),
+  read("methods.json"), read("knowledge-network.json"), read("paper-claims.json"), read("source-reviews.json"),
+]);
+const inputs = { papers, labs, labsEn, links, methods, network, claims, sourceReviews };
+const graph = buildGraph(inputs);
+
+// Helpers for the method-route promotion cases: a route now references the canonical registry
+// rather than embedding its own authority, so a fixture reading is added to the registry and
+// the death-kinetics route is pointed at it.
+const slug = (value) => String(value).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+const fixtureSource = (id, scopeLabels) => ({
+  id, documentClass: "accepted-author-manuscript", url: `https://example.org/${id}`, identifiers: {},
+  version: { label: `${id} v1`, retrievedAt: "2026-07-24", byteLength: 1, sha256: null },
+  scopes: scopeLabels.map((label) => ({ id: slug(label), label, surfaceType: "figure-caption", accessExtent: "complete-scope", boundary: "caption only" })),
+});
+const registryWith = ({ sources = [], events = [] }) => ({ ...sourceReviews, sources: [...sourceReviews.sources, ...sources], reviewEvents: [...sourceReviews.reviewEvents, ...events] });
+const dkMethodsWithRoute = ({ sourceId, reviewEventId }) => {
+  const patched = structuredClone(methods);
+  const dk = patched.find((entry) => entry.id === "death-kinetics");
+  dk.sourceRoutes = [{ id: "dk-route", kind: "original-research-demonstration", kindBasis: "test fixture", boundary: "test", routePurpose: reviewEventId ? "primary-source-reading" : "declared-source-not-opened", sourceId, reviewEventId: reviewEventId ?? null }];
+  dk.source = `https://example.org/${sourceId}`;
+  return patched;
+};
+
+const methodEdge = graph.edges.find((edge) => edge.provenanceClass === "curated-method-module");
+const checkedEdge = graph.edges.find((edge) => edge.reviewState === "source-checked");
+const KAGAN = "doi:10.1038/nchembio.2238";
+
+// ------------------------------------------------------- P0-A: a date is not a promotion
+
+test("a date alone never promotes a review record", () => {
+  const dated = {
+    reviewState: "source-checked",
+    verificationDepth: "full-text-rechecked",
+    checkedAt: "2026-07-24",
+    scope: [],
+  };
+  const problems = checkReviewRecord(dated, "fixture");
+  assert.ok(problems.length > 0, "a record carrying only a date must not pass as source-checked");
+  assert.ok(problems.some((problem) => /a date is not a scope/.test(problem)), problems.join(" | "));
+  assert.ok(problems.some((problem) => /must name who read the source/.test(problem)), problems.join(" | "));
+});
+
+test("a URL alone never promotes a review record", () => {
+  const linked = {
+    reviewState: "source-checked",
+    verificationDepth: "methods-checked",
+    sourceUrl: "https://doi.org/10.1038/nchembio.2238",
+    checkedAt: null,
+    scope: [],
+  };
+  const problems = checkReviewRecord(linked, "fixture");
+  assert.ok(problems.some((problem) => /must name the ISO date/.test(problem)), problems.join(" | "));
+  assert.ok(problems.some((problem) => /a date is not a scope/.test(problem)), problems.join(" | "));
+});
+
+test("a record that opened nothing may not call itself source-checked however deep it claims to be", () => {
+  for (const depth of ["not-read", "curated-unverified", "archive-derived"]) {
+    const problems = checkReviewRecord({
+      reviewState: "source-checked",
+      verificationDepth: depth,
+      checkedAt: "2026-07-24",
+      checkedBy: "somebody",
+      sourceUrl: "https://example.org/x",
+      sourceVersion: "v1",
+      scope: ["Fig. 1"],
+      boundary: "none",
+    }, "fixture");
+    assert.ok(problems.some((problem) => /no external document was opened/.test(problem)), `${depth}: ${problems.join(" | ")}`);
+  }
+});
+
+test("an unread record may not accumulate a scope it never earned", () => {
+  const problems = checkReviewRecord({
+    reviewState: "archive-derived",
+    verificationDepth: "archive-derived",
+    checkedAt: "2026-07-24",
+    scope: ["Fig. 1", "Methods"],
+  }, "fixture");
+  assert.ok(problems.some((problem) => /may not declare a read scope/.test(problem)), problems.join(" | "));
+});
+
+test("an archive-derived record cannot be deepened by a migration date", () => {
+  const problems = checkReviewRecord({
+    reviewState: "archive-derived",
+    verificationDepth: "methods-checked",
+    checkedAt: "2026-07-24",
+    scope: [],
+  }, "fixture");
+  assert.ok(problems.some((problem) => /must sit at archive-derived depth/.test(problem)), problems.join(" | "));
+});
+
+// ----------------------------------------------------------- P0-A: the edge-level mirror
+
+test("a source-checked edge that names no scope entry is rejected", () => {
+  const problems = checkEdgeContract({ ...checkedEdge, scopeRef: null }, "fixture");
+  assert.ok(problems.some((problem) => /must name the scope entry/.test(problem)), problems.join(" | "));
+});
+
+test("a source-checked edge with no reader or pinned version is rejected", () => {
+  assert.ok(checkEdgeContract({ ...checkedEdge, checkedBy: null }, "fixture").some((problem) => /must name who read/.test(problem)));
+  assert.ok(checkEdgeContract({ ...checkedEdge, sourceVersion: null }, "fixture").some((problem) => /pinned version/.test(problem)));
+  assert.ok(checkEdgeContract({ ...checkedEdge, checkedAt: null }, "fixture").some((problem) => /must carry the ISO date/.test(problem)));
+});
+
+test("an edge may not claim a deeper state than the record it came from", () => {
+  const overrun = { ...methodEdge, reviewState: "source-checked", checkedAt: "2026-07-24", checkedBy: "x", sourceVersion: "v", scopeRef: "Fig. 1", verificationDepth: "methods-checked" };
+  const problems = checkEdgeContract(overrun, "fixture");
+  assert.ok(problems.some((problem) => /from a source record that is only/.test(problem)), problems.join(" | "));
+  assert.ok(problems.some((problem) => /read only to/.test(problem)), problems.join(" | "));
+});
+
+test("an edge that is not source-checked may not name a read scope", () => {
+  assert.ok(checkEdgeContract({ ...methodEdge, scopeRef: "Fig. 1" }, "fixture").some((problem) => /may not name a read scope/.test(problem)));
+});
+
+test("an edge that is not source-checked must say what has not been read", () => {
+  assert.ok(checkEdgeContract({ ...methodEdge, reviewPendingReason: null }, "fixture").some((problem) => /has not been read/.test(problem)));
+});
+
+test("a review state or depth outside the vocabulary is rejected rather than treated as pending", () => {
+  for (const value of ["pending-source-review", "unreviewed", "", null, "SOURCE-CHECKED"]) {
+    assert.ok(checkEdgeContract({ ...methodEdge, reviewState: value }, "fixture").length > 0, `reviewState ${JSON.stringify(value)} must be rejected`);
+  }
+  for (const value of ["read", "", null]) {
+    assert.ok(checkEdgeContract({ ...methodEdge, verificationDepth: value }, "fixture").length > 0, `verificationDepth ${JSON.stringify(value)} must be rejected`);
+  }
+});
+
+// -------------------------------------------------------------- P0-A: scope containment
+
+test("a claim that declares a scope no reviewer recorded fails the build", () => {
+  const mismatched = structuredClone(claims);
+  mismatched.claims.find((claim) => claim.id === "claim-oxpe-species").review = { scopeRef: "Fig. 9" };
+  assert.throws(
+    () => buildGraph({ ...inputs, claims: mismatched }),
+    /no source-checked record covers it/,
+    "a scope entry nobody recorded must fail loudly rather than silently demote",
+  );
+});
+
+test("a genuinely checked figure promotes only the claims that figure covers", () => {
+  // Narrow the Kagan review record to Fig. 3 alone. Every claim and figure whose scopeRef
+  // is not Fig. 3 must therefore drop back to the paper's archive-derived baseline — which
+  // means removing their now-uncovered scopeRef declarations, exactly as a real narrowing
+  // of the read scope would.
+  const narrowed = structuredClone(papers);
+  const paper = narrowed.find((entry) => entry.id === KAGAN);
+  const manuscript = paper.verification.sources.find((source) => source.kind === "pmc-author-manuscript");
+  manuscript.scope = ["Fig. 3"];
+  for (const figure of paper.figureAudit) if (figure.scopeRef !== "Fig. 3") delete figure.scopeRef;
+
+  const narrowedClaims = structuredClone(claims);
+  for (const claim of narrowedClaims.claims) if (claim.paperId === KAGAN && claim.review?.scopeRef !== "Fig. 3") delete claim.review;
+
+  const rebuilt = buildGraph({ ...inputs, papers: narrowed, claims: narrowedClaims });
+
+  const kaganEdges = rebuilt.edges.filter((edge) => edge.paperId === KAGAN && edge.provenanceClass === "paper-backed-experimental");
+  const promoted = kaganEdges.filter((edge) => isSourceChecked(edge.reviewState));
+  assert.ok(promoted.length > 0, "the figure that was read must promote something");
+  assert.ok(promoted.every((edge) => edge.scopeRef === "Fig. 3"), `only Fig. 3 may be promoted, got ${[...new Set(promoted.map((edge) => edge.scopeRef))].join(", ")}`);
+  assert.ok(
+    kaganEdges.filter((edge) => edge.figure && edge.figure !== "Fig. 3").every((edge) => edge.reviewState === "archive-derived"),
+    "every figure nobody opened must stay archive-derived",
+  );
+});
+
+test("an archive-derived paper claim renders as archive-derived, never as source-checked", () => {
+  const untouched = graph.edges.filter((edge) => edge.provenanceClass === "paper-backed-experimental" && !edge.scopeRef);
+  assert.ok(untouched.length > 0, "the corpus must still contain claims nobody has re-read");
+  for (const edge of untouched) {
+    assert.equal(edge.reviewState, "archive-derived");
+    assert.equal(edge.verificationDepth, "archive-derived");
+    assert.equal(edge.checkedAt, null);
+    assert.ok(edge.reviewPendingReason, "an archive-derived edge must say what has not been read");
+  }
+});
+
+test("adding a date to a paper's verification block promotes nothing", () => {
+  const dated = structuredClone(papers);
+  for (const paper of dated) paper.verification.checkedAt = "2026-07-24";
+  const rebuilt = buildGraph({ ...inputs, papers: dated });
+  assert.equal(
+    rebuilt.counts.byReviewState["source-checked"],
+    graph.counts.byReviewState["source-checked"],
+    "restamping every verification block must not move a single edge",
+  );
+});
+
+// ------------------------------------------------------------------------------- P0-B
+
+test("a bare check date on a method link is refused rather than honoured", () => {
+  const dated = structuredClone(network);
+  dated.methodLinks[0].checkedAt = "2026-07-24";
+  assert.throws(
+    () => buildGraph({ ...inputs, network: dated }),
+    /a bare checkedAt is not evidence of review/,
+    "the acceptance mutation for P0-B: a date alone must never promote a method edge",
+  );
+});
+
+test("a method route promotes only through a resolvable checked event and a covering scope", () => {
+  const link = structuredClone(network);
+  link.methodLinks.find((entry) => entry.method === "death-kinetics").assertionScopes = { MEASURES: "Box 1: death kinetics" };
+
+  // A complete reading: a registry source with the covering scope, a source-checked event over
+  // it, and a route that references the event.
+  const source = fixtureSource("test-dk", ["Box 1: death kinetics"]);
+  const event = { id: "test-dk-event", sourceId: "test-dk", reviewState: "source-checked", reviewerId: "claude-code-round4-implementer", checkedAt: "2026-07-24", scopeIds: ["box-1-death-kinetics"], boundary: "fixture", priorReviewEventId: null, agreement: null, discrepancyNote: null };
+  const rebuilt = buildGraph({ ...inputs, methods: dkMethodsWithRoute({ sourceId: "test-dk", reviewEventId: "test-dk-event" }), network: link, sourceReviews: registryWith({ sources: [source], events: [event] }) });
+  assert.equal(rebuilt.edges.filter((edge) => edge.from === "method:death-kinetics" && isSourceChecked(edge.reviewState)).length, 2, "a complete reading must promote the MEASURES edges it covers");
+
+  // A route naming an event that does not resolve fails the build rather than promoting silently.
+  assert.throws(
+    () => buildGraph({ ...inputs, methods: dkMethodsWithRoute({ sourceId: "test-dk", reviewEventId: "no-such-event" }), network: link, sourceReviews: registryWith({ sources: [source] }) }),
+    /does not resolve in the registry/,
+    "a route pointing at a nonexistent event must not promote",
+  );
+
+  // A not-opened route (no event) with no assertion scope declared promotes nothing.
+  const noScope = structuredClone(link);
+  delete noScope.methodLinks.find((entry) => entry.method === "death-kinetics").assertionScopes;
+  const unread = buildGraph({ ...inputs, methods: dkMethodsWithRoute({ sourceId: "test-dk", reviewEventId: null }), network: noScope, sourceReviews: registryWith({ sources: [source] }) });
+  assert.equal(unread.edges.filter((edge) => edge.from === "method:death-kinetics" && isSourceChecked(edge.reviewState)).length, 0, "a not-opened route must not promote");
+});
+
+test("a method route whose event does not cover the assertion fails the build", () => {
+  const source = fixtureSource("test-dk", ["Box 2: something else"]);
+  const event = { id: "test-dk-event", sourceId: "test-dk", reviewState: "source-checked", reviewerId: "claude-code-round4-implementer", checkedAt: "2026-07-24", scopeIds: ["box-2-something-else"], boundary: "fixture", priorReviewEventId: null, agreement: null, discrepancyNote: null };
+  const link = structuredClone(network);
+  link.methodLinks.find((entry) => entry.method === "death-kinetics").assertionScopes = { MEASURES: "Box 1: death kinetics" };
+  assert.throws(
+    () => buildGraph({ ...inputs, methods: dkMethodsWithRoute({ sourceId: "test-dk", reviewEventId: "test-dk-event" }), network: link, sourceReviews: registryWith({ sources: [source], events: [event] }) }),
+    /no source-checked record covers it/,
+    "a scope mismatch must fail rather than promote the wrong assertion",
+  );
+});
+
+test("MEASURES and CANNOT_DISTINGUISH are promoted independently", () => {
+  const source = fixtureSource("test-dk", ["what the assay measures"]);
+  const event = { id: "test-dk-event", sourceId: "test-dk", reviewState: "source-checked", reviewerId: "claude-code-round4-implementer", checkedAt: "2026-07-24", scopeIds: ["what-the-assay-measures"], boundary: "fixture", priorReviewEventId: null, agreement: null, discrepancyNote: null };
+  const link = structuredClone(network);
+  link.methodLinks.find((entry) => entry.method === "death-kinetics").assertionScopes = { MEASURES: "what the assay measures" };
+  const rebuilt = buildGraph({ ...inputs, methods: dkMethodsWithRoute({ sourceId: "test-dk", reviewEventId: "test-dk-event" }), network: link, sourceReviews: registryWith({ sources: [source], events: [event] }) });
+  const edges = rebuilt.edges.filter((edge) => edge.from === "method:death-kinetics");
+  assert.ok(edges.filter((edge) => edge.relation === "MEASURES").every((edge) => isSourceChecked(edge.reviewState)));
+  assert.ok(
+    edges.filter((edge) => edge.relation === "CANNOT_DISTINGUISH").every((edge) => edge.reviewState === "recorded-unverified"),
+    "reading what an assay measures does not establish what it cannot distinguish",
+  );
+});
+
+// ------------------------------------------------------------ provenance separation
+
+test("a curated method-module edge may not claim a paper as its backing", () => {
+  assert.ok(checkEdgeContract({ ...methodEdge, paperId: KAGAN }, "fixture").some((problem) => /must not claim a paper/.test(problem)));
+});
+
+test("an edge classed as paper-backed must name the paper it was read from", () => {
+  assert.ok(checkEdgeContract({ ...methodEdge, provenanceClass: "paper-backed-experimental" }, "fixture").some((problem) => /must name the paper/.test(problem)));
+});
+
+test("an edge with no provenance class is rejected", () => {
+  assert.ok(checkEdgeContract({ ...methodEdge, provenanceClass: undefined }, "fixture").length > 0);
+});
+
+test("an edge that does not name the record it derives from is rejected", () => {
+  assert.ok(checkEdgeContract({ ...methodEdge, sourceReviewState: undefined }, "fixture").some((problem) => /review state of the record/.test(problem)));
+  assert.ok(checkEdgeContract({ ...methodEdge, sourceVerificationDepth: undefined }, "fixture").some((problem) => /verification depth of the record/.test(problem)));
+});
+
+// -------------------------------------------------------------- the shipped graph
+
+test("every edge in the shipped graph satisfies the contract", () => {
+  assert.deepEqual(graph.edges.flatMap((edge, index) => checkEdgeContract(edge, `edge[${index}]`)), []);
+});
+
+test("every method-module edge is paperless, and unreviewed unless a read route covers it", () => {
+  const moduleEdges = graph.edges.filter((edge) => edge.provenanceClass === "curated-method-module");
+  // Derived from the data, not a snapshot constant: the invariant being asserted is that a
+  // method-mechanism link contributes exactly one MEASURES and one CANNOT_DISTINGUISH edge and
+  // nothing else. A hard-coded total says the same thing only until someone links a method to one
+  // more mechanism, at which point it fails for a reason that has nothing to do with the contract.
+  const declaredLinks = network.methodLinks.reduce((total, link) => total + (link.mechanisms || []).length, 0);
+  assert.equal(moduleEdges.length, declaredLinks * 2, "each method-mechanism link contributes exactly a MEASURES and a CANNOT_DISTINGUISH edge");
+  for (const edge of moduleEdges) {
+    assert.equal(edge.paperId, null, "a method module never borrows a paper as its backing");
+    if (isSourceChecked(edge.reviewState)) {
+      // Promoted only because a source route this module declares was read at a scope that
+      // covers this assertion. It must therefore carry the full source-checked apparatus.
+      assert.ok(edge.scopeRef, "a promoted method edge must name the scope entry that covers it");
+      assert.ok(edge.checkedAt && edge.checkedBy && edge.sourceVersion, "a promoted method edge must carry who read what, and when");
+      assert.notEqual(edge.verificationDepth, "curated-unverified");
+    } else {
+      assert.equal(edge.reviewState, "recorded-unverified");
+      assert.equal(edge.checkedAt, null);
+      assert.equal(edge.verificationDepth, "curated-unverified");
+      assert.ok(edge.reviewPendingReason, "an unreviewed edge must state what has not been read");
+    }
+  }
+  // The three modules read this round promote exactly the assertions their routes cover, and
+  // no more; the rest of the atlas stays unreviewed, so the boundary between read and unread
+  // is visible rather than blurred.
+  const promoted = moduleEdges.filter((edge) => isSourceChecked(edge.reviewState));
+  assert.equal(promoted.length, 8, "3 modules promote only the MEASURES/CANNOT_DISTINGUISH edges their read scopes cover");
+  assert.ok(moduleEdges.filter((edge) => !isSourceChecked(edge.reviewState)).length >= 60, "the great majority of the method atlas is still honestly unread");
+});
+
+test("the graph names a generator that exists on disk", () => {
+  assert.equal(graph.generator, "lib/graph.mjs");
+});
+
+test("the zero-count CONTRADICTS relation stays visible in the counts", () => {
+  assert.equal(graph.counts.byRelation.CONTRADICTS, 0);
+  assert.ok("CONTRADICTS" in graph.counts.byRelation, "a relation with no instances is a fact about the corpus, not a row to omit");
+});
+
+test("the counts separate every review state and every verification depth", () => {
+  for (const state of EDGE_REVIEW_STATES) assert.ok(state in graph.counts.byReviewState, `state ${state} must be reported even at zero`);
+  for (const depth of VERIFICATION_DEPTHS) assert.ok(depth in graph.counts.byVerificationDepth, `depth ${depth} must be reported even at zero`);
+  assert.equal(graph.counts.byReviewState["independently-rechecked"], 0, "nothing in this repository has had a second independent reading");
+  const provenanceTotal = EDGE_PROVENANCE_CLASSES.reduce((total, value) => total + graph.counts.byProvenanceClass[value], 0);
+  const reviewTotal = EDGE_REVIEW_STATES.reduce((total, value) => total + graph.counts.byReviewState[value], 0);
+  const depthTotal = VERIFICATION_DEPTHS.reduce((total, value) => total + graph.counts.byVerificationDepth[value], 0);
+  assert.equal(provenanceTotal, graph.counts.edges);
+  assert.equal(reviewTotal, graph.counts.edges);
+  assert.equal(depthTotal, graph.counts.edges);
+});
+
+const generatorExists = await fs.stat(path.join(root, graph.generator)).then((entry) => entry.isFile()).catch(() => false);
+test("the declared generator resolves to a real file", () => {
+  assert.ok(generatorExists, `${graph.generator} does not exist on disk`);
+});
+
+// ------------------------------------------------- P0-B: the edge links to the opened source
+
+test("the shipped MDA method edge links to the source that was opened, not the unread recommendation", () => {
+  // The round-4 defect: the MEASURES edge was checked against Zou's PMC author manuscript but
+  // its clickable sourceUrl was the 2025 field recommendation DOI, which was never opened.
+  const mda = graph.edges.filter((edge) => edge.from === "method:mda-4hne" && edge.relation === "MEASURES");
+  assert.ok(mda.length > 0, "the MDA module must contribute MEASURES edges");
+  for (const edge of mda) {
+    assert.ok(isSourceChecked(edge.reviewState), "the MDA MEASURES edge is promoted");
+    assert.match(edge.sourceUrl, /PMC7353921/, `expected the opened Zou manuscript, got ${edge.sourceUrl}`);
+    assert.doesNotMatch(edge.sourceUrl, /s41580-025-00843-2/, "the edge must not link to the unread 2025 recommendation");
+  }
+});
+
+test("a checked figure-caption edge inherits figures-legends depth, never methods depth", () => {
+  // P0-2: a manuscript whose Methods were read must not lend methods depth to a figure caption.
+  const figureEdges = graph.edges.filter((edge) => isSourceChecked(edge.reviewState) && /^Fig\. \d+$/.test(edge.scopeRef || ""));
+  assert.ok(figureEdges.length > 0, "the corpus must contain promoted figure-caption edges");
+  for (const edge of figureEdges) {
+    assert.equal(edge.verificationDepth, "figures-legends-checked", `${edge.relation} at ${edge.scopeRef} must not inherit ${edge.verificationDepth}`);
+    assert.ok(
+      ["methods-checked", "figures-legends-checked", "supplement-checked", "full-text-rechecked", "raw-data-rechecked"].includes(edge.sourceVerificationDepth),
+      "the record's summary maximum is the ceiling, reported separately from the scope depth",
+    );
+  }
+});
+
+test("array order never decides review state, and a recheck attributes to the second reader (P0-3, P1-4)", () => {
+  // Two review events cover one method scope: a first source-checked reading and a genuine
+  // independent recheck that resolves it as its prior event. Whichever order the routes sit in,
+  // the stronger independent state must win — and the promoted edge must name the independent
+  // reviewer and their agreement, not the original implementer.
+  // An independent recheck now requires the shared source to pin a sha256, because byte
+  // identity is the whole claim two readers make; the fixture therefore carries a real hash.
+  const source = fixtureSource("test-shared", ["shared scope"]);
+  source.version.sha256 = "b".repeat(64);
+  const first = { id: "ev-first", sourceId: "test-shared", reviewState: "source-checked", reviewerId: "claude-code-round4-implementer", checkedAt: "2026-07-24", scopeIds: ["shared-scope"], boundary: "first reading", priorReviewEventId: null, agreement: null, discrepancyNote: null };
+  const recheck = { id: "ev-recheck", sourceId: "test-shared", reviewState: "independently-rechecked", reviewerId: "independent-review-codex", checkedAt: "2026-07-25", scopeIds: ["shared-scope"], boundary: "second reading", priorReviewEventId: "ev-first", agreement: "agrees", discrepancyNote: null };
+  const reg = registryWith({ sources: [source], events: [first, recheck] });
+  const build = (routeOrder) => {
+    const patched = structuredClone(methods);
+    const dk = patched.find((entry) => entry.id === "death-kinetics");
+    dk.sourceRoutes = routeOrder.map((eventId, i) => ({ id: `dk-${i}`, kind: "original-research-demonstration", kindBasis: "test", boundary: "test", routePurpose: "primary-source-reading", sourceId: "test-shared", reviewEventId: eventId }));
+    dk.source = "https://example.org/test-shared";
+    const net = structuredClone(network);
+    net.methodLinks.find((entry) => entry.method === "death-kinetics").assertionScopes = { MEASURES: "shared scope" };
+    return buildGraph({ ...inputs, methods: patched, network: net, sourceReviews: reg }).edges.filter((edge) => edge.from === "method:death-kinetics" && edge.relation === "MEASURES");
+  };
+  for (const order of [["ev-first", "ev-recheck"], ["ev-recheck", "ev-first"]]) {
+    const edges = build(order);
+    assert.ok(edges.length > 0, "the shared scope must promote the MEASURES edges");
+    assert.ok(edges.every((edge) => edge.reviewState === "independently-rechecked"), "the stronger independent recheck must win regardless of array order");
+    assert.ok(edges.every((edge) => edge.reviewerId === "independent-review-codex"), "a promoted recheck attributes to the independent reviewer, not the original implementer");
+    assert.ok(edges.every((edge) => edge.checkedBy && !/implementer/i.test(edge.checkedBy)), "the edge names the second reader, not the round-4 implementer");
+    assert.ok(edges.every((edge) => edge.agreement === "agrees"), "a promoted recheck carries its agreement outcome");
+  }
+});
+
+test("buildGraph refuses an invalid independent-review chain even when called directly (P0-C)", () => {
+  // An independent event whose prior id does not resolve must fail the build, not render.
+  const source = fixtureSource("test-bad", ["shared scope"]);
+  const broken = { id: "ev-broken", sourceId: "test-bad", reviewState: "independently-rechecked", reviewerId: "independent-review-codex", checkedAt: "2026-07-25", scopeIds: ["shared-scope"], boundary: "x", priorReviewEventId: "DOES-NOT-EXIST", agreement: "agrees", discrepancyNote: null };
+  const reg = registryWith({ sources: [source], events: [broken] });
+  const net = structuredClone(network);
+  net.methodLinks.find((entry) => entry.method === "death-kinetics").assertionScopes = { MEASURES: "shared scope" };
+  assert.throws(
+    () => buildGraph({ ...inputs, methods: dkMethodsWithRoute({ sourceId: "test-bad", reviewEventId: "ev-broken" }), network: net, sourceReviews: reg }),
+    /does not resolve to a real event/,
+    "a fabricated independent recheck must fail the build",
+  );
+});
+
+// ----------------------------------------------------------------------- reporting
+
+const failures = cases.filter((entry) => !entry.ok);
+for (const failure of failures) console.error(`FAIL ${failure.name}\n      ${failure.message}`);
+if (failures.length) {
+  console.error(`\n${failures.length} of ${cases.length} graph contract cases failed.`);
+  process.exit(1);
+}
+const states = EDGE_REVIEW_STATES.map((state) => `${state} ${graph.counts.byReviewState[state]}`).join(", ");
+console.log(
+  `Graph contract tests passed: ${cases.length} cases. Review state: ${states}. ` +
+    "A date, a URL, a restamped verification block and a scope that covers a different assertion each fail to promote anything.",
+);

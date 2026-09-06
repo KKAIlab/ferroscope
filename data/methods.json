@@ -1,0 +1,2842 @@
+[
+  {
+    "id": "death-kinetics",
+    "name": "Cell-death kinetics and membrane integrity",
+    "group": "Core identification",
+    "evidenceRole": "Required foundation",
+    "plainEnglish": "Measure when cells lose viability and membrane integrity instead of relying on a single endpoint.",
+    "measures": "The timing and magnitude of death under a defined perturbation.",
+    "cannotProve": "It does not identify ferroptosis without mechanistic rescue, iron dependence and lipid-oxidation evidence.",
+    "bestPractice": [
+      "Use time-resolved imaging or repeated measurements",
+      "Report seeded density, medium, serum, dose and exposure time",
+      "Separate growth arrest from loss of membrane integrity"
+    ],
+    "commonPitfalls": [
+      "One endpoint after extensive secondary damage",
+      "ATP-only assays interpreted as death",
+      "Unreported cell density or nutrient conditions"
+    ],
+    "distinctiveLabs": [
+      "dixon-stanford",
+      "overholtzer-msk",
+      "garcia-saez-mpi"
+    ],
+    "source": "https://doi.org/10.1038/s41580-025-00843-2",
+    "decisionProfile": {
+      "reviewState": "pending-source-review",
+      "provisionalBecause": "No declared source for this module has been read and dated in this repository, so every decision field below is unverified. The module's published guidance is curated judgement, not a source-checked protocol.",
+      "sourceCheckedFields": 0,
+      "pendingFields": 13,
+      "fields": {
+        "specimen": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "Which specimen or model system this module is written for is not recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "question": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The biological question this measurement is chosen to answer is not recorded as a separate field. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "perturbation": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "What must be deliberately changed for this measurement to be interpretable is not recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "readout": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "What is measured is stated by the module itself, but that statement has not been checked against a source. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date.",
+          "curatedStatement": "The timing and magnitude of death under a defined perturbation."
+        },
+        "quantificationUnit": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The unit the result is expressed in is not recorded, so two studies using this module cannot be compared numerically from this record. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "instrument": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The instrument or platform is not recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "positiveControl": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "No essential positive control is recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "negativeControl": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "No essential negative control is recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "processControl": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "No process control — the control that reports what the sample handling itself did — is recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "orthogonalConfirmation": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "Which independent measurement must agree before this result can be reused is not recorded as a field. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "timing": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The timing constraint is not recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "compartmentResolution": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The spatial or compartment resolution this module can support is not recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "confounders": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "What can produce the same signal without the underlying biology is not recorded as a field. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        }
+      }
+    },
+    "sourceRoutes": [
+      {
+        "id": "death-kinetics-route-0",
+        "kind": "field-recommendation",
+        "kindBasis": "This repository already publishes this DOI as the 2025 reproducibility recommendation (index.html, evidence-gate section). The document itself was not opened in this round.",
+        "sourceId": "field-rec-2025-nrmcb",
+        "reviewEventId": null,
+        "routePurpose": "declared-source-not-opened",
+        "boundary": "A URL declared as this module's source is not evidence that the document specifies any field below. No reader is recorded against it in this repository."
+      }
+    ],
+    "capabilityAttribution": {
+      "note": "distinctiveLabs is a curated claim. A capability claim counts as evidence here only when a source-checked USES_METHOD claim links a paper to this module and the attribution layer places the laboratory on that paper.",
+      "demonstrated": [],
+      "claimedWithoutEvidence": [
+        {
+          "labId": "dixon-stanford",
+          "reason": "Listed by curated judgement. No paper in this repository links this laboratory to this module through a source-checked USES_METHOD claim, so the listing is a claim and not evidence."
+        },
+        {
+          "labId": "overholtzer-msk",
+          "reason": "Listed by curated judgement. No paper in this repository links this laboratory to this module through a source-checked USES_METHOD claim, so the listing is a claim and not evidence."
+        },
+        {
+          "labId": "garcia-saez-mpi",
+          "reason": "Listed by curated judgement. No paper in this repository links this laboratory to this module through a source-checked USES_METHOD claim, so the listing is a claim and not evidence."
+        }
+      ]
+    }
+  },
+  {
+    "id": "orthogonal-rescue",
+    "name": "Orthogonal rescue and pathway exclusion",
+    "group": "Core identification",
+    "evidenceRole": "Required foundation",
+    "plainEnglish": "Ask whether chemically different radical-trapping antioxidants and iron chelators rescue death, while inhibitors of other death routes do not explain the phenotype.",
+    "measures": "Pharmacological dependence of a death phenotype on lipid-radical chemistry and iron availability.",
+    "cannotProve": "A single compound rescue is not specific enough to name the death mechanism.",
+    "bestPractice": [
+      "Use at least two chemically distinct ferroptosis-suppressing approaches",
+      "Include dose-response and non-ferroptotic death controls",
+      "Pair rescue with genetics or direct chemistry"
+    ],
+    "commonPitfalls": [
+      "Ferrostatin-1 alone",
+      "Very high inhibitor concentrations",
+      "No target-engagement or toxicity control"
+    ],
+    "distinctiveLabs": [
+      "conrad-helmholtz",
+      "dixon-stanford",
+      "stockwell-columbia",
+      "vandenabeele-vib"
+    ],
+    "source": "https://doi.org/10.1038/s41580-025-00843-2",
+    "decisionProfile": {
+      "reviewState": "pending-source-review",
+      "provisionalBecause": "No declared source for this module has been read and dated in this repository, so every decision field below is unverified. The module's published guidance is curated judgement, not a source-checked protocol.",
+      "sourceCheckedFields": 0,
+      "pendingFields": 13,
+      "fields": {
+        "specimen": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "Which specimen or model system this module is written for is not recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "question": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The biological question this measurement is chosen to answer is not recorded as a separate field. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "perturbation": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "What must be deliberately changed for this measurement to be interpretable is not recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "readout": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "What is measured is stated by the module itself, but that statement has not been checked against a source. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date.",
+          "curatedStatement": "Pharmacological dependence of a death phenotype on lipid-radical chemistry and iron availability."
+        },
+        "quantificationUnit": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The unit the result is expressed in is not recorded, so two studies using this module cannot be compared numerically from this record. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "instrument": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The instrument or platform is not recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "positiveControl": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "No essential positive control is recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "negativeControl": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "No essential negative control is recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "processControl": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "No process control — the control that reports what the sample handling itself did — is recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "orthogonalConfirmation": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "Which independent measurement must agree before this result can be reused is not recorded as a field. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "timing": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The timing constraint is not recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "compartmentResolution": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The spatial or compartment resolution this module can support is not recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "confounders": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "What can produce the same signal without the underlying biology is not recorded as a field. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        }
+      }
+    },
+    "sourceRoutes": [
+      {
+        "id": "orthogonal-rescue-route-0",
+        "kind": "field-recommendation",
+        "kindBasis": "This repository already publishes this DOI as the 2025 reproducibility recommendation (index.html, evidence-gate section). The document itself was not opened in this round.",
+        "sourceId": "field-rec-2025-nrmcb",
+        "reviewEventId": null,
+        "routePurpose": "declared-source-not-opened",
+        "boundary": "A URL declared as this module's source is not evidence that the document specifies any field below. No reader is recorded against it in this repository."
+      }
+    ],
+    "capabilityAttribution": {
+      "note": "distinctiveLabs is a curated claim. A capability claim counts as evidence here only when a source-checked USES_METHOD claim links a paper to this module and the attribution layer places the laboratory on that paper.",
+      "demonstrated": [],
+      "claimedWithoutEvidence": [
+        {
+          "labId": "conrad-helmholtz",
+          "reason": "Listed by curated judgement. No paper in this repository links this laboratory to this module through a source-checked USES_METHOD claim, so the listing is a claim and not evidence."
+        },
+        {
+          "labId": "dixon-stanford",
+          "reason": "Listed by curated judgement. No paper in this repository links this laboratory to this module through a source-checked USES_METHOD claim, so the listing is a claim and not evidence."
+        },
+        {
+          "labId": "stockwell-columbia",
+          "reason": "Listed by curated judgement. No paper in this repository links this laboratory to this module through a source-checked USES_METHOD claim, so the listing is a claim and not evidence."
+        },
+        {
+          "labId": "vandenabeele-vib",
+          "reason": "Listed by curated judgement. No paper in this repository links this laboratory to this module through a source-checked USES_METHOD claim, so the listing is a claim and not evidence."
+        }
+      ]
+    }
+  },
+  {
+    "id": "bodipy-c11-assay",
+    "name": "BODIPY 581/591 C11 oxidation assay",
+    "group": "Lipid oxidation",
+    "evidenceRole": "Sensitive supporting readout",
+    "plainEnglish": "A membrane-localized fluorescent fatty-acid analogue shifts from red toward green after oxidation; it is usually read by flow cytometry or microscopy.",
+    "measures": "Oxidation of the probe in its local membrane environment.",
+    "cannotProve": "It does not identify an endogenous oxidized lipid species and cannot diagnose ferroptosis alone.",
+    "bestPractice": [
+      "Use the oxidized-to-reduced fluorescence ratio",
+      "Keep loading, light exposure and acquisition settings constant",
+      "Measure before widespread cell rupture",
+      "Confirm with rescue and a direct or orthogonal lipid assay"
+    ],
+    "commonPitfalls": [
+      "Calling it “BODIPY 11”",
+      "Reporting green intensity without the red channel",
+      "Ignoring probe redistribution or photo-oxidation",
+      "Equating signal with ferroptosis"
+    ],
+    "distinctiveLabs": [
+      "dixon-stanford",
+      "stockwell-columbia",
+      "yamada-kyushu"
+    ],
+    "source": "https://www.thermofisher.com/order/catalog/product/D3861",
+    "decisionProfile": {
+      "reviewState": "pending-source-review",
+      "provisionalBecause": "9 of 13 decision axes were read from the vendor page, Zou 2020 and Kagan 2017 on 2026-07-24; quantificationUnit, positiveControl, negativeControl and processControl are pending because no opened source establishes them. The parallel H2-DCFDA readout is recorded as orthogonal confirmation, not as a process control.",
+      "sourceCheckedFields": 9,
+      "pendingFields": 4,
+      "fields": {
+        "specimen": {
+          "status": "source-checked",
+          "value": "In the demonstrating study (Zou 2020): UACC-257 melanoma and 786-O / 769-P clear-cell renal carcinoma lines, wild-type against POR-depleted.",
+          "evidence": [
+            {
+              "sourceRecordId": "zou2020-pmc7353921",
+              "reviewEventId": "claude-r4-zou2020",
+              "scopeId": "methods-flow-cytometry-analysis",
+              "supportMode": "explicit",
+              "claimFragment": "UACC-257 melanoma and 786-O / 769-P clear-cell renal carcinoma lines",
+              "supportNote": "The flow and imaging Methods name the cell lines and the wild-type/POR-depleted comparison."
+            },
+            {
+              "sourceRecordId": "zou2020-pmc7353921",
+              "reviewEventId": "claude-r4-zou2020",
+              "scopeId": "methods-bodipy-c11-imaging-assay",
+              "supportMode": "explicit",
+              "claimFragment": "wild-type against POR-depleted",
+              "supportNote": "The flow and imaging Methods state the wild-type against POR-depleted comparison."
+            }
+          ]
+        },
+        "question": {
+          "status": "source-checked",
+          "value": "Whether membrane lipid peroxidation rises under a ferroptotic perturbation, read as a shift in probe emission rather than as an identified lipid species.",
+          "evidence": [
+            {
+              "sourceRecordId": "thermofisher-d3861",
+              "reviewEventId": "claude-r4-thermofisher-d3861",
+              "scopeId": "product-description",
+              "supportMode": "explicit",
+              "claimFragment": "read as a shift in probe emission",
+              "supportNote": "The vendor page describes the probe as reporting membrane lipid peroxidation via an emission shift."
+            },
+            {
+              "sourceRecordId": "zou2020-pmc7353921",
+              "reviewEventId": "claude-r4-zou2020",
+              "scopeId": "results-por-mediates-ferroptosis-by-promoting-lipid-peroxidation",
+              "supportMode": "explicit",
+              "claimFragment": "membrane lipid peroxidation rises under a ferroptotic perturbation",
+              "supportNote": "The results read the probe's emission shift as membrane lipid peroxidation under the ferroptotic perturbation."
+            },
+            {
+              "sourceRecordId": "kagan2017-pmc5506843",
+              "reviewEventId": "claude-r4-kagan2017",
+              "scopeId": "results-lipid-hydroperoxides-accumulate-in-ferroptotic-er",
+              "supportMode": "derived",
+              "claimFragment": "rather than as an identified lipid species",
+              "supportNote": "Kagan states that C11-BODIPY, unlike LiperFluo, does not interact with phospholipid hydroperoxides; reading this as a method boundary — an emission shift, not a species identification — is a derivation from that specificity limit, not a claim the assay itself makes."
+            }
+          ]
+        },
+        "perturbation": {
+          "status": "source-checked",
+          "value": "The probe is a reporter, not the perturbation; in the demonstrating study the perturbation is GPX4 inhibition by ML210 (5 micromolar) against DMSO, with POR depletion as the genetic arm.",
+          "evidence": [
+            {
+              "sourceRecordId": "zou2020-pmc7353921",
+              "reviewEventId": "claude-r4-zou2020",
+              "scopeId": "methods-flow-cytometry-analysis",
+              "supportMode": "explicit",
+              "claimFragment": "The probe is a reporter, not the perturbation",
+              "supportNote": "The flow Methods state ML210 (5 uM) against DMSO and the POR-depletion arm."
+            }
+          ]
+        },
+        "readout": {
+          "status": "source-checked",
+          "value": "Oxidation of the probe's polyunsaturated butadienyl group shifts its fluorescence emission peak from approximately 590 nm (reduced) to approximately 510 nm (oxidised); read by flow cytometry (reduced in the PE-Texas Red channel, oxidised in FITC) or by fluorescence microscopy.",
+          "evidence": [
+            {
+              "sourceRecordId": "thermofisher-d3861",
+              "reviewEventId": "claude-r4-thermofisher-d3861",
+              "scopeId": "product-description",
+              "supportMode": "explicit",
+              "claimFragment": "Oxidation of the probe's polyunsaturated butadienyl group shifts its fluorescence emission peak from approximately 590 nm (reduced) to approximately 510 nm (oxidised)",
+              "supportNote": "The vendor page states the reduced-to-oxidised emission shift and its wavelengths."
+            },
+            {
+              "sourceRecordId": "zou2020-pmc7353921",
+              "reviewEventId": "claude-r4-zou2020",
+              "scopeId": "methods-flow-cytometry-analysis",
+              "supportMode": "explicit",
+              "claimFragment": "read by flow cytometry (reduced in the PE-Texas Red channel, oxidised in FITC)",
+              "supportNote": "The flow Methods assign the reduced probe to PE-Texas Red and the oxidised probe to FITC."
+            }
+          ]
+        },
+        "quantificationUnit": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The vendor page states the emission shift qualitatively and Zou 2020's Methods describe channel assignment but do not state the exact quantification unit (e.g. oxidised/reduced ratio or percentage-shifted). Resolving it requires the figure and its legend (Fig. 5b,c) or the version of record, which were not opened."
+        },
+        "instrument": {
+          "status": "source-checked",
+          "value": "Fluorescence detection: a flow cytometer (Zou used a SONY SH800) or a fluorescence imager (Zou used a Perkin Elmer Operetta); excitation/emission 581/591 nm for the reduced probe per the vendor specification.",
+          "evidence": [
+            {
+              "sourceRecordId": "thermofisher-d3861",
+              "reviewEventId": "claude-r4-thermofisher-d3861",
+              "scopeId": "specifications",
+              "supportMode": "explicit",
+              "claimFragment": "a flow cytometer (Zou used a SONY SH800) or a fluorescence imager (Zou used a Perkin Elmer Operetta)",
+              "supportNote": "The vendor specification gives excitation/emission 581/591 nm for the reduced probe."
+            },
+            {
+              "sourceRecordId": "zou2020-pmc7353921",
+              "reviewEventId": "claude-r4-zou2020",
+              "scopeId": "methods-flow-cytometry-analysis",
+              "supportMode": "explicit",
+              "claimFragment": "excitation/emission 581/591 nm for the reduced probe per the vendor specification",
+              "supportNote": "The flow Methods name the SONY SH800; the imaging Methods name the Operetta."
+            }
+          ]
+        },
+        "positiveControl": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "Neither the vendor page nor the Zou 2020 BODIPY sections name a positive oxidation control for the probe itself (e.g. cumene hydroperoxide). Resolving it requires a protocol source that specifies one."
+        },
+        "negativeControl": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The demonstrating study reads the probe against a DMSO condition, but does not describe a radical-trapping-antioxidant control (Fer-1/Lip-1) specifically for the BODIPY readout in the sections read. Resolving it requires the figure legend or a dedicated protocol."
+        },
+        "processControl": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The demonstrating study runs a parallel cytosolic-ROS reporter (H2-DCFDA) alongside BODIPY-C11, but that is an orthogonal specificity comparator, not a control for probe loading, handling, acquisition or assay performance; it is recorded under orthogonalConfirmation instead. No process control for the BODIPY readout is specified in the opened sources. Resolving it requires a protocol that names one."
+        },
+        "orthogonalConfirmation": {
+          "status": "source-checked",
+          "value": "In the demonstrating study the probe is read alongside other lipid-peroxidation readouts: a parallel cytosolic-ROS reporter (H2-DCFDA) distinguishes a membrane-lipid change from a general cytosolic ROS rise, and the study also pairs BODIPY-C11 with a malondialdehyde assay and species-resolved redox-lipidomics. The study presents these readouts together; it does not state a rule that they must move together.",
+          "evidence": [
+            {
+              "sourceRecordId": "zou2020-pmc7353921",
+              "reviewEventId": "claude-r4-zou2020",
+              "scopeId": "methods-flow-cytometry-analysis",
+              "supportMode": "explicit",
+              "claimFragment": "a parallel cytosolic-ROS reporter (H2-DCFDA) distinguishes a membrane-lipid change from a general cytosolic ROS rise",
+              "supportNote": "The flow Methods run H2-DCFDA in parallel with BODIPY-C11 as a separate ROS readout."
+            },
+            {
+              "sourceRecordId": "zou2020-pmc7353921",
+              "reviewEventId": "claude-r4-zou2020",
+              "scopeId": "results-por-mediates-ferroptosis-by-promoting-lipid-peroxidation",
+              "supportMode": "explicit",
+              "claimFragment": "The study presents these readouts together",
+              "supportNote": "The results present BODIPY-C11 together with H2-DCFDA, MDA and redox-lipidomics, without asserting a universal must-move-together rule."
+            },
+            {
+              "sourceRecordId": "zou2020-pmc7353921",
+              "reviewEventId": "claude-r4-zou2020",
+              "scopeId": "fig-5",
+              "supportMode": "explicit",
+              "claimFragment": "the study also pairs BODIPY-C11 with a malondialdehyde assay and species-resolved redox-lipidomics",
+              "supportNote": "Fig. 5 shows these readouts side by side."
+            }
+          ]
+        },
+        "timing": {
+          "status": "source-checked",
+          "value": "Acute probe loading: 5 micromolar BODIPY-C11 for the final 45 minutes of a 90-minute ML210 treatment for flow cytometry; for imaging, probe added for the last 30 minutes of a 3-hour ML210 exposure.",
+          "evidence": [
+            {
+              "sourceRecordId": "zou2020-pmc7353921",
+              "reviewEventId": "claude-r4-zou2020",
+              "scopeId": "methods-flow-cytometry-analysis",
+              "supportMode": "explicit",
+              "claimFragment": "5 micromolar BODIPY-C11 for the final 45 minutes of a 90-minute ML210 treatment for flow cytometry",
+              "supportNote": "The flow Methods state 5 uM probe for the final 45 min of a 90-min ML210 treatment."
+            },
+            {
+              "sourceRecordId": "zou2020-pmc7353921",
+              "reviewEventId": "claude-r4-zou2020",
+              "scopeId": "methods-bodipy-c11-imaging-assay",
+              "supportMode": "explicit",
+              "claimFragment": "for imaging, probe added for the last 30 minutes of a 3-hour ML210 exposure",
+              "supportNote": "The imaging Methods state probe added for the last 30 min of a 3-hour ML210 exposure."
+            }
+          ]
+        },
+        "compartmentResolution": {
+          "status": "source-checked",
+          "value": "The probe partitions into membranes and reports their local oxidation, but resolves no molecular lipid species; fluorescence imaging gives only coarse subcellular localisation, not organelle-specific chemistry.",
+          "evidence": [
+            {
+              "sourceRecordId": "thermofisher-d3861",
+              "reviewEventId": "claude-r4-thermofisher-d3861",
+              "scopeId": "product-description",
+              "supportMode": "explicit",
+              "claimFragment": "The probe partitions into membranes and reports their local oxidation, but resolves no molecular lipid species",
+              "supportNote": "The vendor page describes the probe as a membrane-partitioning reporter with no species resolution."
+            },
+            {
+              "sourceRecordId": "zou2020-pmc7353921",
+              "reviewEventId": "claude-r4-zou2020",
+              "scopeId": "methods-bodipy-c11-imaging-assay",
+              "supportMode": "analytical-inference",
+              "claimFragment": "fluorescence imaging gives only coarse subcellular localisation, not organelle-specific chemistry",
+              "supportNote": "That imaging gives only coarse subcellular localisation is inferred from the probe's membrane partitioning and the imaging setup, not stated as a limitation in the text."
+            }
+          ]
+        },
+        "confounders": {
+          "status": "source-checked",
+          "value": "The probe reacts with peroxyl radicals and is not specific to phospholipid hydroperoxides: Kagan 2017 states that both C11-BODIPY and LiperFluo react with peroxyl radicals whereas LiperFluo, but not C11-BODIPY, interacts with (phospho)lipid hydroperoxides, so the probe is a surrogate rather than a direct measure. It is also photosensitive and, per the vendor, is handled in DMSO and stored desiccated at -20 C in the dark.",
+          "evidence": [
+            {
+              "sourceRecordId": "kagan2017-pmc5506843",
+              "reviewEventId": "claude-r4-kagan2017",
+              "scopeId": "results-lipid-hydroperoxides-accumulate-in-ferroptotic-er",
+              "supportMode": "explicit",
+              "claimFragment": "The probe reacts with peroxyl radicals and is not specific to phospholipid hydroperoxides",
+              "supportNote": "Kagan states verbatim that C11-BODIPY and LiperFluo both react with peroxyl radicals while LiperFluo, but not C11-BODIPY, interacts with (phospho)lipid hydroperoxides."
+            },
+            {
+              "sourceRecordId": "thermofisher-d3861",
+              "reviewEventId": "claude-r4-thermofisher-d3861",
+              "scopeId": "faq",
+              "supportMode": "explicit",
+              "claimFragment": "It is also photosensitive and, per the vendor, is handled in DMSO and stored desiccated at -20 C in the dark",
+              "supportNote": "The vendor page states the probe is photosensitive, handled in DMSO and stored desiccated at -20 C in the dark."
+            }
+          ]
+        }
+      }
+    },
+    "sourceRoutes": [
+      {
+        "id": "thermofisher-d3861",
+        "kind": "vendor-protocol",
+        "kindBasis": "A reagent supplier's product page for the probe this module is built on, identified from the URL host and catalogue path.",
+        "sourceId": "thermofisher-d3861",
+        "reviewEventId": "claude-r4-thermofisher-d3861",
+        "routePurpose": "primary-source-reading",
+        "boundary": "The catalogue page gives the probe's chemistry, spectra, storage and reconstitution, but no assay design: it names no specimen, perturbation, control, timing or quantification."
+      },
+      {
+        "id": "zou2020-pmc7353921",
+        "kind": "original-research-demonstration",
+        "kindBasis": "10.1038/s41589-020-0472-6 (Zou et al. 2020); its Methods, results text and figure captions are read here as a demonstration of this assay, which is not this module's originally declared source.",
+        "sourceId": "pmc7353921",
+        "reviewEventId": "claude-r4-zou2020",
+        "routePurpose": "primary-source-reading",
+        "boundary": "Read as the PMC author manuscript, not the paywalled version of record; rendered figure panels and the supplement were not opened. One study's implementation, not a universal protocol.",
+        "corpusPaperId": "doi:10.1038/s41589-020-0472-6"
+      },
+      {
+        "id": "kagan2017-pmc5506843",
+        "kind": "original-research-demonstration",
+        "kindBasis": "10.1038/nchembio.2238 (Kagan et al. 2017); its Methods, results text and figure captions are read here as a demonstration of this assay.",
+        "sourceId": "pmc5506843",
+        "reviewEventId": "claude-r4-kagan2017",
+        "routePurpose": "primary-source-reading",
+        "boundary": "Read as the PMC author manuscript, not the paywalled version of record; rendered figure panels and the supplement were not opened. One study's implementation, not a universal protocol.",
+        "corpusPaperId": "doi:10.1038/nchembio.2238"
+      }
+    ],
+    "capabilityAttribution": {
+      "note": "distinctiveLabs is a curated claim. A capability claim counts as evidence here only when a source-checked USES_METHOD claim links a paper to this module and the attribution layer places the laboratory on that paper.",
+      "demonstrated": [],
+      "claimedWithoutEvidence": [
+        {
+          "labId": "dixon-stanford",
+          "reason": "Listed by curated judgement. No paper in this repository links this laboratory to this module through a source-checked USES_METHOD claim, so the listing is a claim and not evidence."
+        },
+        {
+          "labId": "stockwell-columbia",
+          "reason": "Listed by curated judgement. No paper in this repository links this laboratory to this module through a source-checked USES_METHOD claim, so the listing is a claim and not evidence."
+        },
+        {
+          "labId": "yamada-kyushu",
+          "reason": "Listed by curated judgement. No paper in this repository links this laboratory to this module through a source-checked USES_METHOD claim, so the listing is a claim and not evidence."
+        }
+      ]
+    }
+  },
+  {
+    "id": "lipid-hydroperoxide-probes",
+    "name": "Lipid-hydroperoxide and lipid-radical probes",
+    "group": "Lipid oxidation",
+    "evidenceRole": "Specialized spatial readout",
+    "plainEnglish": "Reaction-based probes such as LiperFluo or lipid-radical probes report selected reactive lipid products in cells.",
+    "measures": "Probe-dependent chemistry with lipid hydroperoxides or lipid-derived radicals.",
+    "cannotProve": "A probe is a chemical participant, not a passive camera; signal does not equal unperturbed endogenous flux.",
+    "bestPractice": [
+      "Define the probe reaction and compartment",
+      "Use dose and timing controls",
+      "Test whether the probe itself changes death",
+      "Validate with products or mass spectrometry"
+    ],
+    "commonPitfalls": [
+      "Unknown reaction selectivity",
+      "Probe-induced protection",
+      "Localization claims without organelle controls"
+    ],
+    "distinctiveLabs": [
+      "yamada-kyushu",
+      "kagan-pitt",
+      "bayir-columbia"
+    ],
+    "source": "https://pubmed.ncbi.nlm.nih.gov/32275865/",
+    "decisionProfile": {
+      "reviewState": "pending-source-review",
+      "provisionalBecause": "No declared source for this module has been read and dated in this repository, so every decision field below is unverified. The module's published guidance is curated judgement, not a source-checked protocol.",
+      "sourceCheckedFields": 0,
+      "pendingFields": 13,
+      "fields": {
+        "specimen": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "Which specimen or model system this module is written for is not recorded. Resolving it requires reading https://pubmed.ncbi.nlm.nih.gov/32275865/ and recording the value with its scope and check date."
+        },
+        "question": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The biological question this measurement is chosen to answer is not recorded as a separate field. Resolving it requires reading https://pubmed.ncbi.nlm.nih.gov/32275865/ and recording the value with its scope and check date."
+        },
+        "perturbation": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "What must be deliberately changed for this measurement to be interpretable is not recorded. Resolving it requires reading https://pubmed.ncbi.nlm.nih.gov/32275865/ and recording the value with its scope and check date."
+        },
+        "readout": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "What is measured is stated by the module itself, but that statement has not been checked against a source. Resolving it requires reading https://pubmed.ncbi.nlm.nih.gov/32275865/ and recording the value with its scope and check date.",
+          "curatedStatement": "Probe-dependent chemistry with lipid hydroperoxides or lipid-derived radicals."
+        },
+        "quantificationUnit": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The unit the result is expressed in is not recorded, so two studies using this module cannot be compared numerically from this record. Resolving it requires reading https://pubmed.ncbi.nlm.nih.gov/32275865/ and recording the value with its scope and check date."
+        },
+        "instrument": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The instrument or platform is not recorded. Resolving it requires reading https://pubmed.ncbi.nlm.nih.gov/32275865/ and recording the value with its scope and check date."
+        },
+        "positiveControl": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "No essential positive control is recorded. Resolving it requires reading https://pubmed.ncbi.nlm.nih.gov/32275865/ and recording the value with its scope and check date."
+        },
+        "negativeControl": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "No essential negative control is recorded. Resolving it requires reading https://pubmed.ncbi.nlm.nih.gov/32275865/ and recording the value with its scope and check date."
+        },
+        "processControl": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "No process control — the control that reports what the sample handling itself did — is recorded. Resolving it requires reading https://pubmed.ncbi.nlm.nih.gov/32275865/ and recording the value with its scope and check date."
+        },
+        "orthogonalConfirmation": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "Which independent measurement must agree before this result can be reused is not recorded as a field. Resolving it requires reading https://pubmed.ncbi.nlm.nih.gov/32275865/ and recording the value with its scope and check date."
+        },
+        "timing": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The timing constraint is not recorded. Resolving it requires reading https://pubmed.ncbi.nlm.nih.gov/32275865/ and recording the value with its scope and check date."
+        },
+        "compartmentResolution": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The spatial or compartment resolution this module can support is not recorded. Resolving it requires reading https://pubmed.ncbi.nlm.nih.gov/32275865/ and recording the value with its scope and check date."
+        },
+        "confounders": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "What can produce the same signal without the underlying biology is not recorded as a field. Resolving it requires reading https://pubmed.ncbi.nlm.nih.gov/32275865/ and recording the value with its scope and check date."
+        }
+      }
+    },
+    "sourceRoutes": [
+      {
+        "id": "lipid-hydroperoxide-probes-route-0",
+        "kind": "unclassified-source",
+        "kindBasis": "The record behind this URL has not been opened, so whether it is a vendor protocol, a field recommendation or an original research demonstration is not established.",
+        "sourceId": "pubmed-32275865",
+        "reviewEventId": null,
+        "routePurpose": "declared-source-not-opened",
+        "boundary": "A URL declared as this module's source is not evidence that the document specifies any field below. No reader is recorded against it in this repository."
+      }
+    ],
+    "capabilityAttribution": {
+      "note": "distinctiveLabs is a curated claim. A capability claim counts as evidence here only when a source-checked USES_METHOD claim links a paper to this module and the attribution layer places the laboratory on that paper.",
+      "demonstrated": [],
+      "claimedWithoutEvidence": [
+        {
+          "labId": "yamada-kyushu",
+          "reason": "Listed by curated judgement. No paper in this repository links this laboratory to this module through a source-checked USES_METHOD claim, so the listing is a claim and not evidence."
+        },
+        {
+          "labId": "kagan-pitt",
+          "reason": "Listed by curated judgement. No paper in this repository links this laboratory to this module through a source-checked USES_METHOD claim, so the listing is a claim and not evidence."
+        },
+        {
+          "labId": "bayir-columbia",
+          "reason": "Listed by curated judgement. No paper in this repository links this laboratory to this module through a source-checked USES_METHOD claim, so the listing is a claim and not evidence."
+        }
+      ]
+    }
+  },
+  {
+    "id": "mda-4hne",
+    "name": "MDA, 4-HNE and bulk oxidation products",
+    "group": "Lipid oxidation",
+    "evidenceRole": "Low-specificity supporting evidence",
+    "plainEnglish": "Measure secondary products formed after lipid oxidation using chemical assays, immunoassays or targeted analysis.",
+    "measures": "Bulk downstream products of oxidative lipid damage.",
+    "cannotProve": "These products are not specific to ferroptosis and may appear after several types of injury.",
+    "bestPractice": [
+      "Prefer chemically resolved LC–MS methods where possible",
+      "Collect before terminal nonspecific damage",
+      "Use orthogonal ferroptosis evidence"
+    ],
+    "commonPitfalls": [
+      "TBARS treated as a molecule-specific assay",
+      "Antibody signal treated as direct lipid identification",
+      "No normalization to viable material"
+    ],
+    "distinctiveLabs": [
+      "kagan-pitt",
+      "fedorova-dresden",
+      "yin-cityu"
+    ],
+    "source": "https://doi.org/10.1038/s41580-025-00843-2",
+    "decisionProfile": {
+      "reviewState": "pending-source-review",
+      "provisionalBecause": "11 of 13 decision axes were read from Zou 2020 (the demonstrating study) on 2026-07-24; positiveControl and confounders are pending because the opened scopes do not establish them. Values record a demonstrating study's implementation, not a universal protocol.",
+      "sourceCheckedFields": 11,
+      "pendingFields": 2,
+      "fields": {
+        "specimen": {
+          "status": "source-checked",
+          "value": "In the demonstrating study (Zou 2020): the ferroptosis cell system read out in Fig. 5 (786-O clear-cell renal carcinoma), comparing control against POR-depleted cells.",
+          "evidence": [
+            {
+              "sourceRecordId": "zou2020-pmc7353921",
+              "reviewEventId": "claude-r4-zou2020",
+              "scopeId": "methods-malondialdehyde-mda-assay",
+              "supportMode": "derived",
+              "claimFragment": "the ferroptosis cell system read out in Fig. 5 (786-O clear-cell renal carcinoma)",
+              "supportNote": "The MDA Methods give the assay protocol; the cell system and control/POR-depleted comparison are read from the Fig. 5 experiment the assay reports on."
+            },
+            {
+              "sourceRecordId": "zou2020-pmc7353921",
+              "reviewEventId": "claude-r4-zou2020",
+              "scopeId": "fig-5",
+              "supportMode": "derived",
+              "claimFragment": "comparing control against POR-depleted cells",
+              "supportNote": "Fig. 5 is where the MDA readout is placed, against the POR-depletion arm."
+            }
+          ]
+        },
+        "question": {
+          "status": "source-checked",
+          "value": "Whether a bulk downstream lipid-peroxidation product (malondialdehyde) rises under ferroptotic stress and falls when the pathway is blocked.",
+          "evidence": [
+            {
+              "sourceRecordId": "zou2020-pmc7353921",
+              "reviewEventId": "claude-r4-zou2020",
+              "scopeId": "results-por-mediates-ferroptosis-by-promoting-lipid-peroxidation",
+              "supportMode": "explicit",
+              "claimFragment": "a bulk downstream lipid-peroxidation product (malondialdehyde) rises under ferroptotic stress and falls when the pathway is blocked",
+              "supportNote": "The POR-peroxidation results describe MDA rising with ferroptotic stress and falling on rescue."
+            }
+          ]
+        },
+        "perturbation": {
+          "status": "source-checked",
+          "value": "DMSO, ML210, or ML210 plus liproxstatin-1 for 90 minutes; POR depletion as the genetic arm.",
+          "evidence": [
+            {
+              "sourceRecordId": "zou2020-pmc7353921",
+              "reviewEventId": "claude-r4-zou2020",
+              "scopeId": "methods-malondialdehyde-mda-assay",
+              "supportMode": "explicit",
+              "claimFragment": "DMSO, ML210, or ML210 plus liproxstatin-1 for 90 minutes",
+              "supportNote": "The MDA Methods state the DMSO / ML210 / ML210+Lip-1 90-minute treatment and the POR-depletion genetic arm."
+            }
+          ]
+        },
+        "readout": {
+          "status": "source-checked",
+          "value": "The malondialdehyde-thiobarbituric-acid adduct, measured fluorometrically with a commercial kit (Abcam ab118970).",
+          "evidence": [
+            {
+              "sourceRecordId": "zou2020-pmc7353921",
+              "reviewEventId": "claude-r4-zou2020",
+              "scopeId": "methods-malondialdehyde-mda-assay",
+              "supportMode": "explicit",
+              "claimFragment": "measured fluorometrically with a commercial kit (Abcam ab118970)",
+              "supportNote": "The Methods name the Abcam ab118970 kit, the TBA addition and the fluorometric readout verbatim."
+            },
+            {
+              "sourceRecordId": "zou2020-pmc7353921",
+              "reviewEventId": "claude-r4-zou2020",
+              "scopeId": "methods-malondialdehyde-mda-assay",
+              "supportMode": "derived",
+              "claimFragment": "The malondialdehyde-thiobarbituric-acid adduct",
+              "supportNote": "The kit reports a fluorescent TBARS signal; identifying that signal specifically as the MDA–TBA adduct is the standard reading of the assay, not a species identification the Methods make, so it is derived rather than explicit."
+            }
+          ]
+        },
+        "quantificationUnit": {
+          "status": "source-checked",
+          "value": "Fluorometric MDA signal read at excitation/emission 532/553 nm, normalised to protein concentration.",
+          "evidence": [
+            {
+              "sourceRecordId": "zou2020-pmc7353921",
+              "reviewEventId": "claude-r4-zou2020",
+              "scopeId": "methods-malondialdehyde-mda-assay",
+              "supportMode": "explicit",
+              "claimFragment": "Fluorometric MDA signal read at excitation/emission 532/553 nm, normalised to protein concentration",
+              "supportNote": "The Methods state Ex/Em 532/553 nm and protein normalisation."
+            }
+          ]
+        },
+        "instrument": {
+          "status": "source-checked",
+          "value": "A fluorescence microplate reader; sample protein quantified on a Qubit; a Dounce homogeniser for lysis.",
+          "evidence": [
+            {
+              "sourceRecordId": "zou2020-pmc7353921",
+              "reviewEventId": "claude-r4-zou2020",
+              "scopeId": "methods-malondialdehyde-mda-assay",
+              "supportMode": "explicit",
+              "claimFragment": "A fluorescence microplate reader",
+              "supportNote": "The Methods name the plate reader, Qubit protein quantification and Dounce homogenisation."
+            }
+          ]
+        },
+        "positiveControl": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The MDA Methods read do not name a defined MDA positive standard beyond the kit, and whether the kit's own MDA standard curve was run is not stated in the accessible text. Resolving it requires the kit protocol or the figure legend."
+        },
+        "negativeControl": {
+          "status": "source-checked",
+          "value": "Liproxstatin-1 co-treated with ML210 as a ferroptosis-specific rescue comparator (the MDA rise is expected to fall if it is ferroptotic), with DMSO as the untreated baseline; both are matched conditions expected not to produce the ferroptotic MDA signal.",
+          "evidence": [
+            {
+              "sourceRecordId": "zou2020-pmc7353921",
+              "reviewEventId": "claude-r4-zou2020",
+              "scopeId": "methods-malondialdehyde-mda-assay",
+              "supportMode": "explicit",
+              "claimFragment": "Liproxstatin-1 co-treated with ML210 as a ferroptosis-specific rescue comparator",
+              "supportNote": "The Methods record the DMSO baseline, ML210 and ML210+Lip-1 rescue conditions verbatim."
+            },
+            {
+              "sourceRecordId": "zou2020-pmc7353921",
+              "reviewEventId": "claude-r4-zou2020",
+              "scopeId": "methods-malondialdehyde-mda-assay",
+              "supportMode": "derived",
+              "claimFragment": "DMSO baseline and the liproxstatin-1 rescue serve as the negative-control axis",
+              "supportNote": "Assigning the baseline and rescue conditions to the negative-control axis is a classification per the control-axis definitions, not a label the Methods themselves apply."
+            }
+          ]
+        },
+        "processControl": {
+          "status": "source-checked",
+          "value": "Butylated hydroxytoluene (BHT) added to the lysis buffer to prevent ex vivo lipid oxidation during processing, and protein normalisation of every sample.",
+          "evidence": [
+            {
+              "sourceRecordId": "zou2020-pmc7353921",
+              "reviewEventId": "claude-r4-zou2020",
+              "scopeId": "methods-malondialdehyde-mda-assay",
+              "supportMode": "explicit",
+              "claimFragment": "Butylated hydroxytoluene (BHT) added to the lysis buffer",
+              "supportNote": "The Methods state that BHT is added to the lysis buffer and that signal is normalised to protein."
+            },
+            {
+              "sourceRecordId": "zou2020-pmc7353921",
+              "reviewEventId": "claude-r4-zou2020",
+              "scopeId": "methods-malondialdehyde-mda-assay",
+              "supportMode": "derived",
+              "claimFragment": "BHT functions as a process control that limits ex-vivo lipid oxidation during handling",
+              "supportNote": "That BHT is present is explicit; reading its role as a process control against ex-vivo oxidation is the accepted rationale for the additive, classified here, not stated as such in the Methods."
+            }
+          ]
+        },
+        "orthogonalConfirmation": {
+          "status": "source-checked",
+          "value": "In the demonstrating study MDA is read together with BODIPY-C11 and species-resolved redox-lipidomics; the bulk product is corroborated by, not substituted for, the species-level measurement. This is what the study paired, not a universal requirement.",
+          "evidence": [
+            {
+              "sourceRecordId": "zou2020-pmc7353921",
+              "reviewEventId": "claude-r4-zou2020",
+              "scopeId": "fig-5",
+              "supportMode": "explicit",
+              "claimFragment": "MDA is read together with BODIPY-C11 and species-resolved redox-lipidomics",
+              "supportNote": "Fig. 5 shows the MDA readout together with BODIPY-C11 and redox-lipidomics."
+            },
+            {
+              "sourceRecordId": "zou2020-pmc7353921",
+              "reviewEventId": "claude-r4-zou2020",
+              "scopeId": "results-por-mediates-ferroptosis-by-promoting-lipid-peroxidation",
+              "supportMode": "derived",
+              "claimFragment": "the bulk product corroborates, rather than substitutes for, the species-level measurement",
+              "supportNote": "The readouts appear together in the results; reading them as mutually corroborating is a derivation, not a statement that the study requires them to move together."
+            }
+          ]
+        },
+        "timing": {
+          "status": "source-checked",
+          "value": "Acute: 90-minute treatment before collection.",
+          "evidence": [
+            {
+              "sourceRecordId": "zou2020-pmc7353921",
+              "reviewEventId": "claude-r4-zou2020",
+              "scopeId": "methods-malondialdehyde-mda-assay",
+              "supportMode": "explicit",
+              "claimFragment": "Acute: 90-minute treatment before collection",
+              "supportNote": "The Methods state a 90-minute treatment before collection."
+            }
+          ]
+        },
+        "compartmentResolution": {
+          "status": "source-checked",
+          "value": "None: MDA is measured from a bulk cell homogenate, with no molecular-species or compartment resolution.",
+          "evidence": [
+            {
+              "sourceRecordId": "zou2020-pmc7353921",
+              "reviewEventId": "claude-r4-zou2020",
+              "scopeId": "methods-malondialdehyde-mda-assay",
+              "supportMode": "explicit",
+              "claimFragment": "MDA is measured from a bulk cell homogenate",
+              "supportNote": "The Methods measure MDA from a bulk homogenate workflow."
+            },
+            {
+              "sourceRecordId": "zou2020-pmc7353921",
+              "reviewEventId": "claude-r4-zou2020",
+              "scopeId": "methods-malondialdehyde-mda-assay",
+              "supportMode": "analytical-inference",
+              "claimFragment": "so the assay carries no molecular-species or compartment resolution",
+              "supportNote": "The absence of species or compartment resolution follows from the bulk-homogenate design; it is an analytical inference, not a limitation the Methods state."
+            }
+          ]
+        },
+        "confounders": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "That the thiobarbituric-acid reaction is non-specific - detecting a class of aldehydes and rising after several kinds of oxidative injury - is a general property of the TBARS assay, but the opened Zou MDA Methods paragraph does not state it, and this module's declared source (the 2025 field recommendation) was read only at abstract level. Resolving it requires an opened authoritative source that states the specificity boundary. Only the BHT/process-handling statement, which Zou does state, is kept, under processControl."
+        }
+      }
+    },
+    "sourceRoutes": [
+      {
+        "id": "mda-2025-recommendation",
+        "kind": "field-recommendation",
+        "kindBasis": "This repository already publishes this DOI as the 2025 reproducibility recommendation (index.html, evidence-gate section). The document itself was not opened in this round.",
+        "sourceId": "field-rec-2025-nrmcb",
+        "reviewEventId": null,
+        "routePurpose": "declared-source-not-opened",
+        "boundary": "A URL declared as this module's source is not evidence that the document specifies any field below. No reader is recorded against it; it was read only at abstract level and cannot support the specificity boundary."
+      },
+      {
+        "id": "zou2020-pmc7353921",
+        "kind": "original-research-demonstration",
+        "kindBasis": "10.1038/s41589-020-0472-6 (Zou et al. 2020); its Methods, results text and figure captions are read here as a demonstration of this assay, which is not this module's originally declared source.",
+        "sourceId": "pmc7353921",
+        "reviewEventId": "claude-r4-zou2020",
+        "routePurpose": "primary-source-reading",
+        "boundary": "Read as the PMC author manuscript, not the paywalled version of record; rendered figure panels and the supplement were not opened. One study's implementation, not a universal protocol.",
+        "corpusPaperId": "doi:10.1038/s41589-020-0472-6"
+      }
+    ],
+    "capabilityAttribution": {
+      "note": "distinctiveLabs is a curated claim. A capability claim counts as evidence here only when a source-checked USES_METHOD claim links a paper to this module and the attribution layer places the laboratory on that paper.",
+      "demonstrated": [],
+      "claimedWithoutEvidence": [
+        {
+          "labId": "kagan-pitt",
+          "reason": "Listed by curated judgement. No paper in this repository links this laboratory to this module through a source-checked USES_METHOD claim, so the listing is a claim and not evidence."
+        },
+        {
+          "labId": "fedorova-dresden",
+          "reason": "Listed by curated judgement. No paper in this repository links this laboratory to this module through a source-checked USES_METHOD claim, so the listing is a claim and not evidence."
+        },
+        {
+          "labId": "yin-cityu",
+          "reason": "Listed by curated judgement. No paper in this repository links this laboratory to this module through a source-checked USES_METHOD claim, so the listing is a claim and not evidence."
+        }
+      ]
+    }
+  },
+  {
+    "id": "oxidized-pl-lcms",
+    "name": "Oxidized phospholipid LC–MS/MS",
+    "group": "Direct chemistry",
+    "evidenceRole": "High-value direct evidence",
+    "plainEnglish": "Separate and identify oxidized phospholipid species by mass, retention and fragmentation rather than measuring one bulk fluorescence signal.",
+    "measures": "Specific oxidized lipid molecular species within the limits of extraction, chromatography, standards and fragmentation.",
+    "cannotProve": "Association of one oxidized species with death does not establish that it is necessary or sufficient to execute death.",
+    "bestPractice": [
+      "Use antioxidants and cold, rapid extraction to limit artefacts",
+      "Report internal standards and identification confidence",
+      "Separate isomers where the claim requires it",
+      "Connect molecules to genetic or rescue evidence"
+    ],
+    "commonPitfalls": [
+      "In-source oxidation",
+      "Library-only annotation",
+      "No oxidized-lipid standards",
+      "Relative peak areas presented as absolute concentration"
+    ],
+    "distinctiveLabs": [
+      "kagan-pitt",
+      "fedorova-dresden",
+      "bayir-columbia",
+      "yin-cityu",
+      "zou-westlake"
+    ],
+    "source": "https://doi.org/10.1038/nchembio.2238",
+    "decisionProfile": {
+      "reviewState": "source-checked",
+      "provisionalBecause": null,
+      "sourceCheckedFields": 13,
+      "pendingFields": 0,
+      "fields": {
+        "specimen": {
+          "status": "source-checked",
+          "value": "In the demonstrating study (Kagan 2017): Pfa1 mouse embryonic fibroblasts (wild-type, Acsl4-knockout and inducible Gpx4-knockout), mouse lung epithelial (MLE) cells, and kidney from tamoxifen-inducible Gpx4-knockout mice.",
+          "evidence": [
+            {
+              "sourceRecordId": "kagan2017-pmc5506843",
+              "reviewEventId": "claude-r4-kagan2017",
+              "scopeId": "methods-cell-lines-conditions-and-treatments",
+              "supportMode": "explicit",
+              "claimFragment": "Pfa1 mouse embryonic fibroblasts (wild-type, Acsl4-knockout and inducible Gpx4-knockout), mouse lung epithelial (MLE) cells",
+              "supportNote": "The cell-lines Methods name the Pfa1, Acsl4-KO, Gpx4-KO and MLE systems."
+            },
+            {
+              "sourceRecordId": "kagan2017-pmc5506843",
+              "reviewEventId": "claude-r4-kagan2017",
+              "scopeId": "methods-gpx4-ko-mice",
+              "supportMode": "explicit",
+              "claimFragment": "kidney from tamoxifen-inducible Gpx4-knockout mice",
+              "supportNote": "The Gpx4 KO mice Methods name the tamoxifen-inducible kidney model."
+            }
+          ]
+        },
+        "question": {
+          "status": "source-checked",
+          "value": "Which oxidised phospholipid molecular species accumulate specifically in ferroptotic cells and whether they track death rather than reporting bulk oxidation.",
+          "evidence": [
+            {
+              "sourceRecordId": "kagan2017-pmc5506843",
+              "reviewEventId": "claude-r4-kagan2017",
+              "scopeId": "abstract",
+              "supportMode": "explicit",
+              "claimFragment": "Which oxidised phospholipid molecular species accumulate specifically in ferroptotic cells",
+              "supportNote": "The abstract frames the question of which oxygenated PE species drive ferroptosis."
+            },
+            {
+              "sourceRecordId": "kagan2017-pmc5506843",
+              "reviewEventId": "claude-r4-kagan2017",
+              "scopeId": "results-redox-phospholipidomics-of-ferroptotic-signals",
+              "supportMode": "explicit",
+              "claimFragment": "whether they track death rather than reporting bulk oxidation",
+              "supportNote": "The redox-phospholipidomics results pose the species-specific question."
+            }
+          ]
+        },
+        "perturbation": {
+          "status": "source-checked",
+          "value": "GPX4 inhibition by RSL3 (100 nM), genetic Gpx4 loss, ACSL4 loss, and arachidonic-acid or deuterated d8-arachidonic-acid supplementation; rosiglitazone to suppress AA/AdA esterification into PE.",
+          "evidence": [
+            {
+              "sourceRecordId": "kagan2017-pmc5506843",
+              "reviewEventId": "claude-r4-kagan2017",
+              "scopeId": "methods-cell-lines-conditions-and-treatments",
+              "supportMode": "explicit",
+              "claimFragment": "GPX4 inhibition by RSL3 (100 nM), genetic Gpx4 loss, ACSL4 loss, and arachidonic-acid or deuterated d8-arachidonic-acid supplementation",
+              "supportNote": "The Methods state RSL3 100 nM, Gpx4/ACSL4 loss, AA/d8-AA supplementation and rosiglitazone."
+            },
+            {
+              "sourceRecordId": "kagan2017-pmc5506843",
+              "reviewEventId": "claude-r4-kagan2017",
+              "scopeId": "results-pe-ferroptotic-precursors-are-decreased-in-acs4-ko-cells",
+              "supportMode": "explicit",
+              "claimFragment": "rosiglitazone to suppress AA/AdA esterification into PE",
+              "supportNote": "The Methods describe rosiglitazone suppressing AA/AdA esterification into PE."
+            }
+          ]
+        },
+        "readout": {
+          "status": "source-checked",
+          "value": "Oxygenated phospholipid molecular species resolved by LC-MS/MS, with esterified oxidised fatty acids released by PAF-acetylhydrolase and species assigned by MS2/MS3 fragmentation (e.g. 15-hydroperoxy-AA-PE and its di- and tri-oxygenated forms).",
+          "evidence": [
+            {
+              "sourceRecordId": "kagan2017-pmc5506843",
+              "reviewEventId": "claude-r4-kagan2017",
+              "scopeId": "methods-identification-of-pe-oxygenated-products-in-cell-lysates",
+              "supportMode": "explicit",
+              "claimFragment": "Oxygenated phospholipid molecular species resolved by LC-MS/MS",
+              "supportNote": "The identification Methods resolve oxygenated phospholipid species by LC-MS/MS."
+            },
+            {
+              "sourceRecordId": "kagan2017-pmc5506843",
+              "reviewEventId": "claude-r4-kagan2017",
+              "scopeId": "methods-lc-ms-analysis-of-free-and-esterified-fatty-acids",
+              "supportMode": "explicit",
+              "claimFragment": "esterified oxidised fatty acids released by PAF-acetylhydrolase",
+              "supportNote": "The free/esterified LC-MS Methods use PAF-AH to release esterified oxidised acyls."
+            },
+            {
+              "sourceRecordId": "kagan2017-pmc5506843",
+              "reviewEventId": "claude-r4-kagan2017",
+              "scopeId": "fig-5",
+              "supportMode": "explicit",
+              "claimFragment": "species assigned by MS2/MS3 fragmentation",
+              "supportNote": "Fig. 5 shows the species assigned by MS2/MS3 fragmentation."
+            },
+            {
+              "sourceRecordId": "kagan2017-pmc5506843",
+              "reviewEventId": "claude-r4-kagan2017",
+              "scopeId": "fig-6",
+              "supportMode": "explicit",
+              "claimFragment": "15-hydroperoxy-AA-PE and its di- and tri-oxygenated forms",
+              "supportNote": "Fig. 6 shows the di-/tri-oxygenated forms."
+            }
+          ]
+        },
+        "quantificationUnit": {
+          "status": "source-checked",
+          "value": "Esterified oxygenated acyls in pmol per micromole of phospholipid (e.g. 199.3 +/- 26.2 pmol/micromole in wild-type against 72.2 +/- 27.0 in Acsl4-knockout); phospholipids quantified ratiometrically against a pre-selected internal standard using a per-class standard curve.",
+          "evidence": [
+            {
+              "sourceRecordId": "kagan2017-pmc5506843",
+              "reviewEventId": "claude-r4-kagan2017",
+              "scopeId": "results-aa-enhances-ferroptotic-response-in-rsl3-treated-cells",
+              "supportMode": "explicit",
+              "claimFragment": "Esterified oxygenated acyls in pmol per micromole of phospholipid",
+              "supportNote": "The results give the pmol/micromole figures for wild-type against Acsl4-KO."
+            },
+            {
+              "sourceRecordId": "kagan2017-pmc5506843",
+              "reviewEventId": "claude-r4-kagan2017",
+              "scopeId": "methods-statistical-analysis",
+              "supportMode": "explicit",
+              "claimFragment": "phospholipids quantified ratiometrically against a pre-selected internal standard using a per-class standard curve",
+              "supportNote": "The Statistical Analysis Methods state ratiometric comparison to a pre-selected internal standard using a standard curve for each phospholipid class."
+            }
+          ]
+        },
+        "instrument": {
+          "status": "source-checked",
+          "value": "Thermo Fisher Orbitrap-class mass spectrometry: Q-Exactive hybrid quadrupole-Orbitrap for phospholipid and fatty-acid MS/MS, an Orbitrap Fusion Lumos for data-dependent MS2/targeted-MS3 structural work, and an LXQ ion trap for purity confirmation; normal-phase silica and reverse-phase C18/C8 HPLC upstream.",
+          "evidence": [
+            {
+              "sourceRecordId": "kagan2017-pmc5506843",
+              "reviewEventId": "claude-r4-kagan2017",
+              "scopeId": "methods-ms-and-ms-ms-analysis-of-phospholipids",
+              "supportMode": "explicit",
+              "claimFragment": "Q-Exactive hybrid quadrupole-Orbitrap for phospholipid and fatty-acid MS/MS, an Orbitrap Fusion Lumos for data-dependent MS2/targeted-MS3 structural work, and an LXQ ion trap for purity confirmation",
+              "supportNote": "The MS Methods name the Q-Exactive, Orbitrap Fusion Lumos and LXQ instruments."
+            },
+            {
+              "sourceRecordId": "kagan2017-pmc5506843",
+              "reviewEventId": "claude-r4-kagan2017",
+              "scopeId": "methods-normal-phase-column-separation-of-phospholipids",
+              "supportMode": "explicit",
+              "claimFragment": "normal-phase silica and reverse-phase C18/C8 HPLC upstream",
+              "supportNote": "The Methods describe the normal-phase and reverse-phase HPLC separation."
+            }
+          ]
+        },
+        "positiveControl": {
+          "status": "source-checked",
+          "value": "Authentic SAPE-OOH (1-stearoyl-2-arachidonoyl-PE hydroperoxide), prepared by 15-lipoxygenase oxidation and HPLC-purified to 99%, run as an analytical identity/reference standard to confirm that the oxygenated-PE species detected in cells match the authentic hydroperoxide. It verifies the assay's positive signal at the level of species identity; it is an analytical reference standard, not a biological positive-control condition.",
+          "evidence": [
+            {
+              "sourceRecordId": "kagan2017-pmc5506843",
+              "reviewEventId": "claude-r4-kagan2017",
+              "scopeId": "methods-preparation-of-hydroperoxy-pe",
+              "supportMode": "explicit",
+              "claimFragment": "prepared by 15-lipoxygenase oxidation and HPLC-purified to 99%",
+              "supportNote": "The Methods prepare and HPLC-purify authentic SAPE-OOH to 99%."
+            },
+            {
+              "sourceRecordId": "kagan2017-pmc5506843",
+              "reviewEventId": "claude-r4-kagan2017",
+              "scopeId": "methods-identification-of-pe-oxygenated-products-in-cell-lysates",
+              "supportMode": "derived",
+              "claimFragment": "it serves as the assay's positive-control / analytical identity-reference axis",
+              "supportNote": "The authentic standard is used to confirm the identity of the oxygenated PE detected in cells; classifying it as the positive-control axis is a control-axis assignment, not a term the Methods use."
+            }
+          ]
+        },
+        "negativeControl": {
+          "status": "source-checked",
+          "value": "Acsl4-knockout cells as a matched genetic condition in which the oxygenated-PE signal is strongly reduced (199.3 pmol/micromole in wild-type against 72.2 in Acsl4-knockout), and the non-oxygenated precursor phospholipids measured in parallel as a within-run reference expected not to carry the ferroptotic oxygenation signal.",
+          "evidence": [
+            {
+              "sourceRecordId": "kagan2017-pmc5506843",
+              "reviewEventId": "claude-r4-kagan2017",
+              "scopeId": "results-pe-ferroptotic-precursors-are-decreased-in-acs4-ko-cells",
+              "supportMode": "explicit",
+              "claimFragment": "the oxygenated-PE signal is strongly reduced",
+              "supportNote": "The Acsl4-KO results show the oxygenated-PE signal strongly reduced when the substrate-generating enzyme is lost."
+            },
+            {
+              "sourceRecordId": "kagan2017-pmc5506843",
+              "reviewEventId": "claude-r4-kagan2017",
+              "scopeId": "results-pe-ferroptotic-precursors-are-decreased-in-acs4-ko-cells",
+              "supportMode": "derived",
+              "claimFragment": "Acsl4-knockout is read as the assay's matched genetic negative-control condition",
+              "supportNote": "The reduction is explicit; treating Acsl4-KO as the negative-control axis is a classification per the control-axis definitions."
+            }
+          ]
+        },
+        "processControl": {
+          "status": "source-checked",
+          "value": "Phospholipids quantified ratiometrically against a pre-selected internal standard using a per-class standard curve, which controls analytical quantification performance across phospholipid classes.",
+          "evidence": [
+            {
+              "sourceRecordId": "kagan2017-pmc5506843",
+              "reviewEventId": "claude-r4-kagan2017",
+              "scopeId": "methods-statistical-analysis",
+              "supportMode": "explicit",
+              "claimFragment": "Phospholipids quantified ratiometrically against a pre-selected internal standard using a per-class standard curve",
+              "supportNote": "The Statistical Analysis Methods state ratiometric comparison to a pre-selected internal standard with a per-class standard curve."
+            },
+            {
+              "sourceRecordId": "kagan2017-pmc5506843",
+              "reviewEventId": "claude-r4-kagan2017",
+              "scopeId": "methods-statistical-analysis",
+              "supportMode": "derived",
+              "claimFragment": "this internal-standard quantification is read as the analytical process control",
+              "supportNote": "The quantification scheme is explicit; naming it the process control that governs analytical performance is a control-axis classification, not a statement the Methods make."
+            }
+          ]
+        },
+        "orthogonalConfirmation": {
+          "status": "source-checked",
+          "value": "MS2/MS3 fragmentation for structural assignment, stable-isotope d8-arachidonic-acid tracing to establish the precursor route, and convergent genetic (Acsl4 knockout) and pharmacological (rosiglitazone) suppression of the same species.",
+          "evidence": [
+            {
+              "sourceRecordId": "kagan2017-pmc5506843",
+              "reviewEventId": "claude-r4-kagan2017",
+              "scopeId": "results-lc-ms-ms-identification-of-ferroptotic-signals",
+              "supportMode": "explicit",
+              "claimFragment": "MS2/MS3 fragmentation for structural assignment",
+              "supportNote": "The identification results use MS2/MS3 and d8-AA tracing verbatim."
+            },
+            {
+              "sourceRecordId": "kagan2017-pmc5506843",
+              "reviewEventId": "claude-r4-kagan2017",
+              "scopeId": "results-direct-oxygenation-of-pe-generates-ferroptotic-signals",
+              "supportMode": "derived",
+              "claimFragment": "convergent genetic (Acsl4-KO) and pharmacological (rosiglitazone) suppression of the same species tests the conclusion by another principle",
+              "supportNote": "The individual suppressions are explicit; reading them as orthogonal confirmation of one biological conclusion is a derivation."
+            },
+            {
+              "sourceRecordId": "kagan2017-pmc5506843",
+              "reviewEventId": "claude-r4-kagan2017",
+              "scopeId": "fig-5",
+              "supportMode": "explicit",
+              "claimFragment": "stable-isotope d8-arachidonic-acid tracing to establish the precursor route",
+              "supportNote": "The identification results use d8-AA tracing to establish the precursor route."
+            }
+          ]
+        },
+        "timing": {
+          "status": "source-checked",
+          "value": "Acute: RSL3 at 100 nM for 6 hours in cells (MLE at 0.5-1.0 micromolar); in vivo, kidney sampled 8 days after inducible Gpx4 knockout.",
+          "evidence": [
+            {
+              "sourceRecordId": "kagan2017-pmc5506843",
+              "reviewEventId": "claude-r4-kagan2017",
+              "scopeId": "methods-cell-lines-conditions-and-treatments",
+              "supportMode": "explicit",
+              "claimFragment": "RSL3 at 100 nM for 6 hours in cells (MLE at 0.5-1.0 micromolar)",
+              "supportNote": "The Methods state RSL3 100 nM for 6 h (MLE 0.5-1.0 uM)."
+            },
+            {
+              "sourceRecordId": "kagan2017-pmc5506843",
+              "reviewEventId": "claude-r4-kagan2017",
+              "scopeId": "results-oxygenated-pe-in-gpx4-ko-cells-and-kidney",
+              "supportMode": "explicit",
+              "claimFragment": "kidney sampled 8 days after inducible Gpx4 knockout",
+              "supportNote": "The kidney results state sampling 8 days after inducible Gpx4 knockout."
+            }
+          ]
+        },
+        "compartmentResolution": {
+          "status": "source-checked",
+          "value": "None within the mass spectrometry itself: species are measured from a whole-cell (or whole-tissue) lipid extract. The endoplasmic-reticulum localisation reported by the paper came from a separate LiperFluo live-imaging experiment, not from the LC-MS.",
+          "evidence": [
+            {
+              "sourceRecordId": "kagan2017-pmc5506843",
+              "reviewEventId": "claude-r4-kagan2017",
+              "scopeId": "methods-lc-ms-analysis-of-phospholipids-and-fatty-acids",
+              "supportMode": "analytical-inference",
+              "claimFragment": "the LC-MS measures species from a whole-cell or whole-tissue lipid extract, so it carries no compartment resolution",
+              "supportNote": "The whole-extract LC-MS preparation is explicit; that it therefore resolves no compartment is an analytical inference from the extraction design. The absence of spatial resolution is cited to the extraction/LC-MS scope, not to the imaging scopes."
+            },
+            {
+              "sourceRecordId": "kagan2017-pmc5506843",
+              "reviewEventId": "claude-r4-kagan2017",
+              "scopeId": "methods-live-cell-imaging",
+              "supportMode": "explicit",
+              "claimFragment": "came from a separate LiperFluo live-imaging experiment",
+              "supportNote": "The Live Cell Imaging Methods establish the ER localisation through LiperFluo imaging, which is a different experiment from the LC-MS."
+            },
+            {
+              "sourceRecordId": "kagan2017-pmc5506843",
+              "reviewEventId": "claude-r4-kagan2017",
+              "scopeId": "results-lipid-hydroperoxides-accumulate-in-ferroptotic-er",
+              "supportMode": "derived",
+              "claimFragment": "not from the LC-MS",
+              "supportNote": "The LiperFluo ER-accumulation result establishes only where the paper obtained its ER localisation; it does not give the LC-MS spatial resolution."
+            }
+          ]
+        },
+        "confounders": {
+          "status": "source-checked",
+          "value": "Explicit procedural facts: esterified oxidised acyls are read only after release by PAF-acetylhydrolase, and detection uses targeted MS inclusion lists that see only the species they are set for. Analytical inference: because the inclusion lists are targeted, an undetected species is not evidence of absence.",
+          "evidence": [
+            {
+              "sourceRecordId": "kagan2017-pmc5506843",
+              "reviewEventId": "claude-r4-kagan2017",
+              "scopeId": "methods-lc-ms-analysis-of-free-and-esterified-fatty-acids",
+              "supportMode": "explicit",
+              "claimFragment": "esterified oxidised acyls are read only after release by PAF-acetylhydrolase",
+              "supportNote": "The Methods state that esterified oxidised acyls are released by PAF-acetylhydrolase before analysis."
+            },
+            {
+              "sourceRecordId": "kagan2017-pmc5506843",
+              "reviewEventId": "claude-r4-kagan2017",
+              "scopeId": "methods-identification-of-pe-oxygenated-products-in-cell-lysates",
+              "supportMode": "explicit",
+              "claimFragment": "detection uses targeted MS inclusion lists that see only the species they are set for",
+              "supportNote": "The identification Methods state the use of targeted MS inclusion lists."
+            },
+            {
+              "sourceRecordId": "kagan2017-pmc5506843",
+              "reviewEventId": "claude-r4-kagan2017",
+              "scopeId": "methods-identification-of-pe-oxygenated-products-in-cell-lysates",
+              "supportMode": "analytical-inference",
+              "claimFragment": "an undetected species is therefore not evidence of absence",
+              "supportNote": "That an undetected species is not evidence of absence follows from the targeted inclusion-list design; it is analytical inference, not a stated limitation."
+            }
+          ]
+        }
+      }
+    },
+    "sourceRoutes": [
+      {
+        "id": "nchembio2238-version-of-record",
+        "kind": "original-research-demonstration",
+        "kindBasis": "The Nature Chemical Biology version of record for Kagan et al. 2017. The paywalled version of record was not opened this round; the NIH author manuscript (PMC5506843) was read instead.",
+        "sourceId": "doi-10-1038-nchembio-2238",
+        "reviewEventId": null,
+        "routePurpose": "declared-source-not-opened",
+        "boundary": "The version of record was not opened. Its paper-layer reading record is archive-derived and describes the paper, not this module's fields; the fields below come from the author manuscript route."
+      },
+      {
+        "id": "kagan2017-pmc5506843",
+        "kind": "original-research-demonstration",
+        "kindBasis": "10.1038/nchembio.2238 (Kagan et al. 2017); its Methods, results text and figure captions are read here as a demonstration of this assay.",
+        "sourceId": "pmc5506843",
+        "reviewEventId": "claude-r4-kagan2017",
+        "routePurpose": "primary-source-reading",
+        "boundary": "Read as the PMC author manuscript, not the paywalled version of record; rendered figure panels and the supplement were not opened. One study's implementation, not a universal protocol.",
+        "corpusPaperId": "doi:10.1038/nchembio.2238"
+      }
+    ],
+    "capabilityAttribution": {
+      "note": "distinctiveLabs is a curated claim. A capability claim counts as evidence here only when a source-checked USES_METHOD claim links a paper to this module and the attribution layer places the laboratory on that paper.",
+      "demonstrated": [
+        {
+          "labId": "zou-westlake",
+          "paperId": "doi:10.1038/s41589-020-0472-6",
+          "figure": "Fig. 5",
+          "role": "pre-independence",
+          "roleBasis": "First author with Stuart L. Schreiber as last author, verified at Crossref on 2026-07-23. The work therefore predates the independent Westlake laboratory and must not be presented as that laboratory leading it.",
+          "claimId": "claim-por-methods",
+          "checkedAt": "2026-07-23",
+          "listedAsDistinctive": true,
+          "readingDepth": "archive-derived",
+          "boundary": "Attributed contributor to a paper whose Fig. 5 is recorded as using this module, in a role the attribution layer marks as predating this laboratory's independence. It is evidence of participation in that study, not of the current laboratory operating the method."
+        },
+        {
+          "labId": "kagan-pitt",
+          "paperId": "doi:10.1038/nchembio.2238",
+          "figure": "Fig. 2",
+          "role": "lead",
+          "roleBasis": "First author of the Crossref author list of 26, verified on 2026-07-23, in a paper whose redox-lipidomics platform is the laboratory's own.",
+          "claimId": "claim-oxpe-methods",
+          "checkedAt": "2026-07-23",
+          "listedAsDistinctive": true,
+          "readingDepth": "archive-derived",
+          "boundary": "Attributed contributor (role: lead) to a paper whose Fig. 2 is recorded as using this module. That is evidence of participation in a study that used the method, not proof that this laboratory owns or operates it."
+        },
+        {
+          "labId": "bayir-columbia",
+          "paperId": "doi:10.1038/nchembio.2238",
+          "figure": "Fig. 2",
+          "role": "co-lead",
+          "roleBasis": "Last author of the verified Crossref author list of 26, checked on 2026-07-23.",
+          "claimId": "claim-oxpe-methods",
+          "checkedAt": "2026-07-23",
+          "listedAsDistinctive": true,
+          "readingDepth": "archive-derived",
+          "boundary": "Attributed contributor (role: co-lead) to a paper whose Fig. 2 is recorded as using this module. That is evidence of participation in a study that used the method, not proof that this laboratory owns or operates it."
+        }
+      ],
+      "claimedWithoutEvidence": [
+        {
+          "labId": "fedorova-dresden",
+          "reason": "Listed by curated judgement. No paper in this repository links this laboratory to this module through a source-checked USES_METHOD claim, so the listing is a claim and not evidence."
+        },
+        {
+          "labId": "yin-cityu",
+          "reason": "Listed by curated judgement. No paper in this repository links this laboratory to this module through a source-checked USES_METHOD claim, so the listing is a claim and not evidence."
+        }
+      ]
+    }
+  },
+  {
+    "id": "epilipidomics",
+    "name": "Redox lipidomics / epilipidomics",
+    "group": "Direct chemistry",
+    "evidenceRole": "Specialized capability",
+    "plainEnglish": "A broader analytical workflow for mapping many oxidized lipids, their adducts and pathway context.",
+    "measures": "The composition and relative or absolute abundance of selected oxidized lipid classes.",
+    "cannotProve": "Coverage is method-dependent and absence from the dataset is not proof of biological absence.",
+    "bestPractice": [
+      "Publish processing and annotation criteria",
+      "Use pooled quality controls and blank subtraction",
+      "Preserve raw data and spectra",
+      "Distinguish discovery from validated quantification"
+    ],
+    "commonPitfalls": [
+      "Calling any lipidomics run oxidative lipidomics",
+      "No quality-control drift assessment",
+      "Over-assigning low-abundance features"
+    ],
+    "distinctiveLabs": [
+      "fedorova-dresden",
+      "kagan-pitt",
+      "bayir-columbia",
+      "yin-cityu"
+    ],
+    "source": "https://doi.org/10.1038/s41580-025-00843-2",
+    "decisionProfile": {
+      "reviewState": "pending-source-review",
+      "provisionalBecause": "No declared source for this module has been read and dated in this repository, so every decision field below is unverified. The module's published guidance is curated judgement, not a source-checked protocol.",
+      "sourceCheckedFields": 0,
+      "pendingFields": 13,
+      "fields": {
+        "specimen": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "Which specimen or model system this module is written for is not recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "question": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The biological question this measurement is chosen to answer is not recorded as a separate field. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "perturbation": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "What must be deliberately changed for this measurement to be interpretable is not recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "readout": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "What is measured is stated by the module itself, but that statement has not been checked against a source. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date.",
+          "curatedStatement": "The composition and relative or absolute abundance of selected oxidized lipid classes."
+        },
+        "quantificationUnit": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The unit the result is expressed in is not recorded, so two studies using this module cannot be compared numerically from this record. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "instrument": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The instrument or platform is not recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "positiveControl": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "No essential positive control is recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "negativeControl": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "No essential negative control is recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "processControl": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "No process control — the control that reports what the sample handling itself did — is recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "orthogonalConfirmation": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "Which independent measurement must agree before this result can be reused is not recorded as a field. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "timing": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The timing constraint is not recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "compartmentResolution": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The spatial or compartment resolution this module can support is not recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "confounders": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "What can produce the same signal without the underlying biology is not recorded as a field. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        }
+      }
+    },
+    "sourceRoutes": [
+      {
+        "id": "epilipidomics-route-0",
+        "kind": "field-recommendation",
+        "kindBasis": "This repository already publishes this DOI as the 2025 reproducibility recommendation (index.html, evidence-gate section). The document itself was not opened in this round.",
+        "sourceId": "field-rec-2025-nrmcb",
+        "reviewEventId": null,
+        "routePurpose": "declared-source-not-opened",
+        "boundary": "A URL declared as this module's source is not evidence that the document specifies any field below. No reader is recorded against it in this repository."
+      }
+    ],
+    "capabilityAttribution": {
+      "note": "distinctiveLabs is a curated claim. A capability claim counts as evidence here only when a source-checked USES_METHOD claim links a paper to this module and the attribution layer places the laboratory on that paper.",
+      "demonstrated": [
+        {
+          "labId": "zou-westlake",
+          "paperId": "doi:10.1038/s41586-020-2732-8",
+          "figure": "Fig. 2",
+          "role": "pre-independence",
+          "roleBasis": "First author with Stuart L. Schreiber as last author, verified at Crossref on 2026-07-23.",
+          "claimId": "claim-ether-lipid-methods",
+          "checkedAt": "2026-07-23",
+          "listedAsDistinctive": false,
+          "readingDepth": "archive-derived",
+          "boundary": "Attributed contributor to a paper whose Fig. 2 is recorded as using this module, in a role the attribution layer marks as predating this laboratory's independence. It is evidence of participation in that study, not of the current laboratory operating the method."
+        }
+      ],
+      "claimedWithoutEvidence": [
+        {
+          "labId": "fedorova-dresden",
+          "reason": "Listed by curated judgement. No paper in this repository links this laboratory to this module through a source-checked USES_METHOD claim, so the listing is a claim and not evidence."
+        },
+        {
+          "labId": "kagan-pitt",
+          "reason": "Listed by curated judgement. No paper in this repository links this laboratory to this module through a source-checked USES_METHOD claim, so the listing is a claim and not evidence."
+        },
+        {
+          "labId": "bayir-columbia",
+          "reason": "Listed by curated judgement. No paper in this repository links this laboratory to this module through a source-checked USES_METHOD claim, so the listing is a claim and not evidence."
+        },
+        {
+          "labId": "yin-cityu",
+          "reason": "Listed by curated judgement. No paper in this repository links this laboratory to this module through a source-checked USES_METHOD claim, so the listing is a claim and not evidence."
+        }
+      ]
+    }
+  },
+  {
+    "id": "labile-iron-assays",
+    "name": "Labile Fe²⁺ imaging and chelation tests",
+    "group": "Iron dependence",
+    "evidenceRole": "Required axis, method varies",
+    "plainEnglish": "Use compartment-aware probes, chelators or biochemical methods to test whether exchangeable iron changes and whether iron availability is required.",
+    "measures": "A probe- or chelator-defined fraction of reactive iron, often in a selected compartment.",
+    "cannotProve": "Probe fluorescence is not total iron, and chelator rescue can affect several iron-dependent processes.",
+    "bestPractice": [
+      "State oxidation-state and compartment selectivity",
+      "Use calibration or orthogonal iron measurement where possible",
+      "Test probe or chelator perturbation",
+      "Combine with lipid and death kinetics"
+    ],
+    "commonPitfalls": [
+      "Calling all iron signal Fe²⁺",
+      "Ignoring lysosomal pH",
+      "Using only total tissue iron"
+    ],
+    "distinctiveLabs": [
+      "rodriguez-curie",
+      "toyokuni-nagoya",
+      "fujita-iwai-kyoto",
+      "yamada-kyushu"
+    ],
+    "source": "https://doi.org/10.1038/s41580-025-00843-2",
+    "decisionProfile": {
+      "reviewState": "pending-source-review",
+      "provisionalBecause": "No declared source for this module has been read and dated in this repository, so every decision field below is unverified. The module's published guidance is curated judgement, not a source-checked protocol.",
+      "sourceCheckedFields": 0,
+      "pendingFields": 13,
+      "fields": {
+        "specimen": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "Which specimen or model system this module is written for is not recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "question": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The biological question this measurement is chosen to answer is not recorded as a separate field. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "perturbation": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "What must be deliberately changed for this measurement to be interpretable is not recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "readout": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "What is measured is stated by the module itself, but that statement has not been checked against a source. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date.",
+          "curatedStatement": "A probe- or chelator-defined fraction of reactive iron, often in a selected compartment."
+        },
+        "quantificationUnit": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The unit the result is expressed in is not recorded, so two studies using this module cannot be compared numerically from this record. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "instrument": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The instrument or platform is not recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "positiveControl": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "No essential positive control is recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "negativeControl": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "No essential negative control is recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "processControl": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "No process control — the control that reports what the sample handling itself did — is recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "orthogonalConfirmation": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "Which independent measurement must agree before this result can be reused is not recorded as a field. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "timing": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The timing constraint is not recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "compartmentResolution": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The spatial or compartment resolution this module can support is not recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "confounders": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "What can produce the same signal without the underlying biology is not recorded as a field. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        }
+      }
+    },
+    "sourceRoutes": [
+      {
+        "id": "labile-iron-assays-route-0",
+        "kind": "field-recommendation",
+        "kindBasis": "This repository already publishes this DOI as the 2025 reproducibility recommendation (index.html, evidence-gate section). The document itself was not opened in this round.",
+        "sourceId": "field-rec-2025-nrmcb",
+        "reviewEventId": null,
+        "routePurpose": "declared-source-not-opened",
+        "boundary": "A URL declared as this module's source is not evidence that the document specifies any field below. No reader is recorded against it in this repository."
+      }
+    ],
+    "capabilityAttribution": {
+      "note": "distinctiveLabs is a curated claim. A capability claim counts as evidence here only when a source-checked USES_METHOD claim links a paper to this module and the attribution layer places the laboratory on that paper.",
+      "demonstrated": [
+        {
+          "labId": "rodriguez-curie",
+          "paperId": "doi:10.1038/s41586-025-08974-4",
+          "figure": "Fig. 1",
+          "role": "lead",
+          "roleBasis": "Last author of the Crossref author list of 46, verified on 2026-07-23.",
+          "claimId": "claim-lysosomal-iron-methods",
+          "checkedAt": "2026-07-23",
+          "listedAsDistinctive": true,
+          "readingDepth": "archive-derived",
+          "boundary": "Attributed contributor (role: lead) to a paper whose Fig. 1 is recorded as using this module. That is evidence of participation in a study that used the method, not proof that this laboratory owns or operates it."
+        }
+      ],
+      "claimedWithoutEvidence": [
+        {
+          "labId": "toyokuni-nagoya",
+          "reason": "Listed by curated judgement. No paper in this repository links this laboratory to this module through a source-checked USES_METHOD claim, so the listing is a claim and not evidence."
+        },
+        {
+          "labId": "fujita-iwai-kyoto",
+          "reason": "Listed by curated judgement. No paper in this repository links this laboratory to this module through a source-checked USES_METHOD claim, so the listing is a claim and not evidence."
+        },
+        {
+          "labId": "yamada-kyushu",
+          "reason": "Listed by curated judgement. No paper in this repository links this laboratory to this module through a source-checked USES_METHOD claim, so the listing is a claim and not evidence."
+        }
+      ]
+    }
+  },
+  {
+    "id": "genetic-epistasis",
+    "name": "Genetic perturbation and epistasis",
+    "group": "Causal mechanism",
+    "evidenceRole": "High-value causal evidence",
+    "plainEnglish": "Delete, suppress, activate or rescue genes to place a candidate upstream or downstream of known ferroptosis control points.",
+    "measures": "Functional necessity, sufficiency or pathway order under the tested conditions.",
+    "cannotProve": "A screen hit or overexpression phenotype does not prove direct chemistry, physiological expression or universal dependence.",
+    "bestPractice": [
+      "Use multiple guides or alleles",
+      "Perform rescue with perturbation-resistant constructs",
+      "Separate acute from long-term adaptation",
+      "Test more than one inducer and cell state"
+    ],
+    "commonPitfalls": [
+      "Single clone",
+      "No on-target rescue",
+      "Overexpression called endogenous sufficiency",
+      "Screen score treated as a direct target"
+    ],
+    "distinctiveLabs": [
+      "stockwell-columbia",
+      "dixon-stanford",
+      "conrad-helmholtz",
+      "jiang-msk",
+      "gan-mdanderson"
+    ],
+    "source": "https://doi.org/10.1038/s41580-025-00843-2",
+    "decisionProfile": {
+      "reviewState": "pending-source-review",
+      "provisionalBecause": "No declared source for this module has been read and dated in this repository, so every decision field below is unverified. The module's published guidance is curated judgement, not a source-checked protocol.",
+      "sourceCheckedFields": 0,
+      "pendingFields": 13,
+      "fields": {
+        "specimen": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "Which specimen or model system this module is written for is not recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "question": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The biological question this measurement is chosen to answer is not recorded as a separate field. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "perturbation": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "What must be deliberately changed for this measurement to be interpretable is not recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "readout": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "What is measured is stated by the module itself, but that statement has not been checked against a source. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date.",
+          "curatedStatement": "Functional necessity, sufficiency or pathway order under the tested conditions."
+        },
+        "quantificationUnit": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The unit the result is expressed in is not recorded, so two studies using this module cannot be compared numerically from this record. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "instrument": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The instrument or platform is not recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "positiveControl": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "No essential positive control is recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "negativeControl": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "No essential negative control is recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "processControl": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "No process control — the control that reports what the sample handling itself did — is recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "orthogonalConfirmation": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "Which independent measurement must agree before this result can be reused is not recorded as a field. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "timing": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The timing constraint is not recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "compartmentResolution": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The spatial or compartment resolution this module can support is not recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "confounders": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "What can produce the same signal without the underlying biology is not recorded as a field. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        }
+      }
+    },
+    "sourceRoutes": [
+      {
+        "id": "genetic-epistasis-route-0",
+        "kind": "field-recommendation",
+        "kindBasis": "This repository already publishes this DOI as the 2025 reproducibility recommendation (index.html, evidence-gate section). The document itself was not opened in this round.",
+        "sourceId": "field-rec-2025-nrmcb",
+        "reviewEventId": null,
+        "routePurpose": "declared-source-not-opened",
+        "boundary": "A URL declared as this module's source is not evidence that the document specifies any field below. No reader is recorded against it in this repository."
+      }
+    ],
+    "capabilityAttribution": {
+      "note": "distinctiveLabs is a curated claim. A capability claim counts as evidence here only when a source-checked USES_METHOD claim links a paper to this module and the attribution layer places the laboratory on that paper.",
+      "demonstrated": [
+        {
+          "labId": "zou-westlake",
+          "paperId": "doi:10.1038/s41589-020-0472-6",
+          "figure": "Fig. 1",
+          "role": "pre-independence",
+          "roleBasis": "First author with Stuart L. Schreiber as last author, verified at Crossref on 2026-07-23. The work therefore predates the independent Westlake laboratory and must not be presented as that laboratory leading it.",
+          "claimId": "claim-por-screen",
+          "checkedAt": "2026-07-23",
+          "listedAsDistinctive": false,
+          "readingDepth": "archive-derived",
+          "boundary": "Attributed contributor to a paper whose Fig. 1 is recorded as using this module, in a role the attribution layer marks as predating this laboratory's independence. It is evidence of participation in that study, not of the current laboratory operating the method."
+        }
+      ],
+      "claimedWithoutEvidence": [
+        {
+          "labId": "stockwell-columbia",
+          "reason": "Listed by curated judgement. No paper in this repository links this laboratory to this module through a source-checked USES_METHOD claim, so the listing is a claim and not evidence."
+        },
+        {
+          "labId": "dixon-stanford",
+          "reason": "Listed by curated judgement. No paper in this repository links this laboratory to this module through a source-checked USES_METHOD claim, so the listing is a claim and not evidence."
+        },
+        {
+          "labId": "conrad-helmholtz",
+          "reason": "Listed by curated judgement. No paper in this repository links this laboratory to this module through a source-checked USES_METHOD claim, so the listing is a claim and not evidence."
+        },
+        {
+          "labId": "jiang-msk",
+          "reason": "Listed by curated judgement. No paper in this repository links this laboratory to this module through a source-checked USES_METHOD claim, so the listing is a claim and not evidence."
+        },
+        {
+          "labId": "gan-mdanderson",
+          "reason": "Listed by curated judgement. No paper in this repository links this laboratory to this module through a source-checked USES_METHOD claim, so the listing is a claim and not evidence."
+        }
+      ]
+    }
+  },
+  {
+    "id": "redox-metabolites",
+    "name": "GSH/GSSG and CoQ/CoQH₂ redox measurements",
+    "group": "Defence biochemistry",
+    "evidenceRole": "Mechanistic supporting evidence",
+    "plainEnglish": "Quantify antioxidant pools and their oxidation states to test GPX4- and FSP1-linked defence capacity.",
+    "measures": "Extraction-defined abundance or ratios of redox metabolites.",
+    "cannotProve": "A changed ratio does not identify which reaction caused death.",
+    "bestPractice": [
+      "Quench rapidly",
+      "Prevent oxidation during extraction",
+      "Use stable-isotope internal standards",
+      "Interpret compartment and pool size separately"
+    ],
+    "commonPitfalls": [
+      "CoQH₂ oxidation during sampling",
+      "Whole-cell ratios used for organelle claims",
+      "No recovery controls"
+    ],
+    "distinctiveLabs": [
+      "kang-snu",
+      "angeli-wurzburg",
+      "conrad-helmholtz",
+      "pratt-ottawa"
+    ],
+    "source": "https://doi.org/10.1038/s41580-025-00843-2",
+    "decisionProfile": {
+      "reviewState": "pending-source-review",
+      "provisionalBecause": "No declared source for this module has been read and dated in this repository, so every decision field below is unverified. The module's published guidance is curated judgement, not a source-checked protocol.",
+      "sourceCheckedFields": 0,
+      "pendingFields": 13,
+      "fields": {
+        "specimen": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "Which specimen or model system this module is written for is not recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "question": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The biological question this measurement is chosen to answer is not recorded as a separate field. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "perturbation": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "What must be deliberately changed for this measurement to be interpretable is not recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "readout": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "What is measured is stated by the module itself, but that statement has not been checked against a source. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date.",
+          "curatedStatement": "Extraction-defined abundance or ratios of redox metabolites."
+        },
+        "quantificationUnit": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The unit the result is expressed in is not recorded, so two studies using this module cannot be compared numerically from this record. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "instrument": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The instrument or platform is not recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "positiveControl": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "No essential positive control is recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "negativeControl": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "No essential negative control is recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "processControl": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "No process control — the control that reports what the sample handling itself did — is recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "orthogonalConfirmation": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "Which independent measurement must agree before this result can be reused is not recorded as a field. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "timing": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The timing constraint is not recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "compartmentResolution": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The spatial or compartment resolution this module can support is not recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "confounders": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "What can produce the same signal without the underlying biology is not recorded as a field. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        }
+      }
+    },
+    "sourceRoutes": [
+      {
+        "id": "redox-metabolites-route-0",
+        "kind": "field-recommendation",
+        "kindBasis": "This repository already publishes this DOI as the 2025 reproducibility recommendation (index.html, evidence-gate section). The document itself was not opened in this round.",
+        "sourceId": "field-rec-2025-nrmcb",
+        "reviewEventId": null,
+        "routePurpose": "declared-source-not-opened",
+        "boundary": "A URL declared as this module's source is not evidence that the document specifies any field below. No reader is recorded against it in this repository."
+      }
+    ],
+    "capabilityAttribution": {
+      "note": "distinctiveLabs is a curated claim. A capability claim counts as evidence here only when a source-checked USES_METHOD claim links a paper to this module and the attribution layer places the laboratory on that paper.",
+      "demonstrated": [],
+      "claimedWithoutEvidence": [
+        {
+          "labId": "kang-snu",
+          "reason": "Listed by curated judgement. No paper in this repository links this laboratory to this module through a source-checked USES_METHOD claim, so the listing is a claim and not evidence."
+        },
+        {
+          "labId": "angeli-wurzburg",
+          "reason": "Listed by curated judgement. No paper in this repository links this laboratory to this module through a source-checked USES_METHOD claim, so the listing is a claim and not evidence."
+        },
+        {
+          "labId": "conrad-helmholtz",
+          "reason": "Listed by curated judgement. No paper in this repository links this laboratory to this module through a source-checked USES_METHOD claim, so the listing is a claim and not evidence."
+        },
+        {
+          "labId": "pratt-ottawa",
+          "reason": "Listed by curated judgement. No paper in this repository links this laboratory to this module through a source-checked USES_METHOD claim, so the listing is a claim and not evidence."
+        }
+      ]
+    }
+  },
+  {
+    "id": "radical-kinetics",
+    "name": "Autoxidation and radical-trapping kinetics",
+    "group": "Mechanistic chemistry",
+    "evidenceRole": "Distinctive chemical capability",
+    "plainEnglish": "Measure how fast compounds react with chain-carrying lipid radicals in defined solutions or membranes.",
+    "measures": "Rate constants, inhibition periods and stoichiometry under a specified chemical environment.",
+    "cannotProve": "A rate measured in homogeneous solvent cannot be transferred directly to a cellular membrane or organism.",
+    "bestPractice": [
+      "Report solvent, lipid phase, initiator and oxygen conditions",
+      "Compare membrane and nonpolar environments",
+      "Connect chemical potency with cellular exposure"
+    ],
+    "commonPitfalls": [
+      "DPPH used as a ferroptosis predictor",
+      "Ignoring membrane partitioning",
+      "Equating antioxidant chemistry with target specificity"
+    ],
+    "distinctiveLabs": [
+      "pratt-ottawa"
+    ],
+    "source": "https://doi.org/10.1016/j.chembiol.2019.09.007",
+    "decisionProfile": {
+      "reviewState": "pending-source-review",
+      "provisionalBecause": "No declared source for this module has been read and dated in this repository, so every decision field below is unverified. The module's published guidance is curated judgement, not a source-checked protocol.",
+      "sourceCheckedFields": 0,
+      "pendingFields": 13,
+      "fields": {
+        "specimen": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "Which specimen or model system this module is written for is not recorded. Resolving it requires reading https://doi.org/10.1016/j.chembiol.2019.09.007 and recording the value with its scope and check date."
+        },
+        "question": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The biological question this measurement is chosen to answer is not recorded as a separate field. Resolving it requires reading https://doi.org/10.1016/j.chembiol.2019.09.007 and recording the value with its scope and check date."
+        },
+        "perturbation": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "What must be deliberately changed for this measurement to be interpretable is not recorded. Resolving it requires reading https://doi.org/10.1016/j.chembiol.2019.09.007 and recording the value with its scope and check date."
+        },
+        "readout": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "What is measured is stated by the module itself, but that statement has not been checked against a source. Resolving it requires reading https://doi.org/10.1016/j.chembiol.2019.09.007 and recording the value with its scope and check date.",
+          "curatedStatement": "Rate constants, inhibition periods and stoichiometry under a specified chemical environment."
+        },
+        "quantificationUnit": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The unit the result is expressed in is not recorded, so two studies using this module cannot be compared numerically from this record. Resolving it requires reading https://doi.org/10.1016/j.chembiol.2019.09.007 and recording the value with its scope and check date."
+        },
+        "instrument": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The instrument or platform is not recorded. Resolving it requires reading https://doi.org/10.1016/j.chembiol.2019.09.007 and recording the value with its scope and check date."
+        },
+        "positiveControl": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "No essential positive control is recorded. Resolving it requires reading https://doi.org/10.1016/j.chembiol.2019.09.007 and recording the value with its scope and check date."
+        },
+        "negativeControl": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "No essential negative control is recorded. Resolving it requires reading https://doi.org/10.1016/j.chembiol.2019.09.007 and recording the value with its scope and check date."
+        },
+        "processControl": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "No process control — the control that reports what the sample handling itself did — is recorded. Resolving it requires reading https://doi.org/10.1016/j.chembiol.2019.09.007 and recording the value with its scope and check date."
+        },
+        "orthogonalConfirmation": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "Which independent measurement must agree before this result can be reused is not recorded as a field. Resolving it requires reading https://doi.org/10.1016/j.chembiol.2019.09.007 and recording the value with its scope and check date."
+        },
+        "timing": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The timing constraint is not recorded. Resolving it requires reading https://doi.org/10.1016/j.chembiol.2019.09.007 and recording the value with its scope and check date."
+        },
+        "compartmentResolution": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The spatial or compartment resolution this module can support is not recorded. Resolving it requires reading https://doi.org/10.1016/j.chembiol.2019.09.007 and recording the value with its scope and check date."
+        },
+        "confounders": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "What can produce the same signal without the underlying biology is not recorded as a field. Resolving it requires reading https://doi.org/10.1016/j.chembiol.2019.09.007 and recording the value with its scope and check date."
+        }
+      }
+    },
+    "sourceRoutes": [
+      {
+        "id": "radical-kinetics-route-0",
+        "kind": "unclassified-source",
+        "kindBasis": "The record behind this URL has not been opened, so whether it is a vendor protocol, a field recommendation or an original research demonstration is not established.",
+        "sourceId": "doi-10-1016-j-chembiol-2019-09-007",
+        "reviewEventId": null,
+        "routePurpose": "declared-source-not-opened",
+        "boundary": "A URL declared as this module's source is not evidence that the document specifies any field below. No reader is recorded against it in this repository."
+      }
+    ],
+    "capabilityAttribution": {
+      "note": "distinctiveLabs is a curated claim. A capability claim counts as evidence here only when a source-checked USES_METHOD claim links a paper to this module and the attribution layer places the laboratory on that paper.",
+      "demonstrated": [
+        {
+          "labId": "conrad-helmholtz",
+          "paperId": "doi:10.1038/s41586-019-1707-0",
+          "figure": "Fig. 4",
+          "role": "lead",
+          "roleBasis": "Last author of the Crossref author list of 32, verified on 2026-07-23.",
+          "claimId": "claim-fsp1-methods",
+          "checkedAt": "2026-07-23",
+          "listedAsDistinctive": false,
+          "readingDepth": "archive-derived",
+          "boundary": "Attributed contributor (role: lead) to a paper whose Fig. 4 is recorded as using this module. That is evidence of participation in a study that used the method, not proof that this laboratory owns or operates it."
+        },
+        {
+          "labId": "gil-tate-imperial",
+          "paperId": "doi:10.1038/s41586-019-1707-0",
+          "figure": "Fig. 4",
+          "role": "method collaborator",
+          "roleBasis": "Edward William Tate is author 24 of 32 in the verified Crossref author list, a middle position. The project audit archive records this contribution as chemical-biology support and explicitly not laboratory leadership.",
+          "claimId": "claim-fsp1-methods",
+          "checkedAt": "2026-07-23",
+          "listedAsDistinctive": false,
+          "readingDepth": "archive-derived",
+          "boundary": "Attributed contributor (role: method collaborator) to a paper whose Fig. 4 is recorded as using this module. That is evidence of participation in a study that used the method, not proof that this laboratory owns or operates it."
+        },
+        {
+          "labId": "pratt-ottawa",
+          "paperId": "doi:10.1038/s41586-019-1707-0",
+          "figure": "Fig. 4",
+          "role": "contributing-author",
+          "roleBasis": "Derek A. Pratt is author 30 of 32 in the verified Crossref author list. The contribution statement has not been checked, so no leadership or method-ownership claim is made here.",
+          "claimId": "claim-fsp1-methods",
+          "checkedAt": "2026-07-23",
+          "listedAsDistinctive": true,
+          "readingDepth": "archive-derived",
+          "boundary": "Attributed contributor (role: contributing-author) to a paper whose Fig. 4 is recorded as using this module. That is evidence of participation in a study that used the method, not proof that this laboratory owns or operates it."
+        }
+      ],
+      "claimedWithoutEvidence": []
+    }
+  },
+  {
+    "id": "spatial-live-imaging",
+    "name": "Organelle-resolved and live-cell imaging",
+    "group": "Spatial mechanism",
+    "evidenceRole": "Distinctive spatial capability",
+    "plainEnglish": "Follow lipid oxidation, iron, membrane integrity or cell-to-cell propagation over time and within subcellular regions.",
+    "measures": "Probe- and segmentation-defined spatial and temporal signals.",
+    "cannotProve": "Targeted probes or forced organelle perturbations show local feasibility, not necessarily the endogenous starting site.",
+    "bestPractice": [
+      "Record inducer, cell type, probe, compartment and time window as one condition vector",
+      "Validate organelle assignment",
+      "Measure whether the probe perturbs the process",
+      "Use temporal order plus necessity tests"
+    ],
+    "commonPitfalls": [
+      "Static endpoint localization",
+      "Spectral bleed-through",
+      "Overstating an organelle as the universal origin"
+    ],
+    "distinctiveLabs": [
+      "yamada-kyushu",
+      "overholtzer-msk",
+      "garcia-saez-mpi",
+      "stockwell-columbia"
+    ],
+    "source": "https://pubmed.ncbi.nlm.nih.gov/36747055/",
+    "decisionProfile": {
+      "reviewState": "pending-source-review",
+      "provisionalBecause": "No declared source for this module has been read and dated in this repository, so every decision field below is unverified. The module's published guidance is curated judgement, not a source-checked protocol.",
+      "sourceCheckedFields": 0,
+      "pendingFields": 13,
+      "fields": {
+        "specimen": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "Which specimen or model system this module is written for is not recorded. Resolving it requires reading https://pubmed.ncbi.nlm.nih.gov/36747055/ and recording the value with its scope and check date."
+        },
+        "question": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The biological question this measurement is chosen to answer is not recorded as a separate field. Resolving it requires reading https://pubmed.ncbi.nlm.nih.gov/36747055/ and recording the value with its scope and check date."
+        },
+        "perturbation": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "What must be deliberately changed for this measurement to be interpretable is not recorded. Resolving it requires reading https://pubmed.ncbi.nlm.nih.gov/36747055/ and recording the value with its scope and check date."
+        },
+        "readout": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "What is measured is stated by the module itself, but that statement has not been checked against a source. Resolving it requires reading https://pubmed.ncbi.nlm.nih.gov/36747055/ and recording the value with its scope and check date.",
+          "curatedStatement": "Probe- and segmentation-defined spatial and temporal signals."
+        },
+        "quantificationUnit": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The unit the result is expressed in is not recorded, so two studies using this module cannot be compared numerically from this record. Resolving it requires reading https://pubmed.ncbi.nlm.nih.gov/36747055/ and recording the value with its scope and check date."
+        },
+        "instrument": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The instrument or platform is not recorded. Resolving it requires reading https://pubmed.ncbi.nlm.nih.gov/36747055/ and recording the value with its scope and check date."
+        },
+        "positiveControl": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "No essential positive control is recorded. Resolving it requires reading https://pubmed.ncbi.nlm.nih.gov/36747055/ and recording the value with its scope and check date."
+        },
+        "negativeControl": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "No essential negative control is recorded. Resolving it requires reading https://pubmed.ncbi.nlm.nih.gov/36747055/ and recording the value with its scope and check date."
+        },
+        "processControl": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "No process control — the control that reports what the sample handling itself did — is recorded. Resolving it requires reading https://pubmed.ncbi.nlm.nih.gov/36747055/ and recording the value with its scope and check date."
+        },
+        "orthogonalConfirmation": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "Which independent measurement must agree before this result can be reused is not recorded as a field. Resolving it requires reading https://pubmed.ncbi.nlm.nih.gov/36747055/ and recording the value with its scope and check date."
+        },
+        "timing": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The timing constraint is not recorded. Resolving it requires reading https://pubmed.ncbi.nlm.nih.gov/36747055/ and recording the value with its scope and check date."
+        },
+        "compartmentResolution": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The spatial or compartment resolution this module can support is not recorded. Resolving it requires reading https://pubmed.ncbi.nlm.nih.gov/36747055/ and recording the value with its scope and check date."
+        },
+        "confounders": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "What can produce the same signal without the underlying biology is not recorded as a field. Resolving it requires reading https://pubmed.ncbi.nlm.nih.gov/36747055/ and recording the value with its scope and check date."
+        }
+      }
+    },
+    "sourceRoutes": [
+      {
+        "id": "spatial-live-imaging-route-0",
+        "kind": "unclassified-source",
+        "kindBasis": "The record behind this URL has not been opened, so whether it is a vendor protocol, a field recommendation or an original research demonstration is not established.",
+        "sourceId": "pubmed-36747055",
+        "reviewEventId": null,
+        "routePurpose": "declared-source-not-opened",
+        "boundary": "A URL declared as this module's source is not evidence that the document specifies any field below. No reader is recorded against it in this repository."
+      }
+    ],
+    "capabilityAttribution": {
+      "note": "distinctiveLabs is a curated claim. A capability claim counts as evidence here only when a source-checked USES_METHOD claim links a paper to this module and the attribution layer places the laboratory on that paper.",
+      "demonstrated": [
+        {
+          "labId": "garcia-saez-mpi",
+          "paperId": "doi:10.1038/s41467-025-58175-w",
+          "figure": "Fig. 2",
+          "role": "lead",
+          "roleBasis": "Last author of the Crossref author list of 9, verified on 2026-07-23.",
+          "claimId": "claim-propagation-methods",
+          "checkedAt": "2026-07-23",
+          "listedAsDistinctive": true,
+          "readingDepth": "archive-derived",
+          "boundary": "Attributed contributor (role: lead) to a paper whose Fig. 2 is recorded as using this module. That is evidence of participation in a study that used the method, not proof that this laboratory owns or operates it."
+        }
+      ],
+      "claimedWithoutEvidence": [
+        {
+          "labId": "yamada-kyushu",
+          "reason": "Listed by curated judgement. No paper in this repository links this laboratory to this module through a source-checked USES_METHOD claim, so the listing is a claim and not evidence."
+        },
+        {
+          "labId": "overholtzer-msk",
+          "reason": "Listed by curated judgement. No paper in this repository links this laboratory to this module through a source-checked USES_METHOD claim, so the listing is a claim and not evidence."
+        },
+        {
+          "labId": "stockwell-columbia",
+          "reason": "Listed by curated judgement. No paper in this repository links this laboratory to this module through a source-checked USES_METHOD claim, so the listing is a claim and not evidence."
+        }
+      ]
+    }
+  },
+  {
+    "id": "membrane-reconstitution",
+    "name": "Minimal-membrane reconstitution and membrane biophysics",
+    "group": "Execution mechanism",
+    "evidenceRole": "Distinctive mechanistic capability",
+    "plainEnglish": "Rebuild selected reactions in liposomes or model membranes to test whether a molecular event is physically sufficient.",
+    "measures": "Membrane behavior in a defined simplified system.",
+    "cannotProve": "Sufficiency in a minimal membrane does not establish necessity or timing in cells and tissues.",
+    "bestPractice": [
+      "State exact lipid composition and geometry",
+      "Match concentrations to plausible cellular ranges",
+      "Return to genetic and live-cell tests"
+    ],
+    "commonPitfalls": [
+      "Nonphysiological lipid mixtures",
+      "Missing proteins or crowding",
+      "Minimal sufficiency presented as a complete cellular mechanism"
+    ],
+    "distinctiveLabs": [
+      "garcia-saez-mpi",
+      "pratt-ottawa",
+      "imai-kitasato"
+    ],
+    "source": "https://doi.org/10.1038/s41467-025-58175-w",
+    "decisionProfile": {
+      "reviewState": "pending-source-review",
+      "provisionalBecause": "No declared source for this module has been read and dated in this repository, so every decision field below is unverified. The module's published guidance is curated judgement, not a source-checked protocol.",
+      "sourceCheckedFields": 0,
+      "pendingFields": 13,
+      "fields": {
+        "specimen": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "Which specimen or model system this module is written for is not recorded. Resolving it requires reading https://doi.org/10.1038/s41467-025-58175-w and recording the value with its scope and check date."
+        },
+        "question": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The biological question this measurement is chosen to answer is not recorded as a separate field. Resolving it requires reading https://doi.org/10.1038/s41467-025-58175-w and recording the value with its scope and check date."
+        },
+        "perturbation": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "What must be deliberately changed for this measurement to be interpretable is not recorded. Resolving it requires reading https://doi.org/10.1038/s41467-025-58175-w and recording the value with its scope and check date."
+        },
+        "readout": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "What is measured is stated by the module itself, but that statement has not been checked against a source. Resolving it requires reading https://doi.org/10.1038/s41467-025-58175-w and recording the value with its scope and check date.",
+          "curatedStatement": "Membrane behavior in a defined simplified system."
+        },
+        "quantificationUnit": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The unit the result is expressed in is not recorded, so two studies using this module cannot be compared numerically from this record. Resolving it requires reading https://doi.org/10.1038/s41467-025-58175-w and recording the value with its scope and check date."
+        },
+        "instrument": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The instrument or platform is not recorded. Resolving it requires reading https://doi.org/10.1038/s41467-025-58175-w and recording the value with its scope and check date."
+        },
+        "positiveControl": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "No essential positive control is recorded. Resolving it requires reading https://doi.org/10.1038/s41467-025-58175-w and recording the value with its scope and check date."
+        },
+        "negativeControl": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "No essential negative control is recorded. Resolving it requires reading https://doi.org/10.1038/s41467-025-58175-w and recording the value with its scope and check date."
+        },
+        "processControl": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "No process control — the control that reports what the sample handling itself did — is recorded. Resolving it requires reading https://doi.org/10.1038/s41467-025-58175-w and recording the value with its scope and check date."
+        },
+        "orthogonalConfirmation": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "Which independent measurement must agree before this result can be reused is not recorded as a field. Resolving it requires reading https://doi.org/10.1038/s41467-025-58175-w and recording the value with its scope and check date."
+        },
+        "timing": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The timing constraint is not recorded. Resolving it requires reading https://doi.org/10.1038/s41467-025-58175-w and recording the value with its scope and check date."
+        },
+        "compartmentResolution": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The spatial or compartment resolution this module can support is not recorded. Resolving it requires reading https://doi.org/10.1038/s41467-025-58175-w and recording the value with its scope and check date."
+        },
+        "confounders": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "What can produce the same signal without the underlying biology is not recorded as a field. Resolving it requires reading https://doi.org/10.1038/s41467-025-58175-w and recording the value with its scope and check date."
+        }
+      }
+    },
+    "sourceRoutes": [
+      {
+        "id": "membrane-reconstitution-route-0",
+        "kind": "original-research-demonstration",
+        "kindBasis": "This DOI is doi:10.1038/s41467-025-58175-w in the paper layer, whose reading record is archive-derived. That record describes the paper, not this module's fields.",
+        "sourceId": "doi-10-1038-s41467-025-58175-w",
+        "reviewEventId": null,
+        "routePurpose": "declared-source-not-opened",
+        "boundary": "A URL declared as this module's source is not evidence that the document specifies any field below. No reader is recorded against it in this repository.",
+        "corpusPaperId": "doi:10.1038/s41467-025-58175-w"
+      }
+    ],
+    "capabilityAttribution": {
+      "note": "distinctiveLabs is a curated claim. A capability claim counts as evidence here only when a source-checked USES_METHOD claim links a paper to this module and the attribution layer places the laboratory on that paper.",
+      "demonstrated": [
+        {
+          "labId": "conrad-helmholtz",
+          "paperId": "doi:10.1016/j.cell.2025.11.014",
+          "figure": "Fig. 3",
+          "role": "lead",
+          "roleBasis": "Last author of the Crossref author list of 73, verified on 2026-07-23. The contribution statement was not re-read in this pass.",
+          "claimId": "claim-gpx4-finloop-methods",
+          "checkedAt": "2026-07-23",
+          "listedAsDistinctive": false,
+          "readingDepth": "archive-derived",
+          "boundary": "Attributed contributor (role: lead) to a paper whose Fig. 3 is recorded as using this module. That is evidence of participation in a study that used the method, not proof that this laboratory owns or operates it."
+        }
+      ],
+      "claimedWithoutEvidence": [
+        {
+          "labId": "garcia-saez-mpi",
+          "reason": "Listed by curated judgement. No paper in this repository links this laboratory to this module through a source-checked USES_METHOD claim, so the listing is a claim and not evidence."
+        },
+        {
+          "labId": "pratt-ottawa",
+          "reason": "Listed by curated judgement. No paper in this repository links this laboratory to this module through a source-checked USES_METHOD claim, so the listing is a claim and not evidence."
+        },
+        {
+          "labId": "imai-kitasato",
+          "reason": "Listed by curated judgement. No paper in this repository links this laboratory to this module through a source-checked USES_METHOD claim, so the listing is a claim and not evidence."
+        }
+      ]
+    }
+  },
+  {
+    "id": "conditional-animal-genetics",
+    "name": "Conditional animal genetics",
+    "group": "Physiological validation",
+    "evidenceRole": "High-value in vivo evidence",
+    "plainEnglish": "Change ferroptosis regulators in selected tissues or times to test organismal consequences.",
+    "measures": "Gene dependence in a defined tissue, developmental stage and model.",
+    "cannotProve": "A severe engineered knockout does not automatically show that the same pathway drives a natural disease or can be targeted safely.",
+    "bestPractice": [
+      "Use temporal and tissue-specific controls",
+      "Separate developmental from acute effects",
+      "Include genetic or pharmacological rescue",
+      "Measure direct chemistry in tissue"
+    ],
+    "commonPitfalls": [
+      "Constitutive lethality",
+      "Disease-like morphology called disease cause",
+      "No cell-type resolution"
+    ],
+    "distinctiveLabs": [
+      "imai-kitasato",
+      "conrad-helmholtz",
+      "linkermann-mannheim",
+      "papagiannakopoulos-nyu"
+    ],
+    "source": "https://doi.org/10.1038/s41580-025-00843-2",
+    "decisionProfile": {
+      "reviewState": "pending-source-review",
+      "provisionalBecause": "No declared source for this module has been read and dated in this repository, so every decision field below is unverified. The module's published guidance is curated judgement, not a source-checked protocol.",
+      "sourceCheckedFields": 0,
+      "pendingFields": 13,
+      "fields": {
+        "specimen": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "Which specimen or model system this module is written for is not recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "question": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The biological question this measurement is chosen to answer is not recorded as a separate field. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "perturbation": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "What must be deliberately changed for this measurement to be interpretable is not recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "readout": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "What is measured is stated by the module itself, but that statement has not been checked against a source. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date.",
+          "curatedStatement": "Gene dependence in a defined tissue, developmental stage and model."
+        },
+        "quantificationUnit": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The unit the result is expressed in is not recorded, so two studies using this module cannot be compared numerically from this record. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "instrument": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The instrument or platform is not recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "positiveControl": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "No essential positive control is recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "negativeControl": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "No essential negative control is recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "processControl": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "No process control — the control that reports what the sample handling itself did — is recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "orthogonalConfirmation": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "Which independent measurement must agree before this result can be reused is not recorded as a field. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "timing": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The timing constraint is not recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "compartmentResolution": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The spatial or compartment resolution this module can support is not recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "confounders": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "What can produce the same signal without the underlying biology is not recorded as a field. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        }
+      }
+    },
+    "sourceRoutes": [
+      {
+        "id": "conditional-animal-genetics-route-0",
+        "kind": "field-recommendation",
+        "kindBasis": "This repository already publishes this DOI as the 2025 reproducibility recommendation (index.html, evidence-gate section). The document itself was not opened in this round.",
+        "sourceId": "field-rec-2025-nrmcb",
+        "reviewEventId": null,
+        "routePurpose": "declared-source-not-opened",
+        "boundary": "A URL declared as this module's source is not evidence that the document specifies any field below. No reader is recorded against it in this repository."
+      }
+    ],
+    "capabilityAttribution": {
+      "note": "distinctiveLabs is a curated claim. A capability claim counts as evidence here only when a source-checked USES_METHOD claim links a paper to this module and the attribution layer places the laboratory on that paper.",
+      "demonstrated": [
+        {
+          "labId": "conrad-helmholtz",
+          "paperId": "doi:10.1016/j.cell.2025.11.014",
+          "figure": "Fig. 4",
+          "role": "lead",
+          "roleBasis": "Last author of the Crossref author list of 73, verified on 2026-07-23. The contribution statement was not re-read in this pass.",
+          "claimId": "claim-gpx4-finloop-genetics",
+          "checkedAt": "2026-07-23",
+          "listedAsDistinctive": true,
+          "readingDepth": "archive-derived",
+          "boundary": "Attributed contributor (role: lead) to a paper whose Fig. 4 is recorded as using this module. That is evidence of participation in a study that used the method, not proof that this laboratory owns or operates it."
+        }
+      ],
+      "claimedWithoutEvidence": [
+        {
+          "labId": "imai-kitasato",
+          "reason": "Listed by curated judgement. No paper in this repository links this laboratory to this module through a source-checked USES_METHOD claim, so the listing is a claim and not evidence."
+        },
+        {
+          "labId": "linkermann-mannheim",
+          "reason": "Listed by curated judgement. No paper in this repository links this laboratory to this module through a source-checked USES_METHOD claim, so the listing is a claim and not evidence."
+        },
+        {
+          "labId": "papagiannakopoulos-nyu",
+          "reason": "Listed by curated judgement. No paper in this repository links this laboratory to this module through a source-checked USES_METHOD claim, so the listing is a claim and not evidence."
+        }
+      ]
+    }
+  },
+  {
+    "id": "human-organoid-perfusion",
+    "name": "Organoids, human material and ex situ organ perfusion",
+    "group": "Translational validation",
+    "evidenceRole": "High-value context evidence",
+    "plainEnglish": "Test mechanisms in patient-derived cells, organoids, tissue or perfused donor organs while preserving more physiological structure.",
+    "measures": "Response in a selected human-derived or large-organ context.",
+    "cannotProve": "An ex situ human organ is not a clinical trial, and a disease signature is not a causal mechanism.",
+    "bestPractice": [
+      "Report donor number and pairing",
+      "Preserve direct ferroptosis measurements",
+      "Separate prophylactic from therapeutic treatment",
+      "State what clinical variables are absent"
+    ],
+    "commonPitfalls": [
+      "Small n hidden by paired design",
+      "Biomarker-only attribution",
+      "Local perfusion presented as systemic safety"
+    ],
+    "distinctiveLabs": [
+      "vandenberghe-antwerp",
+      "bush-florey",
+      "toyokuni-nagoya",
+      "gil-tate-imperial"
+    ],
+    "source": "https://doi.org/10.1016/j.cell.2026.04.019",
+    "decisionProfile": {
+      "reviewState": "pending-source-review",
+      "provisionalBecause": "No declared source for this module has been read and dated in this repository, so every decision field below is unverified. The module's published guidance is curated judgement, not a source-checked protocol.",
+      "sourceCheckedFields": 0,
+      "pendingFields": 13,
+      "fields": {
+        "specimen": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "Which specimen or model system this module is written for is not recorded. Resolving it requires reading https://doi.org/10.1016/j.cell.2026.04.019 and recording the value with its scope and check date."
+        },
+        "question": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The biological question this measurement is chosen to answer is not recorded as a separate field. Resolving it requires reading https://doi.org/10.1016/j.cell.2026.04.019 and recording the value with its scope and check date."
+        },
+        "perturbation": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "What must be deliberately changed for this measurement to be interpretable is not recorded. Resolving it requires reading https://doi.org/10.1016/j.cell.2026.04.019 and recording the value with its scope and check date."
+        },
+        "readout": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "What is measured is stated by the module itself, but that statement has not been checked against a source. Resolving it requires reading https://doi.org/10.1016/j.cell.2026.04.019 and recording the value with its scope and check date.",
+          "curatedStatement": "Response in a selected human-derived or large-organ context."
+        },
+        "quantificationUnit": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The unit the result is expressed in is not recorded, so two studies using this module cannot be compared numerically from this record. Resolving it requires reading https://doi.org/10.1016/j.cell.2026.04.019 and recording the value with its scope and check date."
+        },
+        "instrument": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The instrument or platform is not recorded. Resolving it requires reading https://doi.org/10.1016/j.cell.2026.04.019 and recording the value with its scope and check date."
+        },
+        "positiveControl": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "No essential positive control is recorded. Resolving it requires reading https://doi.org/10.1016/j.cell.2026.04.019 and recording the value with its scope and check date."
+        },
+        "negativeControl": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "No essential negative control is recorded. Resolving it requires reading https://doi.org/10.1016/j.cell.2026.04.019 and recording the value with its scope and check date."
+        },
+        "processControl": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "No process control — the control that reports what the sample handling itself did — is recorded. Resolving it requires reading https://doi.org/10.1016/j.cell.2026.04.019 and recording the value with its scope and check date."
+        },
+        "orthogonalConfirmation": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "Which independent measurement must agree before this result can be reused is not recorded as a field. Resolving it requires reading https://doi.org/10.1016/j.cell.2026.04.019 and recording the value with its scope and check date."
+        },
+        "timing": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The timing constraint is not recorded. Resolving it requires reading https://doi.org/10.1016/j.cell.2026.04.019 and recording the value with its scope and check date."
+        },
+        "compartmentResolution": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The spatial or compartment resolution this module can support is not recorded. Resolving it requires reading https://doi.org/10.1016/j.cell.2026.04.019 and recording the value with its scope and check date."
+        },
+        "confounders": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "What can produce the same signal without the underlying biology is not recorded as a field. Resolving it requires reading https://doi.org/10.1016/j.cell.2026.04.019 and recording the value with its scope and check date."
+        }
+      }
+    },
+    "sourceRoutes": [
+      {
+        "id": "human-organoid-perfusion-route-0",
+        "kind": "unclassified-source",
+        "kindBasis": "The record behind this URL has not been opened, so whether it is a vendor protocol, a field recommendation or an original research demonstration is not established.",
+        "sourceId": "doi-10-1016-j-cell-2026-04-019",
+        "reviewEventId": null,
+        "routePurpose": "declared-source-not-opened",
+        "boundary": "A URL declared as this module's source is not evidence that the document specifies any field below. No reader is recorded against it in this repository."
+      }
+    ],
+    "capabilityAttribution": {
+      "note": "distinctiveLabs is a curated claim. A capability claim counts as evidence here only when a source-checked USES_METHOD claim links a paper to this module and the attribution layer places the laboratory on that paper.",
+      "demonstrated": [
+        {
+          "labId": "vandenberghe-antwerp",
+          "paperId": "doi:10.1016/j.cell.2026.04.024",
+          "figure": "Fig. 6",
+          "role": "lead",
+          "roleBasis": "Last author of the Crossref author list of 28, verified on 2026-07-23.",
+          "claimId": "claim-graft-methods",
+          "checkedAt": "2026-07-23",
+          "listedAsDistinctive": true,
+          "readingDepth": "archive-derived",
+          "boundary": "Attributed contributor (role: lead) to a paper whose Fig. 6 is recorded as using this module. That is evidence of participation in a study that used the method, not proof that this laboratory owns or operates it."
+        }
+      ],
+      "claimedWithoutEvidence": [
+        {
+          "labId": "bush-florey",
+          "reason": "Listed by curated judgement. No paper in this repository links this laboratory to this module through a source-checked USES_METHOD claim, so the listing is a claim and not evidence."
+        },
+        {
+          "labId": "toyokuni-nagoya",
+          "reason": "Listed by curated judgement. No paper in this repository links this laboratory to this module through a source-checked USES_METHOD claim, so the listing is a claim and not evidence."
+        },
+        {
+          "labId": "gil-tate-imperial",
+          "reason": "Listed by curated judgement. No paper in this repository links this laboratory to this module through a source-checked USES_METHOD claim, so the listing is a claim and not evidence."
+        }
+      ]
+    }
+  },
+  {
+    "id": "electron-microscopy",
+    "name": "Electron microscopy and mitochondrial morphology",
+    "group": "Morphology",
+    "evidenceRole": "Supporting only",
+    "plainEnglish": "Visualize ultrastructural changes such as condensed mitochondria or membrane damage.",
+    "measures": "Morphology at the sampled time and preparation conditions.",
+    "cannotProve": "No ultrastructural feature is sufficiently specific to diagnose ferroptosis.",
+    "bestPractice": [
+      "Use blinded quantification",
+      "Sample an informative time course",
+      "Combine with functional evidence"
+    ],
+    "commonPitfalls": [
+      "One representative image",
+      "Mitochondrial shrinkage called a hallmark",
+      "Late nonspecific degeneration"
+    ],
+    "distinctiveLabs": [
+      "conrad-helmholtz",
+      "linkermann-mannheim"
+    ],
+    "source": "https://doi.org/10.1038/s41580-025-00843-2",
+    "decisionProfile": {
+      "reviewState": "pending-source-review",
+      "provisionalBecause": "No declared source for this module has been read and dated in this repository, so every decision field below is unverified. The module's published guidance is curated judgement, not a source-checked protocol.",
+      "sourceCheckedFields": 0,
+      "pendingFields": 13,
+      "fields": {
+        "specimen": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "Which specimen or model system this module is written for is not recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "question": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The biological question this measurement is chosen to answer is not recorded as a separate field. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "perturbation": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "What must be deliberately changed for this measurement to be interpretable is not recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "readout": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "What is measured is stated by the module itself, but that statement has not been checked against a source. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date.",
+          "curatedStatement": "Morphology at the sampled time and preparation conditions."
+        },
+        "quantificationUnit": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The unit the result is expressed in is not recorded, so two studies using this module cannot be compared numerically from this record. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "instrument": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The instrument or platform is not recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "positiveControl": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "No essential positive control is recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "negativeControl": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "No essential negative control is recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "processControl": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "No process control — the control that reports what the sample handling itself did — is recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "orthogonalConfirmation": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "Which independent measurement must agree before this result can be reused is not recorded as a field. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "timing": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The timing constraint is not recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "compartmentResolution": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "The spatial or compartment resolution this module can support is not recorded. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        },
+        "confounders": {
+          "status": "pending-source-review",
+          "value": null,
+          "unresolved": "What can produce the same signal without the underlying biology is not recorded as a field. Resolving it requires reading https://doi.org/10.1038/s41580-025-00843-2 and recording the value with its scope and check date."
+        }
+      }
+    },
+    "sourceRoutes": [
+      {
+        "id": "electron-microscopy-route-0",
+        "kind": "field-recommendation",
+        "kindBasis": "This repository already publishes this DOI as the 2025 reproducibility recommendation (index.html, evidence-gate section). The document itself was not opened in this round.",
+        "sourceId": "field-rec-2025-nrmcb",
+        "reviewEventId": null,
+        "routePurpose": "declared-source-not-opened",
+        "boundary": "A URL declared as this module's source is not evidence that the document specifies any field below. No reader is recorded against it in this repository."
+      }
+    ],
+    "capabilityAttribution": {
+      "note": "distinctiveLabs is a curated claim. A capability claim counts as evidence here only when a source-checked USES_METHOD claim links a paper to this module and the attribution layer places the laboratory on that paper.",
+      "demonstrated": [],
+      "claimedWithoutEvidence": [
+        {
+          "labId": "conrad-helmholtz",
+          "reason": "Listed by curated judgement. No paper in this repository links this laboratory to this module through a source-checked USES_METHOD claim, so the listing is a claim and not evidence."
+        },
+        {
+          "labId": "linkermann-mannheim",
+          "reason": "Listed by curated judgement. No paper in this repository links this laboratory to this module through a source-checked USES_METHOD claim, so the listing is a claim and not evidence."
+        }
+      ]
+    }
+  }
+]

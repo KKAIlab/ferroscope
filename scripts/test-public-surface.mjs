@@ -1,0 +1,502 @@
+// Public-surface regression tests.
+//
+// 1. Language gate: render the whole interface from the real data files and fail
+//    if any CJK text reaches the page outside the terminology corpus.
+// 2. Injection gate: render the interface again from deliberately hostile source
+//    metadata and fail if markup or an unsafe URL scheme survives into the page.
+//
+// The renderer under test is app.js itself, driven through a small DOM harness,
+// so the assertions follow the real rendering path rather than a copy of it.
+
+import fs from "node:fs/promises";
+import os from "node:os";
+import path from "node:path";
+import { fileURLToPath, pathToFileURL } from "node:url";
+import { DomHarness, cjkFindings, cjkPattern } from "./lib/dom-harness.mjs";
+import { canonicalIdentity } from "../lib/records.mjs";
+
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const appPath = path.join(root, "app.js");
+const errors = [];
+const fail = (condition, message) => {
+  if (!condition) errors.push(message);
+};
+
+async function renderWith(dataRoot, cacheKey) {
+  const harness = new DomHarness({ dataRoot }).install();
+  const url = pathToFileURL(appPath);
+  url.search = `?harness=${cacheKey}`;
+  const app = await import(url.href);
+  await app.ready;
+  // The default view shows eight signals. The gates below are about every record that
+  // can reach the page, so the whole list is rendered before it is inspected.
+  app.state.visibleSignals = app.state.signals.length;
+  app.renderSignals();
+  for (const lab of app.state.labs) app.renderResearchProfile(lab.id);
+  for (const method of app.state.methods) app.renderMethodDetail(method.id);
+  for (const paper of app.state.papers) app.renderPaperDetail(paper.id);
+  for (const mechanism of app.state.network?.mechanisms || []) {
+    app.state.selectedMechanism = mechanism.id;
+    app.renderNetworkDetail();
+  }
+  harness.uninstall();
+  return { harness, app };
+}
+
+// ---------------------------------------------------------------- language gate
+
+const { harness, app } = await renderWith(root, "live");
+
+fail(app.state.labs.length > 0, "The harness rendered no laboratories; the data load path is broken.");
+fail(app.state.signals.length > 0, "The harness rendered no research signals.");
+fail(app.state.methods.length > 0, "The harness rendered no method modules.");
+fail(harness.opened.has("#labResearchDialog"), "The laboratory profile dialog never opened during rendering.");
+fail(app.state.papers.length >= 10, `The English paper layer rendered ${app.state.papers.length} records; at least ten are required.`);
+fail(harness.opened.has("#paperDialog"), "The paper reading-record dialog never opened during rendering.");
+
+// ------------------------------------------------------- evidence and document class
+//
+// The independent review found the interface calling every PubMed hit "Peer reviewed"
+// and grading it B. Both claims are checked here against the rendered page, not against
+// the data, because the rendered page is what a researcher reads.
+
+// Anchored on the element boundary (">Peer reviewed<") rather than on the raw phrase:
+// record titles are rendered escaped but textually intact, so a paper legitimately
+// titled "Peer reviewed evidence for ..." must not trip the check for the retired
+// interface-authored badge. Only a label that is the entire text of an element can match.
+const signalHtml = harness.htmlFor("#signalList", "#frontierGrid");
+fail(!signalHtml.includes(">Peer reviewed<"), "The interface still labels an automated record as peer reviewed.");
+fail(signalHtml.includes("Evidence not assessed"), "No record renders as unassessed, so automated alerts are still being graded.");
+fail(signalHtml.includes("PubMed record"), "An unclassified automated record must render as a PubMed record rather than as research.");
+
+const automated = app.state.signals.filter((item) => item.reviewStatus === "automated");
+fail(automated.length > 0, "The harness rendered no automated signals, so the evidence gate proves nothing.");
+for (const item of automated) {
+  // A curated audit overlay is the one pathway allowed to grade or promote an
+  // automated record (validate-data permits it; evidenceGradeFor stamps the basis).
+  // Requiring null unconditionally here contradicted that contract: the first graded
+  // overlay whose record re-entered the fetch window would have failed this test in
+  // CI only, freezing the refresh — the round-14 failure shape again.
+  fail(item.evidenceGrade === null || item.evidenceGradeBasis === "curated-audit", `Automated record ${item.id} carries evidence grade ${item.evidenceGrade} without a curated audit; only a curated audit may assign one.`);
+  fail(item.documentType !== "original-research" || ["paper-layer-audit", "curated-audit"].includes(item.documentTypeBasis), `Automated record ${item.id} was promoted to original research without an audit.`);
+}
+
+// The records the review reclassified must render as what the audit says they are, not as
+// research. This is checked on a fixture further down rather than here: every overlaid record
+// lives only in the automated layer, so requiring one to be present in live.json makes the
+// check expire when the fetch window moves past it — the same defect that took the scheduled
+// refresh down. Any that happen to be present today are still checked, but their absence is
+// not a failure.
+const overlaidToday = app.state.signals.filter((item) => app.state.recordOverlays.has(item.canonicalId));
+for (const record of overlaidToday) {
+  const overlay = app.state.recordOverlays.get(record.canonicalId);
+  fail(
+    record.documentType === overlay.documentType,
+    `${record.canonicalId} renders as ${record.documentType} rather than the audited ${overlay.documentType}.`,
+  );
+  // The rendered grade must be exactly what the overlay decided: null stays null, and
+  // a graded overlay must actually reach the page rather than being suppressed.
+  fail(record.evidenceGrade === (overlay.evidenceGrade ?? null), `${record.canonicalId} renders evidence grade ${record.evidenceGrade} but the audit overlay decided ${overlay.evidenceGrade ?? null}.`);
+}
+
+// ------------------------------------------------------------------ canonical merge
+
+const byCanonicalId = new Map();
+for (const item of app.state.signals) {
+  if (byCanonicalId.has(item.canonicalId)) {
+    fail(false, `Two rendered signals share the canonical identity ${item.canonicalId}: ${byCanonicalId.get(item.canonicalId)} and ${item.id}.`);
+  }
+  byCanonicalId.set(item.canonicalId, item.id);
+}
+// Whatever a record's layers, the rendered page must never show one study twice — that is a
+// property of the merge and holds for any dataset, so it is asserted above against the real
+// data. The rest of the merge contract (curated card wins, both discovery routes survive,
+// laboratory matches union) is asserted against a fixture further down, NOT against whichever
+// records happen to be in live.json today. See the note on the merge fixture for why: the
+// previous version of this check hard-coded four canonical ids and required each to be present
+// in both layers, which is a fact about the PubMed window rather than about the merge.
+//
+// Any curated record that did also arrive through an automated route must still hold both, so
+// the real data is checked for consistency without naming a single study:
+for (const merged of app.state.signals) {
+  const routes = merged.sources || [];
+  if (routes.length < 2) continue;
+  fail(
+    merged.reviewStatus === "curated" || routes.every((route) => route.route !== "curated"),
+    `${merged.canonicalId} carries a curated discovery route but no longer renders as curated.`,
+  );
+}
+
+// ------------------------------------------------------------- monitoring coverage
+
+const labHtml = harness.htmlFor("#labGrid");
+fail(!/site watch/.test(labHtml), "A laboratory is still described as site-watched although no site crawler exists.");
+fail(/manual official link/.test(labHtml), "Laboratories without an author watch must be labelled as manual.");
+fail(app.state.coverage?.labs?.length === app.state.labs.length, `Monitoring coverage covers ${app.state.coverage?.labs?.length} laboratories but ${app.state.labs.length} are published.`);
+
+// ------------------------------------------------------------- verification depth
+
+const paperHtml = harness.htmlFor("#paperGrid", "#paperContent");
+fail(/Archive-derived figure chain/.test(paperHtml), "The archive-derived verification depth is not visible on the card or at the top of the dialog.");
+fail(/full figures pending/.test(paperHtml), "The interface does not state that the full figures were not re-opened.");
+fail(!/figure-level audit/.test(paperHtml), "The overstated 'figure-level audit' badge is still rendered.");
+for (const paper of app.state.papers) {
+  fail(!("publicationStatus" in paper), `${paper.id} still carries the merged publicationStatus field.`);
+  fail(Boolean(paper.articleStage && paper.postPublicationStatus), `${paper.id} does not separate article stage from post-publication status.`);
+  for (const event of paper.versionEvents || []) {
+    fail(!(event.affectedDomains || []).includes("pending-source-check"), `${paper.id} still carries an unread correction notice.`);
+    fail(/^https:\/\//.test(event.sourceUrl || ""), `${paper.id} has a version event with no notice URL.`);
+  }
+}
+
+// ------------------------------------------------------- method decision schema (P1-A)
+//
+// A gap is only honest if a reader can see it. These assertions are against the rendered
+// method dialog, not against the data, because the dialog is what a researcher reads.
+
+const methodHtml = harness.htmlFor("#methodGrid", "#methodContent");
+fail(/Provisional module/.test(methodHtml), "A module with unresolved decision fields does not say so in the dialog.");
+fail(/pending source review/.test(methodHtml), "The pending-source-review status is not visible on any decision field.");
+fail(/decision fields source-checked/.test(methodHtml), "The method card does not state how many decision fields are source-checked.");
+fail(/What declaring it does not prove/.test(methodHtml), "A declared source route does not state what declaring it fails to prove.");
+fail(/Source not yet classified/.test(methodHtml), "A source whose kind was never established must say so rather than being given a class.");
+fail(/Vendor protocol/.test(methodHtml) && /Field recommendation/.test(methodHtml) && /Original research demonstration/.test(methodHtml),
+  "The dialog does not distinguish vendor protocol, field recommendation and original research demonstration.");
+fail(/no evidence recorded/.test(methodHtml), "Laboratories listed by curated judgement alone are not separated from evidence-backed capability.");
+fail(/Demonstrated through a source-checked claim/.test(methodHtml), "No capability claim is presented as evidence-backed, so the split proves nothing.");
+fail(/reviewPending/.test(methodHtml), "A module built on a dataset with no independent review does not disclose it.");
+
+// Round-5 P0-C/§10: a source-checked decision field must show its support mode, its
+// scope-specific access depth and a link to the source that was actually opened, so an
+// analytical leap is inspectable rather than hidden behind a citation.
+fail(/Explicit in source/.test(methodHtml), "A source-checked decision field does not show an explicit support mode.");
+fail(/Analytical inference/.test(methodHtml), "The support-mode axis does not distinguish an analytical inference from an explicit statement.");
+fail(/Opened source ↗/.test(methodHtml), "A source-checked decision field does not link to the source that was actually opened.");
+fail(/Not established here:/.test(methodHtml), "A source-checked decision field does not state the scope boundary of its evidence.");
+
+// Round-6 §10 / P1-A: the method dialog is rendered from the canonical registry. Each evidence
+// row must show the exact clause it supports, the document surface and access extent, the
+// selected event's reader and date, and the source that was opened — and it must never present
+// a Results paragraph as "Methods-checked" or a vendor page as a scientific full text.
+fail(app.state.registry && app.state.registry.sourceIds().length > 0, "The canonical source registry did not resolve on the app state.");
+fail(/class="ev-fragment"/.test(methodHtml), "A source-checked decision field does not render the claim fragment it supports.");
+fail(/Read by /.test(methodHtml), "A source-checked decision field does not name the reader and date of its selected review event.");
+fail(/read in full/.test(methodHtml), "No evidence row states its access extent (read in full / in part).");
+fail(/Results section text/.test(methodHtml), "A Results-section scope is not rendered by its surface type.");
+fail(/Methods section text/.test(methodHtml), "A Methods-section scope is not rendered by its surface type.");
+fail(!/Methods-checked/.test(methodHtml), "A method evidence surface still renders the retired ordinal depth 'Methods-checked' instead of a surface type.");
+fail(!/full-text-rechecked/i.test(methodHtml), "A method source still renders the retired 'full-text-rechecked' depth.");
+fail(/Vendor product description/.test(methodHtml), "The vendor catalogue page is not shown as a vendor product description; it must never read as a scientific full text.");
+// The BODIPY question boundary and the MDA readout adduct clause were relabelled from explicit
+// to derived; the derived support mode must be visible in the dialog.
+fail(/Derived from source/.test(methodHtml), "The relabelled derived support modes (P0-5) do not render.");
+
+for (const method of app.state.methods) {
+  const profile = method.decisionProfile;
+  fail(Boolean(profile), `Method ${method.id} has no decision profile.`);
+  if (!profile) continue;
+  for (const [axis, field] of Object.entries(profile.fields || {})) {
+    fail(["source-checked", "pending-source-review"].includes(field.status), `Method ${method.id}.${axis} has no explicit status.`);
+    fail(field.status === "source-checked" || !field.value, `Method ${method.id}.${axis} carries a value while declaring itself unverified.`);
+  }
+  for (const route of method.sourceRoutes || []) {
+    fail(route.status !== "checked" || Boolean(route.checkedAt && route.checkedBy), `Method ${method.id} claims a checked source with no reader or date.`);
+  }
+  for (const row of method.capabilityAttribution?.demonstrated || []) {
+    fail(Boolean(row.paperId && row.role), `Method ${method.id} asserts a capability without naming both a paper and a role.`);
+  }
+}
+
+// BODIPY 581/591 C11 must stay prohibited as a standalone diagnosis.
+const bodipy = app.state.bundles?.neverStandalone?.find((entry) => entry.methodId === "bodipy-c11-assay");
+fail(Boolean(bodipy), "BODIPY 581/591 C11 is no longer listed as an assay that may never stand alone.");
+fail(/Never a standalone answer/.test(methodHtml), "The never-standalone prohibition is not rendered in any method dialog.");
+
+// The BODIPY-versus-direct-oxidised-phospholipid comparison box must render on both assays.
+fail(/BODIPY 581\/591 C11 versus direct oxidised-phospholipid/.test(methodHtml), "The BODIPY-versus-oxidised-PL comparison box does not render in the method dialog.");
+fail(/does not interact with phospholipid hydroperoxides/.test(methodHtml), "The comparison box does not carry the sourced specificity limit of BODIPY C11.");
+
+// ---------------------------------------------------- graph provenance visibility (P1-B)
+
+const networkHtml = harness.htmlFor("#networkDetail");
+fail(/awaiting source review/.test(networkHtml), "A curated method-module boundary is presented without its provisional state.");
+fail(/curated method-module statements/.test(networkHtml), "The mechanism view does not separate curated assay boundaries from paper claims.");
+// A mechanism edge must disclose the paper it is anchored to AND how deeply that paper was read, so an
+// "established" edge resting only on an abstract-level (metadata-checked, figures-unaudited) record can
+// never reach a reader looking figure-verified. This is the hole the round-11 bibliographic tier exposed.
+fail(/figure chain audited/.test(networkHtml), "Mechanism edges do not disclose that their evidence anchor was read to its figure chain.");
+fail(/figures not audited/.test(networkHtml), "A mechanism edge anchored only to an abstract-level paper is shown without disclosing that its figures were not audited by this project.");
+
+// The terminology corpus is the only place where Chinese and Japanese are published.
+const glossaryHtml = harness.htmlFor("#glossaryGrid");
+const publicHtml = harness.htmlExcept("#glossaryGrid");
+const leaks = cjkFindings(publicHtml);
+fail(leaks.length === 0, `CJK text reached the public interface outside the terminology corpus:\n  ${leaks.join("\n  ")}`);
+fail(cjkPattern.test(glossaryHtml), "The terminology corpus rendered no Chinese or Japanese translations.");
+
+// index.html is static markup, so it is checked directly rather than through the harness.
+const indexHtml = await fs.readFile(path.join(root, "index.html"), "utf8");
+const glossarySection = indexHtml.slice(indexHtml.indexOf('<section id="glossary"'), indexHtml.indexOf("</section>", indexHtml.indexOf('<section id="glossary"')));
+const staticOutsideGlossary = indexHtml.replace(glossarySection, "");
+const staticLeaks = cjkFindings(staticOutsideGlossary);
+fail(staticLeaks.length === 0, `index.html carries CJK outside the terminology section:\n  ${staticLeaks.join("\n  ")}`);
+
+// The rendering layer suppresses CJK as a safety net. The ingestion layer must not
+// rely on that net for the fields it fully controls. `title` and `takeaway` are
+// deliberately excluded: they carry upstream author and journal names, which
+// legitimately contain CJK and are suppressed by plain() at render time — widening
+// this check to them would fail on a valid fetch, freezing the refresh.
+const live = JSON.parse(await fs.readFile(path.join(root, "data", "live.json"), "utf8"));
+const meta = JSON.parse(await fs.readFile(path.join(root, "data", "meta.json"), "utf8"));
+for (const item of live) {
+  for (const topic of item.topics || []) {
+    fail(!cjkPattern.test(topic), `Automated signal ${item.id} carries a non-English topic label: ${topic}`);
+  }
+  fail(!cjkPattern.test(item.caveat || ""), `Automated signal ${item.id} carries a non-English caveat.`);
+  fail(!cjkPattern.test(item.sourceType || ""), `Automated signal ${item.id} carries a non-English source type.`);
+}
+for (const source of meta.sources || []) {
+  fail(!cjkPattern.test(source.note || ""), `Source status note for ${source.name} is not English: ${source.note}`);
+}
+
+const ingest = await fs.readFile(path.join(root, "scripts", "update-data.mjs"), "utf8");
+fail(!cjkPattern.test(ingest), "scripts/update-data.mjs still contains CJK string literals or comments; the ingestion layer must be English-native.");
+fail(ingest.includes("labs-en.json"), "The ingestion layer must resolve public laboratory names from labs-en.json rather than watch-query labels.");
+fail(!/lab\.label|\.label\b/.test(ingest.replace(/labelFor|labelled/g, "")), "The ingestion layer must not write watch-query display labels into the public dataset.");
+
+// -------------------------------------------------------------- injection gate
+
+const hostileDir = await fs.mkdtemp(path.join(os.tmpdir(), "ferroscope-hostile-"));
+await fs.cp(path.join(root, "data"), path.join(hostileDir, "data"), { recursive: true });
+
+// Relevance is pinned above every curated signal so both records are inside the
+// default visible window and inside the featured strip.
+const hostileSignals = [
+  {
+    id: "hostile-markup",
+    title: '<img src=x onerror="alert(1)">Ferroptosis title probe',
+    date: "2026-07-01",
+    sourceType: "paper",
+    evidence: "B",
+    relevance: 100,
+    featured: true,
+    frontier: '<script>alert(2)</script>',
+    topics: ['<b onclick="alert(3)">lipid peroxidation</b>'],
+    takeaway: '"><script>alert(4)</script> Journal of Probes',
+    caveat: "</p><iframe src=//evil.example></iframe>",
+    url: "javascript:alert(5)",
+  },
+  {
+    id: "hostile-url",
+    title: '<svg onload="alert(6)">Second probe record',
+    date: "2026-07-02",
+    sourceType: "preprint",
+    evidence: "C",
+    relevance: 99,
+    featured: true,
+    topics: ["methods"],
+    takeaway: "Preprint server probe",
+    caveat: "Not peer reviewed.",
+    url: "data:text/html;base64,PHNjcmlwdD5hbGVydCg3KTwvc2NyaXB0Pg==",
+  },
+];
+await fs.writeFile(path.join(hostileDir, "data", "live.json"), `${JSON.stringify(hostileSignals, null, 2)}\n`);
+
+const hostileMeta = JSON.parse(JSON.stringify(meta));
+hostileMeta.sources = [{ name: '<svg onload="alert(6)">Injected source', ok: false, updatedAt: meta.generatedAt, note: "<script>alert(7)</script>" }];
+await fs.writeFile(path.join(hostileDir, "data", "meta.json"), `${JSON.stringify(hostileMeta, null, 2)}\n`);
+
+const { harness: hostileHarness } = await renderWith(hostileDir, "hostile");
+const hostileHtml = hostileHarness.allHtml();
+await fs.rm(hostileDir, { recursive: true, force: true });
+
+// Proof that the fixture actually reached the page, in neutralised form.
+fail(hostileHtml.includes("Ferroptosis title probe"), "The hostile fixture did not render; the injection gate proves nothing.");
+fail(hostileHtml.includes("&lt;img src=x"), "The hostile title was not rendered as escaped text.");
+fail(hostileHtml.includes("&lt;script&gt;"), "The hostile script payload was not rendered as escaped text.");
+
+// The page's own decorative SVG is legitimate markup, so tags are only rejected when
+// they carry a payload or come from a source-controlled field.
+fail(!/<(script|iframe|img|object|embed)\b/i.test(hostileHtml), "A tag from source metadata survived into the rendered page.");
+fail(!/<svg[^>]*\son\w+\s*=/i.test(hostileHtml), "An svg carrying an event handler survived into the rendered page.");
+fail(!/\son(error|load|click|mouseover)\s*=\s*["']/i.test(hostileHtml), "An inline event handler from source metadata survived into the rendered page.");
+fail(!/href="javascript:/i.test(hostileHtml), "A javascript: URL survived into a rendered link.");
+fail(!/href="data:/i.test(hostileHtml), "A data: URL survived into a rendered link.");
+fail(hostileHtml.includes('href="#"'), "Unsafe URL schemes must be replaced by an inert href.");
+
+// --------------------------------------------------- freshness rendering gate (P0-B)
+//
+// Nothing in the shipped dataset is stale, so partial degradation would never reach the
+// page in the tests above. It is rendered here from a fixture, because "a card that lost
+// one route of several" and "a card published entirely from retained bytes" must not look
+// the same to a reader.
+
+const freshnessDir = await fs.mkdtemp(path.join(os.tmpdir(), "ferroscope-freshness-"));
+await fs.cp(path.join(root, "data"), path.join(freshnessDir, "data"), { recursive: true });
+
+const route = (name, stale) => ({
+  route: name, kind: "automated", recordId: `record-${name}`, url: "https://doi.org/10.1000/fixture",
+  stale, lastSuccessAt: "2026-07-20T00:00:00.000Z", lastAttemptAt: "2026-07-23T00:00:00.000Z",
+});
+const freshnessSignals = [
+  {
+    id: "partly-retained", title: "Ferroptosis record whose secondary route failed", date: "2026-07-01",
+    sourceType: "paper", documentType: "unknown", documentTypeBasis: "pubmed-publication-type-unspecific",
+    evidenceGrade: null, evidenceGradeBasis: "unassessed", sourceName: "Tracked labs / PubMed",
+    relevance: 100, topics: ["methods"], takeaway: "One route retained, one route current.",
+    url: "https://doi.org/10.1000/fixture", stale: false, freshnessState: "partially-stale",
+    staleSourceNames: ["PubMed"], freshSourceNames: ["Tracked labs / PubMed"],
+    sources: [route("Tracked labs / PubMed", false), route("PubMed", true)],
+  },
+  {
+    id: "wholly-retained", title: "Ferroptosis record whose every route failed", date: "2026-07-02",
+    sourceType: "paper", documentType: "unknown", documentTypeBasis: "pubmed-publication-type-unspecific",
+    evidenceGrade: null, evidenceGradeBasis: "unassessed", sourceName: "PubMed",
+    relevance: 99, topics: ["methods"], takeaway: "Published from retained bytes.",
+    url: "https://doi.org/10.1000/fixture-2", stale: true, freshnessState: "stale",
+    staleSourceNames: ["PubMed"], freshSourceNames: [], sources: [route("PubMed", true)],
+  },
+];
+await fs.writeFile(path.join(freshnessDir, "data", "live.json"), `${JSON.stringify(freshnessSignals, null, 2)}\n`);
+
+const { harness: freshnessHarness } = await renderWith(freshnessDir, "freshness");
+const freshnessHtml = freshnessHarness.htmlFor("#signalList");
+await fs.rm(freshnessDir, { recursive: true, force: true });
+
+fail(/one route retained/.test(freshnessHtml), "A partially degraded record does not say that one route was retained.");
+fail(/every source route last failed/.test(freshnessHtml), "A wholly retained record does not say that every route failed.");
+fail(/review-badge partial-stale/.test(freshnessHtml), "Partial degradation is not marked distinctly from a wholly stale record.");
+const partialIndex = freshnessHtml.indexOf("partial-stale");
+const staleIndex = freshnessHtml.indexOf('review-badge stale"');
+fail(partialIndex !== -1 && staleIndex !== -1 && partialIndex !== staleIndex, "The two freshness states render with the same badge.");
+
+// ------------------------------------------------------------- canonical merge fixture
+//
+// This contract used to be asserted by naming four canonical ids and requiring each to appear
+// in BOTH the curated and the automated layer. That is not a property of the merge — it is a
+// property of the PubMed window, and the window moves. `fetchTrackedLabs` in update-data.mjs
+// asks each laboratory for its four most recent ferroptosis papers within one year
+// (`retmax: 4`, `sort: date`), so an automated record leaves the layer as soon as its
+// laboratory publishes four newer ones, and unconditionally a year after publication. The GPX4
+// fin-loop paper aged out exactly that way and the scheduled refresh had been failing on it
+// ever since — six consecutive runs — while every local check stayed green, because the
+// repository's committed live.json still held the older fetch.
+//
+// So the contract is asserted here by construction instead: a curated record and an automated
+// record are placed on the same canonical identity, and the merge must produce one card that
+// keeps the curated review status, both discovery routes, and the union of the laboratory
+// matches. Nothing about it can expire.
+
+const mergeDir = await fs.mkdtemp(path.join(os.tmpdir(), "ferroscope-merge-"));
+await fs.cp(path.join(root, "data"), path.join(mergeDir, "data"), { recursive: true });
+
+const curatedRecords = JSON.parse(await fs.readFile(path.join(root, "data", "intelligence-curated.json"), "utf8"));
+const labRecords = JSON.parse(await fs.readFile(path.join(root, "data", "labs-en.json"), "utf8"));
+// Pick the target from the data rather than naming one: the curated layer is hand-maintained,
+// but an id written into a test is still one more thing that can go stale for no good reason.
+const mergeTarget = curatedRecords.find((record) => canonicalIdentity(record).canonicalIdKind === "doi");
+fail(Boolean(mergeTarget), "No curated record resolves to a DOI identity, so the merge fixture cannot be built.");
+
+if (mergeTarget) {
+  const targetId = canonicalIdentity(mergeTarget).canonicalId;
+  // A laboratory the curated card does not already claim, so the union is observable.
+  const curatedLabs = new Set(mergeTarget.trackedLabIds || []);
+  const automatedLab = labRecords.map((lab) => lab.id).find((id) => !curatedLabs.has(id));
+  fail(Boolean(automatedLab), "Every laboratory is already on the curated record, so the union cannot be observed.");
+
+  // The same fixture carries a probe for every curated classification overlay. An overlaid
+  // record only ever exists in the automated layer, so asserting against whichever ones are in
+  // live.json today has the same expiry defect; building the probe from the overlay file
+  // instead means the classification is proven for every overlay that exists, forever.
+  const overlayRecords = JSON.parse(await fs.readFile(path.join(root, "data", "record-overlays.json"), "utf8"));
+  const doiOverlays = overlayRecords.filter((overlay) => String(overlay.canonicalId || "").startsWith("doi:"));
+  fail(doiOverlays.length > 0, "No DOI-identified classification overlay exists, so the overlay fixture proves nothing.");
+
+  const mergeSignals = [
+    {
+      id: "merge-fixture-automated",
+      title: "Automated route probe for the canonical merge",
+      date: "2026-07-02",
+      sourceType: "paper",
+      relevance: 100,
+      featured: true,
+      topics: ["ferroptosis"],
+      takeaway: "Automated discovery of a study the curated layer already holds.",
+      caveat: "Fixture record.",
+      url: mergeTarget.url,
+      sourceName: "Tracked labs / PubMed",
+      trackedLabIds: automatedLab ? [automatedLab] : [],
+    },
+    // Deliberately carries no documentType: if the overlay is not consulted, the record falls
+    // through to "unknown" and the assertion below catches it.
+    ...doiOverlays.map((overlay, index) => ({
+      id: `merge-fixture-overlay-${index}`,
+      title: `Classification overlay probe ${index}`,
+      date: "2026-07-03",
+      sourceType: "paper",
+      relevance: 99,
+      topics: ["ferroptosis"],
+      takeaway: "Probe for a record the curated audit reclassified.",
+      caveat: "Fixture record.",
+      url: `https://doi.org/${overlay.canonicalId.slice(4)}`,
+      sourceName: "PubMed",
+    })),
+  ];
+  await fs.writeFile(path.join(mergeDir, "data", "live.json"), `${JSON.stringify(mergeSignals, null, 2)}\n`);
+
+  const { app: mergeApp } = await renderWith(mergeDir, "merge");
+  const matches = mergeApp.state.signals.filter((item) => item.canonicalId === targetId);
+
+  fail(matches.length === 1, `${targetId} renders ${matches.length} times; the curated and automated layers did not merge.`);
+  const merged = matches[0];
+  if (merged) {
+    fail(merged.reviewStatus === "curated", `${targetId} lost its curated card in the merge.`);
+    fail((merged.sources || []).length >= 2, `${targetId} does not retain both discovery routes.`);
+    fail(
+      (merged.sources || []).some((route) => route.route === "curated"),
+      `${targetId} dropped the curated discovery route.`,
+    );
+    fail(
+      (merged.sources || []).some((route) => route.route === "Tracked labs / PubMed"),
+      `${targetId} dropped the automated discovery route.`,
+    );
+    if (automatedLab) {
+      fail(
+        (merged.trackedLabIds || []).includes(automatedLab),
+        `${targetId} dropped the automated laboratory match; the merge must union the layers, not overwrite one with the other.`,
+      );
+    }
+    for (const labId of curatedLabs) {
+      fail((merged.trackedLabIds || []).includes(labId), `${targetId} dropped the curated laboratory ${labId} in the merge.`);
+    }
+  }
+
+  // Every classification overlay must reach the rendered record, whatever the ingestion
+  // classifier said and whether or not that study is inside the current fetch window.
+  for (const overlay of doiOverlays) {
+    const record = mergeApp.state.signals.find((item) => item.canonicalId === overlay.canonicalId);
+    fail(Boolean(record), `The overlay probe for ${overlay.canonicalId} did not render; the classification fixture proves nothing.`);
+    if (!record) continue;
+    fail(
+      record.documentType === overlay.documentType,
+      `${overlay.canonicalId} renders as ${record.documentType} rather than the audited ${overlay.documentType}.`,
+    );
+    fail(
+      record.documentTypeBasis === (overlay.documentTypeBasis || "curated-audit"),
+      `${overlay.canonicalId} does not attribute its classification to the audit that made it.`,
+    );
+    fail(record.evidenceGrade === null, `${overlay.canonicalId} carries an evidence grade despite an unassessed audit overlay.`);
+  }
+}
+await fs.rm(mergeDir, { recursive: true, force: true });
+
+if (errors.length) {
+  console.error(errors.join("\n"));
+  process.exit(1);
+}
+
+console.log(
+  `Public surface tests passed: ${harness.writes.length} rendered fragments checked, ` +
+    `CJK confined to the terminology corpus, hostile source metadata neutralised, ` +
+    `and the canonical merge proven on a fixture rather than on a moving fetch window.`,
+);

@@ -1,0 +1,77 @@
+{
+  "generatedAt": "2026-09-06T04:37:59.753Z",
+  "version": "0.1.0",
+  "schemaVersion": "1.1.0",
+  "generator": "scripts/update-data.mjs",
+  "generatorVersion": "1.1.0",
+  "counts": {
+    "clinicalTrials": 31,
+    "curatedSignals": 23,
+    "liveSignals": 57,
+    "staleSignals": 0,
+    "partiallyStaleSignals": 0,
+    "droppedUndatedRecords": 0
+  },
+  "sources": [
+    {
+      "name": "Tracked labs / PubMed",
+      "ok": true,
+      "state": "ok",
+      "lastSuccessAt": "2026-09-06T04:37:59.753Z",
+      "lastAttemptAt": "2026-09-06T04:37:59.753Z",
+      "retainedItems": 0,
+      "retainedAgeDays": null,
+      "maxAgeDays": 14,
+      "errorClass": null,
+      "note": "35 records passed the quality filter in this run."
+    },
+    {
+      "name": "PubMed",
+      "ok": true,
+      "state": "ok",
+      "lastSuccessAt": "2026-09-06T04:37:59.753Z",
+      "lastAttemptAt": "2026-09-06T04:37:59.753Z",
+      "retainedItems": 0,
+      "retainedAgeDays": null,
+      "maxAgeDays": 14,
+      "errorClass": null,
+      "note": "2 records passed the quality filter in this run."
+    },
+    {
+      "name": "Preprints / Crossref",
+      "ok": true,
+      "state": "ok",
+      "lastSuccessAt": "2026-09-06T04:37:59.753Z",
+      "lastAttemptAt": "2026-09-06T04:37:59.753Z",
+      "retainedItems": 0,
+      "retainedAgeDays": null,
+      "maxAgeDays": 14,
+      "errorClass": null,
+      "note": "1 records passed the quality filter in this run."
+    },
+    {
+      "name": "ClinicalTrials.gov",
+      "ok": true,
+      "state": "ok",
+      "lastSuccessAt": "2026-09-06T04:37:59.753Z",
+      "lastAttemptAt": "2026-09-06T04:37:59.753Z",
+      "retainedItems": 0,
+      "retainedAgeDays": null,
+      "maxAgeDays": 14,
+      "errorClass": null,
+      "note": "Retrieved 31 registry records; the 20 most relevant are published."
+    },
+    {
+      "name": "Lab / Network sites",
+      "ok": true,
+      "state": "manual",
+      "lastSuccessAt": "2026-07-22T08:00:00.000Z",
+      "lastAttemptAt": "2026-07-22T08:00:00.000Z",
+      "retainedItems": 0,
+      "retainedAgeDays": null,
+      "maxAgeDays": null,
+      "errorClass": null,
+      "note": "Official laboratory links are curated manually and checked by the scheduled link monitor. No automated crawler reads laboratory pages for new content."
+    }
+  ]
+}
