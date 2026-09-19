@@ -1,25 +1,298 @@
 [
-  { "labId": "zou-westlake", "label": "邹贻龙 Lab", "query": "Zou Y[Author] AND Westlake[Affiliation]", "relevance": 99, "tier": "author-plus-affiliation", "addedAt": "2026-07-22" },
-  { "labId": "yamada-kyushu", "label": "山田健一 Lab", "query": "Yamada KI[Author] AND Kyushu[Affiliation]", "relevance": 98, "tier": "author-plus-affiliation", "addedAt": "2026-07-22" },
-  { "labId": "imai-kitasato", "label": "今井浩孝 Lab", "query": "Imai H[Author] AND Kitasato[Affiliation]", "relevance": 98, "tier": "author-plus-affiliation", "addedAt": "2026-07-22" },
-  { "labId": "conrad-helmholtz", "label": "Marcus Conrad Lab", "query": "Conrad M[Author] AND (Helmholtz[Affiliation] OR Munich[Affiliation])", "relevance": 97, "tier": "author-plus-affiliation", "addedAt": "2026-07-22" },
-  { "labId": "angeli-wurzburg", "label": "Friedmann Angeli Lab", "query": "Friedmann Angeli JP[Author]", "relevance": 97, "tier": "author-plus-affiliation", "addedAt": "2026-07-22" },
-  { "labId": "olzmann-berkeley", "label": "James Olzmann Lab", "query": "Olzmann JA[Author] AND Berkeley[Affiliation]", "relevance": 96, "tier": "author-plus-affiliation", "addedAt": "2026-07-22" },
-  { "labId": "kagan-pitt", "label": "Valerian Kagan Lab", "query": "Kagan VE[Author] AND Pittsburgh[Affiliation]", "relevance": 96, "tier": "author-plus-affiliation", "addedAt": "2026-07-22" },
-  { "labId": "fedorova-dresden", "label": "Maria Fedorova Lab", "query": "Fedorova M[Author] AND Dresden[Affiliation]", "relevance": 96, "tier": "author-plus-affiliation", "addedAt": "2026-07-22" },
-  { "labId": "pratt-ottawa", "label": "Derek Pratt Lab", "query": "Pratt DA[Author] AND Ottawa[Affiliation]", "relevance": 95, "tier": "author-plus-affiliation", "addedAt": "2026-07-22" },
-  { "labId": "rodriguez-curie", "label": "Raphaël Rodriguez Lab", "query": "Rodriguez R[Author] AND Curie[Affiliation]", "relevance": 95, "tier": "author-plus-affiliation", "addedAt": "2026-07-22" },
-  { "labId": "mishima-tohoku", "label": "三島英換 Lab", "query": "Mishima E[Author] AND Tohoku[Affiliation]", "relevance": 95, "tier": "author-plus-affiliation", "addedAt": "2026-07-22" },
-  { "labId": "yin-cityu", "label": "殷惠勇 Lab", "query": "Yin H[Author] AND City University of Hong Kong[Affiliation]", "relevance": 94, "tier": "author-plus-affiliation", "addedAt": "2026-07-22" },
-  { "labId": "stockwell-columbia", "label": "Brent Stockwell Lab", "query": "Stockwell BS[Author] AND Columbia[Affiliation]", "relevance": 93, "tier": "author-plus-affiliation", "addedAt": "2026-07-22" },
-  { "labId": "dixon-stanford", "label": "Scott Dixon Lab", "query": "Dixon SJ[Author] AND Stanford[Affiliation]", "relevance": 93, "tier": "author-plus-affiliation", "addedAt": "2026-07-22" },
-  { "labId": "papagiannakopoulos-nyu", "label": "Papagiannakopoulos Lab", "query": "Papagiannakopoulos T[Author] AND NYU[Affiliation]", "relevance": 90, "tier": "author-plus-affiliation", "addedAt": "2026-07-22" },
-  { "labId": "garcia-saez-mpi", "label": "Garcia-Saez Lab", "query": "Garcia-Saez AJ[Author] AND (Frankfurt[Affiliation] OR Max Planck[Affiliation] OR Cologne[Affiliation])", "relevance": 92, "tier": "author-plus-affiliation", "addedAt": "2026-07-23" },
-  { "labId": "linkermann-mannheim", "label": "Linkermann Lab", "query": "Linkermann A[Author] AND (Mannheim[Affiliation] OR Heidelberg[Affiliation] OR Dresden[Affiliation])", "relevance": 92, "tier": "author-plus-affiliation", "addedAt": "2026-07-23" },
-  { "labId": "ubellacker-harvard", "label": "Ubellacker Lab", "query": "Ubellacker JM[Author] AND (Harvard[Affiliation] OR Boston[Affiliation])", "relevance": 90, "tier": "author-plus-affiliation", "addedAt": "2026-07-23" },
-  { "labId": "vandenberghe-antwerp", "label": "Vanden Berghe Lab", "query": "Vanden Berghe T[Author] AND (Antwerp[Affiliation] OR Ghent[Affiliation])", "relevance": 90, "tier": "author-plus-affiliation", "addedAt": "2026-07-23" },
-  { "labId": "bayir-columbia", "label": "Bayir Lab", "query": "Bayir H[Author] AND (Columbia[Affiliation] OR Pittsburgh[Affiliation])", "relevance": 90, "tier": "author-plus-affiliation", "addedAt": "2026-07-23" },
-  { "labId": "overholtzer-msk", "label": "Overholtzer Lab", "query": "Overholtzer M[Author] AND (Sloan Kettering[Affiliation] OR New York[Affiliation])", "relevance": 89, "tier": "author-plus-affiliation", "addedAt": "2026-07-23" },
-  { "labId": "vandenabeele-vib", "label": "Vandenabeele Lab", "query": "Vandenabeele P[Author] AND (VIB[Affiliation] OR Ghent[Affiliation])", "relevance": 89, "tier": "author-plus-affiliation", "addedAt": "2026-07-23" },
-  { "labId": "toyokuni-nagoya", "label": "Toyokuni Lab", "query": "Toyokuni S[Author] AND Nagoya[Affiliation]", "relevance": 88, "tier": "author-plus-affiliation", "addedAt": "2026-07-23" }
+  {
+    "labId": "zou-westlake",
+    "label": "邹贻龙 Lab",
+    "query": "Zou Y[Author] AND Westlake[Affiliation]",
+    "relevance": 99,
+    "tier": "author-plus-affiliation",
+    "addedAt": "2026-07-22"
+  },
+  {
+    "labId": "yamada-kyushu",
+    "label": "山田健一 Lab",
+    "query": "Yamada KI[Author] AND Kyushu[Affiliation]",
+    "relevance": 98,
+    "tier": "author-plus-affiliation",
+    "addedAt": "2026-07-22"
+  },
+  {
+    "labId": "imai-kitasato",
+    "label": "今井浩孝 Lab",
+    "query": "Imai H[Author] AND Kitasato[Affiliation]",
+    "relevance": 98,
+    "tier": "author-plus-affiliation",
+    "addedAt": "2026-07-22"
+  },
+  {
+    "labId": "conrad-helmholtz",
+    "label": "Marcus Conrad Lab",
+    "query": "Conrad M[Author] AND (Helmholtz[Affiliation] OR Munich[Affiliation])",
+    "relevance": 97,
+    "tier": "author-plus-affiliation",
+    "addedAt": "2026-07-22"
+  },
+  {
+    "labId": "angeli-wurzburg",
+    "label": "Friedmann Angeli Lab",
+    "query": "Friedmann Angeli JP[Author]",
+    "relevance": 97,
+    "tier": "author-plus-affiliation",
+    "addedAt": "2026-07-22"
+  },
+  {
+    "labId": "olzmann-berkeley",
+    "label": "James Olzmann Lab",
+    "query": "Olzmann JA[Author] AND Berkeley[Affiliation]",
+    "relevance": 96,
+    "tier": "author-plus-affiliation",
+    "addedAt": "2026-07-22"
+  },
+  {
+    "labId": "kagan-pitt",
+    "label": "Valerian Kagan Lab",
+    "query": "Kagan VE[Author] AND Pittsburgh[Affiliation]",
+    "relevance": 96,
+    "tier": "author-plus-affiliation",
+    "addedAt": "2026-07-22"
+  },
+  {
+    "labId": "fedorova-dresden",
+    "label": "Maria Fedorova Lab",
+    "query": "Fedorova M[Author] AND Dresden[Affiliation]",
+    "relevance": 96,
+    "tier": "author-plus-affiliation",
+    "addedAt": "2026-07-22"
+  },
+  {
+    "labId": "pratt-ottawa",
+    "label": "Derek Pratt Lab",
+    "query": "Pratt DA[Author] AND Ottawa[Affiliation]",
+    "relevance": 95,
+    "tier": "author-plus-affiliation",
+    "addedAt": "2026-07-22"
+  },
+  {
+    "labId": "rodriguez-curie",
+    "label": "Raphaël Rodriguez Lab",
+    "query": "Rodriguez R[Author] AND Curie[Affiliation]",
+    "relevance": 95,
+    "tier": "author-plus-affiliation",
+    "addedAt": "2026-07-22"
+  },
+  {
+    "labId": "mishima-tohoku",
+    "label": "三島英換 Lab",
+    "query": "Mishima E[Author] AND Tohoku[Affiliation]",
+    "relevance": 95,
+    "tier": "author-plus-affiliation",
+    "addedAt": "2026-07-22"
+  },
+  {
+    "labId": "yin-cityu",
+    "label": "殷惠勇 Lab",
+    "query": "Yin H[Author] AND City University of Hong Kong[Affiliation]",
+    "relevance": 94,
+    "tier": "author-plus-affiliation",
+    "addedAt": "2026-07-22"
+  },
+  {
+    "labId": "stockwell-columbia",
+    "label": "Brent Stockwell Lab",
+    "query": "Stockwell BS[Author] AND Columbia[Affiliation]",
+    "relevance": 93,
+    "tier": "author-plus-affiliation",
+    "addedAt": "2026-07-22"
+  },
+  {
+    "labId": "dixon-stanford",
+    "label": "Scott Dixon Lab",
+    "query": "Dixon SJ[Author] AND Stanford[Affiliation]",
+    "relevance": 93,
+    "tier": "author-plus-affiliation",
+    "addedAt": "2026-07-22"
+  },
+  {
+    "labId": "papagiannakopoulos-nyu",
+    "label": "Papagiannakopoulos Lab",
+    "query": "Papagiannakopoulos T[Author] AND NYU[Affiliation]",
+    "relevance": 90,
+    "tier": "author-plus-affiliation",
+    "addedAt": "2026-07-22"
+  },
+  {
+    "labId": "garcia-saez-mpi",
+    "label": "Garcia-Saez Lab",
+    "query": "Garcia-Saez AJ[Author] AND (Frankfurt[Affiliation] OR Max Planck[Affiliation] OR Cologne[Affiliation])",
+    "relevance": 92,
+    "tier": "author-plus-affiliation",
+    "addedAt": "2026-07-23"
+  },
+  {
+    "labId": "linkermann-mannheim",
+    "label": "Linkermann Lab",
+    "query": "Linkermann A[Author] AND (Mannheim[Affiliation] OR Heidelberg[Affiliation] OR Dresden[Affiliation])",
+    "relevance": 92,
+    "tier": "author-plus-affiliation",
+    "addedAt": "2026-07-23"
+  },
+  {
+    "labId": "ubellacker-harvard",
+    "label": "Ubellacker Lab",
+    "query": "Ubellacker JM[Author] AND (Harvard[Affiliation] OR Boston[Affiliation])",
+    "relevance": 90,
+    "tier": "author-plus-affiliation",
+    "addedAt": "2026-07-23"
+  },
+  {
+    "labId": "vandenberghe-antwerp",
+    "label": "Vanden Berghe Lab",
+    "query": "Vanden Berghe T[Author] AND (Antwerp[Affiliation] OR Ghent[Affiliation])",
+    "relevance": 90,
+    "tier": "author-plus-affiliation",
+    "addedAt": "2026-07-23"
+  },
+  {
+    "labId": "bayir-columbia",
+    "label": "Bayir Lab",
+    "query": "Bayir H[Author] AND (Columbia[Affiliation] OR Pittsburgh[Affiliation])",
+    "relevance": 90,
+    "tier": "author-plus-affiliation",
+    "addedAt": "2026-07-23"
+  },
+  {
+    "labId": "overholtzer-msk",
+    "label": "Overholtzer Lab",
+    "query": "Overholtzer M[Author] AND (Sloan Kettering[Affiliation] OR New York[Affiliation])",
+    "relevance": 89,
+    "tier": "author-plus-affiliation",
+    "addedAt": "2026-07-23"
+  },
+  {
+    "labId": "vandenabeele-vib",
+    "label": "Vandenabeele Lab",
+    "query": "Vandenabeele P[Author] AND (VIB[Affiliation] OR Ghent[Affiliation])",
+    "relevance": 89,
+    "tier": "author-plus-affiliation",
+    "addedAt": "2026-07-23"
+  },
+  {
+    "labId": "toyokuni-nagoya",
+    "label": "Toyokuni Lab",
+    "query": "Toyokuni S[Author] AND Nagoya[Affiliation]",
+    "relevance": 88,
+    "tier": "author-plus-affiliation",
+    "addedAt": "2026-07-23"
+  },
+  {
+    "labId": "jiang-msk",
+    "label": "Xuejun Jiang Lab",
+    "query": "(Jiang Xuejun[Author] OR Jiang X[Author]) AND Sloan Kettering[Affiliation]",
+    "relevance": 94,
+    "tier": "author-plus-affiliation",
+    "addedAt": "2026-09-19"
+  },
+  {
+    "labId": "gan-mdanderson",
+    "label": "Boyi Gan Lab",
+    "query": "(Gan Boyi[Author] OR Gan B[Author]) AND (MD Anderson[Affiliation] OR Houston[Affiliation])",
+    "relevance": 93,
+    "tier": "author-plus-affiliation",
+    "addedAt": "2026-09-19"
+  },
+  {
+    "labId": "tang-kang-utsw",
+    "label": "Tang & Kang Lab",
+    "query": "(Tang Daolin[Author] OR Tang D[Author] OR Kang Rui[Author] OR Kang R[Author]) AND Southwestern[Affiliation]",
+    "relevance": 92,
+    "tier": "author-plus-affiliation",
+    "addedAt": "2026-09-19"
+  },
+  {
+    "labId": "wang-zhejiang",
+    "label": "Wang & Min Lab",
+    "query": "(Wang Fudi[Author] OR Min Junxia[Author]) AND Zhejiang[Affiliation]",
+    "relevance": 90,
+    "tier": "author-plus-affiliation",
+    "addedAt": "2026-09-19"
+  },
+  {
+    "labId": "zhang-ufscripps",
+    "label": "Donna Zhang Lab",
+    "query": "(Zhang Donna D[Author] OR Zhang DD[Author]) AND (Scripps[Affiliation] OR Florida[Affiliation])",
+    "relevance": 89,
+    "tier": "author-plus-affiliation",
+    "addedAt": "2026-09-19"
+  },
+  {
+    "labId": "zoulab-michigan",
+    "label": "Weiping Zou Lab",
+    "query": "(Zou Weiping[Author] OR Zou W[Author]) AND Michigan[Affiliation]",
+    "relevance": 89,
+    "tier": "author-plus-affiliation",
+    "addedAt": "2026-09-19"
+  },
+  {
+    "labId": "chen-nankai",
+    "label": "Quan Chen Lab",
+    "query": "Chen Quan[Author] AND (Nankai[Affiliation] OR Tianjin[Affiliation])",
+    "relevance": 88,
+    "tier": "author-plus-affiliation",
+    "addedAt": "2026-09-19"
+  },
+  {
+    "labId": "saito-tohoku",
+    "label": "Yoshiro Saito Lab",
+    "query": "Saito Yoshiro[Author] AND Tohoku[Affiliation]",
+    "relevance": 88,
+    "tier": "author-plus-affiliation",
+    "addedAt": "2026-09-19"
+  },
+  {
+    "labId": "fujita-iwai-kyoto",
+    "label": "Fujita & Iwai Lab",
+    "query": "(Fujita Hiroaki[Author] OR Iwai Kazuhiro[Author]) AND Kyoto[Affiliation]",
+    "relevance": 88,
+    "tier": "author-plus-affiliation",
+    "addedAt": "2026-09-19"
+  },
+  {
+    "labId": "gao-hit",
+    "label": "Minghui Gao Lab",
+    "query": "(Gao Minghui[Author] OR Gao M[Author]) AND Harbin[Affiliation]",
+    "relevance": 88,
+    "tier": "author-plus-affiliation",
+    "addedAt": "2026-09-19"
+  },
+  {
+    "labId": "ai-igdb",
+    "label": "Youwei Ai Lab",
+    "query": "(Ai Youwei[Author] OR Ai Y[Author]) AND Institute of Genetics and Developmental Biology[Affiliation]",
+    "relevance": 88,
+    "tier": "author-plus-affiliation",
+    "addedAt": "2026-09-19"
+  },
+  {
+    "labId": "kang-snu",
+    "label": "Yun Pyo Kang Lab",
+    "query": "(Kang Yun Pyo[Author] OR Kang YP[Author]) AND Seoul[Affiliation]",
+    "relevance": 88,
+    "tier": "author-plus-affiliation",
+    "addedAt": "2026-09-19"
+  },
+  {
+    "labId": "gil-tate-imperial",
+    "label": "Gil & Tate Lab",
+    "query": "(Gil Jesus[Author] OR Tate Edward W[Author] OR Tate EW[Author]) AND (Imperial[Affiliation] OR London[Affiliation])",
+    "relevance": 87,
+    "tier": "author-plus-affiliation",
+    "addedAt": "2026-09-19"
+  },
+  {
+    "labId": "bush-florey",
+    "label": "Ashley Bush Lab",
+    "query": "(Bush Ashley I[Author] OR Bush AI[Author]) AND (Florey[Affiliation] OR Melbourne[Affiliation])",
+    "relevance": 87,
+    "tier": "author-plus-affiliation",
+    "addedAt": "2026-09-19"
+  }
 ]
