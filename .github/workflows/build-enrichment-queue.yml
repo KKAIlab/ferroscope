@@ -1,0 +1,47 @@
+name: Build FerroScope enrichment queue
+
+# Regenerates docs/ENRICHMENT-QUEUE.md — the pre-read work list of high-value automated
+# records with no curated coverage — with PubMed abstracts attached for triage. The
+# queue lives in docs/, never in data/: it carries no review state and nothing from it
+# renders on the site. See docs/RECIPE-curated-enrichment.md for how a reading round
+# consumes it.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "23 5 * * 1"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-enrichment-queue
+  cancel-in-progress: false
+
+jobs:
+  build-queue:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Build the queue from the current automated layer
+        run: npm run build:enrichment
+      - name: Commit the refreshed queue when changed
+        run: |
+          git config user.name "ferroscope-bot"
+          git config user.email "ferroscope-bot@users.noreply.github.com"
+          git add docs/ENRICHMENT-QUEUE.md docs/enrichment-queue.json
+          git diff --cached --quiet && exit 0
+          git commit -m "docs: refresh curated-enrichment queue"
+          # Same push discipline as the data refresh: rebase and retry rather than
+          # discarding a build because main advanced mid-run.
+          for attempt in 1 2 3 4; do
+            git push && exit 0
+            git fetch origin main
+            git rebase origin/main || { git rebase --abort; exit 1; }
+            sleep $((2 ** attempt))
+          done
+          git push

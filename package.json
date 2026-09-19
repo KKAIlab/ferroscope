@@ -8,6 +8,7 @@
     "update": "node scripts/update-data.mjs",
     "seal": "node scripts/seal-manifest.mjs",
     "build:research": "node scripts/build-lab-research.mjs",
+    "build:enrichment": "node scripts/build-enrichment-queue.mjs",
     "test:research": "node scripts/test-research-method.mjs",
     "check": "npm run check:data && npm run check:v09 && npm run check:method-review && npm run check:papers && npm run check:graph && npm run check:graph-contract && npm run check:coherence && npm run check:coherence-mutations && npm run check:registry && npm run test:research && npm run check:surface && npm run check:dates && npm run check:ingestion && npm run check:resilience && npm run check:manifest && npm run check:readme",
     "check:data": "node scripts/validate-data.mjs",
