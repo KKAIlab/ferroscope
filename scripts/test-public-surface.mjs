@@ -131,7 +131,18 @@ for (const merged of app.state.signals) {
 
 const labHtml = harness.htmlFor("#labGrid");
 fail(!/site watch/.test(labHtml), "A laboratory is still described as site-watched although no site crawler exists.");
-fail(/manual official link/.test(labHtml), "Laboratories without an author watch must be labelled as manual.");
+// The property is conditional on the data, not a fact about it: every laboratory
+// without an author watch must carry the manual badge, and when every laboratory
+// carries a watch the manual badge must not render at all. Requiring the badge's
+// presence unconditionally made this check fail the moment the last manual-only
+// laboratory gained a watch — a dataset state, not a rendering defect.
+const manualLabs = (app.state.coverage?.labs || []).filter((row) => row.authorWatch === "none");
+fail(
+  manualLabs.length ? /manual official link/.test(labHtml) : !/manual official link/.test(labHtml),
+  manualLabs.length
+    ? "Laboratories without an author watch must be labelled as manual."
+    : "No laboratory is manual-only, yet a manual badge still renders.",
+);
 fail(app.state.coverage?.labs?.length === app.state.labs.length, `Monitoring coverage covers ${app.state.coverage?.labs?.length} laboratories but ${app.state.labs.length} are published.`);
 
 // ------------------------------------------------------------- verification depth
