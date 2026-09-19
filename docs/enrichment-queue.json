@@ -1,0 +1,506 @@
+{
+  "generatedAt": "2026-08-26T06:27:06.800Z",
+  "generator": "scripts/build-enrichment-queue.mjs",
+  "status": "pre-read work list — no entry here carries any review state",
+  "minRelevance": 65,
+  "candidateCount": 29,
+  "candidates": [
+    {
+      "canonicalId": "doi:10.1002/1873-3468.70332",
+      "recordId": "pubmed-42003248",
+      "title": "Senescent cells acquire resistance to cystine deprivation-induced ferroptosis via the PPARα-PDK4-phosphorylated PDH axis.",
+      "date": "2026-04-19",
+      "sourceType": "paper",
+      "documentType": "unknown",
+      "relevance": 91,
+      "trackedLabs": [
+        "Ken-ichi Yamada"
+      ],
+      "url": "https://doi.org/10.1002/1873-3468.70332",
+      "doi": "10.1002/1873-3468.70332",
+      "pmid": "42003248",
+      "takeaway": "FEBS letters · Laboratory watch match: Ken-ichi Yamada.",
+      "abstract": null
+    },
+    {
+      "canonicalId": "doi:10.1016/j.jbc.2026.111232",
+      "recordId": "pubmed-41651426",
+      "title": "A missense mutation in acyl-CoA synthetase ACSL4 reveals essential residues for catalytic activity in ferroptosis.",
+      "date": "2026-02-04",
+      "sourceType": "paper",
+      "documentType": "unknown",
+      "relevance": 91,
+      "trackedLabs": [
+        "Ken-ichi Yamada"
+      ],
+      "url": "https://doi.org/10.1016/j.jbc.2026.111232",
+      "doi": "10.1016/j.jbc.2026.111232",
+      "pmid": "41651426",
+      "takeaway": "The Journal of biological chemistry · Laboratory watch match: Ken-ichi Yamada.",
+      "abstract": null
+    },
+    {
+      "canonicalId": "doi:10.1126/sciadv.aeg3424",
+      "recordId": "pubmed-42616878",
+      "title": "HMOX1 controls a heme-ferritin switch that protects cells from ferroptosis.",
+      "date": "2026-08-19",
+      "sourceType": "paper",
+      "documentType": "unknown",
+      "relevance": 90,
+      "trackedLabs": [
+        "José Pedro Friedmann Angeli"
+      ],
+      "url": "https://doi.org/10.1126/sciadv.aeg3424",
+      "doi": "10.1126/sciadv.aeg3424",
+      "pmid": "42616878",
+      "takeaway": "Science advances · Laboratory watch match: José Pedro Friedmann Angeli.",
+      "abstract": null
+    },
+    {
+      "canonicalId": "doi:10.1126/sciadv.aeb2368",
+      "recordId": "pubmed-42213853",
+      "title": "Metabolic rewiring driven by phosphoglycolate phosphatase deletion inhibits ferroptosis.",
+      "date": "2026-05-29",
+      "sourceType": "paper",
+      "documentType": "unknown",
+      "relevance": 90,
+      "trackedLabs": [
+        "José Pedro Friedmann Angeli"
+      ],
+      "url": "https://doi.org/10.1126/sciadv.aeb2368",
+      "doi": "10.1126/sciadv.aeb2368",
+      "pmid": "42213853",
+      "takeaway": "Science advances · Laboratory watch match: José Pedro Friedmann Angeli.",
+      "abstract": null
+    },
+    {
+      "canonicalId": "doi:10.1016/bs.mcb.2026.05.002",
+      "recordId": "pubmed-42442865",
+      "title": "Ferroptosis induction via genetic approaches - CRISPR/Cas9-based disruption on key anti-ferroptotic genes.",
+      "date": "2026-05-28",
+      "sourceType": "paper",
+      "documentType": "unknown",
+      "relevance": 90,
+      "trackedLabs": [
+        "Marcus Conrad"
+      ],
+      "url": "https://doi.org/10.1016/bs.mcb.2026.05.002",
+      "doi": "10.1016/bs.mcb.2026.05.002",
+      "pmid": "42442865",
+      "takeaway": "Methods in cell biology · Laboratory watch match: Marcus Conrad.",
+      "abstract": null
+    },
+    {
+      "canonicalId": "doi:10.64898/2026.07.17.739092",
+      "recordId": "pubmed-42539267",
+      "title": "Double-bond geometry determines fatty acid metabolic fate and ferroptosis sensitivity.",
+      "date": "2026-07-20",
+      "sourceType": "preprint",
+      "documentType": "preprint",
+      "relevance": 89,
+      "trackedLabs": [
+        "James Olzmann"
+      ],
+      "url": "https://doi.org/10.64898/2026.07.17.739092",
+      "doi": "10.64898/2026.07.17.739092",
+      "pmid": "42539267",
+      "takeaway": "bioRxiv : the preprint server for biology · Laboratory watch match: James Olzmann.",
+      "abstract": null
+    },
+    {
+      "canonicalId": "doi:10.1038/s41467-026-71869-z",
+      "recordId": "pubmed-42310294",
+      "title": "15-LOX-catalytic bias towards ether-(alkenyl)-ETE-PEs oxidation bestows selectivity of PRO-ferroptotic cell death signaling.",
+      "date": "2026-06-17",
+      "sourceType": "paper",
+      "documentType": "unknown",
+      "relevance": 89,
+      "trackedLabs": [
+        "Valerian Kagan",
+        "Hülya Bayır"
+      ],
+      "url": "https://doi.org/10.1038/s41467-026-71869-z",
+      "doi": "10.1038/s41467-026-71869-z",
+      "pmid": "42310294",
+      "takeaway": "Nature communications · Laboratory watch match: Valerian Kagan, Hülya Bayır.",
+      "abstract": null
+    },
+    {
+      "canonicalId": "doi:10.64898/2026.05.16.725645",
+      "recordId": "pubmed-42239248",
+      "title": "Targeted extracellular degradation of LRP8 promotes ferroptosis in cancer cells.",
+      "date": "2026-05-18",
+      "sourceType": "preprint",
+      "documentType": "preprint",
+      "relevance": 89,
+      "trackedLabs": [
+        "James Olzmann"
+      ],
+      "url": "https://doi.org/10.64898/2026.05.16.725645",
+      "doi": "10.64898/2026.05.16.725645",
+      "pmid": "42239248",
+      "takeaway": "bioRxiv : the preprint server for biology · Laboratory watch match: James Olzmann.",
+      "abstract": null
+    },
+    {
+      "canonicalId": "doi:10.1111/febs.70467",
+      "recordId": "pubmed-41729026",
+      "title": "Opposing roles of DGAT-mediated lipid droplet biogenesis in the regulation of ferroptosis sensitivity.",
+      "date": "2026-02-23",
+      "sourceType": "paper",
+      "documentType": "unknown",
+      "relevance": 89,
+      "trackedLabs": [
+        "Maria Fedorova"
+      ],
+      "url": "https://doi.org/10.1111/febs.70467",
+      "doi": "10.1111/febs.70467",
+      "pmid": "41729026",
+      "takeaway": "The FEBS journal · Laboratory watch match: Maria Fedorova.",
+      "abstract": null
+    },
+    {
+      "canonicalId": "doi:10.1016/j.cell.2026.01.009",
+      "recordId": "pubmed-41720096",
+      "title": "A GPX1-OSBPL8 axis mediates noncanonical in vivo ferroptosis and cancer growth suppression.",
+      "date": "2026-02-19",
+      "sourceType": "paper",
+      "documentType": "unknown",
+      "relevance": 89,
+      "trackedLabs": [
+        "Valerian Kagan",
+        "Hülya Bayır"
+      ],
+      "url": "https://doi.org/10.1016/j.cell.2026.01.009",
+      "doi": "10.1016/j.cell.2026.01.009",
+      "pmid": "41720096",
+      "takeaway": "Cell · Laboratory watch match: Valerian Kagan, Hülya Bayır.",
+      "abstract": null
+    },
+    {
+      "canonicalId": "doi:10.1016/j.cell.2026.07.040",
+      "recordId": "pubmed-42600612",
+      "title": "Polyamines buffer labile iron to suppress ferroptosis.",
+      "date": "2026-08-14",
+      "sourceType": "paper",
+      "documentType": "unknown",
+      "relevance": 88,
+      "trackedLabs": [
+        "Raphaël Rodriguez"
+      ],
+      "url": "https://doi.org/10.1016/j.cell.2026.07.040",
+      "doi": "10.1016/j.cell.2026.07.040",
+      "pmid": "42600612",
+      "takeaway": "Cell · Laboratory watch match: Raphaël Rodriguez.",
+      "abstract": null
+    },
+    {
+      "canonicalId": "doi:10.1021/acs.jmedchem.6c01496",
+      "recordId": "pubmed-42430517",
+      "title": "Suppression of Lipid Peroxidation by Necrostatins and Their Potential for Dual Targeting of Ferroptosis and Necroptosis.",
+      "date": "2026-07-10",
+      "sourceType": "paper",
+      "documentType": "unknown",
+      "relevance": 88,
+      "trackedLabs": [
+        "Derek Pratt"
+      ],
+      "url": "https://doi.org/10.1021/acs.jmedchem.6c01496",
+      "doi": "10.1021/acs.jmedchem.6c01496",
+      "pmid": "42430517",
+      "takeaway": "Journal of medicinal chemistry · Laboratory watch match: Derek Pratt.",
+      "abstract": null
+    },
+    {
+      "canonicalId": "doi:10.1016/bs.mcb.2026.01.013",
+      "recordId": "pubmed-41965288",
+      "title": "Implementation of the FENIX assay to assess the anti-ferroptotic properties of test compounds.",
+      "date": "2026-02-19",
+      "sourceType": "paper",
+      "documentType": "unknown",
+      "relevance": 88,
+      "trackedLabs": [
+        "Derek Pratt"
+      ],
+      "url": "https://doi.org/10.1016/bs.mcb.2026.01.013",
+      "doi": "10.1016/bs.mcb.2026.01.013",
+      "pmid": "41965288",
+      "takeaway": "Methods in cell biology · Laboratory watch match: Derek Pratt.",
+      "abstract": null
+    },
+    {
+      "canonicalId": "doi:10.7554/elife.111544",
+      "recordId": "pubmed-42267631",
+      "title": "Cell size modulates ferroptosis susceptibility.",
+      "date": "2026-06-10",
+      "sourceType": "paper",
+      "documentType": "unknown",
+      "relevance": 86,
+      "trackedLabs": [
+        "Scott Dixon"
+      ],
+      "url": "https://doi.org/10.7554/eLife.111544",
+      "doi": "10.7554/eLife.111544",
+      "pmid": "42267631",
+      "takeaway": "eLife · Laboratory watch match: Scott Dixon.",
+      "abstract": null
+    },
+    {
+      "canonicalId": "doi:10.64898/2026.03.28.714855",
+      "recordId": "pubmed-41959534",
+      "title": "Dissecting Complex Interactions Between Ferroptosis and the Proteasome.",
+      "date": "2026-03-30",
+      "sourceType": "preprint",
+      "documentType": "preprint",
+      "relevance": 86,
+      "trackedLabs": [
+        "Scott Dixon"
+      ],
+      "url": "https://doi.org/10.64898/2026.03.28.714855",
+      "doi": "10.64898/2026.03.28.714855",
+      "pmid": "41959534",
+      "takeaway": "bioRxiv : the preprint server for biology · Laboratory watch match: Scott Dixon.",
+      "abstract": null
+    },
+    {
+      "canonicalId": "doi:10.1016/j.celrep.2026.117157",
+      "recordId": "pubmed-41894394",
+      "title": "Methionine metabolism is linked with phospholipid and glutamine metabolism to drive ferroptosis.",
+      "date": "2026-03-26",
+      "sourceType": "paper",
+      "documentType": "unknown",
+      "relevance": 86,
+      "trackedLabs": [
+        "Scott Dixon"
+      ],
+      "url": "https://doi.org/10.1016/j.celrep.2026.117157",
+      "doi": "10.1016/j.celrep.2026.117157",
+      "pmid": "41894394",
+      "takeaway": "Cell reports · Laboratory watch match: Scott Dixon.",
+      "abstract": null
+    },
+    {
+      "canonicalId": "doi:10.1002/advs.202523198",
+      "recordId": "pubmed-41704007",
+      "title": "GPX4 Inhibitor Resistance and Metastatic Features in Triple-Negative Breast Cancer.",
+      "date": "2026-02-17",
+      "sourceType": "paper",
+      "documentType": "unknown",
+      "relevance": 84,
+      "trackedLabs": [
+        "Jessalyn Ubellacker"
+      ],
+      "url": "https://doi.org/10.1002/advs.202523198",
+      "doi": "10.1002/advs.202523198",
+      "pmid": "41704007",
+      "takeaway": "Advanced science (Weinheim, Baden-Wurttemberg, Germany) · Laboratory watch match: Jessalyn Ubellacker.",
+      "abstract": null
+    },
+    {
+      "canonicalId": "doi:10.70401/fos.2026.0021",
+      "recordId": "pubmed-42004401",
+      "title": "Ferroptosis surveillance: Insights from in vivo contexts.",
+      "date": "2026-03-12",
+      "sourceType": "paper",
+      "documentType": "unknown",
+      "relevance": 83,
+      "trackedLabs": [
+        "Jessalyn Ubellacker"
+      ],
+      "url": "https://doi.org/10.70401/fos.2026.0021",
+      "doi": "10.70401/fos.2026.0021",
+      "pmid": "42004401",
+      "takeaway": "Ferroptosis and oxidative stress · Laboratory watch match: Jessalyn Ubellacker.",
+      "abstract": null
+    },
+    {
+      "canonicalId": "doi:10.1038/s41556-026-01899-8",
+      "recordId": "pubmed-41786886",
+      "title": "Acidic niche sugar shield blocks ferroptosis.",
+      "date": "2026-03-01",
+      "sourceType": "paper",
+      "documentType": "unknown",
+      "relevance": 83,
+      "trackedLabs": [
+        "Jessalyn Ubellacker"
+      ],
+      "url": "https://doi.org/10.1038/s41556-026-01899-8",
+      "doi": "10.1038/s41556-026-01899-8",
+      "pmid": "41786886",
+      "takeaway": "Nature cell biology · Laboratory watch match: Jessalyn Ubellacker.",
+      "abstract": null
+    },
+    {
+      "canonicalId": "doi:10.1158/0008-5472.can-25-4954",
+      "recordId": "pubmed-42290280",
+      "title": "Reprogramming of TLR-Ferroptosis Signaling and Immunometabolic Pathways Overcomes Myeloid Suppression to Improve Checkpoint Blockade in Prostate Cancer.",
+      "date": "2026-08-14",
+      "sourceType": "paper",
+      "documentType": "unknown",
+      "relevance": 82,
+      "trackedLabs": [
+        "Michael Overholtzer"
+      ],
+      "url": "https://doi.org/10.1158/0008-5472.CAN-25-4954",
+      "doi": "10.1158/0008-5472.CAN-25-4954",
+      "pmid": "42290280",
+      "takeaway": "Cancer research · Laboratory watch match: Michael Overholtzer.",
+      "abstract": null
+    },
+    {
+      "canonicalId": "doi:10.70401/exo.2026.0011",
+      "recordId": "pubmed-42559325",
+      "title": "Ferroptosis spreading through propagative signals.",
+      "date": "2026-05-26",
+      "sourceType": "paper",
+      "documentType": "unknown",
+      "relevance": 82,
+      "trackedLabs": [
+        "Michael Overholtzer"
+      ],
+      "url": "https://doi.org/10.70401/EXO.2026.0011",
+      "doi": "10.70401/EXO.2026.0011",
+      "pmid": "42559325",
+      "takeaway": "EXO : beyond the cell · Laboratory watch match: Michael Overholtzer.",
+      "abstract": null
+    },
+    {
+      "canonicalId": "doi:10.1016/j.devcel.2026.01.014",
+      "recordId": "pubmed-41709461",
+      "title": "Ferroptosis induces heterogeneous death profiles that are controlled by lysosome rupture.",
+      "date": "2026-02-17",
+      "sourceType": "paper",
+      "documentType": "unknown",
+      "relevance": 82,
+      "trackedLabs": [
+        "Michael Overholtzer"
+      ],
+      "url": "https://doi.org/10.1016/j.devcel.2026.01.014",
+      "doi": "10.1016/j.devcel.2026.01.014",
+      "pmid": "41709461",
+      "takeaway": "Developmental cell · Laboratory watch match: Michael Overholtzer.",
+      "abstract": null
+    },
+    {
+      "canonicalId": "doi:10.1016/j.redox.2026.104293",
+      "recordId": "pubmed-42442115",
+      "title": "Iron-catalyzed oxidative stress reveals an exposome-related ferroptosis-resistant karyomegalic niche in BRCA1-linked renal carcinogenesis.",
+      "date": "2026-07-08",
+      "sourceType": "paper",
+      "documentType": "unknown",
+      "relevance": 81,
+      "trackedLabs": [
+        "Shinya Toyokuni"
+      ],
+      "url": "https://doi.org/10.1016/j.redox.2026.104293",
+      "doi": "10.1016/j.redox.2026.104293",
+      "pmid": "42442115",
+      "takeaway": "Redox biology · Laboratory watch match: Shinya Toyokuni.",
+      "abstract": null
+    },
+    {
+      "canonicalId": "doi:10.1038/s41590-026-02491-w",
+      "recordId": "pubmed-41974963",
+      "title": "Purine salvage pathway protects CD8(+) T cells from metabolic stress.",
+      "date": "2026-04-13",
+      "sourceType": "paper",
+      "documentType": "unknown",
+      "relevance": 79,
+      "trackedLabs": [
+        "Ken-ichi Yamada"
+      ],
+      "url": "https://doi.org/10.1038/s41590-026-02491-w",
+      "doi": "10.1038/s41590-026-02491-w",
+      "pmid": "41974963",
+      "takeaway": "Nature immunology · Laboratory watch match: Ken-ichi Yamada.",
+      "abstract": null
+    },
+    {
+      "canonicalId": "doi:10.1016/j.chembiol.2026.07.001",
+      "recordId": "pubmed-42532041",
+      "title": "Resolving the subcellular redox landscape of Coenzyme Q.",
+      "date": "2026-07-30",
+      "sourceType": "paper",
+      "documentType": "unknown",
+      "relevance": 78,
+      "trackedLabs": [
+        "Marcus Conrad",
+        "Maria Fedorova",
+        "Derek Pratt"
+      ],
+      "url": "https://doi.org/10.1016/j.chembiol.2026.07.001",
+      "doi": "10.1016/j.chembiol.2026.07.001",
+      "pmid": "42532041",
+      "takeaway": "Cell chemical biology · Laboratory watch match: Marcus Conrad, Maria Fedorova, Derek Pratt.",
+      "abstract": null
+    },
+    {
+      "canonicalId": "doi:10.1016/bs.mcb.2026.01.016",
+      "recordId": "pubmed-41965279",
+      "title": "Cell death assays for the detection of acute kidney tubular necrosis.",
+      "date": "2026-02-18",
+      "sourceType": "paper",
+      "documentType": "unknown",
+      "relevance": 74,
+      "trackedLabs": [
+        "Andreas Linkermann"
+      ],
+      "url": "https://doi.org/10.1016/bs.mcb.2026.01.016",
+      "doi": "10.1016/bs.mcb.2026.01.016",
+      "pmid": "41965279",
+      "takeaway": "Methods in cell biology · Laboratory watch match: Andreas Linkermann.",
+      "abstract": null
+    },
+    {
+      "canonicalId": "doi:10.1213/ane.0000000000008035",
+      "recordId": "pubmed-42090240",
+      "title": "Neuronal Cell Death Modalities and Protective Mechanisms Induced By Sevoflurane: A Narrative Review.",
+      "date": "2026-05-06",
+      "sourceType": "paper",
+      "documentType": "unknown",
+      "relevance": 70,
+      "trackedLabs": [
+        "Peter Vandenabeele"
+      ],
+      "url": "https://doi.org/10.1213/ANE.0000000000008035",
+      "doi": "10.1213/ANE.0000000000008035",
+      "pmid": "42090240",
+      "takeaway": "Anesthesia and analgesia · Laboratory watch match: Peter Vandenabeele.",
+      "abstract": null
+    },
+    {
+      "canonicalId": "doi:10.1126/sciadv.adz5906",
+      "recordId": "pubmed-41861024",
+      "title": "Caspase-3/7 deficiency results in enhanced intestinal inflammation and reduced tumorigenesis.",
+      "date": "2026-03-20",
+      "sourceType": "paper",
+      "documentType": "unknown",
+      "relevance": 70,
+      "trackedLabs": [
+        "Peter Vandenabeele"
+      ],
+      "url": "https://doi.org/10.1126/sciadv.adz5906",
+      "doi": "10.1126/sciadv.adz5906",
+      "pmid": "41861024",
+      "takeaway": "Science advances · Laboratory watch match: Peter Vandenabeele.",
+      "abstract": null
+    },
+    {
+      "canonicalId": "doi:10.1080/10715762.2026.2686117",
+      "recordId": "pubmed-42253274",
+      "title": "Acidic plasma-activated povidone-iodine induces copper-dependent oxidative death in oral squamous cell carcinoma cells.",
+      "date": "2026-06-10",
+      "sourceType": "paper",
+      "documentType": "unknown",
+      "relevance": 69,
+      "trackedLabs": [
+        "Shinya Toyokuni"
+      ],
+      "url": "https://doi.org/10.1080/10715762.2026.2686117",
+      "doi": "10.1080/10715762.2026.2686117",
+      "pmid": "42253274",
+      "takeaway": "Free radical research · Laboratory watch match: Shinya Toyokuni.",
+      "abstract": null
+    }
+  ]
+}

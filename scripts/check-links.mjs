@@ -17,7 +17,7 @@ const strict = process.argv.includes("--strict");
 const reportPath = path.join(root, "docs", "link-health.json");
 const concurrency = 6;
 const timeoutMs = 15_000;
-const attempts = 2;
+const attempts = 3;
 const checkedAt = new Date().toISOString();
 
 const labs = JSON.parse(await fs.readFile(path.join(root, "data/labs.json"), "utf8"));
@@ -104,17 +104,23 @@ async function inspect(target) {
       if (attempt < attempts) await wait(750 * attempt);
     }
   }
+  // A request that never completed proves nothing in either direction: a broken link
+  // answers (404, 410, DNS pointing at a parked page answers 200), while a timeout from
+  // one vantage point is routinely just the network path — several tracked laboratory
+  // sites are hosted in China and time out intermittently from US-hosted runners while
+  // loading fine elsewhere. That is a different fact from "broken", so it carries its
+  // own state and does not, by itself, fail a strict run.
   return {
     ...target,
     status: null,
-    state: "broken",
+    state: "unreachable",
     finalUrl: null,
     redirected: false,
     tls: target.url.startsWith("https://"),
     checkedAt,
     lastSuccessAt: history?.lastSuccessAt || null,
     error: lastError?.cause?.code || lastError?.name || "request_failed",
-    proves: "nothing; the request did not complete",
+    proves: "nothing; the request did not complete from this vantage point",
   };
 }
 
@@ -132,7 +138,7 @@ async function worker() {
 await Promise.all(Array.from({ length: concurrency }, () => worker()));
 
 for (const result of results) {
-  const mark = result.state === "healthy" ? "✓" : result.state === "restricted" ? "△" : "✗";
+  const mark = result.state === "healthy" ? "✓" : result.state === "restricted" ? "△" : result.state === "unreachable" ? "?" : "✗";
   const detail = result.status ?? result.error;
   const redirect = result.redirected ? ` -> ${result.finalUrl}` : "";
   console.log(`${mark} ${result.kind}/${result.id}: ${detail}${redirect}`);
@@ -140,19 +146,27 @@ for (const result of results) {
 
 const healthy = results.filter((result) => result.state === "healthy");
 const restricted = results.filter((result) => result.state === "restricted");
+const unreachable = results.filter((result) => result.state === "unreachable");
 const broken = results.filter((result) => result.state === "broken");
 
 await fs.writeFile(reportPath, `${JSON.stringify({
   checkedAt,
-  note: "A healthy result means the URL resolved. It is not evidence that the page still describes the intended laboratory or resource, and a restricted result means an automated client was refused rather than that the link is broken.",
-  counts: { total: results.length, healthy: healthy.length, restricted: restricted.length, broken: broken.length },
+  note: "A healthy result means the URL resolved. It is not evidence that the page still describes the intended laboratory or resource; a restricted result means an automated client was refused rather than that the link is broken; an unreachable result means the request never completed from this vantage point, which proves nothing in either direction — lastSuccessAt says when it last resolved.",
+  counts: { total: results.length, healthy: healthy.length, restricted: restricted.length, unreachable: unreachable.length, broken: broken.length },
   targets: results,
 }, null, 2)}\n`);
 
 const byKind = (kind) => results.filter((result) => result.kind === kind).length;
-console.log(`\nLink health: ${healthy.length} resolved, ${restricted.length} reachable but refusing automated clients, ${broken.length} failed. Report written to docs/link-health.json.`);
+console.log(`\nLink health: ${healthy.length} resolved, ${restricted.length} reachable but refusing automated clients, ${unreachable.length} unreachable from this vantage point, ${broken.length} broken. Report written to docs/link-health.json.`);
 console.log(`Targets by kind: ${byKind("laboratory")} laboratory sites, ${byKind("resource")} external resources, ${byKind("method-source")} declared method sources. Resolving a method source is not reading it.`);
 if (restricted.length) console.log(`Restricted (not counted as healthy): ${restricted.map((result) => `${result.kind}/${result.id}`).join(", ")}`);
-if (broken.length) console.error(`Failed: ${broken.map((result) => `${result.kind}/${result.id} (${result.status ?? result.error})`).join(", ")}`);
+if (unreachable.length) console.warn(`Unreachable this run (not counted as broken; check lastSuccessAt in the report): ${unreachable.map((result) => `${result.kind}/${result.id} (${result.error})`).join(", ")}`);
+if (broken.length) console.error(`Broken: ${broken.map((result) => `${result.kind}/${result.id} (${result.status ?? result.error})`).join(", ")}`);
 
-if (strict && broken.length) process.exit(1);
+// Strict mode is for CI. A definitively broken link is a data defect and fails the run.
+// A transport failure does not — one vantage point's timeout is not evidence of death —
+// unless most targets are unreachable at once, in which case the monitor's own network
+// is the thing that failed and a green run would mean nothing was actually checked.
+const monitorBlind = unreachable.length > results.length / 2;
+if (monitorBlind) console.error(`${unreachable.length} of ${results.length} targets were unreachable: the monitor's own network path is suspect, so this run proves nothing.`);
+if (strict && (broken.length || monitorBlind)) process.exit(1);

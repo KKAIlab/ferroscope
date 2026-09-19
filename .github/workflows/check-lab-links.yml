@@ -6,11 +6,16 @@ on:
     - cron: "41 3 * * 1"
 
 permissions:
-  contents: read
+  contents: write
+
+concurrency:
+  group: check-lab-links
+  cancel-in-progress: false
 
 jobs:
   check-links:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -18,6 +23,25 @@ jobs:
           node-version: 22
       - name: Check laboratory sites, external resources and declared method sources
         run: npm run check:links
+      # The report used to live only in a run artifact, so lastSuccessAt never
+      # accumulated: every run started from the stale committed copy and a transient
+      # timeout had no history to be judged against. Committing the fresh report keeps
+      # the per-target success history real.
+      - name: Commit the refreshed report
+        if: always()
+        run: |
+          git config user.name "ferroscope-bot"
+          git config user.email "ferroscope-bot@users.noreply.github.com"
+          git add docs/link-health.json
+          git diff --cached --quiet && exit 0
+          git commit -m "docs: refresh link-health report"
+          for attempt in 1 2 3 4; do
+            git push && exit 0
+            git fetch origin main
+            git rebase origin/main || { git rebase --abort; exit 1; }
+            sleep $((2 ** attempt))
+          done
+          git push
       - name: Keep the link-health report
         if: always()
         uses: actions/upload-artifact@v4
