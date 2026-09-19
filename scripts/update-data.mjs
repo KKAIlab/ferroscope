@@ -208,7 +208,14 @@ async function fetchPubMed() {
       takeaway: `${item.fulljournalname || "PubMed"} · ${authors || UNNAMED_AUTHORS}`,
       url: doi ? `https://doi.org/${doi}` : `https://pubmed.ncbi.nlm.nih.gov/${pmid}/`,
     });
-  }).filter(Boolean).filter((item) => item.relevance >= 60).slice(0, 35);
+  }).filter(Boolean)
+    // Recalibrated 2026-09 from 60 to 50: at 60 the general stream passed 0-2 records
+    // per run and went a full week publishing nothing, so the site's non-watch intake
+    // was effectively closed. 50 still requires roughly two topic signals (or one plus
+    // a top journal) over the base score, the heavy penalties for reviews,
+    // bibliometrics and nanomaterial pipelines stay in force, and every record remains
+    // an unassessed automated alert — the threshold decides visibility, never evidence.
+    .filter((item) => item.relevance >= 50).slice(0, 35);
 }
 
 async function fetchTrackedLabs(configs, publicLabName) {
@@ -316,7 +323,10 @@ async function fetchPreprints() {
   if (skippedWithoutDoi) console.warn(`${PREPRINT_SOURCE}: skipped ${skippedWithoutDoi} posted-content item(s) with no parseable DOI.`);
   return records.filter((item) => /ferroptosis|ferroptotic/i.test(item.title || ""))
     .filter((item) => !/^(figure|fig\.?|table|data|dataset|supplement|supplementary|supporting information)\b/i.test(item.title || ""))
-    .filter((item) => item.relevance >= 54).sort((a, b) => b.relevance - a.relevance).slice(0, 30);
+    // Recalibrated 2026-09 from 54 to 48 alongside the general-stream threshold, for
+    // the same reason and with the same boundary: preprints additionally carry their
+    // "Not peer reviewed." caveat on every card.
+    .filter((item) => item.relevance >= 48).sort((a, b) => b.relevance - a.relevance).slice(0, 30);
 }
 
 async function fetchTrials() {
