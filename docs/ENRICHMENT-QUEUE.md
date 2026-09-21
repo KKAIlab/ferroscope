@@ -1,6 +1,6 @@
 # Curated-enrichment queue
 
-*Generated 2026-08-26T06:27:06.800Z by `scripts/build-enrichment-queue.mjs`. Regenerate with `npm run build:enrichment`.*
+*Generated 2026-09-21T10:51:26.450Z by `scripts/build-enrichment-queue.mjs`. Regenerate with `npm run build:enrichment`.*
 
 This is a **pre-read work list, not an audit**. Every entry below is an automated
 record — it matched a search, nothing more. It stays "Evidence not assessed" on the
@@ -12,7 +12,7 @@ that a source was actually read — that part is on the reader.
 
 Selection: papers and preprints with research fit ≥ 65/100 and no curated
 coverage (no curated signal, no audit overlay, no paper record, no brief), laboratory-watch
-matches first. **29 record(s) in the queue.**
+matches first. **31 record(s) in the queue.**
 
 ### 1. Senescent cells acquire resistance to cystine deprivation-induced ferroptosis via the PPARα-PDK4-phosphorylated PDH axis.
 
@@ -20,163 +20,163 @@ matches first. **29 record(s) in the queue.**
 - Primary source: https://doi.org/10.1002/1873-3468.70332 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42003248/)
 - Route note: FEBS letters · Laboratory watch match: Ken-ichi Yamada.
 
-> Abstract not fetched in this run — open the primary link.
+> Cellular senescence, a state of irreversible cell cycle arrest, is implicated in age-related diseases. While it is well known that senescent cells resist apoptosis, studies on their resistance to ferroptosis are limited and not fully understood. Senescent cells remain sensitive to ferroptosis induced by direct inhibition of glutathione peroxidase 4 (GPX4) but resist ferroptosis from cystine starvation, suggesting a role for mitochondrial metabolism. Here, we found that this resistance is mediated by peroxisome proliferator-activated receptor &#x3b1; (PPAR&#x3b1;)-dependent upregulation of pyruvate dehydrogenase kinase 4 (PDK4), which inactivates pyruvate dehydrogenase (PDH) and suppresses mitochondria-derived reactive oxygen species, a key driver of ferroptosis. Our findings identify the PPAR&#x3b1;-PDK4-PDH axis as a metabolic switch regulating ferroptosis sensitivity in senescent cells and provide insight into the senescence-ferroptosis interaction.
 
 - [ ] Primary source opened and read (abstract at minimum; figures before any grade)
 - [ ] Document class recorded in `data/record-overlays.json` (with `checkedBy`, `checkedAt`, `reason`)
 - [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
 - [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
 
-### 2. A missense mutation in acyl-CoA synthetase ACSL4 reveals essential residues for catalytic activity in ferroptosis.
-
-- `doi:10.1016/j.jbc.2026.111232` · 2026-02-04 · paper (unknown) · research fit 91/100 · lab watch: Ken-ichi Yamada
-- Primary source: https://doi.org/10.1016/j.jbc.2026.111232 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/41651426/)
-- Route note: The Journal of biological chemistry · Laboratory watch match: Ken-ichi Yamada.
-
-> Abstract not fetched in this run — open the primary link.
-
-- [ ] Primary source opened and read (abstract at minimum; figures before any grade)
-- [ ] Document class recorded in `data/record-overlays.json` (with `checkedBy`, `checkedAt`, `reason`)
-- [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
-- [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
-
-### 3. HMOX1 controls a heme-ferritin switch that protects cells from ferroptosis.
+### 2. HMOX1 controls a heme-ferritin switch that protects cells from ferroptosis.
 
 - `doi:10.1126/sciadv.aeg3424` · 2026-08-19 · paper (unknown) · research fit 90/100 · lab watch: José Pedro Friedmann Angeli
 - Primary source: https://doi.org/10.1126/sciadv.aeg3424 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42616878/)
 - Route note: Science advances · Laboratory watch match: José Pedro Friedmann Angeli.
 
-> Abstract not fetched in this run — open the primary link.
+> Modulating the intracellular labile iron pool (LIP) has emerged as a promising strategy to induce ferroptosis in cancer cells, offering a way to overcome resistance to apoptosis-based therapies. One of the main contributors to LIP is heme catabolism mediated by heme oxygenase-1 (HMOX1), which promotes ferroptosis sensitivity by releasing free iron. Beyond its role as an iron donor, heme can influence diverse proteins and signaling pathways that drive tumor progression, but how heme regulates ferroptosis remains poorly understood. Here, we uncover a paradoxical, protective function of heme in the absence of HMOX1 activity. When HMOX1 is inactive, heme becomes stabilized, leading to ferritin up-regulation, suppression of ferroptosis, and rescue of cell death induced by both pharmacological and genetic inhibition of GPX4. Our findings reveal an unrecognized heme-HMOX1-ferritin axis that controls ferroptosis sensitivity. Targeting this pathway may offer a new therapeutic strategy to modulate ferroptosis in cancer.
 
 - [ ] Primary source opened and read (abstract at minimum; figures before any grade)
 - [ ] Document class recorded in `data/record-overlays.json` (with `checkedBy`, `checkedAt`, `reason`)
 - [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
 - [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
 
-### 4. Metabolic rewiring driven by phosphoglycolate phosphatase deletion inhibits ferroptosis.
+### 3. Metabolic rewiring driven by phosphoglycolate phosphatase deletion inhibits ferroptosis.
 
 - `doi:10.1126/sciadv.aeb2368` · 2026-05-29 · paper (unknown) · research fit 90/100 · lab watch: José Pedro Friedmann Angeli
 - Primary source: https://doi.org/10.1126/sciadv.aeb2368 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42213853/)
 - Route note: Science advances · Laboratory watch match: José Pedro Friedmann Angeli.
 
-> Abstract not fetched in this run — open the primary link.
+> Modulating ferroptosis, a form of cell death driven by uncontrolled lipid peroxidation, is of interest in numerous diseases. Here, we found that the deletion of phosphoglycolate phosphatase (PGP), an essential enzyme that safeguards high glycolytic flux, suppresses ferroptosis. Using metabolomic and isotopic labeling experiments together with lipid and proteomic profiling, we find that PGP loss drives a rewiring of the pentose phosphate pathway and of cellular energy and lipid metabolism that triggers a multifactorial antioxidant response. Paradoxically, our attempts to block PGP pharmacologically led to the realization that the recently described PGP inhibitor compound 1 (CP1) exerts a strong ferroptosis-sensitizing effect. Using genetic, biochemical, and biophysical approaches, we characterize CP1 as a direct, species-independent, dual inhibitor of PGP and ferroptosis suppressor protein 1 (FSP1), and further find that CP1 triggers FSP1 self-assembly. In sum, we identify PGP as a target protein for ferroptosis control and introduce a small-molecule FSP1 inhibitor with unique features to the armamentarium of pharmacological ferroptosis modulators.
 
 - [ ] Primary source opened and read (abstract at minimum; figures before any grade)
 - [ ] Document class recorded in `data/record-overlays.json` (with `checkedBy`, `checkedAt`, `reason`)
 - [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
 - [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
 
-### 5. Ferroptosis induction via genetic approaches - CRISPR/Cas9-based disruption on key anti-ferroptotic genes.
+### 4. Ferroptosis induction via genetic approaches - CRISPR/Cas9-based disruption on key anti-ferroptotic genes.
 
 - `doi:10.1016/bs.mcb.2026.05.002` · 2026-05-28 · paper (unknown) · research fit 90/100 · lab watch: Marcus Conrad
 - Primary source: https://doi.org/10.1016/bs.mcb.2026.05.002 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42442865/)
 - Route note: Methods in cell biology · Laboratory watch match: Marcus Conrad.
 
-> Abstract not fetched in this run — open the primary link.
+> Unlike apoptosis, necroptosis, or pyroptosis which are executed by dedicated proteins, ferroptosis is a distinct form of regulated cell death driven by lipid peroxidation downstream of metabolic dysfunction. In most physiological settings, the cyst(e)ine/glutathione/glutathione peroxidase 4 (GPX4) axis constitutes the central anti-ferroptotic machinery, and disruption of this axis is usually sufficient to trigger ferroptosis. For in vitro studies, commonly employed ferroptosis inducers include erastin, which blocks cystine uptake by targeting system xc-, and (1S,3R)-RSL3, which inhibits GPX4 activity. However, both compounds exhibit off-target effects - erastin can activate voltage-dependent anion channels in mitochondria, whereas (1S,3R)-RSL3 affects other selenoproteins in addition to GPX4. Thus, genetic approaches to induce ferroptosis provide a valuable complement to chemical inducers by excluding off-target concerns. Here, we describe an efficient CRISPR/Cas9-based strategy to generate SLC7A11- and GPX4-knockout HT1080 cells. These knockout lines require routine culture in medium supplemented with &#x3b2;-mercaptoethanol or liproxstatin-1, while withdrawal of these supplements readily induces ferroptosis.
 
 - [ ] Primary source opened and read (abstract at minimum; figures before any grade)
 - [ ] Document class recorded in `data/record-overlays.json` (with `checkedBy`, `checkedAt`, `reason`)
 - [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
 - [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
 
-### 6. Double-bond geometry determines fatty acid metabolic fate and ferroptosis sensitivity.
+### 5. Double-bond geometry determines fatty acid metabolic fate and ferroptosis sensitivity.
 
 - `doi:10.64898/2026.07.17.739092` · 2026-07-20 · preprint (preprint) · research fit 89/100 · lab watch: James Olzmann
 - Primary source: https://doi.org/10.64898/2026.07.17.739092 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42539267/)
 - Route note: bioRxiv : the preprint server for biology · Laboratory watch match: James Olzmann.
 
-> Abstract not fetched in this run — open the primary link.
+> Ferroptosis is driven by the accumulation of oxidatively damaged membrane phospholipids, making membrane lipid composition a central determinant of cell death sensitivity. While fatty acid chain length and degree of unsaturation are well-established regulators of ferroptosis, whether fatty acid stereochemistry contributes to ferroptosis susceptibility is mostly unexplored. Here, we systematically screened structurally diverse fatty acids for their ability to modulate ferroptosis and unexpectedly identified trans-unsaturated fatty acids as potent sensitizers. Compared with its cis counterpart linoleic acid, the trans polyunsaturated fatty acid (PUFA) linoelaidic acid more strongly enhanced lipid peroxidation and promoted the accumulation of ferroptosis-susceptible phospholipid species. Unexpectedly, the trans monounsaturated fatty acid petroselaidic acid also sensitized cells to ferroptosis, whereas its cis stereoisomer petroselinic acid suppressed ferroptosis. Mechanistically, petroselaidic acid required stearoyl-CoA desaturase-dependent conversion to a PUFA, directly demonstrating that double-bond geometry can redirect fatty acid metabolic fate through altered recognition by lipid metabolic enzymes. Although linoelaidic acid and petroselaidic acid followed distinct metabolic pathways, both converged on phospholipid remodeling that expanded pools of ferroptosis-susceptible membrane lipids. Together, our findings demonstrate that fatty acid double-bond geometry determines their metabolic fate and the membrane phospholipid composition, establishing lipid stereochemistry as a previously unrecognized structural determinant of ferroptosis sensitivity.
 
 - [ ] Primary source opened and read (abstract at minimum; figures before any grade)
 - [ ] Document class recorded in `data/record-overlays.json` (with `checkedBy`, `checkedAt`, `reason`)
 - [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
 - [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
 
-### 7. 15-LOX-catalytic bias towards ether-(alkenyl)-ETE-PEs oxidation bestows selectivity of PRO-ferroptotic cell death signaling.
+### 6. 15-LOX-catalytic bias towards ether-(alkenyl)-ETE-PEs oxidation bestows selectivity of PRO-ferroptotic cell death signaling.
 
 - `doi:10.1038/s41467-026-71869-z` · 2026-06-17 · paper (unknown) · research fit 89/100 · lab watch: Valerian Kagan, Hülya Bayır
 - Primary source: https://doi.org/10.1038/s41467-026-71869-z · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42310294/)
 - Route note: Nature communications · Laboratory watch match: Valerian Kagan, Hülya Bayır.
 
-> Abstract not fetched in this run — open the primary link.
+> Ether (alkyl/alkenyl) phospholipids, particularly phosphatidylethanolamine (PE) and phosphatidylcholine (PC), are broadly represented in membranes, but their physiological functions are poorly characterized. The antioxidant role of plasmalogens realized via oxidation of sn-1 vinyl bond has been associated with anti-ferroptotic regulatory function. Alternatively, peroxidation of polyunsaturated fatty acid (PUFA) in sn-2-position of alkenyl-PEs can be pro-ferroptotic. Since 15-LOXs generate 15-HpETE-PEs as ferroptotic signals, we explored alkyl/alkenyl-ETE-PE as substrates of enzymatic peroxidation. Using redox lipidomics, biochemical, biophysical, genetic approaches, and molecular dynamics simulations, we established that both isoforms of 15-LOX (15-LOX-1 and 15-LOX-2) selectively oxidize alkyl/alkenyl-ETE-PE (but not alkyl/alkenyl-ETE-PC), forming 15-HpETE-PEs, triggering ferroptotic death, independently of the vinyl bond. We showed that LOX-catalyzed peroxidation rate of sn-1 vinyl bond is ~500-fold lower than sn-2-ETE-PE, thus excluding the antioxidant role of plasmalogens in ferroptosis. We showed 15-LOX-driven production of sn-1-alkenyl-sn-2-15-HpETE-PE acts as pathogenic factor in acute/chronic diseases: asthma, cancer, brain trauma, skin UVB-injury. Thus, 15-LOX-catalyzed bias towards oxidation of alkenyl-ETE-PE may represent a new therapeutic target.
 
 - [ ] Primary source opened and read (abstract at minimum; figures before any grade)
 - [ ] Document class recorded in `data/record-overlays.json` (with `checkedBy`, `checkedAt`, `reason`)
 - [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
 - [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
 
-### 8. Targeted extracellular degradation of LRP8 promotes ferroptosis in cancer cells.
+### 7. Targeted extracellular degradation of LRP8 promotes ferroptosis in cancer cells.
 
 - `doi:10.64898/2026.05.16.725645` · 2026-05-18 · preprint (preprint) · research fit 89/100 · lab watch: James Olzmann
 - Primary source: https://doi.org/10.64898/2026.05.16.725645 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42239248/)
 - Route note: bioRxiv : the preprint server for biology · Laboratory watch match: James Olzmann.
 
-> Abstract not fetched in this run — open the primary link.
+> Tumor reliance on antioxidant defenses creates a vulnerability to ferroptosis, yet strategies to therapeutically disable these systems remain limited. Here, we identify targeted degradation of the selenium uptake receptor LRP8 as an effective approach to decrease the abundance of the ferroptosis-protective enzyme glutathione peroxidase 4 (GPX4). Using bispecific cytokine receptor-targeting chimeras (KineTACs) that couple LRP8 to cytokine receptor internalization pathways, we selectively direct LRP8 to the lysosome for degradation. LRP8 degradation reduces the abundance of several selenoproteins, including GPX4, lowering the cellular threshold for lipid peroxidation and sensitizing cancer cells to ferroptosis. These findings establish receptor-mediated selenium uptake as a critical, targetable node in ferroptosis resistance and demonstrate that extracellular protein degradation can be leveraged to reprogram intracellular translational dependencies in cancer cells. More broadly, this work provides a framework for exploiting nutrient acquisition pathways to overcome therapy resistance.
 
 - [ ] Primary source opened and read (abstract at minimum; figures before any grade)
 - [ ] Document class recorded in `data/record-overlays.json` (with `checkedBy`, `checkedAt`, `reason`)
 - [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
 - [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
 
-### 9. Opposing roles of DGAT-mediated lipid droplet biogenesis in the regulation of ferroptosis sensitivity.
-
-- `doi:10.1111/febs.70467` · 2026-02-23 · paper (unknown) · research fit 89/100 · lab watch: Maria Fedorova
-- Primary source: https://doi.org/10.1111/febs.70467 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/41729026/)
-- Route note: The FEBS journal · Laboratory watch match: Maria Fedorova.
-
-> Abstract not fetched in this run — open the primary link.
-
-- [ ] Primary source opened and read (abstract at minimum; figures before any grade)
-- [ ] Document class recorded in `data/record-overlays.json` (with `checkedBy`, `checkedAt`, `reason`)
-- [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
-- [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
-
-### 10. A GPX1-OSBPL8 axis mediates noncanonical in vivo ferroptosis and cancer growth suppression.
-
-- `doi:10.1016/j.cell.2026.01.009` · 2026-02-19 · paper (unknown) · research fit 89/100 · lab watch: Valerian Kagan, Hülya Bayır
-- Primary source: https://doi.org/10.1016/j.cell.2026.01.009 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/41720096/)
-- Route note: Cell · Laboratory watch match: Valerian Kagan, Hülya Bayır.
-
-> Abstract not fetched in this run — open the primary link.
-
-- [ ] Primary source opened and read (abstract at minimum; figures before any grade)
-- [ ] Document class recorded in `data/record-overlays.json` (with `checkedBy`, `checkedAt`, `reason`)
-- [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
-- [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
-
-### 11. Polyamines buffer labile iron to suppress ferroptosis.
+### 8. Polyamines buffer labile iron to suppress ferroptosis.
 
 - `doi:10.1016/j.cell.2026.07.040` · 2026-08-14 · paper (unknown) · research fit 88/100 · lab watch: Raphaël Rodriguez
 - Primary source: https://doi.org/10.1016/j.cell.2026.07.040 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42600612/)
 - Route note: Cell · Laboratory watch match: Raphaël Rodriguez.
 
-> Abstract not fetched in this run — open the primary link.
+> Polyamines are essential and evolutionarily conserved metabolites present at millimolar concentrations in mammalian cells. Cells tightly regulate polyamine homeostasis through complex feedback mechanisms, yet the precise role necessitating this regulation remains unclear. Here, we show that polyamines contribute to endogenous buffering of redox-active iron, providing a molecular link between polyamine metabolism and ferroptosis. Using a genome-wide CRISPR screen, we identified a synthetic lethal dependency between polyamine depletion and the key ferroptosis suppressor, glutathione peroxidase 4 (GPX4). Mechanistically, we show that polyamine deficiency triggers a redistribution of cellular iron, increasing the labile iron pool and upregulating ferritin. To directly visualize this iron buffering in living cells, we developed a genetically encoded fluorescent reporter for redox-active iron. Live-cell analysis revealed a striking inverse correlation between intracellular polyamine levels and redox-active iron at single-cell resolution. These findings reposition polyamines as key regulators of iron homeostasis, with implications for ferroptosis-linked disease states and cellular redox balance.
 
 - [ ] Primary source opened and read (abstract at minimum; figures before any grade)
 - [ ] Document class recorded in `data/record-overlays.json` (with `checkedBy`, `checkedAt`, `reason`)
 - [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
 - [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
 
-### 12. Suppression of Lipid Peroxidation by Necrostatins and Their Potential for Dual Targeting of Ferroptosis and Necroptosis.
+### 9. Suppression of Lipid Peroxidation by Necrostatins and Their Potential for Dual Targeting of Ferroptosis and Necroptosis.
 
 - `doi:10.1021/acs.jmedchem.6c01496` · 2026-07-10 · paper (unknown) · research fit 88/100 · lab watch: Derek Pratt
 - Primary source: https://doi.org/10.1021/acs.jmedchem.6c01496 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42430517/)
 - Route note: Journal of medicinal chemistry · Laboratory watch match: Derek Pratt.
 
-> Abstract not fetched in this run — open the primary link.
+> Necrostatin-1 (Nec-1), a widely used RIPK1 inhibitor and necroptosis probe, also suppresses ferroptosis, complicating distinction between these cell death pathways. Here, we show that the thiohydantoin moiety of Nec-1 reacts with hydroperoxides to form a sulfenic acid intermediate capable of trapping peroxyl radicals and inhibiting the lipid peroxidation (LPO) that drives ferroptosis. To investigate this mechanism, several analogs were synthesized and evaluated in the FENIX cell-free LPO assay. Anti-LPO activity was enhanced by increasing steric bulk or nucleophilicity around the thiocarbonyl, relocating the thiohydantoin methyl group, or introducing a fully conjugated linker between the thiohydantoin and indole rings. The fully conjugated analog of Nec-1 (dsaturated Nec-1 or dsNec-1) was isolated as a stable species from preparative reactions of Nec-1 and a hydroperoxide, suggesting it mediates Nec-1's antiferroptotic effects. Desaturated derivatives were, however, inactive against necroptosis, indicating that the Nec-1 scaffold is unsuitable for dual-pathway inhibitor development.
 
 - [ ] Primary source opened and read (abstract at minimum; figures before any grade)
 - [ ] Document class recorded in `data/record-overlays.json` (with `checkedBy`, `checkedAt`, `reason`)
 - [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
 - [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
 
-### 13. Implementation of the FENIX assay to assess the anti-ferroptotic properties of test compounds.
+### 10. PLA2G2F suppresses ferroptosis through phospholipid remodeling.
 
-- `doi:10.1016/bs.mcb.2026.01.013` · 2026-02-19 · paper (unknown) · research fit 88/100 · lab watch: Derek Pratt
-- Primary source: https://doi.org/10.1016/bs.mcb.2026.01.013 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/41965288/)
-- Route note: Methods in cell biology · Laboratory watch match: Derek Pratt.
+- `doi:10.1038/s41594-026-01830-7` · 2026-07-22 · paper (unknown) · research fit 87/100 · lab watch: Xuejun Jiang
+- Primary source: https://doi.org/10.1038/s41594-026-01830-7 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42486993/)
+- Route note: Nature structural & molecular biology · Laboratory watch match: Xuejun Jiang.
 
-> Abstract not fetched in this run — open the primary link.
+> Ferroptosis is an iron-dependent form of regulated cell death driven by phospholipid peroxidation, and it has emerged as a potential therapeutic vulnerability of cancer. Here we identify the secretory phospholipase PLA2G2F (phospholipase A2 group IIF) as a ferroptosis suppressor in bladder cancer and elucidate its regulation and mechanism of action. PLA2G2F functions through an intracellular mechanism by localizing to the endoplasmic reticulum to inhibit ferroptosis. Our genetic and pharmacological analyses reveal that peroxisome proliferator-activated receptor &#x3b3; (PPARG), a nuclear hormone receptor and transcription factor previously implicated in ferroptosis regulation, upregulates PLA2G2F and that PPARG-mediated ferroptosis resistance is largely dependent on PLA2G2F in bladder cancer. Further, lipidomic profiling suggests that PLA2G2F preferentially acts on ether-linked phospholipids containing polyunsaturated fatty acids, thereby reducing the pool of peroxidation-prone polyunsaturated fatty acid-containing phospholipids. Together, our findings establish PLA2G2F as an endoplasmic reticulum-resident ferroptosis suppressor regulated by PPARG and show that inhibiting PPARG signaling or PLA2G2F activity can sensitize bladder cancer cells to ferroptosis induction.
+
+- [ ] Primary source opened and read (abstract at minimum; figures before any grade)
+- [ ] Document class recorded in `data/record-overlays.json` (with `checkedBy`, `checkedAt`, `reason`)
+- [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
+- [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
+
+### 11. Enhancing the efficacy of B7-H3-targeting antibody-drug conjugate DS-7300a in TP53-deficient tumors by inducing ferroptosis.
+
+- `doi:10.1038/s41388-026-03921-7` · 2026-07-27 · paper (unknown) · research fit 86/100 · lab watch: Boyi Gan
+- Primary source: https://doi.org/10.1038/s41388-026-03921-7 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42509416/)
+- Route note: Oncogene · Laboratory watch match: Boyi Gan.
+
+> Immune checkpoint B7-H3 is an emerging target for immunotherapy. DS-7300a is an advanced B7-H3-targeting antibody-drug conjugate (ADC) warheaded with the topoisomerase I inhibitor DXd. DS-7300a has demonstrated clinical activity, but molecular biomarkers to predict its therapeutic response remain elusive. TP53 is one of the most mutated tumor suppressor genes across cancers, and effective therapies are urgently needed for TP53-deficient cancers. Using prostate cancer (PCa) as a model system, we reported that DS-7300a's anti-tumor efficacy is highly dependent on functional p53 in cancer cells, and TP53 defects confer resistance to DS-7300a. Mechanistically, we found that DS-7300a and its payload, DXd, induce DNA damage and activate the ATM/ATR/CHK signaling cascade, thereby stabilizing p53 and inducing a pro-apoptotic and senescence-associated transcriptome. In contrast, TP53-deficient cells fail to sense DXd-induced DNA damage, maintain a high proliferation rate, and exhibit low levels of apoptosis and senescence, thereby conferring resistance to DS-7300a. Ferroptosis is an iron-dependent form of regulated cell death triggered by lipid peroxidation, which is mechanistically and morphologically distinct from apoptosis. Interestingly, DS-7300a treatment elevates lipid peroxidation in TP53-deficient cancer cells and upregulates glutathione peroxidase 4 (GPX4), an antioxidant enzyme that mitigates lipid peroxidation. Using isogeneic xenograft models and a newly developed humanized B7-H3 PCa model, we demonstrated that inducing ferroptosis by pharmacological inhibition of GPX4 enhances DS-7300a's efficacy in TP53-deficient tumors. Our studies demonstrate that TP53 status dictates anti-tumor responses to DS-7300a, and ferroptosis induction represents a promising therapeutic approach to overcome resistance to DS-7300a in malignancies harboring TP53 defects.
+
+- [ ] Primary source opened and read (abstract at minimum; figures before any grade)
+- [ ] Document class recorded in `data/record-overlays.json` (with `checkedBy`, `checkedAt`, `reason`)
+- [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
+- [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
+
+### 12. DHODH-Mediated Suppression of Ferroptosis Supports Radioresistance and Represents a Therapeutic Vulnerability in Lung Cancer.
+
+- `doi:10.1158/0008-5472.can-25-3728` · 2026-07-02 · paper (unknown) · research fit 86/100 · lab watch: Boyi Gan
+- Primary source: https://doi.org/10.1158/0008-5472.CAN-25-3728 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/41949452/)
+- Route note: Cancer research · Laboratory watch match: Boyi Gan.
+
+> Radiotherapy (RT) is a mainstay in the treatment of solid tumors, including lung cancer, yet the long-term efficacy is often limited by radioresistance. RT promotes multiple different cell death processes, and gaining mechanistic insights into how metabolic cell death pathways like ferroptosis contribute to resistance could enable the development of effective modulators of radiation sensitivity. In this study, through metabolomic and functional analyses, we identified dihydroorotate dehydrogenase (DHODH) as a critical regulator of radioresistance in lung cancer. DHODH expression was induced by radiation in a cAMP response element-binding protein-dependent manner, and both radiation exposure and acquired radioresistant states were associated with elevated DHODH activity. DHODH promoted radioresistance in part by generating ubiquinol, a mitochondrial lipid antioxidant that suppresses ferroptosis, and by supporting DNA repair through its role in de novo pyrimidine synthesis. Although DHODH inhibition alone had limited therapeutic effect, its combination with interferon-gamma (IFN&#x3b3;; delivered directly or via anti-PD-1 immunotherapy) synergistically enhanced RT-induced ferroptosis and overcame radioresistance in preclinical models. These findings reveal a metabolic mechanism of radioresistance driven by DHODH-mediated ferroptosis defense and provide a rationale for combining DHODH inhibitors with RT and immunotherapy in lung cancer and potentially other solid tumors. DHODH acts as a metabolic barrier to ferroptosis-driven radiosensitivity and can be targeted in combination with radiotherapy and immunotherapy as a strategy for treating lung cancer.
+
+- [ ] Primary source opened and read (abstract at minimum; figures before any grade)
+- [ ] Document class recorded in `data/record-overlays.json` (with `checkedBy`, `checkedAt`, `reason`)
+- [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
+- [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
+
+### 13. Divergent roles of SPOP and CHD1 in ACSL4 regulation reveal context-dependent vulnerabilities for targeting ferroptosis.
+
+- `doi:10.1038/s41467-026-75010-y` · 2026-06-30 · paper (unknown) · research fit 86/100 · lab watch: Boyi Gan
+- Primary source: https://doi.org/10.1038/s41467-026-75010-y · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42380152/)
+- Route note: Nature communications · Laboratory watch match: Boyi Gan.
+
+> Genetic heterogeneity contributes to the variable therapeutic responses in cancers. Frequent SPOP mutations and recurrent CHD1 deletions define distinct molecular subtypes of prostate cancer (PCa) with differential responses to anti-androgen therapy. Ferroptosis, an iron-dependent cell death mechanism driven by lipid peroxidation, has emerged as a promising anticancer strategy. Here, we identify SPOP mutations and CHD1 deletion as key genetic determinants of ferroptosis susceptibility in PCa. Using genetically engineered human and murine models, we show that SPOP mutations enhance, whereas CHD1 deletion impairs, the efficacy of ferroptosis inducers targeting GPX4. Mechanistically, SPOP and CHD1 exert opposing effects on ferroptosis by antagonistically regulating the MYC-ACSL4 axis. Furthermore, we demonstrate that targeting cholesterol metabolism with cholesterol-lowering agents restores ACSL4 expression and re-sensitizes SPOP/CHD1 co-deficient tumors to ferroptosis-inducing therapy. Our findings establish SPOP/CHD1 as upstream genetic regulators of ferroptosis and provide biomarker-driven combinatorial strategies to enhance ferroptosis-based therapy in men with advanced PCa.
 
 - [ ] Primary source opened and read (abstract at minimum; figures before any grade)
 - [ ] Document class recorded in `data/record-overlays.json` (with `checkedBy`, `checkedAt`, `reason`)
@@ -189,97 +189,136 @@ matches first. **29 record(s) in the queue.**
 - Primary source: https://doi.org/10.7554/eLife.111544 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42267631/)
 - Route note: eLife · Laboratory watch match: Scott Dixon.
 
-> Abstract not fetched in this run — open the primary link.
+> Size is a fundamental property of cells that influences many aspects of their physiology. This is because cell size sets the scale for all subcellular components and drives changes in the composition of the proteome. Given that large and small cells differ in their biochemical composition, we hypothesized that they should also differ in how they respond to signals and make decisions. Here, we investigated how cell size affects the susceptibility of human cells to cell death. We found that large cells are more resistant to ferroptosis caused by system xc- inhibition. Ferroptosis is a type of cell death characterized by the iron-dependent accumulation of toxic lipid peroxides. This process is opposed by cysteine-dependent lipid peroxide detoxification mechanisms. We found that larger cells exhibit higher concentrations of the cysteine-containing metabolite glutathione and lower concentrations of membrane lipid peroxides. Mechanistically, this can be explained by the fact that larger cells had lower concentrations of an enzyme that enriches cellular membranes with peroxidation-prone polyunsaturated fatty acids, ACSL4, and increased concentrations of the glutathione-producing enzymes glutamate-cysteine ligase and glutathione synthetase, the iron-chelating protein ferritin, and the lysosomal protease cathepsin B, which can catabolize cysteine-rich extracellular proteins to produce additional cystine for fueling the synthesis of glutathione. Taken together, our results highlight the significant impact of cell size on cellular function and survival, revealing a size-dependent vulnerability to ferroptosis that could influence therapeutic strategies based on this cell death pathway.
 
 - [ ] Primary source opened and read (abstract at minimum; figures before any grade)
 - [ ] Document class recorded in `data/record-overlays.json` (with `checkedBy`, `checkedAt`, `reason`)
 - [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
 - [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
 
-### 15. Dissecting Complex Interactions Between Ferroptosis and the Proteasome.
+### 15. Ketone bodies as guardians of leukemic stemness through ferroptosis suppression.
 
-- `doi:10.64898/2026.03.28.714855` · 2026-03-30 · preprint (preprint) · research fit 86/100 · lab watch: Scott Dixon
-- Primary source: https://doi.org/10.64898/2026.03.28.714855 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/41959534/)
-- Route note: bioRxiv : the preprint server for biology · Laboratory watch match: Scott Dixon.
+- `doi:10.1016/j.stem.2026.04.022` · 2026-06-04 · paper (unknown) · research fit 86/100 · lab watch: Boyi Gan
+- Primary source: https://doi.org/10.1016/j.stem.2026.04.022 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42242187/)
+- Route note: Cell stem cell · Laboratory watch match: Boyi Gan.
 
-> Abstract not fetched in this run — open the primary link.
-
-- [ ] Primary source opened and read (abstract at minimum; figures before any grade)
-- [ ] Document class recorded in `data/record-overlays.json` (with `checkedBy`, `checkedAt`, `reason`)
-- [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
-- [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
-
-### 16. Methionine metabolism is linked with phospholipid and glutamine metabolism to drive ferroptosis.
-
-- `doi:10.1016/j.celrep.2026.117157` · 2026-03-26 · paper (unknown) · research fit 86/100 · lab watch: Scott Dixon
-- Primary source: https://doi.org/10.1016/j.celrep.2026.117157 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/41894394/)
-- Route note: Cell reports · Laboratory watch match: Scott Dixon.
-
-> Abstract not fetched in this run — open the primary link.
+> Leukemia stem cells exploit cell-intrinsic ketogenesis to suppress ferroptosis and sustain disease propagation. In this issue, Han et al.1 uncover a &#x3b2;-hydroxybutyrate-epigenetic-lipid remodeling axis that protects stemness by restraining ferroptosis, revealing a metabolic vulnerability with therapeutic potential.
 
 - [ ] Primary source opened and read (abstract at minimum; figures before any grade)
 - [ ] Document class recorded in `data/record-overlays.json` (with `checkedBy`, `checkedAt`, `reason`)
 - [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
 - [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
 
-### 17. GPX4 Inhibitor Resistance and Metastatic Features in Triple-Negative Breast Cancer.
+### 16. Autophagic degradation of RAB8A promotes ferroptosis through dysregulation of TFRC-mediated iron uptake.
 
-- `doi:10.1002/advs.202523198` · 2026-02-17 · paper (unknown) · research fit 84/100 · lab watch: Jessalyn Ubellacker
-- Primary source: https://doi.org/10.1002/advs.202523198 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/41704007/)
-- Route note: Advanced science (Weinheim, Baden-Wurttemberg, Germany) · Laboratory watch match: Jessalyn Ubellacker.
+- `doi:10.1080/15548627.2026.2726089` · 2026-09-16 · paper (unknown) · research fit 85/100 · lab watch: Daolin Tang · Rui Kang
+- Primary source: https://doi.org/10.1080/15548627.2026.2726089 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42669120/)
+- Route note: Autophagy · Laboratory watch match: Daolin Tang · Rui Kang.
 
-> Abstract not fetched in this run — open the primary link.
-
-- [ ] Primary source opened and read (abstract at minimum; figures before any grade)
-- [ ] Document class recorded in `data/record-overlays.json` (with `checkedBy`, `checkedAt`, `reason`)
-- [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
-- [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
-
-### 18. Ferroptosis surveillance: Insights from in vivo contexts.
-
-- `doi:10.70401/fos.2026.0021` · 2026-03-12 · paper (unknown) · research fit 83/100 · lab watch: Jessalyn Ubellacker
-- Primary source: https://doi.org/10.70401/fos.2026.0021 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42004401/)
-- Route note: Ferroptosis and oxidative stress · Laboratory watch match: Jessalyn Ubellacker.
-
-> Abstract not fetched in this run — open the primary link.
+> Ferroptosis is an iron-dependent form of regulated cell death driven by lipid peroxidation; however, how selective autophagy regulates ferroptotic sensitivity remains incompletely understood. Here, we identify RAB8A as a selective autophagic substrate and negative regulator of ferroptosis. Quantitative proteomic analyses reveal that ferroptotic stress induces ATG5- and ATG7-dependent degradation of RAB8A. Mechanistically, ferroptotic stimuli induce RNF126-dependent polyubiquitination of RAB8A and subsequent SQSTM1-mediated autophagic degradation. Functionally, loss of RAB8A sensitizes cancer cells to ferroptosis, whereas expression of the degradation-resistant active mutant RAB8AQ67L suppresses ferroptotic cell death. RAB8A interacts with TFRC and facilitates stress-induced redistribution of TFRC from the plasma membrane toward endolysosomal compartments. RAB8A deficiency impairs TFRC clearance, enhances transferrin-dependent iron uptake, and increases intracellular Fe2+ accumulation and lipid peroxidation. In fibrosarcoma and pancreatic cancer xenograft models, RAB8A depletion enhances the antitumor efficacy of ferroptosis-inducing therapy. Clinically, RAB8A is upregulated and associated with poor prognosis and ferroptosis resistance in pancreatic cancer. Collectively, these findings establish an autophagy-RAB8A-TFRC axis that regulates ferroptotic sensitivity.Abbreviations: BCA: bicinchoninic acid; BSA: bovine serum albumin; CCK-8: cellcounting kit-8; Co-IP: co-immunoprecipitation; DMSO: dimethylsulfoxide; ELISA: enzyme-linked immunosorbent assay; FBS: fetalbovine serum; HRP: horseradish peroxidase; IP: immunoprecipitation;LC-MS/MS: liquid chromatography-tandem mass spectrometry; MDA:malondialdehyde; MEF: mouse embryonic fibroblast; PBS:phosphate-buffered saline; PBS-T: PBS containing Tween-20; PI:propidium iodide; PVDF: polyvinylidene difluoride; qPCR: quantitativereal-time polymerase chain reaction; SDS: sodium dodecyl sulfate;STR: short tandem repeat; TBA: thiobarbituric acid; TBST:Tris-buffered saline containing Tween-20; TMT: tandem mass tag; WT:wild type.
 
 - [ ] Primary source opened and read (abstract at minimum; figures before any grade)
 - [ ] Document class recorded in `data/record-overlays.json` (with `checkedBy`, `checkedAt`, `reason`)
 - [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
 - [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
 
-### 19. Acidic niche sugar shield blocks ferroptosis.
+### 17. LZTFL1 rewires NADPH-glutathione metabolism to amplify ferroptosis.
 
-- `doi:10.1038/s41556-026-01899-8` · 2026-03-01 · paper (unknown) · research fit 83/100 · lab watch: Jessalyn Ubellacker
-- Primary source: https://doi.org/10.1038/s41556-026-01899-8 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/41786886/)
-- Route note: Nature cell biology · Laboratory watch match: Jessalyn Ubellacker.
+- `doi:10.1016/j.molcel.2026.07.018` · 2026-08-04 · paper (unknown) · research fit 85/100 · lab watch: Daolin Tang · Rui Kang
+- Primary source: https://doi.org/10.1016/j.molcel.2026.07.018 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42551439/)
+- Route note: Molecular cell · Laboratory watch match: Daolin Tang · Rui Kang.
 
-> Abstract not fetched in this run — open the primary link.
+> Ferroptosis, a form of oxidative cell death, represents a therapeutic vulnerability for treating apoptosis-resistant cancers. Here, we identify leucine zipper transcription factor-like 1 (LZTFL1) as a key regulator of ferroptosis that rewires glutathione (GSH) metabolism. Mechanistically, LZTFL1 promotes oxidation of glucose-6-phosphate dehydrogenase (G6PD), thereby limiting NADPH production and impairing GSH regeneration. GSH depletion in turn enhances LZTFL1 translation via an AKT-mammalian target of rapamycin (mTOR)-eukaryotic initiation factor 4E (eIF4E) pathway, establishing a feedforward loop that amplifies ferroptosis. In vivo, the LZTFL1-formin homology 2 domain-containing 1 (FHOD1)-G6PD axis sensitizes multiple tumor models, including patient-derived xenografts, to ferroptosis, leading to enhanced lipid peroxidation, reduced GSH levels, suppressed tumor growth, and prolonged survival. LZTFL1 expression restores cisplatin sensitivity in resistant lung and ovarian cancer cells and predicts improved survival outcomes in patients with lung adenocarcinoma. Moreover, FDA-approved agents upregulate LZTFL1 and re-sensitize resistant tumors to cisplatin. These findings highlight LZTFL1 as a potential biomarker and a therapeutic target for enhancing ferroptosis-based cancer therapy.
 
 - [ ] Primary source opened and read (abstract at minimum; figures before any grade)
 - [ ] Document class recorded in `data/record-overlays.json` (with `checkedBy`, `checkedAt`, `reason`)
 - [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
 - [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
 
-### 20. Reprogramming of TLR-Ferroptosis Signaling and Immunometabolic Pathways Overcomes Myeloid Suppression to Improve Checkpoint Blockade in Prostate Cancer.
+### 18. Mitochondrial fission factor senses and governs ferroptosis.
+
+- `doi:10.1038/s41586-026-11020-6` · 2026-09-16 · paper (unknown) · research fit 83/100 · lab watch: Fudi Wang · Junxia Min · Qiang Zhang
+- Primary source: https://doi.org/10.1038/s41586-026-11020-6 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42749797/)
+- Route note: Nature · Laboratory watch match: Fudi Wang · Junxia Min · Qiang Zhang.
+
+> Ferroptosis is a form of regulated cell death driven by iron-dependent lipid peroxidation and is implicated in diverse pathological states1-4. Although mitochondria and other organelles are increasingly being recognized as important modulators of ferroptosis5-7, a unifying mechanism that couples organelle dynamics to ferroptotic execution has remained elusive. Here using quantitative phosphoproteomics, we identified mitochondrial fission factor (MFF) as a key ferroptosis-selective regulator. Mechanistically, the lipid mediator 17-HETE promotes phosphorylation of MFF at Ser155, which triggers the coordinated fragmentation and dysfunction of mitochondria and peroxisomes. This remodelling intensifies interorganelle crosstalk, amplifies oxidative stress and accelerates ferroptotic death. To monitor this phosphorylation event in living cells, we developed MFF-SPARK, a phase-separation-based biosensor, for real-time tracking of ferroptosis through MFF activation. Using MFF-SPARK, we identified PKC&#x3b2; and DUSP22 as a coordinated kinase-phosphatase pair that governs MFF phosphorylation. We also discovered avermectin&#xa0;B1 as a pharmacological activator of the PKC&#x3b2;-MFF axis, which can sensitize tumours to ferroptosis in vivo. Together, our findings establish MFF phosphorylation as a central regulatory node in ferroptosis-associated organelle remodelling and provide a conceptual framework and toolbox for monitoring and pharmacologically interrogating ferroptosis.
+
+- [ ] Primary source opened and read (abstract at minimum; figures before any grade)
+- [ ] Document class recorded in `data/record-overlays.json` (with `checkedBy`, `checkedAt`, `reason`)
+- [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
+- [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
+
+### 19. Mendelian Randomization Analysis of Systemic Iron Status and Risk of Metabolic Dysfunction-Associated Steatotic Liver Disease.
+
+- `doi:10.3390/metabo16060356` · 2026-05-25 · paper (unknown) · research fit 83/100 · lab watch: Fudi Wang · Junxia Min · Qiang Zhang
+- Primary source: https://doi.org/10.3390/metabo16060356 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42346336/)
+- Route note: Metabolites · Laboratory watch match: Fudi Wang · Junxia Min · Qiang Zhang.
+
+> Objective: Metabolic dysfunction-associated steatotic liver disease (MASLD) is a global public health crisis, progressing to hepatic cirrhosis and hepatocellular carcinoma. This study investigated the causal role of systemic iron status in MASLD progression. Methods: A two-sample Mendelian randomization (MR) design was implemented, with genetic variants serving as instrumental variables for four core systemic iron biomarkers. Outcome data for hepatic steatosis (8785 cases; 912,105 controls) and hepatic fibrosis/cirrhosis (3798 cases; 904,599 controls) were extracted from the FinnGen and UK Biobank databases. Multiple complementary MR methodologies and three instrumental variable selection strategies were applied to ensure robust causal inference. Results: Genetically predicted higher serum iron (odds ratio, OR: 1.42, 95% confidence interval, 95% CI: 1.34, 1.50), ferritin (OR: 1.84, 95% CI: 1.55, 2.18), and transferrin saturation (TfSat, OR: 1.24, 95% CI: 1.19, 1.30), together with lower total iron-binding capacity (TIBC, OR: 0.81, 95% CI: 0.77, 0.85), were significantly associated with increased hepatic steatosis risk (p < 0.00625). Similar associations were observed for hepatic fibrosis/cirrhosis: serum iron (OR: 1.66, 95% CI: 1.29, 2.14), ferritin (OR: 2.52, 95% CI: 1.52, 4.18), TfSat (OR: 1.40, 95% CI: 1.19, 1.63), and reduced TIBC (OR: 0.70, 95% CI: 0.60, 0.81). MR-Bayesian model averaging prioritized serum iron (MIP: 0.85, &#x3b8;^MACE: 0.295; PP: 0.725; &#x3b8;^&#x3bb;: 0.344) as the top-ranked factors for steatosis and TIBC (MIP: 0.604, &#x3b8;^MACE: -0.240; PP: 0.476, &#x3b8;^&#x3bb;: -0.358) for fibrosis/cirrhosis. Conclusions: Elevated systemic iron status causally drives MASLD onset and progression, highlighting iron homeostasis and ferroptosis as potential targets for prevention and clinical management.
+
+- [ ] Primary source opened and read (abstract at minimum; figures before any grade)
+- [ ] Document class recorded in `data/record-overlays.json` (with `checkedBy`, `checkedAt`, `reason`)
+- [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
+- [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
+
+### 20. Stabilizing MARCH7 as a ferro-guardian against ferroptosis.
+
+- `doi:10.1016/j.cell.2026.03.052` · 2026-04-27 · paper (unknown) · research fit 83/100 · lab watch: Fudi Wang · Junxia Min · Qiang Zhang
+- Primary source: https://doi.org/10.1016/j.cell.2026.03.052 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42049018/)
+- Route note: Cell · Laboratory watch match: Fudi Wang · Junxia Min · Qiang Zhang.
+
+> Ferroptosis is an iron-dependent form of regulated cell death. However, the critical regulators that restrain iron overload to suppress ferroptosis remain undefined. Utilizing multi-omics, we identify the E3 ubiquitin ligase membrane-associated RING-CH 7 (MARCH7) as a non-redundant, dual suppressor of ferroptosis via direct regulation of intracellular iron homeostasis. Mechanistically, MARCH7 ubiquitylates nuclear receptor coactivator 4 (NCOA4) at residue Lys42 by K48-linked ubiquitination, promoting NCOA4 proteasomal degradation and reducing the labile iron pool. Concomitantly, MARCH7 modifies transferrin receptor 1 (TFR1) at residue Lys53 by K63 ubiquitination, restricting its plasma membrane translocation and thereby inhibiting cellular iron uptake. Through high-content screening, we further identify emodinanthrone (EmodAn) as a specific MARCH7 stabilizer with a strong cardioprotective effect in rodent models by blocking ferroptosis. In conclusion, our findings define an iron homeostasis regulatory hub for ferroptosis and suggest that stabilizing MARCH7 is a promising therapeutic strategy to protect against ferroptosis- or iron-overload-induced diseases.
+
+- [ ] Primary source opened and read (abstract at minimum; figures before any grade)
+- [ ] Document class recorded in `data/record-overlays.json` (with `checkedBy`, `checkedAt`, `reason`)
+- [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
+- [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
+
+### 21. NRF2-mediated ferroptosis suppression defines a cancer-specific vulnerability in tumors.
+
+- `doi:10.1016/j.redox.2026.104352` · 2026-08-19 · paper (unknown) · research fit 82/100 · lab watch: Donna Zhang
+- Primary source: https://doi.org/10.1016/j.redox.2026.104352 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42623935/)
+- Route note: Redox biology · Laboratory watch match: Donna Zhang.
+
+> NRF2 is a master regulator of redox and metabolic homeostasis that protects normal tissues from stress but is frequently hijacked by cancers to sustain survival and therapy resistance. Although NRF2 is dispensable for normal tissue function, its role in maintaining cancer cells within the native tumor microenvironment has remained undefined. Here, we uncover an essential and previously unrecognized tumor-specific dependency on NRF2. Using an inducible KrasFSF.G12D/+;Nrf2Fl/Fl;Rosa26CreERT2/CreERT2 (KNR) mouse lung cancer model, we demonstrate that NRF2 deletion alone, without pharmacologic intervention, eradicates cancer cells, reduces tumor burden, and prolongs survival. Single-cell RNA sequencing coupled with artificial intelligence-based genotype classification revealed that NRF2-deleted cancer cells are selectively eliminated, whereas non-cancerous cells tolerate NRF2 loss. Mechanistically, NRF2 deletion induces ferroptosis, a regulated iron-dependent cell death pathway, evidenced by induction of canonical ferroptotic genes (Ptgs2, Acsl4, Tfrc) and protein markers (SO2/3-PRDX3, COX2, TfR1). Importantly, these data support that NRF2 loss induces ferroptotic cell death in vivo within established tumors, in the absence of exogenous ferroptosis inducers or external stress. These findings establish that cancer cells depend on NRF2 to suppress intrinsic ferroptotic stress for survival, a dependency not shared by normal tissues. This discovery fundamentally redefines the pathological role of NRF2 and positions NRF2 inhibition as a standalone, tumor-selective therapeutic strategy to eliminate Kras-driven malignancies by unleashing ferroptosis.
+
+- [ ] Primary source opened and read (abstract at minimum; figures before any grade)
+- [ ] Document class recorded in `data/record-overlays.json` (with `checkedBy`, `checkedAt`, `reason`)
+- [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
+- [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
+
+### 22. Reprogramming of TLR-Ferroptosis Signaling and Immunometabolic Pathways Overcomes Myeloid Suppression to Improve Checkpoint Blockade in Prostate Cancer.
 
 - `doi:10.1158/0008-5472.can-25-4954` · 2026-08-14 · paper (unknown) · research fit 82/100 · lab watch: Michael Overholtzer
 - Primary source: https://doi.org/10.1158/0008-5472.CAN-25-4954 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42290280/)
 - Route note: Cancer research · Laboratory watch match: Michael Overholtzer.
 
-> Abstract not fetched in this run — open the primary link.
+> The limited efficacy of immunotherapies in advanced prostate cancer stems from a tumor microenvironment (TME) in which myeloid-driven immune suppression, stromal remodeling, and metabolic barriers converge to limit antitumor immunity. In this study, we characterized the immunometabolic properties of an ultrasmall prostate-specific membrane antigen-targeting silica particle therapy as a first-in-class strategy to reprogram the Toll-like receptor (TLR)-ferroptosis axis in MYC-driven prostate cancer. As single agents, these particles suppressed lipid and steroid biosynthesis, disrupted lipid peroxidation control, and impaired nutrient flux, sensitizing tumors to ferroptosis. Coordinated redox remodeling, stromal reprogramming, and innate immune activation reversed myeloid suppression and promoted CD8+ T-cell infiltration. When combined with CSF-1R inhibition and immune checkpoint blockade, the particles suppressed tumor growth, extended survival beyond 100 days, and achieved up to 50% complete remission in MYC-overexpressing models. These findings position TLR-ferroptosis axis remodeling as a mechanistic blueprint for rational, particle-driven immunotherapies with broad translational potential in prostate cancer and other immunologically refractory malignancies. Clinically validated, PSMA-targeted ultrasmall core-shell silica particles reprogram immunometabolic pathways via a TLR-ferroptosis axis, enabling tumor microenvironment remodeling and potentiating checkpoint blockade in prostate cancer, with translational implications for treatment-resistant disease.
 
 - [ ] Primary source opened and read (abstract at minimum; figures before any grade)
 - [ ] Document class recorded in `data/record-overlays.json` (with `checkedBy`, `checkedAt`, `reason`)
 - [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
 - [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
 
-### 21. Ferroptosis spreading through propagative signals.
+### 23. Ferroptosis spreading through propagative signals.
 
 - `doi:10.70401/exo.2026.0011` · 2026-05-26 · paper (unknown) · research fit 82/100 · lab watch: Michael Overholtzer
 - Primary source: https://doi.org/10.70401/EXO.2026.0011 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42559325/)
 - Route note: EXO : beyond the cell · Laboratory watch match: Michael Overholtzer.
 
+> Ferroptosis is a regulated mechanism of cell death caused by the uncontrolled peroxidation of cellular lipids that has an unusual ability to propagate or spread between cells. Here, we review studies identifying regulators of ferroptosis propagation to consider a working model that might explain this unusual feature. Recent findings implicating the spread of lipid peroxides and iron suggest that these main catalysts of ferroptosis may also be primary vehicles that can spread death between cells. Experiments revealing localized versus long-range effects of propagation are discussed, as well as sensitizing factors that may expand the propagative potential of death induced by Class II ferroptosis-inducing compounds. As ferroptosis propagation may underlie the loss of large groups of cells in degenerative diseases and may also have a specialized role in normal development, consideration of how ferroptosis can spread through propagative signals may be important for understanding both normal tissue dynamics and disease.
+
+- [ ] Primary source opened and read (abstract at minimum; figures before any grade)
+- [ ] Document class recorded in `data/record-overlays.json` (with `checkedBy`, `checkedAt`, `reason`)
+- [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
+- [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
+
+### 24. Retraction Note: Targeted activation of ferroptosis in colorectal cancer via LGR4 targeting overcomes acquired drug resistance.
+
+- `doi:10.1038/s43018-026-01224-0` · 2026-08-01 · paper (unknown) · research fit 81/100 · lab watch: Quan Chen
+- Primary source: https://doi.org/10.1038/s43018-026-01224-0 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42527514/)
+- Route note: Nature cancer · Laboratory watch match: Quan Chen.
+
 > Abstract not fetched in this run — open the primary link.
 
 - [ ] Primary source opened and read (abstract at minimum; figures before any grade)
@@ -287,104 +326,91 @@ matches first. **29 record(s) in the queue.**
 - [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
 - [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
 
-### 22. Ferroptosis induces heterogeneous death profiles that are controlled by lysosome rupture.
-
-- `doi:10.1016/j.devcel.2026.01.014` · 2026-02-17 · paper (unknown) · research fit 82/100 · lab watch: Michael Overholtzer
-- Primary source: https://doi.org/10.1016/j.devcel.2026.01.014 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/41709461/)
-- Route note: Developmental cell · Laboratory watch match: Michael Overholtzer.
-
-> Abstract not fetched in this run — open the primary link.
-
-- [ ] Primary source opened and read (abstract at minimum; figures before any grade)
-- [ ] Document class recorded in `data/record-overlays.json` (with `checkedBy`, `checkedAt`, `reason`)
-- [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
-- [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
-
-### 23. Iron-catalyzed oxidative stress reveals an exposome-related ferroptosis-resistant karyomegalic niche in BRCA1-linked renal carcinogenesis.
+### 25. Iron-catalyzed oxidative stress reveals an exposome-related ferroptosis-resistant karyomegalic niche in BRCA1-linked renal carcinogenesis.
 
 - `doi:10.1016/j.redox.2026.104293` · 2026-07-08 · paper (unknown) · research fit 81/100 · lab watch: Shinya Toyokuni
 - Primary source: https://doi.org/10.1016/j.redox.2026.104293 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42442115/)
 - Route note: Redox biology · Laboratory watch match: Shinya Toyokuni.
 
-> Abstract not fetched in this run — open the primary link.
+> Early cancer initiation under chronic oxidative stress requires the survival of epithelial cells that should otherwise be eliminated by regulated cell death. However, the spatial and morphological identity of such stress-adapted cells remains poorly defined. Here, we integrated Xenium single-cell spatial transcriptomics, quantitative nuclear morphometrics, mitochondrial analyses, and human cancer datasets to investigate iron-driven renal carcinogenesis in Brca1(L63X/+) rats. Ferric nitrilotriacetate exposure induced dynamic remodeling of proximal tubular epithelium, characterized by loss of homeostatic transport and mitochondrial programs, and activation of Myc, Met, Lcn2, Anxa2 and iron-handling genes. BRCA1 haploinsufficiency expanded a karyomegalic proximal tubular state associated with mitochondrial dysfunction, chromatin hyperchromasia, nuclear remodeling, and ferroptosis-resistant transcriptional features. Subclassification of karyomegalic cells identified distinct stress-adaptive populations, including a BRCA1-associated K2 state enriched for Myc/Met/Lcn2 signaling and preferentially embedded within a pro-oncogenic epithelial-stromal microenvironment. Of note, neighboring non-karyomegalic proximal tubular cells acquired related iron-handling and survival-biased programs, indicating that karyomegaly marks a broader pre-neoplastic field rather than an isolated abnormality. Human TCGA renal cancer analyses and morphometric assessment of BRCA1-mutant breast tissue further supported the clinical relevance of karyomegaly-associated gene modules and nuclear remodeling. These findings define a spatially organized, ferroptosis-resistant karyomegalic niche as an early lesion in iron-driven carcinogenesis and establish quantitative nuclear morphology as a functional readout of exposome-related oxidative stress adaptation in genetically susceptible tissues.
 
 - [ ] Primary source opened and read (abstract at minimum; figures before any grade)
 - [ ] Document class recorded in `data/record-overlays.json` (with `checkedBy`, `checkedAt`, `reason`)
 - [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
 - [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
 
-### 24. Purine salvage pathway protects CD8(+) T cells from metabolic stress.
+### 26. HDL resuscitates cells from ferroptosis.
 
-- `doi:10.1038/s41590-026-02491-w` · 2026-04-13 · paper (unknown) · research fit 79/100 · lab watch: Ken-ichi Yamada
-- Primary source: https://doi.org/10.1038/s41590-026-02491-w · [PubMed](https://pubmed.ncbi.nlm.nih.gov/41974963/)
-- Route note: Nature immunology · Laboratory watch match: Ken-ichi Yamada.
+- `doi:10.1016/j.tem.2026.06.001` · 2026-06-25 · paper (unknown) · research fit 81/100 · lab watch: Youwei Ai
+- Primary source: https://doi.org/10.1016/j.tem.2026.06.001 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42350226/)
+- Route note: Trends in endocrinology and metabolism: TEM · Laboratory watch match: Youwei Ai.
 
-> Abstract not fetched in this run — open the primary link.
+> Cells undergo ferroptosis when membrane antioxidant defenses are inhibited, while lipophilic antioxidants can rescue cells from such insults. O'Loughlin et al. show that mTORC1-regulated high-density lipoprotein (HDL) uptake from the culture medium protects cells from ferroptosis.
 
 - [ ] Primary source opened and read (abstract at minimum; figures before any grade)
 - [ ] Document class recorded in `data/record-overlays.json` (with `checkedBy`, `checkedAt`, `reason`)
 - [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
 - [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
 
-### 25. Resolving the subcellular redox landscape of Coenzyme Q.
+### 27. Ferroptosis susceptibility in hippocampal neural precursor cells influences neurogenesis and memory across aging.
 
-- `doi:10.1016/j.chembiol.2026.07.001` · 2026-07-30 · paper (unknown) · research fit 78/100 · lab watch: Marcus Conrad, Maria Fedorova, Derek Pratt
+- `doi:10.1016/j.stem.2026.04.017` · 2026-05-22 · paper (unknown) · research fit 80/100 · lab watch: Ashley Bush
+- Primary source: https://doi.org/10.1016/j.stem.2026.04.017 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42173090/)
+- Route note: Cell stem cell · Laboratory watch match: Ashley Bush.
+
+> Adult hippocampal neurogenesis declines with age, but the stress pathways that shape neural precursor cell (NPC) survival and lineage progression remain incompletely understood. Here, we tested whether ferroptosis-related vulnerability contributes to the regulation of hippocampal NPCs and their progeny. Using in vitro assays, transcriptomic analyses, and in vivo genetic and pharmacologic perturbations, we find that NPCs show features consistent with elevated susceptibility to ferroptotic stress relative to more differentiated hippocampal populations. Reducing glutathione peroxidase 4 (GPX4) or increasing ferroptotic stress impairs neurogenesis-associated cellular and behavioral phenotypes, whereas pathway modulation improves selected outcomes in aged animals. These effects were context dependent, with distinct consequences across age and behavioral paradigms. Together, the findings support a model in which ferroptosis-related susceptibility contributes to the regulation of adult hippocampal neurogenesis and cognition.
+
+- [ ] Primary source opened and read (abstract at minimum; figures before any grade)
+- [ ] Document class recorded in `data/record-overlays.json` (with `checkedBy`, `checkedAt`, `reason`)
+- [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
+- [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
+
+### 28. Intracellular complement factor H protects neurons during CNS inflammation.
+
+- `doi:10.1038/s41586-026-10981-y` · 2026-09-02 · paper (unknown) · research fit 78/100 · lab watch: Marcus Conrad
+- Primary source: https://doi.org/10.1038/s41586-026-10981-y · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42686909/)
+- Route note: Nature · Laboratory watch match: Marcus Conrad.
+
+> Neurodegeneration is a major driver of disability in multiple sclerosis (MS), the most common chronic inflammatory disease of the central nervous system (CNS)1. Retinal ganglion cells (RGCs), a heterogeneous neuronal population in the eye, undergo degeneration in MS and provide a model to study neuronal subtype-specific resilience to inflammatory injury2. However, the neuron-intrinsic mechanisms underlying differential vulnerability remain unclear. Here we identify a neuroprotective role for intracellular complement factor H (CFH) in neurons. Using single-nucleus RNA-sequencing analysis of RGCs from donors with MS and control individuals, we found that CFH expression was strongly correlated with intrinsic resilience to RGC degeneration. Mechanistically, CFH was induced in retinal and other CNS neurons in response to inflammatory and oxidative stress, where it limited reactive oxygen species accumulation and lipid peroxidation. CFH localized to the endoplasmic reticulum, a major site of lipid peroxidation during neuronal ferroptosis. Its protective activity was dependent on its C-terminal SCR20 domain, was independent of CFH secretion and was preserved in the absence of complement component C3. These findings reveal a non-canonical intracellular function of CFH in neurons. Together, our results identify CFH as a key mediator of neuronal resilience across the CNS in mice and humans and provide mechanistic insight into inflammatory neurodegeneration with implications for MS therapy and neuroprotection more broadly.
+
+- [ ] Primary source opened and read (abstract at minimum; figures before any grade)
+- [ ] Document class recorded in `data/record-overlays.json` (with `checkedBy`, `checkedAt`, `reason`)
+- [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
+- [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
+
+### 29. Resolving the subcellular redox landscape of Coenzyme Q.
+
+- `doi:10.1016/j.chembiol.2026.07.001` · 2026-07-30 · paper (unknown) · research fit 78/100 · lab watch: Marcus Conrad, Maria Fedorova, Derek Pratt, Yun Pyo Kang
 - Primary source: https://doi.org/10.1016/j.chembiol.2026.07.001 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42532041/)
-- Route note: Cell chemical biology · Laboratory watch match: Marcus Conrad, Maria Fedorova, Derek Pratt.
+- Route note: Cell chemical biology · Laboratory watch match: Marcus Conrad, Maria Fedorova, Derek Pratt, Yun Pyo Kang.
 
-> Abstract not fetched in this run — open the primary link.
-
-- [ ] Primary source opened and read (abstract at minimum; figures before any grade)
-- [ ] Document class recorded in `data/record-overlays.json` (with `checkedBy`, `checkedAt`, `reason`)
-- [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
-- [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
-
-### 26. Cell death assays for the detection of acute kidney tubular necrosis.
-
-- `doi:10.1016/bs.mcb.2026.01.016` · 2026-02-18 · paper (unknown) · research fit 74/100 · lab watch: Andreas Linkermann
-- Primary source: https://doi.org/10.1016/bs.mcb.2026.01.016 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/41965279/)
-- Route note: Methods in cell biology · Laboratory watch match: Andreas Linkermann.
-
-> Abstract not fetched in this run — open the primary link.
+> Coenzyme Q (CoQ) is an essential electron carrier and lipophilic antioxidant whose biological functions depend on its redox state. However, accurate measurement of reduced and oxidized CoQ is hindered by rapid ex vivo oxidation during sample preparation and analysis. Here, we develop a dual-isotope-based oxidation-correction LC-MS/MS platform that enables accurate quantification of CoQ redox status across diverse biological matrices. Coupled with rapid subcellular fractionation, this approach resolves cytosolic and mitochondrial CoQ pools and reveals that the CoQ10H2/CoQ10 ratio is substantially higher in the cytosol than in mitochondria. During ferroptosis, compartment-specific remodeling of CoQ redox status is observed, consistent with distinct roles for CoQ in plasma membrane and mitochondrial biology. The platform also enables robust analysis of plasma CoQ redox status in mouse and human samples. These advances provide a broadly applicable approach for studying redox biology, ferroptosis, mitochondrial metabolism, and biomarker discovery.
 
 - [ ] Primary source opened and read (abstract at minimum; figures before any grade)
 - [ ] Document class recorded in `data/record-overlays.json` (with `checkedBy`, `checkedAt`, `reason`)
 - [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
 - [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
 
-### 27. Neuronal Cell Death Modalities and Protective Mechanisms Induced By Sevoflurane: A Narrative Review.
+### 30. Csnk1a1 E98 mutations rewire signaling and metabolism in del(5q) myelodysplastic neoplasms.
 
-- `doi:10.1213/ane.0000000000008035` · 2026-05-06 · paper (unknown) · research fit 70/100 · lab watch: Peter Vandenabeele
-- Primary source: https://doi.org/10.1213/ANE.0000000000008035 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42090240/)
-- Route note: Anesthesia and analgesia · Laboratory watch match: Peter Vandenabeele.
+- `doi:10.1038/s41375-026-03122-x` · 2026-09-03 · paper (unknown) · research fit 73/100 · lab watch: Andreas Linkermann
+- Primary source: https://doi.org/10.1038/s41375-026-03122-x · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42693162/)
+- Route note: Leukemia · Laboratory watch match: Andreas Linkermann.
 
-> Abstract not fetched in this run — open the primary link.
-
-- [ ] Primary source opened and read (abstract at minimum; figures before any grade)
-- [ ] Document class recorded in `data/record-overlays.json` (with `checkedBy`, `checkedAt`, `reason`)
-- [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
-- [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
-
-### 28. Caspase-3/7 deficiency results in enhanced intestinal inflammation and reduced tumorigenesis.
-
-- `doi:10.1126/sciadv.adz5906` · 2026-03-20 · paper (unknown) · research fit 70/100 · lab watch: Peter Vandenabeele
-- Primary source: https://doi.org/10.1126/sciadv.adz5906 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/41861024/)
-- Route note: Science advances · Laboratory watch match: Peter Vandenabeele.
-
-> Abstract not fetched in this run — open the primary link.
+> Deletion of chromosome 5q [del(5q)] is the most common cytogenetic abnormality in myelodysplastic neoplasms (MDS) and results in haploinsufficiency of multiple genes, including CSNK1A1. Recurrent CSNK1A1 mutations, predominantly affecting the E98 hotspot, occur almost exclusively in del(5q) MDS and are associated with adverse outcomes, yet their impact on CK1&#x251; function remains unclear. Using integrated transcriptomic, (phospho)proteomic, and kinome activity profiling in hematopoietic stem and progenitor cells (HSPCs), combined with in vivo serial transplantation assays, we show that Csnk1a1 E98V represents a change-of-function rather than a loss-of-function mutation. Unlike Csnk1a1 haploinsufficiency, Csnk1a1 E98V preserves long-term hematopoietic reconstitution and does not enhance clonal expansion in vivo. Instead, the mutation induces suppression of kinase signaling networks, leading to coordinated repression of ribosomal gene expression, protein translation, and cell cycle programs. This signaling rewiring is accompanied by metabolic reprogramming characterized by reduced mitochondrial respiration, increased glycolytic flux, and an inability to adapt to metabolic challenges, creating a stress-tolerant but inflexible cellular state. Notably, Csnk1a1 E98V cells exhibit impaired megakaryopoiesis and increased vulnerability to iron overload, as well as RSL-3-mediated ferroptosis. Analysis of del(5q) MDS patients confirmed that CSNK1A1 mutations are associated with distinct clinical features, including thrombocytopenia, elevated myeloblasts, and reduced bone marrow iron levels. Together, our findings support a two-step model in which del(5q)-associated CSNK1A1 haploinsufficiency drives clonal expansion, followed by acquisition of CSNK1A1 mutations that promote stress tolerance rather than increased proliferation. This adaptive rewiring exposes metabolic and iron-dependent vulnerabilities that may be therapeutically exploited.
 
 - [ ] Primary source opened and read (abstract at minimum; figures before any grade)
 - [ ] Document class recorded in `data/record-overlays.json` (with `checkedBy`, `checkedAt`, `reason`)
 - [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
 - [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
 
-### 29. Acidic plasma-activated povidone-iodine induces copper-dependent oxidative death in oral squamous cell carcinoma cells.
+### 31. Acidic plasma-activated povidone-iodine induces copper-dependent oxidative death in oral squamous cell carcinoma cells.
 
 - `doi:10.1080/10715762.2026.2686117` · 2026-06-10 · paper (unknown) · research fit 69/100 · lab watch: Shinya Toyokuni
 - Primary source: https://doi.org/10.1080/10715762.2026.2686117 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42253274/)
 - Route note: Free radical research · Laboratory watch match: Shinya Toyokuni.
 
-> Abstract not fetched in this run — open the primary link.
+> Oral squamous cell carcinoma (OSCC) requires therapeutic strategies that preserve oral function while providing effective tumor control. Here we demonstrate that non-thermal plasma (NTP) irradiation of a clinically established povidone-iodine solution generates a potent cytotoxic formulation termed plasma-activated povidone-iodine (PAI). PAI selectively reduced viability of OSCC cell lines (SAS, HSC-2, HSC-4) compared with normal fibroblasts. Mechanistically, PAI activity strictly depended on its acidic pH (3.0 or below) and hydrogen peroxide (H2O2) generated during NTP irradiation. Neutralization or freeze-drying abolished both H2O2 content and cytotoxicity, indicating that reactive oxygen species are essential mediators. Unlike plasma-activated media, whose effects are predominantly iron-dependent, PAI-induced cytotoxicity required intracellular monovalent copper (Cu+). The Cu+ chelator tetrathiomolybdate suppressed ROS accumulation, glutathione depletion, lipid peroxidation, and cell death, whereas classical ferroptosis or apoptosis inhibitors failed to rescue viability. PAI increased intracellular Cu+ levels and triggered oxidative damage including &#x3b3;H2AX induction; however, the resulting death program was mechanistically distinct from apoptosis, ferroptosis, and cuproptosis. Our findings reveal a previously unrecognized Cu+-dependent oxidative pathway initiated by PAI. This study establishes an accessible iodine-based platform that harnesses metal-driven redox chemistry for selective OSCC elimination.
 
 - [ ] Primary source opened and read (abstract at minimum; figures before any grade)
 - [ ] Document class recorded in `data/record-overlays.json` (with `checkedBy`, `checkedAt`, `reason`)
