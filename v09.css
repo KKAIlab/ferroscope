@@ -145,10 +145,10 @@ nav { gap: 21px; font-size: var(--fs-card); }
    directly beneath it so the two can be checked against each other line by line. */
 .bilingual { margin: 0 0 4px; }
 .bilingual > p { margin: 0; color: var(--ink-soft); font-size: var(--fs-card); line-height: 1.6; }
-.bilingual-en { display: block; margin-top: 5px; color: var(--muted); font-size: var(--fs-body); line-height: 1.55; }
+.bilingual > p.bilingual-en, .bilingual-en { display: block; margin-top: 5px; color: var(--muted); font-size: var(--fs-body); line-height: 1.55; }
 .bilingual-en b { margin-right: 6px; color: var(--teal); font: var(--fs-micro) var(--mono); }
 .precision-note .bilingual-en { color: var(--caution-ink); opacity: .8; }
-.precision-note .bilingual-en b { color: var(--caution-label); }
+.precision-note .bilingual-en b { display: inline; margin-bottom: 0; color: var(--caution-label); }
 .tr-status { display: inline-block; margin-top: 7px; padding: 2px 6px; font: var(--fs-micro) var(--mono); }
 .tr-status.draft { color: var(--pending-ink); background: var(--pending-bg); border-left: 2px solid var(--pending-line); }
 .tr-status.reviewed { color: var(--teal); background: #e3eee9; }

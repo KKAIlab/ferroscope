@@ -25,7 +25,23 @@
     "mechanismIds": [
       "death-execution",
       "lipid-peroxidation"
-    ]
+    ],
+    "translations": {
+      "zh": {
+        "simple": "一种受调控的细胞死亡过程，由铁依赖的膜脂质损伤驱动。",
+        "precision": "没有任何单一标志物能证明铁死亡。应通过正交扰动，把细胞死亡、铁依赖性和脂质过氧化三者关联起来。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      },
+      "ja": {
+        "simple": "鉄依存的な膜脂質の損傷によって引き起こされる、制御された細胞死の過程。",
+        "precision": "単一のマーカーでフェロトーシスを証明することはできない。細胞死・鉄依存性・脂質過酸化を、直交する摂動によって結び付けて示す必要がある。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      }
+    }
   },
   {
     "id": "lipid-peroxidation",
@@ -51,7 +67,23 @@
     ],
     "mechanismIds": [
       "lipid-peroxidation"
-    ]
+    ],
+    "translations": {
+      "zh": {
+        "simple": "自由基氧化不饱和脂质的链式反应，尤其作用于含多不饱和脂肪酸（PUFA）的膜磷脂。",
+        "precision": "脂质过氧化存在于多种生物学过程中，仅凭它的出现不能判定为铁死亡。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      },
+      "ja": {
+        "simple": "ラジカルが不飽和脂質、特に多価不飽和脂肪酸（PUFA）を含む膜リン脂質を酸化する連鎖反応。",
+        "precision": "脂質過酸化は多くの生物学的過程で起こる。その存在だけではフェロトーシスとは特定できない。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      }
+    }
   },
   {
     "id": "plooh",
@@ -80,7 +112,23 @@
     "mechanismIds": [
       "lipid-peroxidation",
       "gpx4-gsh"
-    ]
+    ],
+    "translations": {
+      "zh": {
+        "simple": "带有氢过氧基的氧化磷脂，可进一步推动自由基链式反应。",
+        "precision": "PLOOH 是一类化学物质，而非单一分子。脂质种类、氧化位置和分析方法都会影响结论。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      },
+      "ja": {
+        "simple": "ヒドロペルオキシ基をもつ酸化リン脂質で、さらなるラジカル連鎖反応を促進しうる。",
+        "precision": "PLOOH は単一分子ではなく化学的なクラスである。脂質分子種・酸化位置・分析法が結果を左右する。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      }
+    }
   },
   {
     "id": "gpx4",
@@ -108,7 +156,23 @@
     "mechanismIds": [
       "gpx4-gsh",
       "selenium-selenoprotein"
-    ]
+    ],
+    "translations": {
+      "zh": {
+        "simple": "一种含硒酶，可还原磷脂氢过氧化物，保护细胞膜免于失控的氧化。",
+        "precision": "蛋白丰度不等于酶活性、膜可及性或硒充足状态。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      },
+      "ja": {
+        "simple": "リン脂質ヒドロペルオキシドを還元し、膜を暴走的な酸化から守るセレン含有酵素。",
+        "precision": "タンパク質量は、活性・膜へのアクセス・セレン充足度と同じではない。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      }
+    }
   },
   {
     "id": "system-xc",
@@ -135,7 +199,23 @@
     "mechanismIds": [
       "system-xc",
       "gpx4-gsh"
-    ]
+    ],
+    "translations": {
+      "zh": {
+        "simple": "以谷氨酸交换胞外胱氨酸的转运体，帮助细胞合成谷胱甘肽。",
+        "precision": "其重要性随营养供应、转硫途径和细胞状态而变化。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      },
+      "ja": {
+        "simple": "グルタミン酸と交換にシスチンを取り込み、細胞のグルタチオン合成を支える輸送体。",
+        "precision": "その重要度は栄養供給、硫黄転移経路、細胞状態によって変わる。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      }
+    }
   },
   {
     "id": "slc7a11",
@@ -162,7 +242,23 @@
     "mechanismIds": [
       "system-xc",
       "tumour-ecology"
-    ]
+    ],
+    "translations": {
+      "zh": {
+        "simple": "system xᴄ⁻ 的轻链亚基，也是胱氨酸摄取的主要调控者。",
+        "precision": "其表达是易感性线索，而非独立的铁死亡标志物。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      },
+      "ja": {
+        "simple": "system xᴄ⁻ の軽鎖サブユニットで、シスチン取り込みの主要な制御因子。",
+        "precision": "発現量は感受性の手がかりであって、単独のフェロトーシスマーカーではない。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      }
+    }
   },
   {
     "id": "glutathione",
@@ -189,7 +285,23 @@
     "mechanismIds": [
       "gpx4-gsh",
       "system-xc"
-    ]
+    ],
+    "translations": {
+      "zh": {
+        "simple": "一种细胞内小分子抗氧化剂，GPX4 利用它还原脂质氢过氧化物。",
+        "precision": "总 GSH 或 GSH/GSSG 比值反映氧化还原状态，但其本身不能证明铁死亡。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      },
+      "ja": {
+        "simple": "GPX4 が脂質ヒドロペルオキシドを還元する際に用いる、細胞内の低分子抗酸化物質。",
+        "precision": "総 GSH や GSH/GSSG 比はレドックス状態を示すが、それだけではフェロトーシスを証明しない。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      }
+    }
   },
   {
     "id": "fsp1",
@@ -215,7 +327,23 @@
     ],
     "mechanismIds": [
       "fsp1-coq"
-    ]
+    ],
+    "translations": {
+      "zh": {
+        "simple": "一种依赖 NAD(P)H 的氧化还原酶，支持膜抗氧化系统，包括还原型辅酶 Q。",
+        "precision": "其贡献取决于具体情境和亚细胞区室，应通过遗传学手段检验。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      },
+      "ja": {
+        "simple": "還元型コエンザイムQを含む膜の抗酸化系を支える、NAD(P)H 依存性の酸化還元酵素。",
+        "precision": "その寄与は文脈と細胞内区画に依存するため、遺伝学的に検証すべきである。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      }
+    }
   },
   {
     "id": "coq",
@@ -246,7 +374,23 @@
     "mechanismIds": [
       "fsp1-coq",
       "mitochondrial-metabolism"
-    ]
+    ],
+    "translations": {
+      "zh": {
+        "simple": "一对膜内氧化还原分子；其还原形式可捕获脂质自由基，帮助终止链式氧化。",
+        "precision": "CoQH₂ 在取样过程中会被氧化，因此提取方法和能保留氧化还原状态的定量至关重要。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      },
+      "ja": {
+        "simple": "膜内の酸化還元ペアで、還元型は脂質ラジカルを捕捉して連鎖酸化の停止を助ける。",
+        "precision": "CoQH₂ はサンプリング中に酸化されるため、抽出法とレドックス状態を保持した定量が決定的に重要である。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      }
+    }
   },
   {
     "id": "pufa-pl",
@@ -273,7 +417,23 @@
     "mechanismIds": [
       "pufa-remodelling",
       "acsl4-lpcat3"
-    ]
+    ],
+    "translations": {
+      "zh": {
+        "simple": "含多不饱和脂肪酸链的膜磷脂，可进入自由基氧化过程。",
+        "precision": "PUFA 总量不等于氧化型 PUFA-PL 分子种的丰度或通量。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      },
+      "ja": {
+        "simple": "多価不飽和脂肪酸鎖を含み、ラジカル酸化を受けうる膜リン脂質。",
+        "precision": "PUFA の総量は、酸化された PUFA-PL 分子種の量やフラックスと同じではない。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      }
+    }
   },
   {
     "id": "acsl4",
@@ -299,7 +459,23 @@
     "mechanismIds": [
       "acsl4-lpcat3",
       "pufa-remodelling"
-    ]
+    ],
+    "translations": {
+      "zh": {
+        "simple": "一种活化特定 PUFA 以掺入脂质的酶，常提高细胞对铁死亡的敏感性。",
+        "precision": "对 ACSL4 的依赖很常见，但并非在所有诱导剂、细胞和组织中都成立。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      },
+      "ja": {
+        "simple": "特定の PUFA を活性化して脂質へ組み込ませる酵素で、しばしばフェロトーシス感受性を高める。",
+        "precision": "ACSL4 依存性は一般的だが、すべての誘導剤・細胞・組織で普遍的ではない。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      }
+    }
   },
   {
     "id": "lpcat3",
@@ -325,7 +501,23 @@
     "mechanismIds": [
       "acsl4-lpcat3",
       "pufa-remodelling"
-    ]
+    ],
+    "translations": {
+      "zh": {
+        "simple": "一种膜重塑酶，帮助将 PUFA 链掺入磷脂。",
+        "precision": "改变 LPCAT3 也会重塑更广泛的膜组成，因此需要在脂质分子种层面测定其效应。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      },
+      "ja": {
+        "simple": "PUFA 鎖をリン脂質へ組み込むのを助ける膜リモデリング酵素。",
+        "precision": "LPCAT3 を変えると膜組成全体も変化するため、効果の評価には脂質分子種レベルの測定が必要である。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      }
+    }
   },
   {
     "id": "labile-iron",
@@ -355,7 +547,23 @@
     ],
     "mechanismIds": [
       "iron-homeostasis"
-    ]
+    ],
+    "translations": {
+      "zh": {
+        "simple": "细胞铁中可交换的部分，能参与化学反应，或被探针和螯合剂捕获。",
+        "precision": "各种铁探针在氧化态、所在区室和反应机制上各不相同；其信号不等于细胞总铁量。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      },
+      "ja": {
+        "simple": "化学反応に関与しうる、あるいはプローブやキレート剤で捕捉される、細胞内鉄の交換可能な画分。",
+        "precision": "鉄プローブは酸化状態・区画・反応機構がそれぞれ異なり、そのシグナルは細胞内総鉄量ではない。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      }
+    }
   },
   {
     "id": "ferritinophagy",
@@ -381,7 +589,23 @@
     "mechanismIds": [
       "iron-homeostasis",
       "organelle-spatial"
-    ]
+    ],
+    "translations": {
+      "zh": {
+        "simple": "铁蛋白被选择性递送至溶酶体（常经 NCOA4 介导），以释放储存的铁。",
+        "precision": "仅凭 NCOA4 丰度不能证明铁蛋白通量或铁的释放。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      },
+      "ja": {
+        "simple": "フェリチンを（多くは NCOA4 を介して）リソソームへ選択的に運び、貯蔵鉄を放出させる過程。",
+        "precision": "NCOA4 の量だけでは、フェリチンのフラックスや鉄の放出を示したことにはならない。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      }
+    }
   },
   {
     "id": "radical-trapping-antioxidant",
@@ -411,7 +635,23 @@
       "lipid-peroxidation",
       "gch1-bh4",
       "translation"
-    ]
+    ],
+    "translations": {
+      "zh": {
+        "simple": "一种拦截链传递自由基、减缓脂质自氧化的分子。",
+        "precision": "细胞被挽救可能反映的是一般性自由基化学，而非某个铁死亡特有的靶点。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      },
+      "ja": {
+        "simple": "連鎖を担うラジカルを捕捉し、脂質の自動酸化を遅らせる分子。",
+        "precision": "細胞のレスキューは、フェロトーシス固有の標的ではなく、一般的なラジカル化学を反映している可能性がある。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      }
+    }
   },
   {
     "id": "ferrostatin-1",
@@ -437,7 +677,23 @@
     "mechanismIds": [
       "translation",
       "lipid-peroxidation"
-    ]
+    ],
+    "translations": {
+      "zh": {
+        "simple": "一种抑制脂质自由基链式反应的研究用化合物，常能挽救铁死亡性细胞死亡。",
+        "precision": "仅有部分的 Fer-1 挽救，不足以对死亡机制进行分类。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      },
+      "ja": {
+        "simple": "脂質ラジカル連鎖反応を抑え、多くの場合フェロトーシス性細胞死をレスキューする研究用化合物。",
+        "precision": "Fer-1 による部分的なレスキューだけでは、細胞死の機構を分類するには不十分である。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      }
+    }
   },
   {
     "id": "liproxstatin-1",
@@ -463,7 +719,23 @@
     "mechanismIds": [
       "translation",
       "lipid-peroxidation"
-    ]
+    ],
+    "translations": {
+      "zh": {
+        "simple": "一种强效的自由基捕获型研究化合物，广泛用于在细胞和模型中抑制铁死亡。",
+        "precision": "必须报告剂量、暴露和模型情境；挽救效应仍需正交证据支持。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      },
+      "ja": {
+        "simple": "細胞やモデルでフェロトーシスを抑えるために広く使われる、強力なラジカル捕捉型の研究用化合物。",
+        "precision": "用量・曝露・モデルの文脈を報告する必要があり、レスキューにはなお直交的な裏付けが要る。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      }
+    }
   },
   {
     "id": "rsl3",
@@ -490,7 +762,23 @@
     "mechanismIds": [
       "gpx4-gsh",
       "translation"
-    ]
+    ],
+    "translations": {
+      "zh": {
+        "simple": "一种共价结合的研究用抑制剂，常用于失活 GPX4、在易感细胞中触发铁死亡。",
+        "precision": "名义剂量不等于靶点结合；易感性随细胞状态差异很大。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      },
+      "ja": {
+        "simple": "GPX4 を不活化し、感受性細胞でフェロトーシスを誘導するのによく用いられる共有結合型の研究用阻害剤。",
+        "precision": "公称用量は標的への結合と同じではなく、感受性は細胞状態によって大きく異なる。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      }
+    }
   },
   {
     "id": "erastin",
@@ -517,7 +805,23 @@
     "mechanismIds": [
       "system-xc",
       "translation"
-    ]
+    ],
+    "translations": {
+      "zh": {
+        "simple": "一种研究用化合物，可经 system xᴄ⁻ 限制胱氨酸摄取，在部分细胞中诱导铁死亡。",
+        "precision": "其效应依赖营养条件和情境；应使用化学结构不同的诱导剂或遗传学方法加以确认。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      },
+      "ja": {
+        "simple": "system xᴄ⁻ を介したシスチン取り込みを制限し、一部の細胞でフェロトーシスを誘導しうる研究用化合物。",
+        "precision": "その効果は栄養状態と文脈に依存する。確認には化学的に異なる誘導剤か遺伝学的手法を用いるべきである。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      }
+    }
   },
   {
     "id": "bodipy-c11",
@@ -542,7 +846,23 @@
     ],
     "mechanismIds": [
       "lipid-peroxidation"
-    ]
+    ],
+    "translations": {
+      "zh": {
+        "simple": "一种定位于膜上的荧光脂肪酸类似物，被氧化后发射光由红色向绿色偏移。",
+        "precision": "正确名称是 BODIPY 581/591 C11，而非“BODIPY 11”。它报告的是探针自身的氧化，既不对应某个具体的内源性氧化磷脂，其本身也不能证明铁死亡。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      },
+      "ja": {
+        "simple": "膜に局在する蛍光脂肪酸アナログで、酸化されると発光が赤から緑へシフトする。",
+        "precision": "正しい名称は BODIPY 581/591 C11 であり、「BODIPY 11」ではない。示すのはプローブ自体の酸化であって、特定の内因性酸化リン脂質を示すものではなく、それ単独でフェロトーシスを示すものでもない。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      }
+    }
   },
   {
     "id": "redox-lipidomics",
@@ -570,7 +890,23 @@
     ],
     "mechanismIds": [
       "lipid-peroxidation"
-    ]
+    ],
+    "translations": {
+      "zh": {
+        "simple": "基于质谱的工作流程，用于鉴定和定量具体的氧化脂质分子，而不只是整体的氧化信号。",
+        "precision": "提取过程中的氧化、异构体、低丰度和缺乏标准品，都可能导致错误的归属或不确定的定量。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      },
+      "ja": {
+        "simple": "全体的な酸化シグナルだけでなく、個々の酸化脂質分子を同定・定量する質量分析ワークフロー。",
+        "precision": "抽出中の酸化、異性体、低存在量、標準品の欠如により、誤った帰属や不確かな定量が生じうる。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      }
+    }
   },
   {
     "id": "lysosome",
@@ -596,7 +932,23 @@
     "mechanismIds": [
       "organelle-spatial",
       "iron-homeostasis"
-    ]
+    ],
+    "translations": {
+      "zh": {
+        "simple": "一种酸性细胞器，负责降解内容物，并能富集从铁蛋白或外源物质中释放的铁。",
+        "precision": "证明某种靶向化合物能引发溶酶体损伤，并不自动说明在每个模型中溶酶体都是内源性的起始部位。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      },
+      "ja": {
+        "simple": "内容物を分解する酸性オルガネラで、フェリチンや取り込んだ物質から放出された鉄を濃縮しうる。",
+        "precision": "標的化合物がリソソーム損傷を起こせることを示しても、あらゆるモデルでリソソームが内因的な起点であることを自動的に証明したことにはならない。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      }
+    }
   },
   {
     "id": "lmp",
@@ -624,7 +976,23 @@
     "mechanismIds": [
       "organelle-spatial",
       "death-execution"
-    ]
+    ],
+    "translations": {
+      "zh": {
+        "simple": "溶酶体膜完整性丧失，使溶酶体内容物进入胞质。",
+        "precision": "取决于诱导剂和细胞状态，LMP 可能位于脂质过氧化的上游、下游或与之平行。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      },
+      "ja": {
+        "simple": "リソソーム膜の完全性が失われ、内容物がサイトゾルへ漏出すること。",
+        "precision": "誘導剤や細胞状態によって、LMP は脂質過酸化の上流にも下流にも、あるいは並行にもなりうる。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      }
+    }
   },
   {
     "id": "selenium",
@@ -650,7 +1018,23 @@
     ],
     "mechanismIds": [
       "selenium-selenoprotein"
-    ]
+    ],
+    "translations": {
+      "zh": {
+        "simple": "硒的摄取、分布及用于合成 GPX4 等硒蛋白的过程。",
+        "precision": "补充、转运、胞内利用和 GPX4 活性是不同层级的因果环节。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      },
+      "ja": {
+        "simple": "セレンの取り込み・分布、そして GPX4 などのセレノタンパク質合成への利用。",
+        "precision": "補充・輸送・細胞内利用・GPX4 活性は、それぞれ異なる因果レベルである。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      }
+    }
   },
   {
     "id": "vitamin-k",
@@ -674,7 +1058,23 @@
     ],
     "mechanismIds": [
       "fsp1-coq"
-    ]
+    ],
+    "translations": {
+      "zh": {
+        "simple": "一种氧化还原循环，可生成具有自由基捕获活性的还原型维生素 K。",
+        "precision": "实验中的高剂量保护作用，不等同于膳食或临床建议。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      },
+      "ja": {
+        "simple": "ラジカル捕捉活性をもつ還元型ビタミンKを生み出しうる酸化還元サイクル。",
+        "precision": "実験での高用量による保護効果は、食事や臨床上の推奨と同じではない。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      }
+    }
   },
   {
     "id": "mboat",
@@ -700,7 +1100,23 @@
     ],
     "mechanismIds": [
       "mufa-membrane-remodelling"
-    ]
+    ],
+    "translations": {
+      "zh": {
+        "simple": "将单不饱和脂肪酸写入磷脂的酶，可减少可被氧化的 PUFA 库、提高铁死亡阈值。",
+        "precision": "这是一种不依赖 GPX4、基于膜组成的防御；其保护作用主要通过过表达及在部分肿瘤中得到证明，并非在所有组织中都已确立。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      },
+      "ja": {
+        "simple": "一価不飽和脂肪酸をリン脂質に組み込む酵素群で、酸化されうる PUFA を減らし、フェロトーシスの閾値を上げる。",
+        "precision": "GPX4 非依存的な膜組成による防御である。保護効果は主に過剰発現や一部の腫瘍で示されたもので、すべての組織で確立しているわけではない。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      }
+    }
   },
   {
     "id": "mufa",
@@ -726,7 +1142,23 @@
     ],
     "mechanismIds": [
       "mufa-membrane-remodelling"
-    ]
+    ],
+    "translations": {
+      "zh": {
+        "simple": "含一个碳碳双键的脂肪酸（如油酸），其过氧化倾向远低于 PUFA。",
+        "precision": "外源 MUFA 通过 ACSL3 在数小时内建立抗铁死亡的膜状态，而非通过急性的自由基清除。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      },
+      "ja": {
+        "simple": "炭素–炭素二重結合を1つもつ脂肪酸（オレイン酸など）で、PUFA よりはるかに過酸化されにくい。",
+        "precision": "外因性 MUFA は、急性のラジカル消去ではなく、ACSL3 を介して数時間かけてフェロトーシス抵抗性の膜状態を作る。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      }
+    }
   },
   {
     "id": "acsl3",
@@ -751,7 +1183,23 @@
     ],
     "mechanismIds": [
       "mufa-membrane-remodelling"
-    ]
+    ],
+    "translations": {
+      "zh": {
+        "simple": "活化单不饱和脂肪酸、使其掺入膜脂的酶；外源 MUFA 发挥抗铁死亡保护作用需要它。",
+        "precision": "与 ACSL4 相对：ACSL3 偏好 MUFA（保护性），ACSL4 偏好 PUFA（致敏性）。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      },
+      "ja": {
+        "simple": "一価不飽和脂肪酸を活性化して膜脂質に組み込ませる酵素で、外因性 MUFA がフェロトーシスを防ぐのに必要。",
+        "precision": "ACSL4 と対をなす：ACSL3 は MUFA（保護的）を、ACSL4 は PUFA（感受性を高める）を好む。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      }
+    }
   },
   {
     "id": "scd1",
@@ -777,7 +1225,23 @@
     ],
     "mechanismIds": [
       "mufa-membrane-remodelling"
-    ]
+    ],
+    "translations": {
+      "zh": {
+        "simple": "在细胞内合成单不饱和脂肪酸的酶，提供由 ACSL3 活化、再由 MBOAT1/2 写入膜磷脂的内源性 MUFA。",
+        "precision": "SCD1 的重要性取决于外部可获得的单不饱和脂肪酸：补充油酸可恢复 SCD1 缺失细胞的保护作用，因此在富含 MUFA 的条件下，SCD1 缺失本身并不致敏。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      },
+      "ja": {
+        "simple": "細胞内で一価不飽和脂肪酸をつくる酵素で、ACSL3 が活性化し MBOAT1/2 が膜リン脂質へ組み込む内因性 MUFA を供給する。",
+        "precision": "SCD1 の重要度は外部から得られる一価不飽和脂肪酸に左右される。オレイン酸を補えば SCD1 欠損細胞でも保護が回復するため、MUFA が豊富な条件では SCD1 の欠損自体は感受性を高めない。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      }
+    }
   },
   {
     "id": "selenoprotein",
@@ -803,7 +1267,23 @@
     "mechanismIds": [
       "selenium-selenoprotein",
       "gpx4-gsh"
-    ]
+    ],
+    "translations": {
+      "zh": {
+        "simple": "含硒代半胱氨酸残基的蛋白质；GPX4 是铁死亡防御的核心硒蛋白。",
+        "precision": "硒蛋白合成依赖细胞的硒供应和还原力，因此它把硒代谢与 GPX4 防御联系起来。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      },
+      "ja": {
+        "simple": "セレノシステイン残基をもつタンパク質。GPX4 はフェロトーシス防御の中心となるセレノタンパク質である。",
+        "precision": "セレノタンパク質合成は細胞のセレン供給と還元力に依存するため、セレン代謝と GPX4 防御を結び付ける。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      }
+    }
   },
   {
     "id": "prdx6",
@@ -828,7 +1308,23 @@
     ],
     "mechanismIds": [
       "lipid-peroxidation"
-    ]
+    ],
+    "translations": {
+      "zh": {
+        "simple": "一种过氧化物还原酶，主要通过把细胞的硒利用导向硒蛋白合成来支持铁死亡抵抗，而非直接还原磷脂氢过氧化物。",
+        "precision": "有研究提出，其关键抗铁死亡作用是经由 C47 残基充当硒载体；在裂解液实验中已排除它直接替代 GPX4 的作用。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      },
+      "ja": {
+        "simple": "リン脂質ヒドロペルオキシドを直接還元するのではなく、主に細胞のセレン利用をセレノタンパク質合成へ振り向けることでフェロトーシス抵抗性を支えるペルオキシレドキシン。",
+        "precision": "主要な抗フェロトーシス作用は C47 残基を介したセレン運搬体としての役割と提唱されており、GPX4 を直接代替する役割はライセート実験で否定されている。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      }
+    }
   },
   {
     "id": "lipid-droplet",
@@ -854,7 +1350,23 @@
     "mechanismIds": [
       "organelle-spatial",
       "mufa-membrane-remodelling"
-    ]
+    ],
+    "translations": {
+      "zh": {
+        "simple": "储存甘油三酯和胆固醇酯等中性脂质的细胞器；FSP1 可在此对中性脂质过氧化进行质量控制。",
+        "precision": "脂滴是提供保护还是提供可氧化底物，取决于情境；脂滴上 FSP1 的作用是在人为加载 PUFA 的条件下显示的。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      },
+      "ja": {
+        "simple": "トリアシルグリセロールやコレステリルエステルなどの中性脂質を蓄えるオルガネラで、FSP1 が中性脂質の過酸化に対する品質管理を行いうる場。",
+        "precision": "脂肪滴が保護的に働くか、酸化されうる基質を供給するかは文脈に依存する。脂肪滴上の FSP1 の役割は、人工的に PUFA を負荷した条件で示されたものである。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      }
+    }
   },
   {
     "id": "mitochondria-ferroptosis",
@@ -880,7 +1392,23 @@
     "mechanismIds": [
       "mitochondrial-metabolism",
       "organelle-spatial"
-    ]
+    ],
+    "translations": {
+      "zh": {
+        "simple": "线粒体代谢在铁死亡中的条件性作用：在半胱氨酸剥夺时驱动死亡，但在 GPX4 被直接失活时则非必需。",
+        "precision": "线粒体并非铁死亡的普遍执行者；这种依赖性因诱导方式而异，且目前仍存在激烈争议。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      },
+      "ja": {
+        "simple": "フェロトーシスにおけるミトコンドリア代謝の条件付きの役割：システイン欠乏時には細胞死を駆動するが、GPX4 が直接不活化された場合には不要である。",
+        "precision": "ミトコンドリアはフェロトーシスの普遍的な実行因子ではない。その依存性は誘導法に特異的で、現在も議論が続いている。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      }
+    }
   },
   {
     "id": "ifn-gamma-ferroptosis",
@@ -906,7 +1434,23 @@
     "mechanismIds": [
       "immune-regulation",
       "tumour-ecology"
-    ]
+    ],
+    "translations": {
+      "zh": {
+        "simple": "由免疫治疗激活的 CD8+ T 细胞分泌的细胞因子，可下调肿瘤细胞的 system xᴄ⁻ 和谷胱甘肽，使其对铁死亡敏感。",
+        "precision": "它被证明是经典细胞毒作用之外的一条可溶性致敏轴；患者数据是观察性的表达关联，而非直接的铁死亡测量。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      },
+      "ja": {
+        "simple": "免疫療法で活性化された CD8+ T 細胞が産生するサイトカインで、腫瘍細胞の system xᴄ⁻ とグルタチオンを低下させ、フェロトーシス感受性を高める。",
+        "precision": "古典的な細胞傷害に並ぶ可溶性の感受性亢進軸として示された。患者データは観察的な発現相関であり、フェロトーシスの直接測定ではない。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      }
+    }
   },
   {
     "id": "gch1-bh4",
@@ -932,7 +1476,23 @@
     ],
     "mechanismIds": [
       "gch1-bh4"
-    ]
+    ],
+    "translations": {
+      "zh": {
+        "simple": "一种内源性防御：GCH1 酶合成四氢生物蝶呤（BH4），后者可捕获脂质自由基并重塑膜脂以抵抗过氧化，与 GPX4 并行工作。",
+        "precision": "主要通过培养细胞中的遗传过表达和敲低加以表征；它在正常组织中相对于 GPX4 和 FSP1 的贡献大小尚无定论。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      },
+      "ja": {
+        "simple": "GCH1 がテトラヒドロビオプテリン（BH4）を合成する内因性防御で、BH4 は脂質ラジカルを捕捉し膜脂質をリモデリングして過酸化に抵抗し、GPX4 と並行して働く。",
+        "precision": "主に培養細胞での遺伝的な過剰発現とノックダウンで特徴づけられている。正常組織全体で GPX4 や FSP1 と比べてどれほど寄与するかは定まっていない。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      }
+    }
   },
   {
     "id": "mevalonate-7dhc",
@@ -959,6 +1519,22 @@
     ],
     "mechanismIds": [
       "mevalonate-sterol"
-    ]
+    ],
+    "translations": {
+      "zh": {
+        "simple": "同时抑制铁死亡的胆固醇合成通路：它为 FSP1 提供 CoQ10，其中间产物 7-脱氢胆固醇累积后可保护细胞膜免于过氧化。",
+        "precision": "7-DHC 的抗铁死亡作用已在细胞和肿瘤模型中得到展示；如何与正常的固醇代谢及其他防御分支相平衡，尚未解决。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      },
+      "ja": {
+        "simple": "フェロトーシスも抑えるコレステロール合成経路：FSP1 に CoQ10 を供給し、中間体の 7-デヒドロコレステロールが蓄積して膜を過酸化から守る。",
+        "precision": "7-DHC の抗フェロトーシス作用は細胞・腫瘍モデルで示されているが、通常のステロール代謝や他の防御系とのバランスは未解決である。",
+        "status": "ai-draft",
+        "draftedBy": "Claude (AI draft; independent AI terminology and fidelity pass applied)",
+        "draftedAt": "2026-09-24"
+      }
+    }
   }
 ]
