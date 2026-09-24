@@ -216,6 +216,35 @@ await check("a generated file naming a generator that does not exist is rejected
 });
 
 for (const failure of failures) console.error(`FAIL ${failure.name}\n      ${failure.message}`);
+// Glossary translations carry their own review state. A draft cannot be promoted to
+// "reviewed" without naming who reviewed it and when, and a half-translated entry (a
+// definition with no precision note) is rejected — the note is the part that bounds the
+// claim, and a card that translated only the claim would be the worse half to publish.
+const editGlossary = async (dir, edit) => {
+  const file = path.join(dir, "data", "glossary.json");
+  const glossary = JSON.parse(await fs.readFile(file, "utf8"));
+  edit(glossary);
+  await fs.writeFile(file, `${JSON.stringify(glossary, null, 2)}\n`);
+};
+
+await check("a glossary translation claimed as reviewed without a named reviewer is rejected", {
+  seal: false,
+  mutate: (dir) => editGlossary(dir, (glossary) => {
+    glossary[0].translations = { zh: { simple: "测试定义。", precision: "测试说明。", status: "reviewed", draftedBy: "x", draftedAt: "2026-09-24" } };
+  }),
+  expectExit: 1,
+  expectMessage: /reviewed translation must name its reviewer/,
+});
+
+await check("a glossary translation of the definition without the precision note is rejected", {
+  seal: false,
+  mutate: (dir) => editGlossary(dir, (glossary) => {
+    glossary[0].translations = { ja: { simple: "テスト定義。", status: "ai-draft", draftedBy: "x", draftedAt: "2026-09-24" } };
+  }),
+  expectExit: 1,
+  expectMessage: /must translate both the definition and the precision note/,
+});
+
 if (failures.length) {
   console.error(`\n${failures.length} of ${failures.length + passes.length} manifest mutation tests failed.`);
   process.exit(1);

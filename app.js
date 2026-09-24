@@ -832,6 +832,34 @@ function glossaryAliasRows(entry) {
     .join("");
 }
 
+// Translated definitions sit beside the English, never in place of it: the English is the
+// authoritative text, the translation carries its own status, and a reader can check one
+// against the other line by line. An AI draft says so on the card until a named reviewer
+// promotes it; an entry with no translation shows the English alone rather than a gap.
+function translationOf(entry) {
+  const lang = state.glossaryLang;
+  return lang === "en" ? null : entry.translations?.[lang] || null;
+}
+
+function translationStatus(translation) {
+  if (translation.status === "reviewed") return `<small class="tr-status reviewed">Reviewed · ${escapeHtml(translation.reviewedBy)} · ${escapeHtml(translation.reviewedAt)}</small>`;
+  return '<small class="tr-status draft">AI draft · awaiting review · English is authoritative</small>';
+}
+
+function glossaryDefinition(entry) {
+  const translation = translationOf(entry);
+  if (!translation) return `<p>${escapeHtml(entry.simpleEnglish)}</p>`;
+  const lang = state.glossaryLang === "zh" ? "zh-Hans" : "ja";
+  return `<div class="bilingual"><p lang="${lang}">${escapeHtml(translation.simple)}</p><p class="bilingual-en" lang="en"><b>EN</b>${escapeHtml(entry.simpleEnglish)}</p>${translationStatus(translation)}</div>`;
+}
+
+function glossaryPrecision(entry) {
+  const translation = translationOf(entry);
+  if (!translation) return `<div class="precision-note"><b>Precision note</b>${escapeHtml(entry.precisionNote)}</div>`;
+  const lang = state.glossaryLang === "zh" ? "zh-Hans" : "ja";
+  return `<div class="precision-note"><b>Precision note</b><span lang="${lang}">${escapeHtml(translation.precision)}</span><span class="bilingual-en" lang="en"><b>EN</b>${escapeHtml(entry.precisionNote)}</span></div>`;
+}
+
 function sortedGlossary(entries) {
   if (state.glossarySort === "alpha") return [...entries].sort((a, b) => a.term.localeCompare(b.term, "en"));
   if (state.glossarySort === "frequency") {
@@ -847,7 +875,7 @@ export function renderGlossary() {
   const filtered = sortedGlossary(state.glossary.filter((item) => !term || [item.term, item.abbreviation, item.simpleEnglish, item.precisionNote, ...Object.values(item.aliases || {}).flat()].join(" ").toLowerCase().includes(term)));
   const visible = filtered.slice(0, term ? filtered.length : state.visibleGlossary);
   const enterFrom = visible.length > renderedGlossaryCount ? renderedGlossaryCount : visible.length;
-  $("#glossaryGrid").innerHTML = visible.length ? visible.map((item, index) => `<article class="glossary-card${index >= enterFrom ? " is-entering" : ""}"${index >= enterFrom ? ` style="--enter-index:${index - enterFrom}"` : ""}><div class="glossary-term"><span>${escapeHtml(item.abbreviation || "TERM")}</span>${usageBadge(item)}</div>${glossaryHeading(item)}<p>${escapeHtml(item.simpleEnglish)}</p><div class="translations">${glossaryAliasRows(item)}</div>${mechanismChips(item)}<div class="precision-note"><b>Precision note</b>${escapeHtml(item.precisionNote)}</div></article>`).join("") : '<div class="empty">No terminology entry matches this search.</div>';
+  $("#glossaryGrid").innerHTML = visible.length ? visible.map((item, index) => `<article class="glossary-card${index >= enterFrom ? " is-entering" : ""}"${index >= enterFrom ? ` style="--enter-index:${index - enterFrom}"` : ""}><div class="glossary-term"><span>${escapeHtml(item.abbreviation || "TERM")}</span>${usageBadge(item)}</div>${glossaryHeading(item)}${glossaryDefinition(item)}<div class="translations">${glossaryAliasRows(item)}</div>${mechanismChips(item)}${glossaryPrecision(item)}</article>`).join("") : '<div class="empty">No terminology entry matches this search.</div>';
   renderedGlossaryCount = visible.length;
   $("#loadMoreGlossary").hidden = Boolean(term) || visible.length >= filtered.length;
   $("#collapseGlossary").hidden = Boolean(term) || visible.length <= PAGE_STEP;
