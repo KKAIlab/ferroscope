@@ -10,6 +10,28 @@
   --teal: #1d7464;
   --muted: #68746e;
   --line: rgba(14, 23, 20, 0.15);
+
+  /* Evidence-boundary palette.
+   *
+   * Every "this is where the evidence stops" note belongs to one visual family, because
+   * they are one idea: a precision note on a glossary card, "Stops at" on a signal, a
+   * method's measurement boundary and a resource's caution all warn about the same class
+   * of thing. They had drifted into four near-identical browns (#7c3c26, #79402d,
+   * #75402e, #8b3b22) and two fills (#f0e2d9, #f1e5dc) — close enough to look like a
+   * rendering bug rather than a distinction, which is exactly how it read on the page.
+   * One token each now, so the family cannot drift again without editing this block.
+   * --caution-strong is a genuinely separate step: small badge text that needs more
+   * contrast than body copy at the same size. */
+  --caution-ink: #7c3c26;
+  --caution-label: #9f3e20;
+  --caution-bg: #f0e2d9;
+  --caution-strong: #8b3b22;
+
+  /* Unreviewed / provisional, which is a different warning from a boundary: it says
+   * nobody has read this yet, not that the evidence ends here. Amber, never brown. */
+  --pending-ink: #6f5313;
+  --pending-line: #b08a3c;
+  --pending-bg: #f6efdc;
   --shadow: 0 24px 70px rgba(28, 43, 36, 0.11);
   --mono: "DM Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
   --sans: "Noto Sans SC", system-ui, sans-serif;
@@ -183,7 +205,7 @@ select { min-width: 128px; border: 1px solid var(--line); border-radius: 3px; pa
    what the result does NOT establish read as a continuation of the claim. It is now its own line
    with its own label — and the label is the same words used at the paper level ("Stops at"), so a
    reader meets one vocabulary for the limit of a claim wherever they are in the interface. */
-.signal-main .signal-boundary { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; margin: 9px 0 0; color: #8b3b22; font-size: var(--fs-body); line-height: 1.55; }
+.signal-main .signal-boundary { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; margin: 9px 0 0; color: var(--caution-strong); font-size: var(--fs-body); line-height: 1.55; }
 .signal-main .signal-boundary span { font: 600 var(--fs-micro) var(--mono); text-transform: uppercase; letter-spacing: .06em; padding-top: 2px; }
 .signal-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
 .chip { padding: 4px 7px; background: var(--paper-2); border-radius: 2px; color: var(--ink-soft); font-size: var(--fs-note); }
@@ -359,11 +381,11 @@ dialog h3 { font: 600 var(--fs-h1) var(--serif); }
 .study-chain dd { margin: 0; color: var(--ink-soft); font-size: var(--fs-body); line-height: 1.65; }
 /* The limit and the open question are the two the reader is most likely to skip and most needs,
    so they are coloured rather than left to look like more body text. */
-.study-chain dt.limit, .study-chain dd.limit { color: #8b3b22; }
+.study-chain dt.limit, .study-chain dd.limit { color: var(--caution-strong); }
 .study-chain dt.open, .study-chain dd.open { color: var(--teal); }
 
 .research-study .study-role { padding: 8px 10px; color: var(--ink); background: var(--paper-2); }
-.research-study .study-limit { color: #8b3b22; }
+.research-study .study-limit { color: var(--caution-strong); }
 .research-study a { display: inline-block; margin-top: 8px; color: var(--teal); font-size: var(--fs-note); font-weight: 700; }
 .deep-dive { margin: 14px 0 4px; padding: 12px; border: 1px solid #b9ccc3; background: #f4f8f5; }
 .deep-dive summary { cursor: pointer; color: var(--teal); font: 700 var(--fs-body) var(--mono); }
@@ -374,7 +396,7 @@ dialog h3 { font: 600 var(--fs-h1) var(--serif); }
 .figure-chain section > strong { display: block; font: 600 var(--fs-card)/1.45 var(--serif); }
 .research-pending { padding: 16px; background: var(--paper-2); }
 .audit-block { padding-top: 16px; border-top: 1px solid var(--line); }
-.audit-block p { margin: 7px 0; }.audit-good { color: var(--teal) !important; }.audit-open { color: #8b5a13 !important; }.audit-fix { color: #8b3b22 !important; }
+.audit-block p { margin: 7px 0; }.audit-good { color: var(--teal) !important; }.audit-open { color: #8b5a13 !important; }.audit-fix { color: var(--caution-strong) !important; }
 .research-actions { display: flex; gap: 10px; margin-top: 24px; }
 .research-actions a { padding: 10px 12px; color: white; background: var(--teal); font-size: var(--fs-body); }
 .freshness-list { margin-top: 25px; border-top: 1px solid var(--line); }
