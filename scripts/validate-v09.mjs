@@ -129,6 +129,20 @@ for (const entry of glossary) {
   if (!entry.term || !entry.simpleEnglish || !entry.precisionNote) errors.push(`Glossary ${entry.id} is incomplete`);
   if (!entry.aliases?.en || !entry.aliases?.zh || !entry.aliases?.ja) errors.push(`Glossary ${entry.id} lacks a language alias set`);
   for (const related of entry.related || []) if (!glossaryIds.has(related)) errors.push(`Glossary ${entry.id} points to unknown term ${related}`);
+  // Translated definitions are a separate, status-carrying layer beside the English, which
+  // stays authoritative. A translation must say whether it is an AI draft or has been
+  // reviewed, and a "reviewed" claim must name who reviewed it and when — the same rule
+  // every other review claim in this project follows, so a draft cannot be promoted by
+  // editing one word.
+  for (const [lang, translation] of Object.entries(entry.translations || {})) {
+    const where = `Glossary ${entry.id} translation ${lang}`;
+    if (!["zh", "ja"].includes(lang)) errors.push(`${where}: only zh and ja translations are published`);
+    if (!translation.simple || !translation.precision) errors.push(`${where}: must translate both the definition and the precision note, or neither`);
+    if (!/[぀-ヿ㐀-鿿]/u.test(`${translation.simple || ""}${translation.precision || ""}`)) errors.push(`${where}: contains no ${lang === "zh" ? "Chinese" : "Japanese"} text`);
+    if (!["ai-draft", "reviewed"].includes(translation.status)) errors.push(`${where}: status must be "ai-draft" or "reviewed"`);
+    if (!translation.draftedBy || !/^\d{4}-\d{2}-\d{2}$/.test(translation.draftedAt || "")) errors.push(`${where}: must record who drafted it and the ISO date`);
+    if (translation.status === "reviewed" && (!translation.reviewedBy || !/^\d{4}-\d{2}-\d{2}$/.test(translation.reviewedAt || ""))) errors.push(`${where}: a reviewed translation must name its reviewer and the ISO review date`);
+  }
 }
 for (const edge of network.mechanismEdges || []) {
   if (!mechanismIds.has(edge.source) || !mechanismIds.has(edge.target)) errors.push(`Unknown mechanism in edge ${edge.source} -> ${edge.target}`);
