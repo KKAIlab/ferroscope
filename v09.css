@@ -137,8 +137,21 @@ nav { gap: 21px; font-size: var(--fs-card); }
 .network-terms b { display: block; font: 600 var(--fs-body) var(--mono); }
 .network-terms small { display: block; margin-top: 2px; color: #8a968f; font: var(--fs-micro) var(--mono); }
 .glossary-card > p { color: var(--ink-soft); font-size: var(--fs-card); line-height: 1.6; }
-.translations { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 10px 0; }
-.translations span { padding: 8px 9px; background: var(--paper-2); font-size: var(--fs-body-lg); line-height: 1.45; }
+.translations { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+/* Flex rather than a two-column grid: three language rows in two columns always left one
+   empty cell. Two boxes share a row; a third on its own row stretches to full width. */
+.translations span { flex: 1 1 calc(50% - 4px); min-width: 0; padding: 8px 9px; background: var(--paper-2); font-size: var(--fs-body-lg); line-height: 1.45; }
+/* Parallel translation: the translated line leads, the authoritative English follows
+   directly beneath it so the two can be checked against each other line by line. */
+.bilingual { margin: 0 0 4px; }
+.bilingual > p { margin: 0; color: var(--ink-soft); font-size: var(--fs-card); line-height: 1.6; }
+.bilingual > p.bilingual-en, .bilingual-en { display: block; margin-top: 5px; color: var(--muted); font-size: var(--fs-body); line-height: 1.55; }
+.bilingual-en b { margin-right: 6px; color: var(--teal); font: var(--fs-micro) var(--mono); }
+.precision-note .bilingual-en { color: var(--caution-ink); opacity: .8; }
+.precision-note .bilingual-en b { display: inline; margin-bottom: 0; color: var(--caution-label); }
+.tr-status { display: inline-block; margin-top: 7px; padding: 2px 6px; font: var(--fs-micro) var(--mono); }
+.tr-status.draft { color: var(--pending-ink); background: var(--pending-bg); border-left: 2px solid var(--pending-line); }
+.tr-status.reviewed { color: var(--teal); background: #e3eee9; }
 .translations b { display: block; margin-bottom: 4px; color: var(--teal); font: var(--fs-note) var(--mono); }
 .precision-note { padding-top: 10px; border-top: 1px solid var(--line); color: var(--caution-ink); font-size: var(--fs-body-lg); line-height: 1.55; }
 .precision-note b { display: block; margin-bottom: 4px; color: var(--caution-label); font: var(--fs-note) var(--mono); text-transform: uppercase; }
@@ -173,7 +186,8 @@ nav { gap: 21px; font-size: var(--fs-card); }
   .node-orb { width: calc(var(--r) * 1.7); height: calc(var(--r) * 1.7); }
   .node-label { max-width: 92px; font-size: var(--fs-note); }
   .network-legend { max-width: 90%; }
-  .two-columns, .translations { grid-template-columns: 1fr; }
+  .two-columns { grid-template-columns: 1fr; }
+  .translations span { flex-basis: 100%; }
 }
 
 /* --- 02 · Paper reading records ------------------------------------------- */
