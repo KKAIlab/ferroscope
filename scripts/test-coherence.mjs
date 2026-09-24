@@ -103,6 +103,13 @@ const cases = [
     glossary[1].aliases.en = [...(glossary[1].aliases.en || []), glossary[0].term];
     save("glossary.json", glossary);
   }, false],
+  // The terminology/network join is hand-declared, so the one thing that can rot is a
+  // node id: renaming or removing a mechanism must not leave a term pointing at nothing.
+  ["a glossary entry claiming a mechanism node that does not exist is rejected", () => {
+    const glossary = load("glossary.json");
+    glossary[0].mechanismIds = [...(glossary[0].mechanismIds || []), "no-such-mechanism"];
+    save("glossary.json", glossary);
+  }, false],
 
   // attribution
   ["a paper with no laboratory attribution is rejected", () => {

@@ -21,6 +21,10 @@
       "labile-iron",
       "gpx4",
       "radical-trapping-antioxidant"
+    ],
+    "mechanismIds": [
+      "death-execution",
+      "lipid-peroxidation"
     ]
   },
   {
@@ -44,6 +48,9 @@
       "plooh",
       "bodipy-c11",
       "redox-lipidomics"
+    ],
+    "mechanismIds": [
+      "lipid-peroxidation"
     ]
   },
   {
@@ -69,6 +76,10 @@
       "gpx4",
       "redox-lipidomics",
       "pufa-pl"
+    ],
+    "mechanismIds": [
+      "lipid-peroxidation",
+      "gpx4-gsh"
     ]
   },
   {
@@ -93,6 +104,10 @@
       "selenium",
       "glutathione",
       "rsl3"
+    ],
+    "mechanismIds": [
+      "gpx4-gsh",
+      "selenium-selenoprotein"
     ]
   },
   {
@@ -116,6 +131,10 @@
       "slc7a11",
       "glutathione",
       "erastin"
+    ],
+    "mechanismIds": [
+      "system-xc",
+      "gpx4-gsh"
     ]
   },
   {
@@ -139,6 +158,10 @@
       "system-xc",
       "glutathione",
       "erastin"
+    ],
+    "mechanismIds": [
+      "system-xc",
+      "tumour-ecology"
     ]
   },
   {
@@ -162,6 +185,10 @@
       "gpx4",
       "system-xc",
       "coq"
+    ],
+    "mechanismIds": [
+      "gpx4-gsh",
+      "system-xc"
     ]
   },
   {
@@ -185,6 +212,9 @@
       "coq",
       "radical-trapping-antioxidant",
       "vitamin-k"
+    ],
+    "mechanismIds": [
+      "fsp1-coq"
     ]
   },
   {
@@ -212,6 +242,10 @@
     "related": [
       "fsp1",
       "radical-trapping-antioxidant"
+    ],
+    "mechanismIds": [
+      "fsp1-coq",
+      "mitochondrial-metabolism"
     ]
   },
   {
@@ -235,6 +269,10 @@
       "acsl4",
       "lpcat3",
       "lipid-peroxidation"
+    ],
+    "mechanismIds": [
+      "pufa-remodelling",
+      "acsl4-lpcat3"
     ]
   },
   {
@@ -257,6 +295,10 @@
     "related": [
       "pufa-pl",
       "lpcat3"
+    ],
+    "mechanismIds": [
+      "acsl4-lpcat3",
+      "pufa-remodelling"
     ]
   },
   {
@@ -279,6 +321,10 @@
     "related": [
       "pufa-pl",
       "acsl4"
+    ],
+    "mechanismIds": [
+      "acsl4-lpcat3",
+      "pufa-remodelling"
     ]
   },
   {
@@ -306,6 +352,9 @@
       "ferritinophagy",
       "lysosome",
       "ferroptosis"
+    ],
+    "mechanismIds": [
+      "iron-homeostasis"
     ]
   },
   {
@@ -328,6 +377,10 @@
     "related": [
       "labile-iron",
       "lysosome"
+    ],
+    "mechanismIds": [
+      "iron-homeostasis",
+      "organelle-spatial"
     ]
   },
   {
@@ -353,6 +406,11 @@
       "ferrostatin-1",
       "liproxstatin-1",
       "coq"
+    ],
+    "mechanismIds": [
+      "lipid-peroxidation",
+      "gch1-bh4",
+      "translation"
     ]
   },
   {
@@ -375,6 +433,10 @@
     "related": [
       "radical-trapping-antioxidant",
       "liproxstatin-1"
+    ],
+    "mechanismIds": [
+      "translation",
+      "lipid-peroxidation"
     ]
   },
   {
@@ -397,6 +459,10 @@
     "related": [
       "radical-trapping-antioxidant",
       "ferrostatin-1"
+    ],
+    "mechanismIds": [
+      "translation",
+      "lipid-peroxidation"
     ]
   },
   {
@@ -420,6 +486,10 @@
     "related": [
       "gpx4",
       "ferroptosis"
+    ],
+    "mechanismIds": [
+      "gpx4-gsh",
+      "translation"
     ]
   },
   {
@@ -443,6 +513,10 @@
       "system-xc",
       "slc7a11",
       "glutathione"
+    ],
+    "mechanismIds": [
+      "system-xc",
+      "translation"
     ]
   },
   {
@@ -465,6 +539,9 @@
     "related": [
       "lipid-peroxidation",
       "redox-lipidomics"
+    ],
+    "mechanismIds": [
+      "lipid-peroxidation"
     ]
   },
   {
@@ -490,6 +567,9 @@
       "plooh",
       "lipid-peroxidation",
       "bodipy-c11"
+    ],
+    "mechanismIds": [
+      "lipid-peroxidation"
     ]
   },
   {
@@ -512,6 +592,10 @@
       "labile-iron",
       "ferritinophagy",
       "lmp"
+    ],
+    "mechanismIds": [
+      "organelle-spatial",
+      "iron-homeostasis"
     ]
   },
   {
@@ -536,6 +620,10 @@
     "related": [
       "lysosome",
       "labile-iron"
+    ],
+    "mechanismIds": [
+      "organelle-spatial",
+      "death-execution"
     ]
   },
   {
@@ -559,6 +647,9 @@
     "precisionNote": "Supplementation, transport, intracellular utilization and GPX4 activity are different causal levels.",
     "related": [
       "gpx4"
+    ],
+    "mechanismIds": [
+      "selenium-selenoprotein"
     ]
   },
   {
@@ -580,6 +671,9 @@
     "related": [
       "fsp1",
       "radical-trapping-antioxidant"
+    ],
+    "mechanismIds": [
+      "fsp1-coq"
     ]
   },
   {
@@ -603,6 +697,9 @@
       "scd1",
       "pufa-pl",
       "acsl4"
+    ],
+    "mechanismIds": [
+      "mufa-membrane-remodelling"
     ]
   },
   {
@@ -626,6 +723,9 @@
       "acsl3",
       "scd1",
       "pufa-pl"
+    ],
+    "mechanismIds": [
+      "mufa-membrane-remodelling"
     ]
   },
   {
@@ -648,6 +748,9 @@
       "acsl4",
       "mufa",
       "scd1"
+    ],
+    "mechanismIds": [
+      "mufa-membrane-remodelling"
     ]
   },
   {
@@ -671,6 +774,9 @@
       "mufa",
       "acsl3",
       "mboat"
+    ],
+    "mechanismIds": [
+      "mufa-membrane-remodelling"
     ]
   },
   {
@@ -693,6 +799,10 @@
       "selenium",
       "gpx4",
       "prdx6"
+    ],
+    "mechanismIds": [
+      "selenium-selenoprotein",
+      "gpx4-gsh"
     ]
   },
   {
@@ -715,6 +825,9 @@
       "selenoprotein",
       "selenium",
       "gpx4"
+    ],
+    "mechanismIds": [
+      "lipid-peroxidation"
     ]
   },
   {
@@ -737,6 +850,10 @@
       "fsp1",
       "coq",
       "pufa-pl"
+    ],
+    "mechanismIds": [
+      "organelle-spatial",
+      "mufa-membrane-remodelling"
     ]
   },
   {
@@ -759,6 +876,10 @@
       "system-xc",
       "glutathione",
       "lipid-peroxidation"
+    ],
+    "mechanismIds": [
+      "mitochondrial-metabolism",
+      "organelle-spatial"
     ]
   },
   {
@@ -781,6 +902,10 @@
       "system-xc",
       "slc7a11",
       "glutathione"
+    ],
+    "mechanismIds": [
+      "immune-regulation",
+      "tumour-ecology"
     ]
   },
   {
@@ -804,6 +929,9 @@
       "fsp1",
       "coq",
       "radical-trapping-antioxidant"
+    ],
+    "mechanismIds": [
+      "gch1-bh4"
     ]
   },
   {
@@ -828,6 +956,9 @@
       "fsp1",
       "coq",
       "lipid-peroxidation"
+    ],
+    "mechanismIds": [
+      "mevalonate-sterol"
     ]
   }
 ]
