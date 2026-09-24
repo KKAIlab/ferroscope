@@ -814,22 +814,38 @@ function glossaryHeading(entry) {
   const lang = state.glossaryLang;
   const aliases = entry.aliases || {};
   const translated = (aliases[lang] || [])[0];
-  if (lang === "en" || !translated) {
+  // Where the other language simply uses the English name (RSL3, erastin, SLC7A11), the
+  // translated heading and the English line beneath it would be the same word twice.
+  if (lang === "en" || !translated || normalizeName(translated) === normalizeName(entry.term)) {
     return `<h3>${escapeHtml(entry.term)}</h3>`;
   }
   return `<h3 lang="${escapeHtml(lang === "zh" ? "zh-Hans" : "ja")}">${escapeHtml(translated)}</h3><p class="term-en">${escapeHtml(entry.term)}</p>`;
 }
 
+// Aliases are search terms, and a search term the card already shows is noise. The heading
+// carries the lead name (and the English term under a translated one), so the alias block
+// lists only names that appear nowhere else on the card, deduplicated across languages and
+// compared without case, spacing or hyphenation ("RSL3" in three scripts is one name). A
+// language with nothing new to add is omitted, and a card with nothing new has no block.
+const normalizeName = (value) => String(value || "").toLowerCase().replace(/[\s\-‐-―·・/]+/g, "");
+
 function glossaryAliasRows(entry) {
   const aliases = entry.aliases || {};
-  const order = state.glossaryLang === "en" ? ["zh", "ja"] : [state.glossaryLang, ...["en", "zh", "ja"].filter((code) => code !== state.glossaryLang)];
-  return order
-    .map((code) => {
-      const values = code === "en" ? [entry.term, ...(aliases.en || [])] : aliases[code] || [];
-      if (!values.length) return "";
-      return `<span><b>${escapeHtml(LANGUAGE_LABELS[code])}</b>${escapeHtml(values.join(" · "))}</span>`;
-    })
-    .join("");
+  const lang = state.glossaryLang;
+  const shown = new Set([entry.term, entry.abbreviation, lang === "en" ? null : (aliases[lang] || [])[0]].filter(Boolean).map(normalizeName));
+  const order = lang === "en" ? ["zh", "ja", "en"] : [lang, "en", ...["zh", "ja"].filter((code) => code !== lang)];
+  const rows = [];
+  for (const code of order) {
+    const fresh = [];
+    for (const value of aliases[code] || []) {
+      const key = normalizeName(value);
+      if (!key || shown.has(key)) continue;
+      shown.add(key);
+      fresh.push(value);
+    }
+    if (fresh.length) rows.push(`<p><b>${escapeHtml(LANGUAGE_LABELS[code])}</b><span${code === "en" ? "" : ` lang="${code === "zh" ? "zh-Hans" : "ja"}"`}>${escapeHtml(fresh.join(" · "))}</span></p>`);
+  }
+  return rows.length ? `<div class="term-aliases">${rows.join("")}</div>` : "";
 }
 
 // Translated definitions sit beside the English, never in place of it: the English is the
@@ -843,7 +859,7 @@ function translationOf(entry) {
 
 function translationStatus(translation) {
   if (translation.status === "reviewed") return `<small class="tr-status reviewed">Reviewed · ${escapeHtml(translation.reviewedBy)} · ${escapeHtml(translation.reviewedAt)}</small>`;
-  return '<small class="tr-status draft">AI draft · awaiting review · English is authoritative</small>';
+  return '<small class="tr-status draft" title="AI draft awaiting review. The English is authoritative.">AI draft</small>';
 }
 
 function glossaryDefinition(entry) {
@@ -875,7 +891,7 @@ export function renderGlossary() {
   const filtered = sortedGlossary(state.glossary.filter((item) => !term || [item.term, item.abbreviation, item.simpleEnglish, item.precisionNote, ...Object.values(item.aliases || {}).flat()].join(" ").toLowerCase().includes(term)));
   const visible = filtered.slice(0, term ? filtered.length : state.visibleGlossary);
   const enterFrom = visible.length > renderedGlossaryCount ? renderedGlossaryCount : visible.length;
-  $("#glossaryGrid").innerHTML = visible.length ? visible.map((item, index) => `<article class="glossary-card${index >= enterFrom ? " is-entering" : ""}"${index >= enterFrom ? ` style="--enter-index:${index - enterFrom}"` : ""}><div class="glossary-term"><span>${escapeHtml(item.abbreviation || "TERM")}</span>${usageBadge(item)}</div>${glossaryHeading(item)}${glossaryDefinition(item)}<div class="translations">${glossaryAliasRows(item)}</div>${mechanismChips(item)}${glossaryPrecision(item)}</article>`).join("") : '<div class="empty">No terminology entry matches this search.</div>';
+  $("#glossaryGrid").innerHTML = visible.length ? visible.map((item, index) => `<article class="glossary-card${index >= enterFrom ? " is-entering" : ""}"${index >= enterFrom ? ` style="--enter-index:${index - enterFrom}"` : ""}><div class="glossary-term"><span>${item.abbreviation && normalizeName(item.abbreviation) !== normalizeName(item.term) ? escapeHtml(item.abbreviation) : ""}</span>${usageBadge(item)}</div>${glossaryHeading(item)}${glossaryDefinition(item)}${glossaryAliasRows(item)}${mechanismChips(item)}${glossaryPrecision(item)}</article>`).join("") : '<div class="empty">No terminology entry matches this search.</div>';
   renderedGlossaryCount = visible.length;
   $("#loadMoreGlossary").hidden = Boolean(term) || visible.length >= filtered.length;
   $("#collapseGlossary").hidden = Boolean(term) || visible.length <= PAGE_STEP;
