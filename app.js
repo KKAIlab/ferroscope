@@ -11,6 +11,7 @@ export const state = {
   source: "all", topic: "all", documentClass: "all", signalSort: "relevance", visibleSignals: 8,
   labCategory: "All", labSearch: "", methodGroup: "All", methodSearch: "",
   resourceType: "All", glossarySearch: "", visibleGlossary: 8, selectedMechanism: "lipid-peroxidation",
+  glossaryLang: "en", glossarySort: "corpus", termUsage: new Map(),
   paperTheme: "All", paperSearch: "",
 };
 
@@ -715,6 +716,7 @@ export function renderNetworkDetail() {
   const edges = state.network.mechanismEdges.filter((edge) => edge.source === node.id || edge.target === node.id);
   const methodIds = state.network.methodLinks.filter((link) => link.mechanisms.includes(node.id)).map((link) => link.method);
   const methods = state.methods.filter((method) => methodIds.includes(method.id));
+  const terms = state.glossary.filter((entry) => (entry.mechanismIds || []).includes(node.id));
   const labIds = [...new Set(methods.flatMap((method) => method.distinctiveLabs))];
   const labs = labIds.map((id) => state.labs.find((lab) => lab.id === id)).filter(Boolean).slice(0,8);
   // Evidence for a mechanism is shown as the individual paper claims that produced it,
@@ -743,16 +745,109 @@ export function renderNetworkDetail() {
   const boundaryEdges = (state.graph?.edges || []).filter((edge) => edge.relation === "CANNOT_DISTINGUISH" && edge.to === mechanismNode && edge.provenanceClass === "curated-method-module");
   const boundaryItems = [...new Map(boundaryEdges.map((edge) => [edge.claimScope, edge])).values()];
   const provisionalBoundaries = boundaryItems.filter((edge) => !isSourceChecked(edge.reviewState)).length;
-  $("#networkDetail").innerHTML = `<p class="eyebrow">SELECTED MECHANISM</p><h3>${escapeHtml(node.label)}</h3><p>${escapeHtml(node.description)}</p><div class="network-relations">${edges.map((edge) => { const otherId = edge.source === node.id ? edge.target : edge.source; const other = state.network.mechanisms.find((item) => item.id === otherId); return `<section><span>${escapeHtml(edge.relation)}</span><b>${escapeHtml(other?.label || otherId)}</b><p>${escapeHtml(edge.label)}</p><small>${escapeHtml(edge.confidence)}</small>${edgeAnchorHtml(edge)}</section>`; }).join("")}</div><h4>Figure-audited paper claims for this node</h4><div class="claim-groups">${claimHtml || '<p class="research-pending">No figure-audited paper claim has been recorded against this node yet. The relationships above show its evidence anchors and how deeply each was read.</p>'}</div><h4>Methods that interrogate this node</h4><div class="research-chips">${methods.map((method) => `<span>${escapeHtml(method.name)}</span>`).join("")}</div>${boundaryItems.length ? `<div class="assay-boundaries"><span>Cannot prove alone</span>${provisionalBoundaries ? `<p class="provisional-note">${provisionalBoundaries} of ${boundaryItems.length} of these boundaries are curated method-module statements whose declared source has not been read and dated. They are not paper claims and are shown as provisional.</p>` : ""}<ul>${boundaryItems.map((edge) => `<li>${escapeHtml(edge.claimScope)}${isSourceChecked(edge.reviewState) ? `<small class="edge-review">method source checked ${escapeHtml(edge.checkedAt || "")}</small>` : '<small class="edge-review pending">curated method module · awaiting source review</small>'}</li>`).join("")}</ul></div>` : ""}<h4>Laboratories connected through those methods</h4><div class="network-labs">${labs.map((lab) => `<button type="button" data-network-lab="${escapeHtml(lab.id)}">${escapeHtml(lab.pi)}</button>`).join("")}</div>${ferrdbGeneLinksHtml(node.id)}${ferrdbBadgeHtml(node.id)}`;
+  $("#networkDetail").innerHTML = `<p class="eyebrow">SELECTED MECHANISM</p><h3>${escapeHtml(node.label)}</h3><p>${escapeHtml(node.description)}</p><div class="network-relations">${edges.map((edge) => { const otherId = edge.source === node.id ? edge.target : edge.source; const other = state.network.mechanisms.find((item) => item.id === otherId); return `<section><span>${escapeHtml(edge.relation)}</span><b>${escapeHtml(other?.label || otherId)}</b><p>${escapeHtml(edge.label)}</p><small>${escapeHtml(edge.confidence)}</small>${edgeAnchorHtml(edge)}</section>`; }).join("")}</div><h4>Figure-audited paper claims for this node</h4><div class="claim-groups">${claimHtml || '<p class="research-pending">No figure-audited paper claim has been recorded against this node yet. The relationships above show its evidence anchors and how deeply each was read.</p>'}</div><h4>Methods that interrogate this node</h4><div class="research-chips">${methods.map((method) => `<span>${escapeHtml(method.name)}</span>`).join("")}</div>${boundaryItems.length ? `<div class="assay-boundaries"><span>Cannot prove alone</span>${provisionalBoundaries ? `<p class="provisional-note">${provisionalBoundaries} of ${boundaryItems.length} of these boundaries are curated method-module statements whose declared source has not been read and dated. They are not paper claims and are shown as provisional.</p>` : ""}<ul>${boundaryItems.map((edge) => `<li>${escapeHtml(edge.claimScope)}${isSourceChecked(edge.reviewState) ? `<small class="edge-review">method source checked ${escapeHtml(edge.checkedAt || "")}</small>` : '<small class="edge-review pending">curated method module · awaiting source review</small>'}</li>`).join("")}</ul></div>` : ""}<h4>Laboratories connected through those methods</h4><div class="network-labs">${labs.map((lab) => `<button type="button" data-network-lab="${escapeHtml(lab.id)}">${escapeHtml(lab.pi)}</button>`).join("")}</div>${terms.length ? `<h4>Terminology for this node</h4><div class="network-terms">${terms.map((entry) => `<button type="button" data-term-jump="${escapeHtml(entry.id)}"><b>${escapeHtml(entry.term)}</b><small>${escapeHtml(termUsageLine(entry))}</small></button>`).join("")}</div>` : ""}${ferrdbGeneLinksHtml(node.id)}${ferrdbBadgeHtml(node.id)}`;
   $$("[data-network-lab]").forEach((button) => button.addEventListener("click", () => renderResearchProfile(button.dataset.networkLab)));
 }
 
-function renderGlossary() {
+// How often a term is actually used by the papers this project has read, derived at
+// render time from the paper layer rather than stored. It is a usage count over 28
+// audited records — a reading-order hint, not a claim about the field's literature, and
+// the interface says so in those words. Matching is whole-word over the English surface
+// forms (term, abbreviation, English aliases) so "CoQ" cannot match "CoQH₂'s" neighbour
+// text by accident, and a paper counts once however many times it uses the word.
+const escapeRegex = (value) => String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+function buildTermUsage() {
+  const documents = state.papers.map((paper) => [
+    paper.title, paper.theme, paper.journal,
+    ...Object.values(paper.sixtySecond || {}),
+    ...(state.claimsByPaper?.get(paper.id) || []),
+  ].filter(Boolean).join(" ").toLowerCase());
+
+  const usage = new Map();
+  for (const entry of state.glossary) {
+    const surfaces = [entry.term, entry.abbreviation, ...(entry.aliases?.en || [])]
+      .filter(Boolean)
+      .map((value) => String(value).toLowerCase().trim())
+      // A one or two character surface form ("LD") matches far too much prose to be
+      // evidence of anything, so it is not counted rather than counted badly.
+      .filter((value) => value.length >= 3);
+    const patterns = [...new Set(surfaces)].map((value) => new RegExp(`(^|[^a-z0-9])${escapeRegex(value)}([^a-z0-9]|$)`, "i"));
+    const papers = state.papers.filter((_, index) => patterns.some((pattern) => pattern.test(documents[index])));
+    usage.set(entry.id, { count: papers.length, paperIds: papers.map((paper) => paper.id) });
+  }
+  return usage;
+}
+
+function termUsageLine(entry) {
+  const count = state.termUsage.get(entry.id)?.count || 0;
+  return count ? `used in ${count} read ${count === 1 ? "paper" : "papers"}` : "not used in the read papers";
+}
+
+function usageBadge(entry) {
+  const usage = state.termUsage.get(entry.id);
+  const total = state.papers.length;
+  if (!usage || !total) return "";
+  const { count } = usage;
+  const label = count ? `Used in ${count} of ${total} read ${total === 1 ? "paper" : "papers"}` : `Not used in the ${total} read papers`;
+  return `<span class="term-usage${count ? "" : " none"}" title="Whole-word matches of this term's English surface forms across the paper reading records. A usage count over this project's audited corpus, not a measure of the field.">${escapeHtml(label)}</span>`;
+}
+
+// The terminology corpus and the mechanism network describe the same biology at two
+// scales, so each card carries the nodes its term belongs to and the chip selects that
+// node in the network. The mapping is declared in glossary.json and validated against
+// the network; it is never inferred from string overlap, which put GPX4 in ten nodes.
+function mechanismChips(entry) {
+  const nodes = (entry.mechanismIds || [])
+    .map((id) => state.network?.mechanisms?.find((mechanism) => mechanism.id === id))
+    .filter(Boolean);
+  if (!nodes.length) return "";
+  return `<div class="term-mechanisms"><span>Mechanism node</span>${nodes.map((node) => `<button type="button" class="term-mechanism" data-mechanism-jump="${escapeHtml(node.id)}">${escapeHtml(node.label)}</button>`).join("")}</div>`;
+}
+
+// English leads by default. Choosing 中文 or 日本語 promotes that script's alias to the
+// card's heading and shows the English term beneath it — the definition below is
+// untouched, because no checked translation of it exists.
+const LANGUAGE_LABELS = { en: "English", zh: "中文", ja: "日本語" };
+
+function glossaryHeading(entry) {
+  const lang = state.glossaryLang;
+  const aliases = entry.aliases || {};
+  const translated = (aliases[lang] || [])[0];
+  if (lang === "en" || !translated) {
+    return `<h3>${escapeHtml(entry.term)}</h3>`;
+  }
+  return `<h3 lang="${escapeHtml(lang === "zh" ? "zh-Hans" : "ja")}">${escapeHtml(translated)}</h3><p class="term-en">${escapeHtml(entry.term)}</p>`;
+}
+
+function glossaryAliasRows(entry) {
+  const aliases = entry.aliases || {};
+  const order = state.glossaryLang === "en" ? ["zh", "ja"] : [state.glossaryLang, ...["en", "zh", "ja"].filter((code) => code !== state.glossaryLang)];
+  return order
+    .map((code) => {
+      const values = code === "en" ? [entry.term, ...(aliases.en || [])] : aliases[code] || [];
+      if (!values.length) return "";
+      return `<span><b>${escapeHtml(LANGUAGE_LABELS[code])}</b>${escapeHtml(values.join(" · "))}</span>`;
+    })
+    .join("");
+}
+
+function sortedGlossary(entries) {
+  if (state.glossarySort === "alpha") return [...entries].sort((a, b) => a.term.localeCompare(b.term, "en"));
+  if (state.glossarySort === "frequency") {
+    return [...entries].sort((a, b) =>
+      (state.termUsage.get(b.id)?.count || 0) - (state.termUsage.get(a.id)?.count || 0)
+      || a.term.localeCompare(b.term, "en"));
+  }
+  return entries;
+}
+
+export function renderGlossary() {
   const term = state.glossarySearch.trim().toLowerCase();
-  const filtered = state.glossary.filter((item) => !term || [item.term, item.abbreviation, item.simpleEnglish, item.precisionNote, ...Object.values(item.aliases || {}).flat()].join(" ").toLowerCase().includes(term));
+  const filtered = sortedGlossary(state.glossary.filter((item) => !term || [item.term, item.abbreviation, item.simpleEnglish, item.precisionNote, ...Object.values(item.aliases || {}).flat()].join(" ").toLowerCase().includes(term)));
   const visible = filtered.slice(0, term ? filtered.length : state.visibleGlossary);
   const enterFrom = visible.length > renderedGlossaryCount ? renderedGlossaryCount : visible.length;
-  $("#glossaryGrid").innerHTML = visible.length ? visible.map((item, index) => `<article class="glossary-card${index >= enterFrom ? " is-entering" : ""}"${index >= enterFrom ? ` style="--enter-index:${index - enterFrom}"` : ""}><div class="glossary-term"><span>${escapeHtml(item.abbreviation || "TERM")}</span><h3>${escapeHtml(item.term)}</h3></div><p>${escapeHtml(item.simpleEnglish)}</p><div class="translations"><span><b>中文</b>${escapeHtml((item.aliases?.zh || []).join(" · "))}</span><span><b>日本語</b>${escapeHtml((item.aliases?.ja || []).join(" · "))}</span></div><div class="precision-note"><b>Precision note</b>${escapeHtml(item.precisionNote)}</div></article>`).join("") : '<div class="empty">No terminology entry matches this search.</div>';
+  $("#glossaryGrid").innerHTML = visible.length ? visible.map((item, index) => `<article class="glossary-card${index >= enterFrom ? " is-entering" : ""}"${index >= enterFrom ? ` style="--enter-index:${index - enterFrom}"` : ""}><div class="glossary-term"><span>${escapeHtml(item.abbreviation || "TERM")}</span>${usageBadge(item)}</div>${glossaryHeading(item)}<p>${escapeHtml(item.simpleEnglish)}</p><div class="translations">${glossaryAliasRows(item)}</div>${mechanismChips(item)}<div class="precision-note"><b>Precision note</b>${escapeHtml(item.precisionNote)}</div></article>`).join("") : '<div class="empty">No terminology entry matches this search.</div>';
   renderedGlossaryCount = visible.length;
   $("#loadMoreGlossary").hidden = Boolean(term) || visible.length >= filtered.length;
   $("#collapseGlossary").hidden = Boolean(term) || visible.length <= PAGE_STEP;
@@ -818,6 +913,33 @@ function bindEvents() {
   $("#networkDetail").addEventListener("click", (event) => { const button = event.target.closest(".paper-open"); if (button) renderPaperDetail(button.dataset.paperId); });
   $("#methodSearch").addEventListener("input", (event) => { state.methodSearch = event.target.value; renderMethods(); });
   $("#methodGrid").addEventListener("click", (event) => { const button = event.target.closest(".method-open"); if (button) renderMethodDetail(button.dataset.methodId); });
+  $$("#glossaryLang button").forEach((button) => button.addEventListener("click", () => {
+    state.glossaryLang = button.dataset.lang;
+    $$("#glossaryLang button").forEach((item) => { item.classList.toggle("active", item === button); item.setAttribute?.("aria-pressed", String(item === button)); });
+    renderGlossary();
+  }));
+  $("#glossarySort").addEventListener("change", (event) => { state.glossarySort = event.target.value; renderGlossary(); });
+  // The two directions of the terminology/network link. A term chip selects its mechanism
+  // and moves the reader to the network; a node's term button carries them back to the
+  // card, searched so the entry is on screen rather than somewhere in a collapsed list.
+  $("#glossaryGrid").addEventListener("click", (event) => {
+    const button = event.target.closest?.("[data-mechanism-jump]");
+    if (!button) return;
+    state.selectedMechanism = button.dataset.mechanismJump;
+    renderNetwork();
+    returnToListTop("#network");
+  });
+  $("#networkDetail").addEventListener("click", (event) => {
+    const button = event.target.closest?.("[data-term-jump]");
+    if (!button) return;
+    const entry = state.glossary.find((item) => item.id === button.dataset.termJump);
+    if (!entry) return;
+    state.glossarySearch = entry.term;
+    const input = $("#glossarySearch");
+    if (input) input.value = entry.term;
+    renderGlossary();
+    returnToListTop("#glossary");
+  });
   $("#glossarySearch").addEventListener("input", (event) => { state.glossarySearch = event.target.value; renderGlossary(); });
   $("#loadMoreGlossary").addEventListener("click", () => { state.visibleGlossary += PAGE_STEP; renderGlossary(); });
   $("#collapseGlossary").addEventListener("click", () => { state.visibleGlossary = PAGE_STEP; renderGlossary(); returnToListTop("#glossaryGrid"); });
@@ -850,6 +972,10 @@ async function init() {
     console.error("The provenance graph could not be built", error);
     state.graph = null;
   }
+  // Claim text is indexed by paper so the terminology usage count can read the figure-level
+  // scopes as well as the 60-second card, which is where most method vocabulary appears.
+  state.claimsByPaper = (claims.claims || []).reduce((map, claim) => map.set(claim.paperId, [...(map.get(claim.paperId) || []), claim.claimScope]), new Map());
+  state.termUsage = buildTermUsage();
   const labMap = new Map(state.labs.map((lab) => [lab.id, lab])), briefMap = new Map(briefs.map((item) => [item.id, item]));
   // Curated and automated records for the same DOI, PMID or NCT identifier collapse onto
   // one canonical record before rendering, so a study registered in two layers appears

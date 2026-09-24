@@ -209,6 +209,13 @@ for (const entry of glossary) {
   for (const related of entry.related || []) {
     if (!glossaryById.has(related)) contradictions.push(`glossary entry ${entry.id} relates to ${related}, which does not exist`);
   }
+  // The terminology corpus and the mechanism network are joined by a hand-declared list,
+  // not by string overlap — matching on names put GPX4 in ten nodes and PLOOH in six. A
+  // declaration that names a node the network does not define would render a dead chip
+  // and, worse, assert a membership nobody decided, so it fails here.
+  for (const mechanismId of entry.mechanismIds || []) {
+    if (!mechanismById.has(mechanismId)) contradictions.push(`glossary entry ${entry.id} claims mechanism node ${mechanismId}, which knowledge-network.json does not define`);
+  }
 }
 
 // --- manifest ---------------------------------------------------------------------------
