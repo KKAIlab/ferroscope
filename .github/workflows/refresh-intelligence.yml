@@ -44,7 +44,7 @@ jobs:
         run: |
           git config user.name "ferroscope-bot"
           git config user.email "ferroscope-bot@users.noreply.github.com"
-          git add data/live.json data/meta.json
+          git add data/live.json data/meta.json data/monitoring-coverage.json
           git diff --cached --quiet && exit 0
           git commit -m "data: refresh ferroptosis intelligence"
           # main can advance between checkout and push (a human push, or a run that
