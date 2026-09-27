@@ -1,1 +1,90 @@
-[]
+[
+  {
+    "canonicalId": "doi:10.1126/sciadv.aeg3424",
+    "recordId": "pubmed-42616878",
+    "title": "HMOX1 controls a heme-ferritin switch that protects cells from ferroptosis.",
+    "takeaway": "Reports that when HMOX1 is inactive, heme is stabilized rather than catabolised, and that this stabilized heme up-regulates ferritin and suppresses ferroptosis, rescuing cell death caused by both pharmacological and genetic GPX4 inhibition. The authors frame this as a heme-HMOX1-ferritin axis setting ferroptosis sensitivity.",
+    "caveat": "The abstract describes cell-level experiments only and names no tumour model or in vivo test; the therapeutic use it raises is proposed, not shown.",
+    "basis": "abstract",
+    "status": "ai-draft",
+    "draftedBy": "Claude (weekly reading round, abstract only)",
+    "draftedAt": "2026-09-28"
+  },
+  {
+    "canonicalId": "doi:10.1126/sciadv.aeb2368",
+    "recordId": "pubmed-42213853",
+    "title": "Metabolic rewiring driven by phosphoglycolate phosphatase deletion inhibits ferroptosis.",
+    "takeaway": "Deleting phosphoglycolate phosphatase (PGP) suppresses ferroptosis by rewiring the pentose phosphate pathway and cellular energy and lipid metabolism into a multifactorial antioxidant response. Separately, the reported PGP inhibitor CP1 turns out to sensitize cells to ferroptosis and is characterized as a direct dual inhibitor of PGP and FSP1 that also triggers FSP1 self-assembly.",
+    "caveat": "The abstract reports genetic, biochemical and biophysical work in cells and with purified protein and mentions no animal or disease model, so CP1 is presented as a pharmacological tool rather than a validated therapeutic.",
+    "basis": "abstract",
+    "status": "ai-draft",
+    "draftedBy": "Claude (weekly reading round, abstract only)",
+    "draftedAt": "2026-09-28"
+  },
+  {
+    "canonicalId": "doi:10.1016/bs.mcb.2026.05.002",
+    "recordId": "pubmed-42442865",
+    "title": "Ferroptosis induction via genetic approaches - CRISPR/Cas9-based disruption on key anti-ferroptotic genes.",
+    "takeaway": "A methods chapter, not new findings: it sets out a CRISPR/Cas9 protocol for making SLC7A11- and GPX4-knockout HT1080 cells as a genetic alternative to erastin and (1S,3R)-RSL3, whose off-target effects the authors note (erastin on mitochondrial voltage-dependent anion channels, RSL3 on other selenoproteins). The knockout lines need beta-mercaptoethanol or liproxstatin-1 in the medium, and withdrawing the supplement induces ferroptosis.",
+    "caveat": "This is a protocol chapter rather than a report of new results: the abstract offers a procedure in one cell line (HT1080) and no data of its own, so it supports no claim about ferroptosis biology.",
+    "basis": "abstract",
+    "status": "ai-draft",
+    "draftedBy": "Claude (weekly reading round, abstract only)",
+    "draftedAt": "2026-09-28"
+  },
+  {
+    "canonicalId": "doi:10.64898/2026.07.17.739092",
+    "recordId": "pubmed-42539267",
+    "title": "Double-bond geometry determines fatty acid metabolic fate and ferroptosis sensitivity.",
+    "takeaway": "A screen of structurally diverse fatty acids identifies trans-unsaturated fatty acids as ferroptosis sensitizers: the trans PUFA linoelaidic acid enhanced lipid peroxidation more than its cis counterpart linoleic acid, and the trans monounsaturated petroselaidic acid also sensitized cells while its cis isomer petroselinic acid suppressed ferroptosis. Petroselaidic acid required stearoyl-CoA desaturase-dependent conversion to a PUFA, which the authors read as double-bond geometry redirecting a fatty acid metabolic fate.",
+    "caveat": "A preprint, so not yet peer reviewed, and the abstract reports cell-level lipidomic and sensitivity experiments with no animal or dietary model, leaving any physiological consequence of trans-fat geometry untested.",
+    "basis": "abstract",
+    "status": "ai-draft",
+    "draftedBy": "Claude (weekly reading round, abstract only)",
+    "draftedAt": "2026-09-28"
+  },
+  {
+    "canonicalId": "doi:10.1038/s41467-026-71869-z",
+    "recordId": "pubmed-42310294",
+    "title": "15-LOX-catalytic bias towards ether-(alkenyl)-ETE-PEs oxidation bestows selectivity of PRO-ferroptotic cell death signaling.",
+    "takeaway": "Using redox lipidomics with biochemical, biophysical, genetic and molecular dynamics approaches, the authors find both 15-LOX isoforms selectively oxidize alkyl/alkenyl-ETE-PE, but not the PC equivalents, to 15-HpETE-PEs and trigger ferroptosis independently of the sn-1 vinyl bond. They measure sn-1 vinyl bond peroxidation as roughly 500-fold slower than sn-2-ETE-PE, which they take to exclude an antioxidant role for plasmalogens in ferroptosis, and report the sn-1-alkenyl-sn-2-15-HpETE-PE product as a pathogenic factor in asthma, cancer, brain trauma and skin UVB injury.",
+    "caveat": "The disease link rests on the presence of the oxidized species across those four settings as reported in the abstract, which does not say the conditions were treated or the lipid blocked, and the therapeutic target it proposes is untested.",
+    "basis": "abstract",
+    "status": "ai-draft",
+    "draftedBy": "Claude (weekly reading round, abstract only)",
+    "draftedAt": "2026-09-28"
+  },
+  {
+    "canonicalId": "doi:10.64898/2026.05.16.725645",
+    "recordId": "pubmed-42239248",
+    "title": "Targeted extracellular degradation of LRP8 promotes ferroptosis in cancer cells.",
+    "takeaway": "Targeted extracellular degradation of the selenium uptake receptor LRP8, using bispecific KineTAC chimeras that route it to the lysosome through cytokine receptor internalisation, lowers several selenoproteins including GPX4 and sensitizes cancer cells to ferroptosis. The authors present receptor-mediated selenium uptake as a targetable node in ferroptosis resistance.",
+    "caveat": "A preprint, so not yet peer reviewed, and the abstract reports sensitization in cancer cells with no in vivo efficacy, selectivity or toxicity data, so overcoming therapy resistance is framed as a broader prospect rather than a result.",
+    "basis": "abstract",
+    "status": "ai-draft",
+    "draftedBy": "Claude (weekly reading round, abstract only)",
+    "draftedAt": "2026-09-28"
+  },
+  {
+    "canonicalId": "doi:10.1016/j.cell.2026.07.040",
+    "recordId": "pubmed-42600612",
+    "title": "Polyamines buffer labile iron to suppress ferroptosis.",
+    "takeaway": "Polyamines are shown to buffer redox-active iron: a genome-wide CRISPR screen found polyamine depletion synthetically lethal with loss of GPX4, and polyamine deficiency redistributed cellular iron, enlarging the labile iron pool and up-regulating ferritin. A new genetically encoded fluorescent reporter for redox-active iron showed an inverse correlation between polyamine levels and redox-active iron in single living cells.",
+    "caveat": "The abstract reports cultured-cell screening and live-cell imaging only; the implications it draws for ferroptosis-linked disease states are stated as implications, with no animal or patient data behind them.",
+    "basis": "abstract",
+    "status": "ai-draft",
+    "draftedBy": "Claude (weekly reading round, abstract only)",
+    "draftedAt": "2026-09-28"
+  },
+  {
+    "canonicalId": "doi:10.1021/acs.jmedchem.6c01496",
+    "recordId": "pubmed-42430517",
+    "title": "Suppression of Lipid Peroxidation by Necrostatins and Their Potential for Dual Targeting of Ferroptosis and Necroptosis.",
+    "takeaway": "Explains how the RIPK1 inhibitor necrostatin-1 also blocks ferroptosis: its thiohydantoin reacts with hydroperoxides to give a sulfenic acid that traps peroxyl radicals and inhibits lipid peroxidation. Analogs tested in the cell-free FENIX assay gained anti-peroxidation activity with more steric bulk or nucleophilicity near the thiocarbonyl, with the methyl group relocated, or with a fully conjugated linker; the fully conjugated dsNec-1, isolated as a stable species, is suggested to mediate the anti-ferroptotic effect, but desaturated derivatives were inactive against necroptosis, so the authors conclude the scaffold is unsuitable for dual-pathway inhibitors.",
+    "caveat": "The structure-activity work rests on the cell-free FENIX lipid peroxidation assay, and the abstract reports no cellular ferroptosis protection for the new analogs, so dsNec-1 mediating Nec-1 activity in cells is suggested rather than shown.",
+    "basis": "abstract",
+    "status": "ai-draft",
+    "draftedBy": "Claude (weekly reading round, abstract only)",
+    "draftedAt": "2026-09-28"
+  }
+]
