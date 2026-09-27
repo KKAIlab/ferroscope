@@ -27,6 +27,15 @@ this recipe, and must not fake it.
 4. **English only** in every published field — CJK is confined to the terminology
    corpus, and `npm run check:surface` enforces it.
 
+## Where AI drafts fit
+
+The weekly reading round (see `docs/AUTOMATION.md`) writes abstract-level drafts to
+`data/ai-reading-drafts.json`. A draft explains a record on its card; it never grades
+evidence or classifies the document. Reviewing a draft means opening the primary source,
+correcting the takeaway and caveat if needed, and setting `status: "reviewed"` with
+`reviewedBy` and `reviewedAt`. The per-record procedure below is the next level up: a
+curated audit that may classify, grade and promote.
+
 ## Per-record procedure
 
 For each queue entry, in order (laboratory-watch matches first):

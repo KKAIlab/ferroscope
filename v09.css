@@ -266,6 +266,11 @@ nav { gap: 21px; font-size: var(--fs-card); }
 .evidence-basis { display: block; margin-top: 4px; color: var(--muted); font: var(--fs-micro)/1.5 var(--mono); }
 .review-badge.merged, .review-badge.stale, .review-badge.partial-stale { border: 1px solid var(--line); color: var(--muted); font: var(--fs-micro) var(--mono); }
 .review-badge.stale { border-color: #c96a45; color: var(--caution-strong); background: var(--caution-bg); }
+/* An AI reading is unreviewed in the same sense a translation draft is: the amber
+   pending family, never the teal of a human-reviewed state. */
+.review-badge.ai-draft, .review-badge.ai-reviewed { border: 1px solid var(--line); font: var(--fs-micro) var(--mono); }
+.review-badge.ai-draft { border-color: var(--pending-line); color: var(--pending-ink); background: var(--pending-bg); }
+.review-badge.ai-reviewed { border-color: var(--teal); color: var(--teal); background: #e3eee9; }
 /* A record that lost one route of several is degraded, not retained wholesale, so it is
    marked distinctly instead of borrowing the fully-stale treatment. */
 .review-badge.partial-stale { border-style: dashed; border-color: var(--pending-line); color: var(--pending-ink); background: var(--pending-bg); }

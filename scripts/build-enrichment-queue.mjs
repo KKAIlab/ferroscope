@@ -31,6 +31,9 @@ const papers = await readData("papers-en.json", []);
 const briefs = await readData("signal-briefs-en.json", []);
 const labsEn = await readData("labs-en.json", []);
 const labName = new Map(labsEn.map((lab) => [lab.id, lab.pi]));
+const aiDrafts = await readData("ai-reading-drafts.json", []);
+const draftByCanonical = new Map(aiDrafts.map((draft) => [draft.canonicalId, draft]));
+const coverage = await readData("monitoring-coverage.json", { labs: [] });
 
 // A record is covered when any curated layer already speaks for it: a curated signal,
 // an audit overlay, a paper reading record, or a signal brief.
@@ -49,7 +52,7 @@ const candidates = live
   .filter((item) => ["paper", "preprint"].includes(item.sourceType))
   .filter((item) => !["commentary", "correction", "review", "protocol"].includes(item.documentType))
   .filter((item) => (Number(item.relevance) || 0) >= MIN_RELEVANCE)
-  .filter((item) => !covered.has(item.canonicalId) && !briefed.has(item.id))
+  .filter((item) => !covered.has(item.canonicalId) && !briefed.has(item.id) && !draftByCanonical.has(item.canonicalId))
   .sort((a, b) =>
     Number(Boolean(b.trackedLabIds?.length)) - Number(Boolean(a.trackedLabIds?.length))
     || (b.relevance || 0) - (a.relevance || 0)
@@ -118,6 +121,27 @@ const queue = {
   })),
 };
 
+// Drafts a model wrote but no person has signed off. These are the human half of the loop:
+// the scheduled reading round fills them, a reviewer promotes or corrects them.
+const liveById = new Map(live.map((item) => [item.canonicalId, item]));
+queue.awaitingReview = aiDrafts
+  .filter((draft) => draft.status !== "reviewed")
+  .map((draft) => ({
+    canonicalId: draft.canonicalId,
+    title: draft.title || liveById.get(draft.canonicalId)?.title || draft.canonicalId,
+    basis: draft.basis,
+    draftedAt: draft.draftedAt,
+    stillInLiveWindow: liveById.has(draft.canonicalId),
+  }));
+
+// Every laboratory carries a manual review date. Nothing surfaced them, so a due date was a
+// field nobody saw; the queue now lists what is due within 30 days or already overdue.
+const horizon = new Date(Date.now() + 30 * 86_400_000).toISOString().slice(0, 10);
+queue.labReviewsDue = (coverage.labs || [])
+  .filter((row) => row.nextReviewDue && row.nextReviewDue <= horizon)
+  .sort((a, b) => a.nextReviewDue.localeCompare(b.nextReviewDue))
+  .map((row) => ({ labId: row.labId, pi: labName.get(row.labId) || row.labId, nextReviewDue: row.nextReviewDue, overdue: row.nextReviewDue < generatedAt.slice(0, 10) }));
+
 const entryMarkdown = (item, index) => {
   const labs = item.trackedLabs.length ? ` · lab watch: ${item.trackedLabs.join(", ")}` : "";
   const abstract = item.abstract
@@ -153,9 +177,19 @@ coverage (no curated signal, no audit overlay, no paper record, no brief), labor
 matches first. **${candidates.length} record(s) in the queue.**
 
 ${queue.candidates.map(entryMarkdown).join("\n")}
+
+## AI drafts awaiting review (${queue.awaitingReview.length})
+
+${queue.awaitingReview.length ? queue.awaitingReview.map((item) => `- [ ] \`${item.canonicalId}\` — ${item.title} (${item.basis}, drafted ${item.draftedAt}${item.stillInLiveWindow ? "" : "; has left the live window"})`).join("\n") : "None."}
+
+To review: open the primary source, correct the draft in \`data/ai-reading-drafts.json\` if needed, then set \`status: "reviewed"\` with \`reviewedBy\` and \`reviewedAt\`.
+
+## Laboratory reviews due within 30 days (${queue.labReviewsDue.length})
+
+${queue.labReviewsDue.length ? queue.labReviewsDue.map((row) => `- [ ] ${row.pi} (\`${row.labId}\`) — due ${row.nextReviewDue}${row.overdue ? " · **overdue**" : ""}`).join("\n") : "None."}
 `;
 
 await fs.mkdir(docsDir, { recursive: true });
 await fs.writeFile(path.join(docsDir, "enrichment-queue.json"), `${JSON.stringify(queue, null, 2)}\n`);
 await fs.writeFile(path.join(docsDir, "ENRICHMENT-QUEUE.md"), markdown);
-console.log(`Enrichment queue written: ${candidates.length} candidate(s), ${abstracts.size} abstract(s) attached, docs/ENRICHMENT-QUEUE.md + docs/enrichment-queue.json.`);
+console.log(`Enrichment queue written: ${candidates.length} candidate(s) needing a first reading, ${abstracts.size} abstract(s) attached, ${queue.awaitingReview.length} AI draft(s) awaiting review, ${queue.labReviewsDue.length} laboratory review(s) due.`);

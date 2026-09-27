@@ -218,6 +218,8 @@ async function fetchPubMed() {
     .filter((item) => item.relevance >= 50).slice(0, 35);
 }
 
+const watchRuns = new Map();
+
 async function fetchTrackedLabs(configs, publicLabName) {
   const idToLabs = new Map();
   const since = new Date(now.getTime() - 365 * 86_400_000).toISOString().slice(0, 10);
@@ -226,6 +228,9 @@ async function fetchTrackedLabs(configs, publicLabName) {
     const term = `ferroptosis[Title/Abstract] AND (${config.query}) AND (\"${since}\"[Date - Publication] : \"3000\"[Date - Publication]) NOT (Review[Publication Type] OR Editorial[Publication Type] OR Comment[Publication Type] OR Published Erratum[Publication Type])`;
     search.search = new URLSearchParams({ db: "pubmed", term, retmode: "json", retmax: "4", sort: "date" });
     const data = await fetchJson(search);
+    // The per-watch outcome is kept so the run can promote a watch from pending to active
+    // and publish how many matches it found; a watch that runs is no longer "pending".
+    watchRuns.set(config.labId, { count: Number(data.esearchresult?.count) || 0 });
     for (const pmid of data.esearchresult?.idlist || []) {
       const labs = idToLabs.get(pmid) || [];
       labs.push(config);
@@ -516,4 +521,28 @@ const meta = {
 
 await fs.writeFile(path.join(dataDir, "live.json"), `${JSON.stringify(live, null, 2)}\n`);
 await fs.writeFile(path.join(dataDir, "meta.json"), `${JSON.stringify(meta, null, 2)}\n`);
+
+// Watch run-state is maintained by the run that executes the watches, not by hand. A watch
+// used to stay "pending-first-run" forever — nothing ever promoted it — so the site told
+// readers a watch had never run while its matches were already on the page. When the
+// laboratory-watch source succeeds, every executed watch is marked active and records the
+// run date and its match count over the query's one-year window. A failed or partial run
+// changes nothing, so a transient outage cannot demote or falsely refresh a watch.
+const labWatchStatus = statuses.find((status) => status.name === LAB_WATCH_SOURCE);
+if (labWatchStatus?.state === "ok" && watchRuns.size) {
+  const coveragePath = path.join(dataDir, "monitoring-coverage.json");
+  const coverage = await readJson(coveragePath, null);
+  if (coverage && Array.isArray(coverage.labs)) {
+    let promoted = 0;
+    for (const row of coverage.labs) {
+      const run = watchRuns.get(row.labId);
+      if (!run || row.authorWatch === "none") continue;
+      if (row.watchState === "pending-first-run") { row.watchState = "active"; row.activatedAt = toDate; promoted += 1; }
+      row.lastRunAt = toDate;
+      row.matchesPastYear = run.count;
+    }
+    await fs.writeFile(coveragePath, `${JSON.stringify(coverage, null, 2)}\n`);
+    console.log(`Watch run-state updated for ${watchRuns.size} watches; ${promoted} promoted from pending to active.`);
+  }
+}
 console.log(`FerroScope refresh complete: ${live.length} automated signals (${meta.counts.staleSignals} retained as stale, ${meta.counts.partiallyStaleSignals} still backed by a route that succeeded); ClinicalTrials.gov reported ${meta.counts.clinicalTrials} matching records.`);

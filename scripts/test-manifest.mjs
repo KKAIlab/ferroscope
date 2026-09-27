@@ -245,6 +245,27 @@ await check("a glossary translation of the definition without the precision note
   expectMessage: /must translate both the definition and the precision note/,
 });
 
+// AI reading drafts may explain a record but never certify it: a draft carrying an evidence
+// grade is rejected, and so is a "reviewed" draft with no named reviewer.
+const editDrafts = async (dir, drafts) => {
+  await fs.writeFile(path.join(dir, "data", "ai-reading-drafts.json"), `${JSON.stringify(drafts, null, 2)}\n`);
+};
+const baseDraft = { canonicalId: "doi:10.1000/probe", basis: "abstract", status: "ai-draft", draftedBy: "probe", draftedAt: "2026-09-27", takeaway: "Probe takeaway.", caveat: "Probe caveat." };
+
+await check("an AI reading draft that grades evidence is rejected", {
+  seal: false,
+  mutate: (dir) => editDrafts(dir, [{ ...baseDraft, evidenceGrade: "B" }]),
+  expectExit: 1,
+  expectMessage: /may not carry evidenceGrade/,
+});
+
+await check("an AI reading draft claimed as reviewed without a named reviewer is rejected", {
+  seal: false,
+  mutate: (dir) => editDrafts(dir, [{ ...baseDraft, status: "reviewed" }]),
+  expectExit: 1,
+  expectMessage: /reviewed draft must name its reviewer/,
+});
+
 if (failures.length) {
   console.error(`\n${failures.length} of ${failures.length + passes.length} manifest mutation tests failed.`);
   process.exit(1);

@@ -206,7 +206,7 @@
       "manualReview": true,
       "lastCheckedAt": "2026-07-23",
       "nextReviewDue": "2026-10-23",
-      "note": "Watch added in the round-2 pass. Ubellacker is a low-collision surname; the query has not yet been executed by the refresh workflow."
+      "note": "Watch added in the round-2 pass. Ubellacker is a low-collision surname."
     },
     {
       "labId": "overholtzer-msk",
@@ -218,7 +218,7 @@
       "manualReview": true,
       "lastCheckedAt": "2026-07-23",
       "nextReviewDue": "2026-10-23",
-      "note": "Watch added in the round-2 pass. Overholtzer M is a low-collision surname; the query has not yet been executed."
+      "note": "Watch added in the round-2 pass. Overholtzer M is a low-collision surname."
     },
     {
       "labId": "garcia-saez-mpi",
@@ -230,7 +230,7 @@
       "manualReview": true,
       "lastCheckedAt": "2026-07-23",
       "nextReviewDue": "2026-10-23",
-      "note": "Watch added in the round-2 pass. The affiliation clause spans the current and prior institutions because this laboratory has relocated; the query has not yet been executed."
+      "note": "Watch added in the round-2 pass. The affiliation clause spans the current and prior institutions because this laboratory has relocated."
     },
     {
       "labId": "vandenberghe-antwerp",
@@ -242,7 +242,7 @@
       "manualReview": true,
       "lastCheckedAt": "2026-07-23",
       "nextReviewDue": "2026-10-23",
-      "note": "Watch added in the round-2 pass. The affiliation clause spans Antwerp and Ghent; the query has not yet been executed."
+      "note": "Watch added in the round-2 pass. The affiliation clause spans Antwerp and Ghent."
     },
     {
       "labId": "linkermann-mannheim",
@@ -254,7 +254,7 @@
       "manualReview": true,
       "lastCheckedAt": "2026-07-23",
       "nextReviewDue": "2026-10-23",
-      "note": "Watch added in the round-2 pass. The affiliation clause spans Mannheim, Heidelberg and Dresden because this laboratory has relocated; the query has not yet been executed."
+      "note": "Watch added in the round-2 pass. The affiliation clause spans Mannheim, Heidelberg and Dresden because this laboratory has relocated."
     },
     {
       "labId": "vandenabeele-vib",
@@ -266,7 +266,7 @@
       "manualReview": true,
       "lastCheckedAt": "2026-07-23",
       "nextReviewDue": "2026-10-23",
-      "note": "Watch added in the round-2 pass. Vandenabeele P plus VIB or Ghent; the query has not yet been executed."
+      "note": "Watch added in the round-2 pass. Vandenabeele P plus VIB or Ghent."
     },
     {
       "labId": "toyokuni-nagoya",
@@ -278,7 +278,7 @@
       "manualReview": true,
       "lastCheckedAt": "2026-07-23",
       "nextReviewDue": "2026-10-23",
-      "note": "Watch added in the round-2 pass. Toyokuni S is a low-collision surname; the query has not yet been executed."
+      "note": "Watch added in the round-2 pass. Toyokuni S is a low-collision surname."
     },
     {
       "labId": "bayir-columbia",
@@ -290,7 +290,7 @@
       "manualReview": true,
       "lastCheckedAt": "2026-07-23",
       "nextReviewDue": "2026-10-23",
-      "note": "Watch added in the round-2 pass. The affiliation clause spans Columbia and Pittsburgh because this laboratory has relocated; the query has not yet been executed."
+      "note": "Watch added in the round-2 pass. The affiliation clause spans Columbia and Pittsburgh because this laboratory has relocated."
     },
     {
       "labId": "wang-zhejiang",
@@ -302,7 +302,7 @@
       "manualReview": true,
       "lastCheckedAt": "2026-09-19",
       "nextReviewDue": "2026-12-19",
-      "note": "Watch added in the round-3 expansion using PubMed full-name indexing. Full names only: Wang F at Zhejiang collides too broadly even with the affiliation, so records indexed with initials alone are accepted as misses. A full-name query still cannot prove identity; ORCID remains the exactness bar, and the watch has not yet been executed."
+      "note": "Watch added in the round-3 expansion using PubMed full-name indexing. Full names only: Wang F at Zhejiang collides too broadly even with the affiliation, so records indexed with initials alone are accepted as misses. A full-name query still cannot prove identity; ORCID remains the exactness bar."
     },
     {
       "labId": "jiang-msk",
@@ -314,7 +314,7 @@
       "manualReview": true,
       "lastCheckedAt": "2026-09-19",
       "nextReviewDue": "2026-12-19",
-      "note": "Watch added in the round-3 expansion using PubMed full-name indexing. Full-name query plus a tight Sloan Kettering affiliation; Jiang X alone collides broadly, so the initial form is only used inside the affiliation. A full-name query still cannot prove identity; ORCID remains the exactness bar, and the watch has not yet been executed."
+      "note": "Watch added in the round-3 expansion using PubMed full-name indexing. Full-name query plus a tight Sloan Kettering affiliation; Jiang X alone collides broadly, so the initial form is only used inside the affiliation. A full-name query still cannot prove identity; ORCID remains the exactness bar."
     },
     {
       "labId": "gan-mdanderson",
@@ -326,7 +326,7 @@
       "manualReview": true,
       "lastCheckedAt": "2026-09-19",
       "nextReviewDue": "2026-12-19",
-      "note": "Watch added in the round-3 expansion using PubMed full-name indexing. Full-name query; Gan B collides in general but is near-unique inside the MD Anderson affiliation. A full-name query still cannot prove identity; ORCID remains the exactness bar, and the watch has not yet been executed."
+      "note": "Watch added in the round-3 expansion using PubMed full-name indexing. Full-name query; Gan B collides in general but is near-unique inside the MD Anderson affiliation. A full-name query still cannot prove identity; ORCID remains the exactness bar."
     },
     {
       "labId": "chen-nankai",
@@ -338,7 +338,7 @@
       "manualReview": true,
       "lastCheckedAt": "2026-09-19",
       "nextReviewDue": "2026-12-19",
-      "note": "Watch added in the round-3 expansion using PubMed full-name indexing. Full name only: Chen Q collides too broadly for the initial form even inside the affiliation. A full-name query still cannot prove identity; ORCID remains the exactness bar, and the watch has not yet been executed."
+      "note": "Watch added in the round-3 expansion using PubMed full-name indexing. Full name only: Chen Q collides too broadly for the initial form even inside the affiliation. A full-name query still cannot prove identity; ORCID remains the exactness bar."
     },
     {
       "labId": "saito-tohoku",
@@ -350,7 +350,7 @@
       "manualReview": true,
       "lastCheckedAt": "2026-09-19",
       "nextReviewDue": "2026-12-19",
-      "note": "Watch added in the round-3 expansion using PubMed full-name indexing. Full name only: Saito Y collides at a university this size; the Tohoku affiliation separates this Yoshiro Saito from the NIHS pharmacogenomics researcher of the same name. A full-name query still cannot prove identity; ORCID remains the exactness bar, and the watch has not yet been executed."
+      "note": "Watch added in the round-3 expansion using PubMed full-name indexing. Full name only: Saito Y collides at a university this size; the Tohoku affiliation separates this Yoshiro Saito from the NIHS pharmacogenomics researcher of the same name. A full-name query still cannot prove identity; ORCID remains the exactness bar."
     },
     {
       "labId": "fujita-iwai-kyoto",
@@ -362,7 +362,7 @@
       "manualReview": true,
       "lastCheckedAt": "2026-09-19",
       "nextReviewDue": "2026-12-19",
-      "note": "Watch added in the round-3 expansion using PubMed full-name indexing. Two-PI watch, full names only: Fujita H and Iwai K collide broadly at Kyoto. A full-name query still cannot prove identity; ORCID remains the exactness bar, and the watch has not yet been executed."
+      "note": "Watch added in the round-3 expansion using PubMed full-name indexing. Two-PI watch, full names only: Fujita H and Iwai K collide broadly at Kyoto. A full-name query still cannot prove identity; ORCID remains the exactness bar."
     },
     {
       "labId": "gao-hit",
@@ -374,7 +374,7 @@
       "manualReview": true,
       "lastCheckedAt": "2026-09-19",
       "nextReviewDue": "2026-12-19",
-      "note": "Watch added in the round-3 expansion using PubMed full-name indexing. Full-name query; the initial form is constrained to the Harbin affiliation. A full-name query still cannot prove identity; ORCID remains the exactness bar, and the watch has not yet been executed."
+      "note": "Watch added in the round-3 expansion using PubMed full-name indexing. Full-name query; the initial form is constrained to the Harbin affiliation. A full-name query still cannot prove identity; ORCID remains the exactness bar."
     },
     {
       "labId": "ai-igdb",
@@ -386,7 +386,7 @@
       "manualReview": true,
       "lastCheckedAt": "2026-09-19",
       "nextReviewDue": "2026-12-19",
-      "note": "Watch added in the round-3 expansion using PubMed full-name indexing. Full-name query; the initial form is constrained to the institute-level affiliation rather than CAS as a whole. A full-name query still cannot prove identity; ORCID remains the exactness bar, and the watch has not yet been executed."
+      "note": "Watch added in the round-3 expansion using PubMed full-name indexing. Full-name query; the initial form is constrained to the institute-level affiliation rather than CAS as a whole. A full-name query still cannot prove identity; ORCID remains the exactness bar."
     },
     {
       "labId": "kang-snu",
@@ -398,7 +398,7 @@
       "manualReview": true,
       "lastCheckedAt": "2026-09-19",
       "nextReviewDue": "2026-12-19",
-      "note": "Watch added in the round-3 expansion using PubMed full-name indexing. Full-name query plus the double-initial form inside the Seoul affiliation. A full-name query still cannot prove identity; ORCID remains the exactness bar, and the watch has not yet been executed."
+      "note": "Watch added in the round-3 expansion using PubMed full-name indexing. Full-name query plus the double-initial form inside the Seoul affiliation. A full-name query still cannot prove identity; ORCID remains the exactness bar."
     },
     {
       "labId": "tang-kang-utsw",
@@ -410,7 +410,7 @@
       "manualReview": true,
       "lastCheckedAt": "2026-09-19",
       "nextReviewDue": "2026-12-19",
-      "note": "Watch added in the round-3 expansion using PubMed full-name indexing. Two-PI watch; the bare initials collide, so both are constrained to the UT Southwestern affiliation. A full-name query still cannot prove identity; ORCID remains the exactness bar, and the watch has not yet been executed."
+      "note": "Watch added in the round-3 expansion using PubMed full-name indexing. Two-PI watch; the bare initials collide, so both are constrained to the UT Southwestern affiliation. A full-name query still cannot prove identity; ORCID remains the exactness bar."
     },
     {
       "labId": "zhang-ufscripps",
@@ -422,7 +422,7 @@
       "manualReview": true,
       "lastCheckedAt": "2026-09-19",
       "nextReviewDue": "2026-12-19",
-      "note": "Watch added in the round-3 expansion using PubMed full-name indexing. Full-name query plus the double-initial form inside the UF Scripps affiliation. A full-name query still cannot prove identity; ORCID remains the exactness bar, and the watch has not yet been executed."
+      "note": "Watch added in the round-3 expansion using PubMed full-name indexing. Full-name query plus the double-initial form inside the UF Scripps affiliation. A full-name query still cannot prove identity; ORCID remains the exactness bar."
     },
     {
       "labId": "zoulab-michigan",
@@ -434,7 +434,7 @@
       "manualReview": true,
       "lastCheckedAt": "2026-09-19",
       "nextReviewDue": "2026-12-19",
-      "note": "Watch added in the round-3 expansion using PubMed full-name indexing. Full-name query; the initial form is constrained to the Michigan affiliation. A full-name query still cannot prove identity; ORCID remains the exactness bar, and the watch has not yet been executed."
+      "note": "Watch added in the round-3 expansion using PubMed full-name indexing. Full-name query; the initial form is constrained to the Michigan affiliation. A full-name query still cannot prove identity; ORCID remains the exactness bar."
     },
     {
       "labId": "gil-tate-imperial",
@@ -446,7 +446,7 @@
       "manualReview": true,
       "lastCheckedAt": "2026-09-19",
       "nextReviewDue": "2026-12-19",
-      "note": "Watch added in the round-3 expansion using PubMed full-name indexing. Two-PI watch; Gil J collides too broadly for the initial form, Tate EW is distinctive enough to keep. A full-name query still cannot prove identity; ORCID remains the exactness bar, and the watch has not yet been executed."
+      "note": "Watch added in the round-3 expansion using PubMed full-name indexing. Two-PI watch; Gil J collides too broadly for the initial form, Tate EW is distinctive enough to keep. A full-name query still cannot prove identity; ORCID remains the exactness bar."
     },
     {
       "labId": "bush-florey",
@@ -458,7 +458,7 @@
       "manualReview": true,
       "lastCheckedAt": "2026-09-19",
       "nextReviewDue": "2026-12-19",
-      "note": "Watch added in the round-3 expansion using PubMed full-name indexing. Full-name query; Bush AI is a distinctive initial pair, kept inside the Melbourne affiliation. A full-name query still cannot prove identity; ORCID remains the exactness bar, and the watch has not yet been executed."
+      "note": "Watch added in the round-3 expansion using PubMed full-name indexing. Full-name query; Bush AI is a distinctive initial pair, kept inside the Melbourne affiliation. A full-name query still cannot prove identity; ORCID remains the exactness bar."
     }
   ]
 }
