@@ -163,6 +163,38 @@ async function writeData(dir, file, value) {
   await fs.rm(dir, { recursive: true, force: true });
 }
 
+// ------------------------------------------- watch run-state written by the refresh
+
+// The refresh now promotes executed watches and records their run date and match count in
+// monitoring-coverage.json, then gates its own commit on this validator — so the state it
+// writes must pass, and a contradictory state (pending with a recorded run) must not.
+{
+  const dir = await scaffold();
+  const coverage = await readData(dir, "monitoring-coverage.json");
+  for (const row of coverage.labs) {
+    if (row.authorWatch === "none") continue;
+    if (row.watchState === "pending-first-run") { row.watchState = "active"; row.activatedAt = "2026-09-27"; }
+    row.lastRunAt = "2026-09-27";
+    row.matchesPastYear = 3;
+  }
+  await writeData(dir, "monitoring-coverage.json", coverage);
+  const result = runValidator(dir);
+  test("coverage run-state as the refresh writes it passes the refresh gate", result.status === 0, result.stderr);
+  await fs.rm(dir, { recursive: true, force: true });
+}
+
+{
+  const dir = await scaffold();
+  const coverage = await readData(dir, "monitoring-coverage.json");
+  const row = coverage.labs.find((entry) => entry.watchState === "pending-first-run") || coverage.labs.find((entry) => entry.authorWatch !== "none");
+  row.watchState = "pending-first-run";
+  row.lastRunAt = "2026-09-27";
+  await writeData(dir, "monitoring-coverage.json", coverage);
+  const result = runValidator(dir);
+  test("a watch pending its first run but carrying a run date is rejected", result.status === 1 && /cannot still be pending/.test(result.stderr), result.stdout);
+  await fs.rm(dir, { recursive: true, force: true });
+}
+
 // ----------------------------------------------------------------------- report
 
 const failures = cases.filter((entry) => !entry.ok);

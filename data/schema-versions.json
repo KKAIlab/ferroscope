@@ -292,6 +292,18 @@
       "reviewedContentSha256": null,
       "purpose": "PubMed author queries for tracked laboratories; labels are internal, never published. Eight watches were added in the round-2 pass and have not been executed or reviewed.",
       "registeredAt": "2026-07-23"
+    },
+    "ai-reading-drafts.json": {
+      "schemaVersion": "1.0.0",
+      "shape": "array",
+      "maintenance": "curated",
+      "owner": "ferroscope-maintainer",
+      "reviewer": null,
+      "reviewPending": true,
+      "reviewedAt": null,
+      "reviewedContentSha256": null,
+      "purpose": "AI-drafted readings of automated records (what the work adds, where its evidence stops), keyed by canonical identity. Every entry states its basis and status; an ai-draft never grades evidence or promotes a document class.",
+      "registeredAt": "2026-09-27"
     }
   }
 }

@@ -501,6 +501,38 @@ if (mergeTarget) {
 }
 await fs.rm(mergeDir, { recursive: true, force: true });
 
+// ------------------------------------------------------------- AI reading drafts
+//
+// A draft explains an automated record; it must never certify one. Built as a fixture so it
+// does not depend on which records the moving fetch window holds: one automated record with
+// a draft keyed to its canonical identity must render the draft's text, the unreviewed
+// badge, and still no evidence grade and no promoted document class.
+{
+  const draftDir = await fs.mkdtemp(path.join(os.tmpdir(), "ferroscope-draft-"));
+  await fs.cp(path.join(root, "data"), path.join(draftDir, "data"), { recursive: true });
+  const probe = {
+    id: "pubmed-99990001", pmid: "99990001", doi: "10.1000/draft-probe", url: "https://doi.org/10.1000/draft-probe",
+    title: "Draft probe record", date: "2026-09-01", sourceType: "paper", relevance: 100,
+    topics: ["methods"], takeaway: "Probe Journal · route note.", sourceName: "PubMed",
+    documentType: "unknown", documentTypeBasis: "pubmed-publication-type-unspecific",
+    evidenceGrade: null, evidenceGradeBasis: "unassessed", reviewStatus: "automated", stale: false,
+  };
+  await fs.writeFile(path.join(draftDir, "data", "live.json"), `${JSON.stringify([probe], null, 2)}\n`);
+  await fs.writeFile(path.join(draftDir, "data", "ai-reading-drafts.json"), `${JSON.stringify([{
+    canonicalId: "doi:10.1000/draft-probe", basis: "abstract", status: "ai-draft", draftedBy: "probe", draftedAt: "2026-09-27",
+    takeaway: "DRAFT-TAKEAWAY-PROBE", caveat: "DRAFT-CAVEAT-PROBE",
+  }], null, 2)}\n`);
+  const { harness: draftHarness, app: draftApp } = await renderWith(draftDir, "draft");
+  const draftHtml = draftHarness.htmlFor("#signalList");
+  const record = draftApp.state.signals.find((item) => item.canonicalId === "doi:10.1000/draft-probe");
+  fail(Boolean(record), "The draft probe record did not reach the signal list.");
+  fail(draftHtml.includes("DRAFT-TAKEAWAY-PROBE") && draftHtml.includes("DRAFT-CAVEAT-PROBE"), "An AI reading draft did not replace the route note on its record's card.");
+  fail(/AI-read abstract · unreviewed/.test(draftHtml), "An AI reading draft rendered without its unreviewed badge.");
+  fail(record?.evidenceGrade === null, "An AI reading draft changed a record's evidence grade.");
+  fail(record?.documentType === "unknown", "An AI reading draft changed a record's document class.");
+  await fs.rm(draftDir, { recursive: true, force: true });
+}
+
 if (errors.length) {
   console.error(errors.join("\n"));
   process.exit(1);
