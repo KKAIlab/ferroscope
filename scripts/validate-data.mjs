@@ -217,6 +217,13 @@ for (const [index, row] of (coverage.labs || []).entries()) {
   }
   if (row.lastCheckedAt && row.nextReviewDue && row.nextReviewDue <= row.lastCheckedAt) errors.push(`${where}: nextReviewDue must be after lastCheckedAt`);
   if (row.authorWatch === "orcid-exact" && !row.orcid) errors.push(`${where}: an ORCID-exact watch must record the ORCID it was proven against`);
+  // Run-state is written by the refresh that executes the watch, in structured fields; the
+  // free-text note describes the query's basis and must not carry run-state, because a
+  // sentence like "has not yet been executed" goes stale the moment the watch runs.
+  if (row.watchState === "pending-first-run" && row.lastRunAt) errors.push(`${where}: a watch that has run (lastRunAt ${row.lastRunAt}) cannot still be pending its first run`);
+  if (row.lastRunAt !== undefined && !/^\d{4}-\d{2}-\d{2}$/.test(row.lastRunAt || "")) errors.push(`${where}: lastRunAt must be an ISO date`);
+  if (row.matchesPastYear !== undefined && !(Number.isInteger(row.matchesPastYear) && row.matchesPastYear >= 0)) errors.push(`${where}: matchesPastYear must be a non-negative integer`);
+  if (/not yet been executed|has not (yet )?run|not yet run/i.test(row.note || "")) errors.push(`${where}: the note states run-state in prose; run-state belongs in watchState/lastRunAt, which the refresh maintains`);
 }
 for (const id of labIds) if (!coverageIds.has(id)) errors.push(`Laboratory has no monitoring-coverage record: ${id}`);
 

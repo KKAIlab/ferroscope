@@ -7,8 +7,8 @@ import { createResolver, validateRegistry } from "../lib/source-registry.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const read = async (file) => JSON.parse(await fs.readFile(path.join(root, "data", file), "utf8"));
-const [labs, labsEn, methods, glossary, network, resources, curated, briefs, bundles, paperClaims, paperLinks, sourceReviews, papersEn, ferrdbRegulators] = await Promise.all([
-  read("labs.json"), read("labs-en.json"), read("methods.json"), read("glossary.json"), read("knowledge-network.json"), read("resources.json"), read("intelligence-curated.json"), read("signal-briefs-en.json"), read("evidence-bundles.json"), read("paper-claims.json"), read("lab-paper-links.json"), read("source-reviews.json"), read("papers-en.json"), read("ferrdb-regulators.json")
+const [labs, labsEn, methods, glossary, network, resources, curated, briefs, bundles, paperClaims, paperLinks, sourceReviews, papersEn, ferrdbRegulators, aiDrafts] = await Promise.all([
+  read("labs.json"), read("labs-en.json"), read("methods.json"), read("glossary.json"), read("knowledge-network.json"), read("resources.json"), read("intelligence-curated.json"), read("signal-briefs-en.json"), read("evidence-bundles.json"), read("paper-claims.json"), read("lab-paper-links.json"), read("source-reviews.json"), read("papers-en.json"), read("ferrdb-regulators.json"), read("ai-reading-drafts.json")
 ]);
 const paperDois = new Set(papersEn.map((paper) => paper.doi).filter(Boolean));
 
@@ -142,6 +142,27 @@ for (const entry of glossary) {
     if (!["ai-draft", "reviewed"].includes(translation.status)) errors.push(`${where}: status must be "ai-draft" or "reviewed"`);
     if (!translation.draftedBy || !/^\d{4}-\d{2}-\d{2}$/.test(translation.draftedAt || "")) errors.push(`${where}: must record who drafted it and the ISO date`);
     if (translation.status === "reviewed" && (!translation.reviewedBy || !/^\d{4}-\d{2}-\d{2}$/.test(translation.reviewedAt || ""))) errors.push(`${where}: a reviewed translation must name its reviewer and the ISO review date`);
+  }
+}
+// AI reading drafts sit between the automated alert and the curated layers: a model read the
+// abstract (or more) and wrote what the work adds and where its evidence stops. They are
+// allowed to explain a record, never to certify it — so a draft may not carry an evidence
+// grade or a document class, must state what it was read from, and a "reviewed" claim
+// must name its reviewer and date like every other review claim here.
+const draftIds = new Set();
+for (const [index, draft] of (aiDrafts || []).entries()) {
+  const where = `ai-reading-drafts[${index}] ${draft.canonicalId || "(no canonicalId)"}`;
+  if (!/^(doi|pmid|nct|url):/.test(draft.canonicalId || "")) errors.push(`${where}: canonicalId must be a canonical identity such as doi:10.xxxx/yyy`);
+  if (draftIds.has(draft.canonicalId)) errors.push(`${where}: duplicate draft for one record`);
+  draftIds.add(draft.canonicalId);
+  if (!draft.takeaway || !draft.caveat) errors.push(`${where}: a draft must state both what the work adds and where its evidence stops`);
+  if (/[\u3040-\u30ff\u3400-\u9fff]/u.test(`${draft.takeaway || ""}${draft.caveat || ""}`)) errors.push(`${where}: published reading text is English`);
+  if (!["abstract", "full-text", "figures"].includes(draft.basis)) errors.push(`${where}: basis must name what was read (abstract, full-text or figures)`);
+  if (!["ai-draft", "reviewed"].includes(draft.status)) errors.push(`${where}: status must be "ai-draft" or "reviewed"`);
+  if (!draft.draftedBy || !/^\d{4}-\d{2}-\d{2}$/.test(draft.draftedAt || "")) errors.push(`${where}: must record who drafted it and the ISO date`);
+  if (draft.status === "reviewed" && (!draft.reviewedBy || !/^\d{4}-\d{2}-\d{2}$/.test(draft.reviewedAt || ""))) errors.push(`${where}: a reviewed draft must name its reviewer and the ISO review date`);
+  for (const forbidden of ["evidenceGrade", "evidence", "documentType"]) {
+    if (forbidden in draft) errors.push(`${where}: a reading draft may not carry ${forbidden}; grading and classification belong to a curated audit overlay`);
   }
 }
 for (const edge of network.mechanismEdges || []) {

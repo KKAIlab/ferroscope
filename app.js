@@ -105,14 +105,18 @@ function normalizeSignal(item, briefMap, labMap) {
     ? (labs.length ? `Primary-source alert matched by the laboratory watch: ${labs.join(", ")}.` : "Automatically captured from a source index; open the primary record before interpretation.")
     : "Open the primary source and the evidence card before reusing this claim.";
   const overlay = state.recordOverlays.get(item.canonicalId);
+  // A curated brief outranks an AI reading draft, which outranks the discovery route's
+  // one-line note. A draft explains; it never touches the grade or the document class.
+  const draft = brief.takeaway ? null : state.aiDrafts?.get(item.canonicalId) || null;
   return {
     ...item,
+    aiDraft: draft,
     ...documentClassOf(item),
     ...evidenceGradeFor({ reviewStatus: item.reviewStatus, declaredGrade: item.evidence || item.evidenceGrade, overlayGrade: overlay?.evidenceGrade }),
     title: plain(item.title, "Untitled source record"),
     topics: brief.topics || normalizeTopics(item.topics),
-    takeaway: brief.takeaway || plain(item.takeaway, fallback),
-    caveat: brief.caveat || plain(item.caveat, ""),
+    takeaway: brief.takeaway || plain(draft?.takeaway, "") || plain(item.takeaway, fallback),
+    caveat: brief.caveat || plain(draft?.caveat, "") || plain(item.caveat, ""),
     trackedLabs: labs,
   };
 }
@@ -185,13 +189,19 @@ function evidenceBlock(item) {
   return `<div class="evidence"><span>${heading}</span>${meter(item.evidenceGrade, item.sourceType)}${basis}<b class="relevance">Research fit ${Number(item.relevance || 0)}/100</b></div>`;
 }
 
+function aiDraftBadge(draft) {
+  if (!draft) return "";
+  if (draft.status === "reviewed") return `<span class="review-badge ai-reviewed" title="AI reading of the ${escapeHtml(draft.basis)}, reviewed by ${escapeHtml(draft.reviewedBy)} on ${escapeHtml(draft.reviewedAt)}">AI-read ${escapeHtml(draft.basis)} · reviewed</span>`;
+  return `<span class="review-badge ai-draft" title="Summary and boundary drafted by an AI from the ${escapeHtml(draft.basis)} on ${escapeHtml(draft.draftedAt)}. Not yet reviewed; open the primary source before reuse.">AI-read ${escapeHtml(draft.basis)} · unreviewed</span>`;
+}
+
 export function renderSignals() {
   const all = filteredSignals(), visible = all.slice(0, state.visibleSignals);
   // Only records that were not on screen a moment ago animate in. A filter change rebuilds every
   // card, and without this the whole list would replay its entrance every time a dropdown moved —
   // motion that carries no information is just noise.
   const enterFrom = visible.length > renderedSignalCount ? renderedSignalCount : visible.length;
-  $("#signalList").innerHTML = visible.length ? visible.map((item, index) => `<article class="signal-item${index >= enterFrom ? " is-entering" : ""}"${index >= enterFrom ? ` style="--enter-index:${index - enterFrom}"` : ""}><div class="signal-source"><span class="source-badge ${escapeHtml(item.sourceType)}">${escapeHtml(sourceLabels[item.sourceType] || item.sourceType)}</span>${documentBadge(item)}<span class="review-badge ${escapeHtml(item.reviewStatus)}">${item.reviewStatus === "curated" ? "curated" : "automated alert"}</span>${item.alsoDiscoveredAutomatically ? '<span class="review-badge merged">also matched by the laboratory watch</span>' : ""}${freshnessBadge(item)}<time datetime="${escapeHtml(item.date || "")}">${formatDate(item.date)}</time></div><div class="signal-main"><h3>${escapeHtml(item.title)}</h3><p class="signal-finding">${escapeHtml(item.takeaway)}</p>${item.caveat ? `<p class="signal-boundary"><span>Stops at</span>${escapeHtml(item.caveat)}</p>` : ""}<div class="signal-tags">${(item.trackedLabs || []).slice(0,2).map((lab) => `<span class="chip lab-hit">LAB · ${escapeHtml(lab)}</span>`).join("")}${(item.topics || []).slice(0,4).map((topic) => `<span class="chip">${escapeHtml(topic)}</span>`).join("")}</div></div>${evidenceBlock(item)}<a class="signal-arrow" href="${safeUrl(item.url)}" target="_blank" rel="noreferrer" aria-label="Open primary source">↗</a></article>`).join("") : '<div class="empty">No signals match the current filters.</div>';
+  $("#signalList").innerHTML = visible.length ? visible.map((item, index) => `<article class="signal-item${index >= enterFrom ? " is-entering" : ""}"${index >= enterFrom ? ` style="--enter-index:${index - enterFrom}"` : ""}><div class="signal-source"><span class="source-badge ${escapeHtml(item.sourceType)}">${escapeHtml(sourceLabels[item.sourceType] || item.sourceType)}</span>${documentBadge(item)}<span class="review-badge ${escapeHtml(item.reviewStatus)}">${item.reviewStatus === "curated" ? "curated" : "automated alert"}</span>${item.alsoDiscoveredAutomatically ? '<span class="review-badge merged">also matched by the laboratory watch</span>' : ""}${aiDraftBadge(item.aiDraft)}${freshnessBadge(item)}<time datetime="${escapeHtml(item.date || "")}">${formatDate(item.date)}</time></div><div class="signal-main"><h3>${escapeHtml(item.title)}</h3><p class="signal-finding">${escapeHtml(item.takeaway)}</p>${item.caveat ? `<p class="signal-boundary"><span>Stops at</span>${escapeHtml(item.caveat)}</p>` : ""}<div class="signal-tags">${(item.trackedLabs || []).slice(0,2).map((lab) => `<span class="chip lab-hit">LAB · ${escapeHtml(lab)}</span>`).join("")}${(item.topics || []).slice(0,4).map((topic) => `<span class="chip">${escapeHtml(topic)}</span>`).join("")}</div></div>${evidenceBlock(item)}<a class="signal-arrow" href="${safeUrl(item.url)}" target="_blank" rel="noreferrer" aria-label="Open primary source">↗</a></article>`).join("") : '<div class="empty">No signals match the current filters.</div>';
   renderedSignalCount = visible.length;
   $("#loadMoreSignals").hidden = visible.length >= all.length;
   $("#collapseSignals").hidden = visible.length <= PAGE_STEP;
@@ -205,7 +215,12 @@ function coverageBadge(labId) {
   const row = state.coverageByLab.get(labId);
   if (row && row.authorWatch !== "none") {
     const pending = row.watchState === "pending-first-run";
-    return `<span class="watch-state ${pending ? "pending" : "on"}">● ${pending ? "author watch · first run pending" : "author watch"}</span>`;
+    if (pending) return '<span class="watch-state pending">● author watch · first run pending</span>';
+    // The match count is the watch's own one-year PubMed window, written by the run.
+    const count = Number.isInteger(row.matchesPastYear) ? row.matchesPastYear : null;
+    const detail = count === null ? "" : count ? ` · ${count} ${count === 1 ? "match" : "matches"} in 12 months` : " · no matches in 12 months";
+    const title = row.lastRunAt ? ` title="Last run ${escapeHtml(row.lastRunAt)}"` : "";
+    return `<span class="watch-state on"${title}>● author watch${escapeHtml(detail)}</span>`;
   }
   return '<span class="watch-state manual">● manual official link · not yet automated</span>';
 }
@@ -992,8 +1007,8 @@ function bindEvents() {
 }
 
 async function init() {
-  const [rawLabs, englishLabs, curated, live, meta, watchQueries, research, methods, glossary, network, resources, briefs, papers, paperLinks, recordOverlays, coverage, claims, bundles, manifest, sourceReviews, nodeGeneMap, ferrdbRegulators] = await Promise.all([
-    readJson("data/labs.json", []), readJson("data/labs-en.json", []), readJson("data/intelligence-curated.json", []), readJson("data/live.json", []), readJson("data/meta.json", null), readJson("data/watch-queries.json", []), readJson("data/lab-research.json", { profiles: [], counts: null }), readJson("data/methods.json", []), readJson("data/glossary.json", []), readJson("data/knowledge-network.json", { mechanisms: [], mechanismEdges: [], methodLinks: [] }), readJson("data/resources.json", []), readJson("data/signal-briefs-en.json", []), readJson("data/papers-en.json", []), readJson("data/lab-paper-links.json", []), readJson("data/record-overlays.json", []), readJson("data/monitoring-coverage.json", { labs: [] }), readJson("data/paper-claims.json", { contexts: [], perturbations: [], claims: [] }), readJson("data/evidence-bundles.json", { bundles: [], neverStandalone: [] }), readJson("data/schema-versions.json", { files: {} }), readJson("data/source-reviews.json", { sources: [], reviewEvents: [], reviewers: [] }), readJson("data/node-gene-map.json", { nodes: {} }), readJson("data/ferrdb-regulators.json", { status: "unavailable", publishedCounts: null, regulators: [] })
+  const [rawLabs, englishLabs, curated, live, meta, watchQueries, research, methods, glossary, network, resources, briefs, papers, paperLinks, recordOverlays, coverage, claims, bundles, manifest, sourceReviews, nodeGeneMap, ferrdbRegulators, aiDrafts] = await Promise.all([
+    readJson("data/labs.json", []), readJson("data/labs-en.json", []), readJson("data/intelligence-curated.json", []), readJson("data/live.json", []), readJson("data/meta.json", null), readJson("data/watch-queries.json", []), readJson("data/lab-research.json", { profiles: [], counts: null }), readJson("data/methods.json", []), readJson("data/glossary.json", []), readJson("data/knowledge-network.json", { mechanisms: [], mechanismEdges: [], methodLinks: [] }), readJson("data/resources.json", []), readJson("data/signal-briefs-en.json", []), readJson("data/papers-en.json", []), readJson("data/lab-paper-links.json", []), readJson("data/record-overlays.json", []), readJson("data/monitoring-coverage.json", { labs: [] }), readJson("data/paper-claims.json", { contexts: [], perturbations: [], claims: [] }), readJson("data/evidence-bundles.json", { bundles: [], neverStandalone: [] }), readJson("data/schema-versions.json", { files: {} }), readJson("data/source-reviews.json", { sources: [], reviewEvents: [], reviewers: [] }), readJson("data/node-gene-map.json", { nodes: {} }), readJson("data/ferrdb-regulators.json", { status: "unavailable", publishedCounts: null, regulators: [] }), readJson("data/ai-reading-drafts.json", [])
   ]);
   const overlays = new Map(englishLabs.map((item) => [item.id, item]));
   state.labs = rawLabs.map((lab) => ({ ...lab, ...(overlays.get(lab.id) || {}) })).filter((lab) => overlays.has(lab.id));
@@ -1002,6 +1017,7 @@ async function init() {
   state.researchProfiles = new Map(research.profiles.map((profile) => [profile.labId, profile])); state.researchCounts = research.counts; state.watchedLabIds = new Set(watchQueries.map((item) => item.labId));
   state.coverage = coverage; state.coverageByLab = new Map((coverage.labs || []).map((row) => [row.labId, row])); state.bundles = bundles; state.manifest = manifest;
   state.recordOverlays = new Map(recordOverlays.map((row) => [row.canonicalId, row]));
+  state.aiDrafts = new Map((Array.isArray(aiDrafts) ? aiDrafts : []).map((draft) => [draft.canonicalId, draft]));
   state.papers = papers; state.paperLinks = paperLinks; state.sourceReviews = sourceReviews;
   state.registry = createResolver(sourceReviews);
   state.papersByDoi = new Map(papers.map((paper) => [paper.doi.toLowerCase(), paper]));
