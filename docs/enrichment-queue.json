@@ -1,163 +1,28 @@
 {
-  "generatedAt": "2026-09-21T10:51:26.450Z",
+  "generatedAt": "2026-09-28T11:48:25.306Z",
   "generator": "scripts/build-enrichment-queue.mjs",
   "status": "pre-read work list — no entry here carries any review state",
   "minRelevance": 65,
-  "candidateCount": 31,
+  "candidateCount": 23,
   "candidates": [
     {
-      "canonicalId": "doi:10.1002/1873-3468.70332",
-      "recordId": "pubmed-42003248",
-      "title": "Senescent cells acquire resistance to cystine deprivation-induced ferroptosis via the PPARα-PDK4-phosphorylated PDH axis.",
-      "date": "2026-04-19",
-      "sourceType": "paper",
-      "documentType": "unknown",
-      "relevance": 91,
-      "trackedLabs": [
-        "Ken-ichi Yamada"
-      ],
-      "url": "https://doi.org/10.1002/1873-3468.70332",
-      "doi": "10.1002/1873-3468.70332",
-      "pmid": "42003248",
-      "takeaway": "FEBS letters · Laboratory watch match: Ken-ichi Yamada.",
-      "abstract": "Cellular senescence, a state of irreversible cell cycle arrest, is implicated in age-related diseases. While it is well known that senescent cells resist apoptosis, studies on their resistance to ferroptosis are limited and not fully understood. Senescent cells remain sensitive to ferroptosis induced by direct inhibition of glutathione peroxidase 4 (GPX4) but resist ferroptosis from cystine starvation, suggesting a role for mitochondrial metabolism. Here, we found that this resistance is mediated by peroxisome proliferator-activated receptor &#x3b1; (PPAR&#x3b1;)-dependent upregulation of pyruvate dehydrogenase kinase 4 (PDK4), which inactivates pyruvate dehydrogenase (PDH) and suppresses mitochondria-derived reactive oxygen species, a key driver of ferroptosis. Our findings identify the PPAR&#x3b1;-PDK4-PDH axis as a metabolic switch regulating ferroptosis sensitivity in senescent cells and provide insight into the senescence-ferroptosis interaction."
-    },
-    {
-      "canonicalId": "doi:10.1126/sciadv.aeg3424",
-      "recordId": "pubmed-42616878",
-      "title": "HMOX1 controls a heme-ferritin switch that protects cells from ferroptosis.",
-      "date": "2026-08-19",
+      "canonicalId": "doi:10.1126/science.aec5473",
+      "recordId": "pubmed-42784683",
+      "title": "Mammals produce cyclo-octasulfur to suppress lipid peroxidation and ferroptosis.",
+      "date": "2026-09-24",
       "sourceType": "paper",
       "documentType": "unknown",
       "relevance": 90,
       "trackedLabs": [
-        "José Pedro Friedmann Angeli"
+        "Marcus Conrad",
+        "James Olzmann",
+        "Eikan Mishima"
       ],
-      "url": "https://doi.org/10.1126/sciadv.aeg3424",
-      "doi": "10.1126/sciadv.aeg3424",
-      "pmid": "42616878",
-      "takeaway": "Science advances · Laboratory watch match: José Pedro Friedmann Angeli.",
-      "abstract": "Modulating the intracellular labile iron pool (LIP) has emerged as a promising strategy to induce ferroptosis in cancer cells, offering a way to overcome resistance to apoptosis-based therapies. One of the main contributors to LIP is heme catabolism mediated by heme oxygenase-1 (HMOX1), which promotes ferroptosis sensitivity by releasing free iron. Beyond its role as an iron donor, heme can influence diverse proteins and signaling pathways that drive tumor progression, but how heme regulates ferroptosis remains poorly understood. Here, we uncover a paradoxical, protective function of heme in the absence of HMOX1 activity. When HMOX1 is inactive, heme becomes stabilized, leading to ferritin up-regulation, suppression of ferroptosis, and rescue of cell death induced by both pharmacological and genetic inhibition of GPX4. Our findings reveal an unrecognized heme-HMOX1-ferritin axis that controls ferroptosis sensitivity. Targeting this pathway may offer a new therapeutic strategy to modulate ferroptosis in cancer."
-    },
-    {
-      "canonicalId": "doi:10.1126/sciadv.aeb2368",
-      "recordId": "pubmed-42213853",
-      "title": "Metabolic rewiring driven by phosphoglycolate phosphatase deletion inhibits ferroptosis.",
-      "date": "2026-05-29",
-      "sourceType": "paper",
-      "documentType": "unknown",
-      "relevance": 90,
-      "trackedLabs": [
-        "José Pedro Friedmann Angeli"
-      ],
-      "url": "https://doi.org/10.1126/sciadv.aeb2368",
-      "doi": "10.1126/sciadv.aeb2368",
-      "pmid": "42213853",
-      "takeaway": "Science advances · Laboratory watch match: José Pedro Friedmann Angeli.",
-      "abstract": "Modulating ferroptosis, a form of cell death driven by uncontrolled lipid peroxidation, is of interest in numerous diseases. Here, we found that the deletion of phosphoglycolate phosphatase (PGP), an essential enzyme that safeguards high glycolytic flux, suppresses ferroptosis. Using metabolomic and isotopic labeling experiments together with lipid and proteomic profiling, we find that PGP loss drives a rewiring of the pentose phosphate pathway and of cellular energy and lipid metabolism that triggers a multifactorial antioxidant response. Paradoxically, our attempts to block PGP pharmacologically led to the realization that the recently described PGP inhibitor compound 1 (CP1) exerts a strong ferroptosis-sensitizing effect. Using genetic, biochemical, and biophysical approaches, we characterize CP1 as a direct, species-independent, dual inhibitor of PGP and ferroptosis suppressor protein 1 (FSP1), and further find that CP1 triggers FSP1 self-assembly. In sum, we identify PGP as a target protein for ferroptosis control and introduce a small-molecule FSP1 inhibitor with unique features to the armamentarium of pharmacological ferroptosis modulators."
-    },
-    {
-      "canonicalId": "doi:10.1016/bs.mcb.2026.05.002",
-      "recordId": "pubmed-42442865",
-      "title": "Ferroptosis induction via genetic approaches - CRISPR/Cas9-based disruption on key anti-ferroptotic genes.",
-      "date": "2026-05-28",
-      "sourceType": "paper",
-      "documentType": "unknown",
-      "relevance": 90,
-      "trackedLabs": [
-        "Marcus Conrad"
-      ],
-      "url": "https://doi.org/10.1016/bs.mcb.2026.05.002",
-      "doi": "10.1016/bs.mcb.2026.05.002",
-      "pmid": "42442865",
-      "takeaway": "Methods in cell biology · Laboratory watch match: Marcus Conrad.",
-      "abstract": "Unlike apoptosis, necroptosis, or pyroptosis which are executed by dedicated proteins, ferroptosis is a distinct form of regulated cell death driven by lipid peroxidation downstream of metabolic dysfunction. In most physiological settings, the cyst(e)ine/glutathione/glutathione peroxidase 4 (GPX4) axis constitutes the central anti-ferroptotic machinery, and disruption of this axis is usually sufficient to trigger ferroptosis. For in vitro studies, commonly employed ferroptosis inducers include erastin, which blocks cystine uptake by targeting system xc-, and (1S,3R)-RSL3, which inhibits GPX4 activity. However, both compounds exhibit off-target effects - erastin can activate voltage-dependent anion channels in mitochondria, whereas (1S,3R)-RSL3 affects other selenoproteins in addition to GPX4. Thus, genetic approaches to induce ferroptosis provide a valuable complement to chemical inducers by excluding off-target concerns. Here, we describe an efficient CRISPR/Cas9-based strategy to generate SLC7A11- and GPX4-knockout HT1080 cells. These knockout lines require routine culture in medium supplemented with &#x3b2;-mercaptoethanol or liproxstatin-1, while withdrawal of these supplements readily induces ferroptosis."
-    },
-    {
-      "canonicalId": "doi:10.64898/2026.07.17.739092",
-      "recordId": "pubmed-42539267",
-      "title": "Double-bond geometry determines fatty acid metabolic fate and ferroptosis sensitivity.",
-      "date": "2026-07-20",
-      "sourceType": "preprint",
-      "documentType": "preprint",
-      "relevance": 89,
-      "trackedLabs": [
-        "James Olzmann"
-      ],
-      "url": "https://doi.org/10.64898/2026.07.17.739092",
-      "doi": "10.64898/2026.07.17.739092",
-      "pmid": "42539267",
-      "takeaway": "bioRxiv : the preprint server for biology · Laboratory watch match: James Olzmann.",
-      "abstract": "Ferroptosis is driven by the accumulation of oxidatively damaged membrane phospholipids, making membrane lipid composition a central determinant of cell death sensitivity. While fatty acid chain length and degree of unsaturation are well-established regulators of ferroptosis, whether fatty acid stereochemistry contributes to ferroptosis susceptibility is mostly unexplored. Here, we systematically screened structurally diverse fatty acids for their ability to modulate ferroptosis and unexpectedly identified trans-unsaturated fatty acids as potent sensitizers. Compared with its cis counterpart linoleic acid, the trans polyunsaturated fatty acid (PUFA) linoelaidic acid more strongly enhanced lipid peroxidation and promoted the accumulation of ferroptosis-susceptible phospholipid species. Unexpectedly, the trans monounsaturated fatty acid petroselaidic acid also sensitized cells to ferroptosis, whereas its cis stereoisomer petroselinic acid suppressed ferroptosis. Mechanistically, petroselaidic acid required stearoyl-CoA desaturase-dependent conversion to a PUFA, directly demonstrating that double-bond geometry can redirect fatty acid metabolic fate through altered recognition by lipid metabolic enzymes. Although linoelaidic acid and petroselaidic acid followed distinct metabolic pathways, both converged on phospholipid remodeling that expanded pools of ferroptosis-susceptible membrane lipids. Together, our findings demonstrate that fatty acid double-bond geometry determines their metabolic fate and the membrane phospholipid composition, establishing lipid stereochemistry as a previously unrecognized structural determinant of ferroptosis sensitivity."
-    },
-    {
-      "canonicalId": "doi:10.1038/s41467-026-71869-z",
-      "recordId": "pubmed-42310294",
-      "title": "15-LOX-catalytic bias towards ether-(alkenyl)-ETE-PEs oxidation bestows selectivity of PRO-ferroptotic cell death signaling.",
-      "date": "2026-06-17",
-      "sourceType": "paper",
-      "documentType": "unknown",
-      "relevance": 89,
-      "trackedLabs": [
-        "Valerian Kagan",
-        "Hülya Bayır"
-      ],
-      "url": "https://doi.org/10.1038/s41467-026-71869-z",
-      "doi": "10.1038/s41467-026-71869-z",
-      "pmid": "42310294",
-      "takeaway": "Nature communications · Laboratory watch match: Valerian Kagan, Hülya Bayır.",
-      "abstract": "Ether (alkyl/alkenyl) phospholipids, particularly phosphatidylethanolamine (PE) and phosphatidylcholine (PC), are broadly represented in membranes, but their physiological functions are poorly characterized. The antioxidant role of plasmalogens realized via oxidation of sn-1 vinyl bond has been associated with anti-ferroptotic regulatory function. Alternatively, peroxidation of polyunsaturated fatty acid (PUFA) in sn-2-position of alkenyl-PEs can be pro-ferroptotic. Since 15-LOXs generate 15-HpETE-PEs as ferroptotic signals, we explored alkyl/alkenyl-ETE-PE as substrates of enzymatic peroxidation. Using redox lipidomics, biochemical, biophysical, genetic approaches, and molecular dynamics simulations, we established that both isoforms of 15-LOX (15-LOX-1 and 15-LOX-2) selectively oxidize alkyl/alkenyl-ETE-PE (but not alkyl/alkenyl-ETE-PC), forming 15-HpETE-PEs, triggering ferroptotic death, independently of the vinyl bond. We showed that LOX-catalyzed peroxidation rate of sn-1 vinyl bond is ~500-fold lower than sn-2-ETE-PE, thus excluding the antioxidant role of plasmalogens in ferroptosis. We showed 15-LOX-driven production of sn-1-alkenyl-sn-2-15-HpETE-PE acts as pathogenic factor in acute/chronic diseases: asthma, cancer, brain trauma, skin UVB-injury. Thus, 15-LOX-catalyzed bias towards oxidation of alkenyl-ETE-PE may represent a new therapeutic target."
-    },
-    {
-      "canonicalId": "doi:10.64898/2026.05.16.725645",
-      "recordId": "pubmed-42239248",
-      "title": "Targeted extracellular degradation of LRP8 promotes ferroptosis in cancer cells.",
-      "date": "2026-05-18",
-      "sourceType": "preprint",
-      "documentType": "preprint",
-      "relevance": 89,
-      "trackedLabs": [
-        "James Olzmann"
-      ],
-      "url": "https://doi.org/10.64898/2026.05.16.725645",
-      "doi": "10.64898/2026.05.16.725645",
-      "pmid": "42239248",
-      "takeaway": "bioRxiv : the preprint server for biology · Laboratory watch match: James Olzmann.",
-      "abstract": "Tumor reliance on antioxidant defenses creates a vulnerability to ferroptosis, yet strategies to therapeutically disable these systems remain limited. Here, we identify targeted degradation of the selenium uptake receptor LRP8 as an effective approach to decrease the abundance of the ferroptosis-protective enzyme glutathione peroxidase 4 (GPX4). Using bispecific cytokine receptor-targeting chimeras (KineTACs) that couple LRP8 to cytokine receptor internalization pathways, we selectively direct LRP8 to the lysosome for degradation. LRP8 degradation reduces the abundance of several selenoproteins, including GPX4, lowering the cellular threshold for lipid peroxidation and sensitizing cancer cells to ferroptosis. These findings establish receptor-mediated selenium uptake as a critical, targetable node in ferroptosis resistance and demonstrate that extracellular protein degradation can be leveraged to reprogram intracellular translational dependencies in cancer cells. More broadly, this work provides a framework for exploiting nutrient acquisition pathways to overcome therapy resistance."
-    },
-    {
-      "canonicalId": "doi:10.1016/j.cell.2026.07.040",
-      "recordId": "pubmed-42600612",
-      "title": "Polyamines buffer labile iron to suppress ferroptosis.",
-      "date": "2026-08-14",
-      "sourceType": "paper",
-      "documentType": "unknown",
-      "relevance": 88,
-      "trackedLabs": [
-        "Raphaël Rodriguez"
-      ],
-      "url": "https://doi.org/10.1016/j.cell.2026.07.040",
-      "doi": "10.1016/j.cell.2026.07.040",
-      "pmid": "42600612",
-      "takeaway": "Cell · Laboratory watch match: Raphaël Rodriguez.",
-      "abstract": "Polyamines are essential and evolutionarily conserved metabolites present at millimolar concentrations in mammalian cells. Cells tightly regulate polyamine homeostasis through complex feedback mechanisms, yet the precise role necessitating this regulation remains unclear. Here, we show that polyamines contribute to endogenous buffering of redox-active iron, providing a molecular link between polyamine metabolism and ferroptosis. Using a genome-wide CRISPR screen, we identified a synthetic lethal dependency between polyamine depletion and the key ferroptosis suppressor, glutathione peroxidase 4 (GPX4). Mechanistically, we show that polyamine deficiency triggers a redistribution of cellular iron, increasing the labile iron pool and upregulating ferritin. To directly visualize this iron buffering in living cells, we developed a genetically encoded fluorescent reporter for redox-active iron. Live-cell analysis revealed a striking inverse correlation between intracellular polyamine levels and redox-active iron at single-cell resolution. These findings reposition polyamines as key regulators of iron homeostasis, with implications for ferroptosis-linked disease states and cellular redox balance."
-    },
-    {
-      "canonicalId": "doi:10.1021/acs.jmedchem.6c01496",
-      "recordId": "pubmed-42430517",
-      "title": "Suppression of Lipid Peroxidation by Necrostatins and Their Potential for Dual Targeting of Ferroptosis and Necroptosis.",
-      "date": "2026-07-10",
-      "sourceType": "paper",
-      "documentType": "unknown",
-      "relevance": 88,
-      "trackedLabs": [
-        "Derek Pratt"
-      ],
-      "url": "https://doi.org/10.1021/acs.jmedchem.6c01496",
-      "doi": "10.1021/acs.jmedchem.6c01496",
-      "pmid": "42430517",
-      "takeaway": "Journal of medicinal chemistry · Laboratory watch match: Derek Pratt.",
-      "abstract": "Necrostatin-1 (Nec-1), a widely used RIPK1 inhibitor and necroptosis probe, also suppresses ferroptosis, complicating distinction between these cell death pathways. Here, we show that the thiohydantoin moiety of Nec-1 reacts with hydroperoxides to form a sulfenic acid intermediate capable of trapping peroxyl radicals and inhibiting the lipid peroxidation (LPO) that drives ferroptosis. To investigate this mechanism, several analogs were synthesized and evaluated in the FENIX cell-free LPO assay. Anti-LPO activity was enhanced by increasing steric bulk or nucleophilicity around the thiocarbonyl, relocating the thiohydantoin methyl group, or introducing a fully conjugated linker between the thiohydantoin and indole rings. The fully conjugated analog of Nec-1 (dsaturated Nec-1 or dsNec-1) was isolated as a stable species from preparative reactions of Nec-1 and a hydroperoxide, suggesting it mediates Nec-1's antiferroptotic effects. Desaturated derivatives were, however, inactive against necroptosis, indicating that the Nec-1 scaffold is unsuitable for dual-pathway inhibitor development."
+      "url": "https://doi.org/10.1126/science.aec5473",
+      "doi": "10.1126/science.aec5473",
+      "pmid": "42784683",
+      "takeaway": "Science (New York, N.Y.) · Laboratory watch match: Marcus Conrad, James Olzmann, Eikan Mishima.",
+      "abstract": "Elemental sulfur is an evolutionarily ancient metabolite, yet its generation, storage, and function in animals have remained unclear. We show that mammals harbor elemental sulfur in the form of its most stable allotrope, cyclo-octasulfur (S8). We found that S8 accumulates to millimolar concentrations in mitochondrial membranes and in lipid droplets in both mouse and human cells. We further identified lipid droplet-associated nitric oxide synthase as a source of S8 biosynthesis and found that S8 accumulation in lipid droplets limits lipid peroxidation and suppresses ferroptosis. Accordingly, intra-articular injection of solubilized S8 reduces lipid peroxidation in a mouse model of osteoarthritis. Together, these findings reveal an endogenous pool of S8 in mammals that may protect cells from oxidative membrane damage by modulating cellular sensitivity to ferroptosis."
     },
     {
       "canonicalId": "doi:10.1038/s41594-026-01830-7",
@@ -535,6 +400,114 @@
       "pmid": "42253274",
       "takeaway": "Free radical research · Laboratory watch match: Shinya Toyokuni.",
       "abstract": "Oral squamous cell carcinoma (OSCC) requires therapeutic strategies that preserve oral function while providing effective tumor control. Here we demonstrate that non-thermal plasma (NTP) irradiation of a clinically established povidone-iodine solution generates a potent cytotoxic formulation termed plasma-activated povidone-iodine (PAI). PAI selectively reduced viability of OSCC cell lines (SAS, HSC-2, HSC-4) compared with normal fibroblasts. Mechanistically, PAI activity strictly depended on its acidic pH (3.0 or below) and hydrogen peroxide (H2O2) generated during NTP irradiation. Neutralization or freeze-drying abolished both H2O2 content and cytotoxicity, indicating that reactive oxygen species are essential mediators. Unlike plasma-activated media, whose effects are predominantly iron-dependent, PAI-induced cytotoxicity required intracellular monovalent copper (Cu+). The Cu+ chelator tetrathiomolybdate suppressed ROS accumulation, glutathione depletion, lipid peroxidation, and cell death, whereas classical ferroptosis or apoptosis inhibitors failed to rescue viability. PAI increased intracellular Cu+ levels and triggered oxidative damage including &#x3b3;H2AX induction; however, the resulting death program was mechanistically distinct from apoptosis, ferroptosis, and cuproptosis. Our findings reveal a previously unrecognized Cu+-dependent oxidative pathway initiated by PAI. This study establishes an accessible iodine-based platform that harnesses metal-driven redox chemistry for selective OSCC elimination."
+    }
+  ],
+  "awaitingReview": [
+    {
+      "canonicalId": "doi:10.1126/sciadv.aeg3424",
+      "title": "HMOX1 controls a heme-ferritin switch that protects cells from ferroptosis.",
+      "basis": "abstract",
+      "draftedAt": "2026-09-28",
+      "stillInLiveWindow": true
+    },
+    {
+      "canonicalId": "doi:10.1126/sciadv.aeb2368",
+      "title": "Metabolic rewiring driven by phosphoglycolate phosphatase deletion inhibits ferroptosis.",
+      "basis": "abstract",
+      "draftedAt": "2026-09-28",
+      "stillInLiveWindow": true
+    },
+    {
+      "canonicalId": "doi:10.1016/bs.mcb.2026.05.002",
+      "title": "Ferroptosis induction via genetic approaches - CRISPR/Cas9-based disruption on key anti-ferroptotic genes.",
+      "basis": "abstract",
+      "draftedAt": "2026-09-28",
+      "stillInLiveWindow": true
+    },
+    {
+      "canonicalId": "doi:10.64898/2026.07.17.739092",
+      "title": "Double-bond geometry determines fatty acid metabolic fate and ferroptosis sensitivity.",
+      "basis": "abstract",
+      "draftedAt": "2026-09-28",
+      "stillInLiveWindow": true
+    },
+    {
+      "canonicalId": "doi:10.1038/s41467-026-71869-z",
+      "title": "15-LOX-catalytic bias towards ether-(alkenyl)-ETE-PEs oxidation bestows selectivity of PRO-ferroptotic cell death signaling.",
+      "basis": "abstract",
+      "draftedAt": "2026-09-28",
+      "stillInLiveWindow": true
+    },
+    {
+      "canonicalId": "doi:10.64898/2026.05.16.725645",
+      "title": "Targeted extracellular degradation of LRP8 promotes ferroptosis in cancer cells.",
+      "basis": "abstract",
+      "draftedAt": "2026-09-28",
+      "stillInLiveWindow": true
+    },
+    {
+      "canonicalId": "doi:10.1016/j.cell.2026.07.040",
+      "title": "Polyamines buffer labile iron to suppress ferroptosis.",
+      "basis": "abstract",
+      "draftedAt": "2026-09-28",
+      "stillInLiveWindow": true
+    },
+    {
+      "canonicalId": "doi:10.1021/acs.jmedchem.6c01496",
+      "title": "Suppression of Lipid Peroxidation by Necrostatins and Their Potential for Dual Targeting of Ferroptosis and Necroptosis.",
+      "basis": "abstract",
+      "draftedAt": "2026-09-28",
+      "stillInLiveWindow": true
+    }
+  ],
+  "labReviewsDue": [
+    {
+      "labId": "ubellacker-harvard",
+      "pi": "Jessalyn Ubellacker",
+      "nextReviewDue": "2026-10-23",
+      "overdue": false
+    },
+    {
+      "labId": "overholtzer-msk",
+      "pi": "Michael Overholtzer",
+      "nextReviewDue": "2026-10-23",
+      "overdue": false
+    },
+    {
+      "labId": "garcia-saez-mpi",
+      "pi": "Ana García-Sáez",
+      "nextReviewDue": "2026-10-23",
+      "overdue": false
+    },
+    {
+      "labId": "vandenberghe-antwerp",
+      "pi": "Tom Vanden Berghe",
+      "nextReviewDue": "2026-10-23",
+      "overdue": false
+    },
+    {
+      "labId": "linkermann-mannheim",
+      "pi": "Andreas Linkermann",
+      "nextReviewDue": "2026-10-23",
+      "overdue": false
+    },
+    {
+      "labId": "vandenabeele-vib",
+      "pi": "Peter Vandenabeele",
+      "nextReviewDue": "2026-10-23",
+      "overdue": false
+    },
+    {
+      "labId": "toyokuni-nagoya",
+      "pi": "Shinya Toyokuni",
+      "nextReviewDue": "2026-10-23",
+      "overdue": false
+    },
+    {
+      "labId": "bayir-columbia",
+      "pi": "Hülya Bayır",
+      "nextReviewDue": "2026-10-23",
+      "overdue": false
     }
   ]
 }
