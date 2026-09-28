@@ -47,7 +47,7 @@ const UNNAMED_AUTHORS = "Authors listed in the primary record";
 // such as Wang F, Zhang Q or Jiang X produce large numbers of false positives, so those
 // laboratories are maintained through the curated layer and dedicated author queries
 // instead of being weighted inside the broad title stream.
-const trackedAuthors = /Stockwell BS|Brent Stockwell|Dixon SJ|Scott (J )?Dixon|Conrad M|Marcus Conrad|Friedmann Angeli|Olzmann JA|James Olzmann|Kagan VE|Valerian Kagan|Fedorova M|Maria Fedorova|Pratt DA|Derek Pratt|Rodriguez R|Rapha[eë]l Rodriguez|Mishima E|Eikan Mishima|Papagiannakopoulos T|Thales Papagiannakopoulos|Ubellacker J|Jessalyn Ubellacker|Linkermann A|Andreas Linkermann|Vanden Berghe T|Tom Vanden Berghe|Garcia-Saez A|Garc[ií]a-S[aá]ez A|Ana Garc/i;
+const trackedAuthors = /Stockwell BR|Brent (R )?Stockwell|Dixon SJ|Scott (J )?Dixon|Conrad M|Marcus Conrad|Friedmann Angeli|Olzmann JA|James Olzmann|Kagan VE|Valerian Kagan|Fedorova M|Maria Fedorova|Pratt DA|Derek Pratt|Rodriguez R|Rapha[eë]l Rodriguez|Mishima E|Eikan Mishima|Papagiannakopoulos T|Thales Papagiannakopoulos|Ubellacker J|Jessalyn Ubellacker|Linkermann A|Andreas Linkermann|Vanden Berghe T|Tom Vanden Berghe|Garcia-Saez A|Garc[ií]a-S[aá]ez A|Ana Garc/i;
 
 function topicsFor(text) {
   const topics = topicRules.filter(([, regex]) => regex.test(text)).map(([topic]) => topic);
