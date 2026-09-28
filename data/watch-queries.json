@@ -98,7 +98,7 @@
   {
     "labId": "stockwell-columbia",
     "label": "Brent Stockwell Lab",
-    "query": "Stockwell BS[Author] AND Columbia[Affiliation]",
+    "query": "Stockwell BR[Author] AND Columbia[Affiliation]",
     "relevance": 93,
     "tier": "author-plus-affiliation",
     "addedAt": "2026-07-22"
@@ -114,7 +114,7 @@
   {
     "labId": "papagiannakopoulos-nyu",
     "label": "Papagiannakopoulos Lab",
-    "query": "Papagiannakopoulos T[Author] AND NYU[Affiliation]",
+    "query": "Papagiannakopoulos T[Author] AND (New York University[Affiliation] OR NYU[Affiliation])",
     "relevance": 90,
     "tier": "author-plus-affiliation",
     "addedAt": "2026-07-22"
