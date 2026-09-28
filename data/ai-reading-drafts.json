@@ -26,7 +26,7 @@
     "recordId": "pubmed-42442865",
     "title": "Ferroptosis induction via genetic approaches - CRISPR/Cas9-based disruption on key anti-ferroptotic genes.",
     "takeaway": "A methods chapter, not new findings: it sets out a CRISPR/Cas9 protocol for making SLC7A11- and GPX4-knockout HT1080 cells as a genetic alternative to erastin and (1S,3R)-RSL3, whose off-target effects the authors note (erastin on mitochondrial voltage-dependent anion channels, RSL3 on other selenoproteins). The knockout lines need beta-mercaptoethanol or liproxstatin-1 in the medium, and withdrawing the supplement induces ferroptosis.",
-    "caveat": "This is a protocol chapter rather than a report of new results: the abstract offers a procedure in one cell line (HT1080) and no data of its own, so it supports no claim about ferroptosis biology.",
+    "caveat": "This is a protocol chapter rather than a report of new results: the abstract describes a procedure in one cell line (HT1080), so it is a method to use, not evidence about ferroptosis biology.",
     "basis": "abstract",
     "status": "ai-draft",
     "draftedBy": "Claude (weekly reading round, abstract only)",
