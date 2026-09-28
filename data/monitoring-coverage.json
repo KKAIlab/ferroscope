@@ -196,7 +196,7 @@
       "nextReviewDue": "2027-01-23",
       "note": "Stockwell BR plus Columbia. Corrected 2026-09-28 from Stockwell BS, which is not how PubMed indexes Brent R. Stockwell and matched nothing for a year.",
       "lastRunAt": "2026-09-28",
-      "matchesPastYear": 0
+      "matchesPastYear": 8
     },
     {
       "labId": "dixon-stanford",
@@ -224,7 +224,7 @@
       "nextReviewDue": "2027-01-23",
       "note": "Papagiannakopoulos T is a low-collision name; the NYU constraint is a redundant safeguard. Affiliation widened 2026-09-28 to New York University as well as NYU: PubMed affiliation strings usually spell the institution out, and the NYU-only clause matched nothing for a year.",
       "lastRunAt": "2026-09-28",
-      "matchesPastYear": 0
+      "matchesPastYear": 2
     },
     {
       "labId": "ubellacker-harvard",
