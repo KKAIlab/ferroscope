@@ -9,7 +9,7 @@
     "evidenceGradeBasis": "unassessed",
     "reason": "A Spotlight piece that discusses another article in the same issue. It reports no primary experiment of its own, so it must not sit in the stream as original research.",
     "checkedAt": "2026-07-23",
-    "checkedBy": "Independent review (Codex), recorded in HANDOFF.md section 3, finding P0.1",
+    "checkedBy": "Independent review (Codex), recorded in docs/history/HANDOFF.md section 3, finding P0.1",
     "checkDepth": "review-report-only",
     "checkLimit": "The classification is taken from the independent review report. The publisher page was not re-opened in the round-2 pass, which had no outbound network access."
   },
@@ -23,7 +23,7 @@
     "evidenceGradeBasis": "unassessed",
     "reason": "A short commentary on other groups' papers, carrying no abstract and no primary data. Presenting it beside original research would overstate what the field reported.",
     "checkedAt": "2026-07-23",
-    "checkedBy": "Independent review (Codex), recorded in HANDOFF.md section 3, finding P0.1",
+    "checkedBy": "Independent review (Codex), recorded in docs/history/HANDOFF.md section 3, finding P0.1",
     "checkDepth": "review-report-only",
     "checkLimit": "The classification is taken from the independent review report. The publisher page was not re-opened in the round-2 pass, which had no outbound network access."
   }
