@@ -10,7 +10,7 @@
   },
   "owners": {
     "ferroscope-maintainer": "FerroScope maintainer (KKAIlab), accountable for what this dataset publishes",
-    "independent-review-codex": "Independent reviewer (Codex). The 2026-07-23 review covered behaviour, primary metadata, correction notices and link health, recorded in HANDOFF.md. It was not a byte-level review of any dataset, so no file names it as reviewer yet."
+    "independent-review-codex": "Independent reviewer (Codex). The 2026-07-23 review covered behaviour, primary metadata, correction notices and link health, recorded in docs/history/HANDOFF.md. It was not a byte-level review of any dataset, so no file names it as reviewer yet."
   },
   "files": {
     "evidence-bundles.json": {

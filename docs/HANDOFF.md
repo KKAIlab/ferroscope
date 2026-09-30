@@ -72,7 +72,7 @@ though the file is front-end:
   That file is a moving PubMed window, not a corpus: `fetchTrackedLabs` in `update-data.mjs`
   takes each laboratory's four most recent ferroptosis papers within one year, so any given
   record leaves it within months. Three checks were written against records in it and all
-  three eventually broke the scheduled refresh — see the round-14 note in `README.md`. Build
+  three eventually broke the scheduled refresh — see the round-14 note in `docs/CHANGELOG.md`. Build
   the record as a fixture (`scripts/test-public-surface.mjs` and `scripts/test-display-dates.mjs`
   both show the pattern: `mkdtemp`, copy `data/`, overwrite `live.json`, render). Records in
   `intelligence-curated.json`, `papers-en.json`, `record-overlays.json` and the rest of `data/`
