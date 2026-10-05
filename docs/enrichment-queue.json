@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-09-28T11:48:25.306Z",
+  "generatedAt": "2026-10-05T12:23:41.780Z",
   "generator": "scripts/build-enrichment-queue.mjs",
   "status": "pre-read work list — no entry here carries any review state",
   "minRelevance": 65,
-  "candidateCount": 23,
+  "candidateCount": 26,
   "candidates": [
     {
       "canonicalId": "doi:10.1126/science.aec5473",
@@ -25,6 +25,41 @@
       "abstract": "Elemental sulfur is an evolutionarily ancient metabolite, yet its generation, storage, and function in animals have remained unclear. We show that mammals harbor elemental sulfur in the form of its most stable allotrope, cyclo-octasulfur (S8). We found that S8 accumulates to millimolar concentrations in mitochondrial membranes and in lipid droplets in both mouse and human cells. We further identified lipid droplet-associated nitric oxide synthase as a source of S8 biosynthesis and found that S8 accumulation in lipid droplets limits lipid peroxidation and suppresses ferroptosis. Accordingly, intra-articular injection of solubilized S8 reduces lipid peroxidation in a mouse model of osteoarthritis. Together, these findings reveal an endogenous pool of S8 in mammals that may protect cells from oxidative membrane damage by modulating cellular sensitivity to ferroptosis."
     },
     {
+      "canonicalId": "doi:10.1073/pnas.2616933123",
+      "recordId": "pubmed-42814555",
+      "title": "Targeted extracellular degradation of LRP8 promotes ferroptosis in cancer cells.",
+      "date": "2026-09-30",
+      "sourceType": "paper",
+      "documentType": "unknown",
+      "relevance": 89,
+      "trackedLabs": [
+        "James Olzmann"
+      ],
+      "url": "https://doi.org/10.1073/pnas.2616933123",
+      "doi": "10.1073/pnas.2616933123",
+      "pmid": "42814555",
+      "takeaway": "Proceedings of the National Academy of Sciences of the United States of America · Laboratory watch match: James Olzmann.",
+      "abstract": "Tumor reliance on antioxidant defenses creates a vulnerability to ferroptosis, yet strategies to therapeutically disable these systems remain limited. Here, we identify targeted degradation of the selenium uptake receptor lipoprotein receptor-related protein 8 (LRP8) as an effective approach to decrease the abundance of the ferroptosis-protective enzyme glutathione peroxidase 4 (GPX4). Using bispecific cytokine receptor-targeting chimeras (KineTACs) that couple LRP8 to cytokine receptor internalization pathways, we selectively direct LRP8 to the lysosome for degradation. LRP8 degradation reduces the abundance of several selenoproteins, including GPX4, lowering the cellular threshold for lipid peroxidation and sensitizing cancer cells to ferroptosis. These findings establish receptor-mediated selenium uptake as a critical, targetable node in ferroptosis resistance and demonstrate that extracellular protein degradation can be leveraged to reprogram intracellular translational dependencies in cancer cells. More broadly, this work provides a framework for exploiting nutrient acquisition pathways to overcome therapy resistance."
+    },
+    {
+      "canonicalId": "doi:10.1021/acschembio.6c00583",
+      "recordId": "pubmed-42805600",
+      "title": "On the Inhibition of Lipid Peroxidation and Ferroptosis by Fatty Acids.",
+      "date": "2026-09-29",
+      "sourceType": "paper",
+      "documentType": "unknown",
+      "relevance": 88,
+      "trackedLabs": [
+        "Derek Pratt",
+        "Scott Dixon"
+      ],
+      "url": "https://doi.org/10.1021/acschembio.6c00583",
+      "doi": "10.1021/acschembio.6c00583",
+      "pmid": "42805600",
+      "takeaway": "ACS chemical biology · Laboratory watch match: Derek Pratt, Scott Dixon.",
+      "abstract": "Most inhibitors of lipid peroxidation (LPO) and associated ferroptosis are small molecules that trap LPO-propagating radicals. Among the handful of other inhibitors are select fatty acids: monounsaturated fatty acids (MUFAs) and polyunsaturated fatty acids substituted with deuterium atoms at their reactive bis-allylic positions (D-PUFAs), which render them significantly less reactive to LPO-propagating radicals. To probe whether the simple replacement of oxidizable PUFAs with non-oxidizable FAs is a general strategy for ferroptosis suppression, we prepared derivatives of representative PUFAs-linoleic acid (LA) and arachidonic acid (AA)-with cyclopropane rings in place of their unsaturations (CP-PUFAs). Cyclopropanation was predicted to boost the strength of the neighboring C-H bonds by &#x223c;20 kcal/mol and increase the barrier to reaction with peroxyl radicals by &#x223c;104-fold while preserving their cis geometry. CP-PUFAs suppressed ferroptosis induced by erastin2 in HT-1080 cells and RSL3 in HEK-293 cells, similarly to D-PUFAs and MUFAs. Palmitate, a representative endogenous saturated FA, did not suppress ferroptosis. Whereas d6-AA was more effective than d2-LA, the opposite was true of the CP-PUFAs, with CP4-AA possessing only modest activity while CP2-LA was comparable to the D-PUFAs. Lipidomics provides evidence for more extensive lipid remodeling upon treatment with CP2-LA relative to CP4-AA, with PUFAs being enriched in triacylglycerols at the expense of the diacylglycerols used for phospholipid synthesis. Overall, these results suggest that replacement of oxidizable PUFAs with non-oxidizable FAs is a general strategy to suppress ferroptosis-provided that the non-oxidizable FA can be utilized by the biosynthetic machinery and is not lipotoxic at concentrations necessary for protection."
+    },
+    {
       "canonicalId": "doi:10.1038/s41594-026-01830-7",
       "recordId": "pubmed-42486993",
       "title": "PLA2G2F suppresses ferroptosis through phospholipid remodeling.",
@@ -33,12 +68,13 @@
       "documentType": "unknown",
       "relevance": 87,
       "trackedLabs": [
+        "Brent Stockwell",
         "Xuejun Jiang"
       ],
       "url": "https://doi.org/10.1038/s41594-026-01830-7",
       "doi": "10.1038/s41594-026-01830-7",
       "pmid": "42486993",
-      "takeaway": "Nature structural & molecular biology · Laboratory watch match: Xuejun Jiang.",
+      "takeaway": "Nature structural & molecular biology · Laboratory watch match: Brent Stockwell, Xuejun Jiang.",
       "abstract": "Ferroptosis is an iron-dependent form of regulated cell death driven by phospholipid peroxidation, and it has emerged as a potential therapeutic vulnerability of cancer. Here we identify the secretory phospholipase PLA2G2F (phospholipase A2 group IIF) as a ferroptosis suppressor in bladder cancer and elucidate its regulation and mechanism of action. PLA2G2F functions through an intracellular mechanism by localizing to the endoplasmic reticulum to inhibit ferroptosis. Our genetic and pharmacological analyses reveal that peroxisome proliferator-activated receptor &#x3b3; (PPARG), a nuclear hormone receptor and transcription factor previously implicated in ferroptosis regulation, upregulates PLA2G2F and that PPARG-mediated ferroptosis resistance is largely dependent on PLA2G2F in bladder cancer. Further, lipidomic profiling suggests that PLA2G2F preferentially acts on ether-linked phospholipids containing polyunsaturated fatty acids, thereby reducing the pool of peroxidation-prone polyunsaturated fatty acid-containing phospholipids. Together, our findings establish PLA2G2F as an endoplasmic reticulum-resident ferroptosis suppressor regulated by PPARG and show that inhibiting PPARG signaling or PLA2G2F activity can sensitize bladder cancer cells to ferroptosis induction."
     },
     {
@@ -127,6 +163,23 @@
       "abstract": "Leukemia stem cells exploit cell-intrinsic ketogenesis to suppress ferroptosis and sustain disease propagation. In this issue, Han et al.1 uncover a &#x3b2;-hydroxybutyrate-epigenetic-lipid remodeling axis that protects stemness by restraining ferroptosis, revealing a metabolic vulnerability with therapeutic potential."
     },
     {
+      "canonicalId": "doi:10.1002/advs.75830",
+      "recordId": "pubmed-42212965",
+      "title": "MiR-940 Suppresses Ferroptosis by Controlling Expression of Key Regulatory Genes.",
+      "date": "2026-05-29",
+      "sourceType": "paper",
+      "documentType": "unknown",
+      "relevance": 86,
+      "trackedLabs": [
+        "Brent Stockwell"
+      ],
+      "url": "https://doi.org/10.1002/advs.75830",
+      "doi": "10.1002/advs.75830",
+      "pmid": "42212965",
+      "takeaway": "Advanced science (Weinheim, Baden-Wurttemberg, Germany) · Laboratory watch match: Brent Stockwell.",
+      "abstract": "Ferroptosis is a form of regulated cell death that is characterized by iron-dependent lipid peroxidation. This process is regulated by specific metabolites, the lipid composition of the cells, redox-active iron, and antioxidant mechanisms. Although numerous regulators have been identified over the past decade, exploring other mechanisms, particularly from non-coding genomic regions, can build a thorough understanding of the multifaceted regulatory processes underlying ferroptosis. MicroRNAs (miRNAs) play a crucial role in gene regulation and cellular functions. Through a CRISPR KO screen, we identified miR-940 as a negative regulator of ferroptosis. Overexpression of miR-940 in several cell lines consistently suppressed ferroptosis induced by system xc - inhibition. Notably, multiple cancer patient cohorts with elevated miR-940 levels exhibit reduced survival. Integrated bioinformatic, transcriptomic, and proteomic analyses revealed that miR-940 decreases the expression of ACSL4, LPCAT3, DMT1, and NCOA4, and simultaneously increases levels of GPX4. Pharmacological inhibition of GPX4 attenuated the protective effect of miR-940, indicating that its primary anti-ferroptotic activity is mediated through GPX4. Overall, these mechanistic insights link gene rewiring to reduced levels of redox-active iron and diminished lipid peroxidation, mediating ferroptosis suppression. These findings provide a defined regulatory network, presenting a novel target for therapeutic exploration in susceptible cancers."
+    },
+    {
       "canonicalId": "doi:10.1080/15548627.2026.2726089",
       "recordId": "pubmed-42669120",
       "title": "Autophagic degradation of RAB8A promotes ferroptosis through dysregulation of TFRC-mediated iron uptake.",
@@ -161,6 +214,23 @@
       "abstract": "Ferroptosis, a form of oxidative cell death, represents a therapeutic vulnerability for treating apoptosis-resistant cancers. Here, we identify leucine zipper transcription factor-like 1 (LZTFL1) as a key regulator of ferroptosis that rewires glutathione (GSH) metabolism. Mechanistically, LZTFL1 promotes oxidation of glucose-6-phosphate dehydrogenase (G6PD), thereby limiting NADPH production and impairing GSH regeneration. GSH depletion in turn enhances LZTFL1 translation via an AKT-mammalian target of rapamycin (mTOR)-eukaryotic initiation factor 4E (eIF4E) pathway, establishing a feedforward loop that amplifies ferroptosis. In vivo, the LZTFL1-formin homology 2 domain-containing 1 (FHOD1)-G6PD axis sensitizes multiple tumor models, including patient-derived xenografts, to ferroptosis, leading to enhanced lipid peroxidation, reduced GSH levels, suppressed tumor growth, and prolonged survival. LZTFL1 expression restores cisplatin sensitivity in resistant lung and ovarian cancer cells and predicts improved survival outcomes in patients with lung adenocarcinoma. Moreover, FDA-approved agents upregulate LZTFL1 and re-sensitize resistant tumors to cisplatin. These findings highlight LZTFL1 as a potential biomarker and a therapeutic target for enhancing ferroptosis-based cancer therapy."
     },
     {
+      "canonicalId": "doi:10.1158/2159-8290.cd-26-0232",
+      "recordId": "pubmed-42817713",
+      "title": "Studying Ferroptosis in the Tumor Microenvironment.",
+      "date": "2026-10-01",
+      "sourceType": "paper",
+      "documentType": "unknown",
+      "relevance": 83,
+      "trackedLabs": [
+        "Jessalyn Ubellacker"
+      ],
+      "url": "https://doi.org/10.1158/2159-8290.CD-26-0232",
+      "doi": "10.1158/2159-8290.CD-26-0232",
+      "pmid": "42817713",
+      "takeaway": "Cancer discovery · Laboratory watch match: Jessalyn Ubellacker.",
+      "abstract": "Despite strong preclinical evidence, ferroptosis-based strategies have not yet translated into the clinic, in part due to the disconnect between conventional in vitro models and the complex tumor microenvironment. In this commentary, we consider ferroptosis as a microenvironmentally regulated process and call for multidisciplinary approaches that bridge foundational ferroptosis biology with clinically actionable interventions grounded in the context of the tumor microenvironment."
+    },
+    {
       "canonicalId": "doi:10.1038/s41586-026-11020-6",
       "recordId": "pubmed-42749797",
       "title": "Mitochondrial fission factor senses and governs ferroptosis.",
@@ -193,23 +263,6 @@
       "pmid": "42346336",
       "takeaway": "Metabolites · Laboratory watch match: Fudi Wang · Junxia Min · Qiang Zhang.",
       "abstract": "Objective: Metabolic dysfunction-associated steatotic liver disease (MASLD) is a global public health crisis, progressing to hepatic cirrhosis and hepatocellular carcinoma. This study investigated the causal role of systemic iron status in MASLD progression. Methods: A two-sample Mendelian randomization (MR) design was implemented, with genetic variants serving as instrumental variables for four core systemic iron biomarkers. Outcome data for hepatic steatosis (8785 cases; 912,105 controls) and hepatic fibrosis/cirrhosis (3798 cases; 904,599 controls) were extracted from the FinnGen and UK Biobank databases. Multiple complementary MR methodologies and three instrumental variable selection strategies were applied to ensure robust causal inference. Results: Genetically predicted higher serum iron (odds ratio, OR: 1.42, 95% confidence interval, 95% CI: 1.34, 1.50), ferritin (OR: 1.84, 95% CI: 1.55, 2.18), and transferrin saturation (TfSat, OR: 1.24, 95% CI: 1.19, 1.30), together with lower total iron-binding capacity (TIBC, OR: 0.81, 95% CI: 0.77, 0.85), were significantly associated with increased hepatic steatosis risk (p < 0.00625). Similar associations were observed for hepatic fibrosis/cirrhosis: serum iron (OR: 1.66, 95% CI: 1.29, 2.14), ferritin (OR: 2.52, 95% CI: 1.52, 4.18), TfSat (OR: 1.40, 95% CI: 1.19, 1.63), and reduced TIBC (OR: 0.70, 95% CI: 0.60, 0.81). MR-Bayesian model averaging prioritized serum iron (MIP: 0.85, &#x3b8;^MACE: 0.295; PP: 0.725; &#x3b8;^&#x3bb;: 0.344) as the top-ranked factors for steatosis and TIBC (MIP: 0.604, &#x3b8;^MACE: -0.240; PP: 0.476, &#x3b8;^&#x3bb;: -0.358) for fibrosis/cirrhosis. Conclusions: Elevated systemic iron status causally drives MASLD onset and progression, highlighting iron homeostasis and ferroptosis as potential targets for prevention and clinical management."
-    },
-    {
-      "canonicalId": "doi:10.1016/j.cell.2026.03.052",
-      "recordId": "pubmed-42049018",
-      "title": "Stabilizing MARCH7 as a ferro-guardian against ferroptosis.",
-      "date": "2026-04-27",
-      "sourceType": "paper",
-      "documentType": "unknown",
-      "relevance": 83,
-      "trackedLabs": [
-        "Fudi Wang · Junxia Min · Qiang Zhang"
-      ],
-      "url": "https://doi.org/10.1016/j.cell.2026.03.052",
-      "doi": "10.1016/j.cell.2026.03.052",
-      "pmid": "42049018",
-      "takeaway": "Cell · Laboratory watch match: Fudi Wang · Junxia Min · Qiang Zhang.",
-      "abstract": "Ferroptosis is an iron-dependent form of regulated cell death. However, the critical regulators that restrain iron overload to suppress ferroptosis remain undefined. Utilizing multi-omics, we identify the E3 ubiquitin ligase membrane-associated RING-CH 7 (MARCH7) as a non-redundant, dual suppressor of ferroptosis via direct regulation of intracellular iron homeostasis. Mechanistically, MARCH7 ubiquitylates nuclear receptor coactivator 4 (NCOA4) at residue Lys42 by K48-linked ubiquitination, promoting NCOA4 proteasomal degradation and reducing the labile iron pool. Concomitantly, MARCH7 modifies transferrin receptor 1 (TFR1) at residue Lys53 by K63 ubiquitination, restricting its plasma membrane translocation and thereby inhibiting cellular iron uptake. Through high-content screening, we further identify emodinanthrone (EmodAn) as a specific MARCH7 stabilizer with a strong cardioprotective effect in rodent models by blocking ferroptosis. In conclusion, our findings define an iron homeostasis regulatory hub for ferroptosis and suggest that stabilizing MARCH7 is a promising therapeutic strategy to protect against ferroptosis- or iron-overload-induced diseases."
     },
     {
       "canonicalId": "doi:10.1016/j.redox.2026.104352",
@@ -443,7 +496,7 @@
       "title": "Targeted extracellular degradation of LRP8 promotes ferroptosis in cancer cells.",
       "basis": "abstract",
       "draftedAt": "2026-09-28",
-      "stillInLiveWindow": true
+      "stillInLiveWindow": false
     },
     {
       "canonicalId": "doi:10.1016/j.cell.2026.07.040",
