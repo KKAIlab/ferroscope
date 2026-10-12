@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-05T12:23:41.780Z",
+  "generatedAt": "2026-10-12T13:18:26.776Z",
   "generator": "scripts/build-enrichment-queue.mjs",
   "status": "pre-read work list — no entry here carries any review state",
   "minRelevance": 65,
@@ -353,7 +353,7 @@
       "canonicalId": "doi:10.1016/j.tem.2026.06.001",
       "recordId": "pubmed-42350226",
       "title": "HDL resuscitates cells from ferroptosis.",
-      "date": "2026-06-25",
+      "date": "2026-06-26",
       "sourceType": "paper",
       "documentType": "unknown",
       "relevance": 81,

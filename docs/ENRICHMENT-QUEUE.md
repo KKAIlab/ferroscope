@@ -1,6 +1,6 @@
 # Curated-enrichment queue
 
-*Generated 2026-10-05T12:23:41.780Z by `scripts/build-enrichment-queue.mjs`. Regenerate with `npm run build:enrichment`.*
+*Generated 2026-10-12T13:18:26.776Z by `scripts/build-enrichment-queue.mjs`. Regenerate with `npm run build:enrichment`.*
 
 This is a **pre-read work list, not an audit**. Every entry below is an automated
 record — it matched a search, nothing more. It stays "Evidence not assessed" on the
@@ -276,7 +276,7 @@ matches first. **26 record(s) in the queue.**
 
 ### 21. HDL resuscitates cells from ferroptosis.
 
-- `doi:10.1016/j.tem.2026.06.001` · 2026-06-25 · paper (unknown) · research fit 81/100 · lab watch: Youwei Ai
+- `doi:10.1016/j.tem.2026.06.001` · 2026-06-26 · paper (unknown) · research fit 81/100 · lab watch: Youwei Ai
 - Primary source: https://doi.org/10.1016/j.tem.2026.06.001 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42350226/)
 - Route note: Trends in endocrinology and metabolism: TEM · Laboratory watch match: Youwei Ai.
 
