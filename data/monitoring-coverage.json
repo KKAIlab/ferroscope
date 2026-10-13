@@ -389,7 +389,7 @@
       "note": "Watch added in the round-3 expansion using PubMed full-name indexing. Full-name query; Gan B collides in general but is near-unique inside the MD Anderson affiliation. A full-name query still cannot prove identity; ORCID remains the exactness bar.",
       "activatedAt": "2026-09-28",
       "lastRunAt": "2026-10-13",
-      "matchesPastYear": 5
+      "matchesPastYear": 6
     },
     {
       "labId": "chen-nankai",
