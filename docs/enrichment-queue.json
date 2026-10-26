@@ -1,10 +1,27 @@
 {
-  "generatedAt": "2026-10-19T10:57:11.904Z",
+  "generatedAt": "2026-10-26T11:17:29.021Z",
   "generator": "scripts/build-enrichment-queue.mjs",
   "status": "pre-read work list — no entry here carries any review state",
   "minRelevance": 65,
-  "candidateCount": 26,
+  "candidateCount": 29,
   "candidates": [
+    {
+      "canonicalId": "doi:10.1016/j.cell.2026.09.053",
+      "recordId": "pubmed-42906540",
+      "title": "A bioavailable GPX4 inhibitor for ferroptosis induction in vivo and tumor suppression.",
+      "date": "2026-10-21",
+      "sourceType": "paper",
+      "documentType": "unknown",
+      "relevance": 92,
+      "trackedLabs": [
+        "Yilong Zou"
+      ],
+      "url": "https://doi.org/10.1016/j.cell.2026.09.053",
+      "doi": "10.1016/j.cell.2026.09.053",
+      "pmid": "42906540",
+      "takeaway": "Cell · Laboratory watch match: Yilong Zou.",
+      "abstract": "Ferroptosis is implicated in multiple human diseases, but the lack of bioavailable inducers has limited its physiological study and therapeutic translation. Here, we report KY0418, a selective covalent inhibitor of glutathione peroxidase 4 (GPX4) featuring an isourea warhead, with high plasma stability and broad tissue distribution after oral dosing in mice. KY0418 specifically targets GPX4SeCys46 to induce ferroptosis hallmarks in human and mouse cancer cell lines, with greater selectivity than existing inhibitors. In a standardizable acute-liver-injury mouse model, KY0418 triggers ferroptotic ultrastructural changes matching those of established inducers, and systemic administration remodels tissue metabolism and generates hydroxyl radicals detectable by a chemiluminescent probe. Subcutaneous tumors from different cancers exhibited variable responses to KY0418 treatment, from no effect to about 70% growth inhibition, but KY0418 consistently eradicated circulating tumor cells and suppressed metastasis across multiple cancer models. These findings position KY0418 as a tool for advancing in vivo ferroptosis research and its clinical translation."
+    },
     {
       "canonicalId": "doi:10.1016/j.cell.2026.09.040",
       "recordId": "pubmed-42880285",
@@ -79,7 +96,7 @@
       "canonicalId": "doi:10.1021/acschembio.6c00583",
       "recordId": "pubmed-42805600",
       "title": "On the Inhibition of Lipid Peroxidation and Ferroptosis by Fatty Acids.",
-      "date": "2026-09-29",
+      "date": "2026-10-16",
       "sourceType": "paper",
       "documentType": "unknown",
       "relevance": 88,
@@ -110,6 +127,59 @@
       "pmid": "42486993",
       "takeaway": "Nature structural & molecular biology · Laboratory watch match: Brent Stockwell, Xuejun Jiang.",
       "abstract": "Ferroptosis is an iron-dependent form of regulated cell death driven by phospholipid peroxidation, and it has emerged as a potential therapeutic vulnerability of cancer. Here we identify the secretory phospholipase PLA2G2F (phospholipase A2 group IIF) as a ferroptosis suppressor in bladder cancer and elucidate its regulation and mechanism of action. PLA2G2F functions through an intracellular mechanism by localizing to the endoplasmic reticulum to inhibit ferroptosis. Our genetic and pharmacological analyses reveal that peroxisome proliferator-activated receptor &#x3b3; (PPARG), a nuclear hormone receptor and transcription factor previously implicated in ferroptosis regulation, upregulates PLA2G2F and that PPARG-mediated ferroptosis resistance is largely dependent on PLA2G2F in bladder cancer. Further, lipidomic profiling suggests that PLA2G2F preferentially acts on ether-linked phospholipids containing polyunsaturated fatty acids, thereby reducing the pool of peroxidation-prone polyunsaturated fatty acid-containing phospholipids. Together, our findings establish PLA2G2F as an endoplasmic reticulum-resident ferroptosis suppressor regulated by PPARG and show that inhibiting PPARG signaling or PLA2G2F activity can sensitize bladder cancer cells to ferroptosis induction."
+    },
+    {
+      "canonicalId": "doi:10.1016/j.cell.2026.09.045",
+      "recordId": "pubmed-42914976",
+      "title": "Cell-state-specific metabolic networks govern ferroptosis versus apoptosis in small cell lung cancer.",
+      "date": "2026-10-23",
+      "sourceType": "paper",
+      "documentType": "unknown",
+      "relevance": 86,
+      "trackedLabs": [
+        "Scott Dixon"
+      ],
+      "url": "https://doi.org/10.1016/j.cell.2026.09.045",
+      "doi": "10.1016/j.cell.2026.09.045",
+      "pmid": "42914976",
+      "takeaway": "Cell · Laboratory watch match: Scott Dixon.",
+      "abstract": "Cellular heterogeneity and plasticity are hallmarks of cancer that contribute to tumor growth and therapy resistance. Here, we investigated metabolic heterogeneity in small cell lung cancer (SCLC), an aggressive cancer type with considerable plasticity between neuroendocrine (NE) and non-NE cellular states. Through integrated transcriptomic and metabolomic analyses, we identified a universal dependency on exogenous cysteine/cystine (Cys) across all NE/non-NE SCLC cell states. Notably, NE and non-NE cells with low ASCL1 transcription factor levels underwent ferroptosis upon Cys depletion, whereas ASCL1high cells underwent apoptosis while remaining resistant to ferroptosis. This ferroptosis resistance was driven by the direct transcriptional activation of GCH1 by ASCL1, resulting in increased levels of the antioxidants BH4/BH2. Accordingly, combined Cys depletion and inhibition of BH4/BH2 synthesis reduced tumor growth in patient-derived xenografts. These findings demonstrate that metabolic state influences cell-death susceptibility in SCLC and provide a rationale for therapeutic strategies that exploit these metabolic differences."
+    },
+    {
+      "canonicalId": "doi:10.1038/s41556-026-02107-3",
+      "recordId": "pubmed-42907496",
+      "title": "The rise of reducing reagent-resistant TfR1 dimer marks ferroptosis.",
+      "date": "2026-10-21",
+      "sourceType": "paper",
+      "documentType": "unknown",
+      "relevance": 86,
+      "trackedLabs": [
+        "Scott Dixon",
+        "Thales Papagiannakopoulos",
+        "Tom Vanden Berghe"
+      ],
+      "url": "https://doi.org/10.1038/s41556-026-02107-3",
+      "doi": "10.1038/s41556-026-02107-3",
+      "pmid": "42907496",
+      "takeaway": "Nature cell biology · Laboratory watch match: Scott Dixon, Thales Papagiannakopoulos, Tom Vanden Berghe.",
+      "abstract": "Ferroptosis is an iron-dependent type of cell death caused by excessive membrane lipid peroxidation. It remains a challenge to detect ferroptotic cells, especially in in vivo settings, hindering translational studies. Here we discover that a reducing reagent-resistant (3R) dimer of the transferrin receptor 1 (TfR1) is a highly specific indicator for lipid peroxidation. The 3R dimer is elevated in cells when ferroptosis is induced, either by pharmacological agents or by genetic perturbations. Furthermore, the 3R dimer can be used to detect disease-associated ferroptosis in tissue and in extracellular vesicles isolated from mouse or patient plasma. Given the near-ubiquitous expression of TfR1, we posit that the 3R dimer may function as a ferroptosis marker with widespread potential utility for basic and translational studies."
+    },
+    {
+      "canonicalId": "doi:10.1016/j.chembiol.2026.09.020",
+      "recordId": "pubmed-42906555",
+      "title": "Proteasome inhibition bidirectionally regulates ferroptosis sensitivity.",
+      "date": "2026-10-21",
+      "sourceType": "paper",
+      "documentType": "unknown",
+      "relevance": 86,
+      "trackedLabs": [
+        "Scott Dixon"
+      ],
+      "url": "https://doi.org/10.1016/j.chembiol.2026.09.020",
+      "doi": "10.1016/j.chembiol.2026.09.020",
+      "pmid": "42906555",
+      "takeaway": "Cell chemical biology · Laboratory watch match: Scott Dixon.",
+      "abstract": "Ferroptosis is a non-apoptotic cell death mechanism whose fundamental regulation continues to be elucidated. The proteasome is an essential multiprotein complex important for protein turnover. How proteasome function regulates ferroptosis is difficult to study given that proteasome inhibition causes apoptosis. Here, we isolated the effects of proteasome inhibition on ferroptosis by combining small molecule cell death inducers, pathway-specific cell death inhibitors, and direct cell death imaging. We find that proteasome inhibition enhances sensitivity to ferroptosis induced by glutathione peroxidase 4 (GPX4) inhibition while simultaneously promoting resistance to ferroptosis induced by system xc- inhibition. Sensitization to GPX4 inhibition requires protein synthesis but not the apoptosis execution machinery and is opposed by the activating transcription factor 4 (ATF4) stress response pathway. These findings establish proteasome-mediated protein turnover as a context-dependent regulator of ferroptosis and identify protein synthesis and ATF4 as key determinants of GPX4 inhibitor sensitivity."
     },
     {
       "canonicalId": "doi:10.1038/s41388-026-03921-7",
@@ -146,23 +216,6 @@
       "abstract": "Genetic heterogeneity contributes to the variable therapeutic responses in cancers. Frequent SPOP mutations and recurrent CHD1 deletions define distinct molecular subtypes of prostate cancer (PCa) with differential responses to anti-androgen therapy. Ferroptosis, an iron-dependent cell death mechanism driven by lipid peroxidation, has emerged as a promising anticancer strategy. Here, we identify SPOP mutations and CHD1 deletion as key genetic determinants of ferroptosis susceptibility in PCa. Using genetically engineered human and murine models, we show that SPOP mutations enhance, whereas CHD1 deletion impairs, the efficacy of ferroptosis inducers targeting GPX4. Mechanistically, SPOP and CHD1 exert opposing effects on ferroptosis by antagonistically regulating the MYC-ACSL4 axis. Furthermore, we demonstrate that targeting cholesterol metabolism with cholesterol-lowering agents restores ACSL4 expression and re-sensitizes SPOP/CHD1 co-deficient tumors to ferroptosis-inducing therapy. Our findings establish SPOP/CHD1 as upstream genetic regulators of ferroptosis and provide biomarker-driven combinatorial strategies to enhance ferroptosis-based therapy in men with advanced PCa."
     },
     {
-      "canonicalId": "doi:10.7554/elife.111544",
-      "recordId": "pubmed-42267631",
-      "title": "Cell size modulates ferroptosis susceptibility.",
-      "date": "2026-06-10",
-      "sourceType": "paper",
-      "documentType": "unknown",
-      "relevance": 86,
-      "trackedLabs": [
-        "Scott Dixon"
-      ],
-      "url": "https://doi.org/10.7554/eLife.111544",
-      "doi": "10.7554/eLife.111544",
-      "pmid": "42267631",
-      "takeaway": "eLife · Laboratory watch match: Scott Dixon.",
-      "abstract": "Size is a fundamental property of cells that influences many aspects of their physiology. This is because cell size sets the scale for all subcellular components and drives changes in the composition of the proteome. Given that large and small cells differ in their biochemical composition, we hypothesized that they should also differ in how they respond to signals and make decisions. Here, we investigated how cell size affects the susceptibility of human cells to cell death. We found that large cells are more resistant to ferroptosis caused by system xc- inhibition. Ferroptosis is a type of cell death characterized by the iron-dependent accumulation of toxic lipid peroxides. This process is opposed by cysteine-dependent lipid peroxide detoxification mechanisms. We found that larger cells exhibit higher concentrations of the cysteine-containing metabolite glutathione and lower concentrations of membrane lipid peroxides. Mechanistically, this can be explained by the fact that larger cells had lower concentrations of an enzyme that enriches cellular membranes with peroxidation-prone polyunsaturated fatty acids, ACSL4, and increased concentrations of the glutathione-producing enzymes glutamate-cysteine ligase and glutathione synthetase, the iron-chelating protein ferritin, and the lysosomal protease cathepsin B, which can catabolize cysteine-rich extracellular proteins to produce additional cystine for fueling the synthesis of glutathione. Taken together, our results highlight the significant impact of cell size on cellular function and survival, revealing a size-dependent vulnerability to ferroptosis that could influence therapeutic strategies based on this cell death pathway."
-    },
-    {
       "canonicalId": "doi:10.1016/j.stem.2026.04.022",
       "recordId": "pubmed-42242187",
       "title": "Ketone bodies as guardians of leukemic stemness through ferroptosis suppression.",
@@ -178,23 +231,6 @@
       "pmid": "42242187",
       "takeaway": "Cell stem cell · Laboratory watch match: Boyi Gan.",
       "abstract": "Leukemia stem cells exploit cell-intrinsic ketogenesis to suppress ferroptosis and sustain disease propagation. In this issue, Han et al.1 uncover a &#x3b2;-hydroxybutyrate-epigenetic-lipid remodeling axis that protects stemness by restraining ferroptosis, revealing a metabolic vulnerability with therapeutic potential."
-    },
-    {
-      "canonicalId": "doi:10.1002/advs.75830",
-      "recordId": "pubmed-42212965",
-      "title": "MiR-940 Suppresses Ferroptosis by Controlling Expression of Key Regulatory Genes.",
-      "date": "2026-05-29",
-      "sourceType": "paper",
-      "documentType": "unknown",
-      "relevance": 86,
-      "trackedLabs": [
-        "Brent Stockwell"
-      ],
-      "url": "https://doi.org/10.1002/advs.75830",
-      "doi": "10.1002/advs.75830",
-      "pmid": "42212965",
-      "takeaway": "Advanced science (Weinheim, Baden-Wurttemberg, Germany) · Laboratory watch match: Brent Stockwell.",
-      "abstract": "Ferroptosis is a form of regulated cell death that is characterized by iron-dependent lipid peroxidation. This process is regulated by specific metabolites, the lipid composition of the cells, redox-active iron, and antioxidant mechanisms. Although numerous regulators have been identified over the past decade, exploring other mechanisms, particularly from non-coding genomic regions, can build a thorough understanding of the multifaceted regulatory processes underlying ferroptosis. MicroRNAs (miRNAs) play a crucial role in gene regulation and cellular functions. Through a CRISPR KO screen, we identified miR-940 as a negative regulator of ferroptosis. Overexpression of miR-940 in several cell lines consistently suppressed ferroptosis induced by system xc - inhibition. Notably, multiple cancer patient cohorts with elevated miR-940 levels exhibit reduced survival. Integrated bioinformatic, transcriptomic, and proteomic analyses revealed that miR-940 decreases the expression of ACSL4, LPCAT3, DMT1, and NCOA4, and simultaneously increases levels of GPX4. Pharmacological inhibition of GPX4 attenuated the protective effect of miR-940, indicating that its primary anti-ferroptotic activity is mediated through GPX4. Overall, these mechanistic insights link gene rewiring to reduced levels of redox-active iron and diminished lipid peroxidation, mediating ferroptosis suppression. These findings provide a defined regulatory network, presenting a novel target for therapeutic exploration in susceptible cancers."
     },
     {
       "canonicalId": "doi:10.1080/15548627.2026.2726089",
@@ -229,6 +265,23 @@
       "pmid": "42551439",
       "takeaway": "Molecular cell · Laboratory watch match: Daolin Tang · Rui Kang.",
       "abstract": "Ferroptosis, a form of oxidative cell death, represents a therapeutic vulnerability for treating apoptosis-resistant cancers. Here, we identify leucine zipper transcription factor-like 1 (LZTFL1) as a key regulator of ferroptosis that rewires glutathione (GSH) metabolism. Mechanistically, LZTFL1 promotes oxidation of glucose-6-phosphate dehydrogenase (G6PD), thereby limiting NADPH production and impairing GSH regeneration. GSH depletion in turn enhances LZTFL1 translation via an AKT-mammalian target of rapamycin (mTOR)-eukaryotic initiation factor 4E (eIF4E) pathway, establishing a feedforward loop that amplifies ferroptosis. In vivo, the LZTFL1-formin homology 2 domain-containing 1 (FHOD1)-G6PD axis sensitizes multiple tumor models, including patient-derived xenografts, to ferroptosis, leading to enhanced lipid peroxidation, reduced GSH levels, suppressed tumor growth, and prolonged survival. LZTFL1 expression restores cisplatin sensitivity in resistant lung and ovarian cancer cells and predicts improved survival outcomes in patients with lung adenocarcinoma. Moreover, FDA-approved agents upregulate LZTFL1 and re-sensitize resistant tumors to cisplatin. These findings highlight LZTFL1 as a potential biomarker and a therapeutic target for enhancing ferroptosis-based cancer therapy."
+    },
+    {
+      "canonicalId": "doi:10.1016/j.cell.2026.09.062",
+      "recordId": "pubmed-42914978",
+      "title": "Perforin triggers iron-induced mitochondrial damage to drive ferroptosis and anti-tumor immunity.",
+      "date": "2026-10-23",
+      "sourceType": "paper",
+      "documentType": "unknown",
+      "relevance": 83,
+      "trackedLabs": [
+        "Weiping Zou"
+      ],
+      "url": "https://doi.org/10.1016/j.cell.2026.09.062",
+      "doi": "10.1016/j.cell.2026.09.062",
+      "pmid": "42914978",
+      "takeaway": "Cell · Laboratory watch match: Weiping Zou.",
+      "abstract": "Cytotoxic CD8+ T cells and natural killer cells are critical effectors of anti-tumor immunity. Cytotoxic lymphocytes eliminate tumor cells by releasing perforin (Prf1), a pore-forming protein that enables granzymes (Gzms) to enter target cells and trigger both caspase-dependent and -independent cell death. Here, we uncover a previously unrecognized, Gzm-independent function of Prf1. We find that Prf1 directly induces tumoral ferroptosis, an iron- and lipid-dependent form of cell death. Mechanistically, Prf1-mediated pore formation drives endocytosis of the transferrin receptor, which increases cellular iron uptake. Prf1 promotes the formation of endosomal-mitochondrial contacts, which leads to mitochondrial iron accumulation, mitochondrial dysfunction, and tumor cell ferroptosis. Dietary iron supplementation suppresses tumor progression in murine tumor models in a Prf1-dependent manner. Higher Prf1 expression correlates with improved survival and enhanced response to immune checkpoint blockade in patients with cancer. These findings define a Gzm-independent function of Prf1 as a direct executioner of cancer cell death through ferroptosis."
     },
     {
       "canonicalId": "doi:10.1158/2159-8290.cd-26-0232",
@@ -468,14 +521,14 @@
       "title": "Metabolic rewiring driven by phosphoglycolate phosphatase deletion inhibits ferroptosis.",
       "basis": "abstract",
       "draftedAt": "2026-09-28",
-      "stillInLiveWindow": true
+      "stillInLiveWindow": false
     },
     {
       "canonicalId": "doi:10.1016/bs.mcb.2026.05.002",
       "title": "Ferroptosis induction via genetic approaches - CRISPR/Cas9-based disruption on key anti-ferroptotic genes.",
       "basis": "abstract",
       "draftedAt": "2026-09-28",
-      "stillInLiveWindow": true
+      "stillInLiveWindow": false
     },
     {
       "canonicalId": "doi:10.64898/2026.07.17.739092",
@@ -518,49 +571,49 @@
       "labId": "ubellacker-harvard",
       "pi": "Jessalyn Ubellacker",
       "nextReviewDue": "2026-10-23",
-      "overdue": false
+      "overdue": true
     },
     {
       "labId": "overholtzer-msk",
       "pi": "Michael Overholtzer",
       "nextReviewDue": "2026-10-23",
-      "overdue": false
+      "overdue": true
     },
     {
       "labId": "garcia-saez-mpi",
       "pi": "Ana García-Sáez",
       "nextReviewDue": "2026-10-23",
-      "overdue": false
+      "overdue": true
     },
     {
       "labId": "vandenberghe-antwerp",
       "pi": "Tom Vanden Berghe",
       "nextReviewDue": "2026-10-23",
-      "overdue": false
+      "overdue": true
     },
     {
       "labId": "linkermann-mannheim",
       "pi": "Andreas Linkermann",
       "nextReviewDue": "2026-10-23",
-      "overdue": false
+      "overdue": true
     },
     {
       "labId": "vandenabeele-vib",
       "pi": "Peter Vandenabeele",
       "nextReviewDue": "2026-10-23",
-      "overdue": false
+      "overdue": true
     },
     {
       "labId": "toyokuni-nagoya",
       "pi": "Shinya Toyokuni",
       "nextReviewDue": "2026-10-23",
-      "overdue": false
+      "overdue": true
     },
     {
       "labId": "bayir-columbia",
       "pi": "Hülya Bayır",
       "nextReviewDue": "2026-10-23",
-      "overdue": false
+      "overdue": true
     }
   ]
 }
