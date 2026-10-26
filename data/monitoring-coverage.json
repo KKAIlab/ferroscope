@@ -374,7 +374,7 @@
       "note": "Watch added in the round-3 expansion using PubMed full-name indexing. Full-name query plus a tight Sloan Kettering affiliation; Jiang X alone collides broadly, so the initial form is only used inside the affiliation. A full-name query still cannot prove identity; ORCID remains the exactness bar.",
       "activatedAt": "2026-09-28",
       "lastRunAt": "2026-10-26",
-      "matchesPastYear": 3
+      "matchesPastYear": 4
     },
     {
       "labId": "gan-mdanderson",
