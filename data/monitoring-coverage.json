@@ -112,7 +112,7 @@
       "nextReviewDue": "2027-01-23",
       "note": "Kagan VE plus Pittsburgh.",
       "lastRunAt": "2026-10-30",
-      "matchesPastYear": 3
+      "matchesPastYear": 0
     },
     {
       "labId": "fedorova-dresden",
@@ -284,7 +284,7 @@
       "note": "Watch added in the round-2 pass. The affiliation clause spans Antwerp and Ghent.",
       "activatedAt": "2026-09-28",
       "lastRunAt": "2026-10-30",
-      "matchesPastYear": 5
+      "matchesPastYear": 6
     },
     {
       "labId": "linkermann-mannheim",
