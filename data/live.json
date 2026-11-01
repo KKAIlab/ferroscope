@@ -19,8 +19,6 @@
       "zou-westlake"
     ],
     "takeaway": "Cell · Laboratory watch match: Yilong Zou.",
-    "canonicalId": "doi:10.1016/j.cell.2026.09.053",
-    "canonicalIdKind": "doi",
     "documentType": "unknown",
     "documentTypeBasis": "pubmed-publication-type-unspecific",
     "documentSignals": [
@@ -30,14 +28,14 @@
     "evidenceGradeBasis": "unassessed",
     "reviewStatus": "automated",
     "sourceName": "Tracked labs / PubMed",
-    "stale": false,
-    "freshnessState": "current",
-    "staleSourceNames": [],
-    "freshSourceNames": [
+    "stale": true,
+    "freshnessState": "stale",
+    "staleSourceNames": [
       "Tracked labs / PubMed"
     ],
+    "freshSourceNames": [],
     "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
@@ -45,11 +43,13 @@
         "recordId": "pubmed-42906540",
         "url": "https://doi.org/10.1016/j.cell.2026.09.053",
         "retrievedAt": "2026-10-31T21:32:48.252Z",
-        "stale": false,
+        "stale": true,
         "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
-    ]
+    ],
+    "canonicalId": "doi:10.1016/j.cell.2026.09.053",
+    "canonicalIdKind": "doi"
   },
   {
     "id": "pubmed-42880285",
@@ -72,8 +72,6 @@
       "zou-westlake"
     ],
     "takeaway": "Cell · Laboratory watch match: Yilong Zou.",
-    "canonicalId": "doi:10.1016/j.cell.2026.09.040",
-    "canonicalIdKind": "doi",
     "documentType": "unknown",
     "documentTypeBasis": "pubmed-publication-type-unspecific",
     "documentSignals": [
@@ -83,14 +81,14 @@
     "evidenceGradeBasis": "unassessed",
     "reviewStatus": "automated",
     "sourceName": "Tracked labs / PubMed",
-    "stale": false,
-    "freshnessState": "current",
-    "staleSourceNames": [],
-    "freshSourceNames": [
+    "stale": true,
+    "freshnessState": "stale",
+    "staleSourceNames": [
       "Tracked labs / PubMed"
     ],
+    "freshSourceNames": [],
     "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
@@ -98,11 +96,13 @@
         "recordId": "pubmed-42880285",
         "url": "https://doi.org/10.1016/j.cell.2026.09.040",
         "retrievedAt": "2026-10-31T21:32:48.252Z",
-        "stale": false,
+        "stale": true,
         "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
-    ]
+    ],
+    "canonicalId": "doi:10.1016/j.cell.2026.09.040",
+    "canonicalIdKind": "doi"
   },
   {
     "id": "pubmed-42874009",
@@ -125,8 +125,6 @@
       "zou-westlake"
     ],
     "takeaway": "ACS chemical biology · Laboratory watch match: Yilong Zou.",
-    "canonicalId": "doi:10.1021/acschembio.6c00581",
-    "canonicalIdKind": "doi",
     "documentType": "unknown",
     "documentTypeBasis": "pubmed-publication-type-unspecific",
     "documentSignals": [
@@ -136,14 +134,14 @@
     "evidenceGradeBasis": "unassessed",
     "reviewStatus": "automated",
     "sourceName": "Tracked labs / PubMed",
-    "stale": false,
-    "freshnessState": "current",
-    "staleSourceNames": [],
-    "freshSourceNames": [
+    "stale": true,
+    "freshnessState": "stale",
+    "staleSourceNames": [
       "Tracked labs / PubMed"
     ],
+    "freshSourceNames": [],
     "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
@@ -151,11 +149,13 @@
         "recordId": "pubmed-42874009",
         "url": "https://doi.org/10.1021/acschembio.6c00581",
         "retrievedAt": "2026-10-31T21:32:48.252Z",
-        "stale": false,
+        "stale": true,
         "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
-    ]
+    ],
+    "canonicalId": "doi:10.1021/acschembio.6c00581",
+    "canonicalIdKind": "doi"
   },
   {
     "id": "pubmed-42784683",
@@ -178,8 +178,6 @@
       "mishima-tohoku"
     ],
     "takeaway": "Science (New York, N.Y.) · Laboratory watch match: Marcus Conrad, James Olzmann, Eikan Mishima.",
-    "canonicalId": "doi:10.1126/science.aec5473",
-    "canonicalIdKind": "doi",
     "documentType": "unknown",
     "documentTypeBasis": "pubmed-publication-type-unspecific",
     "documentSignals": [
@@ -189,14 +187,14 @@
     "evidenceGradeBasis": "unassessed",
     "reviewStatus": "automated",
     "sourceName": "Tracked labs / PubMed",
-    "stale": false,
-    "freshnessState": "current",
-    "staleSourceNames": [],
-    "freshSourceNames": [
+    "stale": true,
+    "freshnessState": "stale",
+    "staleSourceNames": [
       "Tracked labs / PubMed"
     ],
+    "freshSourceNames": [],
     "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
@@ -204,11 +202,13 @@
         "recordId": "pubmed-42784683",
         "url": "https://doi.org/10.1126/science.aec5473",
         "retrievedAt": "2026-10-31T21:32:48.252Z",
-        "stale": false,
+        "stale": true,
         "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
-    ]
+    ],
+    "canonicalId": "doi:10.1126/science.aec5473",
+    "canonicalIdKind": "doi"
   },
   {
     "id": "pubmed-42616878",
@@ -229,8 +229,6 @@
       "angeli-wurzburg"
     ],
     "takeaway": "Science advances · Laboratory watch match: José Pedro Friedmann Angeli.",
-    "canonicalId": "doi:10.1126/sciadv.aeg3424",
-    "canonicalIdKind": "doi",
     "documentType": "unknown",
     "documentTypeBasis": "pubmed-publication-type-unspecific",
     "documentSignals": [
@@ -240,14 +238,14 @@
     "evidenceGradeBasis": "unassessed",
     "reviewStatus": "automated",
     "sourceName": "Tracked labs / PubMed",
-    "stale": false,
-    "freshnessState": "current",
-    "staleSourceNames": [],
-    "freshSourceNames": [
+    "stale": true,
+    "freshnessState": "stale",
+    "staleSourceNames": [
       "Tracked labs / PubMed"
     ],
+    "freshSourceNames": [],
     "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
@@ -255,11 +253,13 @@
         "recordId": "pubmed-42616878",
         "url": "https://doi.org/10.1126/sciadv.aeg3424",
         "retrievedAt": "2026-10-31T21:32:48.252Z",
-        "stale": false,
+        "stale": true,
         "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
-    ]
+    ],
+    "canonicalId": "doi:10.1126/sciadv.aeg3424",
+    "canonicalIdKind": "doi"
   },
   {
     "id": "pubmed-42439891",
@@ -280,8 +280,6 @@
       "angeli-wurzburg"
     ],
     "takeaway": "The Journal of cell biology · Laboratory watch match: José Pedro Friedmann Angeli.",
-    "canonicalId": "doi:10.1083/jcb.202606160",
-    "canonicalIdKind": "doi",
     "documentType": "unknown",
     "documentTypeBasis": "pubmed-publication-type-unspecific",
     "documentSignals": [
@@ -291,14 +289,14 @@
     "evidenceGradeBasis": "unassessed",
     "reviewStatus": "automated",
     "sourceName": "Tracked labs / PubMed",
-    "stale": false,
-    "freshnessState": "current",
-    "staleSourceNames": [],
-    "freshSourceNames": [
+    "stale": true,
+    "freshnessState": "stale",
+    "staleSourceNames": [
       "Tracked labs / PubMed"
     ],
+    "freshSourceNames": [],
     "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
@@ -306,11 +304,13 @@
         "recordId": "pubmed-42439891",
         "url": "https://doi.org/10.1083/jcb.202606160",
         "retrievedAt": "2026-10-31T21:32:48.252Z",
-        "stale": false,
+        "stale": true,
         "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
-    ]
+    ],
+    "canonicalId": "doi:10.1083/jcb.202606160",
+    "canonicalIdKind": "doi"
   },
   {
     "id": "pubmed-42814555",
@@ -331,8 +331,6 @@
       "olzmann-berkeley"
     ],
     "takeaway": "Proceedings of the National Academy of Sciences of the United States of America · Laboratory watch match: James Olzmann.",
-    "canonicalId": "doi:10.1073/pnas.2616933123",
-    "canonicalIdKind": "doi",
     "documentType": "unknown",
     "documentTypeBasis": "pubmed-publication-type-unspecific",
     "documentSignals": [
@@ -342,14 +340,14 @@
     "evidenceGradeBasis": "unassessed",
     "reviewStatus": "automated",
     "sourceName": "Tracked labs / PubMed",
-    "stale": false,
-    "freshnessState": "current",
-    "staleSourceNames": [],
-    "freshSourceNames": [
+    "stale": true,
+    "freshnessState": "stale",
+    "staleSourceNames": [
       "Tracked labs / PubMed"
     ],
+    "freshSourceNames": [],
     "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
@@ -357,11 +355,13 @@
         "recordId": "pubmed-42814555",
         "url": "https://doi.org/10.1073/pnas.2616933123",
         "retrievedAt": "2026-10-31T21:32:48.252Z",
-        "stale": false,
+        "stale": true,
         "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
-    ]
+    ],
+    "canonicalId": "doi:10.1073/pnas.2616933123",
+    "canonicalIdKind": "doi"
   },
   {
     "id": "pubmed-42539267",
@@ -383,8 +383,6 @@
     ],
     "takeaway": "bioRxiv : the preprint server for biology · Laboratory watch match: James Olzmann.",
     "caveat": "Not peer reviewed.",
-    "canonicalId": "doi:10.64898/2026.07.17.739092",
-    "canonicalIdKind": "doi",
     "documentType": "preprint",
     "documentTypeBasis": "pubmed-publication-type",
     "documentSignals": [
@@ -394,14 +392,14 @@
     "evidenceGradeBasis": "unassessed",
     "reviewStatus": "automated",
     "sourceName": "Tracked labs / PubMed",
-    "stale": false,
-    "freshnessState": "current",
-    "staleSourceNames": [],
-    "freshSourceNames": [
+    "stale": true,
+    "freshnessState": "stale",
+    "staleSourceNames": [
       "Tracked labs / PubMed"
     ],
+    "freshSourceNames": [],
     "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
@@ -409,11 +407,13 @@
         "recordId": "pubmed-42539267",
         "url": "https://doi.org/10.64898/2026.07.17.739092",
         "retrievedAt": "2026-10-31T21:32:48.252Z",
-        "stale": false,
+        "stale": true,
         "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
-    ]
+    ],
+    "canonicalId": "doi:10.64898/2026.07.17.739092",
+    "canonicalIdKind": "doi"
   },
   {
     "id": "pubmed-42310294",
@@ -435,8 +435,6 @@
       "bayir-columbia"
     ],
     "takeaway": "Nature communications · Laboratory watch match: Valerian Kagan, Hülya Bayır.",
-    "canonicalId": "doi:10.1038/s41467-026-71869-z",
-    "canonicalIdKind": "doi",
     "documentType": "unknown",
     "documentTypeBasis": "pubmed-publication-type-unspecific",
     "documentSignals": [
@@ -446,14 +444,14 @@
     "evidenceGradeBasis": "unassessed",
     "reviewStatus": "automated",
     "sourceName": "Tracked labs / PubMed",
-    "stale": false,
-    "freshnessState": "current",
-    "staleSourceNames": [],
-    "freshSourceNames": [
+    "stale": true,
+    "freshnessState": "stale",
+    "staleSourceNames": [
       "Tracked labs / PubMed"
     ],
+    "freshSourceNames": [],
     "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
@@ -461,11 +459,13 @@
         "recordId": "pubmed-42310294",
         "url": "https://doi.org/10.1038/s41467-026-71869-z",
         "retrievedAt": "2026-10-31T21:32:48.252Z",
-        "stale": false,
+        "stale": true,
         "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
-    ]
+    ],
+    "canonicalId": "doi:10.1038/s41467-026-71869-z",
+    "canonicalIdKind": "doi"
   },
   {
     "id": "pubmed-42805600",
@@ -487,8 +487,6 @@
       "dixon-stanford"
     ],
     "takeaway": "ACS chemical biology · Laboratory watch match: Derek Pratt, Scott Dixon.",
-    "canonicalId": "doi:10.1021/acschembio.6c00583",
-    "canonicalIdKind": "doi",
     "documentType": "unknown",
     "documentTypeBasis": "pubmed-publication-type-unspecific",
     "documentSignals": [
@@ -498,14 +496,14 @@
     "evidenceGradeBasis": "unassessed",
     "reviewStatus": "automated",
     "sourceName": "Tracked labs / PubMed",
-    "stale": false,
-    "freshnessState": "current",
-    "staleSourceNames": [],
-    "freshSourceNames": [
+    "stale": true,
+    "freshnessState": "stale",
+    "staleSourceNames": [
       "Tracked labs / PubMed"
     ],
+    "freshSourceNames": [],
     "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
@@ -513,11 +511,13 @@
         "recordId": "pubmed-42805600",
         "url": "https://doi.org/10.1021/acschembio.6c00583",
         "retrievedAt": "2026-10-31T21:32:48.252Z",
-        "stale": false,
+        "stale": true,
         "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
-    ]
+    ],
+    "canonicalId": "doi:10.1021/acschembio.6c00583",
+    "canonicalIdKind": "doi"
   },
   {
     "id": "pubmed-42600612",
@@ -538,8 +538,6 @@
       "rodriguez-curie"
     ],
     "takeaway": "Cell · Laboratory watch match: Raphaël Rodriguez.",
-    "canonicalId": "doi:10.1016/j.cell.2026.07.040",
-    "canonicalIdKind": "doi",
     "documentType": "unknown",
     "documentTypeBasis": "pubmed-publication-type-unspecific",
     "documentSignals": [
@@ -549,14 +547,14 @@
     "evidenceGradeBasis": "unassessed",
     "reviewStatus": "automated",
     "sourceName": "Tracked labs / PubMed",
-    "stale": false,
-    "freshnessState": "current",
-    "staleSourceNames": [],
-    "freshSourceNames": [
+    "stale": true,
+    "freshnessState": "stale",
+    "staleSourceNames": [
       "Tracked labs / PubMed"
     ],
+    "freshSourceNames": [],
     "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
@@ -564,11 +562,13 @@
         "recordId": "pubmed-42600612",
         "url": "https://doi.org/10.1016/j.cell.2026.07.040",
         "retrievedAt": "2026-10-31T21:32:48.252Z",
-        "stale": false,
+        "stale": true,
         "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
-    ]
+    ],
+    "canonicalId": "doi:10.1016/j.cell.2026.07.040",
+    "canonicalIdKind": "doi"
   },
   {
     "id": "pubmed-42430517",
@@ -589,8 +589,6 @@
       "pratt-ottawa"
     ],
     "takeaway": "Journal of medicinal chemistry · Laboratory watch match: Derek Pratt.",
-    "canonicalId": "doi:10.1021/acs.jmedchem.6c01496",
-    "canonicalIdKind": "doi",
     "documentType": "unknown",
     "documentTypeBasis": "pubmed-publication-type-unspecific",
     "documentSignals": [
@@ -600,14 +598,14 @@
     "evidenceGradeBasis": "unassessed",
     "reviewStatus": "automated",
     "sourceName": "Tracked labs / PubMed",
-    "stale": false,
-    "freshnessState": "current",
-    "staleSourceNames": [],
-    "freshSourceNames": [
+    "stale": true,
+    "freshnessState": "stale",
+    "staleSourceNames": [
       "Tracked labs / PubMed"
     ],
+    "freshSourceNames": [],
     "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
@@ -615,11 +613,13 @@
         "recordId": "pubmed-42430517",
         "url": "https://doi.org/10.1021/acs.jmedchem.6c01496",
         "retrievedAt": "2026-10-31T21:32:48.252Z",
-        "stale": false,
+        "stale": true,
         "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
-    ]
+    ],
+    "canonicalId": "doi:10.1021/acs.jmedchem.6c01496",
+    "canonicalIdKind": "doi"
   },
   {
     "id": "pubmed-42922663",
@@ -641,8 +641,6 @@
     ],
     "takeaway": "bioRxiv : the preprint server for biology · Laboratory watch match: Xuejun Jiang.",
     "caveat": "Not peer reviewed.",
-    "canonicalId": "doi:10.64898/2026.09.01.748671",
-    "canonicalIdKind": "doi",
     "documentType": "preprint",
     "documentTypeBasis": "pubmed-publication-type",
     "documentSignals": [
@@ -652,14 +650,14 @@
     "evidenceGradeBasis": "unassessed",
     "reviewStatus": "automated",
     "sourceName": "Tracked labs / PubMed",
-    "stale": false,
-    "freshnessState": "current",
-    "staleSourceNames": [],
-    "freshSourceNames": [
+    "stale": true,
+    "freshnessState": "stale",
+    "staleSourceNames": [
       "Tracked labs / PubMed"
     ],
+    "freshSourceNames": [],
     "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
@@ -667,11 +665,13 @@
         "recordId": "pubmed-42922663",
         "url": "https://doi.org/10.64898/2026.09.01.748671",
         "retrievedAt": "2026-10-31T21:32:48.252Z",
-        "stale": false,
+        "stale": true,
         "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
-    ]
+    ],
+    "canonicalId": "doi:10.64898/2026.09.01.748671",
+    "canonicalIdKind": "doi"
   },
   {
     "id": "pubmed-42486993",
@@ -693,8 +693,6 @@
       "jiang-msk"
     ],
     "takeaway": "Nature structural & molecular biology · Laboratory watch match: Brent Stockwell, Xuejun Jiang.",
-    "canonicalId": "doi:10.1038/s41594-026-01830-7",
-    "canonicalIdKind": "doi",
     "documentType": "unknown",
     "documentTypeBasis": "pubmed-publication-type-unspecific",
     "documentSignals": [
@@ -704,14 +702,14 @@
     "evidenceGradeBasis": "unassessed",
     "reviewStatus": "automated",
     "sourceName": "Tracked labs / PubMed",
-    "stale": false,
-    "freshnessState": "current",
-    "staleSourceNames": [],
-    "freshSourceNames": [
+    "stale": true,
+    "freshnessState": "stale",
+    "staleSourceNames": [
       "Tracked labs / PubMed"
     ],
+    "freshSourceNames": [],
     "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
@@ -719,11 +717,13 @@
         "recordId": "pubmed-42486993",
         "url": "https://doi.org/10.1038/s41594-026-01830-7",
         "retrievedAt": "2026-10-31T21:32:48.252Z",
-        "stale": false,
+        "stale": true,
         "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
-    ]
+    ],
+    "canonicalId": "doi:10.1038/s41594-026-01830-7",
+    "canonicalIdKind": "doi"
   },
   {
     "id": "pubmed-42914976",
@@ -744,8 +744,6 @@
       "dixon-stanford"
     ],
     "takeaway": "Cell · Laboratory watch match: Scott Dixon.",
-    "canonicalId": "doi:10.1016/j.cell.2026.09.045",
-    "canonicalIdKind": "doi",
     "documentType": "unknown",
     "documentTypeBasis": "pubmed-publication-type-unspecific",
     "documentSignals": [
@@ -755,14 +753,14 @@
     "evidenceGradeBasis": "unassessed",
     "reviewStatus": "automated",
     "sourceName": "Tracked labs / PubMed",
-    "stale": false,
-    "freshnessState": "current",
-    "staleSourceNames": [],
-    "freshSourceNames": [
+    "stale": true,
+    "freshnessState": "stale",
+    "staleSourceNames": [
       "Tracked labs / PubMed"
     ],
+    "freshSourceNames": [],
     "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
@@ -770,11 +768,13 @@
         "recordId": "pubmed-42914976",
         "url": "https://doi.org/10.1016/j.cell.2026.09.045",
         "retrievedAt": "2026-10-31T21:32:48.252Z",
-        "stale": false,
+        "stale": true,
         "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
-    ]
+    ],
+    "canonicalId": "doi:10.1016/j.cell.2026.09.045",
+    "canonicalIdKind": "doi"
   },
   {
     "id": "pubmed-42907496",
@@ -797,8 +797,6 @@
       "vandenberghe-antwerp"
     ],
     "takeaway": "Nature cell biology · Laboratory watch match: Scott Dixon, Thales Papagiannakopoulos, Tom Vanden Berghe.",
-    "canonicalId": "doi:10.1038/s41556-026-02107-3",
-    "canonicalIdKind": "doi",
     "documentType": "unknown",
     "documentTypeBasis": "pubmed-publication-type-unspecific",
     "documentSignals": [
@@ -808,14 +806,14 @@
     "evidenceGradeBasis": "unassessed",
     "reviewStatus": "automated",
     "sourceName": "Tracked labs / PubMed",
-    "stale": false,
-    "freshnessState": "current",
-    "staleSourceNames": [],
-    "freshSourceNames": [
+    "stale": true,
+    "freshnessState": "stale",
+    "staleSourceNames": [
       "Tracked labs / PubMed"
     ],
+    "freshSourceNames": [],
     "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
@@ -823,11 +821,13 @@
         "recordId": "pubmed-42907496",
         "url": "https://doi.org/10.1038/s41556-026-02107-3",
         "retrievedAt": "2026-10-31T21:32:48.252Z",
-        "stale": false,
+        "stale": true,
         "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
-    ]
+    ],
+    "canonicalId": "doi:10.1038/s41556-026-02107-3",
+    "canonicalIdKind": "doi"
   },
   {
     "id": "pubmed-42906555",
@@ -848,8 +848,6 @@
       "dixon-stanford"
     ],
     "takeaway": "Cell chemical biology · Laboratory watch match: Scott Dixon.",
-    "canonicalId": "doi:10.1016/j.chembiol.2026.09.020",
-    "canonicalIdKind": "doi",
     "documentType": "unknown",
     "documentTypeBasis": "pubmed-publication-type-unspecific",
     "documentSignals": [
@@ -859,14 +857,14 @@
     "evidenceGradeBasis": "unassessed",
     "reviewStatus": "automated",
     "sourceName": "Tracked labs / PubMed",
-    "stale": false,
-    "freshnessState": "current",
-    "staleSourceNames": [],
-    "freshSourceNames": [
+    "stale": true,
+    "freshnessState": "stale",
+    "staleSourceNames": [
       "Tracked labs / PubMed"
     ],
+    "freshSourceNames": [],
     "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
@@ -874,11 +872,13 @@
         "recordId": "pubmed-42906555",
         "url": "https://doi.org/10.1016/j.chembiol.2026.09.020",
         "retrievedAt": "2026-10-31T21:32:48.252Z",
-        "stale": false,
+        "stale": true,
         "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
-    ]
+    ],
+    "canonicalId": "doi:10.1016/j.chembiol.2026.09.020",
+    "canonicalIdKind": "doi"
   },
   {
     "id": "pubmed-42509416",
@@ -899,8 +899,6 @@
       "gan-mdanderson"
     ],
     "takeaway": "Oncogene · Laboratory watch match: Boyi Gan.",
-    "canonicalId": "doi:10.1038/s41388-026-03921-7",
-    "canonicalIdKind": "doi",
     "documentType": "unknown",
     "documentTypeBasis": "pubmed-publication-type-unspecific",
     "documentSignals": [
@@ -910,14 +908,14 @@
     "evidenceGradeBasis": "unassessed",
     "reviewStatus": "automated",
     "sourceName": "Tracked labs / PubMed",
-    "stale": false,
-    "freshnessState": "current",
-    "staleSourceNames": [],
-    "freshSourceNames": [
+    "stale": true,
+    "freshnessState": "stale",
+    "staleSourceNames": [
       "Tracked labs / PubMed"
     ],
+    "freshSourceNames": [],
     "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
@@ -925,11 +923,13 @@
         "recordId": "pubmed-42509416",
         "url": "https://doi.org/10.1038/s41388-026-03921-7",
         "retrievedAt": "2026-10-31T21:32:48.252Z",
-        "stale": false,
+        "stale": true,
         "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
-    ]
+    ],
+    "canonicalId": "doi:10.1038/s41388-026-03921-7",
+    "canonicalIdKind": "doi"
   },
   {
     "id": "pubmed-42380152",
@@ -950,8 +950,6 @@
       "gan-mdanderson"
     ],
     "takeaway": "Nature communications · Laboratory watch match: Boyi Gan.",
-    "canonicalId": "doi:10.1038/s41467-026-75010-y",
-    "canonicalIdKind": "doi",
     "documentType": "unknown",
     "documentTypeBasis": "pubmed-publication-type-unspecific",
     "documentSignals": [
@@ -961,14 +959,14 @@
     "evidenceGradeBasis": "unassessed",
     "reviewStatus": "automated",
     "sourceName": "Tracked labs / PubMed",
-    "stale": false,
-    "freshnessState": "current",
-    "staleSourceNames": [],
-    "freshSourceNames": [
+    "stale": true,
+    "freshnessState": "stale",
+    "staleSourceNames": [
       "Tracked labs / PubMed"
     ],
+    "freshSourceNames": [],
     "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
@@ -976,11 +974,13 @@
         "recordId": "pubmed-42380152",
         "url": "https://doi.org/10.1038/s41467-026-75010-y",
         "retrievedAt": "2026-10-31T21:32:48.252Z",
-        "stale": false,
+        "stale": true,
         "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
-    ]
+    ],
+    "canonicalId": "doi:10.1038/s41467-026-75010-y",
+    "canonicalIdKind": "doi"
   },
   {
     "id": "pubmed-42669120",
@@ -1001,8 +1001,6 @@
       "tang-kang-utsw"
     ],
     "takeaway": "Autophagy · Laboratory watch match: Daolin Tang · Rui Kang.",
-    "canonicalId": "doi:10.1080/15548627.2026.2726089",
-    "canonicalIdKind": "doi",
     "documentType": "unknown",
     "documentTypeBasis": "pubmed-publication-type-unspecific",
     "documentSignals": [
@@ -1012,14 +1010,14 @@
     "evidenceGradeBasis": "unassessed",
     "reviewStatus": "automated",
     "sourceName": "Tracked labs / PubMed",
-    "stale": false,
-    "freshnessState": "current",
-    "staleSourceNames": [],
-    "freshSourceNames": [
+    "stale": true,
+    "freshnessState": "stale",
+    "staleSourceNames": [
       "Tracked labs / PubMed"
     ],
+    "freshSourceNames": [],
     "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
@@ -1027,11 +1025,13 @@
         "recordId": "pubmed-42669120",
         "url": "https://doi.org/10.1080/15548627.2026.2726089",
         "retrievedAt": "2026-10-31T21:32:48.252Z",
-        "stale": false,
+        "stale": true,
         "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
-    ]
+    ],
+    "canonicalId": "doi:10.1080/15548627.2026.2726089",
+    "canonicalIdKind": "doi"
   },
   {
     "id": "pubmed-42551439",
@@ -1052,8 +1052,6 @@
       "tang-kang-utsw"
     ],
     "takeaway": "Molecular cell · Laboratory watch match: Daolin Tang · Rui Kang.",
-    "canonicalId": "doi:10.1016/j.molcel.2026.07.018",
-    "canonicalIdKind": "doi",
     "documentType": "unknown",
     "documentTypeBasis": "pubmed-publication-type-unspecific",
     "documentSignals": [
@@ -1063,14 +1061,14 @@
     "evidenceGradeBasis": "unassessed",
     "reviewStatus": "automated",
     "sourceName": "Tracked labs / PubMed",
-    "stale": false,
-    "freshnessState": "current",
-    "staleSourceNames": [],
-    "freshSourceNames": [
+    "stale": true,
+    "freshnessState": "stale",
+    "staleSourceNames": [
       "Tracked labs / PubMed"
     ],
+    "freshSourceNames": [],
     "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
@@ -1078,11 +1076,13 @@
         "recordId": "pubmed-42551439",
         "url": "https://doi.org/10.1016/j.molcel.2026.07.018",
         "retrievedAt": "2026-10-31T21:32:48.252Z",
-        "stale": false,
+        "stale": true,
         "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
-    ]
+    ],
+    "canonicalId": "doi:10.1016/j.molcel.2026.07.018",
+    "canonicalIdKind": "doi"
   },
   {
     "id": "pubmed-42914978",
@@ -1104,8 +1104,6 @@
       "zoulab-michigan"
     ],
     "takeaway": "Cell · Laboratory watch match: Weiping Zou.",
-    "canonicalId": "doi:10.1016/j.cell.2026.09.062",
-    "canonicalIdKind": "doi",
     "documentType": "unknown",
     "documentTypeBasis": "pubmed-publication-type-unspecific",
     "documentSignals": [
@@ -1115,14 +1113,14 @@
     "evidenceGradeBasis": "unassessed",
     "reviewStatus": "automated",
     "sourceName": "Tracked labs / PubMed",
-    "stale": false,
-    "freshnessState": "current",
-    "staleSourceNames": [],
-    "freshSourceNames": [
+    "stale": true,
+    "freshnessState": "stale",
+    "staleSourceNames": [
       "Tracked labs / PubMed"
     ],
+    "freshSourceNames": [],
     "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
@@ -1130,11 +1128,13 @@
         "recordId": "pubmed-42914978",
         "url": "https://doi.org/10.1016/j.cell.2026.09.062",
         "retrievedAt": "2026-10-31T21:32:48.252Z",
-        "stale": false,
+        "stale": true,
         "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
-    ]
+    ],
+    "canonicalId": "doi:10.1016/j.cell.2026.09.062",
+    "canonicalIdKind": "doi"
   },
   {
     "id": "pubmed-42959090",
@@ -1155,8 +1155,6 @@
       "vandenberghe-antwerp"
     ],
     "takeaway": "Frontiers in immunology · Laboratory watch match: Tom Vanden Berghe.",
-    "canonicalId": "doi:10.3389/fimmu.2026.1891865",
-    "canonicalIdKind": "doi",
     "documentType": "unknown",
     "documentTypeBasis": "pubmed-publication-type-unspecific",
     "documentSignals": [
@@ -1166,15 +1164,15 @@
     "evidenceGradeBasis": "unassessed",
     "reviewStatus": "automated",
     "sourceName": "Tracked labs / PubMed",
-    "stale": false,
-    "freshnessState": "current",
-    "staleSourceNames": [],
-    "freshSourceNames": [
+    "stale": true,
+    "freshnessState": "stale",
+    "staleSourceNames": [
       "Tracked labs / PubMed",
       "PubMed"
     ],
+    "freshSourceNames": [],
     "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
@@ -1182,9 +1180,9 @@
         "recordId": "pubmed-42959090",
         "url": "https://doi.org/10.3389/fimmu.2026.1891865",
         "retrievedAt": "2026-10-31T21:32:48.252Z",
-        "stale": false,
+        "stale": true,
         "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       },
       {
         "route": "PubMed",
@@ -1192,16 +1190,18 @@
         "recordId": "pubmed-42959090",
         "url": "https://doi.org/10.3389/fimmu.2026.1891865",
         "retrievedAt": "2026-10-31T21:32:48.252Z",
-        "stale": false,
+        "stale": true,
         "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
     ],
     "mergedFrom": [
       "pubmed-42959090",
       "pubmed-42959090"
     ],
-    "alsoDiscoveredAutomatically": false
+    "alsoDiscoveredAutomatically": false,
+    "canonicalId": "doi:10.3389/fimmu.2026.1891865",
+    "canonicalIdKind": "doi"
   },
   {
     "id": "pubmed-42817713",
@@ -1222,8 +1222,6 @@
       "ubellacker-harvard"
     ],
     "takeaway": "Cancer discovery · Laboratory watch match: Jessalyn Ubellacker.",
-    "canonicalId": "doi:10.1158/2159-8290.cd-26-0232",
-    "canonicalIdKind": "doi",
     "documentType": "unknown",
     "documentTypeBasis": "pubmed-publication-type-unspecific",
     "documentSignals": [
@@ -1233,14 +1231,14 @@
     "evidenceGradeBasis": "unassessed",
     "reviewStatus": "automated",
     "sourceName": "Tracked labs / PubMed",
-    "stale": false,
-    "freshnessState": "current",
-    "staleSourceNames": [],
-    "freshSourceNames": [
+    "stale": true,
+    "freshnessState": "stale",
+    "staleSourceNames": [
       "Tracked labs / PubMed"
     ],
+    "freshSourceNames": [],
     "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
@@ -1248,11 +1246,13 @@
         "recordId": "pubmed-42817713",
         "url": "https://doi.org/10.1158/2159-8290.CD-26-0232",
         "retrievedAt": "2026-10-31T21:32:48.252Z",
-        "stale": false,
+        "stale": true,
         "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
-    ]
+    ],
+    "canonicalId": "doi:10.1158/2159-8290.cd-26-0232",
+    "canonicalIdKind": "doi"
   },
   {
     "id": "pubmed-42749797",
@@ -1273,8 +1273,6 @@
       "wang-zhejiang"
     ],
     "takeaway": "Nature · Laboratory watch match: Fudi Wang · Junxia Min · Qiang Zhang.",
-    "canonicalId": "doi:10.1038/s41586-026-11020-6",
-    "canonicalIdKind": "doi",
     "documentType": "unknown",
     "documentTypeBasis": "pubmed-publication-type-unspecific",
     "documentSignals": [
@@ -1284,14 +1282,14 @@
     "evidenceGradeBasis": "unassessed",
     "reviewStatus": "automated",
     "sourceName": "Tracked labs / PubMed",
-    "stale": false,
-    "freshnessState": "current",
-    "staleSourceNames": [],
-    "freshSourceNames": [
+    "stale": true,
+    "freshnessState": "stale",
+    "staleSourceNames": [
       "Tracked labs / PubMed"
     ],
+    "freshSourceNames": [],
     "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
@@ -1299,11 +1297,13 @@
         "recordId": "pubmed-42749797",
         "url": "https://doi.org/10.1038/s41586-026-11020-6",
         "retrievedAt": "2026-10-31T21:32:48.252Z",
-        "stale": false,
+        "stale": true,
         "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
-    ]
+    ],
+    "canonicalId": "doi:10.1038/s41586-026-11020-6",
+    "canonicalIdKind": "doi"
   },
   {
     "id": "pubmed-42874130",
@@ -1325,8 +1325,6 @@
       "saito-tohoku"
     ],
     "takeaway": "Redox biology · Laboratory watch match: Yoshiro Saito.",
-    "canonicalId": "doi:10.1016/j.redox.2026.104438",
-    "canonicalIdKind": "doi",
     "documentType": "unknown",
     "documentTypeBasis": "pubmed-publication-type-unspecific",
     "documentSignals": [
@@ -1336,14 +1334,14 @@
     "evidenceGradeBasis": "unassessed",
     "reviewStatus": "automated",
     "sourceName": "Tracked labs / PubMed",
-    "stale": false,
-    "freshnessState": "current",
-    "staleSourceNames": [],
-    "freshSourceNames": [
+    "stale": true,
+    "freshnessState": "stale",
+    "staleSourceNames": [
       "Tracked labs / PubMed"
     ],
+    "freshSourceNames": [],
     "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
@@ -1351,11 +1349,13 @@
         "recordId": "pubmed-42874130",
         "url": "https://doi.org/10.1016/j.redox.2026.104438",
         "retrievedAt": "2026-10-31T21:32:48.252Z",
-        "stale": false,
+        "stale": true,
         "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
-    ]
+    ],
+    "canonicalId": "doi:10.1016/j.redox.2026.104438",
+    "canonicalIdKind": "doi"
   },
   {
     "id": "pubmed-42623935",
@@ -1376,8 +1376,6 @@
       "zhang-ufscripps"
     ],
     "takeaway": "Redox biology · Laboratory watch match: Donna Zhang.",
-    "canonicalId": "doi:10.1016/j.redox.2026.104352",
-    "canonicalIdKind": "doi",
     "documentType": "unknown",
     "documentTypeBasis": "pubmed-publication-type-unspecific",
     "documentSignals": [
@@ -1387,14 +1385,14 @@
     "evidenceGradeBasis": "unassessed",
     "reviewStatus": "automated",
     "sourceName": "Tracked labs / PubMed",
-    "stale": false,
-    "freshnessState": "current",
-    "staleSourceNames": [],
-    "freshSourceNames": [
+    "stale": true,
+    "freshnessState": "stale",
+    "staleSourceNames": [
       "Tracked labs / PubMed"
     ],
+    "freshSourceNames": [],
     "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
@@ -1402,11 +1400,13 @@
         "recordId": "pubmed-42623935",
         "url": "https://doi.org/10.1016/j.redox.2026.104352",
         "retrievedAt": "2026-10-31T21:32:48.252Z",
-        "stale": false,
+        "stale": true,
         "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
-    ]
+    ],
+    "canonicalId": "doi:10.1016/j.redox.2026.104352",
+    "canonicalIdKind": "doi"
   },
   {
     "id": "pubmed-42290280",
@@ -1427,8 +1427,6 @@
       "overholtzer-msk"
     ],
     "takeaway": "Cancer research · Laboratory watch match: Michael Overholtzer.",
-    "canonicalId": "doi:10.1158/0008-5472.can-25-4954",
-    "canonicalIdKind": "doi",
     "documentType": "unknown",
     "documentTypeBasis": "pubmed-publication-type-unspecific",
     "documentSignals": [
@@ -1438,14 +1436,14 @@
     "evidenceGradeBasis": "unassessed",
     "reviewStatus": "automated",
     "sourceName": "Tracked labs / PubMed",
-    "stale": false,
-    "freshnessState": "current",
-    "staleSourceNames": [],
-    "freshSourceNames": [
+    "stale": true,
+    "freshnessState": "stale",
+    "staleSourceNames": [
       "Tracked labs / PubMed"
     ],
+    "freshSourceNames": [],
     "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
@@ -1453,11 +1451,13 @@
         "recordId": "pubmed-42290280",
         "url": "https://doi.org/10.1158/0008-5472.CAN-25-4954",
         "retrievedAt": "2026-10-31T21:32:48.252Z",
-        "stale": false,
+        "stale": true,
         "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
-    ]
+    ],
+    "canonicalId": "doi:10.1158/0008-5472.can-25-4954",
+    "canonicalIdKind": "doi"
   },
   {
     "id": "pubmed-42527514",
@@ -1478,8 +1478,6 @@
       "chen-nankai"
     ],
     "takeaway": "Nature cancer · Laboratory watch match: Quan Chen.",
-    "canonicalId": "doi:10.1038/s43018-026-01224-0",
-    "canonicalIdKind": "doi",
     "documentType": "unknown",
     "documentTypeBasis": "pubmed-publication-type-unspecific",
     "documentSignals": [
@@ -1490,14 +1488,14 @@
     "evidenceGradeBasis": "unassessed",
     "reviewStatus": "automated",
     "sourceName": "Tracked labs / PubMed",
-    "stale": false,
-    "freshnessState": "current",
-    "staleSourceNames": [],
-    "freshSourceNames": [
+    "stale": true,
+    "freshnessState": "stale",
+    "staleSourceNames": [
       "Tracked labs / PubMed"
     ],
+    "freshSourceNames": [],
     "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
@@ -1505,11 +1503,13 @@
         "recordId": "pubmed-42527514",
         "url": "https://doi.org/10.1038/s43018-026-01224-0",
         "retrievedAt": "2026-10-31T21:32:48.252Z",
-        "stale": false,
+        "stale": true,
         "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
-    ]
+    ],
+    "canonicalId": "doi:10.1038/s43018-026-01224-0",
+    "canonicalIdKind": "doi"
   },
   {
     "id": "pubmed-42442115",
@@ -1530,8 +1530,6 @@
       "toyokuni-nagoya"
     ],
     "takeaway": "Redox biology · Laboratory watch match: Shinya Toyokuni.",
-    "canonicalId": "doi:10.1016/j.redox.2026.104293",
-    "canonicalIdKind": "doi",
     "documentType": "unknown",
     "documentTypeBasis": "pubmed-publication-type-unspecific",
     "documentSignals": [
@@ -1541,14 +1539,14 @@
     "evidenceGradeBasis": "unassessed",
     "reviewStatus": "automated",
     "sourceName": "Tracked labs / PubMed",
-    "stale": false,
-    "freshnessState": "current",
-    "staleSourceNames": [],
-    "freshSourceNames": [
+    "stale": true,
+    "freshnessState": "stale",
+    "staleSourceNames": [
       "Tracked labs / PubMed"
     ],
+    "freshSourceNames": [],
     "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
@@ -1556,11 +1554,13 @@
         "recordId": "pubmed-42442115",
         "url": "https://doi.org/10.1016/j.redox.2026.104293",
         "retrievedAt": "2026-10-31T21:32:48.252Z",
-        "stale": false,
+        "stale": true,
         "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
-    ]
+    ],
+    "canonicalId": "doi:10.1016/j.redox.2026.104293",
+    "canonicalIdKind": "doi"
   },
   {
     "id": "pubmed-42350226",
@@ -1581,8 +1581,6 @@
       "ai-igdb"
     ],
     "takeaway": "Trends in endocrinology and metabolism: TEM · Laboratory watch match: Youwei Ai.",
-    "canonicalId": "doi:10.1016/j.tem.2026.06.001",
-    "canonicalIdKind": "doi",
     "documentType": "unknown",
     "documentTypeBasis": "pubmed-publication-type-unspecific",
     "documentSignals": [
@@ -1592,14 +1590,14 @@
     "evidenceGradeBasis": "unassessed",
     "reviewStatus": "automated",
     "sourceName": "Tracked labs / PubMed",
-    "stale": false,
-    "freshnessState": "current",
-    "staleSourceNames": [],
-    "freshSourceNames": [
+    "stale": true,
+    "freshnessState": "stale",
+    "staleSourceNames": [
       "Tracked labs / PubMed"
     ],
+    "freshSourceNames": [],
     "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
@@ -1607,11 +1605,13 @@
         "recordId": "pubmed-42350226",
         "url": "https://doi.org/10.1016/j.tem.2026.06.001",
         "retrievedAt": "2026-10-31T21:32:48.252Z",
-        "stale": false,
+        "stale": true,
         "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
-    ]
+    ],
+    "canonicalId": "doi:10.1016/j.tem.2026.06.001",
+    "canonicalIdKind": "doi"
   },
   {
     "id": "pubmed-42686909",
@@ -1632,8 +1632,6 @@
       "conrad-helmholtz"
     ],
     "takeaway": "Nature · Laboratory watch match: Marcus Conrad.",
-    "canonicalId": "doi:10.1038/s41586-026-10981-y",
-    "canonicalIdKind": "doi",
     "documentType": "unknown",
     "documentTypeBasis": "pubmed-publication-type-unspecific",
     "documentSignals": [
@@ -1643,14 +1641,14 @@
     "evidenceGradeBasis": "unassessed",
     "reviewStatus": "automated",
     "sourceName": "Tracked labs / PubMed",
-    "stale": false,
-    "freshnessState": "current",
-    "staleSourceNames": [],
-    "freshSourceNames": [
+    "stale": true,
+    "freshnessState": "stale",
+    "staleSourceNames": [
       "Tracked labs / PubMed"
     ],
+    "freshSourceNames": [],
     "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
@@ -1658,11 +1656,13 @@
         "recordId": "pubmed-42686909",
         "url": "https://doi.org/10.1038/s41586-026-10981-y",
         "retrievedAt": "2026-10-31T21:32:48.252Z",
-        "stale": false,
+        "stale": true,
         "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
-    ]
+    ],
+    "canonicalId": "doi:10.1038/s41586-026-10981-y",
+    "canonicalIdKind": "doi"
   },
   {
     "id": "pubmed-42532041",
@@ -1686,8 +1686,6 @@
       "kang-snu"
     ],
     "takeaway": "Cell chemical biology · Laboratory watch match: Marcus Conrad, Maria Fedorova, Derek Pratt, Yun Pyo Kang.",
-    "canonicalId": "doi:10.1016/j.chembiol.2026.07.001",
-    "canonicalIdKind": "doi",
     "documentType": "unknown",
     "documentTypeBasis": "pubmed-publication-type-unspecific",
     "documentSignals": [
@@ -1697,14 +1695,14 @@
     "evidenceGradeBasis": "unassessed",
     "reviewStatus": "automated",
     "sourceName": "Tracked labs / PubMed",
-    "stale": false,
-    "freshnessState": "current",
-    "staleSourceNames": [],
-    "freshSourceNames": [
+    "stale": true,
+    "freshnessState": "stale",
+    "staleSourceNames": [
       "Tracked labs / PubMed"
     ],
+    "freshSourceNames": [],
     "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
@@ -1712,11 +1710,13 @@
         "recordId": "pubmed-42532041",
         "url": "https://doi.org/10.1016/j.chembiol.2026.07.001",
         "retrievedAt": "2026-10-31T21:32:48.252Z",
-        "stale": false,
+        "stale": true,
         "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
-    ]
+    ],
+    "canonicalId": "doi:10.1016/j.chembiol.2026.07.001",
+    "canonicalIdKind": "doi"
   },
   {
     "id": "trial-NCT07433283",
@@ -1750,18 +1750,18 @@
     "freshSourceNames": [
       "ClinicalTrials.gov"
     ],
-    "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastSuccessAt": "2026-11-01T06:02:44.296Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "ClinicalTrials.gov",
         "kind": "automated",
         "recordId": "trial-NCT07433283",
         "url": "https://clinicaltrials.gov/study/NCT07433283",
-        "retrievedAt": "2026-10-31T21:32:48.252Z",
+        "retrievedAt": "2026-11-01T06:02:44.296Z",
         "stale": false,
-        "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastSuccessAt": "2026-11-01T06:02:44.296Z",
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
     ]
   },
@@ -1785,8 +1785,6 @@
     ],
     "takeaway": "bioRxiv : the preprint server for biology · Laboratory watch match: Boyi Gan.",
     "caveat": "Not peer reviewed.",
-    "canonicalId": "doi:10.64898/2026.07.10.737883",
-    "canonicalIdKind": "doi",
     "documentType": "preprint",
     "documentTypeBasis": "pubmed-publication-type",
     "documentSignals": [
@@ -1796,14 +1794,14 @@
     "evidenceGradeBasis": "unassessed",
     "reviewStatus": "automated",
     "sourceName": "Tracked labs / PubMed",
-    "stale": false,
-    "freshnessState": "current",
-    "staleSourceNames": [],
-    "freshSourceNames": [
+    "stale": true,
+    "freshnessState": "stale",
+    "staleSourceNames": [
       "Tracked labs / PubMed"
     ],
+    "freshSourceNames": [],
     "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
@@ -1811,11 +1809,13 @@
         "recordId": "pubmed-42523398",
         "url": "https://doi.org/10.64898/2026.07.10.737883",
         "retrievedAt": "2026-10-31T21:32:48.252Z",
-        "stale": false,
+        "stale": true,
         "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
-    ]
+    ],
+    "canonicalId": "doi:10.64898/2026.07.10.737883",
+    "canonicalIdKind": "doi"
   },
   {
     "id": "pubmed-42693162",
@@ -1836,8 +1836,6 @@
       "linkermann-mannheim"
     ],
     "takeaway": "Leukemia · Laboratory watch match: Andreas Linkermann.",
-    "canonicalId": "doi:10.1038/s41375-026-03122-x",
-    "canonicalIdKind": "doi",
     "documentType": "unknown",
     "documentTypeBasis": "pubmed-publication-type-unspecific",
     "documentSignals": [
@@ -1847,14 +1845,14 @@
     "evidenceGradeBasis": "unassessed",
     "reviewStatus": "automated",
     "sourceName": "Tracked labs / PubMed",
-    "stale": false,
-    "freshnessState": "current",
-    "staleSourceNames": [],
-    "freshSourceNames": [
+    "stale": true,
+    "freshnessState": "stale",
+    "staleSourceNames": [
       "Tracked labs / PubMed"
     ],
+    "freshSourceNames": [],
     "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
@@ -1862,11 +1860,13 @@
         "recordId": "pubmed-42693162",
         "url": "https://doi.org/10.1038/s41375-026-03122-x",
         "retrievedAt": "2026-10-31T21:32:48.252Z",
-        "stale": false,
+        "stale": true,
         "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
-    ]
+    ],
+    "canonicalId": "doi:10.1038/s41375-026-03122-x",
+    "canonicalIdKind": "doi"
   },
   {
     "id": "trial-NCT06491394",
@@ -1900,18 +1900,18 @@
     "freshSourceNames": [
       "ClinicalTrials.gov"
     ],
-    "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastSuccessAt": "2026-11-01T06:02:44.296Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "ClinicalTrials.gov",
         "kind": "automated",
         "recordId": "trial-NCT06491394",
         "url": "https://clinicaltrials.gov/study/NCT06491394",
-        "retrievedAt": "2026-10-31T21:32:48.252Z",
+        "retrievedAt": "2026-11-01T06:02:44.296Z",
         "stale": false,
-        "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastSuccessAt": "2026-11-01T06:02:44.296Z",
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
     ]
   },
@@ -1946,18 +1946,18 @@
     "freshSourceNames": [
       "Preprints / Crossref"
     ],
-    "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastSuccessAt": "2026-11-01T06:02:44.296Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "Preprints / Crossref",
         "kind": "automated",
         "recordId": "preprint-10.64898/2026.09.10.750804",
         "url": "https://doi.org/10.64898/2026.09.10.750804",
-        "retrievedAt": "2026-10-31T21:32:48.252Z",
+        "retrievedAt": "2026-11-01T06:02:44.296Z",
         "stale": false,
-        "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastSuccessAt": "2026-11-01T06:02:44.296Z",
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
     ]
   },
@@ -1993,18 +1993,18 @@
     "freshSourceNames": [
       "ClinicalTrials.gov"
     ],
-    "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastSuccessAt": "2026-11-01T06:02:44.296Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "ClinicalTrials.gov",
         "kind": "automated",
         "recordId": "trial-NCT05269901",
         "url": "https://clinicaltrials.gov/study/NCT05269901",
-        "retrievedAt": "2026-10-31T21:32:48.252Z",
+        "retrievedAt": "2026-11-01T06:02:44.296Z",
         "stale": false,
-        "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastSuccessAt": "2026-11-01T06:02:44.296Z",
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
     ]
   },
@@ -2039,18 +2039,18 @@
     "freshSourceNames": [
       "ClinicalTrials.gov"
     ],
-    "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastSuccessAt": "2026-11-01T06:02:44.296Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "ClinicalTrials.gov",
         "kind": "automated",
         "recordId": "trial-NCT07722637",
         "url": "https://clinicaltrials.gov/study/NCT07722637",
-        "retrievedAt": "2026-10-31T21:32:48.252Z",
+        "retrievedAt": "2026-11-01T06:02:44.296Z",
         "stale": false,
-        "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastSuccessAt": "2026-11-01T06:02:44.296Z",
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
     ]
   },
@@ -2086,18 +2086,18 @@
     "freshSourceNames": [
       "ClinicalTrials.gov"
     ],
-    "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastSuccessAt": "2026-11-01T06:02:44.296Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "ClinicalTrials.gov",
         "kind": "automated",
         "recordId": "trial-NCT07678073",
         "url": "https://clinicaltrials.gov/study/NCT07678073",
-        "retrievedAt": "2026-10-31T21:32:48.252Z",
+        "retrievedAt": "2026-11-01T06:02:44.296Z",
         "stale": false,
-        "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastSuccessAt": "2026-11-01T06:02:44.296Z",
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
     ]
   },
@@ -2132,18 +2132,18 @@
     "freshSourceNames": [
       "ClinicalTrials.gov"
     ],
-    "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastSuccessAt": "2026-11-01T06:02:44.296Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "ClinicalTrials.gov",
         "kind": "automated",
         "recordId": "trial-NCT07260942",
         "url": "https://clinicaltrials.gov/study/NCT07260942",
-        "retrievedAt": "2026-10-31T21:32:48.252Z",
+        "retrievedAt": "2026-11-01T06:02:44.296Z",
         "stale": false,
-        "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastSuccessAt": "2026-11-01T06:02:44.296Z",
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
     ]
   },
@@ -2178,18 +2178,18 @@
     "freshSourceNames": [
       "ClinicalTrials.gov"
     ],
-    "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastSuccessAt": "2026-11-01T06:02:44.296Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "ClinicalTrials.gov",
         "kind": "automated",
         "recordId": "trial-NCT06928649",
         "url": "https://clinicaltrials.gov/study/NCT06928649",
-        "retrievedAt": "2026-10-31T21:32:48.252Z",
+        "retrievedAt": "2026-11-01T06:02:44.296Z",
         "stale": false,
-        "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastSuccessAt": "2026-11-01T06:02:44.296Z",
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
     ]
   },
@@ -2224,18 +2224,18 @@
     "freshSourceNames": [
       "ClinicalTrials.gov"
     ],
-    "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastSuccessAt": "2026-11-01T06:02:44.296Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "ClinicalTrials.gov",
         "kind": "automated",
         "recordId": "trial-NCT05924074",
         "url": "https://clinicaltrials.gov/study/NCT05924074",
-        "retrievedAt": "2026-10-31T21:32:48.252Z",
+        "retrievedAt": "2026-11-01T06:02:44.296Z",
         "stale": false,
-        "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastSuccessAt": "2026-11-01T06:02:44.296Z",
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
     ]
   },
@@ -2256,8 +2256,6 @@
       "cancer translation"
     ],
     "takeaway": "Cellular and molecular life sciences : CMLS · Jing F, Zhu W, Qi H, Xing Y, Shi Y, Ma X, Wang Y, Jia Y",
-    "canonicalId": "doi:10.1007/s00018-026-06373-0",
-    "canonicalIdKind": "doi",
     "documentType": "unknown",
     "documentTypeBasis": "pubmed-publication-type-unspecific",
     "documentSignals": [
@@ -2267,14 +2265,14 @@
     "evidenceGradeBasis": "unassessed",
     "reviewStatus": "automated",
     "sourceName": "PubMed",
-    "stale": false,
-    "freshnessState": "current",
-    "staleSourceNames": [],
-    "freshSourceNames": [
+    "stale": true,
+    "freshnessState": "stale",
+    "staleSourceNames": [
       "PubMed"
     ],
+    "freshSourceNames": [],
     "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "PubMed",
@@ -2282,11 +2280,13 @@
         "recordId": "pubmed-42957865",
         "url": "https://doi.org/10.1007/s00018-026-06373-0",
         "retrievedAt": "2026-10-31T21:32:48.252Z",
-        "stale": false,
+        "stale": true,
         "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
-    ]
+    ],
+    "canonicalId": "doi:10.1007/s00018-026-06373-0",
+    "canonicalIdKind": "doi"
   },
   {
     "id": "trial-NCT07771894",
@@ -2319,18 +2319,18 @@
     "freshSourceNames": [
       "ClinicalTrials.gov"
     ],
-    "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastSuccessAt": "2026-11-01T06:02:44.296Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "ClinicalTrials.gov",
         "kind": "automated",
         "recordId": "trial-NCT07771894",
         "url": "https://clinicaltrials.gov/study/NCT07771894",
-        "retrievedAt": "2026-10-31T21:32:48.252Z",
+        "retrievedAt": "2026-11-01T06:02:44.296Z",
         "stale": false,
-        "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastSuccessAt": "2026-11-01T06:02:44.296Z",
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
     ]
   },
@@ -2365,18 +2365,18 @@
     "freshSourceNames": [
       "ClinicalTrials.gov"
     ],
-    "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastSuccessAt": "2026-11-01T06:02:44.296Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "ClinicalTrials.gov",
         "kind": "automated",
         "recordId": "trial-NCT07738562",
         "url": "https://clinicaltrials.gov/study/NCT07738562",
-        "retrievedAt": "2026-10-31T21:32:48.252Z",
+        "retrievedAt": "2026-11-01T06:02:44.296Z",
         "stale": false,
-        "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastSuccessAt": "2026-11-01T06:02:44.296Z",
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
     ]
   },
@@ -2411,18 +2411,18 @@
     "freshSourceNames": [
       "ClinicalTrials.gov"
     ],
-    "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastSuccessAt": "2026-11-01T06:02:44.296Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "ClinicalTrials.gov",
         "kind": "automated",
         "recordId": "trial-NCT07623044",
         "url": "https://clinicaltrials.gov/study/NCT07623044",
-        "retrievedAt": "2026-10-31T21:32:48.252Z",
+        "retrievedAt": "2026-11-01T06:02:44.296Z",
         "stale": false,
-        "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastSuccessAt": "2026-11-01T06:02:44.296Z",
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
     ]
   },
@@ -2457,18 +2457,18 @@
     "freshSourceNames": [
       "ClinicalTrials.gov"
     ],
-    "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastSuccessAt": "2026-11-01T06:02:44.296Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "ClinicalTrials.gov",
         "kind": "automated",
         "recordId": "trial-NCT06218524",
         "url": "https://clinicaltrials.gov/study/NCT06218524",
-        "retrievedAt": "2026-10-31T21:32:48.252Z",
+        "retrievedAt": "2026-11-01T06:02:44.296Z",
         "stale": false,
-        "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastSuccessAt": "2026-11-01T06:02:44.296Z",
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
     ]
   },
@@ -2503,18 +2503,18 @@
     "freshSourceNames": [
       "Preprints / Crossref"
     ],
-    "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastSuccessAt": "2026-11-01T06:02:44.296Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "Preprints / Crossref",
         "kind": "automated",
         "recordId": "preprint-10.64898/2026.08.17.745193",
         "url": "https://doi.org/10.64898/2026.08.17.745193",
-        "retrievedAt": "2026-10-31T21:32:48.252Z",
+        "retrievedAt": "2026-11-01T06:02:44.296Z",
         "stale": false,
-        "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastSuccessAt": "2026-11-01T06:02:44.296Z",
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
     ]
   },
@@ -2534,8 +2534,6 @@
       "ferroptosis"
     ],
     "takeaway": "Nature chemical biology · Chen B, Guo H, Yan Z, Lu W, Li C, Xu S, Zhang Y, Guo H, Sun S, Yang H, Sun X, Zhao S, Shangguan Q, Chen Y, Lu L, Wu Z, Chen Y, Qin W",
-    "canonicalId": "doi:10.1038/s41589-026-02356-1",
-    "canonicalIdKind": "doi",
     "documentType": "unknown",
     "documentTypeBasis": "pubmed-publication-type-unspecific",
     "documentSignals": [
@@ -2545,14 +2543,14 @@
     "evidenceGradeBasis": "unassessed",
     "reviewStatus": "automated",
     "sourceName": "PubMed",
-    "stale": false,
-    "freshnessState": "current",
-    "staleSourceNames": [],
-    "freshSourceNames": [
+    "stale": true,
+    "freshnessState": "stale",
+    "staleSourceNames": [
       "PubMed"
     ],
+    "freshSourceNames": [],
     "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "PubMed",
@@ -2560,11 +2558,13 @@
         "recordId": "pubmed-42957846",
         "url": "https://doi.org/10.1038/s41589-026-02356-1",
         "retrievedAt": "2026-10-31T21:32:48.252Z",
-        "stale": false,
+        "stale": true,
         "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
-    ]
+    ],
+    "canonicalId": "doi:10.1038/s41589-026-02356-1",
+    "canonicalIdKind": "doi"
   },
   {
     "id": "pubmed-42942130",
@@ -2582,8 +2582,6 @@
       "ferroptosis"
     ],
     "takeaway": "International journal of molecular sciences · Clifton AD, Jeppesen MJ, Shaffiey S, Chatterjee A, Liermann-Wooldrik KT, Adebisi O, Takkar S, Mutha N, Oberley-Deegan RE, Guda C, Pierobon M, Checco JW, Powers R",
-    "canonicalId": "doi:10.3390/ijms27209363",
-    "canonicalIdKind": "doi",
     "documentType": "unknown",
     "documentTypeBasis": "pubmed-publication-type-unspecific",
     "documentSignals": [
@@ -2593,14 +2591,14 @@
     "evidenceGradeBasis": "unassessed",
     "reviewStatus": "automated",
     "sourceName": "PubMed",
-    "stale": false,
-    "freshnessState": "current",
-    "staleSourceNames": [],
-    "freshSourceNames": [
+    "stale": true,
+    "freshnessState": "stale",
+    "staleSourceNames": [
       "PubMed"
     ],
+    "freshSourceNames": [],
     "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "PubMed",
@@ -2608,11 +2606,13 @@
         "recordId": "pubmed-42942130",
         "url": "https://doi.org/10.3390/ijms27209363",
         "retrievedAt": "2026-10-31T21:32:48.252Z",
-        "stale": false,
+        "stale": true,
         "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
-    ]
+    ],
+    "canonicalId": "doi:10.3390/ijms27209363",
+    "canonicalIdKind": "doi"
   },
   {
     "id": "pubmed-42957627",
@@ -2630,8 +2630,6 @@
       "cancer translation"
     ],
     "takeaway": "Cell death discovery · Lee O, Fidelito G, Zhao Q, Liu B, Choi H, Taylor RA, Watt MJ",
-    "canonicalId": "doi:10.1038/s41420-026-03332-3",
-    "canonicalIdKind": "doi",
     "documentType": "unknown",
     "documentTypeBasis": "pubmed-publication-type-unspecific",
     "documentSignals": [
@@ -2641,14 +2639,14 @@
     "evidenceGradeBasis": "unassessed",
     "reviewStatus": "automated",
     "sourceName": "PubMed",
-    "stale": false,
-    "freshnessState": "current",
-    "staleSourceNames": [],
-    "freshSourceNames": [
+    "stale": true,
+    "freshnessState": "stale",
+    "staleSourceNames": [
       "PubMed"
     ],
+    "freshSourceNames": [],
     "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "PubMed",
@@ -2656,11 +2654,13 @@
         "recordId": "pubmed-42957627",
         "url": "https://doi.org/10.1038/s41420-026-03332-3",
         "retrievedAt": "2026-10-31T21:32:48.252Z",
-        "stale": false,
+        "stale": true,
         "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
-    ]
+    ],
+    "canonicalId": "doi:10.1038/s41420-026-03332-3",
+    "canonicalIdKind": "doi"
   },
   {
     "id": "pubmed-42946719",
@@ -2678,8 +2678,6 @@
       "cancer translation"
     ],
     "takeaway": "Cell death & disease · Hausman R, Brown WS, Awrey SJ, Tavakoli H, Montell DJ, McDonald PC, Dedhar S",
-    "canonicalId": "doi:10.1038/s41419-026-09242-7",
-    "canonicalIdKind": "doi",
     "documentType": "unknown",
     "documentTypeBasis": "pubmed-publication-type-unspecific",
     "documentSignals": [
@@ -2689,14 +2687,14 @@
     "evidenceGradeBasis": "unassessed",
     "reviewStatus": "automated",
     "sourceName": "PubMed",
-    "stale": false,
-    "freshnessState": "current",
-    "staleSourceNames": [],
-    "freshSourceNames": [
+    "stale": true,
+    "freshnessState": "stale",
+    "staleSourceNames": [
       "PubMed"
     ],
+    "freshSourceNames": [],
     "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "PubMed",
@@ -2704,11 +2702,13 @@
         "recordId": "pubmed-42946719",
         "url": "https://doi.org/10.1038/s41419-026-09242-7",
         "retrievedAt": "2026-10-31T21:32:48.252Z",
-        "stale": false,
+        "stale": true,
         "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
-    ]
+    ],
+    "canonicalId": "doi:10.1038/s41419-026-09242-7",
+    "canonicalIdKind": "doi"
   },
   {
     "id": "pubmed-42957643",
@@ -2726,8 +2726,6 @@
       "cancer translation"
     ],
     "takeaway": "Cell death & disease · Wu L, Wu H, Zhou YT, Ou GL, Sun Y, Li XY, Zhen YH, Cao K, Li HY",
-    "canonicalId": "doi:10.1038/s41419-026-09161-7",
-    "canonicalIdKind": "doi",
     "documentType": "unknown",
     "documentTypeBasis": "pubmed-publication-type-unspecific",
     "documentSignals": [
@@ -2737,14 +2735,14 @@
     "evidenceGradeBasis": "unassessed",
     "reviewStatus": "automated",
     "sourceName": "PubMed",
-    "stale": false,
-    "freshnessState": "current",
-    "staleSourceNames": [],
-    "freshSourceNames": [
+    "stale": true,
+    "freshnessState": "stale",
+    "staleSourceNames": [
       "PubMed"
     ],
+    "freshSourceNames": [],
     "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "PubMed",
@@ -2752,11 +2750,13 @@
         "recordId": "pubmed-42957643",
         "url": "https://doi.org/10.1038/s41419-026-09161-7",
         "retrievedAt": "2026-10-31T21:32:48.252Z",
-        "stale": false,
+        "stale": true,
         "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
-    ]
+    ],
+    "canonicalId": "doi:10.1038/s41419-026-09161-7",
+    "canonicalIdKind": "doi"
   },
   {
     "id": "pubmed-42942047",
@@ -2774,8 +2774,6 @@
       "GPX4"
     ],
     "takeaway": "International journal of molecular sciences · Güner RY, Yüceer RO, Ünsal AT, Akyol M, Eğilmez HR",
-    "canonicalId": "doi:10.3390/ijms27209278",
-    "canonicalIdKind": "doi",
     "documentType": "unknown",
     "documentTypeBasis": "pubmed-publication-type-unspecific",
     "documentSignals": [
@@ -2785,14 +2783,14 @@
     "evidenceGradeBasis": "unassessed",
     "reviewStatus": "automated",
     "sourceName": "PubMed",
-    "stale": false,
-    "freshnessState": "current",
-    "staleSourceNames": [],
-    "freshSourceNames": [
+    "stale": true,
+    "freshnessState": "stale",
+    "staleSourceNames": [
       "PubMed"
     ],
+    "freshSourceNames": [],
     "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "PubMed",
@@ -2800,11 +2798,13 @@
         "recordId": "pubmed-42942047",
         "url": "https://doi.org/10.3390/ijms27209278",
         "retrievedAt": "2026-10-31T21:32:48.252Z",
-        "stale": false,
+        "stale": true,
         "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
-    ]
+    ],
+    "canonicalId": "doi:10.3390/ijms27209278",
+    "canonicalIdKind": "doi"
   },
   {
     "id": "pubmed-42957911",
@@ -2822,8 +2822,6 @@
       "GPX4"
     ],
     "takeaway": "Cell biology and toxicology · Tang F, Gao H, Chen B, Ning J, Yang M, Li X, Qiao L",
-    "canonicalId": "doi:10.1007/s10565-026-10239-3",
-    "canonicalIdKind": "doi",
     "documentType": "unknown",
     "documentTypeBasis": "pubmed-publication-type-unspecific",
     "documentSignals": [
@@ -2833,14 +2831,14 @@
     "evidenceGradeBasis": "unassessed",
     "reviewStatus": "automated",
     "sourceName": "PubMed",
-    "stale": false,
-    "freshnessState": "current",
-    "staleSourceNames": [],
-    "freshSourceNames": [
+    "stale": true,
+    "freshnessState": "stale",
+    "staleSourceNames": [
       "PubMed"
     ],
+    "freshSourceNames": [],
     "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "PubMed",
@@ -2848,11 +2846,13 @@
         "recordId": "pubmed-42957911",
         "url": "https://doi.org/10.1007/s10565-026-10239-3",
         "retrievedAt": "2026-10-31T21:32:48.252Z",
-        "stale": false,
+        "stale": true,
         "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
-    ]
+    ],
+    "canonicalId": "doi:10.1007/s10565-026-10239-3",
+    "canonicalIdKind": "doi"
   },
   {
     "id": "trial-NCT07412574",
@@ -2885,18 +2885,18 @@
     "freshSourceNames": [
       "ClinicalTrials.gov"
     ],
-    "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastSuccessAt": "2026-11-01T06:02:44.296Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "ClinicalTrials.gov",
         "kind": "automated",
         "recordId": "trial-NCT07412574",
         "url": "https://clinicaltrials.gov/study/NCT07412574",
-        "retrievedAt": "2026-10-31T21:32:48.252Z",
+        "retrievedAt": "2026-11-01T06:02:44.296Z",
         "stale": false,
-        "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastSuccessAt": "2026-11-01T06:02:44.296Z",
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
     ]
   },
@@ -2932,18 +2932,18 @@
     "freshSourceNames": [
       "ClinicalTrials.gov"
     ],
-    "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastSuccessAt": "2026-11-01T06:02:44.296Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "ClinicalTrials.gov",
         "kind": "automated",
         "recordId": "trial-NCT06048367",
         "url": "https://clinicaltrials.gov/study/NCT06048367",
-        "retrievedAt": "2026-10-31T21:32:48.252Z",
+        "retrievedAt": "2026-11-01T06:02:44.296Z",
         "stale": false,
-        "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastSuccessAt": "2026-11-01T06:02:44.296Z",
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
     ]
   },
@@ -2964,8 +2964,6 @@
       "cancer translation"
     ],
     "takeaway": "Frontiers in pharmacology · Shen Z, Zhu J, Yang Y, Yang J, Rao L, Zhou C, Xia Y",
-    "canonicalId": "doi:10.3389/fphar.2026.1883092",
-    "canonicalIdKind": "doi",
     "documentType": "unknown",
     "documentTypeBasis": "pubmed-publication-type-unspecific",
     "documentSignals": [
@@ -2975,14 +2973,14 @@
     "evidenceGradeBasis": "unassessed",
     "reviewStatus": "automated",
     "sourceName": "PubMed",
-    "stale": false,
-    "freshnessState": "current",
-    "staleSourceNames": [],
-    "freshSourceNames": [
+    "stale": true,
+    "freshnessState": "stale",
+    "staleSourceNames": [
       "PubMed"
     ],
+    "freshSourceNames": [],
     "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "PubMed",
@@ -2990,11 +2988,13 @@
         "recordId": "pubmed-42953094",
         "url": "https://doi.org/10.3389/fphar.2026.1883092",
         "retrievedAt": "2026-10-31T21:32:48.252Z",
-        "stale": false,
+        "stale": true,
         "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
-    ]
+    ],
+    "canonicalId": "doi:10.3389/fphar.2026.1883092",
+    "canonicalIdKind": "doi"
   },
   {
     "id": "trial-NCT07733063",
@@ -3028,18 +3028,18 @@
     "freshSourceNames": [
       "ClinicalTrials.gov"
     ],
-    "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastSuccessAt": "2026-11-01T06:02:44.296Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "ClinicalTrials.gov",
         "kind": "automated",
         "recordId": "trial-NCT07733063",
         "url": "https://clinicaltrials.gov/study/NCT07733063",
-        "retrievedAt": "2026-10-31T21:32:48.252Z",
+        "retrievedAt": "2026-11-01T06:02:44.296Z",
         "stale": false,
-        "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastSuccessAt": "2026-11-01T06:02:44.296Z",
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
     ]
   },
@@ -3074,18 +3074,18 @@
     "freshSourceNames": [
       "ClinicalTrials.gov"
     ],
-    "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastSuccessAt": "2026-11-01T06:02:44.296Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "ClinicalTrials.gov",
         "kind": "automated",
         "recordId": "trial-NCT07686887",
         "url": "https://clinicaltrials.gov/study/NCT07686887",
-        "retrievedAt": "2026-10-31T21:32:48.252Z",
+        "retrievedAt": "2026-11-01T06:02:44.296Z",
         "stale": false,
-        "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastSuccessAt": "2026-11-01T06:02:44.296Z",
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
     ]
   },
@@ -3120,18 +3120,18 @@
     "freshSourceNames": [
       "ClinicalTrials.gov"
     ],
-    "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastSuccessAt": "2026-11-01T06:02:44.296Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "ClinicalTrials.gov",
         "kind": "automated",
         "recordId": "trial-NCT06896383",
         "url": "https://clinicaltrials.gov/study/NCT06896383",
-        "retrievedAt": "2026-10-31T21:32:48.252Z",
+        "retrievedAt": "2026-11-01T06:02:44.296Z",
         "stale": false,
-        "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastSuccessAt": "2026-11-01T06:02:44.296Z",
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
     ]
   },
@@ -3167,18 +3167,18 @@
     "freshSourceNames": [
       "ClinicalTrials.gov"
     ],
-    "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastSuccessAt": "2026-11-01T06:02:44.296Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "ClinicalTrials.gov",
         "kind": "automated",
         "recordId": "trial-NCT06554392",
         "url": "https://clinicaltrials.gov/study/NCT06554392",
-        "retrievedAt": "2026-10-31T21:32:48.252Z",
+        "retrievedAt": "2026-11-01T06:02:44.296Z",
         "stale": false,
-        "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastSuccessAt": "2026-11-01T06:02:44.296Z",
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
     ]
   },
@@ -3214,18 +3214,18 @@
     "freshSourceNames": [
       "ClinicalTrials.gov"
     ],
-    "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastSuccessAt": "2026-11-01T06:02:44.296Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "ClinicalTrials.gov",
         "kind": "automated",
         "recordId": "trial-NCT04378075",
         "url": "https://clinicaltrials.gov/study/NCT04378075",
-        "retrievedAt": "2026-10-31T21:32:48.252Z",
+        "retrievedAt": "2026-11-01T06:02:44.296Z",
         "stale": false,
-        "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastSuccessAt": "2026-11-01T06:02:44.296Z",
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
     ]
   },
@@ -3260,18 +3260,18 @@
     "freshSourceNames": [
       "ClinicalTrials.gov"
     ],
-    "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-    "lastAttemptAt": "2026-10-31T21:32:48.252Z",
+    "lastSuccessAt": "2026-11-01T06:02:44.296Z",
+    "lastAttemptAt": "2026-11-01T06:02:44.296Z",
     "sources": [
       {
         "route": "ClinicalTrials.gov",
         "kind": "automated",
         "recordId": "trial-NCT06891820",
         "url": "https://clinicaltrials.gov/study/NCT06891820",
-        "retrievedAt": "2026-10-31T21:32:48.252Z",
+        "retrievedAt": "2026-11-01T06:02:44.296Z",
         "stale": false,
-        "lastSuccessAt": "2026-10-31T21:32:48.252Z",
-        "lastAttemptAt": "2026-10-31T21:32:48.252Z"
+        "lastSuccessAt": "2026-11-01T06:02:44.296Z",
+        "lastAttemptAt": "2026-11-01T06:02:44.296Z"
       }
     ]
   }
