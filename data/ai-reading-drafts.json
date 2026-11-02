@@ -86,5 +86,93 @@
     "status": "ai-draft",
     "draftedBy": "Claude (weekly reading round, abstract only)",
     "draftedAt": "2026-09-28"
+  },
+  {
+    "canonicalId": "doi:10.1016/j.cell.2026.09.053",
+    "recordId": "pubmed-42906540",
+    "title": "A bioavailable GPX4 inhibitor for ferroptosis induction in vivo and tumor suppression.",
+    "takeaway": "Reports KY0418, an orally dosed, plasma-stable covalent GPX4 inhibitor with an isourea warhead that targets GPX4 at SeCys46 and induces ferroptosis hallmarks in human and mouse cancer cell lines with greater selectivity than existing inhibitors. In mice it reproduces ferroptotic changes in an acute-liver-injury model, remodels tissue metabolism and generates detectable hydroxyl radicals, and across cancer models consistently eradicated circulating tumor cells and suppressed metastasis.",
+    "caveat": "Shown in cancer cell lines and in mice; the abstract reports subcutaneous-tumor responses ranged from no effect to about 70% growth inhibition, and positions KY0418 as a tool for in vivo research and translation rather than a treatment tested in patients.",
+    "basis": "abstract",
+    "status": "ai-draft",
+    "draftedBy": "Claude (weekly reading round, abstract only)",
+    "draftedAt": "2026-11-02"
+  },
+  {
+    "canonicalId": "doi:10.1016/j.cell.2026.09.040",
+    "recordId": "pubmed-42880285",
+    "title": "Mitochondria-targeted tetraoxanes initiate lipid peroxidation to drive ferroptosis and tumor suppression.",
+    "takeaway": "Describes designed mitochondria-targeting tetraoxane compounds (WMK-1/2) that initiate local lipid peroxidation to drive ferroptosis without first inhibiting GPX4 or FSP1. The abstract reports WMK-1 localizes to mitochondria, impairs oxidative phosphorylation, and drives a labile-Fe2+-dependent \"mito-ferroptosis\" that is rescued by lipophilic radical-trapping antioxidants and by alpha-lipoic acid but is insensitive to ACSL4 perturbation and PUFA supplementation; WMK-1/2 are bioavailable, suppress tumors, and augment immune-checkpoint blockers.",
+    "caveat": "The GPX4/FSP1-independent sub-pathway rests on the rescue and perturbation experiments the abstract lists, and efficacy is reported in cell and mouse cancer models, not in patients.",
+    "basis": "abstract",
+    "status": "ai-draft",
+    "draftedBy": "Claude (weekly reading round, abstract only)",
+    "draftedAt": "2026-11-02"
+  },
+  {
+    "canonicalId": "doi:10.1021/acschembio.6c00581",
+    "recordId": "pubmed-42874009",
+    "title": "Pooled Screening of Cancer Cell Lines Identifies Vulnerability to Polyunsaturated Fatty-Acid-Induced Ferroptosis.",
+    "takeaway": "A barcoded, pooled screen across 554 cancer cell lines from 19 lineages finds a subset sensitive to polyunsaturated fatty acids at physiological concentrations, with PUFA treatment alone sufficient to induce ferroptosis in lines that are also vulnerable to GPX4 inhibition. PUFA sensitivity is positively associated with FABP1 expression, conjugated linolenic acids also induce ferroptosis, and a genome-wide CRISPR screen in ES2 cells defines a pro-ferroptosis route converting PUFAs to membrane phospholipids and an anti-ferroptosis route diverting them to lipid droplets.",
+    "caveat": "The dataset is cultured cell lines; the FABP1 link is reported as a positive association across lines rather than a tested mechanism, and the abstract suggests the dietary-metabolite therapeutic avenue rather than showing it in animals.",
+    "basis": "abstract",
+    "status": "ai-draft",
+    "draftedBy": "Claude (weekly reading round, abstract only)",
+    "draftedAt": "2026-11-02"
+  },
+  {
+    "canonicalId": "doi:10.1126/science.aec5473",
+    "recordId": "pubmed-42784683",
+    "title": "Mammals produce cyclo-octasulfur to suppress lipid peroxidation and ferroptosis.",
+    "takeaway": "Reports that mammals harbor elemental sulfur as cyclo-octasulfur (S8), accumulating to millimolar concentrations in mitochondrial membranes and lipid droplets of mouse and human cells, and identifies lipid-droplet-associated nitric oxide synthase as a source of its biosynthesis. S8 in lipid droplets limits lipid peroxidation and suppresses ferroptosis, and intra-articular injection of solubilized S8 reduced lipid peroxidation in a mouse osteoarthritis model.",
+    "caveat": "Based on mouse and human cells plus one osteoarthritis mouse model where injected S8 lowered lipid peroxidation, a redox readout rather than a disease outcome; the abstract states the protective role as one S8 \"may\" play.",
+    "basis": "abstract",
+    "status": "ai-draft",
+    "draftedBy": "Claude (weekly reading round, abstract only)",
+    "draftedAt": "2026-11-02"
+  },
+  {
+    "canonicalId": "doi:10.1073/pnas.2616933123",
+    "recordId": "pubmed-42814555",
+    "title": "Targeted extracellular degradation of LRP8 promotes ferroptosis in cancer cells.",
+    "takeaway": "Identifies targeted extracellular degradation of the selenium-uptake receptor LRP8 as a way to lower the ferroptosis-protective enzyme GPX4: bispecific KineTAC chimeras couple LRP8 to cytokine-receptor internalization and route it to the lysosome, reducing several selenoproteins including GPX4 and sensitizing cancer cells to ferroptosis. The authors frame receptor-mediated selenium uptake as a targetable node in ferroptosis resistance.",
+    "caveat": "The results the abstract describes are at the cell level (reduced selenoprotein abundance and sensitization of cancer cells); overcoming therapy resistance is presented as a framework the approach could enable, not a demonstrated outcome.",
+    "basis": "abstract",
+    "status": "ai-draft",
+    "draftedBy": "Claude (weekly reading round, abstract only)",
+    "draftedAt": "2026-11-02"
+  },
+  {
+    "canonicalId": "doi:10.1021/acschembio.6c00583",
+    "recordId": "pubmed-42805600",
+    "title": "On the Inhibition of Lipid Peroxidation and Ferroptosis by Fatty Acids.",
+    "takeaway": "Tests whether replacing oxidizable PUFAs with non-oxidizable fatty acids is a general way to suppress ferroptosis by preparing cyclopropanated PUFAs (CP-PUFAs), predicted to be far less reactive to peroxyl radicals while keeping cis geometry. CP-PUFAs suppressed erastin2- and RSL3-induced ferroptosis in HT-1080 and HEK-293 cells much as deuterated PUFAs and MUFAs did while palmitate did not, with CP2-LA comparable to D-PUFAs but CP4-AA only modest, and lipidomics showed accompanying lipid remodeling.",
+    "caveat": "Tested in two cultured cell lines against two chemical inducers; the authors state the strategy is general only provided the non-oxidizable fatty acid can be used by biosynthetic machinery and is not lipotoxic at the concentrations needed for protection.",
+    "basis": "abstract",
+    "status": "ai-draft",
+    "draftedBy": "Claude (weekly reading round, abstract only)",
+    "draftedAt": "2026-11-02"
+  },
+  {
+    "canonicalId": "doi:10.1038/s41594-026-01830-7",
+    "recordId": "pubmed-42486993",
+    "title": "PLA2G2F suppresses ferroptosis through phospholipid remodeling.",
+    "takeaway": "Identifies the secretory phospholipase PLA2G2F as a ferroptosis suppressor in bladder cancer that acts intracellularly from the endoplasmic reticulum. The abstract reports that PPARG upregulates PLA2G2F and that PPARG-mediated ferroptosis resistance largely depends on it, that lipidomic profiling indicates PLA2G2F preferentially acts on ether-linked PUFA phospholipids to shrink the peroxidation-prone pool, and that inhibiting PPARG signaling or PLA2G2F sensitizes bladder cancer cells to ferroptosis.",
+    "caveat": "Shown in bladder cancer; the preferential action on ether-linked PUFA phospholipids is what the abstract says the lipidomic profiling \"suggests,\" and the sensitization is reported in bladder cancer cells.",
+    "basis": "abstract",
+    "status": "ai-draft",
+    "draftedBy": "Claude (weekly reading round, abstract only)",
+    "draftedAt": "2026-11-02"
+  },
+  {
+    "canonicalId": "doi:10.1016/j.cell.2026.09.045",
+    "recordId": "pubmed-42914976",
+    "title": "Cell-state-specific metabolic networks govern ferroptosis versus apoptosis in small cell lung cancer.",
+    "takeaway": "In small cell lung cancer, integrated transcriptomic and metabolomic analysis finds a universal dependency on exogenous cysteine/cystine across neuroendocrine and non-neuroendocrine states. On cysteine depletion, ASCL1-low cells undergo ferroptosis while ASCL1-high cells undergo apoptosis and resist ferroptosis, a resistance the abstract attributes to ASCL1 directly activating GCH1 and raising BH4/BH2 antioxidants; combining cysteine depletion with inhibition of BH4/BH2 synthesis reduced tumor growth in patient-derived xenografts.",
+    "caveat": "Demonstrated in small cell lung cancer models, including defined cell states and patient-derived xenografts; the cell-death switch and the ASCL1-GCH1-BH4 mechanism are shown for SCLC and not claimed beyond it.",
+    "basis": "abstract",
+    "status": "ai-draft",
+    "draftedBy": "Claude (weekly reading round, abstract only)",
+    "draftedAt": "2026-11-02"
   }
 ]
