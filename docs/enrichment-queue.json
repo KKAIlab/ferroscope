@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-26T11:17:29.021Z",
+  "generatedAt": "2026-11-02T13:39:48.874Z",
   "generator": "scripts/build-enrichment-queue.mjs",
   "status": "pre-read work list — no entry here carries any review state",
   "minRelevance": 65,
@@ -111,6 +111,23 @@
       "abstract": "Most inhibitors of lipid peroxidation (LPO) and associated ferroptosis are small molecules that trap LPO-propagating radicals. Among the handful of other inhibitors are select fatty acids: monounsaturated fatty acids (MUFAs) and polyunsaturated fatty acids substituted with deuterium atoms at their reactive bis-allylic positions (D-PUFAs), which render them significantly less reactive to LPO-propagating radicals. To probe whether the simple replacement of oxidizable PUFAs with non-oxidizable FAs is a general strategy for ferroptosis suppression, we prepared derivatives of representative PUFAs-linoleic acid (LA) and arachidonic acid (AA)-with cyclopropane rings in place of their unsaturations (CP-PUFAs). Cyclopropanation was predicted to boost the strength of the neighboring C-H bonds by &#x223c;20 kcal/mol and increase the barrier to reaction with peroxyl radicals by &#x223c;104-fold while preserving their cis geometry. CP-PUFAs suppressed ferroptosis induced by erastin2 in HT-1080 cells and RSL3 in HEK-293 cells, similarly to D-PUFAs and MUFAs. Palmitate, a representative endogenous saturated FA, did not suppress ferroptosis. Whereas d6-AA was more effective than d2-LA, the opposite was true of the CP-PUFAs, with CP4-AA possessing only modest activity while CP2-LA was comparable to the D-PUFAs. Lipidomics provides evidence for more extensive lipid remodeling upon treatment with CP2-LA relative to CP4-AA, with PUFAs being enriched in triacylglycerols at the expense of the diacylglycerols used for phospholipid synthesis. Overall, these results suggest that replacement of oxidizable PUFAs with non-oxidizable FAs is a general strategy to suppress ferroptosis-provided that the non-oxidizable FA can be utilized by the biosynthetic machinery and is not lipotoxic at concentrations necessary for protection."
     },
     {
+      "canonicalId": "doi:10.64898/2026.09.01.748671",
+      "recordId": "pubmed-42922663",
+      "title": "Cryo-EM structures reveal the mechanism of phosphatidylserine remodeling by membrane-bound glycerophospholipid O-acyltransferase 1.",
+      "date": "2026-09-02",
+      "sourceType": "preprint",
+      "documentType": "preprint",
+      "relevance": 87,
+      "trackedLabs": [
+        "Xuejun Jiang"
+      ],
+      "url": "https://doi.org/10.64898/2026.09.01.748671",
+      "doi": "10.64898/2026.09.01.748671",
+      "pmid": "42922663",
+      "takeaway": "bioRxiv : the preprint server for biology · Laboratory watch match: Xuejun Jiang.",
+      "abstract": "Lands cycle remodeling of glycerophospholipid acyl chains is crucial for cells to maintain appropriate membrane composition. Glycerophospholipids are cleaved at the glycerol sn2-position by phospholipase A. The lysophospholipids are reacylated by enzymes of the membrane-bound O-acyltransferase (MBOAT) family to incorporate specific fatty-acyl chains to adjust membrane properties. How MBOAT enzymes recognize specific acyl-CoA donors, select lysophospholipid acceptors, and release products is unclear. Phosphatidylserine (PS), a critical anionic phospholipid, controls membrane surface charge, signaling-protein recruitment, and cell-death-associated membrane recognition, and PS acyl-chain remodeling is linked to ferroptosis resistance. Here, we showed that MBOAT1 preferentially generates monounsaturated fatty acid-containing PS from lyso-PS. High-resolution cryo-electron microscopy structures of human MBOAT1 captured distinct binding poses of the fatty acyl donor, lyso-PS acceptor, and PS product. With lipidomics, enzymology and molecular dynamics simulations, these structures reveal the mechanism and pathway of MBOAT1-dependent PS remodeling."
+    },
+    {
       "canonicalId": "doi:10.1038/s41594-026-01830-7",
       "recordId": "pubmed-42486993",
       "title": "PLA2G2F suppresses ferroptosis through phospholipid remodeling.",
@@ -216,23 +233,6 @@
       "abstract": "Genetic heterogeneity contributes to the variable therapeutic responses in cancers. Frequent SPOP mutations and recurrent CHD1 deletions define distinct molecular subtypes of prostate cancer (PCa) with differential responses to anti-androgen therapy. Ferroptosis, an iron-dependent cell death mechanism driven by lipid peroxidation, has emerged as a promising anticancer strategy. Here, we identify SPOP mutations and CHD1 deletion as key genetic determinants of ferroptosis susceptibility in PCa. Using genetically engineered human and murine models, we show that SPOP mutations enhance, whereas CHD1 deletion impairs, the efficacy of ferroptosis inducers targeting GPX4. Mechanistically, SPOP and CHD1 exert opposing effects on ferroptosis by antagonistically regulating the MYC-ACSL4 axis. Furthermore, we demonstrate that targeting cholesterol metabolism with cholesterol-lowering agents restores ACSL4 expression and re-sensitizes SPOP/CHD1 co-deficient tumors to ferroptosis-inducing therapy. Our findings establish SPOP/CHD1 as upstream genetic regulators of ferroptosis and provide biomarker-driven combinatorial strategies to enhance ferroptosis-based therapy in men with advanced PCa."
     },
     {
-      "canonicalId": "doi:10.1016/j.stem.2026.04.022",
-      "recordId": "pubmed-42242187",
-      "title": "Ketone bodies as guardians of leukemic stemness through ferroptosis suppression.",
-      "date": "2026-06-04",
-      "sourceType": "paper",
-      "documentType": "unknown",
-      "relevance": 86,
-      "trackedLabs": [
-        "Boyi Gan"
-      ],
-      "url": "https://doi.org/10.1016/j.stem.2026.04.022",
-      "doi": "10.1016/j.stem.2026.04.022",
-      "pmid": "42242187",
-      "takeaway": "Cell stem cell · Laboratory watch match: Boyi Gan.",
-      "abstract": "Leukemia stem cells exploit cell-intrinsic ketogenesis to suppress ferroptosis and sustain disease propagation. In this issue, Han et al.1 uncover a &#x3b2;-hydroxybutyrate-epigenetic-lipid remodeling axis that protects stemness by restraining ferroptosis, revealing a metabolic vulnerability with therapeutic potential."
-    },
-    {
       "canonicalId": "doi:10.1080/15548627.2026.2726089",
       "recordId": "pubmed-42669120",
       "title": "Autophagic degradation of RAB8A promotes ferroptosis through dysregulation of TFRC-mediated iron uptake.",
@@ -282,6 +282,23 @@
       "pmid": "42914978",
       "takeaway": "Cell · Laboratory watch match: Weiping Zou.",
       "abstract": "Cytotoxic CD8+ T cells and natural killer cells are critical effectors of anti-tumor immunity. Cytotoxic lymphocytes eliminate tumor cells by releasing perforin (Prf1), a pore-forming protein that enables granzymes (Gzms) to enter target cells and trigger both caspase-dependent and -independent cell death. Here, we uncover a previously unrecognized, Gzm-independent function of Prf1. We find that Prf1 directly induces tumoral ferroptosis, an iron- and lipid-dependent form of cell death. Mechanistically, Prf1-mediated pore formation drives endocytosis of the transferrin receptor, which increases cellular iron uptake. Prf1 promotes the formation of endosomal-mitochondrial contacts, which leads to mitochondrial iron accumulation, mitochondrial dysfunction, and tumor cell ferroptosis. Dietary iron supplementation suppresses tumor progression in murine tumor models in a Prf1-dependent manner. Higher Prf1 expression correlates with improved survival and enhanced response to immune checkpoint blockade in patients with cancer. These findings define a Gzm-independent function of Prf1 as a direct executioner of cancer cell death through ferroptosis."
+    },
+    {
+      "canonicalId": "doi:10.3389/fimmu.2026.1891865",
+      "recordId": "pubmed-42959090",
+      "title": "Leishmania infantum triggers lipid peroxidation and non-canonical cell death in macrophages.",
+      "date": "2026-10-15",
+      "sourceType": "paper",
+      "documentType": "unknown",
+      "relevance": 83,
+      "trackedLabs": [
+        "Tom Vanden Berghe"
+      ],
+      "url": "https://doi.org/10.3389/fimmu.2026.1891865",
+      "doi": "10.3389/fimmu.2026.1891865",
+      "pmid": "42959090",
+      "takeaway": "Frontiers in immunology · Laboratory watch match: Tom Vanden Berghe.",
+      "abstract": "Leishmania infantum is a causative agent of visceral leishmaniasis and survives as an obligate intracellular parasite within macrophages by modulating host cell death pathways. While preservation of host cell viability is critical for parasite replication, infected macrophages ultimately undergo cell death, although the mechanisms remain unclear. Here, we investigated the nature of L. infantum-induced cell death in murine bone marrow-derived macrophages (BMDMs). Using long-term live-cell imaging, we show that L. infantum induces delayed cell death in lipopolysaccharide (LPS)-primed macrophages. This process occurred independently of Gasdermin D (GSDMD) and was not associated with inflammasome activation, as evidenced by the absence of caspase-1 cleavage and IL-1&#x3b2; secretion. Consistently, GSDMD deficiency did not affect visceral parasite burden or systemic inflammation during L. infantum infections in mice. Combined genetic ablation of key mediators of apoptosis (caspase-8), necroptosis (RIPK3), and inflammasome signaling (caspase-1/11) failed to protect macrophages from L. infantum-induced cell death, indicating that classical lytic and apoptotic pathways were dispensable. Instead, L. infantum-induced non-canonical macrophage death was associated with robust lipid peroxidation, a hallmark of ferroptosis. However, pharmacological inhibition of lipid peroxidation using ferrostatin-1 did not rescue cell viability, while genetic ablation of the anti-ferroptotic enzyme GPX4 enhanced lipid peroxidation without further sensitizing infected macrophages to death. These findings suggest that L. infantum is capable of uncoupling lipid peroxidation from cell death in macrophages. Together, our results reveal that L. infantum induces lipid peroxidation without triggering ferroptosis and instead drives a non-canonical form of macrophage death independent of major known pathways."
     },
     {
       "canonicalId": "doi:10.1158/2159-8290.cd-26-0232",
@@ -489,23 +506,6 @@
       "pmid": "42693162",
       "takeaway": "Leukemia · Laboratory watch match: Andreas Linkermann.",
       "abstract": "Deletion of chromosome 5q [del(5q)] is the most common cytogenetic abnormality in myelodysplastic neoplasms (MDS) and results in haploinsufficiency of multiple genes, including CSNK1A1. Recurrent CSNK1A1 mutations, predominantly affecting the E98 hotspot, occur almost exclusively in del(5q) MDS and are associated with adverse outcomes, yet their impact on CK1&#x251; function remains unclear. Using integrated transcriptomic, (phospho)proteomic, and kinome activity profiling in hematopoietic stem and progenitor cells (HSPCs), combined with in vivo serial transplantation assays, we show that Csnk1a1 E98V represents a change-of-function rather than a loss-of-function mutation. Unlike Csnk1a1 haploinsufficiency, Csnk1a1 E98V preserves long-term hematopoietic reconstitution and does not enhance clonal expansion in vivo. Instead, the mutation induces suppression of kinase signaling networks, leading to coordinated repression of ribosomal gene expression, protein translation, and cell cycle programs. This signaling rewiring is accompanied by metabolic reprogramming characterized by reduced mitochondrial respiration, increased glycolytic flux, and an inability to adapt to metabolic challenges, creating a stress-tolerant but inflexible cellular state. Notably, Csnk1a1 E98V cells exhibit impaired megakaryopoiesis and increased vulnerability to iron overload, as well as RSL-3-mediated ferroptosis. Analysis of del(5q) MDS patients confirmed that CSNK1A1 mutations are associated with distinct clinical features, including thrombocytopenia, elevated myeloblasts, and reduced bone marrow iron levels. Together, our findings support a two-step model in which del(5q)-associated CSNK1A1 haploinsufficiency drives clonal expansion, followed by acquisition of CSNK1A1 mutations that promote stress tolerance rather than increased proliferation. This adaptive rewiring exposes metabolic and iron-dependent vulnerabilities that may be therapeutically exploited."
-    },
-    {
-      "canonicalId": "doi:10.1080/10715762.2026.2686117",
-      "recordId": "pubmed-42253274",
-      "title": "Acidic plasma-activated povidone-iodine induces copper-dependent oxidative death in oral squamous cell carcinoma cells.",
-      "date": "2026-06-10",
-      "sourceType": "paper",
-      "documentType": "unknown",
-      "relevance": 69,
-      "trackedLabs": [
-        "Shinya Toyokuni"
-      ],
-      "url": "https://doi.org/10.1080/10715762.2026.2686117",
-      "doi": "10.1080/10715762.2026.2686117",
-      "pmid": "42253274",
-      "takeaway": "Free radical research · Laboratory watch match: Shinya Toyokuni.",
-      "abstract": "Oral squamous cell carcinoma (OSCC) requires therapeutic strategies that preserve oral function while providing effective tumor control. Here we demonstrate that non-thermal plasma (NTP) irradiation of a clinically established povidone-iodine solution generates a potent cytotoxic formulation termed plasma-activated povidone-iodine (PAI). PAI selectively reduced viability of OSCC cell lines (SAS, HSC-2, HSC-4) compared with normal fibroblasts. Mechanistically, PAI activity strictly depended on its acidic pH (3.0 or below) and hydrogen peroxide (H2O2) generated during NTP irradiation. Neutralization or freeze-drying abolished both H2O2 content and cytotoxicity, indicating that reactive oxygen species are essential mediators. Unlike plasma-activated media, whose effects are predominantly iron-dependent, PAI-induced cytotoxicity required intracellular monovalent copper (Cu+). The Cu+ chelator tetrathiomolybdate suppressed ROS accumulation, glutathione depletion, lipid peroxidation, and cell death, whereas classical ferroptosis or apoptosis inhibitors failed to rescue viability. PAI increased intracellular Cu+ levels and triggered oxidative damage including &#x3b3;H2AX induction; however, the resulting death program was mechanistically distinct from apoptosis, ferroptosis, and cuproptosis. Our findings reveal a previously unrecognized Cu+-dependent oxidative pathway initiated by PAI. This study establishes an accessible iodine-based platform that harnesses metal-driven redox chemistry for selective OSCC elimination."
     }
   ],
   "awaitingReview": [
