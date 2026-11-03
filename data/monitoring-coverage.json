@@ -434,7 +434,7 @@
       "note": "Watch added in the round-3 expansion using PubMed full-name indexing. Two-PI watch, full names only: Fujita H and Iwai K collide broadly at Kyoto. A full-name query still cannot prove identity; ORCID remains the exactness bar.",
       "activatedAt": "2026-09-28",
       "lastRunAt": "2026-11-03",
-      "matchesPastYear": 0
+      "matchesPastYear": 1
     },
     {
       "labId": "gao-hit",
