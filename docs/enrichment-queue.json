@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-11-02T13:39:48.874Z",
+  "generatedAt": "2026-11-09T14:03:45.008Z",
   "generator": "scripts/build-enrichment-queue.mjs",
   "status": "pre-read work list — no entry here carries any review state",
   "minRelevance": 65,
-  "candidateCount": 29,
+  "candidateCount": 30,
   "candidates": [
     {
       "canonicalId": "doi:10.1016/j.cell.2026.09.053",
@@ -101,13 +101,12 @@
       "documentType": "unknown",
       "relevance": 88,
       "trackedLabs": [
-        "Derek Pratt",
-        "Scott Dixon"
+        "Derek Pratt"
       ],
       "url": "https://doi.org/10.1021/acschembio.6c00583",
       "doi": "10.1021/acschembio.6c00583",
       "pmid": "42805600",
-      "takeaway": "ACS chemical biology · Laboratory watch match: Derek Pratt, Scott Dixon.",
+      "takeaway": "ACS chemical biology · Laboratory watch match: Derek Pratt.",
       "abstract": "Most inhibitors of lipid peroxidation (LPO) and associated ferroptosis are small molecules that trap LPO-propagating radicals. Among the handful of other inhibitors are select fatty acids: monounsaturated fatty acids (MUFAs) and polyunsaturated fatty acids substituted with deuterium atoms at their reactive bis-allylic positions (D-PUFAs), which render them significantly less reactive to LPO-propagating radicals. To probe whether the simple replacement of oxidizable PUFAs with non-oxidizable FAs is a general strategy for ferroptosis suppression, we prepared derivatives of representative PUFAs-linoleic acid (LA) and arachidonic acid (AA)-with cyclopropane rings in place of their unsaturations (CP-PUFAs). Cyclopropanation was predicted to boost the strength of the neighboring C-H bonds by &#x223c;20 kcal/mol and increase the barrier to reaction with peroxyl radicals by &#x223c;104-fold while preserving their cis geometry. CP-PUFAs suppressed ferroptosis induced by erastin2 in HT-1080 cells and RSL3 in HEK-293 cells, similarly to D-PUFAs and MUFAs. Palmitate, a representative endogenous saturated FA, did not suppress ferroptosis. Whereas d6-AA was more effective than d2-LA, the opposite was true of the CP-PUFAs, with CP4-AA possessing only modest activity while CP2-LA was comparable to the D-PUFAs. Lipidomics provides evidence for more extensive lipid remodeling upon treatment with CP2-LA relative to CP4-AA, with PUFAs being enriched in triacylglycerols at the expense of the diacylglycerols used for phospholipid synthesis. Overall, these results suggest that replacement of oxidizable PUFAs with non-oxidizable FAs is a general strategy to suppress ferroptosis-provided that the non-oxidizable FA can be utilized by the biosynthetic machinery and is not lipotoxic at concentrations necessary for protection."
     },
     {
@@ -386,6 +385,23 @@
       "abstract": "The limited efficacy of immunotherapies in advanced prostate cancer stems from a tumor microenvironment (TME) in which myeloid-driven immune suppression, stromal remodeling, and metabolic barriers converge to limit antitumor immunity. In this study, we characterized the immunometabolic properties of an ultrasmall prostate-specific membrane antigen-targeting silica particle therapy as a first-in-class strategy to reprogram the Toll-like receptor (TLR)-ferroptosis axis in MYC-driven prostate cancer. As single agents, these particles suppressed lipid and steroid biosynthesis, disrupted lipid peroxidation control, and impaired nutrient flux, sensitizing tumors to ferroptosis. Coordinated redox remodeling, stromal reprogramming, and innate immune activation reversed myeloid suppression and promoted CD8+ T-cell infiltration. When combined with CSF-1R inhibition and immune checkpoint blockade, the particles suppressed tumor growth, extended survival beyond 100 days, and achieved up to 50% complete remission in MYC-overexpressing models. These findings position TLR-ferroptosis axis remodeling as a mechanistic blueprint for rational, particle-driven immunotherapies with broad translational potential in prostate cancer and other immunologically refractory malignancies. Clinically validated, PSMA-targeted ultrasmall core-shell silica particles reprogram immunometabolic pathways via a TLR-ferroptosis axis, enabling tumor microenvironment remodeling and potentiating checkpoint blockade in prostate cancer, with translational implications for treatment-resistant disease."
     },
     {
+      "canonicalId": "doi:10.1038/s44318-026-00939-1",
+      "recordId": "pubmed-42972090",
+      "title": "Safe lysosomal sequestration of ferrous iron is mediated via cholesterol shielding and drives senescence and ferroptosis resistance.",
+      "date": "2026-11-02",
+      "sourceType": "paper",
+      "documentType": "unknown",
+      "relevance": 81,
+      "trackedLabs": [
+        "Hiroaki Fujita · Kazuhiro Iwai"
+      ],
+      "url": "https://doi.org/10.1038/s44318-026-00939-1",
+      "doi": "10.1038/s44318-026-00939-1",
+      "pmid": "42972090",
+      "takeaway": "The EMBO journal · Laboratory watch match: Hiroaki Fujita · Kazuhiro Iwai.",
+      "abstract": "Iron accumulation is a conserved hallmark of cellular as well as organismal aging, yet its mechanistic role in senescence remains largely elusive. Here we show that the accumulation of ferrous iron (Fe2+) in lysosomes, a unique feature of senescent cells, is crucial for the induction of multiple senescence-associated phenotypes. Intriguingly, we found that this lysosomal Fe2+ sequestration is rendered \"safe\" by a dual metabolic adaptation that confers robust resistance to ferroptosis. First, Fe2+ accumulation triggers lysosomal alkalinization and subsequent cholesterol accumulation, which reinforces the lysosomal membrane against permeabilization. Second, senescent cells partition polyunsaturated fatty acids into lipid droplets, thereby depleting these ferroptosis-prone substrates from cellular membranes. Our findings establish that such cholesterol-enabled safe sequestration of Fe2+ serves as a central modulator linking senescence-associated remodeling to ferroptosis resistance. Modulating this lysosomal iron-centered pathway may provide new opportunities to target and control the behavior of senescent cells."
+    },
+    {
       "canonicalId": "doi:10.1038/s43018-026-01224-0",
       "recordId": "pubmed-42527514",
       "title": "Retraction Note: Targeted activation of ferroptosis in colorectal cancer via LGR4 targeting overcomes acquired drug resistance.",
@@ -418,23 +434,6 @@
       "pmid": "42442115",
       "takeaway": "Redox biology · Laboratory watch match: Shinya Toyokuni.",
       "abstract": "Early cancer initiation under chronic oxidative stress requires the survival of epithelial cells that should otherwise be eliminated by regulated cell death. However, the spatial and morphological identity of such stress-adapted cells remains poorly defined. Here, we integrated Xenium single-cell spatial transcriptomics, quantitative nuclear morphometrics, mitochondrial analyses, and human cancer datasets to investigate iron-driven renal carcinogenesis in Brca1(L63X/+) rats. Ferric nitrilotriacetate exposure induced dynamic remodeling of proximal tubular epithelium, characterized by loss of homeostatic transport and mitochondrial programs, and activation of Myc, Met, Lcn2, Anxa2 and iron-handling genes. BRCA1 haploinsufficiency expanded a karyomegalic proximal tubular state associated with mitochondrial dysfunction, chromatin hyperchromasia, nuclear remodeling, and ferroptosis-resistant transcriptional features. Subclassification of karyomegalic cells identified distinct stress-adaptive populations, including a BRCA1-associated K2 state enriched for Myc/Met/Lcn2 signaling and preferentially embedded within a pro-oncogenic epithelial-stromal microenvironment. Of note, neighboring non-karyomegalic proximal tubular cells acquired related iron-handling and survival-biased programs, indicating that karyomegaly marks a broader pre-neoplastic field rather than an isolated abnormality. Human TCGA renal cancer analyses and morphometric assessment of BRCA1-mutant breast tissue further supported the clinical relevance of karyomegaly-associated gene modules and nuclear remodeling. These findings define a spatially organized, ferroptosis-resistant karyomegalic niche as an early lesion in iron-driven carcinogenesis and establish quantitative nuclear morphology as a functional readout of exposome-related oxidative stress adaptation in genetically susceptible tissues."
-    },
-    {
-      "canonicalId": "doi:10.1016/j.tem.2026.06.001",
-      "recordId": "pubmed-42350226",
-      "title": "HDL resuscitates cells from ferroptosis.",
-      "date": "2026-06-26",
-      "sourceType": "paper",
-      "documentType": "unknown",
-      "relevance": 81,
-      "trackedLabs": [
-        "Youwei Ai"
-      ],
-      "url": "https://doi.org/10.1016/j.tem.2026.06.001",
-      "doi": "10.1016/j.tem.2026.06.001",
-      "pmid": "42350226",
-      "takeaway": "Trends in endocrinology and metabolism: TEM · Laboratory watch match: Youwei Ai.",
-      "abstract": "Cells undergo ferroptosis when membrane antioxidant defenses are inhibited, while lipophilic antioxidants can rescue cells from such insults. O'Loughlin et al. show that mTORC1-regulated high-density lipoprotein (HDL) uptake from the culture medium protects cells from ferroptosis."
     },
     {
       "canonicalId": "doi:10.1038/s41586-026-10981-y",
@@ -491,6 +490,23 @@
       "abstract": "Pancreatic ductal adenocarcinoma (PDAC) is one of the most challenging cancers to treat due to the dismal survival rate, poor post-treatment outcome and profound resistance to a wide range of therapies. With mutant KRAS being a key driver, small molecule inhibitors targeting KRAS or pan-RAS (KRASi) have demonstrated exciting preclinical and early clinical anti-tumor efficacy, and the pan-RAS(ON) inhibitor daraxonrasib (RMC-6236) recently achieved Phase 3 clinically meaningful improvements in patient survival compared to chemotherapy. But resistance to RAS/KRAS inhibitor inevitably develops, which limits and compromises the treatment outcome. In this study, we investigated the combination of stereotactic body radiation therapy (SBRT) and KRAS inhibition (MRTX1133 and daraxonrasib) in the treatment of preclinical PDAC models. We found that this combination strategy synergistically suppresses PDAC cell growth in vitro and enhances tumor control while minimizing local recurrence in orthotopically implanted KPC (LSL-KrasG12D/+;Trp53R172H/+;Pdx1-Cre) murine PDAC tumors in vivo. As radiation therapy (RT) induces ferroptosis in multiple cancer types and mutant KRAS promotes various anti-ferroptotic mechanisms, we tested the role of ferroptosis in promoting tumor-control efficacy. Intriguingly, the addition of a ferroptosis inhibitor, liproxstatin-1, to the combination therapy significantly abrogated the in vivo synergism between SBRT and KRAS inhibition, suggesting that treatment-induced ferroptosis at least partially drives the synergistic efficacy of this combination strategy. Our study indicates that this SBRT-KRASi combination has the potential to overcome treatment resistance and improve outcomes in PDAC patients. These data directly support the design of a planned multicenter Phase 2 clinical trial with this combination strategy in locally advanced PDAC."
     },
     {
+      "canonicalId": "doi:10.1016/j.it.2026.10.007",
+      "recordId": "pubmed-42995117",
+      "title": "The immune code of metal-dependent cell death.",
+      "date": "2026-11-06",
+      "sourceType": "paper",
+      "documentType": "unknown",
+      "relevance": 73,
+      "trackedLabs": [
+        "Daolin Tang · Rui Kang"
+      ],
+      "url": "https://doi.org/10.1016/j.it.2026.10.007",
+      "doi": "10.1016/j.it.2026.10.007",
+      "pmid": "42995117",
+      "takeaway": "Trends in immunology · Laboratory watch match: Daolin Tang · Rui Kang.",
+      "abstract": "Metal-dependent cell death can provoke, suppress, or evade immune recognition. We propose that these divergent outcomes reflect two interacting sources of information: signals generated by dying cells and changes in metal availability and localization that shape their perception. Their integration, rather than the death pathway alone, may determine immunogenicity."
+    },
+    {
       "canonicalId": "doi:10.1038/s41375-026-03122-x",
       "recordId": "pubmed-42693162",
       "title": "Csnk1a1 E98 mutations rewire signaling and metabolism in del(5q) myelodysplastic neoplasms.",
@@ -542,7 +558,7 @@
       "title": "15-LOX-catalytic bias towards ether-(alkenyl)-ETE-PEs oxidation bestows selectivity of PRO-ferroptotic cell death signaling.",
       "basis": "abstract",
       "draftedAt": "2026-09-28",
-      "stillInLiveWindow": true
+      "stillInLiveWindow": false
     },
     {
       "canonicalId": "doi:10.64898/2026.05.16.725645",

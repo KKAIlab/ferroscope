@@ -1,6 +1,6 @@
 # Curated-enrichment queue
 
-*Generated 2026-11-02T13:39:48.874Z by `scripts/build-enrichment-queue.mjs`. Regenerate with `npm run build:enrichment`.*
+*Generated 2026-11-09T14:03:45.008Z by `scripts/build-enrichment-queue.mjs`. Regenerate with `npm run build:enrichment`.*
 
 This is a **pre-read work list, not an audit**. Every entry below is an automated
 record — it matched a search, nothing more. It stays "Evidence not assessed" on the
@@ -12,7 +12,7 @@ that a source was actually read — that part is on the reader.
 
 Selection: papers and preprints with research fit ≥ 65/100 and no curated
 coverage (no curated signal, no audit overlay, no paper record, no brief), laboratory-watch
-matches first. **29 record(s) in the queue.**
+matches first. **30 record(s) in the queue.**
 
 ### 1. A bioavailable GPX4 inhibitor for ferroptosis induction in vivo and tumor suppression.
 
@@ -81,9 +81,9 @@ matches first. **29 record(s) in the queue.**
 
 ### 6. On the Inhibition of Lipid Peroxidation and Ferroptosis by Fatty Acids.
 
-- `doi:10.1021/acschembio.6c00583` · 2026-10-16 · paper (unknown) · research fit 88/100 · lab watch: Derek Pratt, Scott Dixon
+- `doi:10.1021/acschembio.6c00583` · 2026-10-16 · paper (unknown) · research fit 88/100 · lab watch: Derek Pratt
 - Primary source: https://doi.org/10.1021/acschembio.6c00583 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42805600/)
-- Route note: ACS chemical biology · Laboratory watch match: Derek Pratt, Scott Dixon.
+- Route note: ACS chemical biology · Laboratory watch match: Derek Pratt.
 
 > Most inhibitors of lipid peroxidation (LPO) and associated ferroptosis are small molecules that trap LPO-propagating radicals. Among the handful of other inhibitors are select fatty acids: monounsaturated fatty acids (MUFAs) and polyunsaturated fatty acids substituted with deuterium atoms at their reactive bis-allylic positions (D-PUFAs), which render them significantly less reactive to LPO-propagating radicals. To probe whether the simple replacement of oxidizable PUFAs with non-oxidizable FAs is a general strategy for ferroptosis suppression, we prepared derivatives of representative PUFAs-linoleic acid (LA) and arachidonic acid (AA)-with cyclopropane rings in place of their unsaturations (CP-PUFAs). Cyclopropanation was predicted to boost the strength of the neighboring C-H bonds by &#x223c;20 kcal/mol and increase the barrier to reaction with peroxyl radicals by &#x223c;104-fold while preserving their cis geometry. CP-PUFAs suppressed ferroptosis induced by erastin2 in HT-1080 cells and RSL3 in HEK-293 cells, similarly to D-PUFAs and MUFAs. Palmitate, a representative endogenous saturated FA, did not suppress ferroptosis. Whereas d6-AA was more effective than d2-LA, the opposite was true of the CP-PUFAs, with CP4-AA possessing only modest activity while CP2-LA was comparable to the D-PUFAs. Lipidomics provides evidence for more extensive lipid remodeling upon treatment with CP2-LA relative to CP4-AA, with PUFAs being enriched in triacylglycerols at the expense of the diacylglycerols used for phospholipid synthesis. Overall, these results suggest that replacement of oxidizable PUFAs with non-oxidizable FAs is a general strategy to suppress ferroptosis-provided that the non-oxidizable FA can be utilized by the biosynthetic machinery and is not lipotoxic at concentrations necessary for protection.
 
@@ -300,7 +300,20 @@ matches first. **29 record(s) in the queue.**
 - [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
 - [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
 
-### 23. Retraction Note: Targeted activation of ferroptosis in colorectal cancer via LGR4 targeting overcomes acquired drug resistance.
+### 23. Safe lysosomal sequestration of ferrous iron is mediated via cholesterol shielding and drives senescence and ferroptosis resistance.
+
+- `doi:10.1038/s44318-026-00939-1` · 2026-11-02 · paper (unknown) · research fit 81/100 · lab watch: Hiroaki Fujita · Kazuhiro Iwai
+- Primary source: https://doi.org/10.1038/s44318-026-00939-1 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42972090/)
+- Route note: The EMBO journal · Laboratory watch match: Hiroaki Fujita · Kazuhiro Iwai.
+
+> Iron accumulation is a conserved hallmark of cellular as well as organismal aging, yet its mechanistic role in senescence remains largely elusive. Here we show that the accumulation of ferrous iron (Fe2+) in lysosomes, a unique feature of senescent cells, is crucial for the induction of multiple senescence-associated phenotypes. Intriguingly, we found that this lysosomal Fe2+ sequestration is rendered "safe" by a dual metabolic adaptation that confers robust resistance to ferroptosis. First, Fe2+ accumulation triggers lysosomal alkalinization and subsequent cholesterol accumulation, which reinforces the lysosomal membrane against permeabilization. Second, senescent cells partition polyunsaturated fatty acids into lipid droplets, thereby depleting these ferroptosis-prone substrates from cellular membranes. Our findings establish that such cholesterol-enabled safe sequestration of Fe2+ serves as a central modulator linking senescence-associated remodeling to ferroptosis resistance. Modulating this lysosomal iron-centered pathway may provide new opportunities to target and control the behavior of senescent cells.
+
+- [ ] Primary source opened and read (abstract at minimum; figures before any grade)
+- [ ] Document class recorded in `data/record-overlays.json` (with `checkedBy`, `checkedAt`, `reason`)
+- [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
+- [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
+
+### 24. Retraction Note: Targeted activation of ferroptosis in colorectal cancer via LGR4 targeting overcomes acquired drug resistance.
 
 - `doi:10.1038/s43018-026-01224-0` · 2026-08-01 · paper (unknown) · research fit 81/100 · lab watch: Quan Chen
 - Primary source: https://doi.org/10.1038/s43018-026-01224-0 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42527514/)
@@ -313,26 +326,13 @@ matches first. **29 record(s) in the queue.**
 - [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
 - [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
 
-### 24. Iron-catalyzed oxidative stress reveals an exposome-related ferroptosis-resistant karyomegalic niche in BRCA1-linked renal carcinogenesis.
+### 25. Iron-catalyzed oxidative stress reveals an exposome-related ferroptosis-resistant karyomegalic niche in BRCA1-linked renal carcinogenesis.
 
 - `doi:10.1016/j.redox.2026.104293` · 2026-07-08 · paper (unknown) · research fit 81/100 · lab watch: Shinya Toyokuni
 - Primary source: https://doi.org/10.1016/j.redox.2026.104293 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42442115/)
 - Route note: Redox biology · Laboratory watch match: Shinya Toyokuni.
 
 > Early cancer initiation under chronic oxidative stress requires the survival of epithelial cells that should otherwise be eliminated by regulated cell death. However, the spatial and morphological identity of such stress-adapted cells remains poorly defined. Here, we integrated Xenium single-cell spatial transcriptomics, quantitative nuclear morphometrics, mitochondrial analyses, and human cancer datasets to investigate iron-driven renal carcinogenesis in Brca1(L63X/+) rats. Ferric nitrilotriacetate exposure induced dynamic remodeling of proximal tubular epithelium, characterized by loss of homeostatic transport and mitochondrial programs, and activation of Myc, Met, Lcn2, Anxa2 and iron-handling genes. BRCA1 haploinsufficiency expanded a karyomegalic proximal tubular state associated with mitochondrial dysfunction, chromatin hyperchromasia, nuclear remodeling, and ferroptosis-resistant transcriptional features. Subclassification of karyomegalic cells identified distinct stress-adaptive populations, including a BRCA1-associated K2 state enriched for Myc/Met/Lcn2 signaling and preferentially embedded within a pro-oncogenic epithelial-stromal microenvironment. Of note, neighboring non-karyomegalic proximal tubular cells acquired related iron-handling and survival-biased programs, indicating that karyomegaly marks a broader pre-neoplastic field rather than an isolated abnormality. Human TCGA renal cancer analyses and morphometric assessment of BRCA1-mutant breast tissue further supported the clinical relevance of karyomegaly-associated gene modules and nuclear remodeling. These findings define a spatially organized, ferroptosis-resistant karyomegalic niche as an early lesion in iron-driven carcinogenesis and establish quantitative nuclear morphology as a functional readout of exposome-related oxidative stress adaptation in genetically susceptible tissues.
-
-- [ ] Primary source opened and read (abstract at minimum; figures before any grade)
-- [ ] Document class recorded in `data/record-overlays.json` (with `checkedBy`, `checkedAt`, `reason`)
-- [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
-- [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
-
-### 25. HDL resuscitates cells from ferroptosis.
-
-- `doi:10.1016/j.tem.2026.06.001` · 2026-06-26 · paper (unknown) · research fit 81/100 · lab watch: Youwei Ai
-- Primary source: https://doi.org/10.1016/j.tem.2026.06.001 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42350226/)
-- Route note: Trends in endocrinology and metabolism: TEM · Laboratory watch match: Youwei Ai.
-
-> Cells undergo ferroptosis when membrane antioxidant defenses are inhibited, while lipophilic antioxidants can rescue cells from such insults. O'Loughlin et al. show that mTORC1-regulated high-density lipoprotein (HDL) uptake from the culture medium protects cells from ferroptosis.
 
 - [ ] Primary source opened and read (abstract at minimum; figures before any grade)
 - [ ] Document class recorded in `data/record-overlays.json` (with `checkedBy`, `checkedAt`, `reason`)
@@ -378,7 +378,20 @@ matches first. **29 record(s) in the queue.**
 - [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
 - [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
 
-### 29. Csnk1a1 E98 mutations rewire signaling and metabolism in del(5q) myelodysplastic neoplasms.
+### 29. The immune code of metal-dependent cell death.
+
+- `doi:10.1016/j.it.2026.10.007` · 2026-11-06 · paper (unknown) · research fit 73/100 · lab watch: Daolin Tang · Rui Kang
+- Primary source: https://doi.org/10.1016/j.it.2026.10.007 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42995117/)
+- Route note: Trends in immunology · Laboratory watch match: Daolin Tang · Rui Kang.
+
+> Metal-dependent cell death can provoke, suppress, or evade immune recognition. We propose that these divergent outcomes reflect two interacting sources of information: signals generated by dying cells and changes in metal availability and localization that shape their perception. Their integration, rather than the death pathway alone, may determine immunogenicity.
+
+- [ ] Primary source opened and read (abstract at minimum; figures before any grade)
+- [ ] Document class recorded in `data/record-overlays.json` (with `checkedBy`, `checkedAt`, `reason`)
+- [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
+- [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
+
+### 30. Csnk1a1 E98 mutations rewire signaling and metabolism in del(5q) myelodysplastic neoplasms.
 
 - `doi:10.1038/s41375-026-03122-x` · 2026-09-03 · paper (unknown) · research fit 73/100 · lab watch: Andreas Linkermann
 - Primary source: https://doi.org/10.1038/s41375-026-03122-x · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42693162/)
@@ -398,7 +411,7 @@ matches first. **29 record(s) in the queue.**
 - [ ] `doi:10.1126/sciadv.aeb2368` — Metabolic rewiring driven by phosphoglycolate phosphatase deletion inhibits ferroptosis. (abstract, drafted 2026-09-28; has left the live window)
 - [ ] `doi:10.1016/bs.mcb.2026.05.002` — Ferroptosis induction via genetic approaches - CRISPR/Cas9-based disruption on key anti-ferroptotic genes. (abstract, drafted 2026-09-28; has left the live window)
 - [ ] `doi:10.64898/2026.07.17.739092` — Double-bond geometry determines fatty acid metabolic fate and ferroptosis sensitivity. (abstract, drafted 2026-09-28)
-- [ ] `doi:10.1038/s41467-026-71869-z` — 15-LOX-catalytic bias towards ether-(alkenyl)-ETE-PEs oxidation bestows selectivity of PRO-ferroptotic cell death signaling. (abstract, drafted 2026-09-28)
+- [ ] `doi:10.1038/s41467-026-71869-z` — 15-LOX-catalytic bias towards ether-(alkenyl)-ETE-PEs oxidation bestows selectivity of PRO-ferroptotic cell death signaling. (abstract, drafted 2026-09-28; has left the live window)
 - [ ] `doi:10.64898/2026.05.16.725645` — Targeted extracellular degradation of LRP8 promotes ferroptosis in cancer cells. (abstract, drafted 2026-09-28; has left the live window)
 - [ ] `doi:10.1016/j.cell.2026.07.040` — Polyamines buffer labile iron to suppress ferroptosis. (abstract, drafted 2026-09-28)
 - [ ] `doi:10.1021/acs.jmedchem.6c01496` — Suppression of Lipid Peroxidation by Necrostatins and Their Potential for Dual Targeting of Ferroptosis and Necroptosis. (abstract, drafted 2026-09-28)
