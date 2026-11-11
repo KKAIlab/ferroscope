@@ -8,7 +8,7 @@ each hands anything that needs judgement to a person instead of guessing.
 | Data refresh | every 6 h (`refresh-intelligence.yml`) | `data/live.json`, `data/meta.json`, watch run-state in `data/monitoring-coverage.json` | none — a failed run opens an issue |
 | Link health | Mondays 03:41 UTC (`check-lab-links.yml`) | `docs/link-health.json` | fix links it reports broken |
 | Enrichment queue | Mondays 05:23 UTC (`build-enrichment-queue.yml`) | `docs/ENRICHMENT-QUEUE.md`, `docs/enrichment-queue.json` | none |
-| Reading round | **manual today** — a weekly scheduled task exists but cannot complete it (below) | `data/ai-reading-drafts.json`, via a pull request | run the round; review the PR; promote drafts |
+| Reading round | weekly scheduled task, but it wakes an existing session rather than standing on its own — **expect to run it by hand** (below) | `data/ai-reading-drafts.json`, via a pull request | run the round; review the PR; promote drafts |
 
 ## What each loop now does on its own
 
@@ -29,10 +29,11 @@ sandbox cannot reach PubMed. The queue joins the two: CI attaches the abstracts,
 reads them from the repository.
 
 **This loop does not currently run by itself.** A person starts a session and gives it the
-prompt below. Read "Why the schedule does not close this loop yet" after the prompt before
-relying on it to happen on its own — the first version of this document claimed a weekly
-scheduled session ran it, and that sentence let the round sit unrun from 2026-09-28 to
-2026-11-02 with nobody noticing, because the queue kept refreshing and looked healthy.
+prompt below. A weekly scheduled task does exist, but read "What the schedule actually is"
+after the prompt before relying on it to happen on its own — the first version of this
+document claimed a weekly scheduled session ran the round, and that sentence let it sit
+unrun from 2026-09-28 to 2026-11-02 with nobody noticing, because the queue kept refreshing
+and the loop looked healthy.
 
 The prompt:
 
@@ -66,28 +67,39 @@ A person merges the pull request after reading it. The drafts go live marked
 Until that merge the drafts are not on the site, so an unmerged reading-round pull request
 leaves this loop as stalled as never having run it.
 
-### Why the schedule does not close this loop yet
+### What the schedule actually is
 
-A weekly scheduled task exists — "FerroScope weekly reading round", Sundays 22:31 UTC, a
-fresh session per firing, push notification on. It fires, but as configured it cannot finish
-the round, and two manual test firings on 2026-11-09 both produced nothing: no branch, no
-pull request. The sessions it starts carry the tag `config:no-git-repo` and ended after 88
-and 25 seconds.
+A weekly scheduled task exists — "FerroScope weekly reading round", Sundays 22:31 UTC. It
+does **not** start a fresh session. It wakes an existing Claude session that already has this
+repository checked out, and that session runs the round. That is a workaround, not a loop
+that stands on its own, and it is worth knowing why.
 
-Two things block it, neither fixable from the prompt:
+The obvious design — a fresh session per firing — was tried first and does not work here.
+Two manual test firings on 2026-11-09 both produced nothing: no branch, no pull request.
+Both sessions carried the tag `config:no-git-repo` and ended after 88 and 25 seconds.
+Two things blocked them, neither fixable from the prompt:
 
 - **No repository.** The cloud environment the task fires in has an empty `repositories`
   list, so each fired session starts with no checkout of this repository. Telling the
   session to attach one itself (`add_repo`) did not rescue it — that was what the second
   test firing changed, and it failed faster than the first.
-- **No GitHub tools.** The task stores no MCP connectors, so fired sessions have no
+- **No GitHub tools.** Such a task stores no MCP connectors, so fired sessions have no
   `mcp__github__*` tools and cannot open the pull request that step 5 asks for.
 
-To make the schedule real, a person has to add `KKAIlab/ferroscope` to that environment's
-**Repositories** list in its settings, and give the fired sessions GitHub access — then
-re-test by firing the task once by hand and checking the branch list, not the session's own
-report of what it did. Until both hold, treat the row in the table above as the truth: this
-round is manual, and the schedule is a reminder that fires rather than a loop that closes.
+So the task was rebound to an existing session instead. What that costs:
+
+- It lives only as long as the session it wakes. If that session is archived or retired, the
+  task fires into nothing and the round stops — silently, exactly as it did for the five
+  weeks after 2026-09-28.
+- A session-bound task cannot carry a push notification (the API refuses one), so a firing
+  that produces nothing does not announce itself.
+
+The durable fix is still the settings change: add `KKAIlab/ferroscope` to that environment's
+**Repositories** list, give its sessions GitHub access, then move the task back to a fresh
+session per firing and re-test. Re-test by firing it by hand and checking the repository's
+branch list — not the session's own account of what it did. Until then the table above is
+the honest summary: a person should expect to run this round, and treat the schedule as a
+prompt that may or may not land rather than a loop that closes itself.
 
 ## What stays manual, on purpose
 
