@@ -86,5 +86,93 @@
     "status": "ai-draft",
     "draftedBy": "Claude (weekly reading round, abstract only)",
     "draftedAt": "2026-09-28"
+  },
+  {
+    "canonicalId": "doi:10.64898/2026.09.01.748671",
+    "recordId": "pubmed-42922663",
+    "title": "Cryo-EM structures reveal the mechanism of phosphatidylserine remodeling by membrane-bound glycerophospholipid O-acyltransferase 1.",
+    "takeaway": "Reports that MBOAT1 preferentially makes monounsaturated-fatty-acid-containing phosphatidylserine from lyso-PS, and presents high-resolution cryo-EM structures of human MBOAT1 capturing distinct binding poses of the fatty-acyl donor, the lyso-PS acceptor and the PS product. With lipidomics, enzymology and molecular dynamics the authors lay out the mechanism and pathway of MBOAT1-dependent PS remodeling.",
+    "caveat": "A preprint, so not yet peer reviewed, and what the abstract reports is structural, enzymatic, lipidomic and simulation work: the connection to ferroptosis appears as background for why PS acyl-chain remodeling matters, not as a ferroptosis measurement of its own.",
+    "basis": "abstract",
+    "status": "ai-draft",
+    "draftedBy": "Claude (weekly reading round, abstract only)",
+    "draftedAt": "2026-11-15"
+  },
+  {
+    "canonicalId": "doi:10.1038/s41556-026-02107-3",
+    "recordId": "pubmed-42907496",
+    "title": "The rise of reducing reagent-resistant TfR1 dimer marks ferroptosis.",
+    "takeaway": "Identifies a reducing-reagent-resistant (3R) dimer of transferrin receptor 1 as a highly specific indicator of lipid peroxidation: it rises when ferroptosis is induced either pharmacologically or by genetic perturbation, and it can be detected in tissue and in extracellular vesicles isolated from mouse or patient plasma, which the authors offer as a way to detect disease-associated ferroptosis.",
+    "caveat": "The broader utility is what the authors \"posit\" from TfR1 being near-ubiquitously expressed; what the abstract reports is detection of the 3R dimer in cells, in tissue and in extracellular vesicles from mouse and patient plasma.",
+    "basis": "abstract",
+    "status": "ai-draft",
+    "draftedBy": "Claude (weekly reading round, abstract only)",
+    "draftedAt": "2026-11-15"
+  },
+  {
+    "canonicalId": "doi:10.1016/j.chembiol.2026.09.020",
+    "recordId": "pubmed-42906555",
+    "title": "Proteasome inhibition bidirectionally regulates ferroptosis sensitivity.",
+    "takeaway": "Separates proteasome inhibition from the apoptosis it normally causes, using small-molecule inducers, pathway-specific death inhibitors and direct death imaging, and finds it cuts both ways: proteasome inhibition sensitizes cells to ferroptosis from GPX4 inhibition while making them resistant to ferroptosis from system xc- inhibition. The sensitization needs protein synthesis but not the apoptosis execution machinery, and the ATF4 stress response opposes it.",
+    "caveat": "Each direction is tied to a particular inducer class in cell experiments, so the context-dependence the abstract claims is defined by which ferroptosis inducer was used rather than by tissue or in vivo setting.",
+    "basis": "abstract",
+    "status": "ai-draft",
+    "draftedBy": "Claude (weekly reading round, abstract only)",
+    "draftedAt": "2026-11-15"
+  },
+  {
+    "canonicalId": "doi:10.1038/s41388-026-03921-7",
+    "recordId": "pubmed-42509416",
+    "title": "Enhancing the efficacy of B7-H3-targeting antibody-drug conjugate DS-7300a in TP53-deficient tumors by inducing ferroptosis.",
+    "takeaway": "Using prostate cancer as a model, reports that the B7-H3-targeting antibody-drug conjugate DS-7300a depends on functional p53, with TP53 defects conferring resistance: its DXd payload causes DNA damage that activates ATM/ATR/CHK and stabilizes p53, while TP53-deficient cells fail to sense the damage. In those resistant cells DS-7300a raises lipid peroxidation and upregulates GPX4, and inhibiting GPX4 to induce ferroptosis improved DS-7300a efficacy in isogenic xenografts and a newly developed humanized B7-H3 model.",
+    "caveat": "Shown with prostate cancer as the model system and in mouse xenograft models; the abstract presents ferroptosis induction as a promising approach to overcome resistance rather than a combination tested in patients.",
+    "basis": "abstract",
+    "status": "ai-draft",
+    "draftedBy": "Claude (weekly reading round, abstract only)",
+    "draftedAt": "2026-11-15"
+  },
+  {
+    "canonicalId": "doi:10.1080/15548627.2026.2726089",
+    "recordId": "pubmed-42669120",
+    "title": "Autophagic degradation of RAB8A promotes ferroptosis through dysregulation of TFRC-mediated iron uptake.",
+    "takeaway": "Identifies RAB8A as a selective autophagy substrate that normally restrains ferroptosis. Ferroptotic stress triggers RNF126-dependent polyubiquitination and SQSTM1-mediated, ATG5/ATG7-dependent degradation of RAB8A; losing RAB8A sensitizes cancer cells while a degradation-resistant mutant suppresses death. RAB8A binds TFRC and helps move it from the plasma membrane to endolysosomes, so its loss impairs TFRC clearance and raises iron uptake, Fe2+ and lipid peroxidation. RAB8A depletion improved ferroptosis-inducing therapy in fibrosarcoma and pancreatic cancer xenografts.",
+    "caveat": "The in vivo work is xenograft models, and the clinical part of the abstract is an association between RAB8A level, poor prognosis and ferroptosis resistance in pancreatic cancer rather than an intervention tested in patients.",
+    "basis": "abstract",
+    "status": "ai-draft",
+    "draftedBy": "Claude (weekly reading round, abstract only)",
+    "draftedAt": "2026-11-15"
+  },
+  {
+    "canonicalId": "doi:10.1016/j.molcel.2026.07.018",
+    "recordId": "pubmed-42551439",
+    "title": "LZTFL1 rewires NADPH-glutathione metabolism to amplify ferroptosis.",
+    "takeaway": "Identifies LZTFL1 as a ferroptosis regulator that rewires glutathione metabolism: it promotes oxidation of G6PD, limiting NADPH production and GSH regeneration, and the resulting GSH depletion in turn boosts LZTFL1 translation through AKT-mTOR-eIF4E, a feedforward loop that amplifies ferroptosis. In vivo the LZTFL1-FHOD1-G6PD axis sensitized several tumor models including patient-derived xenografts, with more lipid peroxidation, less GSH, slower tumor growth and longer survival, and LZTFL1 restored cisplatin sensitivity in resistant lung and ovarian cancer cells.",
+    "caveat": "The patient-level claim is that LZTFL1 expression predicts improved survival in lung adenocarcinoma, a correlation, and the re-sensitization by FDA-approved agents is reported in resistant tumor models; the abstract frames LZTFL1 as a potential biomarker and target.",
+    "basis": "abstract",
+    "status": "ai-draft",
+    "draftedBy": "Claude (weekly reading round, abstract only)",
+    "draftedAt": "2026-11-15"
+  },
+  {
+    "canonicalId": "doi:10.1016/j.cell.2026.09.062",
+    "recordId": "pubmed-42914978",
+    "title": "Perforin triggers iron-induced mitochondrial damage to drive ferroptosis and anti-tumor immunity.",
+    "takeaway": "Describes a granzyme-independent job for perforin: Prf1 itself drives tumor-cell ferroptosis. Its pore formation triggers endocytosis of the transferrin receptor and so raises iron uptake, and it promotes endosomal-mitochondrial contacts that load mitochondria with iron, causing mitochondrial dysfunction and ferroptosis. Dietary iron supplementation slowed tumor progression in murine models in a Prf1-dependent way.",
+    "caveat": "The mechanism and the dietary-iron result come from murine tumor models, and the patient-level statement is a correlation between Prf1 expression, survival and response to checkpoint blockade rather than an intervention that was tested.",
+    "basis": "abstract",
+    "status": "ai-draft",
+    "draftedBy": "Claude (weekly reading round, abstract only)",
+    "draftedAt": "2026-11-15"
+  },
+  {
+    "canonicalId": "doi:10.3389/fimmu.2026.1891865",
+    "recordId": "pubmed-42959090",
+    "title": "Leishmania infantum triggers lipid peroxidation and non-canonical cell death in macrophages.",
+    "takeaway": "A negative result for ferroptosis: in LPS-primed mouse bone-marrow-derived macrophages, Leishmania infantum causes a delayed death that does not need GSDMD or the inflammasome, and that survives combined deletion of caspase-8, RIPK3 and caspase-1/11. The death came with robust lipid peroxidation, yet ferrostatin-1 did not rescue viability and deleting GPX4 raised lipid peroxidation without making infected macrophages die more, which the authors read as the parasite uncoupling lipid peroxidation from cell death.",
+    "caveat": "In mouse bone-marrow-derived macrophages, and the abstract's own conclusion is that this is lipid peroxidation without ferroptosis: the death pathway is named only as non-canonical and independent of the pathways they tested, so what it is remains open.",
+    "basis": "abstract",
+    "status": "ai-draft",
+    "draftedBy": "Claude (weekly reading round, abstract only)",
+    "draftedAt": "2026-11-15"
   }
 ]
