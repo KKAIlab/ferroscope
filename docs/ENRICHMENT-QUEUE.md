@@ -1,6 +1,6 @@
 # Curated-enrichment queue
 
-*Generated 2026-11-09T14:03:45.008Z by `scripts/build-enrichment-queue.mjs`. Regenerate with `npm run build:enrichment`.*
+*Generated 2026-11-16T13:49:11.987Z by `scripts/build-enrichment-queue.mjs`. Regenerate with `npm run build:enrichment`.*
 
 This is a **pre-read work list, not an audit**. Every entry below is an automated
 record — it matched a search, nothing more. It stays "Evidence not assessed" on the
@@ -14,7 +14,20 @@ Selection: papers and preprints with research fit ≥ 65/100 and no curated
 coverage (no curated signal, no audit overlay, no paper record, no brief), laboratory-watch
 matches first. **30 record(s) in the queue.**
 
-### 1. A bioavailable GPX4 inhibitor for ferroptosis induction in vivo and tumor suppression.
+### 1. Development of isourea-based covalent GPX4 inhibitors and structure-activity relationship analysis in ferroptosis induction.
+
+- `doi:10.1039/d6cb00321d` · 2026-11-12 · paper (unknown) · research fit 92/100 · lab watch: Yilong Zou
+- Primary source: https://doi.org/10.1039/d6cb00321d · [PubMed](https://pubmed.ncbi.nlm.nih.gov/43023136/)
+- Route note: RSC chemical biology · Laboratory watch match: Yilong Zou.
+
+> Ferroptosis holds significant promise for cancer therapeutics. While inhibition of glutathione peroxidase 4 (GPX4), a central intrinsic defense against ferroptosis, is sufficient to induce this process in cancer cells, the scarcity of bioavailable GPX4 inhibitors has hindered both mechanistic studies in vivo and therapeutic exploration. Furthermore, the absence of a well-defined ligand-binding pocket and the high intrinsic reactivity of traditional covalent chemotypes complicate inhibitor optimization. Inspired by the SN2-like geometry of the oxidative step in GPX4 catalysis, we developed a heterobenzylic isourea as a tunable leaving group for covalent GPX4 inhibitor design. Systematic variation of the isourea substituent, heteroaromatic scaffold, conformational rigidity, distal side chain, and stereochemistry established comprehensive structure-activity relationships. A key intermediate, compound 100, confirmed on-target ferroptotic activity by inducing lipid peroxidation and liproxstatin-1-rescuable cytotoxicity across cancer cell lines, while an alkyne-tagged analogue enabled cellular GPX4 target enrichment. Further optimization delivered two complementary, orally bioavailable leads. Compound 418 is a potent cellular probe (IC50 = 7.7 nM), whereas compound 380 combines the lowest systemic clearance among the series in mice together with dose-proportional oral exposure. Oral administration of compound 380 suppresses tumor growth in both 786-O and MDA-MB-468 xenografts. [1H,15N]-HSQC measurements support enhanced GPX4-ligand interaction under dodecylphosphocholine (DPC) membrane-mimetic conditions. Beyond defining the medicinal-chemistry characteristics of this isourea compound series, our work establishes non-retained leaving-group engineering as a strategy for developing covalent GPX4 inhibitors with tunable cellular and pharmacokinetic properties.
+
+- [ ] Primary source opened and read (abstract at minimum; figures before any grade)
+- [ ] Document class recorded in `data/record-overlays.json` (with `checkedBy`, `checkedAt`, `reason`)
+- [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
+- [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
+
+### 2. A bioavailable GPX4 inhibitor for ferroptosis induction in vivo and tumor suppression.
 
 - `doi:10.1016/j.cell.2026.09.053` · 2026-10-21 · paper (unknown) · research fit 92/100 · lab watch: Yilong Zou
 - Primary source: https://doi.org/10.1016/j.cell.2026.09.053 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42906540/)
@@ -27,7 +40,7 @@ matches first. **30 record(s) in the queue.**
 - [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
 - [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
 
-### 2. Mitochondria-targeted tetraoxanes initiate lipid peroxidation to drive ferroptosis and tumor suppression.
+### 3. Mitochondria-targeted tetraoxanes initiate lipid peroxidation to drive ferroptosis and tumor suppression.
 
 - `doi:10.1016/j.cell.2026.09.040` · 2026-10-15 · paper (unknown) · research fit 92/100 · lab watch: Yilong Zou
 - Primary source: https://doi.org/10.1016/j.cell.2026.09.040 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42880285/)
@@ -40,7 +53,7 @@ matches first. **30 record(s) in the queue.**
 - [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
 - [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
 
-### 3. Pooled Screening of Cancer Cell Lines Identifies Vulnerability to Polyunsaturated Fatty-Acid-Induced Ferroptosis.
+### 4. Pooled Screening of Cancer Cell Lines Identifies Vulnerability to Polyunsaturated Fatty-Acid-Induced Ferroptosis.
 
 - `doi:10.1021/acschembio.6c00581` · 2026-10-15 · paper (unknown) · research fit 92/100 · lab watch: Yilong Zou
 - Primary source: https://doi.org/10.1021/acschembio.6c00581 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42874009/)
@@ -53,7 +66,7 @@ matches first. **30 record(s) in the queue.**
 - [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
 - [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
 
-### 4. Mammals produce cyclo-octasulfur to suppress lipid peroxidation and ferroptosis.
+### 5. Mammals produce cyclo-octasulfur to suppress lipid peroxidation and ferroptosis.
 
 - `doi:10.1126/science.aec5473` · 2026-09-24 · paper (unknown) · research fit 90/100 · lab watch: Marcus Conrad, James Olzmann, Eikan Mishima
 - Primary source: https://doi.org/10.1126/science.aec5473 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42784683/)
@@ -66,7 +79,7 @@ matches first. **30 record(s) in the queue.**
 - [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
 - [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
 
-### 5. Targeted extracellular degradation of LRP8 promotes ferroptosis in cancer cells.
+### 6. Targeted extracellular degradation of LRP8 promotes ferroptosis in cancer cells.
 
 - `doi:10.1073/pnas.2616933123` · 2026-09-30 · paper (unknown) · research fit 89/100 · lab watch: James Olzmann
 - Primary source: https://doi.org/10.1073/pnas.2616933123 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42814555/)
@@ -79,7 +92,7 @@ matches first. **30 record(s) in the queue.**
 - [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
 - [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
 
-### 6. On the Inhibition of Lipid Peroxidation and Ferroptosis by Fatty Acids.
+### 7. On the Inhibition of Lipid Peroxidation and Ferroptosis by Fatty Acids.
 
 - `doi:10.1021/acschembio.6c00583` · 2026-10-16 · paper (unknown) · research fit 88/100 · lab watch: Derek Pratt
 - Primary source: https://doi.org/10.1021/acschembio.6c00583 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42805600/)
@@ -92,7 +105,7 @@ matches first. **30 record(s) in the queue.**
 - [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
 - [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
 
-### 7. Cryo-EM structures reveal the mechanism of phosphatidylserine remodeling by membrane-bound glycerophospholipid O-acyltransferase 1.
+### 8. Cryo-EM structures reveal the mechanism of phosphatidylserine remodeling by membrane-bound glycerophospholipid O-acyltransferase 1.
 
 - `doi:10.64898/2026.09.01.748671` · 2026-09-02 · preprint (preprint) · research fit 87/100 · lab watch: Xuejun Jiang
 - Primary source: https://doi.org/10.64898/2026.09.01.748671 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42922663/)
@@ -105,7 +118,7 @@ matches first. **30 record(s) in the queue.**
 - [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
 - [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
 
-### 8. PLA2G2F suppresses ferroptosis through phospholipid remodeling.
+### 9. PLA2G2F suppresses ferroptosis through phospholipid remodeling.
 
 - `doi:10.1038/s41594-026-01830-7` · 2026-07-22 · paper (unknown) · research fit 87/100 · lab watch: Brent Stockwell, Xuejun Jiang
 - Primary source: https://doi.org/10.1038/s41594-026-01830-7 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42486993/)
@@ -118,7 +131,7 @@ matches first. **30 record(s) in the queue.**
 - [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
 - [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
 
-### 9. Cell-state-specific metabolic networks govern ferroptosis versus apoptosis in small cell lung cancer.
+### 10. Cell-state-specific metabolic networks govern ferroptosis versus apoptosis in small cell lung cancer.
 
 - `doi:10.1016/j.cell.2026.09.045` · 2026-10-23 · paper (unknown) · research fit 86/100 · lab watch: Scott Dixon
 - Primary source: https://doi.org/10.1016/j.cell.2026.09.045 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42914976/)
@@ -131,7 +144,7 @@ matches first. **30 record(s) in the queue.**
 - [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
 - [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
 
-### 10. The rise of reducing reagent-resistant TfR1 dimer marks ferroptosis.
+### 11. The rise of reducing reagent-resistant TfR1 dimer marks ferroptosis.
 
 - `doi:10.1038/s41556-026-02107-3` · 2026-10-21 · paper (unknown) · research fit 86/100 · lab watch: Scott Dixon, Thales Papagiannakopoulos, Tom Vanden Berghe
 - Primary source: https://doi.org/10.1038/s41556-026-02107-3 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42907496/)
@@ -144,7 +157,7 @@ matches first. **30 record(s) in the queue.**
 - [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
 - [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
 
-### 11. Proteasome inhibition bidirectionally regulates ferroptosis sensitivity.
+### 12. Proteasome inhibition bidirectionally regulates ferroptosis sensitivity.
 
 - `doi:10.1016/j.chembiol.2026.09.020` · 2026-10-21 · paper (unknown) · research fit 86/100 · lab watch: Scott Dixon
 - Primary source: https://doi.org/10.1016/j.chembiol.2026.09.020 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42906555/)
@@ -157,26 +170,13 @@ matches first. **30 record(s) in the queue.**
 - [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
 - [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
 
-### 12. Enhancing the efficacy of B7-H3-targeting antibody-drug conjugate DS-7300a in TP53-deficient tumors by inducing ferroptosis.
+### 13. Enhancing the efficacy of B7-H3-targeting antibody-drug conjugate DS-7300a in TP53-deficient tumors by inducing ferroptosis.
 
 - `doi:10.1038/s41388-026-03921-7` · 2026-07-27 · paper (unknown) · research fit 86/100 · lab watch: Boyi Gan
 - Primary source: https://doi.org/10.1038/s41388-026-03921-7 · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42509416/)
 - Route note: Oncogene · Laboratory watch match: Boyi Gan.
 
 > Immune checkpoint B7-H3 is an emerging target for immunotherapy. DS-7300a is an advanced B7-H3-targeting antibody-drug conjugate (ADC) warheaded with the topoisomerase I inhibitor DXd. DS-7300a has demonstrated clinical activity, but molecular biomarkers to predict its therapeutic response remain elusive. TP53 is one of the most mutated tumor suppressor genes across cancers, and effective therapies are urgently needed for TP53-deficient cancers. Using prostate cancer (PCa) as a model system, we reported that DS-7300a's anti-tumor efficacy is highly dependent on functional p53 in cancer cells, and TP53 defects confer resistance to DS-7300a. Mechanistically, we found that DS-7300a and its payload, DXd, induce DNA damage and activate the ATM/ATR/CHK signaling cascade, thereby stabilizing p53 and inducing a pro-apoptotic and senescence-associated transcriptome. In contrast, TP53-deficient cells fail to sense DXd-induced DNA damage, maintain a high proliferation rate, and exhibit low levels of apoptosis and senescence, thereby conferring resistance to DS-7300a. Ferroptosis is an iron-dependent form of regulated cell death triggered by lipid peroxidation, which is mechanistically and morphologically distinct from apoptosis. Interestingly, DS-7300a treatment elevates lipid peroxidation in TP53-deficient cancer cells and upregulates glutathione peroxidase 4 (GPX4), an antioxidant enzyme that mitigates lipid peroxidation. Using isogeneic xenograft models and a newly developed humanized B7-H3 PCa model, we demonstrated that inducing ferroptosis by pharmacological inhibition of GPX4 enhances DS-7300a's efficacy in TP53-deficient tumors. Our studies demonstrate that TP53 status dictates anti-tumor responses to DS-7300a, and ferroptosis induction represents a promising therapeutic approach to overcome resistance to DS-7300a in malignancies harboring TP53 defects.
-
-- [ ] Primary source opened and read (abstract at minimum; figures before any grade)
-- [ ] Document class recorded in `data/record-overlays.json` (with `checkedBy`, `checkedAt`, `reason`)
-- [ ] Signal brief written in `data/signal-briefs-en.json` (takeaway + caveat in English)
-- [ ] If read to figure level: paper record per `docs/RECIPE-bibliographic-migration.md`
-
-### 13. Divergent roles of SPOP and CHD1 in ACSL4 regulation reveal context-dependent vulnerabilities for targeting ferroptosis.
-
-- `doi:10.1038/s41467-026-75010-y` · 2026-06-30 · paper (unknown) · research fit 86/100 · lab watch: Boyi Gan
-- Primary source: https://doi.org/10.1038/s41467-026-75010-y · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42380152/)
-- Route note: Nature communications · Laboratory watch match: Boyi Gan.
-
-> Genetic heterogeneity contributes to the variable therapeutic responses in cancers. Frequent SPOP mutations and recurrent CHD1 deletions define distinct molecular subtypes of prostate cancer (PCa) with differential responses to anti-androgen therapy. Ferroptosis, an iron-dependent cell death mechanism driven by lipid peroxidation, has emerged as a promising anticancer strategy. Here, we identify SPOP mutations and CHD1 deletion as key genetic determinants of ferroptosis susceptibility in PCa. Using genetically engineered human and murine models, we show that SPOP mutations enhance, whereas CHD1 deletion impairs, the efficacy of ferroptosis inducers targeting GPX4. Mechanistically, SPOP and CHD1 exert opposing effects on ferroptosis by antagonistically regulating the MYC-ACSL4 axis. Furthermore, we demonstrate that targeting cholesterol metabolism with cholesterol-lowering agents restores ACSL4 expression and re-sensitizes SPOP/CHD1 co-deficient tumors to ferroptosis-inducing therapy. Our findings establish SPOP/CHD1 as upstream genetic regulators of ferroptosis and provide biomarker-driven combinatorial strategies to enhance ferroptosis-based therapy in men with advanced PCa.
 
 - [ ] Primary source opened and read (abstract at minimum; figures before any grade)
 - [ ] Document class recorded in `data/record-overlays.json` (with `checkedBy`, `checkedAt`, `reason`)

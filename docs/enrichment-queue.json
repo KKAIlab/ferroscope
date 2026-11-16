@@ -1,10 +1,27 @@
 {
-  "generatedAt": "2026-11-09T14:03:45.008Z",
+  "generatedAt": "2026-11-16T13:49:11.987Z",
   "generator": "scripts/build-enrichment-queue.mjs",
   "status": "pre-read work list — no entry here carries any review state",
   "minRelevance": 65,
   "candidateCount": 30,
   "candidates": [
+    {
+      "canonicalId": "doi:10.1039/d6cb00321d",
+      "recordId": "pubmed-43023136",
+      "title": "Development of isourea-based covalent GPX4 inhibitors and structure-activity relationship analysis in ferroptosis induction.",
+      "date": "2026-11-12",
+      "sourceType": "paper",
+      "documentType": "unknown",
+      "relevance": 92,
+      "trackedLabs": [
+        "Yilong Zou"
+      ],
+      "url": "https://doi.org/10.1039/d6cb00321d",
+      "doi": "10.1039/d6cb00321d",
+      "pmid": "43023136",
+      "takeaway": "RSC chemical biology · Laboratory watch match: Yilong Zou.",
+      "abstract": "Ferroptosis holds significant promise for cancer therapeutics. While inhibition of glutathione peroxidase 4 (GPX4), a central intrinsic defense against ferroptosis, is sufficient to induce this process in cancer cells, the scarcity of bioavailable GPX4 inhibitors has hindered both mechanistic studies in vivo and therapeutic exploration. Furthermore, the absence of a well-defined ligand-binding pocket and the high intrinsic reactivity of traditional covalent chemotypes complicate inhibitor optimization. Inspired by the SN2-like geometry of the oxidative step in GPX4 catalysis, we developed a heterobenzylic isourea as a tunable leaving group for covalent GPX4 inhibitor design. Systematic variation of the isourea substituent, heteroaromatic scaffold, conformational rigidity, distal side chain, and stereochemistry established comprehensive structure-activity relationships. A key intermediate, compound 100, confirmed on-target ferroptotic activity by inducing lipid peroxidation and liproxstatin-1-rescuable cytotoxicity across cancer cell lines, while an alkyne-tagged analogue enabled cellular GPX4 target enrichment. Further optimization delivered two complementary, orally bioavailable leads. Compound 418 is a potent cellular probe (IC50 = 7.7 nM), whereas compound 380 combines the lowest systemic clearance among the series in mice together with dose-proportional oral exposure. Oral administration of compound 380 suppresses tumor growth in both 786-O and MDA-MB-468 xenografts. [1H,15N]-HSQC measurements support enhanced GPX4-ligand interaction under dodecylphosphocholine (DPC) membrane-mimetic conditions. Beyond defining the medicinal-chemistry characteristics of this isourea compound series, our work establishes non-retained leaving-group engineering as a strategy for developing covalent GPX4 inhibitors with tunable cellular and pharmacokinetic properties."
+    },
     {
       "canonicalId": "doi:10.1016/j.cell.2026.09.053",
       "recordId": "pubmed-42906540",
@@ -213,23 +230,6 @@
       "pmid": "42509416",
       "takeaway": "Oncogene · Laboratory watch match: Boyi Gan.",
       "abstract": "Immune checkpoint B7-H3 is an emerging target for immunotherapy. DS-7300a is an advanced B7-H3-targeting antibody-drug conjugate (ADC) warheaded with the topoisomerase I inhibitor DXd. DS-7300a has demonstrated clinical activity, but molecular biomarkers to predict its therapeutic response remain elusive. TP53 is one of the most mutated tumor suppressor genes across cancers, and effective therapies are urgently needed for TP53-deficient cancers. Using prostate cancer (PCa) as a model system, we reported that DS-7300a's anti-tumor efficacy is highly dependent on functional p53 in cancer cells, and TP53 defects confer resistance to DS-7300a. Mechanistically, we found that DS-7300a and its payload, DXd, induce DNA damage and activate the ATM/ATR/CHK signaling cascade, thereby stabilizing p53 and inducing a pro-apoptotic and senescence-associated transcriptome. In contrast, TP53-deficient cells fail to sense DXd-induced DNA damage, maintain a high proliferation rate, and exhibit low levels of apoptosis and senescence, thereby conferring resistance to DS-7300a. Ferroptosis is an iron-dependent form of regulated cell death triggered by lipid peroxidation, which is mechanistically and morphologically distinct from apoptosis. Interestingly, DS-7300a treatment elevates lipid peroxidation in TP53-deficient cancer cells and upregulates glutathione peroxidase 4 (GPX4), an antioxidant enzyme that mitigates lipid peroxidation. Using isogeneic xenograft models and a newly developed humanized B7-H3 PCa model, we demonstrated that inducing ferroptosis by pharmacological inhibition of GPX4 enhances DS-7300a's efficacy in TP53-deficient tumors. Our studies demonstrate that TP53 status dictates anti-tumor responses to DS-7300a, and ferroptosis induction represents a promising therapeutic approach to overcome resistance to DS-7300a in malignancies harboring TP53 defects."
-    },
-    {
-      "canonicalId": "doi:10.1038/s41467-026-75010-y",
-      "recordId": "pubmed-42380152",
-      "title": "Divergent roles of SPOP and CHD1 in ACSL4 regulation reveal context-dependent vulnerabilities for targeting ferroptosis.",
-      "date": "2026-06-30",
-      "sourceType": "paper",
-      "documentType": "unknown",
-      "relevance": 86,
-      "trackedLabs": [
-        "Boyi Gan"
-      ],
-      "url": "https://doi.org/10.1038/s41467-026-75010-y",
-      "doi": "10.1038/s41467-026-75010-y",
-      "pmid": "42380152",
-      "takeaway": "Nature communications · Laboratory watch match: Boyi Gan.",
-      "abstract": "Genetic heterogeneity contributes to the variable therapeutic responses in cancers. Frequent SPOP mutations and recurrent CHD1 deletions define distinct molecular subtypes of prostate cancer (PCa) with differential responses to anti-androgen therapy. Ferroptosis, an iron-dependent cell death mechanism driven by lipid peroxidation, has emerged as a promising anticancer strategy. Here, we identify SPOP mutations and CHD1 deletion as key genetic determinants of ferroptosis susceptibility in PCa. Using genetically engineered human and murine models, we show that SPOP mutations enhance, whereas CHD1 deletion impairs, the efficacy of ferroptosis inducers targeting GPX4. Mechanistically, SPOP and CHD1 exert opposing effects on ferroptosis by antagonistically regulating the MYC-ACSL4 axis. Furthermore, we demonstrate that targeting cholesterol metabolism with cholesterol-lowering agents restores ACSL4 expression and re-sensitizes SPOP/CHD1 co-deficient tumors to ferroptosis-inducing therapy. Our findings establish SPOP/CHD1 as upstream genetic regulators of ferroptosis and provide biomarker-driven combinatorial strategies to enhance ferroptosis-based therapy in men with advanced PCa."
     },
     {
       "canonicalId": "doi:10.1080/15548627.2026.2726089",
