@@ -1,10 +1,27 @@
 {
-  "generatedAt": "2026-11-16T13:49:11.987Z",
+  "generatedAt": "2026-11-23T16:12:20.012Z",
   "generator": "scripts/build-enrichment-queue.mjs",
   "status": "pre-read work list — no entry here carries any review state",
   "minRelevance": 65,
   "candidateCount": 30,
   "candidates": [
+    {
+      "canonicalId": "doi:10.1021/acschembio.6c00581",
+      "recordId": "pubmed-42874009",
+      "title": "Pooled Screening of Cancer Cell Lines Identifies Vulnerability to Polyunsaturated Fatty-Acid-Induced Ferroptosis.",
+      "date": "2026-11-20",
+      "sourceType": "paper",
+      "documentType": "unknown",
+      "relevance": 92,
+      "trackedLabs": [
+        "Yilong Zou"
+      ],
+      "url": "https://doi.org/10.1021/acschembio.6c00581",
+      "doi": "10.1021/acschembio.6c00581",
+      "pmid": "42874009",
+      "takeaway": "ACS chemical biology · Laboratory watch match: Yilong Zou.",
+      "abstract": "Polyunsaturated fatty acids (PUFAs) are essential nutrients supporting numerous cellular processes in normal and neoplastic cells, yet PUFA-containing phospholipids predispose cells to ferroptosis. How cancer cells from various lineages or genetic backgrounds proliferate in the presence of PUFA remains poorly understood. Here, by systematically profiling various fatty acids using a barcoded and pooled cancer cell line library, we show that a subset of cell lines is sensitive to PUFA treatment at concentrations comparable to physiological levels. We demonstrate that PUFA treatment alone is sufficient to induce ferroptosis in these cell lines that are also vulnerable to GPX4 inhibition. By correlating patterns of PUFA sensitivity with cancer cell line features including basal mRNA transcript levels, we show that PUFA sensitivity is positively associated with fatty acid binding protein 1 (FABP1) expression. Additionally, by profiling a diverse collection of fatty acids and analogs, we find that ferroptosis in cancer cells can be effectively induced by conjugated linolenic acids, in addition to PUFAs containing 1,4-pentadiene groups. Genome-wide CRISPR modifier screens in the PUFA-sensitive ES2 cells reveal a pro-ferroptosis pathway defined by enzymes that convert PUFAs to membrane-associated phospholipids, and an anti-ferroptosis pathway that segregates PUFAs by delivering them to lipid droplets. Together, we present the first comprehensive data set of PUFA-induced ferroptosis sensitivity in a collection of 554 cell lines from 19 primary lineages and suggest a potential therapeutic avenue to induce tumor cell ferroptosis using dietary metabolites."
+    },
     {
       "canonicalId": "doi:10.1039/d6cb00321d",
       "recordId": "pubmed-43023136",
@@ -57,21 +74,22 @@
       "abstract": "Ferroptosis is implicated as a vulnerability in multiple cancers, yet approaches for effectively inducing ferroptosis in vivo are limited. Bypassing conventional strategies targeting the antiferroptotic glutathione peroxidase 4 (GPX4) and ferroptosis suppressor protein 1 (FSP1) proteins, we designed metabolic initiators of lipid peroxidation (MILPOs) and developed the compounds WMK-1/2, which contain tetraoxane radical-generating and mitochondria-targeting groups, as de novo ferroptosis inducers. WMK-1 localizes primarily to mitochondria, induces local lipid peroxidation, and impairs oxidative phosphorylation. WMK-1 induces a \"mito-ferroptosis\" sub-pathway that skips GPX4 inhibition as a prerequisite, can be rescued by lipophilic radical-trapping antioxidants, yet is minimally sensitive to acyl-coenzyme A synthetase long-chain family member 4 (ACSL4) perturbation and long-chain polyunsaturated fatty acid (PUFA) supplementation, and evades retinol-mediated protection. Instead, WMK-1-induced cell death requires labile Fe2+ and can be selectively suppressed by &#x251;-lipoic acid, an endogenous, mitochondria-resident antioxidant. WMK-1/2 are bioavailable and exhibit significant efficacy in tumor suppression by eliciting ferroptosis in multiple cancer models and augmenting the antitumor effects of immune-checkpoint blockers. Our work provides a protein-targeting-independent metabolic ferroptosis induction strategy for potential cancer therapy."
     },
     {
-      "canonicalId": "doi:10.1021/acschembio.6c00581",
-      "recordId": "pubmed-42874009",
-      "title": "Pooled Screening of Cancer Cell Lines Identifies Vulnerability to Polyunsaturated Fatty-Acid-Induced Ferroptosis.",
-      "date": "2026-10-15",
+      "canonicalId": "doi:10.1038/s41586-026-11333-6",
+      "recordId": "pubmed-43052444",
+      "title": "Ferroptosis in cancer cells triggers PGE(2) production for tumour immune escape.",
+      "date": "2026-11-18",
       "sourceType": "paper",
       "documentType": "unknown",
-      "relevance": 92,
+      "relevance": 90,
       "trackedLabs": [
-        "Yilong Zou"
+        "Marcus Conrad",
+        "Scott Dixon"
       ],
-      "url": "https://doi.org/10.1021/acschembio.6c00581",
-      "doi": "10.1021/acschembio.6c00581",
-      "pmid": "42874009",
-      "takeaway": "ACS chemical biology · Laboratory watch match: Yilong Zou.",
-      "abstract": "Polyunsaturated fatty acids (PUFAs) are essential nutrients supporting numerous cellular processes in normal and neoplastic cells, yet PUFA-containing phospholipids predispose cells to ferroptosis. How cancer cells from various lineages or genetic backgrounds proliferate in the presence of PUFA remains poorly understood. Here, by systematically profiling various fatty acids using a barcoded and pooled cancer cell line library, we show that a subset of cell lines is sensitive to PUFA treatment at concentrations comparable to physiological levels. We demonstrate that PUFA treatment alone is sufficient to induce ferroptosis in these cell lines that are also vulnerable to GPX4 inhibition. By correlating patterns of PUFA sensitivity with cancer cell line features including basal mRNA transcript levels, we show that PUFA sensitivity is positively associated with fatty acid binding protein 1 (FABP1) expression. Additionally, by profiling a diverse collection of fatty acids and analogs, we find that ferroptosis in cancer cells can be effectively induced by conjugated linolenic acids, in addition to PUFAs containing 1,4-pentadiene groups. Genome-wide CRISPR modifier screens in the PUFA-sensitive ES2 cells reveal a pro-ferroptosis pathway defined by enzymes that convert PUFAs to membrane-associated phospholipids, and an anti-ferroptosis pathway that segregates PUFAs by delivering them to lipid droplets. Together, we present the first comprehensive data set of PUFA-induced ferroptosis sensitivity in a collection of 554 cell lines from 19 primary lineages and suggest a potential therapeutic avenue to induce tumor cell ferroptosis using dietary metabolites."
+      "url": "https://doi.org/10.1038/s41586-026-11333-6",
+      "doi": "10.1038/s41586-026-11333-6",
+      "pmid": "43052444",
+      "takeaway": "Nature · Laboratory watch match: Marcus Conrad, Scott Dixon.",
+      "abstract": "Ferroptosis, a form of cell death induced by overwhelming membrane lipid peroxidation, is a vulnerability of many cancers, including cancers resistant to current molecular and immune-based therapies1-7. Triggering of ferroptosis therefore provides an opportunity to achieve elimination of difficult-to-treat cancers1-4,8,9. Studies in mouse cancer models have demonstrated that anticancer immunity, mediated by dendritic cells (DCs) and CD8+ T cells, is essential for effective tumour eradication by ferroptosis-inducing strategies10-13. However, ferroptotic cells limit this response8-10,14, resulting in immune escape and tumour growth through mechanisms that remain unclear. Here we demonstrate that ferroptotic cancer cells activate a molecular program resulting in aberrant production of prostaglandin E2 (PGE2), which limits the stimulation of anticancer CD8+ T cell responses by type 1 conventional DCs (cDC1s), thereby promoting immune escape. In ferroptotic cancer cells, lipid peroxidation-mediated membrane permeabilization enables Ca2+ influx, which activates p38 MAPK signalling and thereby drives PGE2 production. This signalling axis is uncoupled from cancer cell death and can be targeted to selectively interfere with immune-inhibitory PGE2 production while preserving ferroptotic cancer cell elimination. In the context of cancer cell ferroptosis, ablation of PGE2 production or disrupting PGE2 signalling restores cDC1-mediated anticancer CD8+ T cell responses and leads to effective tumour elimination. Our findings identify a key mechanism that limits antitumour immunity and prevents tumour elimination upon ferroptosis induction in cancer cells, which could be exploited for cancer therapy."
     },
     {
       "canonicalId": "doi:10.1126/science.aec5473",
@@ -179,40 +197,21 @@
       "abstract": "Cellular heterogeneity and plasticity are hallmarks of cancer that contribute to tumor growth and therapy resistance. Here, we investigated metabolic heterogeneity in small cell lung cancer (SCLC), an aggressive cancer type with considerable plasticity between neuroendocrine (NE) and non-NE cellular states. Through integrated transcriptomic and metabolomic analyses, we identified a universal dependency on exogenous cysteine/cystine (Cys) across all NE/non-NE SCLC cell states. Notably, NE and non-NE cells with low ASCL1 transcription factor levels underwent ferroptosis upon Cys depletion, whereas ASCL1high cells underwent apoptosis while remaining resistant to ferroptosis. This ferroptosis resistance was driven by the direct transcriptional activation of GCH1 by ASCL1, resulting in increased levels of the antioxidants BH4/BH2. Accordingly, combined Cys depletion and inhibition of BH4/BH2 synthesis reduced tumor growth in patient-derived xenografts. These findings demonstrate that metabolic state influences cell-death susceptibility in SCLC and provide a rationale for therapeutic strategies that exploit these metabolic differences."
     },
     {
-      "canonicalId": "doi:10.1038/s41556-026-02107-3",
-      "recordId": "pubmed-42907496",
-      "title": "The rise of reducing reagent-resistant TfR1 dimer marks ferroptosis.",
-      "date": "2026-10-21",
-      "sourceType": "paper",
-      "documentType": "unknown",
-      "relevance": 86,
-      "trackedLabs": [
-        "Scott Dixon",
-        "Thales Papagiannakopoulos",
-        "Tom Vanden Berghe"
-      ],
-      "url": "https://doi.org/10.1038/s41556-026-02107-3",
-      "doi": "10.1038/s41556-026-02107-3",
-      "pmid": "42907496",
-      "takeaway": "Nature cell biology · Laboratory watch match: Scott Dixon, Thales Papagiannakopoulos, Tom Vanden Berghe.",
-      "abstract": "Ferroptosis is an iron-dependent type of cell death caused by excessive membrane lipid peroxidation. It remains a challenge to detect ferroptotic cells, especially in in vivo settings, hindering translational studies. Here we discover that a reducing reagent-resistant (3R) dimer of the transferrin receptor 1 (TfR1) is a highly specific indicator for lipid peroxidation. The 3R dimer is elevated in cells when ferroptosis is induced, either by pharmacological agents or by genetic perturbations. Furthermore, the 3R dimer can be used to detect disease-associated ferroptosis in tissue and in extracellular vesicles isolated from mouse or patient plasma. Given the near-ubiquitous expression of TfR1, we posit that the 3R dimer may function as a ferroptosis marker with widespread potential utility for basic and translational studies."
-    },
-    {
-      "canonicalId": "doi:10.1016/j.chembiol.2026.09.020",
-      "recordId": "pubmed-42906555",
-      "title": "Proteasome inhibition bidirectionally regulates ferroptosis sensitivity.",
-      "date": "2026-10-21",
+      "canonicalId": "doi:10.70401/fos.2026.0048",
+      "recordId": "pubmed-43061256",
+      "title": "Beyond ferroptosis induction: Defining ferroptosis vulnerability in glioblastoma.",
+      "date": "2026-10-01",
       "sourceType": "paper",
       "documentType": "unknown",
       "relevance": 86,
       "trackedLabs": [
         "Scott Dixon"
       ],
-      "url": "https://doi.org/10.1016/j.chembiol.2026.09.020",
-      "doi": "10.1016/j.chembiol.2026.09.020",
-      "pmid": "42906555",
-      "takeaway": "Cell chemical biology · Laboratory watch match: Scott Dixon.",
-      "abstract": "Ferroptosis is a non-apoptotic cell death mechanism whose fundamental regulation continues to be elucidated. The proteasome is an essential multiprotein complex important for protein turnover. How proteasome function regulates ferroptosis is difficult to study given that proteasome inhibition causes apoptosis. Here, we isolated the effects of proteasome inhibition on ferroptosis by combining small molecule cell death inducers, pathway-specific cell death inhibitors, and direct cell death imaging. We find that proteasome inhibition enhances sensitivity to ferroptosis induced by glutathione peroxidase 4 (GPX4) inhibition while simultaneously promoting resistance to ferroptosis induced by system xc- inhibition. Sensitization to GPX4 inhibition requires protein synthesis but not the apoptosis execution machinery and is opposed by the activating transcription factor 4 (ATF4) stress response pathway. These findings establish proteasome-mediated protein turnover as a context-dependent regulator of ferroptosis and identify protein synthesis and ATF4 as key determinants of GPX4 inhibitor sensitivity."
+      "url": "https://doi.org/10.70401/fos.2026.0048",
+      "doi": "10.70401/fos.2026.0048",
+      "pmid": "43061256",
+      "takeaway": "Ferroptosis and oxidative stress · Laboratory watch match: Scott Dixon.",
+      "abstract": "Glioblastoma (GBM) is the most lethal primary brain tumor, with minimal therapeutic progress over the past two decades. A defining feature of GBM is its intrinsic resistance to apoptosis, prompting interest in activating alternative cell death pathways such as ferroptosis, an iron-dependent process driven by lipid peroxidation. In GBM, ferroptosis represents a context-dependent vulnerability that arises directly from tumor-specific lipid metabolic reprogramming. Here, we outline a unifying framework in which ferroptosis sensitivity is governed by three interdependent axes: availability of oxidizable lipids, redox buffering, and iron handling. Genetic alterations common in GBM, such as CDKN2A loss, EGFR amplification or mutation, and PTEN loss, reshape these axes to either suppress or promote ferroptotic cell death. This susceptibility is further modulated by cellular state and the tumor microenvironment. Effective therapeutic targeting will require biomarker-driven patient stratification, rational combination strategies, and the development of brain-penetrant agents with tumor-selective activity. Together, this framework positions ferroptosis not as a universally inducible death pathway in GBM, but as a context-dependent vulnerability that can be therapeutically exploited in tumors already poised near the ferroptosis threshold."
     },
     {
       "canonicalId": "doi:10.1038/s41388-026-03921-7",
@@ -281,6 +280,24 @@
       "pmid": "42914978",
       "takeaway": "Cell · Laboratory watch match: Weiping Zou.",
       "abstract": "Cytotoxic CD8+ T cells and natural killer cells are critical effectors of anti-tumor immunity. Cytotoxic lymphocytes eliminate tumor cells by releasing perforin (Prf1), a pore-forming protein that enables granzymes (Gzms) to enter target cells and trigger both caspase-dependent and -independent cell death. Here, we uncover a previously unrecognized, Gzm-independent function of Prf1. We find that Prf1 directly induces tumoral ferroptosis, an iron- and lipid-dependent form of cell death. Mechanistically, Prf1-mediated pore formation drives endocytosis of the transferrin receptor, which increases cellular iron uptake. Prf1 promotes the formation of endosomal-mitochondrial contacts, which leads to mitochondrial iron accumulation, mitochondrial dysfunction, and tumor cell ferroptosis. Dietary iron supplementation suppresses tumor progression in murine tumor models in a Prf1-dependent manner. Higher Prf1 expression correlates with improved survival and enhanced response to immune checkpoint blockade in patients with cancer. These findings define a Gzm-independent function of Prf1 as a direct executioner of cancer cell death through ferroptosis."
+    },
+    {
+      "canonicalId": "doi:10.1038/s41556-026-02107-3",
+      "recordId": "pubmed-42907496",
+      "title": "The rise of reducing reagent-resistant TfR1 dimer marks ferroptosis.",
+      "date": "2026-10-21",
+      "sourceType": "paper",
+      "documentType": "unknown",
+      "relevance": 83,
+      "trackedLabs": [
+        "Thales Papagiannakopoulos",
+        "Tom Vanden Berghe"
+      ],
+      "url": "https://doi.org/10.1038/s41556-026-02107-3",
+      "doi": "10.1038/s41556-026-02107-3",
+      "pmid": "42907496",
+      "takeaway": "Nature cell biology · Laboratory watch match: Thales Papagiannakopoulos, Tom Vanden Berghe.",
+      "abstract": "Ferroptosis is an iron-dependent type of cell death caused by excessive membrane lipid peroxidation. It remains a challenge to detect ferroptotic cells, especially in in vivo settings, hindering translational studies. Here we discover that a reducing reagent-resistant (3R) dimer of the transferrin receptor 1 (TfR1) is a highly specific indicator for lipid peroxidation. The 3R dimer is elevated in cells when ferroptosis is induced, either by pharmacological agents or by genetic perturbations. Furthermore, the 3R dimer can be used to detect disease-associated ferroptosis in tissue and in extracellular vesicles isolated from mouse or patient plasma. Given the near-ubiquitous expression of TfR1, we posit that the 3R dimer may function as a ferroptosis marker with widespread potential utility for basic and translational studies."
     },
     {
       "canonicalId": "doi:10.3389/fimmu.2026.1891865",
@@ -417,23 +434,6 @@
       "pmid": "42527514",
       "takeaway": "Nature cancer · Laboratory watch match: Quan Chen.",
       "abstract": null
-    },
-    {
-      "canonicalId": "doi:10.1016/j.redox.2026.104293",
-      "recordId": "pubmed-42442115",
-      "title": "Iron-catalyzed oxidative stress reveals an exposome-related ferroptosis-resistant karyomegalic niche in BRCA1-linked renal carcinogenesis.",
-      "date": "2026-07-08",
-      "sourceType": "paper",
-      "documentType": "unknown",
-      "relevance": 81,
-      "trackedLabs": [
-        "Shinya Toyokuni"
-      ],
-      "url": "https://doi.org/10.1016/j.redox.2026.104293",
-      "doi": "10.1016/j.redox.2026.104293",
-      "pmid": "42442115",
-      "takeaway": "Redox biology · Laboratory watch match: Shinya Toyokuni.",
-      "abstract": "Early cancer initiation under chronic oxidative stress requires the survival of epithelial cells that should otherwise be eliminated by regulated cell death. However, the spatial and morphological identity of such stress-adapted cells remains poorly defined. Here, we integrated Xenium single-cell spatial transcriptomics, quantitative nuclear morphometrics, mitochondrial analyses, and human cancer datasets to investigate iron-driven renal carcinogenesis in Brca1(L63X/+) rats. Ferric nitrilotriacetate exposure induced dynamic remodeling of proximal tubular epithelium, characterized by loss of homeostatic transport and mitochondrial programs, and activation of Myc, Met, Lcn2, Anxa2 and iron-handling genes. BRCA1 haploinsufficiency expanded a karyomegalic proximal tubular state associated with mitochondrial dysfunction, chromatin hyperchromasia, nuclear remodeling, and ferroptosis-resistant transcriptional features. Subclassification of karyomegalic cells identified distinct stress-adaptive populations, including a BRCA1-associated K2 state enriched for Myc/Met/Lcn2 signaling and preferentially embedded within a pro-oncogenic epithelial-stromal microenvironment. Of note, neighboring non-karyomegalic proximal tubular cells acquired related iron-handling and survival-biased programs, indicating that karyomegaly marks a broader pre-neoplastic field rather than an isolated abnormality. Human TCGA renal cancer analyses and morphometric assessment of BRCA1-mutant breast tissue further supported the clinical relevance of karyomegaly-associated gene modules and nuclear remodeling. These findings define a spatially organized, ferroptosis-resistant karyomegalic niche as an early lesion in iron-driven carcinogenesis and establish quantitative nuclear morphology as a functional readout of exposome-related oxidative stress adaptation in genetically susceptible tissues."
     },
     {
       "canonicalId": "doi:10.1038/s41586-026-10981-y",
@@ -630,6 +630,90 @@
       "pi": "Hülya Bayır",
       "nextReviewDue": "2026-10-23",
       "overdue": true
+    },
+    {
+      "labId": "wang-zhejiang",
+      "pi": "Fudi Wang · Junxia Min · Qiang Zhang",
+      "nextReviewDue": "2026-12-19",
+      "overdue": false
+    },
+    {
+      "labId": "jiang-msk",
+      "pi": "Xuejun Jiang",
+      "nextReviewDue": "2026-12-19",
+      "overdue": false
+    },
+    {
+      "labId": "gan-mdanderson",
+      "pi": "Boyi Gan",
+      "nextReviewDue": "2026-12-19",
+      "overdue": false
+    },
+    {
+      "labId": "chen-nankai",
+      "pi": "Quan Chen",
+      "nextReviewDue": "2026-12-19",
+      "overdue": false
+    },
+    {
+      "labId": "saito-tohoku",
+      "pi": "Yoshiro Saito",
+      "nextReviewDue": "2026-12-19",
+      "overdue": false
+    },
+    {
+      "labId": "fujita-iwai-kyoto",
+      "pi": "Hiroaki Fujita · Kazuhiro Iwai",
+      "nextReviewDue": "2026-12-19",
+      "overdue": false
+    },
+    {
+      "labId": "gao-hit",
+      "pi": "Minghui Gao",
+      "nextReviewDue": "2026-12-19",
+      "overdue": false
+    },
+    {
+      "labId": "ai-igdb",
+      "pi": "Youwei Ai",
+      "nextReviewDue": "2026-12-19",
+      "overdue": false
+    },
+    {
+      "labId": "kang-snu",
+      "pi": "Yun Pyo Kang",
+      "nextReviewDue": "2026-12-19",
+      "overdue": false
+    },
+    {
+      "labId": "tang-kang-utsw",
+      "pi": "Daolin Tang · Rui Kang",
+      "nextReviewDue": "2026-12-19",
+      "overdue": false
+    },
+    {
+      "labId": "zhang-ufscripps",
+      "pi": "Donna Zhang",
+      "nextReviewDue": "2026-12-19",
+      "overdue": false
+    },
+    {
+      "labId": "zoulab-michigan",
+      "pi": "Weiping Zou",
+      "nextReviewDue": "2026-12-19",
+      "overdue": false
+    },
+    {
+      "labId": "gil-tate-imperial",
+      "pi": "Jesus Gil · Edward Tate",
+      "nextReviewDue": "2026-12-19",
+      "overdue": false
+    },
+    {
+      "labId": "bush-florey",
+      "pi": "Ashley Bush",
+      "nextReviewDue": "2026-12-19",
+      "overdue": false
     }
   ]
 }
