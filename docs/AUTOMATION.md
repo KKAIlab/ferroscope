@@ -9,7 +9,7 @@ behind, and each hands anything that needs judgement to a person instead of gues
 | Data refresh | every 6 h (`refresh-intelligence.yml`) | `data/live.json`, `data/meta.json`, watch run-state in `data/monitoring-coverage.json` | none — a failed run opens an issue |
 | Link health | Mondays 03:41 UTC (`check-lab-links.yml`) | `docs/link-health.json` | fix links it reports broken |
 | Enrichment queue | Mondays 05:23 UTC (`build-enrichment-queue.yml`) | `docs/ENRICHMENT-QUEUE.md`, `docs/enrichment-queue.json` | none |
-| Reading round | weekly scheduled task, but it wakes an existing session rather than standing on its own — **expect to run it by hand** (below) | `data/ai-reading-drafts.json`, via a pull request | run the round; review the PR; promote drafts |
+| Reading round | weekly scheduled task (Sundays 22:31 UTC) that wakes an existing session rather than standing on its own — **it stops silently if that session goes** (below) | `data/ai-reading-drafts.json`, via a pull request | review and merge the PR while its records are still live; promote drafts |
 
 ## What each loop now does on its own
 
@@ -29,17 +29,26 @@ GitHub Actions can fetch abstracts but cannot read them; a Claude session can re
 sandbox cannot reach PubMed. The queue joins the two: CI attaches the abstracts, the session
 reads them from the repository.
 
-**This loop does not currently run by itself.** A person starts a session and gives it the
-prompt below. A weekly scheduled task does exist, but read "What the schedule actually is"
-after the prompt before relying on it to happen on its own — the first version of this
-document claimed a weekly scheduled session ran the round, and that sentence let it sit
-unrun from 2026-09-28 to 2026-11-02 with nobody noticing, because the queue kept refreshing
-and the loop looked healthy.
+**This loop runs on a schedule, but not on its own footing.** A weekly scheduled task drives
+it, and it has worked; it is also bound to one Claude session and will stop without saying so
+if that session goes. Read "What the schedule actually is" after the prompt before trusting it
+unwatched, and use the prompt below to run a round by hand whenever you need one.
+
+The reason this document is explicit about all that: its first version simply claimed a weekly
+scheduled session ran the round, when no such schedule existed. That sentence let the round sit
+unrun from 2026-09-28 to 2026-11-02 with nobody noticing, because the queue kept refreshing and
+the loop looked healthy from the outside.
 
 The prompt:
 
-This is the same text the scheduled task stores. Keep the two in step: if you change one,
-change the other, or the hand-run path quietly becomes the worse of the two.
+This is the hand-run prompt, written for a session started from nothing. The scheduled task
+stores a variant of it, because that one fires into a session that already has the checkout
+and so opens by picking up where the conversation left off; it also asks for the pull request
+link and for the session to say plainly if it has lost its checkout or its GitHub tools. The
+two cannot be byte-identical, but they must not drift in substance: when you change the rules
+below, change the stored prompt too, or the hand-run path quietly becomes the worse of the two.
+That has already happened once — the stored prompt gained the "fetch before branching" and
+"skip drafts on an unmerged branch" guards first, and this block went a round without them.
 
 ```text
 Repository: KKAIlab/ferroscope. Run the weekly FerroScope reading round.
@@ -83,17 +92,24 @@ A person merges the pull request after reading it. The drafts go live marked
 "AI-read abstract · unreviewed"; the reviewer later sets `status: "reviewed"` with
 `reviewedBy` and `reviewedAt` on each draft they have checked against the source.
 Until that merge the drafts are not on the site, so an unmerged reading-round pull request
-leaves this loop as stalled as never having run it. That is the state as this is written:
-the round was run by hand on 2026-11-02 and its pull request is still open, so the newest
-drafts the site shows are still the eight from 2026-09-28. "Ran the round" and "the drafts
-are live" are two different things, and only the second one counts.
+leaves this loop as stalled as never having run it. "Ran the round" and "the drafts are live"
+are two different things, and only the second one counts — so when checking whether this loop
+is healthy, look at the open pull requests, not at whether rounds happened.
+
+Unmerged rounds also rot while they wait. A draft only renders while its record is inside the
+PubMed live window, and records age out of that window in weeks: of the eight drafts merged on
+2026-09-28, four named records that had left the window within two months and rendered nothing.
+Three rounds once sat unmerged at the same time, each appending to the end of the same array,
+which is both a conflict to resolve and coverage quietly expiring. Merge a round while its
+records are still live.
 
 ### What the schedule actually is
 
 A weekly scheduled task exists — "FerroScope weekly reading round", Sundays 22:31 UTC. It
 does **not** start a fresh session. It wakes an existing Claude session that already has this
-repository checked out, and that session runs the round. That is a workaround, not a loop
-that stands on its own, and it is worth knowing why.
+repository checked out, and that session runs the round. It works: it has fired and produced
+a round on 2026-11-15 and again on 2026-11-22. But it is a workaround rather than a loop that
+stands on its own, and it is worth knowing why.
 
 The obvious design — a fresh session per firing — was tried first and does not work here.
 Two manual test firings on 2026-11-09 both produced nothing: no branch, no pull request.
