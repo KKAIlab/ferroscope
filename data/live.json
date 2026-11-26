@@ -37,18 +37,18 @@
     "freshSourceNames": [
       "Tracked labs / PubMed"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
         "kind": "automated",
         "recordId": "pubmed-42874009",
         "url": "https://doi.org/10.1021/acschembio.6c00581",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -88,18 +88,18 @@
     "freshSourceNames": [
       "Tracked labs / PubMed"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
         "kind": "automated",
         "recordId": "pubmed-43023136",
         "url": "https://doi.org/10.1039/d6cb00321d",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -140,18 +140,18 @@
     "freshSourceNames": [
       "Tracked labs / PubMed"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
         "kind": "automated",
         "recordId": "pubmed-42906540",
         "url": "https://doi.org/10.1016/j.cell.2026.09.053",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -193,18 +193,18 @@
     "freshSourceNames": [
       "Tracked labs / PubMed"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
         "kind": "automated",
         "recordId": "pubmed-42880285",
         "url": "https://doi.org/10.1016/j.cell.2026.09.040",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -245,18 +245,18 @@
     "freshSourceNames": [
       "Tracked labs / PubMed"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
         "kind": "automated",
         "recordId": "pubmed-43052444",
         "url": "https://doi.org/10.1038/s41586-026-11333-6",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -298,18 +298,18 @@
     "freshSourceNames": [
       "Tracked labs / PubMed"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
         "kind": "automated",
         "recordId": "pubmed-42784683",
         "url": "https://doi.org/10.1126/science.aec5473",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -349,18 +349,18 @@
     "freshSourceNames": [
       "Tracked labs / PubMed"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
         "kind": "automated",
         "recordId": "pubmed-42616878",
         "url": "https://doi.org/10.1126/sciadv.aeg3424",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -400,18 +400,18 @@
     "freshSourceNames": [
       "Tracked labs / PubMed"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
         "kind": "automated",
         "recordId": "pubmed-42439891",
         "url": "https://doi.org/10.1083/jcb.202606160",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -451,18 +451,18 @@
     "freshSourceNames": [
       "Tracked labs / PubMed"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
         "kind": "automated",
         "recordId": "pubmed-42814555",
         "url": "https://doi.org/10.1073/pnas.2616933123",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -503,18 +503,18 @@
     "freshSourceNames": [
       "Tracked labs / PubMed"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
         "kind": "automated",
         "recordId": "pubmed-42539267",
         "url": "https://doi.org/10.64898/2026.07.17.739092",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -554,18 +554,18 @@
     "freshSourceNames": [
       "Tracked labs / PubMed"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
         "kind": "automated",
         "recordId": "pubmed-42805600",
         "url": "https://doi.org/10.1021/acschembio.6c00583",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -605,18 +605,18 @@
     "freshSourceNames": [
       "Tracked labs / PubMed"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
         "kind": "automated",
         "recordId": "pubmed-42600612",
         "url": "https://doi.org/10.1016/j.cell.2026.07.040",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -656,18 +656,18 @@
     "freshSourceNames": [
       "Tracked labs / PubMed"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
         "kind": "automated",
         "recordId": "pubmed-42430517",
         "url": "https://doi.org/10.1021/acs.jmedchem.6c01496",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -708,18 +708,18 @@
     "freshSourceNames": [
       "Tracked labs / PubMed"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
         "kind": "automated",
         "recordId": "pubmed-42922663",
         "url": "https://doi.org/10.64898/2026.09.01.748671",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -760,18 +760,18 @@
     "freshSourceNames": [
       "Tracked labs / PubMed"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
         "kind": "automated",
         "recordId": "pubmed-42486993",
         "url": "https://doi.org/10.1038/s41594-026-01830-7",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -811,18 +811,18 @@
     "freshSourceNames": [
       "Tracked labs / PubMed"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
         "kind": "automated",
         "recordId": "pubmed-42914976",
         "url": "https://doi.org/10.1016/j.cell.2026.09.045",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -860,38 +860,22 @@
     "freshnessState": "current",
     "staleSourceNames": [],
     "freshSourceNames": [
-      "Tracked labs / PubMed",
-      "PubMed"
+      "Tracked labs / PubMed"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
         "kind": "automated",
         "recordId": "pubmed-43061256",
         "url": "https://doi.org/10.70401/fos.2026.0048",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
-      },
-      {
-        "route": "PubMed",
-        "kind": "automated",
-        "recordId": "pubmed-43061256",
-        "url": "https://doi.org/10.70401/fos.2026.0048",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
-        "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
-    ],
-    "mergedFrom": [
-      "pubmed-43061256",
-      "pubmed-43061256"
-    ],
-    "alsoDiscoveredAutomatically": false
+    ]
   },
   {
     "id": "pubmed-42509416",
@@ -929,18 +913,18 @@
     "freshSourceNames": [
       "Tracked labs / PubMed"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
         "kind": "automated",
         "recordId": "pubmed-42509416",
         "url": "https://doi.org/10.1038/s41388-026-03921-7",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -980,18 +964,18 @@
     "freshSourceNames": [
       "Tracked labs / PubMed"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
         "kind": "automated",
         "recordId": "pubmed-42669120",
         "url": "https://doi.org/10.1080/15548627.2026.2726089",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -1031,18 +1015,18 @@
     "freshSourceNames": [
       "Tracked labs / PubMed"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
         "kind": "automated",
         "recordId": "pubmed-42551439",
         "url": "https://doi.org/10.1016/j.molcel.2026.07.018",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -1083,18 +1067,18 @@
     "freshSourceNames": [
       "Tracked labs / PubMed"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
         "kind": "automated",
         "recordId": "pubmed-42914978",
         "url": "https://doi.org/10.1016/j.cell.2026.09.062",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -1135,18 +1119,18 @@
     "freshSourceNames": [
       "Tracked labs / PubMed"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
         "kind": "automated",
         "recordId": "pubmed-42907496",
         "url": "https://doi.org/10.1038/s41556-026-02107-3",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -1186,18 +1170,18 @@
     "freshSourceNames": [
       "Tracked labs / PubMed"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
         "kind": "automated",
         "recordId": "pubmed-42959090",
         "url": "https://doi.org/10.3389/fimmu.2026.1891865",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -1237,18 +1221,18 @@
     "freshSourceNames": [
       "Tracked labs / PubMed"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
         "kind": "automated",
         "recordId": "pubmed-42817713",
         "url": "https://doi.org/10.1158/2159-8290.CD-26-0232",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -1288,18 +1272,18 @@
     "freshSourceNames": [
       "Tracked labs / PubMed"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
         "kind": "automated",
         "recordId": "pubmed-42749797",
         "url": "https://doi.org/10.1038/s41586-026-11020-6",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -1340,18 +1324,18 @@
     "freshSourceNames": [
       "Tracked labs / PubMed"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
         "kind": "automated",
         "recordId": "pubmed-42874130",
         "url": "https://doi.org/10.1016/j.redox.2026.104438",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -1391,18 +1375,18 @@
     "freshSourceNames": [
       "Tracked labs / PubMed"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
         "kind": "automated",
         "recordId": "pubmed-42623935",
         "url": "https://doi.org/10.1016/j.redox.2026.104352",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -1442,18 +1426,18 @@
     "freshSourceNames": [
       "Tracked labs / PubMed"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
         "kind": "automated",
         "recordId": "pubmed-42290280",
         "url": "https://doi.org/10.1158/0008-5472.CAN-25-4954",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -1493,18 +1477,18 @@
     "freshSourceNames": [
       "Tracked labs / PubMed"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
         "kind": "automated",
         "recordId": "pubmed-42972090",
         "url": "https://doi.org/10.1038/s44318-026-00939-1",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -1545,18 +1529,18 @@
     "freshSourceNames": [
       "Tracked labs / PubMed"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
         "kind": "automated",
         "recordId": "pubmed-42527514",
         "url": "https://doi.org/10.1038/s43018-026-01224-0",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -1596,18 +1580,18 @@
     "freshSourceNames": [
       "Tracked labs / PubMed"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
         "kind": "automated",
         "recordId": "pubmed-42686909",
         "url": "https://doi.org/10.1038/s41586-026-10981-y",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -1650,18 +1634,18 @@
     "freshSourceNames": [
       "Tracked labs / PubMed"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
         "kind": "automated",
         "recordId": "pubmed-42532041",
         "url": "https://doi.org/10.1016/j.chembiol.2026.07.001",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -1697,18 +1681,18 @@
     "freshSourceNames": [
       "ClinicalTrials.gov"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "ClinicalTrials.gov",
         "kind": "automated",
         "recordId": "trial-NCT07433283",
         "url": "https://clinicaltrials.gov/study/NCT07433283",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -1749,18 +1733,18 @@
     "freshSourceNames": [
       "Tracked labs / PubMed"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
         "kind": "automated",
         "recordId": "pubmed-42523398",
         "url": "https://doi.org/10.64898/2026.07.10.737883",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -1800,18 +1784,18 @@
     "freshSourceNames": [
       "Tracked labs / PubMed"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
         "kind": "automated",
         "recordId": "pubmed-42995117",
         "url": "https://doi.org/10.1016/j.it.2026.10.007",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -1851,18 +1835,18 @@
     "freshSourceNames": [
       "Tracked labs / PubMed"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "Tracked labs / PubMed",
         "kind": "automated",
         "recordId": "pubmed-42693162",
         "url": "https://doi.org/10.1038/s41375-026-03122-x",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -1898,18 +1882,64 @@
     "freshSourceNames": [
       "ClinicalTrials.gov"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "ClinicalTrials.gov",
         "kind": "automated",
         "recordId": "trial-NCT06491394",
         "url": "https://clinicaltrials.gov/study/NCT06491394",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
+      }
+    ]
+  },
+  {
+    "id": "preprint-10.64898/2026.11.17.766756",
+    "url": "https://doi.org/10.64898/2026.11.17.766756",
+    "doi": "10.64898/2026.11.17.766756",
+    "title": "Selenoprotein biosynthesis couples ferroptosis defense to disulfidptosis tolerance",
+    "date": "2026-11-25",
+    "onlineDate": "2026-11-25",
+    "issueDate": null,
+    "datePrecision": "day",
+    "sourceType": "preprint",
+    "relevance": 64,
+    "topics": [
+      "selenium metabolism"
+    ],
+    "takeaway": "Hariharan Moorthy, Mostafa Ejtehadifar, Gholamreza Fazeli, Florencio Porto Freitas, Zhiyi Chen, Biplab Ghosh, Jingkun Ma, Ragini Singh, Shibo Sun, Mami Sato, Marietta Fabiano, Ulrich Schweizer, Seiryo Ogata, Uladzimir Barayeu, Takaaki Akaike, Felix C. E. Vogel, Lisa Schlicker, Almut Schulze, Hellmut G. Augustin, Ashok Kumar Jayavelu, Hamed Alborzinia, Jose Pedro Friedmann Angeli · openRxiv",
+    "caveat": "Not peer reviewed.",
+    "canonicalId": "doi:10.64898/2026.11.17.766756",
+    "canonicalIdKind": "doi",
+    "documentType": "preprint",
+    "documentTypeBasis": "crossref-posted-content",
+    "documentSignals": [],
+    "evidenceGrade": null,
+    "evidenceGradeBasis": "unassessed",
+    "reviewStatus": "automated",
+    "sourceName": "Preprints / Crossref",
+    "stale": false,
+    "freshnessState": "current",
+    "staleSourceNames": [],
+    "freshSourceNames": [
+      "Preprints / Crossref"
+    ],
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
+    "sources": [
+      {
+        "route": "Preprints / Crossref",
+        "kind": "automated",
+        "recordId": "preprint-10.64898/2026.11.17.766756",
+        "url": "https://doi.org/10.64898/2026.11.17.766756",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
+        "stale": false,
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -1944,18 +1974,18 @@
     "freshSourceNames": [
       "Preprints / Crossref"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "Preprints / Crossref",
         "kind": "automated",
         "recordId": "preprint-10.64898/2026.09.10.750804",
         "url": "https://doi.org/10.64898/2026.09.10.750804",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -1993,18 +2023,18 @@
     "freshSourceNames": [
       "PubMed"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "PubMed",
         "kind": "automated",
         "recordId": "pubmed-43064625",
         "url": "https://doi.org/10.1016/j.tice.2026.104172",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -2040,18 +2070,18 @@
     "freshSourceNames": [
       "ClinicalTrials.gov"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "ClinicalTrials.gov",
         "kind": "automated",
         "recordId": "trial-NCT05269901",
         "url": "https://clinicaltrials.gov/study/NCT05269901",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -2086,18 +2116,18 @@
     "freshSourceNames": [
       "ClinicalTrials.gov"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "ClinicalTrials.gov",
         "kind": "automated",
         "recordId": "trial-NCT07722637",
         "url": "https://clinicaltrials.gov/study/NCT07722637",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -2133,18 +2163,18 @@
     "freshSourceNames": [
       "ClinicalTrials.gov"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "ClinicalTrials.gov",
         "kind": "automated",
         "recordId": "trial-NCT07678073",
         "url": "https://clinicaltrials.gov/study/NCT07678073",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -2179,18 +2209,18 @@
     "freshSourceNames": [
       "ClinicalTrials.gov"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "ClinicalTrials.gov",
         "kind": "automated",
         "recordId": "trial-NCT07260942",
         "url": "https://clinicaltrials.gov/study/NCT07260942",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -2225,18 +2255,18 @@
     "freshSourceNames": [
       "ClinicalTrials.gov"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "ClinicalTrials.gov",
         "kind": "automated",
         "recordId": "trial-NCT06928649",
         "url": "https://clinicaltrials.gov/study/NCT06928649",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -2271,18 +2301,18 @@
     "freshSourceNames": [
       "ClinicalTrials.gov"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "ClinicalTrials.gov",
         "kind": "automated",
         "recordId": "trial-NCT05924074",
         "url": "https://clinicaltrials.gov/study/NCT05924074",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -2317,18 +2347,18 @@
     "freshSourceNames": [
       "ClinicalTrials.gov"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "ClinicalTrials.gov",
         "kind": "automated",
         "recordId": "trial-NCT07771894",
         "url": "https://clinicaltrials.gov/study/NCT07771894",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -2363,18 +2393,18 @@
     "freshSourceNames": [
       "ClinicalTrials.gov"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "ClinicalTrials.gov",
         "kind": "automated",
         "recordId": "trial-NCT07738562",
         "url": "https://clinicaltrials.gov/study/NCT07738562",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -2409,18 +2439,18 @@
     "freshSourceNames": [
       "ClinicalTrials.gov"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "ClinicalTrials.gov",
         "kind": "automated",
         "recordId": "trial-NCT07623044",
         "url": "https://clinicaltrials.gov/study/NCT07623044",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -2455,18 +2485,18 @@
     "freshSourceNames": [
       "ClinicalTrials.gov"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "ClinicalTrials.gov",
         "kind": "automated",
         "recordId": "trial-NCT06218524",
         "url": "https://clinicaltrials.gov/study/NCT06218524",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -2501,18 +2531,66 @@
     "freshSourceNames": [
       "Preprints / Crossref"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "Preprints / Crossref",
         "kind": "automated",
         "recordId": "preprint-10.64898/2026.11.16.767030",
         "url": "https://doi.org/10.64898/2026.11.16.767030",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
+      }
+    ]
+  },
+  {
+    "id": "pubmed-43084763",
+    "url": "https://doi.org/10.1002/advs.78866",
+    "doi": "10.1002/advs.78866",
+    "pmid": "43084763",
+    "title": "Vitamin C Synergy With the BCL-2 Inhibitor APG-2575 Induces Concurrent Apoptosis and HMOX1-Dependent Ferroptosis in Acute Myeloid Leukemia.",
+    "date": "2026-11-25",
+    "onlineDate": "2026-11-25",
+    "issueDate": "2026-11-25",
+    "datePrecision": "day",
+    "sourceType": "paper",
+    "relevance": 52,
+    "topics": [
+      "cancer translation"
+    ],
+    "takeaway": "Advanced science (Weinheim, Baden-Wurttemberg, Germany) · Wang G, Jiang Y, Fu S, Xu B, Zha J",
+    "canonicalId": "doi:10.1002/advs.78866",
+    "canonicalIdKind": "doi",
+    "documentType": "unknown",
+    "documentTypeBasis": "pubmed-publication-type-unspecific",
+    "documentSignals": [
+      "pubtype:journal article"
+    ],
+    "evidenceGrade": null,
+    "evidenceGradeBasis": "unassessed",
+    "reviewStatus": "automated",
+    "sourceName": "PubMed",
+    "stale": false,
+    "freshnessState": "current",
+    "staleSourceNames": [],
+    "freshSourceNames": [
+      "PubMed"
+    ],
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
+    "sources": [
+      {
+        "route": "PubMed",
+        "kind": "automated",
+        "recordId": "pubmed-43084763",
+        "url": "https://doi.org/10.1002/advs.78866",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
+        "stale": false,
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -2549,18 +2627,18 @@
     "freshSourceNames": [
       "PubMed"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "PubMed",
         "kind": "automated",
         "recordId": "pubmed-43080152",
         "url": "https://doi.org/10.1002/advs.78872",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -2598,18 +2676,18 @@
     "freshSourceNames": [
       "PubMed"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "PubMed",
         "kind": "automated",
         "recordId": "pubmed-43072502",
         "url": "https://doi.org/10.1016/j.bbadis.2026.168545",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -2646,18 +2724,18 @@
     "freshSourceNames": [
       "PubMed"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "PubMed",
         "kind": "automated",
         "recordId": "pubmed-43072368",
         "url": "https://doi.org/10.1016/j.xcrm.2026.103049",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -2694,18 +2772,18 @@
     "freshSourceNames": [
       "PubMed"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "PubMed",
         "kind": "automated",
         "recordId": "pubmed-43062622",
         "url": "https://doi.org/10.1007/s10565-026-10271-3",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -2742,18 +2820,18 @@
     "freshSourceNames": [
       "PubMed"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "PubMed",
         "kind": "automated",
         "recordId": "pubmed-43073401",
         "url": "https://doi.org/10.1038/s41590-026-02707-z",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -2792,18 +2870,18 @@
     "freshSourceNames": [
       "PubMed"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "PubMed",
         "kind": "automated",
         "recordId": "pubmed-43064560",
         "url": "https://doi.org/10.1016/j.scib.2026.11.010",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -2840,18 +2918,18 @@
     "freshSourceNames": [
       "PubMed"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "PubMed",
         "kind": "automated",
         "recordId": "pubmed-43078819",
         "url": "https://doi.org/10.1038/s41419-026-09202-1",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -2886,18 +2964,18 @@
     "freshSourceNames": [
       "ClinicalTrials.gov"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "ClinicalTrials.gov",
         "kind": "automated",
         "recordId": "trial-NCT07412574",
         "url": "https://clinicaltrials.gov/study/NCT07412574",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -2933,18 +3011,18 @@
     "freshSourceNames": [
       "ClinicalTrials.gov"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "ClinicalTrials.gov",
         "kind": "automated",
         "recordId": "trial-NCT06048367",
         "url": "https://clinicaltrials.gov/study/NCT06048367",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -2982,18 +3060,18 @@
     "freshSourceNames": [
       "PubMed"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "PubMed",
         "kind": "automated",
         "recordId": "pubmed-43083551",
         "url": "https://doi.org/10.3390/toxics14110941",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -3029,18 +3107,18 @@
     "freshSourceNames": [
       "ClinicalTrials.gov"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "ClinicalTrials.gov",
         "kind": "automated",
         "recordId": "trial-NCT07733063",
         "url": "https://clinicaltrials.gov/study/NCT07733063",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -3076,18 +3154,18 @@
     "freshSourceNames": [
       "ClinicalTrials.gov"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "ClinicalTrials.gov",
         "kind": "automated",
         "recordId": "trial-NCT06554392",
         "url": "https://clinicaltrials.gov/study/NCT06554392",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -3122,18 +3200,18 @@
     "freshSourceNames": [
       "ClinicalTrials.gov"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "ClinicalTrials.gov",
         "kind": "automated",
         "recordId": "trial-NCT07686887",
         "url": "https://clinicaltrials.gov/study/NCT07686887",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -3168,18 +3246,18 @@
     "freshSourceNames": [
       "ClinicalTrials.gov"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "ClinicalTrials.gov",
         "kind": "automated",
         "recordId": "trial-NCT06896383",
         "url": "https://clinicaltrials.gov/study/NCT06896383",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -3215,18 +3293,18 @@
     "freshSourceNames": [
       "ClinicalTrials.gov"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "ClinicalTrials.gov",
         "kind": "automated",
         "recordId": "trial-NCT04378075",
         "url": "https://clinicaltrials.gov/study/NCT04378075",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   },
@@ -3262,18 +3340,18 @@
     "freshSourceNames": [
       "ClinicalTrials.gov"
     ],
-    "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-    "lastAttemptAt": "2026-11-25T21:40:57.077Z",
+    "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+    "lastAttemptAt": "2026-11-26T08:15:57.638Z",
     "sources": [
       {
         "route": "ClinicalTrials.gov",
         "kind": "automated",
         "recordId": "trial-NCT06863116",
         "url": "https://clinicaltrials.gov/study/NCT06863116",
-        "retrievedAt": "2026-11-25T21:40:57.077Z",
+        "retrievedAt": "2026-11-26T08:15:57.638Z",
         "stale": false,
-        "lastSuccessAt": "2026-11-25T21:40:57.077Z",
-        "lastAttemptAt": "2026-11-25T21:40:57.077Z"
+        "lastSuccessAt": "2026-11-26T08:15:57.638Z",
+        "lastAttemptAt": "2026-11-26T08:15:57.638Z"
       }
     ]
   }
